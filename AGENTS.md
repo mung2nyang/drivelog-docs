@@ -102,7 +102,7 @@ CI가 test·typecheck·build를 이미 봤다. AI는 그건 **다시 안 한다.
 |---|---|---|
 | 1 | **범위 준수** — 착수지시서의 "건드릴 파일"과 일치? "안 건드릴 파일"이 바뀌었나? | `git show --stat HEAD` |
 | 2 | **몰래 증설 없음** — 새 파일·새 저장 키·새 durable/큐/fallback/tombstone 레이어가 생겼나? (§7) | `git diff` 훑기 |
-| 3 | **타입 꼼수 없음** — `any`/`@ts-ignore`/`@ts-expect-error`/`as unknown as`가 새로 들어갔나? | `git diff` grep |
+| 3 | **타입 꼼수 없음** — `any`/`unknown`/`@ts-ignore`/`@ts-expect-error`/`as unknown as`가 새로 들어갔나? (`unknown`은 2026-10-10 사용자 승인으로 추가) | `git diff` grep |
 | 4 | **200줄** — 바뀐 파일이 200줄 초과? 초과면 분리설계안 승인받았나? (§6) | `wc -l` |
 | 5 | **테스트 진실성** — 새 테스트가 실제 동작을 검사하나? 기존 테스트를 지우거나 약화시켰나? | `git diff -- '*.test.*'` |
 | 6 | **공용 CSS 클래스·상태값 영향범위** — ⓐ바뀐 CSS 클래스가 여러 화면이 공유하는 것이고 변경 속성이 `display`/`position`/`width`/`height`/`overflow`이거나, ⓑ바뀐 게 여러 파일에서 읽고/쓰는 공용 상태값·플래그(props, draft 필드 등)면, 그 클래스/상태값을 쓰는 다른 모든 위치까지 찾아 확인했나? (수정한 화면만 보고 끝내지 않는다) | 클래스명/상태값명 전체 `grep` |

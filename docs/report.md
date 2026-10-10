@@ -1,95 +1,95 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-## 알림 화면 — 옆 창 → 화면 전체, 알림마다 날짜, 종류별 끄기 `[x]`
+## 군더더기 정리 1-A — 수수료 판단 규칙 하나로 합치기 `[x]`
 
-보리 요청 2026-10-10(로드맵 밖). 참고 화면(다른 앱 알림 탭)은 따라 하기가 아니라 방식만 참고.
-**react-app 새 브랜치 `notifications-page`**(main `1c43c7b`에서 시작) — 비서 브랜치와 따로, 끝나면 main에 합쳐 배포 가능.
-
-### 보리 결정 (2026-10-10, 착수 전 질문 답)
-1. 열기: 홈 위쪽 🔔 → 알림 화면 전체(하단 탭은 4개 그대로).
-2. 날짜: 알림은 앱을 열 때 지금 상태로 만드는 안내라 "받은 시각"이 없음 → 알림마다 **관련 날짜**를 보여 줌(아래 표).
-3. 끄기: **종류별** 켜기·끄기.
+보리 요청 2026-10-10(로드맵 밖). 근거: `docs/code-cleanup-review.md` A1.
+보리 결정 순서: 1(A1·A2) → 2(안 쓰는 파일·함수) → 3(안 쓰는 CSS) → 4(이력형 주석) → 5(뒤로).
+A1(돈)과 A2(저장)는 영역이 달라 **1-A / 1-B 두 슬라이스로 나눔**. 이 지시서는 1-A만.
 
 ### 현재 상태 (코드 확인)
-- 🔔 → 오른쪽에서 나오는 창(`NotificationPanel.jsx`, `AppShell.jsx:176`)에 카드 목록 + [닫기].
-- 알림 종류(`lib/notifications.js` `collectNotifications`): ① 연체 미수금(건마다) ② 기사 초대 대기 ③ 오늘 운행일지 비어 있음(오후 6시 이후) ④ 일상점검표 의무화 안내(로그인, [바로 사용하기]/[다시 보지 않기]) ⑤ 백업 권장(비회원).
-- 끄기 설정 없음. 날짜 표시 없음.
+- "이 운행에 수수료가 붙나·방식·값" 판단(저장된 `commissionSnapshot` 먼저 → 없으면 거래처 설정)이 두 곳에 똑같이 있음.
+  - `domain/financeCore.js:74` `getCallDetailCommissionAmount` — 금액 계산(정산·월 정산·보고서가 씀)
+  - `lib/reportDetail.js:45` `detailCommissionLabel` — 보고서 "10%", "7,000원" 표시
+- 한쪽 규칙만 바뀌면 보고서의 수수료 금액과 표시가 서로 달라질 수 있음.
 
 ### 목표 상태 (기대 동작)
-1. 🔔 → `/app/notifications` **화면 전체**: 위쪽 "◀ 알림"(뒤로가기 = 이전 화면), 하단 탭 그대로(홈 탭 강조).
-2. 맨 위 **"알림 받기" 카드**: 종류별 스위치 — 미수금 연체 / 오늘 운행일지 비어 있음 / 기사 초대 대기(차주만) / 백업 권장(비회원만). 그 계정에 해당 없는 종류는 안 보임.
-   - 끈 종류는 목록·🔔 숫자에서 빠짐. 켜면 다시 나옴.
-   - ④ 일상점검표 의무화 안내는 법령 안내라 스위치 없음(지금처럼 [다시 보지 않기]로만).
-3. 그 아래 **알림 목록**: 카드마다 제목·내용 + **날짜 줄**, 누르면 해당 화면, [닫기](지금과 같음 — 그 알림만 숨김).
-
-   | 알림 | 날짜 줄 |
-   |---|---|
-   | 연체 미수금 | "운행 10.03 · 입금 예정 10.06" |
-   | 오늘 운행일지 비어 있음 | 오늘 "10.10" |
-   | 백업 권장 | 마지막 백업 "10.01"(한 번도 안 했으면 날짜 없음) |
-   | 기사 초대 대기 | 날짜 없음(초대한 날을 저장하지 않음 — 새로 저장하지 않음) |
-   | 일상점검표 의무화 | 날짜 없음 |
-4. 알림이 없으면 "새로운 알림이 없습니다."(지금 문구).
-5. 옆 창(`NotificationPanel`)은 없어짐.
-
-### 저장 (§7 확인 완료 — 보리 "응")
-- 스위치 값은 **기존 앱 설정(settings)에 칸 1개 추가**: `notifOff`(끈 종류 이름 목록). 저장은 기존 `savePracticeSettings` 그대로(비회원 = 이 휴대폰, 로그인 = 서버 `profiles.settings`에 같이 — 서버 표 변경 없음, 이미 설정 묶음째 저장).
-- 새 저장 키·큐·대체 장치 없음. 저장 실패 시 기존과 같은 안내("저장에 실패했습니다…"), 스위치는 저장 성공 후에 바뀐 값으로 보임(설정 구독).
-- `docs/testing-playbook.md` 확인: 기존 저장 길 재사용·새 저장 길 없음 → 실패 시 토스트·화면 값 그대로를 테스트.
+1. `financeCore.js`에 판단만 하는 함수 `resolveCallDetailCommission(detail, settings)` 하나 → `{ enabled, type, value }`.
+2. `getCallDetailCommissionAmount`와 `detailCommissionLabel`이 둘 다 이 함수를 불러 씀. 판단 코드는 한 곳에만 있음.
+3. **화면·금액 변화 없음.** 정산·보고서 숫자와 "10%"/"7,000원" 표시 그대로.
 
 ### 건드릴 파일
-| 파일 | 내용 | 줄 수(현재 → 예상) |
-|---|---|---|
-| `react-app/src/components/notifications/NotificationsPage.jsx` (새) | 알림 화면(머리·스위치 카드·목록) | 새로 약 110 |
-| `react-app/src/components/notifications/notifications-page.css` (새) | 화면 모양(공용 색 변수, 라이트·다크) | 새로 약 90 |
-| `react-app/src/lib/notifications.js` | 알림마다 날짜 줄(`dateLabel`)·종류(`kind`) 추가, 끈 종류 빼기 | 133 → 약 155 |
-| `react-app/src/domain/practiceSettings.js` | `notifOff` 정리(알려진 종류 이름만 남김) | 124 → 약 135 |
-| `react-app/src/app/AppShell.jsx` | 🔔 → 알림 화면 이동, 옆 창·[바로 사용하기] 처리 삭제(화면으로 옮김), 알림 화면은 홈 탭 강조 | 196 → 약 180 |
-| `react-app/src/app/AppShellRoutes.jsx` | `notifications` 경로 추가 | 105 → 약 106 |
-| `react-app/src/components/NotificationPanel.jsx`·`notification-panel.css` | 삭제(화면으로 대체) | 삭제 |
-| 테스트 | 아래 | — |
+- `react-app/src/domain/financeCore.js` — 판단 함수 추가, 금액 함수가 그걸 쓰게
+- `react-app/src/lib/reportDetail.js` — `detailCommissionLabel`이 판단 함수를 쓰게
+- `react-app/src/lib/report.test.js` — 테스트 1건 추가(아래)
 
 ### 안 건드릴 것
-- 알림을 고르는 규칙(연체 판정·오후 6시·백업 14일 등) — 그대로, 끈 종류만 뺌.
-- [닫기]로 숨긴 알림 기록(`dismissedNotifications`) — 그대로 사용.
-- 서버 표 — 변경 없음(설정 묶음 안의 칸 추가).
+- `domain/finance.js`(재수출 모음) — 새 함수는 `reportDetail.js`가 `financeCore.js`에서 직접 불러서 추가 안 함. 근거: `reportDetail.js:4`가 이미 `financeCore.js`를 직접 부름.
+- `financeOwnerDetail.js`·`monthSettlement.js` — `getCallDetailCommissionAmount`의 이름·인자·결과가 그대로라 안 바뀜. 근거: `grep getCallDetailCommissionAmount` 호출부 4곳(`financeOwnerDetail.js:103`, `monthSettlement.js:120`, `reportDetail.js:98`, `finance.test.js:155~156`).
+- 1-B(운행 기록 서버 변환 두 벌)는 다음 슬라이스.
 
 ### 테스트
-- 알림 화면: 목록·날짜 줄·누르면 해당 화면·[닫기], 알림 없음 문구.
-- 스위치: 끄면 목록·🔔 숫자에서 빠지고 다시 켜면 나옴, 해당 없는 종류 스위치 안 보임, 저장 실패면 안내 + 값 그대로.
-- `notifications.js`: 종류별 날짜 줄, `notifOff` 빼기. 기존 `notifications*.test.js` 그대로 통과.
-- 옆 창 테스트(`NotificationPanel.dailyInspection.test.js`)는 같은 내용(일상점검 [바로 사용하기]/[다시 보지 않기])을 새 화면 테스트로 옮김(약화 없음).
-- 🔔 → `/app/notifications` → 뒤로가기 → 홈.
-- 되돌림 FAIL 확인.
+- 기존: `finance.test.js:155~156`(저장된 값 우선 7000 / 거래처 설정 10000), `report.test.js:118`(합계 17000), `report.test.js:202`(표시 "10%") — 그대로 통과해야 함.
+- 추가: `report.test.js` — 저장된 값이 `direct 7000`이고 거래처 설정은 `10%`일 때, 보고서 표시가 **"7,000원"**(저장된 값 기준)인지 확인. 지금은 표시 쪽의 "저장된 값 우선" 경로를 검사하는 테스트가 없음.
+- 플레이북 트리거(`domain/finance*`) 해당 — 저장·삭제·동기화 없음, 순수 계산만. 플레이북 §6 되돌려 실패 확인: 새 테스트는 동작 보존 확인용이라, 표시 함수가 저장된 값을 무시하도록 임시로 바꿨을 때 FAIL하는지 확인해 로그 첨부.
 
 ### §6 200줄
-- 모두 200줄 이하.
+- `financeCore.js` 현재 218줄 — 이미 §6 예외("~250 한도, `getMonthlyDriverTotals` 응집", 파일 머리 주석). 판단 함수 추가·금액 함수 축소로 **약 218줄 유지**, 250 이하. 머리 주석의 줄 수 숫자만 실제 값으로 고침.
+- `reportDetail.js` 현재 약 150줄 → 줄어듦.
 
 ### 실패 시 처리
-- 저장 실패 = 기존 안내 토스트, 신규 레이어 없음.
+- 새 저장·대비 장치 없음(§7 해당 없음). 테스트·브라우저 확인 실패 시 수정 착수지시서 작성 후 대기.
 
-착수지시서 확정, 작업 진행 승인(2026-10-10).
+### 브라우저 확인 (보리)
+- 보고서 → 세부 내역서: 수수료 있는 거래처의 수수료 금액·"10%"/"원" 표시가 수정 전과 같은지.
+- 매출 화면 월 정산 수수료 금액이 수정 전과 같은지.
 
-### 수정 착수지시서 1 (2026-10-10, 착수 직후 조사에서 발견 — 코드 아직 안 고침)
-- 발견: 이 휴대폰에 저장된 설정을 읽을 때 **허용된 칸 이름 목록**으로 검사함(`store/persistDomainSchema.js` `SETTINGS_KEYS`·`isPersistedSettings`). 목록에 없는 칸(`notifOff`)이 들어가면 설정 전체가 "형식 오류"가 되어, 비회원은 다음에 켤 때 **로드맵 32번 막기 화면**("기록을 불러오지 못했습니다")이 뜸 — 로드맵 25번(지출 `vehicleNumber` 누락)과 같은 종류의 사고.
-- 수정 계획: `react-app/src/store/persistDomainSchema.js`(119 → 약 121)에 `notifOff`를 허용 칸으로 추가 + "글자 목록일 때만 통과" 검사 1줄. 다른 검사·저장 코드는 그대로.
-- `src/store/**`라 플레이북 필수 → `docs/testing-playbook.md` 확인. 테스트 추가: `notifOff` 든 설정이 저장→다시 읽기에서 통과, 잘못된 모양(글자 목록 아님)은 지금처럼 형식 오류, 비회원 끄기 저장 뒤 다시 켜도 막기 화면 안 뜸.
-- 건드릴 파일 표에 위 1개 추가. 신규 레이어 없음.
-착수지시서 확정(수정 1 포함), 작업 진행 승인(2026-10-10).
+### 정정 (착수 후, 2026-10-10)
+- 지시서 초안의 "`financeCore.js:30` 빈 설명 한 줄 삭제"는 AI 확인 착오 — 그 줄은 바로 아래 `getDetailPaymentSummary`의 설명이라 정상. **삭제 안 함**(범위에서 뺌).
 
-### 진행 (2026-10-10)
-- react-app `notifications-page` 커밋 `07d19c1`(push 안 함). 줄 수: `NotificationsPage.jsx` 103·`notifications-page.css` 119·`lib/notifications.js` 155·`practiceSettings.js` 134·`persistDomainSchema.js` 121·`AppShell.jsx` 173.
-- 표에 없던 1줄 변경 2곳(알림): `domain/financeTypes.js` 설정 모양 설명에 `notifOff` 1줄(타입 검사용), `app/lazyPages.js` 새 화면 등록 1줄(다른 화면과 같은 나중 불러오기).
-- typecheck·`npm test` unit 838·화면 364 통과. 되돌림 FAIL: 허용 칸에서 `notifOff` 빼면 설정 읽기 테스트 실패, 끈 종류 빼기 없애면 화면·날짜 테스트 실패, 🔔 이동 없애면 앱 테스트 실패.
-- AI 브라우저 확인(비회원, 휴대폰 크기): 🔔 → 알림 화면, 스위치 3개(미수금·오늘·백업), 오늘 알림 날짜 "10.10", 백업 끄기 → 목록에서 빠짐 → **새로고침해도 꺼진 그대로·막기 화면 없음**.
-- 남은 것: push(브랜치) → CI → 보리 휴대폰 확인(개발 서버는 지금 이 브랜치 코드).
-- push(보리) → CI verify 초록. 보리 휴대폰 확인 후 최종 승인 `[x]`(2026-10-10).
+### 진행 결과
+- `financeCore.js` 218→216줄(머리 주석 숫자 고침), `reportDetail.js` 약 150→118줄, `report.test.js` 테스트 1건 추가.
+- 로컬 `npm test` 전부 통과(단위 839 / 화면 365, 실패 0), `npm run typecheck` 오류 0.
+- 바뀐 줄에 `any`·`unknown`·`@ts-ignore`·`@ts-expect-error` 없음.
+- 되돌려 실패 확인: `detailCommissionLabel`이 저장된 값을 무시하도록 임시로 바꾼 뒤 실행 → 종료 코드 1(아래 원문), 원래대로 되돌린 뒤 다시 전부 통과.
 
-### §5 리뷰
-1. 범위: 지시서 표 + 수정 1(`persistDomainSchema.js`) + 1줄 변경 2곳(`financeTypes.js`·`lazyPages.js`, 위 진행에 적음) + 테스트.
-2. 몰래 증설 없음: 새 저장 키 없음 — 기존 설정 묶음에 칸 1개(`notifOff`, §7 보리 승인), 저장은 기존 `savePracticeSettings`.
-3. 타입 꼼수 없음(`any`·`@ts-ignore`·`as unknown as` 추가 0건).
-4. 200줄: 모두 이하(가장 긴 `lib/notifications.js` 155, 테스트 제외).
-5. 테스트: 새 11건(되돌림 FAIL 3종), 옛 옆 창 테스트는 같은 내용을 새 화면 테스트로 옮김(약화 없음).
-6. 공용 CSS·상태값: 새 CSS는 `notif-` 이름만, 공용 `.switch`는 쓰기만. 공용 상태값 `settings`에 칸 추가 → 읽는 곳(`persistDomainSchema` 검사·`normalizeSettings`) 전부 맞춤, 다른 곳은 칸을 안 읽음.
-7. 요구사항: 목표 1~5 + 보리 결정 3건 충족.
+```
+$ node --test src/lib/report.test.js   (종료 코드: 1)
+  ✔ 등록 거래처는 monthFareByClient, 미등록/미지정은 defaultBaseFare (0.2439ms)
+  ✔ commissionSnapshot이 있으면 우선, 없으면 현재 거래처 설정 폴백 (0.2067ms)
+  ✖ 수수료 표시도 금액과 같은 기준 — 저장된 값(직접 7000)이 거래처 설정(10%)보다 우선 (0.8849ms)
+  ✔ isOff 레코드는 완전히 제외된다 (0.2054ms)
+✖ buildDetailReport (14.8428ms)
+▶ getReportShareCompanyName
+ℹ suites 11
+ℹ pass 28
+ℹ fail 1
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 210.3959
+
+✖ failing tests:
+
+test at src\lib\report.test.js:141:3
+✖ 수수료 표시도 금액과 같은 기준 — 저장된 값(직접 7000)이 거래처 설정(10%)보다 우선 (0.8849ms)
+  AssertionError [ERR_ASSERTION]: Expected values to be strictly equal:
+  
+  '10%' !== '7,000원'
+  
+      at TestContext.<anonymous> (file:///C:/Users/znlsl/OneDrive/%EB%AC%B8%EC%84%9C/GitHub/%F0%9F%A7%AAteat/react-app/src/lib/report.test.js:154:12)
+      at Test.runInAsyncScope (node:async_hooks:227:14)
+      at Test.run (node:internal/test_runner/test:1382:25)
+      at Suite.processPendingSubtests (node:internal/test_runner/test:960:18)
+      at Test.postRun (node:internal/test_runner/test:1522:19)
+      at Test.run (node:internal/test_runner/test:1447:12)
+      at async Suite.processPendingSubtests (node:internal/test_runner/test:960:7) {
+    generatedMessage: true,
+    code: 'ERR_ASSERTION',
+    actual: '10%',
+    expected: '7,000원',
+    operator: 'strictEqual',
+    diff: 'simple'
+  }
+```
+
+- react-app `255da47`(보리 지시로 커밋·push AI가 함), CI verify·deploy 초록, 보리 휴대폰 확인 "전과 같아"·최종 `[x]` 승인(2026-10-10).
