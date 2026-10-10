@@ -1,48 +1,56 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-## 군더더기 정리 3-B-3 — `unknown` 정리: 나머지(마지막 묶음) `[x]`
+## 군더더기 정리 4-A — 이력형 주석 줄이기: `store/` `[x]`
 
-보리 요청 2026-10-10(로드맵 밖). 근거: `docs/code-cleanup-review.md` F, AGENTS §6·§5 3번. 앞 슬라이스 3-B-2 `[x]`(react-app `dab2c5c`).
-3-B 계획: 3-B-1 `[x]` → 3-B-2 `[x]` → **3-B-3 (이번, 마지막)**. 끝나면 운영 코드의 타입 표시 `unknown` 0곳.
+보리 요청 2026-10-10(로드맵 밖). 근거: `docs/code-cleanup-review.md` C, 메모 규칙 "코드 주석은 결론 1~2줄"(2026-09-11). 앞 슬라이스 3-B-3 `[x]`(react-app `1e55fb8`).
+
+### 4번 전체 계획 (폴더별)
+이력형 주석(작업 단계·재감사 번호·슬라이스 이름·로드맵 번호·"예전엔 ~였다" 경위)이 들어 있는 운영 파일 약 180개. 한 번에 다 하면 확인이 어려워 폴더별로 나눔.
+| 슬라이스 | 폴더 | 파일 수(이력 주석 있는 것) |
+|---|---|---|
+| **4-A (이번)** | `store/` | 9 |
+| 4-B | `app/` | 21 |
+| 4-C | `domain/` | 36 |
+| 4-D | `components/` | 56(필요하면 둘로) |
+| 4-E | `lib/` | 64(둘로) |
+
+### 정리 기준 (모든 4-x 공통)
+- **지움**: 작업 이력 — "Step 0-4 감사 보완", "재감사 4차(FAIL 지적 4번)", "슬라이스 E:", "로드맵 32", 커밋 번호, "예전엔 ~해서 ~문제가 있었다" 같은 경위. 이력은 git 커밋에 이미 있음.
+- **남김·줄임**: 지금 코드가 **왜** 이렇게 생겼는지(안 지키면 무엇이 깨지는지) — 1~2줄로.
+- **안 건드림**: 타입 설명(`@typedef`·`@param`·`@returns`·`@property`의 타입 부분), 법정 서식·계산식 설명, "상태 조각"이라는 뜻으로 쓴 낱말 "슬라이스", 파일 머리의 `// @ts-check`.
+- **실행 코드 변경 0.**
 
 ### 현재 상태 (코드 확인)
-남은 `unknown` 타입 표시 35곳, 19개 파일: `domain/` 13개(`callDetailIds`·`carBusinessInfo`·`cars`·`dailyInspectionItems`·`drivers`·`invoices`·`locationShortcuts`·`money`·`payments`·`practicePresets`·`practiceSettings`·`taxInvoices`), `app/boot.js`·`useBackToExit.js`, `components/DataDownloadModal.jsx`·`PageLoadErrorBoundary.jsx`·`ReportSummaryContent.jsx`·`revenue/driverRevenueScope.js`, `lib/report.js`.
+`store/` 9개 파일: `app-store.js`(178줄, 주석 92줄), `atomicPersist.js`(62/33), `batchWrites.js`(82/39), `commitHelpers.js`(116/53), `owner-state.js`(154/72), `ownerDataHooks.js`(138/63), `ownerWorkDataHooks.js`(81/43), `persist.js`(113/53), `persistDomainRecords.js`(142/22). 예: `owner-state.js:2·25·30`의 "Step 0-4 감사 보완(1차/2차)", "재감사 4차(FAIL 지적 4번)".
 
 ### 목표 상태 (기대 동작)
-1. 19개 파일의 `unknown` 타입 표시 0곳. 규칙은 3-B-1·3-B-2와 같음(`JsonValue` 계열). 추가로:
-   - `PageLoadErrorBoundary.jsx` 화면 오류 받는 자리 → `Error`(React가 넘겨주는 모양)
-   - `practicePresets.js` 운행 횟수 고르기 목록 → `Array<JsonValue>`, `taxInvoices.js` 서버 행 `raw` → `JsonValue|Record<string, JsonValue|undefined>`
-2. **실행 코드가 바뀌는 곳 1군데**: `practicePresets.js:53` 고정 노선 목록을 정리할 때 "항목이 객체가 아니면 건너뜀" 1줄 추가. 지금도 객체가 아닌 항목은 상차지·하차지가 비어 바로 아래 줄에서 건너뛰므로 **결과 같음**. 근거: 기존 테스트 `practiceSettings.test.js`가 그대로 통과해야 함.
-3. 나머지는 설명(주석 속 타입)만 바뀜.
+1. 위 기준대로 9개 파일 주석 정리. 이력이 섞인 긴 주석 덩어리는 "왜" 1~2줄로 다시 씀.
+2. **실행 코드·타입 설명 변경 0.** 동작·화면·저장 변화 없음.
 
-### 건드릴 파일 (19개) — 위 "현재 상태" 목록
-- 파일 수가 기준보다 많지만 대부분 1~2줄 설명 바꿈이라 묶음(앞 슬라이스들과 같은 판단).
+### 건드릴 파일 (9개)
+`src/store/` — `app-store.js`, `atomicPersist.js`, `batchWrites.js`, `commitHelpers.js`, `owner-state.js`, `ownerDataHooks.js`, `ownerWorkDataHooks.js`, `persist.js`, `persistDomainRecords.js`
 
 ### 안 건드릴 것
-- 설명 문장 속 낱말 "unknown"(`hydrateMergeTypes.js`·`outboxErrors.js`·`atomicPersist.js`·`AppShell.jsx`·`day-record.js`·`owner-state.js` 주석) — 4번 주석 정리 때.
-- 테스트 파일.
+- `store/` 안의 다른 파일(이력 주석 없음), 테스트 파일, 다른 폴더(4-B~4-E).
 
-### 사전 시험 (임시 복사본, 2026-10-10)
-- `tsc --noEmit` 오류 0건, 엄격 검사 목록 438 → **438(변화 없음)**, 19개 파일 `unknown` 타입 표시 0곳.
-- 실행 줄에서 바뀌는 건 위 1줄 + 줄 안의 `/** @type {…} */` 설명 부분 5줄(`callDetailIds` 2, `cars` 1, `dailyInspectionItems` 1, `taxInvoices` 1).
-
-### 테스트
-- 새 테스트 없음. 로컬 `npm test`·`typecheck`·엄격 검사 목록(438 이하)·`build`로 확인.
-- 플레이북 트리거 해당 없음(저장·삭제·동기화 코드 아님 — `domain/` 계산·정리 함수와 화면 설명).
+### 검증 (실행 코드가 안 바뀐 증명)
+- 파일마다 고치기 전·후를 `esbuild --minify`(주석을 다 지우고 코드만 남김)로 바꿔 **결과가 글자 하나까지 같음**을 확인해 결과에 적음.
+- 타입 설명이 안 바뀐 것은 `typecheck` 오류 0·엄격 검사 목록 438 그대로로 확인.
+- 로컬 `npm test`·`build` 통과.
+- 플레이북 트리거(`store/**`) 해당 — 주석만 바뀌어 저장 동작 변화 없음(위 esbuild 비교가 근거).
 
 ### §6 200줄
-- 19개 파일 모두 200줄 이하, 설명 줄 1줄씩 늘어남(가장 큰 `ReportSummaryContent.jsx` 192→193).
+- 9개 파일 모두 200줄 이하이고 줄어듦.
 
 ### 실패 시 처리
 - 새 저장·대비 장치 없음(§7 해당 없음). 실패 시 수정 착수지시서 작성 후 대기.
 
 ### 브라우저 확인 (보리, 휴대폰 — 같은 와이파이 개발 서버 http://192.168.219.105:5173)
-- 앱 설정의 고정 노선(상차지·하차지) 목록·운행 횟수 고르기가 전처럼 보이고 바뀌는지.
-- 보고서(요약)·세금계산서 화면·데이터 다운로드가 전처럼 되는지.
-- 차량·기사 관리 화면이 전처럼 열리는지.
+- 주석만 바뀌어 화면 변화 없음. 확인은 가볍게: 앱 켜기 → 일지 운행 1건 추가 → 껐다 켜도 그대로.
 
 ### 진행 결과
-- 19개 파일 `unknown` 타입 표시 0곳(53줄 추가·34줄 삭제). **운영 코드 전체의 타입 표시 `unknown` 0곳**(남은 것은 설명 문장 속 낱말뿐).
-- 실행 줄 변경은 `practicePresets.js` 1줄뿐, 그 밖은 줄 안의 `/** @type {…} */` 설명 부분 5줄.
-- 로컬 `npm test` 전부 통과(단위 832 / 화면 365 — `practiceSettings.test.js` 포함), `typecheck` 오류 0, 엄격 검사 목록 438 그대로, `build` 성공. `oxlint` 경고 1건(`PageLoadErrorBoundary.jsx:28` 화면 갱신 규칙)은 점검 때부터 있던 것.
-- react-app `1e55fb8`(보리 지시로 커밋·push AI가 함), CI verify·deploy 초록, 보리 휴대폰 확인·최종 `[x]` 승인(2026-10-10).
+- 9개 파일 주석 정리: 107줄 삭제·26줄 추가(이력 덩어리를 "왜" 1~2줄로). 남은 이력 낱말(재감사·Step·슬라이스 X·로드맵 번호 등) 0곳.
+- 지운 것 중 "지금 사실과 다른" 주석도 같이 없어짐: `syncDeletedWorkDates.js`(2-A에서 삭제한 파일)·`syncWorkData.js`가 아직 일한다는 설명(`commitHelpers.js`·`ownerWorkDataHooks.js`·`persist.js`), `owner-state.js`의 이미 없는 "두 함수" 설명.
+- **실행 코드 같음 확인**: 9개 파일 모두 고치기 전·후 `esbuild --minify` 결과가 글자 하나까지 같음.
+- 로컬 `npm test` 전부 통과(단위 832 / 화면 365), `typecheck` 오류 0, 엄격 검사 목록 438 그대로, `build` 성공.
+- react-app `6a0412d`(보리 지시로 커밋·push AI가 함), CI verify·deploy 초록, 보리 휴대폰 확인 "괜찮아"·최종 `[x]` 승인(2026-10-10).
