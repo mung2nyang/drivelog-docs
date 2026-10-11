@@ -105,5 +105,5 @@ B1의 `syncDeletedWorkDates`와 관련된 "삭제 목록"(`workDataTombstones`)�
 2. **B1·B2 안 쓰는 파일·함수 지우기** — B1 = 2-A `[x]`(`183fe39`), B2 = 2-B `[x]`(`b644be8`). — 파일 약 12개. 테스트 통과만 보면 됨.
 3. **B3 안 쓰는 CSS 지우기** — `[x]`(`3fbac44`).
    - 3-B(보리 확인 2026-10-10 "추천순대로"): F의 `unknown` 표시를 `JsonValue`·정확한 종류로 바꾸기 — 연결 묶음별 3번. 3-B-1 `[x]`(`7fe99a1`, 53곳), 3-B-2 `[x]`(`dab2c5c`, `lib/` 15개), 3-B-3 `[x]`(`1e55fb8`, 나머지 35곳) — **완료, 운영 코드 타입 표시 `unknown` 0곳**.
-4. **C 이력형 주석 줄이기** — 폴더별 4-A~4-E. 4-A `store/` `[x]`(`6a0412d`), 4-B `app/` `[x]`(`1b8a08c`), 4-C `domain/` `[x]`(`cbc34e8`), 4-D-1 `components/day-log·calendar` `[x]`(`6f01c5b`), 4-D-2 `components/` 나머지 `[x]`(`28fd903`), 4-E-1 `lib/` 저장·동기화 `[x]`(`0bc69f8`). — 파일이 160개라 폴더별로 나눠서(예: `store/`·`lib/`·`app/`·`components/`).
+4. **C 이력형 주석 줄이기** — 폴더별 4-A~4-E. 4-A `store/` `[x]`(`6a0412d`), 4-B `app/` `[x]`(`1b8a08c`), 4-C `domain/` `[x]`(`cbc34e8`), 4-D-1 `components/day-log·calendar` `[x]`(`6f01c5b`), 4-D-2 `components/` 나머지 `[x]`(`28fd903`), 4-E-1 `lib/` 저장·동기화 `[x]`(`0bc69f8`), 4-E-2 `lib/` 나머지 `[x]`(`ce6e118`). 놓친 2곳은 4-F. — 파일이 160개라 폴더별로 나눠서(예: `store/`·`lib/`·`app/`·`components/`).
 5. B4 껍데기 정리, D 화면 중복 — 출시 뒤로 미뤄도 됨.
