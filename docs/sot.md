@@ -456,6 +456,8 @@
 
 차량 `calculateDriverVehicleCommission`은 이 행에 쓰지 않음(매출 「운임 수수료」는 거래처).
 
+**추가(2026-10-13, 로드맵 39)** `[확인: 2026-10-13 보리]`: **고정노선 운행에도 그 거래처에 등록된 수수료를 뗀다.** 계산은 `domain/fixedRouteCommission.js` `getFixedRouteCommissionAmount` 하나 — 비율이면 그날 고정노선 금액에서 내림, 정액이면 그날 횟수만큼. 달력·홈(`monthSettlement.js`)과 매출(`financeOwnerDetail.js`, 연동 기사 본인 매출 포함)이 같이 쓴다. 파렛트에는 수수료를 안 뗀다. (react-app `50716d2`)
+
 ## 4-8. 2026-08-31 — hydrate producer가 persist 스키마만 남김
 
 `mergeCarsFromRows` / `mergeClientsFromRows` / `mergeDriversFromRows`의 `...raw`/`...local` 제거. CAR/CLIENT/DRIVER_KEYS만. 불리언 5개(`insuranceOn` 등)는 raw에 진짜 boolean일 때만 키를 넣음(`shareRevenueWithOwner` 없음 = 공유). `hydrateMergeClients.js` 분리. 신규 큐 없음.
