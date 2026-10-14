@@ -1,93 +1,69 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-## 로드맵 66 기사 차량 번호를 고치면 그 번호에 묶인 것도 새 번호로 옮김 `[x]`
+## 로드맵 67-A 앱을 켤 때 1,000줄 넘는 기록도 끝까지 불러오기(나눠 받기) `[x]`
 
-> 진행(2026-10-14): 코드 커밋 react-app `1db33e6`(DB 0022 포함). 테스트 1,283개 통과, 타입 검사·빌드 통과, 엄격 검사 경고 457개(늘지 않음). 새 테스트 6개 중 R-4(번호 안 바꾸면 서버 함수 안 부름)만 빼고 고치기 전 코드로 되돌리면 실패함을 확인. DB 0022: SQL Editor에서 실행·사후검증(관리자 권한 아님, 로그인 사용자만 실행, 없는 차량·메인 차량은 거절). 개발 서버 브라우저: 첫 시도는 SQL 계산 순서 오류로 실패했으나 서버·화면 모두 옛 번호 그대로였음(66-1로 고침). 고친 뒤 시험 차량 99가9999 → 99가9998로 바꾸니 서버 차량 번호·전용 거래처·설정 키, 화면 일지·지출·거래처·설정이 모두 새 번호. 새로고침 뒤에도 유지, 주유를 추가해도 그 차량 칸으로 감(메인 칸 0건). 보리 push, CI 초록(verify·deploy), 최종 승인(2026-10-14).
+> 진행(2026-10-14): 코드 커밋 react-app `c143e32`. 테스트 1,289개 통과, 타입 검사·빌드 통과, 엄격 검사 경고 457개(늘지 않음). 새 테스트 H-1·H-2는 고치기 전 코드로 되돌리면 1,000건에서 잘려 실패함을 확인. 개발 서버 시험 계정에서 다시 불러오기 → 일지·콜·지출·계산서 수와 홈 미수금(10건 · 2,509,258원)이 다시 불러오기 전과 같고, 표마다 차량당 1번 요청(1,000줄 단위). 연동 기사 불러오기 경로는 자동 테스트로만 확인. 보리 push, CI 초록(verify·deploy), 최종 승인(2026-10-14).
 
-보리 지시(2026-10-14, 65 최종 승인 뒤 "66번 착수지시서"). 근거: 코드 리뷰(2026-10-14) → `docs/roadmap.md` 66번. 방식은 보리 선택(2026-10-14): **"전부 새 번호로 옮김"**(번호 수정 막기·연동 차량만 막기 대신), 서버 쪽은 **DB 함수 하나로 한꺼번에**(보리 승인 2026-10-14 "DB변경 필요하면 진행해"). 저장 경로라 `docs/testing-playbook.md` 확인.
+보리 지시(2026-10-14, 66 최종 승인 뒤 "67번 착수지시서"). 근거: 코드 리뷰(2026-10-14) → `docs/roadmap.md` 67번, Supabase Data API **Max rows = 1000** 확인(2026-10-14). 방식은 보리 선택(2026-10-14): **나눠 받기 코드**(설정값 올리기 대신). 고칠 곳이 6개 파일이라 둘로 나눔 — **이번엔 67-A(앱 켤 때 불러오기)만**, 67-B(지출 저장 때 서버 읽기·점검표 다운로드)는 다음. 불러오기 경로라 `docs/testing-playbook.md` 확인.
 
 ### 쉬운 요약
-- 기사 차량 번호를 고치면 지금은 일지만 새 번호로 옮겨지고, 그 차량 지출 표시·전용 거래처(고정노선 포함)·기사 연결·그 차량 일지 설정(일상점검표 켜기 포함)은 옛 번호에 남는다. 그 상태로 지출을 저장하면 지출이 메인 차량으로 옮겨지고, 거래처·설정은 서버에도 옛 번호라 앱을 다시 켜도 안 고쳐진다.
-- 번호를 고칠 때 이 네 가지를 같이 새 번호로 바꿔 저장한다.
-- 끝나면 번호 오타를 고쳐도 그 차량 기록·거래처·설정이 그대로 따라온다.
+- 서버는 한 번에 1,000줄까지만 돌려주는데, 앱은 한 번만 물어봐서 1,000줄이 넘으면 나머지를 조용히 못 받는다(콜 하루 5건이면 약 7개월).
+- 앱을 켤 때 읽는 기록(일지·콜 상세·주유/정비/기타·세금계산서)을 1,000줄씩 끝까지 이어서 받게 한다.
+- 끝나면 오래 써도 달력·매출·미수 합계에서 기록이 빠지지 않는다.
 
 ### 현재 상태 (코드 확인)
-- `lib/vehicleMutations.js:104-111` 번호 변경 감지 후 `planSubLogRename`(`:38-67`)으로 일지(`workLogs`)·대기 저장 키만 옮김.
-- 옛 번호에 남는 것(전부 `grep` 확인):
-  ① 지출 `vehicleNumber`(`domain/expenses.js:93-113`) — 저장 때 `planExpenseVehicleTargets`(`domain/expenseVehicleRouting.js:56-64`)가 일치하는 차량이 없으면 메인 칸으로 보냄.
-  ② 거래처 `scopedToVehicleNumber`(`domain/clients.js:21` 고정노선 찾기, 서버 `clients.raw`에 저장 — `lib/cloudStorage.js:112`, 연동 기사 불러오기가 이 값으로 거래처를 고름 `lib/hydrateEmployedDriver.js:140`).
-  ③ 기사 `vehicleNumber`(Store, 서버는 `vehicle_id`로 연결이라 다시 켜면 맞춰짐 `lib/hydrateMerge.js:72-78`).
-  ④ 설정 `subCarSettings[번호]`(`domain/carSettingsScope.js:16`, 서버 `profiles.settings` — `lib/profileCloudCommit.js:32`).
-- `lib/vehicleMutations.js`는 191줄이라 이 일을 더 넣으면 200줄을 넘음.
+- 나눠 받기 없음: `grep "\.range(" src` 0곳.
+- 끝없이 늘어나는 표를 한 번에 읽는 곳(앱 켤 때):
+  - `lib/hydrate.js:132-133`(daily_logs·transport_details, 차량마다), `:141-143`(fuel/maintenance/misc, 메인), `:158`(tax_invoices)
+  - `lib/hydrateOwnerDriverExpenses.js:25-27`(기사 차량 fuel/maint/misc)
+  - `lib/hydrateEmployedDriver.js:60-62`(연동 기사 fuel/maint/misc), `:149-154`(daily_logs·transport_details)
+- 순서: transport·지출은 `sequence`(하루 안 순번)로만 정렬 → 1,000줄에서 잘리면 날짜와 무관하게 순번 큰 것부터 빠짐. daily_logs·tax_invoices는 정렬 없음.
+- 늘어나지 않는 표(vehicles·clients·driver_links·profiles)는 이번 범위 밖.
 
 ### 목표 상태 (기대 동작)
-1. 기사 차량 번호를 A → B로 바꿔 저장하면 ① 지출 ② 그 차량 전용 거래처 ③ 기사 연결 ④ 그 차량 일지 설정이 모두 B로 바뀐다(일지는 지금처럼).
-2. 로그인 차주: 새 DB 함수 `rename_sub_vehicle` 한 번으로 서버의 **차량 번호·그 번호 전용 거래처·차량 설정 키를 한꺼번에** 바꾼다(셋 다 되거나 하나도 안 됨). 그다음 지금처럼 차량 나머지 칸(톤수·수수료 등)을 저장하고, 둘 다 성공한 뒤에만 화면(Store)을 한 번에 바꾼다. ①③은 서버가 `vehicle_id`로 연결하므로 Store만 바꾼다.
-3. 실패하면 화면은 그대로(옛 번호)이고 "저장에 실패했습니다…" 안내. 함수가 성공하고 나머지 칸 저장만 실패했으면 서버는 이미 새 번호로 일관되게 바뀐 상태라, 다시 저장하거나 앱을 다시 켜도 거래처·설정이 옛 번호에 남지 않는다(나머지 칸만 다시 저장하면 됨).
-4. 비회원: 기기 저장 한 번(지금 일지 옮기기와 같은 묶음)에 ①~④가 함께 저장되거나 하나도 안 된다.
-5. 번호를 안 바꾼 저장, 메인 차량 저장은 동작·서버 호출 횟수가 지금과 같다.
-6. 지출 저장 뒤에도 바뀐 번호 차량 지출이 그 차량 칸에 남는다(메인으로 안 옮겨짐).
+1. 위 표들을 읽을 때 1,000줄씩 이어서 받아, 마지막 묶음이 1,000줄보다 적을 때까지 모두 받는다.
+2. 이어 받는 동안 순서가 흔들려 같은 줄이 두 번 오거나 빠지지 않게, 기존 정렬 뒤에 `id` 정렬을 덧붙인다(정렬 없던 곳은 `id`).
+3. 중간 묶음에서 오류가 나면 지금처럼 그 표 조회 실패로 처리한다(일부만 받은 결과를 쓰지 않음 — 지금의 "불러오기 전부 성공해야 반영" 규칙 그대로, `throwIfAnyHydrateError`).
+4. 1,000줄 이하인 계정은 서버 요청 수·결과가 지금과 같다(표마다 1회).
+5. 화면·계산·저장 코드는 그대로(받는 양만 달라짐).
 
 ### 건드릴 파일
-- 새 파일 `react-app/src/lib/vehicleRename.js` — `planSubLogRename`을 `vehicleMutations.js`에서 옮겨 오고(내용 그대로), 번호에 묶인 ①~④를 새 번호로 바꾼 값을 계산하는 함수와, 로그인일 때 DB 함수 `rename_sub_vehicle`을 부르는 함수를 둔다(새 저장 장치 없음). 넣을 주석(최종 문구): `// 기사 차량 번호를 바꾸면 그 번호에 묶인 일지·지출·전용 거래처·기사 연결·차량 설정을 새 번호로 함께 옮긴다.`
-- DB(AGENTS §9 절차): 함수 `public.rename_sub_vehicle(p_vehicle_id, p_new_number)` 새로 만듦 — 로그인한 차주 본인(`auth.uid()`) 기사 차량만, 옛 번호를 읽어 `vehicles.number`·`legacy_log_id`·`raw.number`, 같은 차주 `clients.raw.scopedToVehicleNumber`, `profiles.settings.subCarSettings` 키를 한 번에 바꿈. 권한은 호출한 사람 기준(RLS 그대로 적용, `security invoker`, `set search_path = public`), `authenticated`만 실행. 순서: ① 읽기 전용 조회(칸·권한 규칙 확인) → ② `create or replace` SQL → ③ 실행(보리 또는 보리 지시로 AI) → ④ 사후검증 조회. 기록 파일 `react-app/supabase/migrations/0022_rename_sub_vehicle.sql`.
-- `react-app/src/lib/vehicleMutations.js` — 번호 변경 때 위 함수를 불러 한 번의 `commitBatch`(cars·clients·expenses·drivers·settings + 일지)로 반영.
-- 테스트: 새 `react-app/src/lib/vehicleRename.test.js`, 기존 `vehicleMutations.test.js`는 그대로 통과해야 함.
-- 공용 값: `requestVehicleSave` 돌려주는 모양 그대로(호출부 `CarListPage.jsx:145`·`onboardingFinish.js:61`).
+- 새 파일 `react-app/src/lib/fetchAllRows.js` — "쿼리를 받아 1,000줄씩 끝까지 받고 `{ data, error }`로 돌려주는" 함수 하나(약 30줄). 넣을 주석(최종 문구): `// 서버(Supabase Max rows 1000)는 한 번에 1,000줄까지만 준다 — 끝까지 이어 받는다. 묶음 크기는 그 설정값과 같아야 한다.`
+- `react-app/src/lib/hydrate.js` — 위 6곳을 `fetchAllRows`로 감쌈(198줄 → 200줄 이하 유지, 넘으면 지출 3종 읽기를 `hydrateOwnerDriverExpenses.js`의 함수로 합침).
+- `react-app/src/lib/hydrateOwnerDriverExpenses.js` — 3곳.
+- `react-app/src/lib/hydrateEmployedDriver.js` — 5곳.
+- 테스트용 가짜 서버에 `range` 추가: `react-app/src/testSupport/fakeSupabaseClient.js`·`stubSupabaseClient.js`, 그리고 자기 가짜 서버를 따로 쓰는 테스트 중 불러오기를 타는 파일(돌려 보고 깨지는 것만, 테스트 파일).
+- 새 테스트 `react-app/src/lib/fetchAllRows.test.js`, `hydrate.test.js`에 1,000줄 넘는 경우 추가.
 
 ### 안 건드릴 것
-- 서버 지출 행(`fuel_records` 등)의 `raw.vehicleNumber` — 불러오기가 차량 번호로 다시 붙임(`lib/hydrateOwnerDriverExpenses.js:39`), 다음 저장 때 새 번호로 쓰임.
-- 서버 `driver_links` — `vehicle_id`로 연결돼 번호와 무관(`hydrateMerge.js:72`).
-- 메인 차량 번호 변경 — 메인은 `main` 칸이라 번호에 묶인 것이 없음(`vehicleSupabaseIdForLog` `main` 분기).
-- 지출 저장 방식(70번), 차량 삭제(37번).
+- 지출 저장 때 서버 읽기(`syncExpenseItems.js:42,84`·`syncExpenseRecords.js:29`), 점검표 전체 읽기(`dailyInspections.js:96`) — 67-B.
+- 지출 저장 방식 자체(70번), 콜 상세 지우고 넣기(69번).
+- Supabase Max rows 설정 — 그대로 1000.
 
 ### 검증
 - 자동: `npm test`·`typecheck`·`build`, 엄격 검사 경고 457 이하.
-- 새 테스트(가짜 서버):
-  - R-1 비회원: A→B 저장 → ①~④ 모두 B, 기기 저장소에도 B.
-  - R-2 로그인: A→B → `rename_sub_vehicle` 1회 → 차량 저장 1회, 그 뒤 Store ①~④ B.
-  - R-3 로그인 함수 실패 → 차량 저장 0회, Store 전부 옛 번호 그대로, 실패 안내.
-  - R-3b 함수 성공·차량 나머지 칸 저장 실패 → Store 옛 번호 그대로·실패 안내, 다시 저장 → 성공하고 B.
-  - DB: 실행 뒤 시험 계정에서 함수로 번호 변경 → 차량·전용 거래처·설정 키가 같이 바뀌는지, 남의 차량 id로 부르면 0건 변경(거절)인지 조회로 확인.
-  - R-4 번호 그대로 저장 → 거래처·설정 서버 저장 0회(지금과 같음).
-  - R-5 이름 바꾼 뒤 지출 저장 → 그 지출이 B 차량 칸(서버 차량)으로 감, 메인 칸 0건.
-  - 진실성: 고치기 전 코드로 R-1·R-2·R-5가 실패하는지 확인.
-- 브라우저: 개발 서버 시험 계정. 기사 차량 22가2222는 연동 중이라 실제 기사 앱에 영향 → **시험용 미연동 기사 차량을 새로 만들어**(예: 99가9999) 전용 거래처·지출·설정을 넣고 번호를 바꿔 확인.
+- 새 테스트(가짜 서버가 1,000줄씩 잘라 주게):
+  - P-1 2,500줄 → 3번 요청, 2,500줄 모두·순서대로.
+  - P-2 정확히 1,000줄 → 2번 요청(두 번째 0줄)로 끝.
+  - P-3 두 번째 묶음 오류 → `{ data: null, error }`(일부 결과 안 씀).
+  - H-1 hydrate: 메인 차량 콜 상세 1,200건 → Store에 1,200건 전부.
+  - H-2 hydrate: 지출 1,500건 → 전부.
+  - 진실성: 고치기 전 코드로 H-1·H-2가 실패하는지 확인.
+- 브라우저: 개발 서버 시험 계정으로 앱을 켜서 달력·매출·미수 합계가 고치기 전과 같은지(시험 계정은 1,000줄 미만 — 요청 수·결과가 같아야 함, 목표 4) + 네트워크 기록에서 표마다 1회인지 확인.
 
 ### 파일 길이
-- `lib/vehicleMutations.js` 191줄 → 약 170줄(`planSubLogRename` 이동).
-- 새 `lib/vehicleRename.js` 약 110줄.
-- 새 `supabase/migrations/0022_rename_sub_vehicle.sql` 약 70줄(SQL 기록 파일).
-- 새 테스트 파일 약 200줄(테스트 파일 예외).
+- 새 `lib/fetchAllRows.js` 약 30줄.
+- `lib/hydrate.js` 198 → 200 이하(위 대안 포함).
+- `lib/hydrateEmployedDriver.js` 179 → 약 185.
+- `lib/hydrateOwnerDriverExpenses.js` 63 → 약 65.
+- 테스트 파일은 예외.
 
 ### 실패 시 처리
-- 새 저장 장치·재시도 큐·임시 보관 없음(AGENTS §7). 실패하면 안내만, 다시 저장하면 마저 저장(목표 3).
-- DB 함수는 데이터를 지우지 않는 보존적 변경(`create or replace`, 테이블·칸 변경 없음). 잘못되면 `drop function`으로 되돌릴 수 있음.
+- 새 저장 장치·재시도 큐 없음(AGENTS §7). 받다가 오류면 지금처럼 불러오기 실패 안내(재시도 배너).
+- 알려진 한계: 묶음 크기(1,000)는 Supabase 설정값과 같아야 한다. 설정을 1,000보다 작게 바꾸면 첫 묶음이 작게 와서 "끝"으로 잘못 판단함 → 주석에 적어 둠, 설정은 바꾸지 않는다.
 - 검증이 실패하면 코드를 멈추고 이 파일에 수정 착수지시서를 써서 다시 승인받는다.
 
 ### 사용자 확인 방법
-1. 차주 시험 계정 → 차량 관리 → 기사 차량 하나 추가(예: 99가9999, 일지 방식).
-2. 그 차량 일지에 운행 1건·주유 1건, 거래처 관리에서 그 차량 전용 거래처 1곳(고정노선 켬), 그 차량 운행일지 설정에서 일상점검표 켬.
-3. 차량 관리 → 그 차량 번호를 99가9998로 수정·저장.
-4. 새로고침 → 99가9998 일지에 운행·주유가 있고, 전용 거래처·고정노선 단가가 그대로, 일상점검표 켜짐이면 성공.
-5. 주유를 하나 더 추가해도 메인 차량 지출로 안 옮겨지면 성공.
-
----
-
-### 66-1 수정 착수지시서 (브라우저 검증 실패) `[x]` — 보리 승인 후 수정, 재검증 통과(`1db33e6`에 포함)
-
-**무엇이 왜 실패했나 (2026-10-14 개발 서버 확인)**
-- 시험 계정에 시험 기사 차량 99가9999(서버 등록됨)를 만들었다. 거기에 일지 2회·주유 30,000원·전용 거래처 "66번시험거래처"(고정노선)·일상점검표 켜기를 넣은 뒤, 차량 관리에서 번호를 99가9998로 저장했다 → "저장에 실패했습니다".
-- 콘솔: `22P02 invalid input syntax for type json — Token "subCarSettings" is invalid`.
-- 원인: DB 함수 `rename_sub_vehicle`(0022) 설정 줄 `p.settings -> 'subCarSettings' - v_old`. Postgres는 `-`를 `->`보다 먼저 계산해서, 글자 `'subCarSettings'`를 json으로 읽으려다 실패했다. 앱 테스트는 가짜 서버라 이 SQL을 실행하지 않아 못 잡았다.
-- 안전 확인: 함수 전체가 한 번에 되돌려져 서버의 차량 번호·거래처·설정, 그리고 화면(Store)이 **모두 옛 번호 그대로**였다(반만 바뀐 것 없음 — 목표 3의 실패 동작은 실제로 확인됨).
-- 함께 본 것: 같은 시각 콘솔에 개발 서버 화면 갱신(HMR) 오류 1줄이 있었다. 이는 코드를 고치던 중 잠깐 생긴 것으로 이번 실패와는 무관하다(지금 화면은 정상 동작).
-
-**수정 계획**
-- `react-app/supabase/migrations/0022_rename_sub_vehicle.sql` 한 곳만 고친다: `(p.settings -> 'subCarSettings' - v_old)` → `((p.settings -> 'subCarSettings') - v_old)`(괄호로 계산 순서 고정). 나머지 SQL·앱 코드는 그대로 둔다.
-- SQL Editor에서 고친 `create or replace`를 다시 실행한다(보존적 변경). 이어서 사후검증 조회로 권한이 그대로인지 확인한다(관리자 권한 아님·로그인 사용자만 실행).
-- 브라우저 재검증: 같은 시험 차량 99가9999 → 99가9998로 번호를 저장하고 아래를 확인한다.
-  - 서버: 차량 번호·`legacy_log_id`·`raw.number`, 전용 거래처, 설정 키가 모두 새 번호로 바뀐다.
-  - 화면: 일지·지출·거래처·설정이 모두 새 번호로 바뀐다.
-  - 새로고침한 뒤에도 그대로이고, 주유를 하나 더 저장해도 그 차량 칸에 들어간다.
-- 새 저장 장치는 없다. 앱 테스트는 그대로 둔다(SQL은 브라우저 실검증으로 확인).
+1. 시험 계정으로 앱을 새로고침.
+2. 달력(10월) 합계·매출 화면 순이익·미수금 합계가 고치기 전과 같으면 성공(시험 계정은 기록이 1,000줄보다 적어 숫자가 그대로여야 함).
+(1,000줄 넘는 경우는 자동 테스트로 확인 — 실제 계정에 1,000줄을 만들지 않음.)
