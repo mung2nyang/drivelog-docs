@@ -1,77 +1,61 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-## 로드맵 46-B — 하루 화면 고정 노선 금액 + 주유 카드 간격 `[x]`
+## 로드맵 64 미수금 화면에서 기사 차량 운행 입금 처리가 서버에 안 저장됨 `[x]`
 
-> **진행(2026-10-14):** 착수 승인. `FixedCountSection.jsx` 47→74(금액 줄 부품 `FixedAmountLine`을 여기 두고 파렛트 칸도 씀), `PalletSection.jsx` 34→40, `DayLogPage.jsx` 233→233, `fixed-route.css` 106→123, `day-log-expenses.css` 132→138. 새 테스트 `FixedCountSection.test.js` 4개, `npm test` 873+396 통과(기존 기대값 변경 없음), `typecheck` 통과.
-> 개발 서버(보리 계정): 주유 카드 간격 — 10/13 시험 주유(보조금 12,000원·50L)로 "50L"과 상자 사이 6px 간격 확인 후 삭제, 콘솔 오류 없음. 고정 노선 금액 줄 — 이 계정은 고정 노선이 꺼져 있어 보리가 고정 노선 쓰는 계정으로 바꿔 줌. 10/9 일지 "고정 노선 금액 250,000원 (5회 × 50,000원)"(달력 "25만"과 같음), 4회로 바꾸면 200,000원으로 바로 바뀌고 다시 5회로 되돌림. 파렛트는 이 계정에 꺼져 있어 화면 테스트로만 확인. 콘솔 오류 없음.
-> 코드 커밋 react-app `54c8d93`, 보리 push → CI 초록(verify·deploy). §5 리뷰 통과(범위 = 건드릴 파일 6개 그대로, 새 저장 장치 없음, 타입 꼼수 없음, 최대 74줄·`DayLogPage.jsx` 233 그대로, 기존 테스트 삭제·약화 없음, 새 CSS 규칙은 `fixed-route-amount`(새 이름)·`.maint-fuel-info > div`(`ExpenseGroups.jsx:43` 한 곳)만, 목표 1~7 충족 — 파렛트 줄은 화면 테스트로 확인). 보리 최종 승인(2026-10-14).
+> 진행(2026-10-14): 코드 커밋 react-app `9478746`. 테스트 1,273개 통과, 타입 검사 통과, 빌드 성공. 엄격 검사 경고 457개(늘지 않음). 새 테스트 H-1~H-3은 고치기 전 코드로 되돌리면 실패함을 확인. 개발 서버에서 시험 계정 기사 차량 22가2222에 "64번시험" 운행(10,000원)을 만들어 입금 완료 → 서버에 "수금 완료"로 저장됨, 새로고침 뒤 미수금 목록에서 빠지고 일지에도 "수금"으로 보임(시험 운행은 보리 결정으로 그대로 둠). 보리 push, CI 초록(verify·deploy), 최종 승인(2026-10-14).
 
-외부 검수(2026-10-12) 결과, 급한 순서 ⑤(불편), 재현됨. 근거: `docs/roadmap.md` 46번. 46-A `[x]`(`1755931`) 다음.
-주유 카드 "50L"·"유가보조금" 상자 간격은 46-A 화면 확인 때 나온 것으로, 보리가 같이 손보라고 지시함 `[확인: 2026-10-14 보리]`.
+보리 지시(2026-10-14, "64번부터"). 근거: 코드 리뷰(2026-10-14) → `docs/roadmap.md` 64번. 8-B(미수 쓰기 창구 통일)가 메인 차량만 서버로 보내던 빈틈을 메운다. 저장 경로라 `docs/testing-playbook.md` 읽음.
 
 ### 쉬운 요약
-- **무엇을:** 하루 운행일지의 "고정 노선" 칸에, 지금은 횟수만 보이는데 **금액(횟수 × 1회 단가)**도 보여 준다. 파렛트도 같은 식으로 금액을 보여 준다.
-- **같이:** 주유 카드에서 "50L"과 "유가보조금" 상자가 붙어 보이는 것을 띄운다.
-- **달라지는 점:** 계산은 그대로이고 표시만 늘어난다. 달력에서만 보이던 고정 노선 금액을 그날 화면에서 바로 확인할 수 있다.
+- 로그인 차주가 미수금 화면에서 **기사 차량** 운행을 입금 완료·부분 입금·입금 취소·한 달치 입금 완료 하면, 지금은 화면에서만 바뀌고 서버에는 안 올라가서 앱을 다시 켜면 미수로 돌아온다.
+- 일지 화면이 이미 쓰는 서버 저장 길을 미수금 화면에서도 기사 차량에 똑같이 쓰게 한다.
+- 끝나면 기사 차량 입금 처리도 다시 켰을 때 그대로 남는다. 실패하면 지금 메인 차량처럼 "저장에 실패했습니다"가 뜨고 화면은 바뀌지 않는다.
 
 ### 현재 상태 (코드 확인)
-- 고정 노선 칸 `components/day-log/FixedCountSection.jsx`(47줄): 횟수 입력칸과 빠른 선택 버튼만 있고 금액은 없다. 파렛트 칸 `PalletSection.jsx`(34줄)도 장 수만 있다.
-- 금액은 저장하지 않고 매번 "횟수 × 고정 노선 거래처의 1회 단가(`fixedUnitPrice`)"로 계산한다(`domain/clients.js:38-55`). 달력도 같은 방식이다(`components/calendar/useMonthSettlement.js:26-31` → `domain/monthSettlement.js:94` `fixedCount × unitPrice`, `:114` `palletCount × palletPrice`).
-- 하루 화면은 이미 같은 거래처를 같은 범위로 찾아 두었다(`DayLogPage.jsx:83` `getFixedRouteClient({ clients }, clientScopeKey || logId)`, 달력 `useMonthSettlement.js:25,30`과 같음). 지금은 파렛트 칸을 보일지 정하는 데만 쓴다(`:84`).
-- 주유 카드 간격: `ExpenseGroups.jsx:44`의 왼쪽 묶음(`<div>`)에 간격 규칙이 없어 "50L"과 상자가 붙는다. 묶음을 감싼 `.maint-fuel-info`는 `ExpenseGroups.jsx:43` 한 곳에서만 쓴다(검색: `maint-fuel-info` → `ExpenseGroups.jsx:43`, `day-log-expenses.css:40,45,105`만).
+- `lib/ownerFinance.js:55-94` `persistReceivableWorkDataChange`: 메인(`main`)만 바뀐 날짜를 `commitMainDayLogToCloud`/`commitMainDayLogMapToCloud`로 서버에 쓴다.
+- 서브 차량은 `persistSubLogChanges`(`ownerFinance.js:39-47`) → `commitLogWorkData`. 로그인 계정이면 메모리만 바꾸고 서버·기기 저장소 모두 안 씀(`store/commitHelpers.js:44-55`, `cloud`면 `persist: false`).
+- 서버 저장 함수는 이미 서브 차량을 지원한다: `commitMainDayLogToCloud`·`commitMainDayLogMapToCloud`가 `vehicleSupabaseIdForLog(ownerKey, logId)`로 차량번호별 서버 차량을 찾음(`lib/mainDayLogRouting.js:14-23`). 일지 화면은 서브 차량도 이 길로 저장(`useDayDraft.js:124-125`).
+- 미수금 목록에 서브 차량 운행이 나오는 근거: `buildFinanceSettings`가 `subPaymentOn: true`(`ownerFinance.js:104`) → `getReceivableItems`가 서브 차량 소스 추가(`domain/financeReceivables.js:45-49`).
+- 테스트에 서브 차량 경우 없음(`receivablesCloudCommit.test.js` A~G 전부 `logId: 'main'`).
 
 ### 목표 상태 (기대 동작)
-1. 고정 노선 횟수가 1회 이상이고 1회 단가가 있으면, 횟수 입력 아래에 `고정 노선 금액  150,000원 (3회 × 50,000원)` 한 줄이 보인다.
-2. 횟수가 0이거나, 휴무거나, 고정 노선 거래처의 1회 단가가 없으면(0원) 이 줄은 안 보인다.
-3. 파렛트 칸이 보이고 장 수가 1장 이상이고 파렛트 단가가 있으면, 장 수 입력 아래에 `파렛트 금액  10,000원 (2장 × 5,000원)` 한 줄이 보인다. 조건이 하나라도 안 맞으면 안 보인다.
-4. 금액은 **수수료 떼기 전**이다. 운행 카드의 "운송료"와 같은 기준이고, 달력 "월간 운송료 정산"의 거래처별 운송료와 같은 공식이다.
-5. 횟수나 장 수를 바꾸면 금액이 바로 따라 바뀐다.
-6. 주유 카드의 "50L"과 "유가보조금" 상자 사이에 간격이 생긴다. 정비·기타 카드(결제 상자 하나)는 모양이 그대로다.
-7. 금액·저장·달력·매출은 바뀌지 않는다.
-
-### 예상 화면
-```
-┌ 고정 노선 ───────────────────────────────┐
-│ 운행 횟수 입력   [      3        회]      │
-│ 고정 노선 금액      150,000원 (3회 × 50,000원) │  ← 새 줄
-│ [1회] [2회] [3회]                         │
-│ 파렛트 회수     [      2        장]       │
-│ 파렛트 금액          10,000원 (2장 × 5,000원) │  ← 새 줄(파렛트 켜졌을 때만)
-└──────────────────────────────────────────┘
-주유 카드:  50L  [유가보조금 12,000원]      80,000원   ← 사이 간격
-```
+1. 로그인 차주가 미수금 화면에서 서버에 있는 기사 차량 운행을 입금 완료·부분 입금·입금 취소하면, 그 날짜가 그 차량의 서버 일지(`daily_logs`+`transport_details`)에 저장되고 성공한 뒤에만 화면(Store)이 바뀐다.
+2. 한 달치 입금 완료에 메인·기사 차량 운행이 섞여 있으면 차량마다 서버에 저장한다. 순서는 메인 → 기사 차량(목록 순).
+3. 중간에 실패하면 거기서 멈추고, 이미 저장된 차량·날짜만 화면에 반영, 나머지는 그대로 두고 지금과 같은 안내(전부 실패 "저장에 실패했습니다…", 일부 성공 "일부만 저장되었습니다…", 세션 바뀜 "로그인 정보가 바뀌어…")를 띄운다.
+4. 비회원·서버에 아직 없는 차량(`supabaseId` 없음)은 지금처럼 기기에만 저장(동작 변화 없음).
+5. 메인 차량만 바뀐 경우의 동작·안내·서버 호출 횟수는 지금과 같다(기존 테스트 A~G 그대로 통과).
 
 ### 건드릴 파일
-- `react-app/src/components/day-log/FixedCountSection.jsx`(47) — `fixedRouteClient` 받아 금액 줄 추가.
-- `react-app/src/components/day-log/PalletSection.jsx`(34) — 같은 거래처 받아 파렛트 금액 줄 추가.
-- `react-app/src/components/day-log/DayLogPage.jsx`(233) — 두 칸에 이미 찾아 둔 `fixedRouteClient`를 넘기기만 함(기존 줄에 속성 추가, 줄 수 그대로).
-- `react-app/src/components/day-log/fixed-route.css`(106) — 새 클래스 `fixed-route-amount` 하나(새 이름이라 다른 화면 영향 없음, 검색: `fixed-route-amount` 0건).
-- `react-app/src/components/day-log/day-log-expenses.css`(132) — `.work-log-page .maint-fuel-info > div`에 가로 정렬·간격. 영향: `ExpenseGroups.jsx:43` 한 곳뿐(위 검색).
-- 테스트: 새 파일 `FixedCountSection.test.js` — 금액 줄 보임·숨김(0회·휴무·단가 0), 파렛트 금액 보임·숨김.
-- 코드 파일 5개지만 각각 몇 줄씩이고 같은 화면(하루 일지) 안이라 한 슬라이스로 둔다.
+- `react-app/src/lib/ownerFinance.js` — `persistReceivableWorkDataChange`를 "바뀐 날짜가 있는 차량(main + 서브)마다 같은 판단: 서버 차량이면 서버 저장, 아니면 기기 저장"으로 바꾸고, `persistSubLogChanges`는 이 반복으로 흡수. 넣을 주석(최종 문구): `// 차량마다(메인 → 기사 차량) 서버에 있으면 서버 저장, 없으면 기기 저장. 실패한 차량에서 멈춘다.`
+- `react-app/src/lib/receivablesCloudCommit.test.js` — 기사 차량 시나리오 테스트 추가(아래 검증).
+- 공용 값 변경 없음(함수 이름·돌려주는 모양 `{ ok, partial, toast }` 그대로 — 호출부 `useReceivablesActions.js:47,102` 2곳만, `grep persistReceivableWorkDataChange` 확인).
 
 ### 안 건드릴 것
-- 계산(`clients.js`·`monthSettlement.js`·매출) — 표시만, 금액 변화 없음.
-- 달력 날짜 칸 금액 표시(`calendarBadges.js` `dayFareTotal`) — 이번 범위 아님.
-- 연동 기사 차량(서브 차량)의 파렛트 금액은 하루 화면의 파렛트 칸이 보일 때만 보인다(`DayLogPage.jsx:84` 기준 그대로).
-- 플레이북: 표시만 → 참고만.
+- `lib/dayLogCloudCommit.js` — 이미 `logId`별 차량을 고름(`vehicleSupabaseIdForLog` 사용, 위 근거). 지우고 넣는 사이 끊김 문제는 69번 몫.
+- `store/commitHelpers.js` `commitLogWorkData` — 서버 성공 뒤 메모리 반영용으로 그대로 씀.
+- 미수 계산(`domain/financeReceivables.js`)·화면(`components/receivables/*`) — 저장 길만 바뀜.
+- 서버(DB)·권한 — 변경 없음. 차주가 기사 차량 일지를 서버에 쓰는 것은 일지 화면이 이미 하는 일(`useDayDraft.js:124`).
 
 ### 검증
-- `npm test` 전체 통과(기존 테스트 기대값 변경 없음), `npm run typecheck` 통과.
-- 개발 서버: 고정 노선이 켜진 계정에서 시험 날짜에 횟수·파렛트를 넣어 금액 줄 확인 → 넣은 값은 확인 후 되돌림. 주유 카드 간격은 시험 주유 기록으로 확인 후 삭제.
+- 자동: `npm test`(CI가 재실행), `npm run typecheck`·`build`.
+- 새 테스트(`receivablesCloudCommit.test.js`, 가짜 서버):
+  - H-1 기사 차량 운행 입금 완료 → 그 차량 번호(`vehicle_id`)로 `daily_logs` upsert 1회·`transport_details` 교체, 성공 뒤 Store 서브 일지에 입금 반영.
+  - H-2 기사 차량 서버 실패 → Store 서브 일지 그대로, "저장에 실패했습니다…".
+  - H-3 한 달치에 메인+기사 차량 → 둘 다 서버 저장 / 메인 성공·기사 실패 → `partial: true`, 메인만 반영.
+  - H-4 비회원 기사 차량 → 서버 호출 0회, 기기 저장(지금 동작 유지).
+  - 진실성: 고치기 전 코드로 되돌려 H-1·H-3이 실패하는 것 확인(플레이북 §6).
+- 브라우저: 개발 서버에서 실제 데이터는 건드리지 않게, 시험 계정·시험 기사 차량 운행으로만(아래 사용자 확인).
 
 ### 파일 길이
-- `FixedCountSection.jsx` 47 → 약 57
-- `PalletSection.jsx` 34 → 약 42
-- `DayLogPage.jsx` 233 → 233(기존 줄에 속성만 추가). 이미 200줄을 넘은 파일이지만 맨 위 §6 예외 주석으로 남겨 둔 파일이고, 이번엔 줄을 늘리지 않는다.
-- `fixed-route.css` 106 → 약 114, `day-log-expenses.css` 132 → 약 138
-- 테스트 파일은 예외
+- `lib/ownerFinance.js` 161줄 → 약 170줄(200줄 이하).
+- `receivablesCloudCommit.test.js` 253줄 → 약 330줄(테스트 파일 예외).
 
 ### 실패 시 처리
-- 새 저장 장치·재시도는 해당 없음(표시만). 결과가 목표와 다르면 멈추고 수정 착수지시서를 써서 다시 승인받는다.
+- 새 저장 장치·재시도 큐·임시 보관 없음(AGENTS §7). 서버 실패는 지금 메인 차량과 같은 Fail-Fast 안내만.
+- 검증이 실패하면 코드를 멈추고 이 파일에 수정 착수지시서를 써서 다시 승인받는다.
 
 ### 사용자 확인 방법
-1. 운행일지(고정 노선 켜짐) → 운행 횟수 3 입력 → 아래에 "고정 노선 금액 … (3회 × 1회 단가)"가 보이고, 금액이 달력 정산 카드의 고정 노선 거래처 운송료와 같은 공식인지.
-2. 횟수를 0으로 → 줄이 사라지는지. 휴무를 켜도 사라지는지.
-3. (파렛트 켠 거래처면) 파렛트 회수 2 → "파렛트 금액 … (2장 × 단가)".
-4. 유가보조금 넣은 주유 카드 → "50L"과 상자 사이가 떨어져 보이는지.
+1. 차주 시험 계정으로 로그인 → 기사 차량(시험용) 운행 하나를 운송료 넣고 "미수"로 저장.
+2. 미수금 화면 → 그 거래처·달 → 그 운행 [입금 완료] → "입금 완료 처리했습니다".
+3. 앱을 완전히 껐다 켜거나 새로고침 → 미수금 화면에 그 운행이 **다시 나오지 않으면** 성공(지금은 다시 나옴).
+4. 그 기사 차량 일지에서 그 운행이 "수금"으로 보이면 성공.
