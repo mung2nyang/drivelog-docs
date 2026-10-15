@@ -409,7 +409,7 @@ GPS 같은 기능을 자문 뒤에 넣으면 자문을 다시 받아야 해서(�
     화면 숨김·닫힘(`pagehide`·`visibilitychange`) 때도 일지는 저장하지 않음(`app/syncFlushListeners.js`는 안 쓰는 outbox만 비움) — 입력 직후 앱을 내렸다가 휴대폰이 앱을 끄면 유실.
 73. ~~**설정 스위치를 빠르게 연달아 누르면 앞 변경이 되돌아갈 수 있음**~~ `[x]` react-app `7bb3bb9`(2026-10-14, 저장 한 줄로·최신 설정 위에) (①, 낮음) — `lib/practiceSettings.js:25-34`가 지금 설정에 바꿀 값을 얹어 서버 저장을 기다린 뒤에야 화면에 반영하고,
     저장을 한 줄로 세우지 않음 → 앞 저장이 끝나기 전 누른 두 번째 스위치는 옛 설정 기준이라 앞 변경을 덮음(서버도). 앱 설정·알림 종류 끄기 스위치.
-74. **세금계산서 작성 저장·발급 완료 표시가 서버 결과를 안 기다리고 "저장했습니다"를 띄움** (②) — `lib/taxInvoiceActions.js:50,74`가 서버 저장(`saveInvoices`)을 기다리지 않음.
+74. ~~**세금계산서 작성 저장·발급 완료 표시가 서버 결과를 안 기다리고 "저장했습니다"를 띄움**~~ `[x]` react-app `fcb0deb`(2026-10-15, 결과 기다린 뒤 안내) (②) — `lib/taxInvoiceActions.js:50,74`가 서버 저장(`saveInvoices`)을 기다리지 않음.
     실패해도 성공 안내·창 닫힘 → 입력한 사업자번호 등이 사라지고 "발급 완료"도 조용히 "작성 전"으로 돌아감. 56번(실패 안내 정리)과 같이 볼 수 있음.
 75. **휴무로 바꾼 날의 미수가 달력엔 남고 미수금 화면엔 없음** (②) — 휴무로 바꿔도 그날 콜은 안 지워지는데(`domain/day-record.js` `saveDayRecord`),
     달력 미수 합계·빨간 점(`day-record.js:176` `monthCallUnpaidTotal`, `calendarBadges.js` `dayHasUnpaid`)과 기사 정산 합계(`financeCore.js` `getMonthlyDriverTotals`)는 휴무일 콜을 세고,
