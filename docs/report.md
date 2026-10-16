@@ -1,74 +1,58 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-## 로드맵 56-A 같은 실패는 같은 문구로 (실패 안내 문구 맞추기) `[x]`
+## 로드맵 56-B-1 실패 문구를 공용 파일 한 곳에서 (파일마다 적은 같은 문구 모으기) `[x]`
 
-> **진행(2026-10-16)**: 보리 "추천대로, 착수지시서 확정, 작업 진행해"(문구 ②·③ 추천안, `MaintFuelPage.jsx` 제자리 예외). 코드 수정 끝·커밋 전.
-> 새 `failureMessages.test.js` 3개 고치기 전 실패 확인 → 통과, typecheck 통과. 줄 수: `MaintFuelPage.jsx` 243 → **245**(가져오기 2줄 — 지시서 예상 244보다 1줄 더), `cloudSession.js` 151 → 152(가져오기 1줄, 문구는 같은 줄에서 바꿈).
->
-> ### 수정 착수지시서 (검증 실패 1건)
-> - **무엇이 실패**: `npm test` 1,361개 중 4개 — `src/app/App.guestDurable.test.js:583·638·791·935`가 옛 문구 글자("저장하지 못했"·"삭제하지 못했"·"자동 저장에 실패")를 찾음. 같은 테스트의 저장소·store 불변·알림 0회·창 유지 검사는 그대로 통과(실패 지점은 문구 비교 줄뿐).
-> - **왜**: 문구 표 ②로 바꾼 의도된 변경. 이 파일은 지시서 "건드릴 파일"에 없었음(문구를 보는 테스트를 `grep` 할 때 "저장 공간을 확인" 전체 문장으로만 찾아 놓침).
-> - **수정 계획**: 그 4줄만 ② 문구(`DEVICE_SAVE_FAIL`)와 같은지 보도록 바꿈 — 검사를 약하게 하지 않고 "실패 안내가 뜬다"를 "정해진 ② 문구가 뜬다"로 더 정확히. 다른 줄·다른 파일 안 건드림. 새 장치 없음.
-> - **결과**: 보리 "수정 착수지시서 확정, 작업 진행해" → 4줄 바꿈(가져오기 1줄 포함), `npm test` 1,361개 통과. AI 개발 서버 비회원 주유 저장("내역을 등록했습니다.")·지우기 그대로(시험 기록 지움). 코드 커밋 react-app `bfb87f2`(push 전). 리뷰 §5: 바뀐 파일 = 지시서 6개 + 테스트 2개(수정 지시서로 1개 추가), 새 파일 `failureMessages.js`(지시서대로), 타입 꼼수 없음. push는 보리 예외 지시("예외로 푸시까지")로 AI, CI verify·deploy 초록(run 38886836892). 보리 최종 `[x]` 승인(2026-10-16).
+> **진행(2026-10-16)**: 보리 "착수지시서 확정, 작업 진행해"(16개 한 슬라이스 승인). 코드 커밋 react-app `7154809`(push 전) — 코드 16개 + 테스트 2개.
+> "공용 파일 밖 글자 0곳" 새 테스트 고치기 전 실패 확인 → 통과, `npm test` 1,362개 통과, typecheck 통과. ① 글자를 상수로 비교하던 기존 테스트 13개 파일 그대로 통과, ③ 옛 글자 1곳(`receivablesCloudCommit.test.js:23`) 새 문구로.
+> 줄 수: 파일마다 +1(가져오기), 가장 긴 `dayLogCloudCommit.js` 197.
+> AI 개발 서버 비회원: 앱 설정·알림·마이페이지 정상, 바꾼 파일 불러오기 오류 없음(콘솔의 "MyPage 불러오기 실패"는 서버를 다시 켜기 전 남은 옛 기록 — 다시 열어 정상 확인).
+> 리뷰 §5: 바뀐 파일 = 지시서 목록 그대로, 새 파일 없음, 타입 꼼수 없음. push는 보리 예외 지시("예외로")로 AI, CI verify·deploy 초록(run 38889740852). 보리 최종 `[x]` 승인(2026-10-16).
 
-로드맵 56번(⑤, 코드 구조 점검). 54번 `[x]`(`bf5f4b9`)로 48~54 끝난 다음. 56번은 두 가지라 나눈다:
-- **56-A(이번)**: 문구 표 확정 + 공용 문구 파일 하나 + **문구가 원인을 잘못 짐작하거나 같은 상황에 두 갈래인 곳만** 바꿈
-- **56-B(다음, 따로 지시서)**: "저장 → 실패하면 기록 남기고 알림"이 화면 31곳에 손으로 반복된 것을 공용 훅으로 모음, 같은 문구를 파일마다 따로 적은 15곳도 그때 공용 파일로
+로드맵 56-B(⑤). 56-A `[x]`(`bfb87f2`)에서 만든 `lib/failureMessages.js`를 실제로 쓰게 하는 단계. 56-B는 둘로 나눈다:
+- **56-B-1(이번)**: 파일마다 따로 적은 같은 실패 문구 상수를 공용 파일에서 가져오게 바꿈 + "다시 로그인한 뒤" 9곳을 sot ③ 문구로
+- **56-B-2(다음, 따로 지시서)**: 화면에 손으로 반복된 "저장 → 실패하면 기록 남기고 알림"(조사해 보니 화면 쪽 약 24곳)을 공용 함수 하나로
 
 ### 쉬운 요약
-- 같은 "저장 실패"인데 화면마다 "네트워크를 확인해 주세요", "저장 공간을 확인해 주세요", "잠시 후 다시 시도해 주세요"가 섞여 있다. 특히 로그인 계정이 지출을 저장하다 실패해도 "저장 공간"이라고 나온다(실제로는 서버 저장).
-- 원인을 아는 경우 3가지만 문구를 정하고, 그 문구를 한 파일에 모아 둔다. 저장·동작은 그대로, 안내 글자만.
+- 같은 "저장에 실패했습니다. 네트워크…" 문구가 15개 파일에 따로 적혀 있어서, 문구를 바꾸려면 15곳을 다 고쳐야 한다. 이걸 공용 파일 한 곳에서 가져오게 바꾼다.
+- "로그인 정보가 바뀌어…" 문구 중 아직 "다시 로그인한 뒤"로 남은 9곳을 56-A에서 정한 ③("화면을 새로고침한 뒤")으로 맞춘다.
+- 보이는 문구는 ③ 9곳만 바뀌고, 나머지는 글자가 같다. 저장·동작은 하나도 안 바뀐다.
 
-### 현재 상태 (코드 확인, `grep` 결과)
-- 서버 저장 실패(로그인): `저장에 실패했습니다. 네트워크 상태를 확인해 주세요.` **29곳**(15개 파일에 같은 상수를 따로 적음) — sot 고정(`sot.md:552·625`).
-- 기기 저장 실패(비회원): 두 갈래 — `저장하지 못했습니다. 저장 공간을 확인해 주세요.`(`useExpenseForm.js:82`·`MaintFuelPage.jsx:89`), `자동 저장에 실패했습니다. 저장 공간을 확인해 주세요.`(`dayDraftLifecycle.js:87`), `삭제하지 못했습니다. 저장 공간을 확인해 주세요.`(`useExpenseForm.js:69`) vs `저장에 실패했습니다. 잠시 후 다시 시도해 주세요.`(`outboxCommit.js:7` `STORAGE_FAIL_TOAST`, 거래처·차량 3곳이 씀).
-- **잘못 짐작**: 지출 저장(`saveExpenses`, `expenses.js:19-40`)은 비회원이면 기기, 로그인이면 서버인데 화면(`useExpenseForm.js:69·82`, `MaintFuelPage.jsx:89`)은 둘 다 "저장 공간".
-- 로그인 정보 바뀜: 두 갈래 — `…다시 로그인한 뒤 시도해 주세요.` 10곳(9개 파일 상수) vs `…화면을 새로고침한 뒤 다시 시도해 주세요.` 5곳(`cloudSession.js:135-148`).
-
-### 문구 표 (보리 확인 필요 — 추천안)
-| 상황(원인을 아는 경우) | 추천 문구 | 지금 |
-|---|---|---|
-| ① 서버 저장 실패(로그인) | 저장에 실패했습니다. 네트워크 상태를 확인해 주세요. | 그대로(sot 고정) |
-| ② 기기 저장 실패(비회원) | **저장에 실패했습니다. 휴대폰 저장 공간을 확인해 주세요.** | 4가지 섞임 → 하나로 |
-| ③ 로그인 정보 바뀜 | **로그인 정보가 바뀌어 저장하지 못했습니다. 화면을 새로고침한 뒤 다시 시도해 주세요.** | 2가지 → 하나로(새로고침하면 다시 로그인 화면이 나오거나 그대로 이어져서 어느 경우에도 맞음) |
-- 원인을 모르는 실패는 이번에 새 문구를 만들지 않는다(지금은 저장 경로마다 위 셋 중 하나로 정해짐).
-- 저장·삭제를 굳이 나누지 않는다(②는 지우기 실패에도 같은 문구 — 지우기도 "저장"이라).
+### 현재 상태 (`grep` 결과)
+- ① `'저장에 실패했습니다. 네트워크 상태를 확인해 주세요.'`를 상수로 따로 적은 곳 14개 파일: `DailyInspectionNotice.jsx:15` · `NotificationsPage.jsx:13` · `usePersonalInfoDraft.js:11` · `clientCloudSave.js:11` · `dayLogCloudCommit.js:24` · `directMutationActions.js:32` · `driverUnlink.js:12` · `memberRestoreInspections.js:18` · `memberRestoreRecords.js:125` · `requestDriverInviteSave.js:20` · `supportInquiryMutations.js:13` · `taxInvoiceActions.js:10` · `vehicleDeletion.js:22` · `vehicleMutations.js:19`, 글자를 직접 쓴 곳 1개: `AppSettingsPage.jsx:48`.
+- ③ 옛 문구 `'로그인 정보가 바뀌어 저장하지 못했습니다. 다시 로그인한 뒤 시도해 주세요.'` 9개 파일: `clientCloudSave.js:12` · `dayLogCloudCommit.js:25` · `directMutationActions.js:33` · `driverUnlink.js:13` · `ownerFinance.js:35` · `requestDriverInviteSave.js:21` · `supportInquiryMutations.js:14` · `vehicleDeletion.js:23` · `vehicleMutations.js:20`.
+- 이 문구를 보는 테스트: ① 13개 파일(대부분 각 파일의 상수를 가져와 비교 — 글자가 같아 그대로 통과 예상), ③ 옛 글자를 직접 보는 곳 1개(`receivablesCloudCommit.test.js`).
+- 바꿀 파일 전부 200줄 이하(가장 긴 `dayLogCloudCommit.js` 196줄).
 
 ### 목표 상태 (기대 동작)
-1. 새 `lib/failureMessages.js`에 ①②③ 문구 상수 3개와, 로그인 계정이면 ①·비회원이면 ②를 돌려주는 함수 하나.
-2. 지출 저장·지우기 실패: 로그인 계정이면 ①, 비회원이면 ②.
-3. 하루 일지 자동 저장 실패(기기, `dayDraftLifecycle.js:87`)와 거래처·차량 기기 저장 실패(`outboxCommit.js:7`)가 ②.
-4. 로그인 정보 바뀜 5곳(`cloudSession.js`)이 ③ — 9개 파일의 "다시 로그인한 뒤" 상수는 56-B에서 공용 파일로 바꿀 때 ③이 됨(이번엔 그대로).
-5. 저장·지우기 동작, 실패 뒤 창 유지 등은 하나도 안 바뀜.
+1. 위 15개 파일이 ① 문구를 `lib/failureMessages.js`의 `SERVER_SAVE_FAIL`에서 가져온다(파일 안 상수 이름은 그대로 두고 값만 공용 상수로 — 다른 곳이 그 이름을 가져다 쓰기 때문).
+2. 위 9개 파일의 로그인 바뀜 문구가 `SESSION_CHANGED_FAIL`(③ "화면을 새로고침한 뒤 다시 시도해 주세요.").
+3. 화면에 보이는 문구 변화는 ③ 9곳뿐, ① 글자는 그대로.
+4. 저장·재시도·알림 띄우는 때는 그대로.
+5. 이 일이 끝나면 `failureMessages.js` 밖에서 ①·③ 문구를 글자로 적은 곳이 0곳(`grep`으로 확인하는 테스트).
 
 ### 건드릴 파일
-- 새 `react-app/src/lib/failureMessages.js` — 문구 상수 3개 + 함수 1개(약 20줄, 새 저장 장치 아님 — 글자만)
-- `react-app/src/lib/outboxCommit.js` — `STORAGE_FAIL_TOAST` 값을 ②로(이름·쓰는 곳 그대로)
-- `react-app/src/lib/cloudSession.js` — `:135-148` 다섯 줄을 ③ 상수로
-- `react-app/src/components/day-log/dayDraftLifecycle.js` — `:87` ②
-- `react-app/src/components/day-log/useExpenseForm.js` — `:69·82` 경로별 함수
-- `react-app/src/components/MaintFuelPage.jsx` — `:89` 경로별 함수 (**243줄, §6 예외 승인 필요** — 아래 질문)
-- 테스트: 새 `src/lib/failureMessages.test.js`(로그인·비회원 문구), 기존 `cloudSession.test.js`·`dayDraftLifecycle.test.js`에 바뀐 문구를 보는 곳이 있으면 같은 뜻으로 바꿈, 지출 실패 문구 확인 1개
-- 공용 영향: `STORAGE_FAIL_TOAST` → `clientMutations.js:33`, `vehicleMutations.js:110·131`, `outboxCommit.js:21`(값만 바뀌고 쓰는 방법 그대로).
+- 위 ① 15개 + ③ 9개 — 겹치는 파일이 많아 **실제 파일은 16개**: `components/` 4개(`AppSettingsPage.jsx`·`day-log/DailyInspectionNotice.jsx`·`notifications/NotificationsPage.jsx`·`usePersonalInfoDraft.js`), `lib/` 12개(`clientCloudSave`·`dayLogCloudCommit`·`directMutationActions`·`driverUnlink`·`memberRestoreInspections`·`memberRestoreRecords`·`ownerFinance`·`requestDriverInviteSave`·`supportInquiryMutations`·`taxInvoiceActions`·`vehicleDeletion`·`vehicleMutations`). 파일마다 가져오기 1줄 + 상수 값 1~2줄.
+- 테스트: `failureMessages.test.js`에 "공용 파일 밖 글자 0곳" 검사 1개, `receivablesCloudCommit.test.js` ③ 기대 문구 1줄을 새 문구로(의도한 변경).
+- 공용 영향: 파일 안 상수 이름을 그대로 두므로 그 이름을 가져다 쓰는 곳(`CLIENT_SAVE_FAIL_TOAST` 등)은 그대로.
+- **슬라이스 크기**: 파일 16개라 AGENTS §3 "1~3개 파일"보다 많지만, 파일마다 같은 한두 줄 바꾸기라 나누면 "무의미한 기계적 분할"(§6)이 됨 → 한 번에 하는 예외 요청(아래 질문).
 
 ### 안 건드릴 것
-- ① 문구를 쓰는 15개 파일의 개별 상수(56-B), "다시 로그인한 뒤" 9개 파일 상수(56-B), 그 밖의 실패 문구(불러오기·PDF·공유 등 — 원인이 다른 실패).
-- 저장 함수·재시도·오류 기록(`errorReport`) — 손대지 않음.
+- 화면의 "저장 → 실패 알림" 반복 코드(56-B-2), 그 밖의 실패 문구(PDF·공유·불러오기 등).
+- 각 파일의 저장 흐름·상수 이름·`errorReport`.
 
 ### 검증
-- 로컬 `npm test` — 새 테스트는 고치기 전 실패 확인.
-- 브라우저: 실패를 일부러 내기 어려워 테스트로 확인. AI가 개발 서버 비회원으로 지출 저장·지우기가 그대로 되는지만 확인(시험 기록 지움).
+- 로컬 `npm test` — "공용 파일 밖 글자 0곳" 새 테스트는 고치기 전 실패 확인, 나머지는 그대로 통과해야 함(①은 글자 같음).
+- 브라우저: 실패를 일부러 내기 어려워 테스트로 확인. AI가 개발 서버 비회원으로 앱이 그대로 뜨는지만 확인.
 
 ### 파일 길이
-- `failureMessages.js` 새 약 20 / `outboxCommit.js` 23 → 23 / `cloudSession.js` 151 → 약 147 / `dayDraftLifecycle.js` 96 → 97 / `useExpenseForm.js` 96 → 97
-- `MaintFuelPage.jsx` 243 → 244 — **이미 200줄 초과.** 분리 설계 없이 이 한 줄만 제자리에서 바꾸는 예외(75번 `financeCore.js` 212줄 때와 같은 방식)를 요청. 아니면 이 파일은 빼고 56-B 때 분리와 함께.
+- 모든 파일 +1줄 안팎(가져오기). 가장 긴 `dayLogCloudCommit.js` 196 → 약 197, 전부 200 이하.
+- 테스트 파일은 예외.
 
 ### 실패 시 처리
-- 새 저장 장치·재시도·대비 장치 없음(안내 글자만). 실패하면 수정 착수지시서를 다시 써서 승인받는다.
+- 새 저장 장치·재시도·대비 장치 없음(문구 가져오는 곳만). 실패하면 수정 착수지시서를 다시 써서 승인받는다.
 
 ### 사용자 확인 방법
-- 실패는 일부러 내기 어려워 화면 확인은 없음. 문구 표만 확인해 주시면 됨.
+- 화면 확인 없음(실패할 때만 보이는 문구). 로그인 정보가 바뀌었을 때 안내가 "화면을 새로고침한 뒤…"로 나오는 것만 바뀜.
 
-### 보리 확인 필요 (한 번에)
-1. 문구 표 ②·③ 추천 문구로 할지(다르게 원하면 문구를 알려 주세요).
-2. `MaintFuelPage.jsx`(243줄) 한 줄을 이번에 제자리에서 바꿀지(추천 — 로그인 계정에 "저장 공간"이 나오는 잘못된 안내라서), 56-B로 미룰지.
+### 보리 확인 필요
+- 파일 16개를 한 번에 바꾸는 것(파일마다 한두 줄)을 이번 슬라이스 하나로 해도 될지(추천 — 나누면 같은 일을 여러 번 커밋).
