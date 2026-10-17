@@ -1,59 +1,66 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-## 로드맵 57-B 입력 칸 창 7개·문자 양식 시트도 공용 창 껍데기로 `[x]`
+## 로드맵 57-C CSS 이름 중복 — 글자까지 같은 복사본 6개만 한 곳으로 `[x]`
 
-> **진행(2026-10-16)**: 보리 "응, 착수지시서 확정, 작업 진행해"(입력 창 바깥 누름·Esc 모두 안 닫힘, 9개 파일 한 번에). 코드 커밋 react-app `294a63d`(push 전).
-> 새 테스트 9개(입력 창 6개 창 표시·Esc 안 닫힘 반복, 고정 노선 창, 바깥막 이름, 문자 시트) 고치기 전 실패 확인 → `npm test` 1,375개 통과, typecheck 통과. 기존 "바깥 클릭 안 닫힘" 테스트 그대로 통과.
-> 만들다 알게 된 것: 고정 노선 창은 화면 맨 바깥(`document.body`)에 그려지고 해제 확인 창이 바깥막 안에 있어서, 확인 창을 껍데기 바로 옆에 나란히 둠(겹친 창 맨 위만 Esc 규칙 그대로). 지출 창 inline 모드는 상자만.
-> 줄 수: `ModalShell.jsx` 63, `ExpenseFormModal.jsx` 180→182, 나머지 같거나 1~2줄 변동, 전부 200 이하.
-> AI 개발 서버 비회원 375px: 거래처 창 role=dialog·이름·키보드 위치 창 안, 바깥 누름·Esc 안 닫힘, 취소로 닫히고 "+ 추가"로 키보드 위치 돌아감. 하루 화면 주유 입력(inline) 모양 그대로·창 표시 없음. 문자 시트·나머지 창은 테스트로.
-> 리뷰 §5: 건드릴 파일 = 지시서 목록 그대로, 새 파일 없음, 타입 꼼수 없음. push는 보리 예외 지시("예외로")로 AI, CI verify·deploy 초록(run 38919274957). 보리 최종 `[x]` 승인(2026-10-17).
+> **진행(2026-10-17)**: 보리 "착수지시서 확정, 작업 진행해". 코드 커밋 react-app `42e84f1`(push 전) — 7개 파일, +6 −44줄.
+> `npm test` 1,375개 통과(unit 935 + 화면 440), 테스트 파일 변경 없음.
+> AI 개발 서버 비회원 375px 밝은 화면, 계산된 모양 값 전후 비교: 고객센터(FAQ 닫힘·펼침·문의 탭·내 문의 탭), 공지사항(빈 화면 + 검사용 공지 1건을 잠깐 넣어 카드·펼친 답), 달력(검사용 아이콘), 앱 설정 백업 아이콘 2개 — 전부 같음. 공지사항은 이제 `customer-center.css` 하나만 불러옴, `.inline-icon`은 `shared-controls.css`에만 있음.
+> 기사 연동 화면: 처음 잰 "전" 값이 고친 뒤와 달라서, 이 화면 CSS 2개를 잠깐 커밋 전 상태로 되돌려 다시 잼 → 고친 뒤와 같은 값(처음 잰 값만 재는 조건이 달랐음). 다시 고친 상태로 돌려놓고 같은 값·옛 주석 없음 확인. 콘솔·서버 오류 없음.
+> **지시서와 다른 점 1개**: `linked-driver.css` 185 → 178(지시서 177) — 앞뒤 규칙 사이 빈 줄 하나 남김.
+> 리뷰 §5: 바뀐 파일 = 지시서 목록 그대로(`notice.css` 삭제 포함), 새 파일 없음, 타입 꼼수 없음(diff grep 0건), 전부 200줄 이하, 나머지 4개 이름의 파일 안 바뀜.
+> 보리 push 뒤 CI verify·deploy 초록(run 38995065306). 배포본(getdrivelog.com, 비회원) 공지사항: `customer-center-*.css`를 불러와 `.support-panel` grid·gap 9px, 검사용 공지 카드 padding 17px 16px·둥근 모서리 16px·펼친 답 보임 — 따로 불러오는 화면에서도 규칙이 제대로 붙음. 보리 최종 `[x]` 승인(2026-10-17).
 
-로드맵 57번(⑤). 57-A `[x]`(`2f03f9a`, 공용 `ModalShell` + 바깥 누르면 닫히는 창 6개 파일) 다음.
-보리 결정(2026-10-16): **입력 칸이 있는 창은 바깥을 눌러도 안 닫히게 그대로, 컴퓨터 Esc 키로도 안 닫히게**(실수로 입력이 날아가지 않게).
+로드맵 57번의 남은 일(57-A `2f03f9a`·57-B `294a63d` `[x]`). 보리 지시(2026-10-17): "CSS 진짜 복사본 6개(파일 3쌍)만 정리, 나머지 4개는 그대로". 이번엔 이 6개만 다룬다.
 
 ### 쉬운 요약
-- 차량·거래처·기사·지출·고정 노선 거래처·초대 코드·세금계산서 작성 창 7개와, 운행 카드의 문자 양식 고르기 시트를 57-A의 공용 창 껍데기로 바꾼다.
-- 입력 창은 지금처럼 **취소·저장 버튼으로만** 닫힌다(바깥 누름·Esc 모두 안 닫힘). 문자 양식 시트(입력 칸 없음)는 지금처럼 바깥 누름으로 닫히고 Esc로도 닫힌다.
-- 휴대폰에서 보이는 모양·동작은 그대로. 바뀌는 건 화면 읽기 기능이 "창"으로 알아듣는 것과, 닫힐 때 원래 누른 자리로 키보드 위치가 돌아가는 것.
+- 같은 화면 꾸밈 규칙이 두 파일에 글자 하나 다르지 않게 두 번 적힌 곳이 6개(파일 3쌍)다. 지금은 한쪽만 고치면 고객센터와 공지 화면 모양이 서로 달라진다.
+- 6개를 각각 한 곳에만 남기고 복사본은 지운다. 화면 모양은 하나도 안 바뀐다(같은 글자를 지우는 것뿐).
+- 하고 나면 FAQ·공지 카드, 기사 연동 요약 제목, 작은 선 아이콘 모양을 바꿀 때 한 곳만 고치면 된다.
 
 ### 현재 상태 (코드 확인)
-- 입력 칸 창 7개는 바깥막(`modal-overlay`)에 누름 처리가 없어 안 닫힘(로드맵 8번 결정, `modalOutsideClick.test.js:68`): `cars/CarFormModal.jsx:77` · `clients/ClientFormModal.jsx:25` · `DriverFormModal.jsx:49` · `ExpenseFormModal.jsx:176`(안쪽 상자는 `:40` — 하루 화면 안에 그대로 넣는 `inline` 모드도 같은 상자를 씀) · `FixedRouteClientModal.jsx:71` · `InviteRedeemModal.jsx:44` · `TaxInvoiceDraftModal.jsx:21`. 화면 읽기 "창" 표시 없음, Esc 처리 없음.
-- 문자 양식 시트(`day-log/MessageTemplateSheet.jsx:48-49`)는 자기만의 바깥막(`message-template-overlay`, 아래에서 올라오는 모양)과 `<section role="dialog" aria-modal>`, 바깥 누르면 닫힘, Esc 없음.
-- `ModalShell`(57-A)은 바깥막 CSS 이름이 `modal-overlay`로 고정.
+- **쌍 1 — FAQ·공지 카드 4개**(`.support-panel`·`.support-card`·`.faq-item`·`.support-detail`, 규칙 9줄): `customer-center.css:8-16` = `notice.css:3-11` 글자까지 같음. `notice.css`는 이 9줄이 전부. 두 화면이 따로 불러오는 화면(`lazyPages.js:18-19`)이라 이관 때 각자 모양이 갖춰지도록 일부러 복사함(`notice.css:1-2` 주석). 쓰는 곳: `CustomerCenterPage.jsx:193-219`, `NoticePage.jsx:27-38`.
+- **쌍 2 — 기사 연동 요약 제목**(`.driver-section-heading`, 규칙 4줄): `driver-connection.css:7-10` = `linked-driver.css:160-163`. 쓰는 곳은 `DriverConnectionPage.jsx:108` 한 곳뿐이고(전체 grep), 이 화면은 `driver-connection.css`를 불러옴(`DriverConnectionPage.jsx:18`). → `linked-driver.css` 쪽은 쓰는 화면이 없음. 주석이 말하는 `ClientInvoiceGroups`는 이제 이 이름을 안 씀(grep 0건).
+- **쌍 3 — 작은 선 아이콘**(`.inline-icon`·`.inline-icon.sm`): `calendar.css:37-51` = `shared-controls.css:178-191`. `shared-controls.css`는 앱 시작 때 모든 화면에 불러옴(`App.jsx:27`) → `calendar.css` 쪽은 겹친 것. 쓰는 곳: `AppSettingsBackupSection.jsx:7·15`, `CalendarMonthSummary.jsx:133·144·158`.
+- 6개 이름을 다른 CSS 파일에서 덮어쓰는 규칙: `.driver-summary-card .driver-section-heading`(`driver-connection.css:18`, 그대로 남김) 외 없음(전체 grep).
 
 ### 목표 상태 (기대 동작)
-1. 입력 창 7개가 `ModalShell`을 `closeOnOverlay={false}`·`closeOnEscape={false}`로 쓴다 — 바깥 누름·Esc 모두 안 닫힘, 취소·저장 버튼 그대로.
-2. 지출 창의 `inline` 모드(하루 화면 안)는 지금처럼 껍데기 없이 상자만.
-3. 문자 양식 시트는 `ModalShell`을 바깥막 이름 `message-template-overlay`로 쓴다 — 바깥 누름·Esc로 닫힘, 모양 그대로.
-4. 8개 모두 화면 읽기 "창"(aria-modal)·창 이름, 열 때 키보드 위치는 창 자체(57-A와 같음 — 첫 입력칸에 두면 휴대폰 자판이 저절로 뜸), 닫힐 때 원래 누른 자리로.
-5. 휴대폰 모양·누르는 동작 그대로.
+1. 6개 이름이 각각 CSS 파일 한 곳에만 정의돼 있다(grep으로 확인).
+2. 공지사항 화면이 `customer-center.css`를 불러와 FAQ·공지 카드 규칙을 같이 쓰고, `notice.css`는 없다.
+3. 고객센터(FAQ·문의·내 문의 탭), 공지사항, 기사 연동 화면 요약 카드, 달력 월 요약 아이콘, 앱 설정 백업 버튼 아이콘의 모양이 바꾸기 전과 똑같다.
+4. 나머지 4개(`.modal-overlay`·`.work-log-page`·`.mypage-shortcut-icon`·`.maint-fuel-page`)는 손대지 않는다.
 
-### 건드릴 파일
-- `react-app/src/components/shared/ModalShell.jsx` — 바깥막 CSS 이름을 받는 값 하나 추가(기본 `modal-overlay` 그대로)
-- 입력 창 7개 파일 + `day-log/MessageTemplateSheet.jsx` = 8개
-- 테스트: `ModalShell.test.js`에 "바깥막 이름 바꿈" 1개, `modalOutsideClick.test.js`에 "입력 창은 Esc로도 안 닫힘" 1개(7개 창 반복), 문자 양식 시트 바깥 누름·Esc 1개. 기존 테스트 그대로 통과해야 함.
-- 공용 영향: CSS 이름 그대로 써서 스타일 안 바꿈. `ModalShell` 새 값은 기본값이 지금과 같아 57-A 6개 파일 영향 없음.
-- **슬라이스 크기**: 파일 9개 + 테스트 — 파일마다 껍데기 두 줄을 바꾸는 같은 일이라 한 번에(56-B-1·57-A와 같은 방식). 나누길 원하시면 알려 주세요.
+### 건드릴 파일 (모두 `react-app/src/`)
+- `components/notice.css` — **삭제**(9줄 전부가 `customer-center.css`와 같은 규칙).
+- `components/NoticePage.jsx` — 불러오는 파일 1줄: `./notice.css` → `./customer-center.css`.
+- `components/customer-center.css` — 머리 주석만 고침(규칙은 그대로). 최종 문구:
+  `/* 고객센터(CustomerCenterPage.jsx)·공지사항(NoticePage.jsx) 공용 — .support-panel/.support-card/`
+  `   .faq-item/.support-detail은 두 화면이 같이 쓴다. */`
+- `components/drivers/linked-driver.css` — 157-164줄(주석 3줄 + `.driver-section-heading` 4줄 + 빈 줄) 삭제.
+- `components/drivers/driver-connection.css` — 주석에서 "두 파일에 각각 복제" 내용만 지움: 2-3줄 → `linked-driver.css §15 슬라이스 A 분리(§6). */`, 6줄 → `문제까지 명시적으로 상쇄(§15 슬라이스 A) */`.
+- `components/calendar/calendar.css` — 36-52줄(주석 + `.inline-icon`·`.inline-icon.sm` + 빈 줄) 삭제.
+- `shared-controls.css` — 176-177줄 주석 → `/* 전역 인라인 아이콘(앱 설정 백업 버튼·달력 월 요약) — App.jsx가 모든 화면에 불러옴. */`
+- **공용 이름 영향 목록**(AGENTS §5-6): 위 "쓰는 곳" 그대로 — 규칙 값은 하나도 안 바꾸고 같은 글자만 지우므로 모양 영향 없음. 공지 화면이 새로 같이 불러오는 `customer-center.css`의 나머지 규칙(`.customer-center-page`·`.support-tabs`·`.inquiry-form`·`.my-inquiry-*` 등)은 공지 화면에 그 이름이 없어 아무것에도 안 붙음(`NoticePage.jsx` 이름: `notice-page`·`support-panel`·`empty-state`·`faq-item`·`support-detail`).
+- **슬라이스 크기**: 파일 7개(1개는 삭제)로 §3 "1~3개"보다 많지만, 전부 같은 글자 지우기·주석 고치기(바뀌는 줄 약 40줄)라 보리 지시대로 한 슬라이스.
+- 다른 방법(안 씀): 공용 새 파일로 빼기 — 이미 228줄인 `CustomerCenterPage.jsx`를 고쳐야 하고 새 파일이 생김.
 
 ### 안 건드릴 것
-- 창 안 내용·버튼·문구·CSS 파일.
-- **같은 CSS 이름이 두 파일에 따로 정의된 곳 10곳**(조사해 보니 9곳이 아니라 10곳: `.modal-overlay`·`.support-card`·`.support-panel`·`.support-detail`·`.faq-item`·`.driver-section-heading`·`.inline-icon`·`.maint-fuel-page`·`.mypage-shortcut-icon`·`.work-log-page`) — 합치면 화면 모양이 바뀔 수 있는 다른 성격의 일이라 이번에 안 함. 57-B가 끝난 뒤 따로 할지 정해 주세요.
+- 나머지 4개 — 이름만 같고 내용을 나눠 맡음(복사본 아님): `.modal-overlay`(`account-flow.css:386` 모양 / `app-shell-base.css:42` 움직임), `.work-log-page`(`day-log-shell.css:4` 왼쪽 정렬 / `day-log.css:31` 스크롤 여백), `.mypage-shortcut-icon`(`mypage.css:22` 가운데 정렬·색 / `mypage-shortcuts.css:55` 크기), `.maint-fuel-page`(`management-common.css:7` 관리 화면 공통 / `maint-fuel.css:4` 이 화면 아래 여백).
+- JSX의 CSS 이름(`className`)·`CustomerCenterPage.jsx`·화면 동작·저장 — 하나도 안 바뀜.
 
 ### 검증
-- 로컬 `npm test` — 새 테스트는 고치기 전 실패 확인.
-- 브라우저: AI가 개발 서버 비회원으로 거래처·차량·지출 창(바깥 누름·Esc 안 닫힘, 취소로 닫힘, 닫힌 뒤 키보드 위치)과 문자 양식 시트(바깥 누름·Esc 닫힘) 확인, 시험 기록은 지움.
+- 로컬 `npm test` — 그대로 통과해야 함. 새 테스트는 없음: 테스트 실행기는 CSS를 빈 것으로 바꿔 읽어(`testSupport/jsxLoaderHook.mjs:14`) 모양을 못 봄 → 아래 화면 값 비교로 확인.
+- AI 개발 서버(비회원, 저장 안 함): **고치기 전에** 고객센터 FAQ 카드·펼친 답·문의 탭 카드, 공지사항 빈 화면, 달력 월 요약 아이콘, 앱 설정 백업 아이콘의 계산된 모양 값(크기·여백·테두리·글자 크기·색)을 재고 → 고친 뒤 같은 값인지 비교. 비회원으로 못 여는 기사 연동 화면은 보리 휴대폰 확인으로.
+- 6개 이름 정의가 CSS 한 곳씩인지 grep.
+- 로드맵 57번의 "화면 모양이 바뀔 수 있어 시안 먼저"는 이번 범위엔 해당 없음(모양을 안 바꿈) → 시안 대신 위 전후 값 비교.
 
 ### 파일 길이
-- `ModalShell.jsx` 62 → 약 64 / 입력 창 7개는 지금과 같거나 1~2줄 줄어듦(가장 긴 `ExpenseFormModal.jsx` 180 → 약 182) / `MessageTemplateSheet.jsx` 69 → 약 69 — 전부 200 이하.
+- `customer-center.css` 35 → 34 / `notice.css` 11 → 삭제 / `NoticePage.jsx` 44 → 44 / `linked-driver.css` 185 → 177 / `driver-connection.css` 159 → 158 / `calendar.css` 118 → 101 / `shared-controls.css` 192 → 191 — 전부 200 이하.
 
 ### 실패 시 처리
-- 새 저장 장치·재시도·대비 장치 없음(창 껍데기만). 실패하면 수정 착수지시서를 다시 써서 승인받는다.
+- 새 저장 장치·재시도·대비 장치 없음(CSS 글자 지우기만). 모양이 하나라도 달라지면 멈추고 수정 착수지시서를 다시 써서 승인받는다.
 
 ### 사용자 확인 방법 (보리 휴대폰)
-1. 거래처 추가·차량 추가·주유 추가 창을 열고 바깥(회색)을 누름 → **안 닫힘**, 취소 → 닫힘. 모양 그대로.
-2. 운행 카드의 문자 버튼 → 아래에서 올라오는 양식 고르기 → 바깥 누름 → 닫힘.
-
-### 보리 확인 필요
-- 위 결정(입력 창은 바깥 누름·Esc 모두 안 닫힘)이 맞는지.
-- 파일 9개를 한 번에 해도 되는지.
+1. 마이페이지 → 고객센터 → FAQ 하나 눌러 펼침 → 카드 모양·펼친 답이 그대로. "1:1 문의/건의"·"나의 문의·건의 확인" 탭 위 카드도 그대로.
+2. 공지사항 → "등록된 공지사항이 없습니다"가 전처럼 보임.
+3. (차주 계정) 기사 연동 화면(`/app/drivers`) → 맨 위 요약 카드 제목이 전처럼 왼쪽 정렬.
+4. 운행 탭 달력 → 월 요약의 정비·주유·기타 줄 아이콘 크기 그대로, 앱 설정 → 백업 버튼 아이콘 그대로.
