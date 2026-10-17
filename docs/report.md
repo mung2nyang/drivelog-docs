@@ -1,70 +1,65 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-## 로드맵 58-C 거의 같은 공유 창 두 벌(운송비 내역서·일상점검표)을 하나로 `[x]`
+## 원본(바닐라) 앱 코드를 문서 저장소에서 분리 — 태그로 보존 후 지움 `[x]`
 
-> **진행(2026-10-17)**: 보리 "확정, 작업 진행해"(확인할 점 1 — 공유 못 하는 휴대폰 안내는 각자 그대로). 코드 커밋 react-app `7afe525` — push 뒤 CI verify·deploy 초록(run 39030614242, 커밋된 것만 검사 — 다른 작업 창 수정 섞이지 않음).
-> - 바뀐 파일(지시서 목록과 같음): 새 `shared/ShareFileModal.jsx` 113줄(`buildShareSmsUrl` 포함), `ReportShareModal.jsx` 138→65(`buildReportSmsUrl`은 같은 이름으로 내보냄), `documents/DailyInspectionShareModal.jsx` 90→29, 새 `documents/DailyInspectionShareModal.test.js` 5개.
-> - 점검표 창 동작 기록 테스트 5개(모양·문구, 카카오톡 공유 값, 공유 못 하는 휴대폰 안내, 실패/취소, 문자용 저장)를 고치기 전 코드에서 먼저 통과시킨 뒤 합침 → 그대로 통과. 내역서 창 기존 테스트 5개 통과. 고치기 전으로 돌려도 모두 통과(동작 안 바꾸는 정리라 맞음, revert-check).
-> - `npm test` 951 + 485 통과, 타입 검사 통과.
-> - 개발 서버 비회원 360px 어두운 화면: 서류 발급 → 운송비 내역서 → 공유 → "내역서 보내기" 창 문구·단추 그대로. 콘솔 오류 없음. 사진 `scratchpad\v58c\`. 점검표 창은 비회원에서 일상점검표 탭이 안 보여 테스트로. 실제 카카오톡·문자 보내기는 배포 뒤 휴대폰에서 보리.
+> **진행(2026-10-17)**: 보리 "응 작업진행해". 태그 `original-app-final` = `580131b`(지우기 직전, 원본 20개 포함 확인). 커밋 `f3023b0`(원본 20개 지움 + `README.md`, 29,549줄 삭제, push 전).
+> - 남은 파일 20개: `.claude/settings.json`, `.gitignore`, `AGENTS.md`, `CLAUDE.md`, `README.md`, `STATUS.md`, `docs/` 14개. `CLAUDE.md`가 가리키는 `AGENTS.md`·`STATUS.md` 그대로.
+> - `AGENTS.md` 고친 것은 워킹카피에 두고 이 슬라이스 문서 커밋에 넣음.
+> - 보리 할 일: `git push` + `git push origin original-app-final`(태그) 완료 — GitHub에 태그 `580131b` 확인, main에 문서 파일만. GitHub Settings → Pages 끄기(권장, 보리 몫).
+> - 보리 최종 승인(2026-10-17).
 > - 지시서와 다른 점: 없음.
-> - **참고**: 작업 중(20:35~20:46) react-app 작업 폴더에 AI가 손대지 않은 수정이 생김 — `calendar/CalendarHeader.jsx`·`CalendarPage.jsx`·`calendar-grid.css`, `home/HomeTodoCard.jsx`·`HomePage.test.js`, `receivables/ReceivablesListPage.jsx`, 새 `receivables/receivablesGroupHead.css`. 58-C 커밋에는 넣지 않았고 건드리지 않음. 위 테스트·화면 확인은 그 수정이 섞인 상태에서 돌았으므로, 58-C만의 확인은 push 뒤 CI로 봄. 보리 확인: 다른 작업 창 작업, 그대로 둠(2026-10-17).
 
-보리 "진행해"(2026-10-17, 58-B `[x]` 뒤). 근거: `docs/roadmap.md` 58번(⑥), `docs/code-cleanup-review.md` D("공유 창 처리 5묶음 겹침"). 58-A `[x]`(`b3de723`) → 58-B `[x]`(`2f231b1`) → **58-C(이번, 58번 마지막)**.
+보리 지시(2026-10-17): "원본 코드는 이제 동작 대조 안 해, 필요없어. 리액트랑 분리. 원본 문서는 문서로, 원본 코드는 보존용으로(대신 AI는 읽지 마)". 방식은 보리 선택 "태그로 보존 + 지움".
 
 ### 쉬운 요약
-- 운송비 내역서 "내역서 보내기" 창과 일상점검표 "점검표 보내기" 창은 모양과 처리(카카오톡으로 파일 공유, 문자용 파일 저장 뒤 문자 앱 열기)가 거의 똑같이 두 벌입니다. 공용 창 하나로 모읍니다.
-- 창 모양·문구·누르는 동작은 그대로입니다. 두 창이 다른 부분(제목, 안내 문구, 문자 받는 사람)은 각자 넘겨줍니다.
+- 문서 저장소(`ubiquitous-parakeet`) 맨 위에 섞여 있는 옛 원본 앱 파일을, 지금 상태 그대로 `original-app-final` 표식(태그)으로 남긴 뒤 저장소에서 지웁니다.
+- 저장소에는 문서(`AGENTS.md`·`STATUS.md`·`CLAUDE.md`·`docs/`·`README.md`)만 남습니다. 문서 위치가 그대로라 규칙·기능 모음(스킬) 경로는 안 바뀝니다.
+- 원본은 GitHub에서 그 태그로 언제든 볼 수 있고, AI는 읽지 않습니다.
 
-### 현재 상태 (코드 확인)
-- `components/ReportShareModal.jsx`(138줄) — 운송비 내역서(`ReportPage.jsx:222`). `components/documents/DailyInspectionShareModal.jsx`(90줄) — 일상점검표(`DailyInspectionExportBar.jsx:86`, 이미 `buildReportSmsUrl`을 내역서 창에서 빌려 씀).
-- 똑같은 것:
-  1. 카카오톡: 창 닫기 → "카카오톡으로 보낼 PDF/이미지를 준비하고 있습니다." → 파일 만들기 → 공유 못 하는 휴대폰이면 안내 → `navigator.share`(파일·제목·문구) → 사용자가 취소한 것 말고 실패면 "카카오톡 파일 공유에 실패했습니다."
-  2. 문자: 창 닫기 → "문자로 보낼 PDF/이미지를 저장하고 있습니다." → 파일 만들어 내려받기 → 문자 앱 열기 → 실패면 "문자용 파일 저장에 실패했습니다." → 1초 뒤 임시 주소 정리.
-  3. 창 모양: 머리(제목·"보내는 방법이나 파일 형식을 선택해 주세요.") + 카카오톡·문자 두 칸 × PDF·이미지 단추.
-- 다른 것:
-  - 제목("내역서 보내기"/"점검표 보내기"), 칸 설명 문구, 공유 제목("운송비 내역서"/"일상점검표"), 보낼 문구(설정한 내역서 문구/"안녕하세요. N월 일상점검표입니다…").
-  - 공유 못 하는 휴대폰 안내: 내역서 "이 휴대폰에서는 파일 공유를 할 수 없습니다. [PDF 다운로드]로 저장한 뒤 보내 주세요." / 점검표 "이 기기에서는 파일 공유를 지원하지 않습니다."
-  - 문자 받는 사람: 내역서는 거래처 연락처(없으면 안내만 하고 창 안 닫음), 점검표는 비워 둠(문자 앱에서 직접 고름).
-  - 파일 만들기: 내역서는 창 안에서(`pdf-export-mode`), 점검표는 밖에서 받아 옴.
-- 테스트: 내역서 창 5개(`ReportShareModal.test.js`), 점검표 창 없음.
+### 현재 상태 (확인)
+- `git ls-files` 40개 중 원본 앱 파일 20개: `car-management.js`, `client-management.js`, `driver-link.js`, `finance-sync.js`, `finance.js`, `maint-fuel-misc.js`, `mypage.js`, `notifications.js`, `script.js`, `supabase-config.js`, `supabase-sync.js`, `ui-widgets.js`, `index.html`, `style.css`, `images/` 3개, `tests/core-logic.test.js`, `package.json`, `package-lock.json`.
+- `README.md` 설명이 "Vanilla SPA reference"(원본 앱 소개).
+- GitHub Pages가 이 저장소 맨 위(main)를 원본 앱 사이트로 내보내도록 켜져 있음 — 지금도 상태 "errored"(`gh api repos/mung2nyang/ubiquitous-parakeet/pages`).
+- `AGENTS.md`: 보리 지시("그 문서 문구 고쳐줘")로 원본 관련 문장을 이미 고침(워킹카피, 이 슬라이스 문서 커밋에 같이 들어감) — 4번째 줄 "원본 앱 코드는 태그 `original-app-final`로 보존만, AI는 읽지도 대조하지도 않음", §7·§8 제목의 "원본 §0-1" 뺌, §8-5 "원본과 동일한가" → "정해져 있는가(`docs/sot.md`)", §8-6(원본 grep) 지움.
 
 ### 목표 상태 (기대 동작)
-1. 위 같은 것 1~3이 공용 창 한 곳에만 있다.
-2. 두 창의 제목·안내 문구·단추·안내 알림 문구·공유 제목·보낼 문구·문자 받는 사람이 지금과 같다(공유 못 하는 휴대폰 안내도 각자 지금 문구 그대로 — 확인할 점 1).
-3. 내역서 창: 거래처 연락처가 없으면 문자 단추는 안내만 하고 창을 안 닫는다 — 지금과 같다.
-4. `buildReportSmsUrl`(아이폰은 `&`, 그 밖은 `?`) 그대로 — 기존 테스트가 쓰는 이름도 그대로.
+1. 태그 `original-app-final`이 지우기 직전 커밋을 가리키고, GitHub에도 올라가 있다(원본 20개 파일을 그 태그로 볼 수 있음).
+2. 문서 저장소 main에 원본 앱 파일 20개가 없다. 남는 것: `AGENTS.md`, `STATUS.md`, `CLAUDE.md`, `README.md`, `.gitignore`, `.claude/settings.json`, `docs/`.
+3. `README.md`가 "문서·원칙 저장소, 원본 앱 코드는 태그 `original-app-final`에 보존(읽지 않음)"을 말한다.
+4. react-app은 그대로(원본 파일을 부르는 곳 없음 — react-app은 별도 저장소).
 
-### 건드릴 파일
-- 새 `react-app/src/components/shared/ShareFileModal.jsx` — 공용 창(모양 + 카카오톡·문자 처리 + `buildShareSmsUrl`).
-- `react-app/src/components/ReportShareModal.jsx` — 파일 이름·회사명·연락처·파일 만들기만 남기고 공용 창에 넘김. `buildReportSmsUrl`은 공용 것을 같은 이름으로 내보냄.
-- `react-app/src/components/documents/DailyInspectionShareModal.jsx` — 문구만 남기고 공용 창에 넘김.
-- 새 테스트 `react-app/src/components/documents/DailyInspectionShareModal.test.js`.
-- 공용 영향: CSS(`report/report.css`의 `report-share-*`) 이름·순서 그대로, 안 바꿈. 두 창을 부르는 `ReportPage.jsx`·`DailyInspectionExportBar.jsx`는 안 바꿈(같은 이름·같은 값).
+### 건드릴 파일 (문서 저장소)
+- 지움: 위 원본 앱 파일 20개(`git rm`).
+- `README.md` — 설명 3줄로 바꿈.
+- `AGENTS.md` — 이미 고친 것(위).
+- 태그 `original-app-final` 만들기.
 
 ### 안 건드릴 것
-- 파일 만들기(`lib/reportExport.js`, 점검표 쪽 `buildFile`), 문구 설정(`lib/messageTemplates.js`).
-- `ReportPage.jsx`, `DailyInspectionExportBar.jsx`, CSS.
+- `docs/` 안 옛 원본 파일 위치 표기(예: `driver-link.js:370`) — 당시 기록이라 그대로.
+- `docs/archive/` — 당시 기록.
+- react-app.
 
 ### 검증
-- **먼저** 점검표 창 새 테스트를 지금 코드에 돌려 통과(동작 기록): 제목·두 칸·단추 4개, 카카오톡 → 공유 제목 "일상점검표"·문구 "안녕하세요. 10월 일상점검표입니다…", 공유 못 하는 휴대폰 → "이 기기에서는…", 문자 → 받는 사람 비운 문자 주소·문구. 합친 뒤 그대로 통과.
-- 내역서 창 기존 테스트 5개 그대로 통과(목표 2~4).
-- `npm test`·`npm run typecheck` 통과.
-- 개발 서버 비회원 360px: 서류 발급 → 운송비 내역서·일상점검표에서 보내기 창을 열어 모양이 전과 같은지(사진). 실제 카카오톡·문자 보내기는 휴대폰에서만 돼서 배포 뒤 보리.
+- 지우기 전 태그를 만들고 `git show original-app-final --stat`, `git ls-tree -r --name-only original-app-final`에 원본 20개가 있는지.
+- 지운 뒤 `git ls-files`가 문서 파일만인지(20개 줄어 20개).
+- `AGENTS.md`·`STATUS.md`·`docs/` 경로가 그대로인지(`CLAUDE.md`가 가리키는 파일이 열리는지).
 
 ### 파일 길이
-- `ReportShareModal.jsx` 138 → 약 55
-- `DailyInspectionShareModal.jsx` 90 → 약 30
-- 새 `shared/ShareFileModal.jsx` 약 120
-- 새 테스트 약 100(테스트 파일 예외)
+- 해당 없음(지우기와 `README.md` 3줄).
 
 ### 실패 시 처리
-- 새 저장 장치·재시도·대비 장치 없음(지금 처리를 옮기기만).
-- 합친 뒤 동작 기록 테스트가 깨지면 고치지 않고 수정 착수지시서를 써서 다시 승인받는다.
+- 새 장치 없음. 태그를 만들기 전에는 아무것도 지우지 않는다.
+- 태그·지우기가 잘못되면 되감지 않고 수정 착수지시서로 다시 승인받는다.
 
-### 사용자 확인 방법 (배포 뒤, 휴대폰)
-1. 서류 발급 → 운송비 내역서 → 보내기 → 창 모양 그대로, 카카오톡 PDF 보내기가 전처럼 된다.
-2. 서류 발급 → 일상점검표 → 보내기 → 창 모양 그대로, 카카오톡·문자 보내기가 전처럼 된다.
+### push·커밋 순서 (보리가 할 일 포함)
+1. AI: 태그 만들기 → 원본 20개 지우기·`README.md` → 커밋(1번째, 이 저장소의 "코드" 커밋).
+2. **보리: push** — 커밋과 함께 태그도 올려야 함: `git push` 그리고 `git push origin original-app-final`(태그는 따로 올려야 GitHub에 보임).
+3. **보리(권장)**: GitHub 저장소 → Settings → Pages → 끄기(볼 사이트가 없어짐).
+4. 보리 최종 승인 → AI 문서 커밋(2번째: STATUS·지시서 `[x]` + `AGENTS.md` 고친 것).
+
+### 사용자 확인 방법
+1. GitHub `ubiquitous-parakeet` 첫 화면에 문서 파일만 보인다.
+2. GitHub에서 브랜치/태그 고르기 → Tags → `original-app-final` → 원본 파일들이 보인다.
 
 ### 확인할 점
-1. 공유를 못 하는 휴대폰 안내가 두 창에서 다릅니다(내역서 "이 휴대폰에서는 파일 공유를 할 수 없습니다. [PDF 다운로드]로 저장한 뒤 보내 주세요." / 점검표 "이 기기에서는 파일 공유를 지원하지 않습니다."). 이번엔 **각자 그대로** 둡니다(정리 작업이라 글자를 안 바꿈). 하나로 맞추길 원하시면 말씀해 주세요.
+- 없음(방식은 보리가 고름). push 때 태그도 같이 올려 주셔야 하는 것만 기억해 주세요.
