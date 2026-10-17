@@ -357,7 +357,7 @@ GPS 같은 기능을 자문 뒤에 넣으면 자문을 다시 받아야 해서(�
 57. **모달 창 껍데기가 13개 파일에 복사** (⑤) — ~~57-A 공용 `ModalShell` + 바깥 누르면 닫히는 창 6개 파일~~ `[x]` react-app `2f03f9a`(2026-10-16), ~~57-B 입력 칸 창 7개·문자 양식 시트~~ `[x]` react-app `294a63d`(2026-10-17, 입력 창 바깥 누름·Esc 안 닫힘 — 보리 결정). ~~57-C CSS 이름 중복 — 글자까지 같은 복사본 6개(`.support-panel`·`.support-card`·`.support-detail`·`.faq-item`·`.driver-section-heading`·`.inline-icon`)~~ `[x]` react-app `42e84f1`(2026-10-17), 이름만 같고 내용을 나눠 맡은 4개(`.modal-overlay`·`.work-log-page`·`.mypage-shortcut-icon`·`.maint-fuel-page`)는 그대로(보리 결정) — **57번 끝.** — 공용 모달 부품(`ModalShell`)이 없어 Esc 닫기는 `ConfirmModal.jsx`만 됨. 공용 부품 하나로 합침.
     같이: 같은 CSS 이름이 두 파일에 따로 정의된 9곳(`.modal-overlay`가 `account-flow.css`·`app-shell-base.css`, `.support-card`·`.faq-item`이 `customer-center.css`·`notice.css` 등).
     화면 모양이 바뀔 수 있어 48~54처럼 시안 먼저.
-58. **거의 같은 화면 세 쌍 합치기** (⑥) — `clients/OwnerScopedClientsView.jsx` ↔ `drivers/LinkedDriverClientsPage.jsx`(겹침 가장 큼, 먼저),
+58. **거의 같은 화면 세 쌍 합치기** (⑥) — ~~58-A `clients/OwnerScopedClientsView.jsx` ↔ `drivers/LinkedDriverClientsPage.jsx`~~ `[x]` react-app `b3de723`(2026-10-17, 공용 `useScopedClients`·`ScopedClientsList`), 58-B·58-C `[ ]`:
     `revenue/DriverRevenueView.jsx` ↔ `revenue/OwnerRevenueView.jsx`, `ReportShareModal.jsx` ↔ `documents/DailyInspectionShareModal.jsx`. 상세 `docs/code-cleanup-review.md` D.
 59. **폴더 구조를 목표 구조(기능별 폴더 + 아래로만 흐르는 4층)로 옮기기** (⑥) `[확인: 2026-10-12 보리 — 목표 구조로 변경]` — 목표·현재 분석·옮기는 순서는 `docs/architecture-target.md`. 지금 문제: `lib/` 91개 파일에 서버 동기화·대기 저장·불러오기·내보내기·재수출 껍데기 5개가 섞여 `domain/`과 같은 이름 파일이 11쌍.
     `lib/`↔`store/`가 서로를 부름(`store/app-store.js:7` 등). 화면 부품이 앱 시작 코드를 부르는 곳 5군데(`EmployerLinkCard.jsx`·`InviteRedeemModal.jsx` → `app/boot.js` 등),
