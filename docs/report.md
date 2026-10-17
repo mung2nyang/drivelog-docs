@@ -1,76 +1,78 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-## `account-flow.css`(427줄) 책임별로 나누기 — 화면 모양은 그대로 `[x]`
+## 저장 자료 검사를 검사 라이브러리로 (1/6) — 라이브러리 들이기 + `persistDomainRecords.js` `[x]`
 
-> **진행(2026-10-17)**: 보리 "응 작업진행해". 코드 커밋 react-app `52767f6` — push 뒤 CI verify·deploy 초록(run 39032731837).
-> - 나눈 결과(설계표와 같음): `app-base.css` 6줄, `account-flow.css` 427→164, `auth-form.css` 94, `onboarding.css` 102, `switch.css` 26, `modal-base.css` 39. `App.jsx` 불러오기 1줄 → 6줄(같은 자리, 같은 순서). `.auth-primary-btn` 두 블록 하나로.
-> - **전·후 비교(개발 서버 360px)**: 페이지에 걸린 모든 스타일 규칙을 (조건·선택자·속성·값) 7,467줄로 펴서 비교 → 내용·순서 같음, 다른 것은 360px 규칙 2개(`.account-flow-page` 여백, `.auth-heading-box h1` 글자 크기)가 각 담당 파일 끝으로 옮겨진 것뿐(그 사이 규칙은 스위치·창 껍데기라 같은 요소를 안 건드림). 화면별 계산 값(로그인 첫 화면 18개·앱 설정 111개·거래처 추가 창 113개 요소, 밝은·어두운) → 다른 값 0개.
-> - `npm test` 951 + 485 통과, 타입 검사·빌드 통과.
-> - 지시서와 다른 점: 360px 규칙을 원래 파일 맨 끝 자리 대신 각 담당 파일 끝에 둠(지시서에 적은 대로지만, 규칙 순서가 2줄 바뀐다는 것을 위 비교로 확인·기록).
+> **진행(2026-10-17)**: 보리 "1. 권장으로(Valibot) 2. 이어서 / 작업진행해". 코드 커밋 react-app `6486657` — push 뒤 CI verify·deploy 초록(run 39034103144).
+> - 바뀐 파일(지시서 목록과 같음): `package.json`·`package-lock.json`(Valibot 1.5.0), `store/persistDomainRecords.js` 139→127(`if (` 46→1 — 남은 1개는 그대로 둔 `isStringRecord`), 새 `store/persistDomainRecords.test.js` 34개.
+> - 동작 기록 테스트 34개(4종 × 칸마다 틀린 종류·모르는 칸·꼭 있는 칸 빠짐·선택 칸 없음·객체 아님·값 비어 있음·NaN/무한대, + 글자/숫자 둘 다·허용 값 다른 값)를 **고치기 전 코드에서 먼저 통과** → 바꾼 뒤 그대로 통과. 테스트가 진짜 잡는지: 차량 `tonnage`를 글자·숫자 둘 다로 느슨하게 하면 "tonnage=5" 실패 확인 → 원래대로.
+> - `npm test` 985 + 485 통과(기존 `owner-state`·`guestBackup`·`persist` 테스트 포함), 타입 검사·빌드 통과, 타입 꼼수 0. 앱 첫 묶음 221.33 → 222.50KB(압축, +1.2KB).
+> - 개발 서버 비회원: 거래처·콜·기사 차량(수수료·개인정보 포함)·지출 넣고 새로 고침 → 막기 화면 없이 그대로, 백업 만들어 다시 불러오기 → "백업 데이터를 복원했습니다.". 콘솔 오류 없음.
+> - 참고(지시서에 없던 것): Valibot이 `typescript`를 선택 의존성으로 적어 두어 `npm install`이 `package-lock.json`에서 `typescript`(와 딸린 패키지 약 20개)의 "개발용" 표시를 뺌. 앱 묶음에는 안 들어감(빌드 크기 위와 같음), CI는 전부 설치하므로 영향 없음.
+> - 지시서와 다른 점: 위 참고 1건 말고 없음.
 
-보리 지시(2026-10-17): "이 파일 한번 봐 봐, 너무 길어". AGENTS §6(200줄 이하, 넘는 파일은 분리설계안 먼저). `docs/code-cleanup-review.md` F의 "200줄 넘는 파일" 목록에 있던 파일.
+보리 요청(2026-10-17): "if로 짠 게 많은데 리팩토링 가능한지" → "표 방식 말고 라이브러리를 가져오는 방식은?" → "라이브러리 방향으로 지시서 써 줘". 같은 모양(칸마다 `if ('칸' in value && 틀린 종류) return false`)의 검사 파일이 6개, if 약 180개. **이번엔 라이브러리를 들이고 가장 큰 `persistDomainRecords.js` 하나만**, 나머지 5개는 결과를 보고 한 파일씩 따로 슬라이스로.
+(앞서 다른 작업 창이 쓴 "표 방식" 지시서 초안은 보리 지시로 이 지시서로 바꿈 — 초안 사본은 AI 임시 폴더에 둠.)
 
 ### 쉬운 요약
-- 이름은 "로그인·처음 정보 입력 화면 스타일"인데, 실제로는 앱 전체가 쓰는 기본 글꼴·바탕, 켜고 끄는 스위치, 모든 창(팝업) 껍데기까지 섞여 427줄이 됐습니다.
-- 맡은 일별로 파일을 나눕니다. 같은 자리에서 같은 순서로 불러오므로 화면 모양은 한 점도 안 바뀝니다.
+- 저장된 차량·거래처·지출·기사 자료가 올바른 모양인지 검사하는 코드를, 직접 짠 if 46줄 대신 검사 전용 라이브러리의 짧은 선언("이 칸은 글자, 이 칸은 숫자, 이 칸은 둘 중 하나")으로 바꿉니다.
+- 검사 결과(통과/거부)는 한 건도 바뀌면 안 됩니다. 이 검사는 앱을 켤 때와 비회원 백업을 불러올 때 쓰여서, 바뀌면 비회원이 막기 화면에 갇힐 수 있습니다 — 그래서 지금 동작을 못 박는 테스트를 먼저 씁니다.
+
+### 라이브러리 고르기 (확인할 점 1)
+같은 거래처 검사(칸 6개)를 세 가지로 만들어 실제로 묶어 잼(AI 임시 폴더, 앱 코드 안 건드림). 앱 첫 화면 묶음은 지금 약 221KB(압축).
+| 후보 | 늘어나는 크기(압축) | 비고 |
+|---|---|---|
+| **Valibot 1.5** | **약 1.8KB** | 쓰는 부분만 들어감. 가장 작음 → **권장** |
+| Zod 4 mini(`zod/mini`) | 약 5.8KB | Zod의 작은 판. 쓰는 법은 Valibot과 비슷 |
+| Zod 4(보통) | 약 92KB | 가장 널리 쓰이지만 통째로 들어가 큼 → 비권장 |
+- 세 가지 모두 설정으로 지금 검사와 똑같이 맞출 수 있음을 확인: 모르는 칸 거부, 칸은 있는데 값이 비어 있음(`undefined`) 거부, 숫자 아님(NaN)·무한대 거부, 허용 값 밖 거부, 꼭 있는 칸 빠짐 거부, 배열·`null` 거부.
+  - Valibot: `strictObject`(모르는 칸 거부) + `exactOptional`(비어 있는 값 거부) + 숫자에 `finite` 붙임.
 
 ### 현재 상태 (코드 확인)
-- `src/account-flow.css` 427줄, `app/App.jsx:22`에서 불러옴(`variables.css` 바로 다음, `toast.css` 바로 앞).
-- 맨 위 주석 "여기엔 계정 플로 스코프만"과 달리 앱 전체 규칙이 섞여 있음:
-  1. 1~7줄 — 앱 전체 기본: 글꼴(Jua) 불러오기, `box-sizing`, `html/body/#root` 높이, 본문 글꼴.
-  2. 9~258줄 — 로그인 화면(계정 화면 틀·첫 화면·구글/시작 단추·위 줄·제목·입력칸).
-  3. 260~359줄 — 처음 정보 입력(온보딩) 화면.
-  4. 361~384줄 — 스위치(`.switch`·`.slider`): 화면 7곳이 씀(`grep -rln 'className="switch"' src`).
-  5. 386~422줄 — 창 껍데기(`.modal-overlay`·`.modal-content`·`.modal-title`·`.modal-btns`·`.modal-btn`): 화면 16곳이 씀.
-  6. 424~427줄 — 360px 이하에서 로그인 화면 여백·제목 크기.
-- 같은 이름이 두 번: `.auth-primary-btn` 블록이 87줄·97줄에 나뉘어 있음(속성 겹침 없음).
+- `react-app/src/store/persistDomainRecords.js` 139줄, `if (` 46개. 검사 함수 4개: `isPersistedCar`(66~92줄, 허용 칸 26·꼭 있는 칸 `number`), `isPersistedClient`(95~113, 22칸·꼭 `id`·`companyName`), `isPersistedExpense`(116~128, 12칸·꼭 `id`·`date`·`kind`), `isPersistedDriver`(131~139, 9칸·꼭 `id`). 허용 칸 목록과 검사 줄이 1:1(빠진 칸 0).
+- 이 파일을 부르는 곳(테스트 빼고 12개, `grep -rn "from .*persistDomainRecords" src`):
+  - **검사 함수 4개 모두: `store/persistDomainSchema.js`** — 앱을 켤 때(`owner-state.js` `initializeOwnerFromPersist`)와 비회원 백업 불러오기(`lib/guestBackup.js`)의 형식 검사. 틀리면 비회원은 막기 화면.
+  - `isPersistedClient`·`isPersistedExpense`: `lib/memberRestoreRecords.js`(회원 파일 불러오기).
+  - 도우미 `isPlainObject`·`hasOnlyKeys`·`isFiniteNumber`·`isStringOrFiniteNumber`: store·lib 11개 파일.
+  - `isStringRecord`·`PERSONAL_INFO_KEYS`·`BUSINESS_INFO_KEYS`: `lib/hydrateMergeCars.js`.
+- 기존 테스트: `owner-state.test.js` 400~407줄이 `isPersistedCar`를 직접 일부 검사, `guestBackup.test.js`의 거부 테스트(68)와 `persist.test.js`가 저장 경로로 간접 검사. 4개 함수 전부를 칸마다 검사하는 테스트는 없음.
 
 ### 목표 상태 (기대 동작)
-1. 모든 화면의 모양(계산된 스타일 값)이 나누기 전과 같다.
-2. 새 파일마다 200줄 이하, 이름과 맡은 일이 맞는다.
-3. 불러오는 순서가 지금 `account-flow.css` 자리 그대로라 다른 파일 규칙과의 우선순위가 안 바뀐다.
-
-### 분리 설계 (책임 경계 · 모듈 구조 · 의존성)
-| 새 파일 | 맡는 일 | 옮길 줄 | 예상 줄 수 |
-|---|---|---|---|
-| `src/app-base.css` | 앱 전체 기본(글꼴 불러오기·`box-sizing`·`html/body` 높이·본문 글꼴) | 1~7 | 약 8 |
-| `src/account-flow.css`(남김) | 계정 화면 틀(어두운 바탕 토큰·`.container`·`.account-flow-page`)과 로그인 첫 화면·단추 | 9~169 + 360px 규칙 중 `.account-flow-page` | 약 160 |
-| `src/auth-form.css` | 로그인 단계 화면의 위 줄·뒤로·작은 로고·제목·입력칸·아래 고정 | 171~258 + 360px 규칙 중 `.auth-heading-box h1` | 약 95 |
-| `src/onboarding.css` | 처음 정보 입력 화면 | 260~359 | 약 100 |
-| `src/switch.css` | 켜고 끄는 스위치(앱 전체) | 361~384 | 약 25 |
-| `src/modal-base.css` | 창 껍데기(앱 전체) | 386~422 | 약 38 |
-
-- 불러오기: `app/App.jsx:22`의 `import '../account-flow.css'` 한 줄을 위 순서 그대로 6줄로(`app-base` → `account-flow` → `auth-form` → `onboarding` → `switch` → `modal-base`). 지금 파일 안 순서와 같아서 우선순위가 그대로.
-- 360px 규칙(424~427)은 두 줄이라 각 담당 파일 맨 끝으로(그 파일 기본 규칙 뒤라 순서 그대로, 다른 파일에 같은 이름 규칙 없음 — `grep` 결과 `auth-heading-box`·`account-flow-page`는 이 파일에만).
-- `.auth-primary-btn` 두 블록은 하나로 합침(같은 파일 안 이어진 자리, 속성 안 겹침 → 결과 같음).
-- 맨 위 주석은 실제 맡은 일로 고침(파일마다 1줄).
-- 의존성: 모두 `variables.css`의 색 값을 씀(지금과 같음). 다른 파일이 이 파일을 불러오지 않음(`grep -rn "account-flow.css" src` → `App.jsx` 한 곳).
+1. 4개 검사 함수가 어떤 입력에도 지금과 같은 참/거짓을 돌려준다(이름·인자·내보내기 그대로).
+2. 4개 함수 안의 if 줄이 라이브러리 선언(차량·거래처·지출·기사 각 1개)으로 바뀌고, 따로 적던 허용 칸 목록 `CAR_KEYS`·`CLIENT_KEYS`·`EXPENSE_KEYS`·`DRIVER_KEYS`는 선언 안으로 들어가 없어진다.
+3. 밖에서 쓰는 도우미(`isPlainObject`·`hasOnlyKeys`·`isFiniteNumber`·`isStringOrFiniteNumber`·`isStringRecord`·`PERSONAL_INFO_KEYS`·`BUSINESS_INFO_KEYS`)는 이름·동작 그대로(다른 11개 파일이 아직 씀 — 나머지 슬라이스에서 정리).
+4. 허용 값 목록은 지금 `persistDomainEnums.js` 것을 그대로 씀(읽기만).
 
 ### 건드릴 파일
-- `react-app/src/account-flow.css` — 나머지를 옮겨 줄임.
-- 새 `react-app/src/app-base.css`, `auth-form.css`, `onboarding.css`, `switch.css`, `modal-base.css`.
-- `react-app/src/app/App.jsx` — 불러오기 1줄 → 6줄.
-- 공용 영향: 스위치(7곳)·창 껍데기(16곳)는 규칙 내용을 안 바꾸고 파일만 옮김.
+- `react-app/package.json`·`package-lock.json` — 고른 라이브러리 1개 추가(`dependencies`).
+- `react-app/src/store/persistDomainRecords.js` — 4개 검사 함수를 라이브러리 선언으로.
+- 새 `react-app/src/store/persistDomainRecords.test.js` — 지금 동작을 못 박는 테스트(아래).
+- 공용 영향: 내보내는 이름·동작이 그대로라 부르는 12개 파일은 안 고침.
 
 ### 안 건드릴 것
-- 규칙 값·이름(합치는 `.auth-primary-btn` 말고는 한 글자도 안 바꿈).
-- 다른 CSS 파일(`controls-common.css`의 스위치 키보드 표시, `app-shell-base.css`의 창 움직임, `modal-form.css`의 빨간 확인 단추 등) — 그대로.
-- 화면 코드(JSX).
+- 같은 모양의 나머지 5개(`persistDomainSchema.js` 36개, `lib/callDetailSchema.js` 45개, `persistDayRecord.js` 22개, `persistDayRecordLegacy.js` 20개, `persistDomainInvoice.js` 12개) — 이번 결과를 보고 한 파일씩 따로.
+- 손으로 적은 타입 설명(JSDoc) — 라이브러리 선언에서 타입을 뽑아 바꾸는 일은 나중에 따로.
+- 저장 키·저장 형식·화면.
 
 ### 검증
-- **나누기 전·후 모양 비교**: 개발 서버 360px 밝은·어두운 화면에서 로그인 첫 화면, 로그인 입력 단계, 처음 정보 입력, 앱 설정(스위치), 창 하나(거래처 삭제 확인 등)를 열고, 화면의 모든 요소의 계산된 스타일 값을 뽑아 전·후가 같은지 기계로 비교(다르면 0이어야 함) + 사진.
-- 전·후 비교는 나누기 전 값을 먼저 뽑아 두고, 나눈 뒤 같은 순서로 다시 뽑아 비교.
-- `npm test`·`npm run typecheck`·`npm run build` 통과.
+- **먼저** 새 테스트를 지금 코드에 대고 써서 통과시킨 뒤 바꾸고, 바꾼 뒤에도 그대로 통과(동작 그대로의 증명). 4종 각각:
+  ① 모든 칸 올바른 자료 → 통과 ② 칸마다 틀린 종류 하나씩 → 거부(칸 수만큼, 손으로 적은 목록) ③ 모르는 칸 → 거부 ④ 꼭 있는 칸 빠짐 → 거부 ⑤ 선택 칸 전부 없음 → 통과 ⑥ 객체 아님(`null`·배열·글자) → 거부 ⑦ 칸은 있는데 값이 `undefined` → 거부 ⑧ 숫자 칸에 NaN·무한대 → 거부 ⑨ 허용 값 칸(종류·결제주기 등)에 목록 밖 값 → 거부 ⑩ `personalInfo`·`businessInfo` 안에 모르는 칸·틀린 종류 → 거부.
+- 테스트가 진짜 잡는지: 바꾼 코드에서 칸 하나의 검사를 일부러 느슨하게 해 보면 ②가 실패하는지 확인 → 원래대로.
+- 기존 `owner-state.test.js`·`guestBackup.test.js`·`persist.test.js` 그대로 통과.
+- `npm test`·`npm run typecheck`·`npm run build` 통과, 빌드 크기 늘어난 양을 진행 기록에 적음. 타입 꼼수(`any`·`unknown`·`@ts-ignore`·이중 단언) 0개.
+- 개발 서버 비회원: 차량·거래처·지출 하나씩 넣고 새로 고침 → 막기 화면 없이 그대로 보임, 백업 파일 받아 다시 불러오기 → "백업 데이터를 복원했습니다."
 
 ### 파일 길이
-- `account-flow.css` 427 → 약 160, 새 파일 5개 모두 200줄 이하(위 표).
-- `App.jsx` 지금 줄 수 + 5.
+- `persistDomainRecords.js` 139 → 약 110.
+- 새 테스트는 테스트 파일 예외.
 
 ### 실패 시 처리
-- 새 장치 없음(옮기기만). 전·후 모양 비교에서 하나라도 다르면 고치지 않고 수정 착수지시서로 다시 승인받는다.
+- 새 저장 장치·재시도·대비 장치 없음(검사 코드 모양만 바꿈). 테스트가 바꾸기 전·후 다르게 나오면 고치지 않고 수정 착수지시서로 다시 승인받는다.
+- 라이브러리를 들였는데 결과를 맞출 수 없는 칸이 나오면 멈추고 보고(그 칸만 직접 검사로 남길지 묻기).
 
 ### 사용자 확인 방법 (배포 뒤)
-- 로그인 화면, 처음 정보 입력, 앱 설정 스위치, 아무 창(팝업)이 전과 똑같으면 성공(바뀌는 게 없어야 정상).
+- 앱을 다시 열어 차량·거래처·지출·기사 목록이 전과 똑같이 보이면 성공(바뀌는 게 없어야 정상).
+- 비회원: 앱 설정 → 데이터 관리 → 백업 파일 저장 후 불러오기가 전처럼 된다.
 
 ### 확인할 점
-- 없음(모양을 안 바꾸는 정리). 다른 작업 창에서 이 파일을 고치고 있으면 겹치니 알려 주세요.
+1. **라이브러리**: Valibot(약 1.8KB, 권장)으로 할까요, Zod mini(약 5.8KB)로 할까요? (보통 Zod는 약 92KB라 비권장)
+2. 나머지 5개 파일도 같은 라이브러리로 한 파일씩 이어 가는 계획 그대로 갈까요(이번 결과 보고 결정해도 됩니다)?
