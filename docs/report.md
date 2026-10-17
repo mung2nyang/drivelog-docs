@@ -1,72 +1,70 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-## 로드맵 58-B 거의 같은 매출 화면 두 벌의 같은 부분을 하나로 `[x]`
+## 로드맵 58-C 거의 같은 공유 창 두 벌(운송비 내역서·일상점검표)을 하나로 `[x]`
 
-> **진행(2026-10-17)**: 보리 "착수지시서 확정, 작업 진행해". 코드 커밋 react-app `2f231b1` — push 뒤 CI verify·deploy 초록(run 39029083064).
-> - 바뀐 파일(지시서 목록과 같음): 새 `revenue/revenuePeriod.js` 45줄(`useRevenuePeriod`·`useRevenueFinanceSettings`·`buildYearlyRows`), 새 `revenue/RevenuePeriodParts.jsx` 46줄(`RevenuePeriodBar`·`RevenueYearList`), `OwnerRevenueView.jsx` 173→128, `DriverRevenueView.jsx` 88→35, 새 `RevenueViews.period.test.js` 2개.
-> - 동작 기록 테스트 2개(두 화면: 달·해 이동, 년 매출 12줄 값·빨강·합계, 범위 탭 있음/없음)를 고치기 전 코드에서 먼저 통과시킨 뒤 합침 → 합친 뒤 그대로 통과. 고치기 전으로 되돌려도 통과(동작을 안 바꾸는 정리라 맞음, revert-check). 기존 차주 매출 테스트 2개 통과.
-> - `npm test` 951 + 480 통과, 타입 검사 통과.
-> - 개발 서버 비회원(차주) 360px 밝은·어두운 화면: 콜 하나(300,000원) 넣고 월 매출 "당월 순이익 300,000원", 다음 달 → 11월, 년 매출 10월 300,000원·나머지 0원·"2026년 순이익 합계 300,000원", 다음 해 → 2027년, 범위 탭 그대로. 콘솔 오류 없음. 사진 `scratchpad\v58b\`. 기사 화면은 로그인 필요라 테스트로.
-> - 지시서와 다른 점: 없음. 참고: `RevenueNav.jsx` 머리 주석 "OwnerRevenueView·DriverRevenueView가 같이 쓴다"는 이제 `RevenuePeriodParts.jsx`만 부르는데 "안 건드릴 것" 파일이라 그대로 둠.
+> **진행(2026-10-17)**: 보리 "확정, 작업 진행해"(확인할 점 1 — 공유 못 하는 휴대폰 안내는 각자 그대로). 코드 커밋 react-app `7afe525` — push 뒤 CI verify·deploy 초록(run 39030614242, 커밋된 것만 검사 — 다른 작업 창 수정 섞이지 않음).
+> - 바뀐 파일(지시서 목록과 같음): 새 `shared/ShareFileModal.jsx` 113줄(`buildShareSmsUrl` 포함), `ReportShareModal.jsx` 138→65(`buildReportSmsUrl`은 같은 이름으로 내보냄), `documents/DailyInspectionShareModal.jsx` 90→29, 새 `documents/DailyInspectionShareModal.test.js` 5개.
+> - 점검표 창 동작 기록 테스트 5개(모양·문구, 카카오톡 공유 값, 공유 못 하는 휴대폰 안내, 실패/취소, 문자용 저장)를 고치기 전 코드에서 먼저 통과시킨 뒤 합침 → 그대로 통과. 내역서 창 기존 테스트 5개 통과. 고치기 전으로 돌려도 모두 통과(동작 안 바꾸는 정리라 맞음, revert-check).
+> - `npm test` 951 + 485 통과, 타입 검사 통과.
+> - 개발 서버 비회원 360px 어두운 화면: 서류 발급 → 운송비 내역서 → 공유 → "내역서 보내기" 창 문구·단추 그대로. 콘솔 오류 없음. 사진 `scratchpad\v58c\`. 점검표 창은 비회원에서 일상점검표 탭이 안 보여 테스트로. 실제 카카오톡·문자 보내기는 배포 뒤 휴대폰에서 보리.
+> - 지시서와 다른 점: 없음.
+> - **참고**: 작업 중(20:35~20:46) react-app 작업 폴더에 AI가 손대지 않은 수정이 생김 — `calendar/CalendarHeader.jsx`·`CalendarPage.jsx`·`calendar-grid.css`, `home/HomeTodoCard.jsx`·`HomePage.test.js`, `receivables/ReceivablesListPage.jsx`, 새 `receivables/receivablesGroupHead.css`. 58-C 커밋에는 넣지 않았고 건드리지 않음. 위 테스트·화면 확인은 그 수정이 섞인 상태에서 돌았으므로, 58-C만의 확인은 push 뒤 CI로 봄. 보리 확인: 다른 작업 창 작업, 그대로 둠(2026-10-17).
 
-보리 "진행해"(2026-10-17, 58-A `[x]` 뒤). 근거: `docs/roadmap.md` 58번(⑥), `docs/code-cleanup-review.md` D("8줄 묶음 12개 겹침"). 58-A 거래처 `[x]`(`b3de723`) → **58-B 매출(이번)** → 58-C 공유 창.
+보리 "진행해"(2026-10-17, 58-B `[x]` 뒤). 근거: `docs/roadmap.md` 58번(⑥), `docs/code-cleanup-review.md` D("공유 창 처리 5묶음 겹침"). 58-A `[x]`(`b3de723`) → 58-B `[x]`(`2f231b1`) → **58-C(이번, 58번 마지막)**.
 
 ### 쉬운 요약
-- 차주 매출 화면과 연동 기사 매출 화면에 똑같이 복사된 부분(달·해 이동, 년/월 매출 탭, 12달 순이익 목록, 계산 설정 준비)을 한 곳으로 모읍니다.
-- 화면 모양·숫자·누르는 동작은 그대로입니다. 차주 화면에만 있는 "전체 손익/차주/기사" 탭과 기사 고르기는 차주 화면에 그대로 남깁니다.
+- 운송비 내역서 "내역서 보내기" 창과 일상점검표 "점검표 보내기" 창은 모양과 처리(카카오톡으로 파일 공유, 문자용 파일 저장 뒤 문자 앱 열기)가 거의 똑같이 두 벌입니다. 공용 창 하나로 모읍니다.
+- 창 모양·문구·누르는 동작은 그대로입니다. 두 창이 다른 부분(제목, 안내 문구, 문자 받는 사람)은 각자 넘겨줍니다.
 
 ### 현재 상태 (코드 확인)
-- `components/revenue/OwnerRevenueView.jsx`(173줄) — 차주 매출. `components/revenue/DriverRevenueView.jsx`(88줄) — 연동 기사 매출. `RevenuePage.jsx:23-24`가 계정에 따라 하나를 고름.
-- 두 파일에서 똑같은 것:
-  1. 보는 달·탭 상태(`tab`·`viewDate`·`year`·`month`·`yearly`)와 이동(`shift` — 년 매출이면 1년, 월 매출이면 1달).
-  2. 계산 설정 준비(`buildFinanceSettings`를 차량·설정·개인정보·기사 바뀔 때 다시 — `void` 4줄 포함 9줄).
-  3. 12달 순이익 줄 만들기(`for m 0..11` → `{ month, netProfit }`)와 합계.
-  4. 위 카드의 날짜 이동(`DateNav`) + "년 매출/월 매출" 두 단추.
-  5. 년 매출 목록(12줄 + "OOOO년 순이익 합계", 손해면 빨강 `negative`).
-- 다른 것: 한 달 계산 함수(차주 `getOwnerMonthlyFinanceDetail` + 범위·기사 거르기 / 기사 `getDriverSelfMonthlyDetail`), 차주만 범위 탭·기사 고르기, 월 카드에 넘기는 값.
-- 테스트: 차주 화면 2개(`OwnerRevenueView.expensesSoT.test.js`, `OwnerRevenueView.vehicleScope.test.js`), 기사 화면·년 매출 목록·이동은 테스트 없음.
+- `components/ReportShareModal.jsx`(138줄) — 운송비 내역서(`ReportPage.jsx:222`). `components/documents/DailyInspectionShareModal.jsx`(90줄) — 일상점검표(`DailyInspectionExportBar.jsx:86`, 이미 `buildReportSmsUrl`을 내역서 창에서 빌려 씀).
+- 똑같은 것:
+  1. 카카오톡: 창 닫기 → "카카오톡으로 보낼 PDF/이미지를 준비하고 있습니다." → 파일 만들기 → 공유 못 하는 휴대폰이면 안내 → `navigator.share`(파일·제목·문구) → 사용자가 취소한 것 말고 실패면 "카카오톡 파일 공유에 실패했습니다."
+  2. 문자: 창 닫기 → "문자로 보낼 PDF/이미지를 저장하고 있습니다." → 파일 만들어 내려받기 → 문자 앱 열기 → 실패면 "문자용 파일 저장에 실패했습니다." → 1초 뒤 임시 주소 정리.
+  3. 창 모양: 머리(제목·"보내는 방법이나 파일 형식을 선택해 주세요.") + 카카오톡·문자 두 칸 × PDF·이미지 단추.
+- 다른 것:
+  - 제목("내역서 보내기"/"점검표 보내기"), 칸 설명 문구, 공유 제목("운송비 내역서"/"일상점검표"), 보낼 문구(설정한 내역서 문구/"안녕하세요. N월 일상점검표입니다…").
+  - 공유 못 하는 휴대폰 안내: 내역서 "이 휴대폰에서는 파일 공유를 할 수 없습니다. [PDF 다운로드]로 저장한 뒤 보내 주세요." / 점검표 "이 기기에서는 파일 공유를 지원하지 않습니다."
+  - 문자 받는 사람: 내역서는 거래처 연락처(없으면 안내만 하고 창 안 닫음), 점검표는 비워 둠(문자 앱에서 직접 고름).
+  - 파일 만들기: 내역서는 창 안에서(`pdf-export-mode`), 점검표는 밖에서 받아 옴.
+- 테스트: 내역서 창 5개(`ReportShareModal.test.js`), 점검표 창 없음.
 
 ### 목표 상태 (기대 동작)
-1. 위 같은 것 1~5가 한 곳에만 있다.
-2. 두 화면 모두: 월 매출에서 "다음 달"/"이전 달"은 1달, 년 매출에서 "다음 해"/"이전 해"는 1년 이동 — 지금과 같다.
-3. 두 화면 모두: 년 매출은 12줄(1월~12월) + "OOOO년 순이익 합계", 손해 달·합계는 빨강 — 지금과 같다.
-4. 차주 화면 범위 탭·기사 고르기·월 카드 숫자, 기사 화면 월 카드(본인 정산 기준) — 지금과 같다.
-5. 화면 모양(CSS 이름·순서) 그대로.
+1. 위 같은 것 1~3이 공용 창 한 곳에만 있다.
+2. 두 창의 제목·안내 문구·단추·안내 알림 문구·공유 제목·보낼 문구·문자 받는 사람이 지금과 같다(공유 못 하는 휴대폰 안내도 각자 지금 문구 그대로 — 확인할 점 1).
+3. 내역서 창: 거래처 연락처가 없으면 문자 단추는 안내만 하고 창을 안 닫는다 — 지금과 같다.
+4. `buildReportSmsUrl`(아이폰은 `&`, 그 밖은 `?`) 그대로 — 기존 테스트가 쓰는 이름도 그대로.
 
 ### 건드릴 파일
-- 새 `react-app/src/components/revenue/revenuePeriod.js` — 보는 달·탭 상태와 이동(`useRevenuePeriod`), 계산 설정 준비(`useRevenueFinanceSettings`), 12달 순이익 줄(`buildYearlyRows`).
-- 새 `react-app/src/components/revenue/RevenuePeriodParts.jsx` — 위 카드 날짜 이동 + 년/월 단추(`RevenuePeriodBar`, 차주 범위 탭은 안에 끼워 넣음), 년 매출 목록(`RevenueYearList`).
-- `react-app/src/components/revenue/OwnerRevenueView.jsx` — 위를 써서 범위 탭·기사 고르기·차주 계산만 남김.
-- `react-app/src/components/revenue/DriverRevenueView.jsx` — 위를 써서 기사 계산만 남김.
-- 새 테스트 `react-app/src/components/revenue/RevenueViews.period.test.js`.
-- 공용 영향: `DateNav`(`RevenueNav.jsx`)·`OwnerMonthlyCards`·계산 함수는 안 바꾸고 부르기만. CSS 안 바꿈.
+- 새 `react-app/src/components/shared/ShareFileModal.jsx` — 공용 창(모양 + 카카오톡·문자 처리 + `buildShareSmsUrl`).
+- `react-app/src/components/ReportShareModal.jsx` — 파일 이름·회사명·연락처·파일 만들기만 남기고 공용 창에 넘김. `buildReportSmsUrl`은 공용 것을 같은 이름으로 내보냄.
+- `react-app/src/components/documents/DailyInspectionShareModal.jsx` — 문구만 남기고 공용 창에 넘김.
+- 새 테스트 `react-app/src/components/documents/DailyInspectionShareModal.test.js`.
+- 공용 영향: CSS(`report/report.css`의 `report-share-*`) 이름·순서 그대로, 안 바꿈. 두 창을 부르는 `ReportPage.jsx`·`DailyInspectionExportBar.jsx`는 안 바꿈(같은 이름·같은 값).
 
 ### 안 건드릴 것
-- 계산 함수(`lib/finance.js`, `domain/driverSelfRevenue.js`, `driverRevenueScope.js`) — 숫자가 바뀌면 안 됨.
-- `RevenuePage.jsx`, `RevenueNav.jsx`, `OwnerMonthlyCards.jsx`, CSS.
-- 58-C.
+- 파일 만들기(`lib/reportExport.js`, 점검표 쪽 `buildFile`), 문구 설정(`lib/messageTemplates.js`).
+- `ReportPage.jsx`, `DailyInspectionExportBar.jsx`, CSS.
 
 ### 검증
-- **먼저** 새 테스트를 지금 코드에 돌려 통과(동작 기록): 두 화면 각각 — 다음 달 → 11월, 년 매출 → 12줄·"2026년 순이익 합계"·다음 해 → 2027년, 일지 하나 넣은 달 순이익 값이 년 목록에 보임. 합친 뒤 그대로 통과(목표 1~4).
-- 기존 차주 화면 테스트 2개 그대로 통과(목표 4).
+- **먼저** 점검표 창 새 테스트를 지금 코드에 돌려 통과(동작 기록): 제목·두 칸·단추 4개, 카카오톡 → 공유 제목 "일상점검표"·문구 "안녕하세요. 10월 일상점검표입니다…", 공유 못 하는 휴대폰 → "이 기기에서는…", 문자 → 받는 사람 비운 문자 주소·문구. 합친 뒤 그대로 통과.
+- 내역서 창 기존 테스트 5개 그대로 통과(목표 2~4).
 - `npm test`·`npm run typecheck` 통과.
-- 개발 서버 비회원(차주 화면) 360px: 월/년 전환, 달·해 이동, 범위 탭 — 바뀌기 전후 같은지(숫자·사진). 기사 화면은 로그인 필요라 테스트로.
+- 개발 서버 비회원 360px: 서류 발급 → 운송비 내역서·일상점검표에서 보내기 창을 열어 모양이 전과 같은지(사진). 실제 카카오톡·문자 보내기는 휴대폰에서만 돼서 배포 뒤 보리.
 
 ### 파일 길이
-- `OwnerRevenueView.jsx` 173 → 약 120
-- `DriverRevenueView.jsx` 88 → 약 35
-- 새 `revenuePeriod.js` 약 50, 새 `RevenuePeriodParts.jsx` 약 55
-- 새 테스트 약 110(테스트 파일 예외)
+- `ReportShareModal.jsx` 138 → 약 55
+- `DailyInspectionShareModal.jsx` 90 → 약 30
+- 새 `shared/ShareFileModal.jsx` 약 120
+- 새 테스트 약 100(테스트 파일 예외)
 
 ### 실패 시 처리
-- 새 저장 장치·재시도·대비 장치 없음(보여 주는 화면만).
+- 새 저장 장치·재시도·대비 장치 없음(지금 처리를 옮기기만).
 - 합친 뒤 동작 기록 테스트가 깨지면 고치지 않고 수정 착수지시서를 써서 다시 승인받는다.
 
-### 사용자 확인 방법 (배포 뒤)
-1. 매출 → 월 매출에서 "<"·">"로 달 이동, 숫자가 전과 같다.
-2. 년 매출 → 1월~12월 목록과 "2026년 순이익 합계", "<"·">"로 해 이동.
-3. 차주 계정: 전체 손익/차주/기사 탭, 기사 고르기 그대로.
-4. 연동 기사 계정: 매출 화면이 전과 같다.
+### 사용자 확인 방법 (배포 뒤, 휴대폰)
+1. 서류 발급 → 운송비 내역서 → 보내기 → 창 모양 그대로, 카카오톡 PDF 보내기가 전처럼 된다.
+2. 서류 발급 → 일상점검표 → 보내기 → 창 모양 그대로, 카카오톡·문자 보내기가 전처럼 된다.
 
 ### 확인할 점
-- 없음(화면·숫자를 바꾸지 않는 정리 작업).
+1. 공유를 못 하는 휴대폰 안내가 두 창에서 다릅니다(내역서 "이 휴대폰에서는 파일 공유를 할 수 없습니다. [PDF 다운로드]로 저장한 뒤 보내 주세요." / 점검표 "이 기기에서는 파일 공유를 지원하지 않습니다."). 이번엔 **각자 그대로** 둡니다(정리 작업이라 글자를 안 바꿈). 하나로 맞추길 원하시면 말씀해 주세요.
