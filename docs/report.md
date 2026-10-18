@@ -1,68 +1,55 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-## 검사 라이브러리 마무리 — 파일마다 따로 있는 Valibot 작은 도우미를 한 파일로 `[x]`
+## 로드맵 81 기사 초대 번호를 겹치지 않는 번호로 `[x]`
 
-> **진행(2026-10-17)**: 보리 "작업진행해". 코드 커밋 react-app `c8dae0b` — push 뒤 CI verify·deploy 초록(run 39038736984).
-> - 바뀐 파일(지시서 목록과 같음): 새 `domain/schemaParts.js` 30줄(`isPlainObject`·`opt`·`str`·`bool`·`finiteNumber`·`stringOrNumber`·`nonEmptyString`·`by`·`plain(스키마, 덧붙일 조건?)`, 함정 두 가지 주석), 새 `domain/schemaParts.test.js` 5개. 6개 파일 줄 수: `persistDomainRecords.js` 127→106(1/6의 `optional()` 지우고 칸마다 `opt`, `isPlainObject`는 공용 것을 다시 내보냄, `isFiniteNumber`·`hasOnlyKeys` 안에서만), `persistDomainSchema.js` 102→93, `callDetailSchema.js` 83→75(`isPlainObject` 한 벌 지움), `persistDayRecord.js` 71→66, `persistDayRecordLegacy.js` 60→54, `persistDomainInvoice.js` 40→35.
-> - 3/6의 "수수료 값은 숫자면 NaN도 받음"(`typeof`)과 하루 기록의 `count`(0 이상 정수)는 공용과 다른 규칙이라 각 파일에 그대로 둠.
-> - 6개 슬라이스 테스트 77개 + 기존 테스트 전부 그대로 통과(결과 안 바뀜). 새 함정 테스트: Valibot 그대로는 배열 통과, `plain()`은 배열 거부, 덧붙일 조건(빈 객체 거부), 빈 값 거부, NaN·무한대 거부.
-> - 테스트가 진짜 잡는지: `plain()`의 배열 거부를 객체 검사 **뒤**로 옮기면 "[]" 실패 확인 → 원래대로.
-> - `npm test` 1033 + 485 통과, 타입 검사·빌드·린트 통과, 타입 꼼수 0. 묶음 222.45 → 222.17KB(압축, 줄어듦).
-> - 개발 서버 비회원: 콜(입금 2건·수수료·`clientId: null`·톤수 소수)·설정(어두운 화면·켜기/끄기)·세금계산서 넣고 새로 고침 → 막기 화면 없이 그대로, 백업 다시 불러오기 정상. 콘솔 오류 없음.
-> - 지시서와 다른 점: 없음. 진행 중 실수 1건(5/6 파일 수정 때 `JsonValue` 타입 줄을 같이 지워 타입 검사 오류 → 바로 되살림, 커밋 전).
+> **진행(2026-10-18)**: 보리 "작업진행해". 코드 커밋 react-app `3fe2af2` — push 뒤 CI verify·deploy 초록(run 39091491726).
+> - **진행 중 보리 결정(지시서와 다른 점)**: 지시서대로 `drivers.js`가 `payments.js`의 `generateLocalId`를 가져오면 파일 고리가 새로 생김(`drivers.js` → `payments.js` → `finance.js` → `financeCore.js` → `drivers.js`, 동작엔 문제 없음). 보리 "1번으로": 번호 만드는 함수를 새 `domain/localId.js`로 옮기고 쓰는 3곳(`call-details.js`·`drivers.js`·`expenses.js`)과 `payments.js` 자신은 가져오는 줄만 바꿈 → 고리 안 생김, 번호 규칙 한 곳.
+> - 바뀐 파일: 새 `domain/localId.js` 10줄, `domain/payments.js`(함수 정의 → 가져오기, 9줄 줄어듦), `domain/call-details.js`·`domain/expenses.js`(가져오는 곳 1줄), `domain/drivers.js` 183→184(`generateLocalId('drv')`), `domain/drivers-cloud.test.js` 테스트 2개.
+> - 테스트: 81-1(같은 1/1000초 두 기사 → 번호 다름·`drv_시각_무작위`)은 고치기 전 코드에서 실패, 고친 뒤 통과. 81-2(옛 `drv-123` 수정 → 번호 그대로)는 안전 확인(revert-check).
+> - `npm test` 1035 + 485 통과(77번 지출 번호 테스트·콜 상세·입금 테스트 포함), 타입 검사·린트 통과.
+> - 개발 서버 비회원: 기사 차량에 기사 1명 추가 → 번호 `drv_1792291216470_e3rizg`, 새로 고침 뒤 막기 화면 없이 그대로. 콘솔 오류 없음.
 
-검사 라이브러리 6/6 `[x]`(`7bac155`) 뒤 AI 제안 → 보리 "응 진행해"(2026-10-17).
+보리 "권장 순서대로 진행해"(2026-10-18) — AI 권장 순서 **81 → 61 → 62 → 63 → 76 → 60 → 59**(그 뒤 23·24 → 34 → 79, 41-B는 미룸). 근거: `docs/roadmap.md` 81번(①, 낮음, 77번 착수 중 발견).
 
 ### 쉬운 요약
-- 6개 검사 파일에 같은 작은 도우미(선택 칸 표시, 글자, 유한 숫자, 글자·숫자, 배열 거부, 우리 함수로 검사)가 이름만 조금씩 다르게 따로 있습니다. 한 파일로 모아 6개 파일이 가져다 씁니다.
-- 앞에서 찾은 함정 두 가지("배열 거부는 객체 검사 **앞**에", "Valibot 숫자는 NaN 거부")를 그 한 파일에 주석과 테스트로 못 박아, 다음에 검사를 새로 만들 때 반복하지 않게 합니다.
-- 검사 결과는 한 건도 안 바뀝니다(6개 슬라이스 테스트 77개가 그대로 지킴).
+- 기사를 새로 초대할 때 붙는 번호가 "저장한 시각(1/1000초)"만으로 만들어져, 같은 순간 두 건이면 번호가 겹칠 수 있습니다. 77번(지출 번호)처럼 시각 + 무작위 글자로 바꿔 겹치지 않게 합니다.
+- 이미 만들어진 기사 번호(`drv-숫자`)는 그대로 둡니다.
 
 ### 현재 상태 (코드 확인)
-- 같은 일을 하는 도우미가 파일마다 따로(`grep`):
-  | 파일 | 따로 적은 도우미 |
-  |---|---|
-  | `store/persistDomainRecords.js`(1/6) | `str`·`bool`·`num`·`strOrNum`, 칸 묶음을 통째로 선택으로 바꾸는 `optional()` |
-  | `store/persistDomainSchema.js`(2/6) | `opt`·`str`·`bool`·`num`·`plain`·`by` |
-  | `lib/callDetailSchema.js`(3/6) | `opt`·`str`·`plainObject`, 그리고 공용과 똑같은 `isPlainObject` 한 벌 더 |
-  | `store/persistDayRecord.js`(4/6) | `opt`·`by`·`plainObject` |
-  | `store/persistDayRecordLegacy.js`(5/6) | `opt`·`str`·`strOrNum`·`plain` |
-  | `store/persistDomainInvoice.js`(6/6) | `opt`·`str`·`num`·`plain` |
-- 배열 거부 도우미가 4개 이름(`plain`·`plainObject`)·2가지 모양(빈 객체 거부 덧붙이기 있음/없음), 선택 칸 표시가 2가지 방식(칸마다 `opt` / 묶음 `optional()`).
-- 옛 도우미: `isFiniteNumber`·`hasOnlyKeys`는 이제 `persistDomainRecords.js` 안에서만 씀(밖에서 쓰는 곳 0, `grep -rln`). `isPlainObject`(12개 파일)·`isStringOrFiniteNumber`(2개 파일)·`isStringRecord`(1개 파일)는 밖에서 씀.
+- `react-app/src/domain/drivers.js:133` `list.push({ id: \`drv-${Date.now()}\`, status: 'pending', ...next })` — 새 기사 번호.
+- 이 번호는 서버 초대 저장의 중복 막기 열쇠로도 쓰임: `lib/requestDriverInviteSave.js:112` `idempotencyKey: driver.id` → `lib/driverLinkRpc.js` `p_idempotency_key`. 서버 쪽은 글자(`text`)이고 비어 있지만 않으면 됨(`supabase/migrations/0001_driver_links_idempotency_key.sql:20,30`) — 모양이 바뀌어도 서버는 그대로 받음.
+- 번호 모양(`drv-`)을 읽어서 쓰는 곳 없음(`grep -rn "'drv\|drv_\|startsWith('drv" src` → 테스트 자료와 입력칸 이름 `drvName` 등만).
+- 77번 선례: `domain/expenses.js:134` `generateLocalId('exp')`(`domain/payments.js:23` — `${prefix}_${Date.now()}_${무작위 6자}`), 테스트 `domain/expenses.test.js` "77-1·77-2".
+- 저장 검사: 기사 `id`는 글자면 통과(`store/persistDomainRecords.js` DRIVER) — 새 모양도 통과.
 
 ### 목표 상태 (기대 동작)
-1. 새 `src/domain/schemaParts.js` 한 파일에 공용 도우미: `isPlainObject`, `opt`, `str`, `bool`, `finiteNumber`, `stringOrNumber`, `nonEmptyString`, `by(검사 함수)`, `plain(스키마, 덧붙일 조건?)`(배열 거부를 객체 검사 **앞**에). 함정 두 가지는 이 파일 주석 1줄씩.
-2. 6개 검사 파일은 따로 적던 도우미를 지우고 이 파일에서 가져다 씀. 선택 칸 표시는 칸마다 `opt` 한 가지로(1/6의 `optional()` 지움).
-3. `callDetailSchema.js`의 `isPlainObject` 한 벌 지움.
-4. `persistDomainRecords.js`의 `isPlainObject`는 공용 파일 것을 그대로 다시 내보내서 이를 쓰는 12개 파일은 안 고침. `isFiniteNumber`·`hasOnlyKeys`는 밖으로 안 내보냄(안에서만 씀).
-5. 검사 결과는 한 건도 안 바뀐다. 3/6의 "수수료 값은 숫자면 NaN도 받음"(`typeof`)은 그 파일에 그대로 둔다(공용 `finiteNumber`와 다른 규칙이라).
+1. 새 기사 번호는 `drv_시각_무작위` 모양이라, 같은 1/1000초에 두 기사를 만들어도 번호가 다르다.
+2. 옛 번호(`drv-숫자`) 기사는 그대로 수정·삭제·초대 저장된다.
+3. 서버 초대 저장은 지금처럼 기사 번호를 중복 막기 열쇠로 쓴다(서버 변경 없음).
 
 ### 건드릴 파일
-- 새 `react-app/src/domain/schemaParts.js`(약 35줄) — `lib`·`store` 둘 다 이미 `domain`을 부르므로 여기 둠(`lib`→`store` 부르기를 새로 만들지 않음, 로드맵 59번 방향).
-- 새 `react-app/src/domain/schemaParts.test.js` — 함정 두 가지를 못 박는 테스트(배열 `[]`·`[1]` 거부, `{}` 통과, 빈 객체 거부 조건, `finiteNumber` NaN·무한대 거부, `exactOptional` 빈 값 거부).
-- `react-app/src/store/persistDomainRecords.js`, `persistDomainSchema.js`, `persistDayRecord.js`, `persistDayRecordLegacy.js`, `persistDomainInvoice.js`, `react-app/src/lib/callDetailSchema.js` — 도우미를 가져다 쓰게.
-- 공용 영향: 밖으로 내보내는 검사 함수·`isPlainObject`·`isStringOrFiniteNumber`·`isStringRecord`·칸 목록은 이름·결과 그대로라 이를 쓰는 파일은 안 고침. `isFiniteNumber`·`hasOnlyKeys` 내보내기를 빼는 것은 밖에서 쓰는 곳 0개(위 grep).
+- `react-app/src/domain/drivers.js` — 133줄 번호 만들기를 `generateLocalId('drv')`로(가져오기 1줄 추가).
+- `react-app/src/domain/drivers-cloud.test.js` — 테스트 2개 추가(77번과 같은 모양).
 
 ### 안 건드릴 것
-- 각 파일의 칸 선언 내용(칸 이름·규칙) — 도우미 이름만 바뀜.
-- 금액 규칙 `isValidCurrencyAmount`, 날짜별 읽기, 종류 고르기.
-- `isPlainObject`를 쓰는 12개 파일의 가져오는 곳(그대로 `persistDomainRecords.js`에서).
+- 서버(Supabase) 함수·표 — 받는 값이 글자라 그대로.
+- `requestDriverInviteSave.js`·`driverLinkRpc.js` — 번호를 그대로 넘기기만 함.
+- 이미 저장된 기사 번호.
 
 ### 검증
-- 6개 슬라이스 테스트 77개 + 기존 테스트 전부 그대로 통과(결과 안 바뀜의 증명).
-- 새 `schemaParts.test.js`: 고치기 전엔 파일이 없어 실패(새 파일) → 만든 뒤 통과. 테스트가 진짜 잡는지: `plain`의 배열 거부를 객체 검사 뒤로 옮기면 실패하는지 확인 → 원래대로.
-- `npm test`·`npm run typecheck`·`npm run build`·린트 통과, 타입 꼼수 0. 묶음 크기 같거나 조금 줄어야 함.
-- 개발 서버 비회원: 거래처·콜(입금·수수료)·설정·세금계산서 넣고 새로 고침 → 막기 화면 없음, 백업 다시 불러오기 정상.
+- 새 테스트: ① 시각을 고정하고 기사 두 명을 연달아 만들면 번호가 다르고 `drv_시각_무작위` 모양 ② 옛 번호(`drv-123`) 기사를 수정하면 그 번호 그대로.
+- 고치기 전 코드로 돌리면 ①은 실패(번호 같음), ②는 통과(안전 확인) — revert-check.
+- `npm test`·`npm run typecheck` 통과.
+- 개발 서버 비회원: 기사 차량에 기사 추가 → 목록에 보이고 새로 고침 뒤 그대로(새 번호 모양이 저장 검사를 통과).
 
 ### 파일 길이
-- 6개 파일은 도우미 줄만큼 줄어듦(파일마다 약 3~10줄). 새 파일 약 35줄. 모두 200줄 이하.
+- `domain/drivers.js` 183 → 184(200줄 이하).
 
 ### 실패 시 처리
-- 새 저장 장치·재시도·대비 장치 없음. 테스트 결과가 하나라도 바뀌면 고치지 않고 수정 착수지시서로 다시 승인받는다.
+- 새 저장 장치·재시도·대비 장치 없음. 검증이 실패하면 고치지 않고 수정 착수지시서로 다시 승인받는다.
 
 ### 사용자 확인 방법 (배포 뒤)
-- 앱을 다시 열어 차량·거래처·일지·설정·세금계산서가 전과 그대로면 성공(바뀌는 게 없어야 정상).
+- 차주 계정: 기사 관리 → 기사 초대 → 저장이 전처럼 되고 초대 코드가 나오면 성공(겉으로 바뀌는 것 없음).
 
 ### 확인할 점
-- 없음.
+- 없음(77번과 같은 방식).
