@@ -471,12 +471,13 @@ GPS 같은 기능을 자문 뒤에 넣으면 자문을 다시 받아야 해서(�
     읽는 함수(`hasDirty`·`getDirtyDomains`)는 테스트만 부르고 운영 코드는 `lib/hydrate.js:75,171`에서 지우기만 함 → 저장마다 쓸모없는 쓰기 1번. 88번과 같은 성격이라 88번 뒤.
     **같이 지움** `[확인: 2026-10-19 보리 — 88-A 리뷰 뒤 89번에 합침]`: 88-A가 남긴 `store/app-store.js:145` 안 쓰는 `memoryOnly` 변수·가져오기와 `store/batchWrites.js:34` `allEntriesCloudMemoryOnly`(사용처 0).
     ~~**89-A 기록장 지우기 + `memoryOnly`**~~ `[x]` react-app `553c458`(2026-10-19, 앱 켤 때 옛 기록장 키도 지움). ~~**89-B** 이제 아무 일도 안 하는 `syncToCloud`/`sync` 옵션 빼기~~ `[x]` react-app `aed061c`(2026-10-19, 운영 16·테스트 61개 파일, 동작 변화 없음). **89번 끝.**
-90. **알림 숫자를 손으로 다시 세게 하는 방식 → 구독으로** (⑤) — `lib/notifications.js` `collectNotifications`가 Store를 구독하지 않고 직접 꺼내 읽어서,
+90. ~~**알림 숫자를 손으로 다시 세게 하는 방식 → 구독으로**~~ `[x]` react-app `8aa427a`(2026-10-19, `useNotifications` 훅, 신호 줄 삭제, 남은 일지 쪽 빈 칸은 91번) (⑤) — `lib/notifications.js` `collectNotifications`가 Store를 구독하지 않고 직접 꺼내 읽어서,
     화면 31곳이 `onWorkChanged`/`bumpNotifTick`을 손으로 불러야 숫자가 바뀜(한 곳 빠뜨리면 숫자가 옛값). `app/AppShell.jsx:114` `useMemo`가 안 쓰는 `notifTick`·`drivers`·`settings`를 의존성에 넣어 억지로 다시 계산.
     알림을 구독 훅 하나로 → 손으로 부르던 31곳 삭제.
 91. **일지 저장 훅 `components/day-log/useDayDraft.js` 단순하게** (⑥) — `useRef` 10개, 저장 길 두 갈래(서버/기기), 기기 저장 실패용 장치 4종(대기 큐·"안전하지 않음" 표시·대기 주인·활동 등록)이 얽힘.
     200줄을 맞추려 훅 안 상태를 밖으로 꺼내 `commitLocalDayWrite`에 값 14개(ref 5개 포함)를 넘김(`useDayDraft.js:93`) — 같이 읽어야 할 코드가 갈라짐. `useMountedRef` 패턴도 같이 정리.
     **착수 전 `docs/sot.md` §3 "기존 일지 durable/fallback/unsafe/tombstone 걷어내지 않음" 결정을 바꿔야 함 — 보리 결정.** 바꾸지 않으면 훅 정리(ref·인자 줄이기)만.
+    **같이 지움(90번 뒤)**: 90번에서 알림 다시 세기 신호를 없애면 `DayLogPage.jsx`의 `onWorkChanged` 칸·`useDayDraft`의 `onCommitted` 인자·`dayDraftLifecycle.js`의 `onCommittedRef`가 받기만 하고 비게 됨 — 이 훅을 다시 짤 때 함께.
 92. **같은 값을 화면마다 손으로 넘기는 것 → 앱 공용 값(Context)으로** (⑥, 59번과 같이) — `app/AppShell.jsx:160` `AppShellRoutes`가 화면 21개에 props 13개(`ownerKey`·`session`·`showToast`·`navigate`·`goBack`·`goToPage` …)를 손으로 넘기고, 받는 화면 파일 46개.
     59번엔 `showToast`(→ `useToast()`)만 적혀 있음 — `ownerKey`·`session`·이동 함수까지 같은 방식으로 넓힘. 59번 착수 때 함께.
 93. **테스트만 살려 두는 운영 함수 정리** (⑥, 88·89번 때 같이) — 운영 코드에서 안 쓰는데 테스트가 불러서 남은 함수 20여 개:
