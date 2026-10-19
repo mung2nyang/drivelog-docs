@@ -8,11 +8,11 @@
 ## 1. Atomic 로컬 트랜잭션 & 상태 보존 (원본 §5)
 
 - 원자적 검증 대상 (단일 논리 단위):
-  도메인 localStorage | dirty journal | tombstone | durable journal | fallback/재시도 큐 | 메모리 Store | hydration 상태 | Store notify 횟수/시점 | debounce/sync 예약 | 원격 API 호출 | UI 성공/실패 상태
+  도메인 localStorage | tombstone | durable journal | fallback/재시도 큐 | 메모리 Store | hydration 상태 | Store notify 횟수/시점 | debounce/sync 예약 | 원격 API 호출 | UI 성공/실패 상태
 - 로컬 우선 persist 트랜잭션 7단계 순서:
   1. 모든 입력 검증 → 2. 모든 값 직렬화 → 3. 변경 대상 localStorage/journal 키 기존 값 백업 → 4. persist와 journal을 all-or-nothing 단일 쓰기로 반영 → 5. 성공 후 Store 변경 → 6. 완성된 Store 상태 notify 정확히 1회 → 7. sync 예약
 - 원격 호출 전 실패 시 불변 보장:
-  - 입력 검증/직렬화/로컬 persist/journal 실패 시: Store, localStorage, journal, tombstone, durable queue, notify(0회), sync 예약(0회) 모두 작업 전 상태 유지 및 원격 API 호출 0회. (도메인 persist만 성공하고 dirty journal 저장 실패하는 구조 불인정)
+  - 입력 검증/직렬화/로컬 persist/journal 실패 시: Store, localStorage, tombstone, durable queue, notify(0회), sync 예약(0회) 모두 작업 전 상태 유지 및 원격 API 호출 0회. (여러 키 중 일부만 저장되는 구조 불인정)
 - 원격 호출 후 실패 및 Reconcile:
   - 원격 mutation은 readiness, 최신 session epoch, durable intent/tombstone, idempotency key 확보 후 실행.
   - 호출 후 실패 시 호출 횟수/부분 성공 상태를 정직하게 Assert하고, reconcile/멱등 재시도로 최종 수렴 검증.
@@ -28,7 +28,7 @@
 
 ## 2. 전체 호출 경로 추적 & 실행 방어 (원본 §6)
 
-- 추적 경로: 사용자 클릭 → React 이벤트 핸들러 → setState → localStorage/Store persist → dirty journal/tombstone/durable queue → 원격 API → 성공/실패 토스트 → hydrate/retry → 최종 상태
+- 추적 경로: 사용자 클릭 → React 이벤트 핸들러 → setState → localStorage/Store persist → tombstone/durable queue → 원격 API → 성공/실패 토스트 → hydrate/retry → 최종 상태
 - Readiness 선검증 필수: 로그인 사용자의 원격 mutation은 readiness 검사 완료 전에 setState, Store/localStorage 변경, 성공 토스트, 모달 닫기, journal/tombstone/intent 제거를 실행하면 안 됨.
 - 로컬 우선 작업: 로컬 변경보다 durable mutation intent/tombstone 저장이 선행되어야 하며, 서버 실패 시 의도가 새로고침/hydrate 이후에도 남아 자동 재시도되어야 함.
 
@@ -42,25 +42,24 @@
   3. 기존 localStorage JSON.parse 실패
   4. 첫 번째 localStorage.setItem 실패
   5. 중간 localStorage.setItem 실패
-  6. dirty journal 저장 실패
-  7. durable journal 등록 전 기존 값 읽기 실패
-  8. durable journal cleanup 전 기존 값 읽기 실패
-  9. durable journal 등록 쓰기 실패
-  10. durable journal 삭제/cleanup 쓰기 실패
-  11. localStorage.length 또는 localStorage.key()를 통한 durable owner 열거 실패
-  12. JSON 문법은 정상이지만 최상위 또는 내부 patch 스키마가 잘못된 durable 데이터
-  13. Supabase API throw
-  14. Supabase { data: null, error: ... } 응답
-  15. hydrate 도중 로그아웃
-  16. hydrate 도중 owner 변경
-  17. sync 실행 중 추가 로컬 변경 발생
-  18. 직접 mutation 실행 직전 hydration이 failed 또는 hydrating으로 변경
+  6. durable journal 등록 전 기존 값 읽기 실패
+  7. durable journal cleanup 전 기존 값 읽기 실패
+  8. durable journal 등록 쓰기 실패
+  9. durable journal 삭제/cleanup 쓰기 실패
+  10. localStorage.length 또는 localStorage.key()를 통한 durable owner 열거 실패
+  11. JSON 문법은 정상이지만 최상위 또는 내부 patch 스키마가 잘못된 durable 데이터
+  12. Supabase API throw
+  13. Supabase { data: null, error: ... } 응답
+  14. hydrate 도중 로그아웃
+  15. hydrate 도중 owner 변경
+  16. sync 실행 중 추가 로컬 변경 발생
+  17. 직접 mutation 실행 직전 hydration이 failed 또는 hydrating으로 변경
 - 세부 회귀 검증 시나리오:
   - 기존 정상 일지가 있는 상태에서 durable patch가 [], null, 문자열, 숫자, {}, 잘못된 callDetails/fixedRouteCounts인 경우 기존 일지가 삭제되지 않는지 검증.
   - owner 열거 실패 시 retry/beforeunload가 예외를 누출하지 않고 보수적으로 차단하는지 검증.
 - 실패 단계 필수 Assert:
   - Store 및 모든 관련 localStorage 키의 작업 전 값 유지 여부
-  - dirty journal / tombstone / durable queue의 정합성
+  - tombstone / durable queue의 정합성
   - notify 호출 횟수 (0회 또는 명세값) 및 sync 예약 횟수 (0회 또는 명세값)
   - 원격 API 호출 횟수 (원격 호출 전 실패: 0회 / 원격 호출 후 실패: 실제 예상 횟수)
   - hydration status, 성공 토스트 미표시, 실패 UI 정상 표시
