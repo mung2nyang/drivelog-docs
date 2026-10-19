@@ -28,6 +28,7 @@ GPS 같은 기능을 자문 뒤에 넣으면 자문을 다시 받아야 해서(�
    **+ 55~60. 코드 구조 점검(2026-10-12)에서 나온 고칠 것** — 55(③)는 38~43 다음, 56·57(⑤)은 44~54와 함께, 58~60(⑥)은 그 뒤(아래 번호 목록).
    **+ 64~76. 코드 리뷰(2026-10-14)에서 나온 고칠 것** — ① 64~73은 지금 차례인 ⑤ 47번보다 먼저, ② 74·75는 그다음, ⑥ 76은 58~60과 함께(아래 번호 목록). 77(①, 낮음 — 67-B 확인 중 발견, 보리 등재 2026-10-14)은 73 다음.
    **+ ⑤ 78·82~87 순서(보리 확정 2026-10-17)** — 58~60(⑥)보다 먼저: **83 → 84 → 82 → 78 → 86 → 87 → 85**(저장 실패를 놓칠 위험이 큰 것부터, 모양 다듬기는 뒤).
+   **+ 88~94. 코드 전수 점검(2026-10-19)에서 나온 고칠 것** — AI 순서: 88(①)은 60보다 먼저, 89·93은 88 바로 뒤, 90(⑤)은 그다음, 92는 59번과 함께, 91·94(⑥)는 보리 결정(sot §3·`.ts` 전환) 뒤(아래 번호 목록). 보리가 바꿀 수 있음.
    **UI(화면 모양) 항목은 고치기 전에 예상 시안을 먼저 보여 주고 보리 확인 뒤 진행** `[확인: 2026-10-12 보리]`.
 3. **10-P ⓑ 노무·법률 자문 — 한 번만**(보리). 처리방침·AI 전달(24번)·Resend(23번)까지 확정된 기능 전부 포함. **+ 앱 오류 기록**(55-B: 로그인 사용자의 오류 문구·화면 주소·기기 정보를 우리 Supabase `client_errors`에 저장, 보관 기간 정할 것) `[확인: 2026-10-14 보리 — 처리방침 메모]`.
    **GPS는 "넣는 버전 / 안 넣는 버전" 두 가지로 자문받음**(보리 결정 2026-10-09) → 결과 보고 GPS 출시 전 포함 여부 결정.
@@ -421,7 +422,7 @@ GPS 같은 기능을 자문 뒤에 넣으면 자문을 다시 받아야 해서(�
     달력 미수 합계·빨간 점(`day-record.js:176` `monthCallUnpaidTotal`, `calendarBadges.js` `dayHasUnpaid`)과 기사 정산 합계(`financeCore.js` `getMonthlyDriverTotals`)는 휴무일 콜을 세고,
     미수금 화면·홈·연체 알림(`financeReceivables.js:58`)·달력 정산·매출은 뺌 → 미수금 화면에서 그 콜을 입금 처리할 방법이 없고 화면마다 합계가 다름.
     "이관 완료 후 진행사항"의 F-03(휴무일 운행 자료 합산, 원본 방식으로 변경 결정)과 같은 뿌리 — 같이 정함.
-76. **타입 규칙 위반 남음** (⑥) — AGENTS §6 금지 표시: `lib/hydrateVehicleDayLogs.js:28` `any`, `app/syncFlushListeners.js:7-8` `Function`. 동작 변화 없음.
+76. ~~**타입 규칙 위반 남음**~~ `[x]` react-app `cda7770`(2026-10-19, JSDoc만 — 운영 파일 금지 표시 0건) (⑥) — AGENTS §6 금지 표시: `lib/hydrateVehicleDayLogs.js:28` `any`, `app/syncFlushListeners.js:7-8` `Function`. 동작 변화 없음.
     (`// @ts-check` 없는 운영 파일 13개는 `docs/code-cleanup-review.md` F에 이미 적혀 있음.)
 77. ~~**지출 번호가 저장 시각(1/1000초)이라 같은 순간 두 건이면 한 건이 사라짐**~~ `[x]` react-app `37e85a6`(2026-10-15, `generateLocalId('exp')`) (①, 낮음) `[확인: 2026-10-14 보리 — 로드맵에 올림]` — 67-B 브라우저 확인 중 발견.
     `domain/expenses.js:124` `exp-${Date.now()}` → 같은 1ms 안에 만든 두 지출은 번호가 같고, 저장 때 `dedupeExpensesById`가 한 건을 버림(실제로 연동 차량 주유 1건이 서버에 안 올라감).
@@ -456,6 +457,30 @@ GPS 같은 기능을 자문 뒤에 넣으면 자문을 다시 받아야 해서(�
 87. ~~**화면 글자에 넣은 가운뎃점(·) 전부 빼기 — AI 티 남**~~ `[x]` react-app `4c21d37`(2026-10-17, 쉼표·"와/과"·빗금, 다시 막는 검사 테스트 — 보리 결정) (⑤, UI — 시안 먼저) `[확인: 2026-10-16 보리 — 로드맵에 올림, 86번 다음]` — 보리 제보(홈 "미수금 10건 · 2,509,258원").
     앱 화면에 보이는 글자의 `·` 전부 대상. 대략 세어 보니 60여 줄(주석 일부 섞임) — 착수 때 화면 글자만 정확히 골라 목록을 보여 드림.
     바꿀 모양 `[확인: 2026-10-16 보리]`: **기본은 띄어쓰기**. 착수 때 디자인 스킬(Hallmark 등)로 더 나은 방식이 있는지 한 번 더 확인하고 보리와 정함.
+
+**88~94. 코드 전수 점검(2026-10-19)에서 나온 고칠 것** `[확인: 2026-10-19 보리 — 전부 로드맵에 올림]` — 판단: 전면 재작성은 불필요, 저장·동기화 쪽 안 쓰는 장치와 리액트 사용 방식 몇 곳을 걷어내면 됨.
+계산 규칙(`domain/`) 분리, `useEffect` 적음(화면 200여 파일에 44개), 구독은 `useSyncExternalStore`로 바르게 씀 — 이 부분은 그대로 둠.
+
+88. **아무도 새로 넣지 않는 outbox(보낼 편지함) 걷어내기** (①) — 아래 백로그 "outbox 9개 파일 사실상 죽은 코드"를 번호로 올림.
+    새 작업을 넣는 운영 코드 0곳(`planOutboxAppend`·`buildMutationOp`)인데, 저장마다 `store/app-store.js:167` `scheduleCloudSync()`가 600ms 뒤 빈 편지함을 비우고, 앱 시작마다 `hydrate`가 되돌리기(`outboxReconcile`)를 돎.
+    옛 편지함이 남은 기기에선 `lib/outboxRollback.js:13-15`가 기사 목록을 빈 목록으로 바꿀 수 있음(데이터 위험 → ①).
+    대상 약 600줄: `mutationOutbox`·`outboxFlush`·`outboxReconcile`·`outboxRollback`·`outboxDriverMerge`·`syncQueue`·`app/syncFlushListeners.js`. `outboxTypes.js`의 `AppSession`·`DriverRecord` 타입, `outboxErrors.js`·`outboxCommit.js`(`commitLocalOnly`)는 다른 곳이 쓰므로 이름·자리만 옮김.
+    착수 때 정할 것: 옛 편지함이 남은 기기 처리 — "그냥 지움"(AI 권함: 서버가 정본, 직접 저장 전환 후 한 달 넘음) / "한 번 보내 보고 지움".
+89. **쓰기만 하고 아무도 안 읽는 변경 기록장(`lib/dirtyJournal.js`, 97줄) 지우기** (⑥) — `store/batchWrites.js:68`이 저장마다 휴대폰 저장소에 기록하지만,
+    읽는 함수(`hasDirty`·`getDirtyDomains`)는 테스트만 부르고 운영 코드는 `lib/hydrate.js:75,171`에서 지우기만 함 → 저장마다 쓸모없는 쓰기 1번. 88번과 같은 성격이라 88번 뒤.
+90. **알림 숫자를 손으로 다시 세게 하는 방식 → 구독으로** (⑤) — `lib/notifications.js` `collectNotifications`가 Store를 구독하지 않고 직접 꺼내 읽어서,
+    화면 31곳이 `onWorkChanged`/`bumpNotifTick`을 손으로 불러야 숫자가 바뀜(한 곳 빠뜨리면 숫자가 옛값). `app/AppShell.jsx:114` `useMemo`가 안 쓰는 `notifTick`·`drivers`·`settings`를 의존성에 넣어 억지로 다시 계산.
+    알림을 구독 훅 하나로 → 손으로 부르던 31곳 삭제.
+91. **일지 저장 훅 `components/day-log/useDayDraft.js` 단순하게** (⑥) — `useRef` 10개, 저장 길 두 갈래(서버/기기), 기기 저장 실패용 장치 4종(대기 큐·"안전하지 않음" 표시·대기 주인·활동 등록)이 얽힘.
+    200줄을 맞추려 훅 안 상태를 밖으로 꺼내 `commitLocalDayWrite`에 값 14개(ref 5개 포함)를 넘김(`useDayDraft.js:93`) — 같이 읽어야 할 코드가 갈라짐. `useMountedRef` 패턴도 같이 정리.
+    **착수 전 `docs/sot.md` §3 "기존 일지 durable/fallback/unsafe/tombstone 걷어내지 않음" 결정을 바꿔야 함 — 보리 결정.** 바꾸지 않으면 훅 정리(ref·인자 줄이기)만.
+92. **같은 값을 화면마다 손으로 넘기는 것 → 앱 공용 값(Context)으로** (⑥, 59번과 같이) — `app/AppShell.jsx:160` `AppShellRoutes`가 화면 21개에 props 13개(`ownerKey`·`session`·`showToast`·`navigate`·`goBack`·`goToPage` …)를 손으로 넘기고, 받는 화면 파일 46개.
+    59번엔 `showToast`(→ `useToast()`)만 적혀 있음 — `ownerKey`·`session`·이동 함수까지 같은 방식으로 넓힘. 59번 착수 때 함께.
+93. **테스트만 살려 두는 운영 함수 정리** (⑥, 88·89번 때 같이) — 운영 코드에서 안 쓰는데 테스트가 불러서 남은 함수 20여 개:
+    `load*`(`lib/clients.js:8`·`lib/invoices.js:17`·`lib/workData.js:12`·`lib/profile.js:32`·`lib/practiceSettings.js:17` 등), `syncClients`, `requestClientFixedUnitPrice`, `commitWorkDataDeletedDates`(`store/commitHelpers.js:106`), `durableWriteGuard`의 `hasUnsafeRegistration` 등.
+    착수 때 전체 목록을 다시 뽑고(운영 import 0건 확인), 그 함수만 검사하던 테스트는 같이 지움 — 다른 동작을 검사하는 테스트는 남김.
+94. **주석·타입 표기 무게 줄이기 — `.ts` 전환 검토** (⑥) — 전체 약 2만 9천 줄 중 약 25%(7,100줄)가 주석·JSDoc, 타입 정의(`@typedef`) 572개, 형 변환 표기 251개.
+    서술형 긴 주석(`useDayDraft.js` 등 — 주석이 코드보다 김)은 결론 1줄로. 근본 해결은 아래 "보류" 2번 `.ts`/`.tsx` 실전환 — 할지 말지·시점은 보리 결정(AGENTS §6 `// @ts-check` 규칙도 같이 바뀜).
 
 - **AI관찰 (미확인 — 실행 지시 아님, 보리 결정 대기)** — 외부 검수 중 나온 물음:
   ① 미수금이 부가세 뺀 운송료로만 잡혀, 전자계산서 35만원 운행에 38만 5천원이 들어와도 입력 불가("남은 금액보다 큰 금액은…", 보리 직접 확인) — 미수금에 부가세를 넣을지.
@@ -775,7 +800,7 @@ GPS 같은 기능을 자문 뒤에 넣으면 자문을 다시 받아야 해서(�
 - **outbox 9개 파일 사실상 죽은 코드**[확인 2026-09-14] —
   `commitWithOutboxAndFlush`(`outboxCommit.js`)를 프로덕션 어디서도
   안 부름(`commitLocalOnly`만 씀). 남은 역할은 이관 전 큐 잔여 flush뿐
-  (`docs/sot.md` §8). 정리 시점 미정.
+  (`docs/sot.md` §8). 정리 시점 미정. → **88번으로 올림(2026-10-19)**.
   덧붙임(2026-10-14 코드 리뷰) `[확인: 2026-10-14 보리]`: 새 작업을 넣는 운영 코드도 0곳(`buildMutationOp`·`planOutboxAppend`).
   다만 옛 큐가 기기에 남아 있으면 `lib/outboxRollback.js:13-15`가 로그인 계정엔 없는 기기 저장 기사 목록을 읽어
   화면의 기사 목록을 빈 목록으로 바꿀 수 있음 → 정리할 때 같이 지움.
@@ -824,4 +849,4 @@ GPS 같은 기능을 자문 뒤에 넣으면 자문을 다시 받아야 해서(�
 ## 보류 (보리 결정 대기, 급하지 않음)
 
 1. **`.test.js` 나머지 strict 진단** — "증가 금지"는 지킴, "전부 수정"은 안 함.
-2. **`.ts`/`.tsx` 실전환** — JSDoc 타입 → 실제 TS. "별도 단계"로 미뤄둠(2026-09-05).
+2. **`.ts`/`.tsx` 실전환** — JSDoc 타입 → 실제 TS. "별도 단계"로 미뤄둠(2026-09-05). 94번(2026-10-19)에서 할지 말지 다시 정함.

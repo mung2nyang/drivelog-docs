@@ -1,64 +1,58 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-## 로드맵 63-C 확인 창이 뜬 채 휴대폰 뒤로가기 한 번 더 — 확인 창만 닫고 입력 그대로 `[x]`
+## 로드맵 76 타입 규칙 위반 2곳 정리 — `any`·`Function`을 정확한 타입으로 `[x]`
 
-> **진행(2026-10-19)**: 보리 "착수지시서에 적힌것 작업진행해줘, 확인할 점 1 권하는대로"(창만 닫힘). 코드 커밋 react-app `79cbab7`.
-> - 교차검증(AGENTS §1): 파일·줄(`usePanelBackGuard.js:32-41`, `confirmDialog.jsx` 46줄·`:26`)·공용 영향 7곳 모두 코드와 같음, 고친 것 없음.
-> - 바뀐 파일(지시서 목록과 같음): `usePanelBackGuard.js` 44→47(붙잡기가 빠지면 먼저 다시 쌓고, 창이 떠 있으면 창만 닫고, 아니면 묻고 [나가기]면 `popPanelGuardThen`으로 빼고 나감), `confirmDialog.jsx` 46→61(`confirmDialogOpen`·`cancelConfirmDialog`만 추가 — 기존 7곳 안 바뀜), 테스트 2개 파일.
-> - 새 테스트 2개(확인 창 뜬 채 뒤로 → 창만 닫힘·일지·붙잡기 그대로 → 다시 뒤로 [나가기] → 붙잡기 빼고 나감 / 밖에서 창 닫기) — 고치기 전 코드로 돌리면 둘 다 실패, 기존 6개는 그대로 통과(revert-check, 2개 파일 복구 일치). 63-B의 [나가기] 테스트는 나가기가 붙잡기를 뺀 뒤라 기다림만 추가(기대값 그대로). `npm test` 1044 + 500 통과, 타입 검사·빌드 통과.
-> - 개발 서버 360px 밝은·어두운 화면: 세부 입력 "한진" → 뒤로 → 확인 창(붙잡기 있음) → 뒤로 → 창만 닫힘·"한진" 그대로·일지 그대로 → 뒤로 → 창 → 뒤로 → 창 닫힘(몇 번이든 같음). 위 ← 확인 창 → 뒤로 → 창만 닫힘(목표 5). [나가기] → 달력, 63-B 순서([취소] 뒤 뒤로 1번 달력, 위 ← [나가기], 칸 연 채 매출 탭 → 뒤로 달력) 그대로. 기록 수(`history.length`) 6 이상 안 늘어남. 콘솔 오류 없음. 사진 `scratchpad\v63c\`.
-> - push 뒤 CI verify·deploy 초록(run 39194934473). §5 리뷰(데스크톱 AI): 범위 = 지시서, 금지 타입 표시 0건, 줄 수 47·61, 63-B 테스트는 기다림만 추가(기대값 그대로).
-> - 배포본 확인(데스크톱 AI, getdrivelog.com 비회원 375px, 브라우저 뒤로): 주유 "30,000" → 뒤로 → 확인 창(붙잡기 있음) → 뒤로 → 창만 닫힘·30,000·일지 그대로 → 뒤로 → [나가기] → 달력. 위 ← 확인 창 → 뒤로 → 창만 닫힘·입력 칸 그대로(목표 5).
-> - 보리 최종 승인(2026-10-19) `[x]`. 63번 끝.
+> **진행(2026-10-19)**: 보리 "착수지시서에있는거 작업해줘". 코드 커밋 react-app `cda7770`.
+> - 교차검증(AGENTS §1): 파일·줄(`hydrateVehicleDayLogs.js:26-28`, `syncFlushListeners.js:7-8`, `pendingWriteRetryListeners.js:13-16`, `hydrateMergeTypes.js:6`, `hydrateEmployedDriver.js:56`)·금지 표시 grep 3줄 모두 코드와 같음, 고친 것 없음.
+> - `hydrateVehicleDayLogs.js` 56→57: `throwIfAnyHydrateError`를 `Record<string, SupabaseQueryError>`로 바꾸자 타입 검사가 `fetchDaily`·`fetchTransport` 오류 타입(`{ message?: string }|null`)과 안 맞다고 해서, 목표 1대로 그 둘도 `SupabaseQueryError`로 맞춤. 부르는 쪽 `hydrate.js`는 안 바꿔도 타입 검사 통과.
+> - `syncFlushListeners.js` 26→29: `// @ts-check` + `EventTargetLike`(`pendingWriteRetryListeners.js`에서 가져옴), `documentTarget`은 `EventTargetLike & { hidden?: boolean }`. 새 타입 오류 없음.
+> - `git diff`: 바뀐 줄은 JSDoc 주석과 `// @ts-check`뿐(코드 줄 0). 운영 파일 금지 표시 grep 0건. `npm test` 1044 + 500 통과(테스트 파일 안 고침), 타입 검사·빌드 통과. 새 테스트 없음·revert-check 해당 없음(지시서대로).
+> - push 뒤 CI verify·deploy 초록(run 39195815855). §5 리뷰(데스크톱 AI): 바뀐 줄 JSDoc·`@ts-check`뿐(코드 0), 금지 표시 grep 0건, 범위 = 지시서.
+> - 보리 최종 승인(2026-10-19) `[x]`. 다음 88번(보리 판단: 60보다 먼저).
 
-63-B(`1a0cb25`) 배포본 확인 중 데스크톱 AI가 발견, 보리 "응"(2026-10-19 — 따로 수정). 로드맵 63 줄 `[확인: 2026-10-19 보리 — 따로 수정]`.
+보리 확정 순서(2026-10-18) 81 → 61 → 62 → 63 → **76** → 60 → 59. 63번(63-B·63-C 포함) 끝난 뒤 다음. 로드맵 76 `[확인: 2026-10-14 보리 — 로드맵 기록 지시]`(64~76 코드 리뷰 묶음).
 
 ### 쉬운 요약
-- 지금: 입력 중 휴대폰 뒤로가기 → 확인 창이 뜬 상태에서 뒤로가기를 한 번 더 누르면 달력으로 나가 버리고 확인 창만 남습니다. 거기서 [계속 입력]을 누르면 빈 일지가 다시 열리고 입력은 사라져 있습니다.
-- 바꾼 뒤: 확인 창이 뜬 상태에서 뒤로가기를 누르면 **확인 창만 닫히고** 일지와 입력은 그대로 남습니다([계속 입력]과 같음). 안드로이드 앱에서 뒤로가기가 창을 닫는 것과 같은 느낌입니다.
+- 코드 두 곳에 규칙(AGENTS §6)에서 금지한 "아무 타입이나 됨" 표시(`any`, `Function`)가 남아 있습니다. 이걸 실제로 들어오는 값에 맞는 정확한 타입으로 바꿉니다.
+- 앱 동작은 바뀌지 않습니다. 타입 검사가 실수를 더 잘 잡게 되는 정리입니다.
 
 ### 현재 상태 (코드 확인)
-- `usePanelBackGuard.js:32-41`: 붙잡기 기록이 빠지면(뒤로가기) `pushedRef=false`로 두고 확인 창을 띄운 뒤, **답을 받고 나서야** [계속 입력]이면 붙잡기 기록을 다시 쌓음(`pushGuard`). 그래서 확인 창이 떠 있는 동안엔 붙잡기 기록이 없어 다음 뒤로가기가 일지 기록 자체를 빼서 달력으로 감.
-- 확인 창은 공용 `shared/confirmDialog.jsx`(46줄) — 띄우기만 있고, 밖에서 닫는 길이 없음. 새 질문이 오면 앞 질문을 "취소"로 끝내는 규칙은 있음(`:26`).
-- 배포본 재현(데스크톱 AI, getdrivelog.com 비회원 375px): 주유 칸 열기 → 뒤로 → 확인 창 → 뒤로 → 주소 `/app/calendar`, 확인 창 남음 → [계속 입력] → `/app/day/2026-10-20` 빈 일지, 붙잡기 표시(`panelGuard`)만 남음.
-- 화면 위 ← 로 띄운 확인 창도 비슷함(코드로만 봄, 재현 안 함 — 착수 때 확인): ← 확인 창이 뜬 채 뒤로 → 붙잡기 기록이 빠지며 확인 창이 한 번 더 뜸(`confirmDialog`가 앞 질문을 취소로 바꿔 끼움) — 화면은 머무름. 이번 고침으로 이것도 "창만 닫힘"으로 같아짐.
+- 남은 금지 표시는 이 2곳뿐(운영 파일 grep `\{any\}|<any>|, any>|\bFunction\b` — 테스트 제외 3줄):
+  - `src/lib/hydrateVehicleDayLogs.js:28` `@param {(errors: Record<string, any>) => void} params.throwIfAnyHydrateError`. 실제 함수는 `hydrateMerge.js:28` `throwIfAnyHydrateError(labeledErrors)`, 오류 타입은 `hydrateMergeTypes.js:6` `SupabaseQueryError`(`{ message: string, code?: string }|Error|null`). 같은 함수를 받는 `hydrateEmployedDriver.js:56`은 이미 `Record<string, SupabaseQueryError>`로 적혀 있음. 이 파일의 `fetchDaily`·`fetchTransport`(`:26-27`) 오류 타입은 `{ message?: string }|null`로 따로 적혀 있음.
+  - `src/app/syncFlushListeners.js:7-8` `windowTarget`·`documentTarget`의 `addEventListener: Function, removeEventListener: Function`. 같은 모양을 `pendingWriteRetryListeners.js:13-16` `EventTargetLike`가 정확한 타입으로 이미 적어 둠. 이 파일은 `// @ts-check`도 없음(§6: 바꾸는 운영 파일은 `@ts-check` 필수).
+- 부르는 곳: `hydrate.js:72·135`(`mergeVehicleDayLogsFromServer`에 `throwIfAnyHydrateError` 넘김), `providers.jsx:15` `attachSyncFlushListeners(window, document)`.
 
 ### 목표 상태 (기대 동작)
-1. 입력 칸 연 채 뒤로가기 → 확인 창이 뜨는 **즉시** 붙잡기 기록을 다시 쌓는다(답을 기다리지 않음).
-2. 확인 창이 뜬 채 뒤로가기 → 확인 창이 닫히고(취소와 같음) 일지·입력 그대로, 붙잡기 기록 다시 1장. 몇 번을 눌러도 같음.
-3. [계속 입력] → 입력 그대로, 붙잡기 기록 1장(새로 더 쌓지 않음 — 1에서 이미 쌓음).
-4. [나가기] → 붙잡기 기록을 조용히 빼고(`popPanelGuardThen`) 입력 칸 닫고 ← 와 같은 곳으로(63-B와 같은 도착지).
-5. 화면 위 ← 로 띄운 확인 창이 뜬 채 뒤로가기 → 2와 같이 창만 닫힘.
-6. 63-B 목표 1~6 동작은 그대로.
+1. `hydrateVehicleDayLogs.js`에 `any`가 없다. `throwIfAnyHydrateError` 매개변수는 `SupabaseQueryError`를 쓴다(`hydrateEmployedDriver.js:56`과 같게). 타입 검사가 `fetchDaily`·`fetchTransport` 오류 타입과 안 맞다고 하면 그 둘도 `SupabaseQueryError`로 맞춘다 — 부르는 쪽(`hydrate.js`)은 바꾸지 않는 것이 목표, 바꿔야 하면 멈추고 보고.
+2. `syncFlushListeners.js`에 `Function`이 없고 `// @ts-check`가 있다. 이벤트 등록 타입은 `pendingWriteRetryListeners.js`의 `EventTargetLike`와 같은 모양(가져다 쓰거나 같은 typedef), `documentTarget`엔 `hidden?: boolean` 그대로.
+3. 운영 파일 grep으로 금지 표시(`any`/`Function`) 0건.
+4. 앱 동작·테스트 기대값 변화 없음.
 
 ### 건드릴 파일
-- `src/components/day-log/usePanelBackGuard.js` — 붙잡기 기록이 빠졌을 때: 확인 창이 이미 떠 있으면 붙잡기 다시 쌓고 창 닫기(2·5), 아니면 붙잡기 먼저 다시 쌓고 묻기(1), [나가기]면 붙잡기 빼고 나가기(4).
-- `src/components/shared/confirmDialog.jsx` — 새 함수 2개만 추가: 지금 확인 창이 떠 있나, 떠 있는 확인 창을 "취소"로 닫기. 기존 `confirmDialog`·`ConfirmDialogHost` 동작은 그대로.
-  - 공용 영향 목록(`confirmDialog` 쓰는 곳 — grep): `AppShell.jsx`, `day-log/callDetailFormHelpers.js`, `day-log/inlinePanelActions.js`, `day-log/OffToggle.jsx`, `receivables/ReceivablesDetailPage.jsx`, `receivables/ReceivablesListPage.jsx`, `receivables/useConfirm.jsx`. 새 함수는 이번 훅만 부르고, 이 파일들은 안 바뀜.
-- 테스트: `usePanelBackGuard.test.js`에 추가(확인 창 뜬 채 뒤로 → 창 닫힘·일지 그대로·붙잡기 1장, 나가기 → 도착지), 새 함수 2개 테스트는 기존 `shared/confirmDialog.test.js`에 추가.
-- 코드 주석 최종 문구(훅, 빠졌을 때 처리 위): `// 묻는 동안에도 붙잡기 기록을 먼저 다시 쌓아, 창이 뜬 채 뒤로가기는 창만 닫는다(로드맵 63-C).`
+- `src/lib/hydrateVehicleDayLogs.js` — JSDoc 타입 줄만(목표 1). 코드 줄은 안 바뀜.
+- `src/app/syncFlushListeners.js` — `// @ts-check` 1줄 + JSDoc 타입 줄만(목표 2). 새 타입 오류가 나오면 이 파일 안에서만 고침.
+- `docs/roadmap.md` 76번 줄 `[x]`는 완료 때 데스크톱 AI가 함.
+- 공용 값 변경 없음(타입 표시만) — 영향 목록 해당 없음.
 
 ### 안 건드릴 것
-- 확인 창 문구·모양, `ConfirmModal.jsx`.
-- 일지 밖 확인 창(미수·휴무 등)이 뜬 채 휴대폰 뒤로가기 — 이번 범위 밖(붙잡기 기록이 없는 화면들).
-- `DayLogPage.jsx`(236줄, 이번엔 안 고침), `AppShell.jsx`, `historyMoves.js`.
+- `// @ts-check` 없는 다른 운영 파일(로드맵 76 줄: `docs/code-cleanup-review.md` F에 적힌 13개) — 이번 범위 밖, 이 파일 1개만.
+- `hydrate.js`·`hydrateMerge.js`·`hydrateEmployedDriver.js`·`providers.jsx`·`pendingWriteRetryListeners.js` 코드.
+- 테스트 파일(`syncFlushListeners.test.js` 등) — 기대값 그대로, 안 고쳐도 통과해야 함.
 
 ### 검증
-- 새 테스트가 고치기 전 코드에서 실패하는지 revert-check. 기존 `usePanelBackGuard.test.js` 3개·`historyMoves.test.js`·`useBackToExit.test.js` 그대로 통과. `npm test`·타입 검사·빌드 통과.
-- 개발 서버 375px(브라우저 뒤로 = 휴대폰 뒤로): 목표 1~5를 기록 번호(`history.state.idx`)·`panelGuard` 표시로 확인, 63-B 확인 순서(계속 입력·나가기·취소 후 뒤로·칸 연 채 매출 탭) 다시, 콘솔 오류 없음.
-- 순서 주의: [나가기] 때 붙잡기 빼기(뒤로 1장)가 끝난 뒤 나가야 함 — 기록 번호로 일지 기록이 남지 않는지 확인.
+- `npm test`·타입 검사·빌드 통과. 기존 `syncFlushListeners.test.js`·hydrate 관련 테스트 그대로 통과.
+- 동작이 안 바뀌었다는 증명: 바뀐 줄이 주석(JSDoc)과 `// @ts-check`뿐인지 `git diff`로 확인(코드 줄 0).
+- 새 테스트는 만들지 않음 — 동작 변화가 없어 실패시킬 대상이 없음(revert-check 해당 없음). 대신 금지 표시 grep 0건을 보고.
 
 ### 파일 길이
-- `usePanelBackGuard.js` 44 → 약 55. `confirmDialog.jsx` 46 → 약 58. 둘 다 200 이하.
+- `hydrateVehicleDayLogs.js` 56 → 약 57. `syncFlushListeners.js` 26 → 약 30. 둘 다 200 이하.
 
 ### 실패 시 처리
-- 새 저장 장치·재시도·임시 보관 없음. 기록 1장 쌓기·빼기와 창 닫기뿐.
-- 검증이 실패하면 고치지 않고 원인·수정 계획을 이 파일에 적어 다시 승인받는다.
+- 새 저장 장치·재시도·대비 장치 없음(타입 표시만).
+- `@ts-check`를 켜서 타입 오류가 이 파일 밖까지 번지거나, 부르는 쪽 코드를 바꿔야 하면 고치지 않고 원인·수정 계획을 이 파일에 적어 다시 승인받는다.
 
-### 사용자 확인 방법 (배포 뒤, 설치 앱)
-1. 달력 → 아무 날 → 주유 추가 → 비용에 숫자 입력 → 휴대폰 뒤로가기 → 확인 창.
-2. 확인 창이 뜬 채 휴대폰 뒤로가기 → 창만 닫히고 숫자 그대로면 성공.
-3. 다시 뒤로가기 → 확인 창 → [나가기] → 달력.
+### 사용자 확인 방법
+- 화면 변화 없음. 배포 뒤 평소처럼 로그인해 달력·일지가 열리고(서버에서 차량별 일지 불러오기), 인터넷을 껐다 켜도 오류 안내가 없으면 됨.
 
 ### 확인할 점
-1. 확인 창이 뜬 채 뒤로가기를 누르면 "창만 닫힘"으로 권합니다(안드로이드 앱의 보통 동작). 다른 길은 "눌러도 창이 그대로 있음"(공용 확인 창 파일을 안 고쳐도 됨)인데, 뒤로가기가 안 먹는 것처럼 느껴질 수 있어 권하지 않습니다.
+- 없음.
