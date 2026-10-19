@@ -623,7 +623,7 @@ Step 8 전. `error TS\d+:` 테스트·지원 **384 → 314**(캡 355 이하). �
 한 일:
 
 - 신규 `react-app/src/lib/driverLinkRpc.js` — `upsertDriverLinkViaRpc` (`upsert_driver_link_idempotent`), `updateDriverLinkFields`, `driverLinkRowNeedsUpdate`.
-- `requestDriverInviteSave.js` — `commitWithOutboxAndFlush` 제거. readiness → 차량 `supabaseId` 없으면 Fail-Fast 토스트 → 세션 캡처 → 기존 `supabaseId`면 update 1회, 없으면 RPC 1회(`p_idempotency_key: driver.id`) → RPC no-op인데 필드가 바뀌었으면 update 1회 → `commitDrivers(..., { syncToCloud: false })`.
+- `requestDriverInviteSave.js` — `commitWithOutboxAndFlush` 제거. readiness → 차량 `supabaseId` 없으면 Fail-Fast 토스트 → 세션 캡처 → 기존 `supabaseId`면 update 1회, 없으면 RPC 1회(`p_idempotency_key: driver.id`) → RPC no-op인데 필드가 바뀌었으면 update 1회 → `commitDrivers(...)`.
 - 실패 토스트 고정: `저장에 실패했습니다. 네트워크 상태를 확인해 주세요.`
 - 기간 겹침 서버/도메인 차단 제거. 남은 규칙: **같은 차량번호 1명** (`upsertDriver`, 메시지 `이미 다른 기사에게 할당된 차량입니다.`).
 - 차량·기간 없는 초안은 `commitLocalOnly`(클라우드 시도 안 함).
@@ -647,9 +647,9 @@ Step 8 전. `error TS\d+:` 테스트·지원 **384 → 314**(캡 355 이하). �
 - 기사 초대(로그인, 슬라이스 A): `src/lib/requestDriverInviteSave.js` → `src/lib/driverLinkRpc.js` (`upsert_driver_link_idempotent`). outbox 없음.
 - 기사 상태/삭제(로그인, 슬라이스 B `[x]`): `requestDriverStatusChange` / `requestDriverDeletion` → `driver_links` update·delete 1회. outbox 없음. hydrate `mergeDriversFromRows`: 서버 배열(빈 배열 포함)이 정본.
 - 차량·거래처 삭제(로그인, 슬라이스 C `[x]`): `requestVehicleDeletion` / `requestClientDeletion` → 본체 delete 1회 후 Store. outbox/tombstone 없음. hydrate `mergeCarsFromRows` / `mergeClientsFromRows`: 서버 배열(빈 배열 포함)이 정본. `supabaseId` 없는 로컬만 빈 서버에서도 남을 수 있음.
-- 메인 일지(로그인, 슬라이스 D `[x]`): `commitMainDayLogToCloud` → 그 날짜 `daily_logs`(+`transport_details`) 1회 후 Store(`syncToCloud: false`). durable/재시도 없음. hydrate `mergeWorkDataFromRows`: `dailyRows` 배열(빈 배열 포함)이 정본.
+- 메인 일지(로그인, 슬라이스 D `[x]`): `commitMainDayLogToCloud` → 그 날짜 `daily_logs`(+`transport_details`) 1회 후 Store. durable/재시도 없음. hydrate `mergeWorkDataFromRows`: `dailyRows` 배열(빈 배열 포함)이 정본.
 - 기사 쓰기 배럴: `src/lib/drivers.js` `saveDrivers` (게스트 로컬 잔존 — **초대 제품 기능 아님**, §8 Out-of-Scope)
-- 비용 쓰기 창구: `src/lib/expenses.js` `saveExpenses` — 로그인: 서버 기록 1회 후 `commitExpenses(..., { syncToCloud: false })`. 게스트 persist 유지.
+- 비용 쓰기 창구: `src/lib/expenses.js` `saveExpenses` — 로그인: 서버 기록 1회 후 `commitExpenses(...)`. 게스트 persist 유지.
 - 차량 쓰기 창구: `src/lib/vehicleMutations.js` `requestVehicleSave` — 로그인: 서버 upsert 1회 후 Store. 게스트 persist 유지.
 - 설정 쓰기 창구: `src/lib/practiceSettings.js` `savePracticeSettings` — 로그인: profiles upsert 1회 후 Store. LS는 theme만.
 - 계산서 쓰기 창구: `src/lib/invoices.js` `saveInvoices` — 로그인: tax_invoices 1회 후 Store.

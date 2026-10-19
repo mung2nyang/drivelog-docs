@@ -470,7 +470,7 @@ GPS 같은 기능을 자문 뒤에 넣으면 자문을 다시 받아야 해서(�
 89. **쓰기만 하고 아무도 안 읽는 변경 기록장(`lib/dirtyJournal.js`, 97줄) 지우기** (⑥) — `store/batchWrites.js:68`이 저장마다 휴대폰 저장소에 기록하지만,
     읽는 함수(`hasDirty`·`getDirtyDomains`)는 테스트만 부르고 운영 코드는 `lib/hydrate.js:75,171`에서 지우기만 함 → 저장마다 쓸모없는 쓰기 1번. 88번과 같은 성격이라 88번 뒤.
     **같이 지움** `[확인: 2026-10-19 보리 — 88-A 리뷰 뒤 89번에 합침]`: 88-A가 남긴 `store/app-store.js:145` 안 쓰는 `memoryOnly` 변수·가져오기와 `store/batchWrites.js:34` `allEntriesCloudMemoryOnly`(사용처 0).
-    ~~**89-A 기록장 지우기 + `memoryOnly`**~~ `[x]` react-app `553c458`(2026-10-19, 앱 켤 때 옛 기록장 키도 지움). **89-B**(이제 아무 일도 안 하는 `syncToCloud`/`sync` 옵션을 넘기는 곳에서 빼기)는 바로 다음 따로 `[확인: 2026-10-19 보리]`.
+    ~~**89-A 기록장 지우기 + `memoryOnly`**~~ `[x]` react-app `553c458`(2026-10-19, 앱 켤 때 옛 기록장 키도 지움). ~~**89-B** 이제 아무 일도 안 하는 `syncToCloud`/`sync` 옵션 빼기~~ `[x]` react-app `aed061c`(2026-10-19, 운영 16·테스트 61개 파일, 동작 변화 없음). **89번 끝.**
 90. **알림 숫자를 손으로 다시 세게 하는 방식 → 구독으로** (⑤) — `lib/notifications.js` `collectNotifications`가 Store를 구독하지 않고 직접 꺼내 읽어서,
     화면 31곳이 `onWorkChanged`/`bumpNotifTick`을 손으로 불러야 숫자가 바뀜(한 곳 빠뜨리면 숫자가 옛값). `app/AppShell.jsx:114` `useMemo`가 안 쓰는 `notifTick`·`drivers`·`settings`를 의존성에 넣어 억지로 다시 계산.
     알림을 구독 훅 하나로 → 손으로 부르던 31곳 삭제.
