@@ -482,6 +482,7 @@ GPS 같은 기능을 자문 뒤에 넣으면 자문을 다시 받아야 해서(�
 93. **테스트만 살려 두는 운영 함수 정리** (⑥, 88·89번 때 같이) — 운영 코드에서 안 쓰는데 테스트가 불러서 남은 함수 20여 개:
     `load*`(`lib/clients.js:8`·`lib/invoices.js:17`·`lib/workData.js:12`·`lib/profile.js:32`·`lib/practiceSettings.js:17` 등), `syncClients`, `requestClientFixedUnitPrice`, `commitWorkDataDeletedDates`(`store/commitHelpers.js:106`), `durableWriteGuard`의 `hasUnsafeRegistration` 등.
     착수 때 전체 목록을 다시 뽑고(운영 import 0건 확인), 그 함수만 검사하던 테스트는 같이 지움 — 다른 동작을 검사하는 테스트는 남김.
+    ~~**93-A 테스트도 없는 것 8개(+ 같이 죽는 2개)**~~ `[x]` react-app `2adbf85`(2026-10-19, `syncIdMerge.js` 파일째, 운영 −189줄). **93-B**(테스트만 부르는 것 10개)는 바로 다음. 남은 주석: `directMutations.js:2` "outbox 재시도" 문구 — 88-B 때.
 94. **주석·타입 표기 무게 줄이기 — `.ts` 전환 검토** (⑥) — 전체 약 2만 9천 줄 중 약 25%(7,100줄)가 주석·JSDoc, 타입 정의(`@typedef`) 572개, 형 변환 표기 251개.
     서술형 긴 주석(`useDayDraft.js` 등 — 주석이 코드보다 김)은 결론 1줄로. 근본 해결은 아래 "보류" 2번 `.ts`/`.tsx` 실전환 — 할지 말지·시점은 보리 결정(AGENTS §6 `// @ts-check` 규칙도 같이 바뀜).
 
