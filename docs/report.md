@@ -1,89 +1,71 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-## 로드맵 59 폴더 구조를 목표 구조로 — 나누는 방식(1회 보고) + 첫 조각 59-A `[x]`
+## 로드맵 59-B 앱 안 데이터 보관(`store/`)과 서버 연결 파일을 `src/data/`로 `[x]`
 
-보리 승인(2026-10-19, 60 `[x]`). 보리 확정 순서 "… 76 → 60 → **59**". 로드맵 59 `[확인: 2026-10-12 보리 — 목표 구조로 변경]`, 목표는 `docs/architecture-target.md` §4. 59에 같이 하기로 한 것: 92(같은 값 손으로 넘기기 → 공용 값), 88-B(`outboxTypes`·`outboxErrors`·`outboxCommit` 이름·자리), `directMutations.js:2` 옛 주석, `EmployerLinkCard`(60에서 넘어옴).
+보리 승인(2026-10-19, 59-A `[x]`). 59번 나누는 방식(아래층부터 9조각, 로드맵 59 `[확인: 2026-10-19 보리]`)의 두 번째 조각. 59-A와 같은 방식(옮기기·경로만, 동작 0, 상대 경로, `git mv`). 경로 줄만 바뀌는 200줄 넘는 파일은 §6 예외(보리 결정 2026-10-19).
+플레이북 트리거(`src/store/**`·`supabaseClient`·`lib/cloud*`) 해당 — 저장 경로의 **동작**은 안 바꾸고 파일 위치만 바꿈.
 
-### 1. 나누는 방식 (AGENTS §3 — 하위 슬라이스 1회 보고)
-
-**아래층부터 옮김**(공용 → 저장 엔진 → 기능 → 앱 틀). 문서 §5 예시는 "기능 폴더(`cars/`)부터"였지만, 기능을 먼저 옮기면 그 기능이 부르는 공용 부품 경로를 나중에 한 번 더 고쳐야 함 → 아래층부터면 경로를 한 번씩만 고침.
-
-| 조각 | 하는 일 | 대략 파일 |
-|---|---|---|
-| **59-A** | `shared/` 만들기 — 맨 위 디자인 파일 17개 → `shared/styles/`, `components/shared/` → `shared/ui/`, 공용 부품 `PageHeader`·`ConfirmModal`·`SwitchRow` → `shared/ui/` | 옮김 약 45 + 경로 고침 약 80 |
-| 59-B | `data/store/` ← `store/`, `data/cloud/` ← `supabaseClient.js`·`cloudSession.js`·`cloudStorage.js` | 약 25 + 경로 |
-| 59-C | `data/hydrate/`·`data/sync/` ← `lib/`의 불러오기·저장 창구(`hydrate*`·`*CloudCommit`·`*Mutations`·`pending*`·`durable*` 등) + 88-B 이름 정리 | 약 40 + 경로 |
-| 59-D | 기능 폴더 1 — `features/cars`·`clients`·`drivers` (+ `EmployerLinkCard`의 앱 시작 코드 부르기 해소) | 약 35 |
-| 59-E | 기능 폴더 2 — `features/receivables`·`revenue`·`documents` | 약 35 |
-| 59-F | 기능 폴더 3 — `features/calendar`·`home`·`notifications`·`account`·`settings`·`support` | 약 45 |
-| 59-G | 기능 폴더 4 — `features/day-log`(가장 큼, 43개) | 약 45 |
-| 59-H | `lib/` 남은 것 정리(내보내기·엑셀·PDF는 쓰는 기능 폴더로, 재수출 껍데기 5개·`domain/`과 같은 이름 11쌍 정리), `app/routes`·`app/shell` | 약 30 |
-| 59-I | 92번 — `useToast()`·`ownerKey`·`session`·이동 함수를 공용 값(Context)으로, 화면 46개의 손 넘기기 삭제 | 약 50 |
-
-- 모든 조각 공통: `git mv`로 옮겨 기록 유지, 동작 변화 0(경로만), 경로는 지금처럼 상대 경로(`../`) — 별칭(`@/…`) 같은 도구 설정은 안 들임. 테스트 실행 범위(`package.json`의 `test:unit`·`test:app` 파일 목록)는 새 폴더가 생기는 조각에서 같이 넓힘. 파일을 경로로 읽는 테스트 10개(`readFileSync` — 예: `components/shared/colorContrast.test.js`가 `variables.css`를 읽음)는 그 파일이 옮겨지는 조각에서 경로를 고침.
-- 의존 방향 검사(아래층이 위층을 부르면 실패) 자동화는 마지막에 — CI에 넣을지는 그때 보리 결정(`architecture-target.md` §4).
-- 조각마다 따로 착수지시서·승인·커밋 2개(규칙 그대로).
-
-### 2. 이번 조각: 59-A `shared/` 만들기
-
-> **진행(2026-10-19)**: 보리 "착수지시서 확정,작업진행해". 코드 커밋 react-app `716424e`(124개 파일: 옮김 50 + 경로만 고침 74).
-> - 교차검증(AGENTS §1) 고친 것: `components/shared/` 디자인 파일은 7개가 아니라 6개, 테스트는 7개가 아니라 8개(`colorContrast`·`CardActionButtons`·`ClearableInput`·`confirmDialog`·`CurrencyInput`·`ModalShell`·`Skeleton`·`TemporalInput`) → 옮긴 파일 약 45가 아니라 50개(맨 위 디자인 17 + `components/shared/` 29 + `PageHeader`·`PageHeader.test`·`ConfirmModal`·`SwitchRow` 4). `PageHeader`·`ConfirmModal`·`SwitchRow` 전용 디자인 파일은 없음. 경로로 읽는 테스트 중 이번에 고칠 것은 2개(`colorContrast.test.js`·`CardActionButtons.test.js`의 `management-common.css`), 나머지는 옮기지 않는 파일을 읽음. 목표 2의 "맨 위에 남는 것"에 그림 폴더 `src/assets/`(파일 아닌 폴더, 59 어느 조각에도 없음)도 남음.
-> - 옮기기는 `git mv`, 경로는 옮긴 위치 기준으로 다시 계산(대본으로 79개 파일, 손으로 고친 것은 위 테스트 2줄과 `package.json` `test:app` 범위 1줄).
-> - 목표 3: 옛 경로 grep(`components/shared`, `src/*.css` 꼴, `components/PageHeader`·`ConfirmModal`·`SwitchRow`, `../variables.css` 꼴) 0건.
-> - 목표 4: 옮기기 전·후 `npm run build` 디자인 결과 15개 파일 내용(이름 해시 뺌) 비교 — 모두 같음.
-> - `git diff -M`: 50개 모두 이름 바뀜으로 잡힘(42개 100%, 나머지 8개는 안의 경로 줄만 바뀜), 바뀐 줄 146개 중 `import`·`mock.module` 경로 아닌 줄은 위 손으로 고친 3줄뿐.
-> - `npm test` 1004 + 499 통과(옮기기 전과 같은 수), 타입 검사·빌드 통과.
-> - 개발 서버(비회원): 홈·달력·일지·차량 관리·마이페이지·앱 설정·알림 화면 열기, 차량 추가 → 삭제 확인 창(`ConfirmModal`) 뜸, 모양 그대로(화면 캡처), 콘솔 오류 없음.
-> - 지시서 오류(데스크톱 AI): `components/shared/` 디자인·테스트 개수를 틀리게 적음(7·7 → 실제 6·8) — 교차검증 정정이 맞음.
-> - push 뒤 CI verify·deploy 초록(run 39241663001).
-> - §5 리뷰(데스크톱 AI): ①범위 = 옮김 50(이름 바뀜 R100 42·R89~99 8) + 경로만 고침 74 ②새 파일 0(옮김만), 새 저장 키 0 ③타입 꼼수 0 ④줄 수 그대로(경로 줄만 — 200줄 넘는 파일도 §6 예외 결정대로) ⑤테스트 수 그대로, 바뀐 테스트 줄은 경로뿐 ⑥공용 디자인 영향 — 빌드 결과 디자인 내용 같음(아래) ⑦목표 1~5 대조. 경로(`import`·`mock.module`·`import()`·JSDoc `import(...)`) 아닌 바뀐 줄은 `package.json` `test:app` 1줄과 경로로 읽는 테스트 2줄뿐. 옛 경로 grep 0, `src/` 맨 위 파일은 `main.jsx`·`supabaseClient.js`뿐, `components/shared/` 없음.
-> - 배포본 로그인 확인(2026-10-19 20:04, 내장 브라우저): 새 묶음 파일(`index-BH1dhE45.js`)인데 **디자인 파일 이름이 옮기기 전 배포와 같음**(`index-WIA-vpHP.css` — 내용 해시라 디자인 결과가 글자까지 같다는 뜻). 홈·차량 관리·앱 설정 화면 모양 그대로(캡처), 알림 숫자 1은 오후 8시라 "오늘 일지 비어 있음" 알림, 콘솔 오류 없음.
+> **진행(2026-10-19)**: 보리 "착수지시서 작업해줘". 코드 커밋 react-app `705afdb`(217개 파일: 옮김 34 + 경로만 고침 183).
+> - 교차검증(AGENTS §1) 고친 것: `lib/cloudSession.test.js`가 지시서 목록에 없었음 → 59-A처럼 짝 테스트도 같이 `data/cloud/`로(옮긴 파일 33 → 34). 부르는 파일 수는 지시서 143·57·79와 달리 grep으로 147·62·81(주석·테스트 포함 세는 방식 차이), 대본이 모두 처리. `domain/workDataTombstones.js:3` 주석 속 경로 `store/ownerDataHooks.js`도 `data/store/…`로(동작 아님).
+> - 손으로 고친 줄 3개: `lib/failureMessages.test.js:22` 읽는 경로, `package.json` `test:unit` 범위, 위 주석 1줄. 나머지 경로는 59-A와 같은 대본(옮긴 위치 기준 다시 계산, `import`·`import()`·`mock.module`·JSDoc `import(...)`).
+> - 목표 3: 옛 경로 grep 0건(걸린 2줄은 `data/cloud/` → `../store/app-store.js`로 새 위치가 맞음). 테스트 지원 파일 주석은 파일 이름만 적혀 있어 그대로 둠.
+> - 빌드 비교: 옮기기 전·후 `npm run build` 결과 48개 파일(JS 33 포함, 이름 해시 뺌) **내용이 모두 글자 그대로 같음** — 묶음 안 동작 변화 0.
+> - `git diff -M`: 34개 모두 이름 바뀜으로 잡힘(2개 100%, 32개는 안의 경로 줄만), 바뀐 줄 561개 중 경로 아닌 줄 0(위 3줄도 경로).
+> - `npm test` 1004 + 499 통과(같은 수), 타입 검사·빌드 통과.
+> - 개발 서버(비회원): 차량·거래처 추가, 일지 한 건 저장 → 새로고침 뒤 셋 다 그대로, 콘솔 오류 없음.
+> - 메모(59-H): `data/cloud/supabaseClient.js`가 `app/routerBasename.js`를 부름(아래층 → 앱 틀), 이번엔 경로만.
+> - 지시서 오류(데스크톱 AI): 짝 테스트 `lib/cloudSession.test.js`를 옮길 목록에서 빠뜨림 — 교차검증이 채움(33 → 34).
+> - push 뒤 CI verify·deploy 초록(run 39250757845).
+> - §5 리뷰(데스크톱 AI): ①범위 = 옮김 34(모두 이름 바뀜) + 경로만 183 ②새 파일 0, 새 저장 키 0 ③타입 꼼수 0 ④줄 수 그대로(§6 예외 결정대로) ⑤테스트 수 그대로, 테스트 바뀐 줄은 경로뿐(가짜 서버 연결 `testSupport/stubSupabaseClient.js:65`도 새 경로) ⑥공용 값 — 해당 없음 ⑦목표 1~5 대조. 경로 아닌 바뀐 줄은 `package.json` `test:unit` 1줄·주석 1줄(+ `guestBackup.js`의 빈 줄이 같은 덩어리 안에서 빠졌다 다시 들어간 것 — 실제 변화 없음). `src/` 맨 위는 `main.jsx`뿐, `src/store/` 없음.
+> - 배포본 로그인 확인(2026-10-19, 내장 브라우저): **묶음 파일 이름이 59-A 배포와 같음**(`index-BH1dhE45.js`, 디자인 `index-WIA-vpHP.css` — 빌드 결과가 글자까지 같다는 교차검증 결과와 맞음). 로그인 유지, 차량 3·거래처 1·연동 기사 1 그대로, 오늘 일지 2회 저장 → 새로고침 뒤 그대로 → 비워서 되돌림, 콘솔 오류 없음.
 > - 보리 최종 승인(2026-10-19).
 
-#### 쉬운 요약
-- 어디서나 쓰는 공용 디자인 파일과 공용 화면 부품을 `shared/` 한 곳에 모읍니다(지금은 맨 위·`components/` 바로 아래·`components/shared/` 세 군데에 흩어짐).
-- 파일 위치와 그 파일을 부르는 경로만 바뀌고, 화면·동작은 그대로입니다.
+### 쉬운 요약
+- 앱 안 데이터 보관 장치(`store/` 폴더)와 서버 연결 파일 3개(`supabaseClient.js`·`cloudSession.js`·`cloudStorage.js`)를 새 `data/` 폴더 아래로 모읍니다.
+- 파일 위치와 부르는 경로만 바뀌고, 저장·불러오기·로그인 동작은 그대로입니다.
 
-#### 현재 상태 (코드 확인)
-- 맨 위 디자인 파일 17개(`src/*.css`: `variables`·`app-base`·`account-flow`·`auth-form`·`onboarding`·`switch`·`modal-base`·`toast`·`side-menu`·`management-common`·`controls-common`·`app-shell-base`·`header-controls`·`shared-controls`·`modal-form`·`offline-banner`·`index`) — 부르는 곳 `app/App.jsx:21-35`, `app/OfflineBanner.jsx:5`, `main.jsx:5`(grep).
-- `components/shared/` 운영 15개 + 디자인 7개 + 테스트 7개 — 부르는 파일 46개(grep `/shared/…`).
-- `components/PageHeader.jsx`(부르는 파일 24개)·`ConfirmModal.jsx`(12)·`SwitchRow.jsx`(2).
-- 경로로 읽는 테스트: `components/shared/colorContrast.test.js:8`(`variables.css`) 등.
+### 현재 상태 (코드 확인)
+- `src/store/` 30개(운영 17 + 테스트 13) — 부르는 파일 143개(grep `store/`, 같은 폴더 안 제외).
+- `src/supabaseClient.js` — 부르는 파일 57개. 안에서 `./app/routerBasename.js`를 부름(`:3` — 아래층이 앱 틀을 부르는 곳, 이번엔 경로만).
+- `src/lib/cloudSession.js` — 부르는 파일 79개. 안에서 `../store/app-store.js`·`./singleFlight.js`·`./outboxErrors.js`·`./failureMessages.js`를 부름(`:5-8`).
+- `src/lib/cloudStorage.js` — 부르는 파일 5개.
+- 위 넷을 부르는 파일을 합치면 183개(겹침 뺌). 테스트 가짜 모듈: `testSupport/stubSupabaseClient.js:65` `mock.module('../supabaseClient.js', …)`, 각 테스트의 `mock.module('…/store/…')`·`import('…/supabaseClient.js')` 등 경로 문자열.
+- 경로로 읽는 테스트: `lib/failureMessages.test.js:22` `new URL('./cloudSession.js', import.meta.url)`.
+- 테스트 실행 범위: `package.json` `test:unit`에 `src/store/**`(`:13`).
 
-#### 목표 상태 (기대 동작)
-1. `src/shared/styles/`에 맨 위 디자인 파일 17개, `src/shared/ui/`에 `components/shared/`의 모든 파일(테스트 포함)과 `PageHeader`·`ConfirmModal`·`SwitchRow`(+ 각 테스트·디자인 파일이 있으면 함께).
-2. `src/` 맨 위에 남는 것은 `main.jsx`·`supabaseClient.js`(59-B에서 옮김)뿐. `components/shared/` 폴더 없어짐.
-3. 옮긴 파일을 부르는 모든 경로가 새 위치를 가리킴. 옛 경로 grep(`components/shared/`, `'../variables.css'` 꼴의 맨 위 디자인 경로, `components/PageHeader` 등) 0건.
-4. 화면 결과 그대로 — 빌드 결과물의 디자인 규칙 내용이 옮기기 전과 같음(글자 단위 비교).
-5. 테스트 수 그대로, 전부 통과. `test:app` 실행 범위에 `src/shared/**/*.test.js` 추가.
+### 목표 상태 (기대 동작)
+1. `src/data/store/` ← `src/store/` 30개 전부(테스트 포함, 이름 그대로). `src/data/cloud/` ← `supabaseClient.js`·`cloudSession.js`·`cloudStorage.js`(이름 그대로).
+2. `src/store/` 폴더 없어짐. `src/` 맨 위 파일은 `main.jsx`뿐.
+3. 옮긴 파일을 부르는 모든 경로(`import`·`import()`·`mock.module`·JSDoc `import(...)`·경로로 읽는 테스트)가 새 위치를 가리킴. 옛 경로 grep 0건: `/store/`(단 `data/store/` 제외), `src/supabaseClient`·`'(../)*supabaseClient.js'` 꼴(단 `data/cloud/` 제외), `lib/cloudSession`·`lib/cloudStorage`·`'./cloudSession.js'`(lib 안).
+4. `package.json` `test:unit`의 `src/store/**/*.test.js` → `src/data/**/*.test.js`.
+5. 테스트 수 그대로(1004 + 499), 전부 통과. 동작 줄 변화 0.
 
-#### 건드릴 파일
-- 옮김(`git mv`): 위 1번 목록(약 45개).
-- 경로만 고침: 옮긴 파일을 부르는 파일 약 80개(목록은 진행 기록에 grep 결과로), 옮긴 파일 안의 상대 경로, 경로로 읽는 테스트, `package.json`(`test:app` 범위 1줄).
-- 동작 코드·문구·디자인 내용은 한 글자도 안 바꿈.
+### 건드릴 파일
+- 옮김(`git mv`): 33개(위 1번).
+- 경로만 고침: 부르는 파일 약 183개 + 옮긴 파일 안의 상대 경로 + `testSupport/stubSupabaseClient.js`·`fakeSupabaseClient.js`(주석 속 경로 포함) + `lib/failureMessages.test.js:22` + `package.json` 1줄.
+- 동작 코드·문구는 한 글자도 안 바꿈. 59-A처럼 경로 다시 계산은 대본으로 하고, 손으로 고친 줄은 진행 기록에 모두 적음.
 
-#### 안 건드릴 것
-- 기능 화면 폴더(`components/day-log` 등)의 위치 — 59-D~G. 기능 전용 디자인 파일(`components/*.css`, `components/<기능>/*.css`) — 그 기능을 옮길 때.
-- `supabaseClient.js` — 59-B. `lib/`·`store/` — 59-B·C.
-- `components/shared/` 안이라도 사실상 한 기능 전용인 부품(예: `AppTopBar`는 홈, `ShareFileModal`은 서류 발급) — 이번엔 폴더째 옮기고, 기능 폴더로 내릴지는 그 기능 조각에서 판단.
+### 안 건드릴 것
+- `supabaseClient.js`가 `app/routerBasename.js`를 부르는 것(아래층 → 앱 틀) — 이번엔 경로만 고치고 그대로. 의존 방향 정리는 59-H(앱 틀 정리) 때 — 진행 기록에 메모.
+- `cloudSession.js`가 부르는 `lib/singleFlight`·`outboxErrors`·`failureMessages` — 59-C(`outboxErrors` 이름은 88-B와 같이)·59-H에서 옮김, 이번엔 경로만.
+- `lib/`의 나머지(불러오기·저장 창구) — 59-C. 화면 폴더 — 59-D~G.
+- 저장 키·저장 순서·로그인 흐름 등 동작 일체.
 
-#### 검증
+### 검증
 - `npm test`·타입 검사·빌드 통과, 테스트 수 그대로.
 - 목표 3 grep 0건을 진행 기록에.
-- 목표 4: 옮기기 전·후 `npm run build` 결과의 CSS 파일 내용 비교(파일 이름 해시 말고 내용) — 같음을 진행 기록에.
-- `git diff -M --stat`로 옮긴 파일이 "이름만 바뀜(100%)"인지, 바뀐 줄은 `import` 경로뿐인지 확인해 진행 기록에.
-- 개발 서버(비회원): 홈·달력·일지·차량 관리·마이페이지·앱 설정 열기 → 모양 그대로, 콘솔 오류 없음.
+- `git diff -M --stat`: 33개가 이름 바뀜(100% 또는 안의 경로 줄만)으로 잡히는지, 경로가 아닌 바뀐 줄 목록(있으면 전부)을 진행 기록에.
+- 빌드 결과 비교: 옮기기 전·후 `npm run build`의 JS 결과에서 모듈 경로 문자열 말고 달라진 게 없는지(가능한 만큼) — 최소한 디자인 결과 같음 + 묶음 파일 수 같음을 진행 기록에.
+- 개발 서버(비회원): 차량·거래처 추가, 일지 저장 → 새로고침 뒤 그대로, 콘솔 오류 없음. 로그인 흐름은 배포본에서 AI가 확인(아래).
 
-#### 파일 길이
-- 옮기기만 해서 줄 수 그대로(경로 줄 글자만 바뀜). 200줄 넘는 파일(`DayLogPage.jsx` 등)은 경로 줄만 바뀜 — §6의 "200줄 넘는 파일 수정 → 분리설계" 대상 아님(보리 결정 2026-10-19, 아래 확인할 점 2).
+### 파일 길이
+- 옮기기만 해서 줄 수 그대로(경로 줄 글자만). 200줄 넘는 파일은 경로 줄만 바뀜 — §6 예외(보리 결정).
 
-#### 실패 시 처리
+### 실패 시 처리
 - 새 저장 장치·재시도·대비 장치 없음(파일 위치·경로만).
-- 빌드 결과 디자인 내용이 하나라도 다르면(불러오는 순서가 바뀐 경우 등) 멈추고 무엇이 다른지 이 파일에 적어 다시 승인받는다.
+- 테스트가 하나라도 실패하면(특히 가짜 모듈 경로를 못 찾아 진짜 서버 연결을 부르는 경우) 멈추고 어느 경로인지 이 파일에 적어 다시 승인받는다.
 
-#### 사용자 확인 방법 (배포 뒤, AI가 로그인 계정으로)
-1. 홈·달력·일지·차량 관리·마이페이지·앱 설정·알림 화면을 차례로 열어 모양이 전과 같은지(화면 캡처 비교).
-
-### 확인할 점 — 답 받음 `[확인: 2026-10-19 보리 — "응 권하는대로"]`: 1 아래층부터 9조각, 2 경로 줄만 바뀌는 200줄 넘는 파일은 §6 분리설계 예외
-1. 위 나누는 방식(아래층부터, 59-A~I 9조각)으로 진행할까요? 다른 안: 문서 예시대로 기능 폴더(`cars/`)부터.
-2. 200줄 넘는 파일에서 **경로 줄만** 바뀌는 경우(59 전체에서 반복됨)는 §6 분리설계 대상이 아닌 것으로 봐도 될까요? 권함: 예(줄 수·내용 그대로라). 안 되면 해당 파일마다 분리설계부터 해야 해서 59가 크게 늘어납니다.
+### 사용자 확인 방법 (배포 뒤, AI가 로그인 계정으로)
+1. 앱 켜기 → 로그인 유지, 차량·거래처·기사 목록 그대로.
+2. 오늘 일지 한 건 저장 → 새로고침 뒤 그대로 → 되돌림.
+3. 콘솔 오류 없음.
