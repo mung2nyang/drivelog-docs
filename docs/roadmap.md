@@ -485,7 +485,7 @@ GPS 같은 기능을 자문 뒤에 넣으면 자문을 다시 받아야 해서(�
     ~~**93-A 테스트도 없는 것 8개(+ 같이 죽는 2개)**~~ `[x]` react-app `2adbf85`(2026-10-19, `syncIdMerge.js` 파일째, 운영 −189줄). ~~**93-B** 테스트만 부르는 것 10개~~ `[x]` react-app `a24ded4`·`5bb198c`(2026-10-19, 다른 이름 1개는 테스트를 진짜 함수로, 9개는 함수와 그 단언만, `domain/clients.js` `updateClientFixedUnitPrice`도 — 지우기만이라 §6 예외, 보리 결정). **93번 끝.** 남은 주석: `directMutations.js:2` "outbox 재시도" 문구 — 88-B 때.
 94. **주석·타입 표기 무게 줄이기 — `.ts` 전환 검토** (⑥) — 전체 약 2만 9천 줄 중 약 25%(7,100줄)가 주석·JSDoc, 타입 정의(`@typedef`) 572개, 형 변환 표기 251개.
     서술형 긴 주석(`useDayDraft.js` 등 — 주석이 코드보다 김)은 결론 1줄로. 근본 해결은 아래 "보류" 2번 `.ts`/`.tsx` 실전환 — 할지 말지·시점은 보리 결정(AGENTS §6 `// @ts-check` 규칙도 같이 바뀜).
-95. **문자 보내기 주소를 만드는 같은 코드 세 벌을 한 곳으로** (⑥) `[확인: 2026-10-19 보리 — 93-B 조사 중 발견, 로드맵에 올림]` — iPhone이면 `&`, 아니면 `?`로 `sms:번호?body=…`를 만드는 같은 두 줄이
+95. ~~**문자 보내기 주소를 만드는 같은 코드 세 벌을 한 곳으로**~~ `[x]` react-app `6c414a2`(2026-10-19, `domain/smsHref.js` `buildSmsHref` 하나, 주소 글자 그대로, 보리 휴대폰 확인) (⑥) `[확인: 2026-10-19 보리 — 93-B 조사 중 발견, 로드맵에 올림]` — iPhone이면 `&`, 아니면 `?`로 `sms:번호?body=…`를 만드는 같은 두 줄이
     `components/shared/ShareFileModal.jsx:10` `buildShareSmsUrl`(내역서·공유 창), `components/day-log/MessageTemplateSheet.jsx:16` `buildTemplateSmsUrl`(문자 문구 시트), `lib/driverInviteSms.js:24-25`(기사 초대 문자, 기기 정보를 인자로 받음)에 따로 있음.
     한 곳(예: `lib/` 또는 `domain/`의 작은 함수 하나)으로 모으고 세 곳이 그걸 부름. 동작 변화 없음. 93-B가 `ReportShareModal`의 다른 이름을 먼저 정리한 뒤.
 
