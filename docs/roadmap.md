@@ -466,8 +466,10 @@ GPS 같은 기능을 자문 뒤에 넣으면 자문을 다시 받아야 해서(�
     옛 편지함이 남은 기기에선 `lib/outboxRollback.js:13-15`가 기사 목록을 빈 목록으로 바꿀 수 있음(데이터 위험 → ①).
     대상 약 600줄: `mutationOutbox`·`outboxFlush`·`outboxReconcile`·`outboxRollback`·`outboxDriverMerge`·`syncQueue`·`app/syncFlushListeners.js`. `outboxTypes.js`의 `AppSession`·`DriverRecord` 타입, `outboxErrors.js`·`outboxCommit.js`(`commitLocalOnly`)는 다른 곳이 쓰므로 이름·자리만 옮김.
     착수 때 정할 것: 옛 편지함이 남은 기기 처리 — "그냥 지움"(AI 권함: 서버가 정본, 직접 저장 전환 후 한 달 넘음) / "한 번 보내 보고 지움".
+    ~~**88-A 연결 끊기·파일 7개 지우기**~~ `[x]` react-app `88247d7`(2026-10-19, 옛 편지함 기록은 보내지 않고 지움 — 보리 결정). **88-B**(남은 `outboxTypes.js`·`outboxErrors.js`·`outboxCommit.js` 이름·자리 옮기기)는 59번 때 `[확인: 2026-10-19 보리]`.
 89. **쓰기만 하고 아무도 안 읽는 변경 기록장(`lib/dirtyJournal.js`, 97줄) 지우기** (⑥) — `store/batchWrites.js:68`이 저장마다 휴대폰 저장소에 기록하지만,
     읽는 함수(`hasDirty`·`getDirtyDomains`)는 테스트만 부르고 운영 코드는 `lib/hydrate.js:75,171`에서 지우기만 함 → 저장마다 쓸모없는 쓰기 1번. 88번과 같은 성격이라 88번 뒤.
+    **같이 지움** `[확인: 2026-10-19 보리 — 88-A 리뷰 뒤 89번에 합침]`: 88-A가 남긴 `store/app-store.js:145` 안 쓰는 `memoryOnly` 변수·가져오기와 `store/batchWrites.js:34` `allEntriesCloudMemoryOnly`(사용처 0).
 90. **알림 숫자를 손으로 다시 세게 하는 방식 → 구독으로** (⑤) — `lib/notifications.js` `collectNotifications`가 Store를 구독하지 않고 직접 꺼내 읽어서,
     화면 31곳이 `onWorkChanged`/`bumpNotifTick`을 손으로 불러야 숫자가 바뀜(한 곳 빠뜨리면 숫자가 옛값). `app/AppShell.jsx:114` `useMemo`가 안 쓰는 `notifTick`·`drivers`·`settings`를 의존성에 넣어 억지로 다시 계산.
     알림을 구독 훅 하나로 → 손으로 부르던 31곳 삭제.
