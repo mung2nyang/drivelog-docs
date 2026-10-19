@@ -364,7 +364,7 @@ GPS 같은 기능을 자문 뒤에 넣으면 자문을 다시 받아야 해서(�
     `lib/`↔`store/`가 서로를 부름(`store/app-store.js:7` 등). 화면 부품이 앱 시작 코드를 부르는 곳 5군데(`EmployerLinkCard.jsx`·`InviteRedeemModal.jsx` → `app/boot.js` 등),
     서버 연결 코드 직접 호출 2군데(`app/App.jsx:8`, `components/AuthPage.jsx:3`). `showToast`를 화면 44개에 손으로 넘김.
     알림은 `useToast()`로 꺼내 쓰게 바꿈. 한 번에 옮기지 않고 기능 폴더 하나씩(예: `cars/` 먼저) → `data/`·`shared/` 정리. 하위 슬라이스 나누는 방식은 착수 때 1회 보고.
-60. **화면 파일 안의 여러 단계 처리 흐름을 훅으로 옮기기** (⑥) `[확인: 2026-10-12 보리]` — `components/cars/CarListPage.jsx:94-175`가 차량 저장·연동 해제 요청·기사 삭제·초대 저장
+60. ~~**화면 파일 안의 여러 단계 처리 흐름을 훅으로 옮기기**~~ `[x]` react-app `9c1c218`(2026-10-19, 차량 관리 화면 → `useCarListActions`, 231→129줄, 옮기기 전 흐름 테스트 4개 먼저; 같은 모양 찾기 결과 다른 화면은 여러 단계 아님, `EmployerLinkCard`는 59번) (⑥) `[확인: 2026-10-12 보리]` — `components/cars/CarListPage.jsx:94-175`가 차량 저장·연동 해제 요청·기사 삭제·초대 저장
     순서(약 80줄)를 화면에서 직접 지휘. 처리 흐름은 훅으로, 화면은 그리기만. 착수 때 같은 모양의 다른 화면도 grep으로 찾아 범위 확정.
     참고: 하루 화면 돈 합계를 화면이 직접 계산하는 문제(`components/day-log/CallDetailList.jsx:31-34`)는 40번을 고칠 때 계산을 `domain/`으로 옮겨 같이 해결.
 
