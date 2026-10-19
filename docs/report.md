@@ -1,70 +1,71 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-## 로드맵 93-A 아무 데서도 안 쓰는 함수 지우기 — 테스트도 없는 것 `[x]`
+## 로드맵 93-B 앱은 안 쓰고 테스트만 부르는 함수 정리 `[x]`
 
-> **진행(2026-10-19)**: 보리 "착수지시서 작업진행해". 코드 커밋 react-app `2adbf85`(5개 파일, +3 / −189).
-> - 교차검증(AGENTS §1): 이름 11개(`mergeRemoteIdByLocalId`·`findOverlappingDriverLinkOnSupabase`·`upsertDriverLinkOnSupabase`·`findExistingDriverLinkInsert`·`rangesOverlap`·`loadClients`·`DRIVER_SHARE_BASES`·`syncIdMerge`·`KEYS`·`readJson`·`keyFor`) 단어 일치 grep — 정의 줄과 지시서에 적은 안쪽 사용(`:127`·`:68`·`:7`)뿐, 줄 번호 모두 같음. 고친 것 없음.
-> - 목표 1 grep(위 이름, `src` 전체) **0건**, `cloudStorage.js`의 `KEYS|readJson|keyFor` 0건.
-> - 바뀐 파일: `syncIdMerge.js` 삭제, `directMutations.js` 177→79(함수 3개, `getCloudUserId`·`rangesOverlap` 가져오기), `cloudStorage.js` 114→67(값·함수 4개, 머리 주석 지시서 문구 그대로 — `JsonValue` 표기는 `parseEntityNumber`가 계속 써서 남김), `clients.js` 21→13(`loadClients`·`readJsonKey` 가져오기·`JsonValue` 표기, 머리 주석 지시서 문구), `driverShareBase.js` 54→52(상수 1줄+빈 줄).
-> - `git diff --stat`: 테스트 파일 0개. `npm test` 1004 + 497 그대로 통과, 타입 검사·빌드 통과. 새 테스트 없음·revert-check 해당 없음(지시서대로).
-> - 개발 서버(비회원): 기사 차량 수정 창 "기사 몫 기준 — 운송료 전체" 보임, 거래처 추가 됨, 콘솔 오류 없음.
-> - 그대로 둔 것(범위 밖, 기록만): `directMutations.js:2` 머리 주석의 "즉시 시도와 outbox 재시도가 같은 함수를 쓴다" — outbox는 88-A에서 없어졌으나 지시서 주석 정리 목록에 없음. 88-B 또는 다음 정리 때.
-> - push 뒤 CI verify·deploy 초록(run 39204693911).
-> - §5 리뷰(데스크톱 AI): ①범위 = 지시서 5개 파일 ②새 파일·저장 키 0(파일 1개 삭제는 지시서대로) ③타입 꼼수 0 ④200줄 이내 ⑤테스트 파일 0개 바뀜 ⑥공용 값 — 해당 없음 ⑦목표 1 grep 0건. 더한 줄 3개는 머리 주석 2줄(지시서 문구)·가져오기 1줄(`getCloudUserId` 뺀 것)뿐. 남은 타입 표기(`SessionCapture`·`JsonValue`) 모두 아직 쓰임.
-> - 배포본 로그인 확인(2026-10-19, 내장 브라우저): 바뀐 묶음 파일(`directMutationActions` 새 이름)로 열림, 차량 3·거래처 1·연동 기사 1 그대로, 기사 "수정" 창 열고 [취소] → 그대로, 콘솔 오류 없음.
+> **진행(2026-10-19)**: 보리 "착수지시서 확정 작업진행해". 코드 커밋 react-app `a24ded4`(18개 파일, +16 / −223).
+> - 확인할 점 1(`domain/clients.js` `updateClientFixedUnitPrice`): 처음엔 답이 없어 지시서 "안 건드릴 것"대로 남겼다가, 보리 "응 지워"(권한 대로, 지우기만이라 §6 예외)로 **수정 커밋 react-app `5bb198c`** — 함수와 바로 위 설명 주석 4줄 삭제, `domain/clients.js` 246→232, 이름 grep 0건, `npm test` 1003 + 496·타입 검사·빌드 통과.
+> - 교차검증(AGENTS §1): 표의 파일·줄·사용처 모두 코드와 같음(`ReportShareModal.test.js` 가져오기는 `:32`, 테스트 `:237`). 고친 것 없음.
+> - 목표 1 grep(삭제 대상 11개 이름, `src` 전체 단어 일치): 코드 부르기·가져오기 **0건**. 남은 것은 예외로 둔 테스트 설명·주석 5곳 — `TaxInvoicePage.workInvoiceSoT.test.js:46`(loadWorkData)·`:91`(loadInvoices), `AppSettingsPage.settingsSoT.test.js:40`(loadPracticeSettings), `App.test.js:285·306`(loadWorkData).
+> - 운영: `ReportShareModal.jsx` 65→63(다른 이름 줄 + 안 쓰게 된 `buildShareSmsUrl` 가져오기), `driverRevenueScope.js` 54→31(`phoneDigits`·`resolveDriverVehicleNumber`, 안 쓰게 된 `JsonValue`·`DriverRecord` 표기), `fuelRecords.js` 131→116·`maintenanceRecords.js` 125→110·`miscExpenseRecords.js` 122→107, `clientMutations.js` 145→128(함수 + `updateClientFixedUnitPrice` 가져오기), `invoices.js` 42→34·`workData.js` 78→71·`practiceSettings.js` 69→63(`load*` + `readJsonKey` 가져오기, `invoices.js`는 `JsonValue` 표기도), `commitHelpers.js` 106→98.
+> - **지운 테스트**: `driverRevenueScope.test` "resolveDriverVehicleNumber matches digits and requires linked+vehicle", `vehicleMutations.test` "requestClientFixedUnitPrice는 로그인에서 서버 1회 후 Store만 바꾸고, 서버 실패는 Fail-Fast로 롤백한다". **뺀 단언**: `fuelRecords`·`maintenanceRecords`·`miscExpenseRecords` 테스트의 날짜별 묶음 3줄씩(같은 테스트의 "~만 교체" 단언 그대로, 이름에서 "날짜별 묶음과 " 뺌).
+> - **옮긴 것(단언 그대로)**: SMS 주소 테스트 → `buildShareSmsUrl`(기본 `?`, iPhone `&`). `driverRevenueScope.test` 남은 테스트는 준비 줄만 `vehicleNumber = mine`(안 쓰게 된 `drivers` 준비 배열도 지움). `guestBackup.test`·`workData.test` 준비 줄은 `commitBatch([{ domain: 'workDataDeletedDates', … }])`.
+> - `npm test` 1004 + 497 → **1003 + 496**(지운 테스트 2개만큼), 타입 검사·빌드 통과. 새 테스트 없음·revert-check 해당 없음(지시서대로).
+> - 개발 서버(비회원): 차량 유지비 화면 열림, 매출 화면 300,000원, 서류 발급 → 운송비 내역서 → 공유 창 "문자로 보내기" 보임, 콘솔 오류 없음.
+> - push 뒤 CI verify·deploy 초록(run 39208394409 — 두 커밋을 한 번에 push해 위 커밋 `5bb198c`에서 1회 실행, 그 안에 `a24ded4` 포함).
+> - §5 리뷰(데스크톱 AI, `a24ded4~1..5bb198c`): ①범위 = 지시서 운영 10·테스트 8 + 보리 결정으로 `domain/clients.js` ②새 파일·저장 키 0 ③타입 꼼수 0 ④200줄 — `domain/clients.js` 246→232(아직 200 초과, 지우기만 예외는 보리 결정), 나머지 이내 ⑤테스트 1,422 → 1,420(지운 2개), `assert.` 5,247 → 5,226(−21: 지운 두 테스트 5·10 + 지출 묶음 2×3 — 파일별로 맞춰 봄), 더한 단언 0 ⑥공용 값 — 해당 없음 ⑦목표 1 grep 코드 0건(설명·주석 5곳은 예외대로).
+> - 배포본 로그인 확인(2026-10-19, 내장 브라우저): 차량 유지비 → 10월 정비 날짜별 묶음(2026-10-10, 50,000원) 그대로, 매출 → 당월 순이익 2,284,586원 등 표시, 서류 발급 → 운송비 내역서 → [공유] 창에 "문자로 보내기" 보임(누르지 않고 닫음), 콘솔 오류 없음. 첫 묶음 파일 이름이 89-B 때와 같음 — 지운 함수는 원래 빌드에서 빠지던(안 쓰는 코드) 것이라 결과물이 거의 안 바뀌는 게 맞음.
 > - 보리 최종 승인(2026-10-19).
 
-보리 "승인"(2026-10-19, 89-B `[x]`). 순서는 로드맵 "88~94" 줄 — 89 다음 93. 88-A·89에서 편지함을 걷어내며 새로 죽은 것도 포함.
-93번 목록을 지금 코드로 다시 뽑으니(운영 파일 밖 사용 0 + 자기 파일 안에서도 안 씀) 두 종류였음:
-**93-A(이번)** 테스트도 안 부르는 것 — 그냥 지우면 됨. **93-B(다음)** 테스트만 부르는 것 — 함수마다 "테스트가 다른 진짜 동작을 대신 지키고 있나" 판단이 필요해 따로(아래 "확인할 점").
+보리 "승인"(2026-10-19, 93-A `[x]`). 93-A 지시서 "확인할 점"대로 바로 다음. 처리 원칙(93-A 때 권한 것): 그 테스트가 **앱이 실제로 쓰는 코드를 대신 지키면 → 테스트를 그 코드 쪽으로 옮김**, 아니면 → 함수와 테스트를 같이 지움.
 
 ### 쉬운 요약
-- 앱 어디서도 부르지 않고 테스트도 없는 함수·값이 8개 있습니다(지우면 같이 쓸모없어지는 2개 더). 대부분 지난번 "보낼 편지함"을 지울 때 함께 쓸모가 없어진 것입니다.
-- 지웁니다. 파일 하나(`syncIdMerge.js`)는 통째로 비어서 파일째 지웁니다.
-- 화면·저장 동작은 그대로이고, 테스트도 하나도 안 바뀝니다.
+- 앱 화면은 부르지 않는데 테스트만 부르는(또는 테스트 설명에 이름만 남은) 함수가 10개 있습니다.
+- 하나씩 보니: 2개는 앱이 쓰는 진짜 함수의 "다른 이름"이라 테스트를 진짜 함수로 돌리고, 나머지는 앱에 대신하는 함수가 따로 있어 함수와 그 테스트만 지웁니다.
+- 화면·저장 동작은 그대로입니다.
 
-### 현재 상태 (코드 확인)
-근거: 운영 파일 전체 grep(이름 단어 일치) — 정의한 파일 밖 사용 0, 정의한 파일 안 사용 0(정의 줄뿐), `*.test.js` 사용 0.
-- `lib/syncIdMerge.js`(31줄) `mergeRemoteIdByLocalId` — 가져오는 파일 0(운영·테스트 모두, `syncIdMerge` grep 0). 88-A에서 `syncVehiclesClients.js`의 `syncOne*`가 지워지며 남음.
-- `lib/directMutations.js` `findOverlappingDriverLinkOnSupabase`(`:57`), `upsertDriverLinkOnSupabase`(`:111`) — 옛 `outboxFlush.js`만 불렀음. `findExistingDriverLinkInsert`(`:92`)는 `upsertDriverLinkOnSupabase` 안(`:127`)에서만 씀 → 같이 죽음. 그러면 `rangesOverlap` 가져오기(`:7`)·`getCloudUserId` 가져오기(`:6`, 쓰는 곳 `upsert…` 안 1곳뿐)도 안 씀.
-- `lib/cloudStorage.js` `KEYS`(`:4`)·`readJson`(`:20`)·`keyFor`(`:34`) — 옛 `outboxRollback.js`만 씀. `rangesOverlap`(`:56`)은 위 `findOverlapping…`만 씀. 남는 것 `parseEntityNumber`·`buildVehicleRow`·`buildClientRow`는 계속 쓰임(`syncVehiclesClients.js`·`dayLogCloudCommit.js`·`syncWorkData.js`).
-- `lib/clients.js` `loadClients`(`:8`) — 거래처는 Store 구독으로 읽음(`useOwnerClients`). `saveClients`·재수출은 계속 쓰임.
-- `domain/driverShareBase.js` `DRIVER_SHARE_BASES`(`:16`) — 상수 목록, 아무도 안 읽음(`resolveDriverShareBase`는 글자 두 개를 직접 씀).
+### 현재 상태 (코드 확인 — 함수마다 판단)
+| # | 함수(파일) | 앱이 대신 쓰는 것 | 테스트 | 판단 |
+|---|---|---|---|---|
+| 1 | `buildReportSmsUrl`(`components/ReportShareModal.jsx:14`) | `= buildShareSmsUrl`의 다른 이름(`shared/ShareFileModal.jsx:10`, 앱이 씀) | `ReportShareModal.test.js:237` 1개 | **테스트를 `buildShareSmsUrl`로** 돌리고 다른 이름 줄 삭제 |
+| 2 | `resolveDriverVehicleNumber`·`phoneDigits`(`components/revenue/driverRevenueScope.js:11·21`) | 없음(매출 화면은 `scopeWorkDataToVehicle`·`scopeSettingsToVehicle`만 가져옴, `OwnerRevenueView.jsx:11`). `phoneDigits`는 `resolve…` 안에서만 씀 | `driverRevenueScope.test.js:21` 전용 1개, `:33`은 준비에만 씀 | 둘 다 삭제. `:21` 테스트 삭제, `:33`은 준비 줄을 그 값(`mine`)으로 바꿔 `scopeWorkDataToVehicle` 검사 그대로 |
+| 3~5 | `groupFuelExpensesByDate`·`groupMaintExpensesByDate`·`groupMiscExpensesByDate`(`domain/fuelRecords.js:90`·`maintenanceRecords.js:86`·`miscExpenseRecords.js:84`) | `domain/expenses.js:147` `groupExpensesByDate`(`MaintFuelPage.jsx:77`, 테스트 `expenses.test.js` 있음) | 각 파일 테스트 1곳(`:116`·`:110`·`:106`) | 셋 다 삭제 + 그 단언만 삭제 |
+| 6 | `requestClientFixedUnitPrice`(`lib/clientMutations.js:118`) | 없음 — 화면에서 부르는 곳 0. 같은 저장 길(`saveClientsToCloud`·Fail-Fast 되돌리기·막힘 이유)은 `requestClientTaxInfo` 테스트(`vehicleMutations.test.js:733`)와 `cloudMemorySave`·`directMutationActions` 테스트가 계속 봄 | `vehicleMutations.test.js:676` 1개 | 함수·테스트 삭제(가져오기 `:9`에서 이름만) |
+| 7~9 | `loadInvoices`(`lib/invoices.js:17`)·`loadWorkData`(`lib/workData.js:12`)·`loadPracticeSettings`(`lib/practiceSettings.js:17`) | Store 구독(`useOwnerInvoices`·`useOwnerWorkData`·`useOwnerSettings`) | **부르는 테스트 0** — 테스트 설명 문구·주석에 옛 방식 이름만 남음(`TaxInvoicePage.workInvoiceSoT.test.js:46·91`, `AppSettingsPage.settingsSoT.test.js:40`, `App.test.js:285·306`) | 함수 삭제(같이 안 쓰게 되는 `readJsonKey` 가져오기·`JsonValue` 표기도). 테스트 문구는 "옛 방식이면 안 바뀐다"는 설명이라 그대로 |
+| 10 | `commitWorkDataDeletedDates`(`store/commitHelpers.js:~100`) | 앱은 `lib/workData.js:49`에서 `commitBatch`로 같이 씀 | `guestBackup.test.js:248`·`workData.test.js:36`이 **준비용**으로 씀 | 함수 삭제, 두 준비 줄은 `commitBatch([{ domain: 'workDataDeletedDates', ownerKey, value }])`로 |
 
 ### 목표 상태 (기대 동작)
-1. 위 8개(+ 같이 죽는 `findExistingDriverLinkInsert`·`rangesOverlap`) 정의가 없고, `src` 전체 grep(이름 단어 일치) 0건: `mergeRemoteIdByLocalId|findOverlappingDriverLinkOnSupabase|upsertDriverLinkOnSupabase|findExistingDriverLinkInsert|rangesOverlap|loadClients|DRIVER_SHARE_BASES|syncIdMerge`, 그리고 `cloudStorage.js`에서 `KEYS|readJson|keyFor` 0건.
-2. 그 함수만 쓰던 가져오기 줄·타입 표기도 같이 지움(타입 검사가 "안 쓰는 이름"을 안 잡으므로 손으로 확인 — `clients.js`의 `readJsonKey` 가져오기·`JsonValue` 표기, `directMutations.js`의 `rangesOverlap`·`getCloudUserId`).
-3. 테스트 파일은 하나도 안 바뀜(사용 0). 테스트 수·검사 수 그대로.
-4. 머리 주석에서 없어진 역할만 뺌 — `cloudStorage.js:3` "(hydrate·직접 mutation·outbox가 공유)" → 실제 남은 것에 맞게, `clients.js:3` "localStorage I/O" → "저장".
+1. 위 표의 삭제 대상(`buildReportSmsUrl`·`resolveDriverVehicleNumber`·`phoneDigits`·`group{Fuel,Maint,Misc}ExpensesByDate`·`requestClientFixedUnitPrice`·`loadInvoices`·`loadWorkData`·`loadPracticeSettings`·`commitWorkDataDeletedDates`) 정의가 없고, `src` **코드**(테스트 포함)에서 부르기·가져오기 0건. 테스트 설명 문자열·주석 속 이름(7~9번)은 예외로 진행 기록에 줄 번호.
+2. 1번 SMS 주소 테스트는 같은 단언(기본 `?`, iPhone `&`)으로 `buildShareSmsUrl`을 검사.
+3. 2번 `:33` 테스트·10번 두 테스트는 준비 방법만 바뀌고 단언 그대로.
+4. 지우는 테스트는 위 표의 것만(2번 `:21`, 3~5번 단언, 6번 `:676`) — 진행 기록에 이름.
+5. 그 함수만 쓰던 가져오기 줄·타입 표기 정리(타입 검사가 "안 쓰는 이름"을 안 잡으므로 손으로).
 
 ### 건드릴 파일
-- 지움: `lib/syncIdMerge.js`.
-- 고침: `lib/directMutations.js`(함수 3개·가져오기 2개), `lib/cloudStorage.js`(값·함수 4개, 머리 주석), `lib/clients.js`(함수 1개·가져오기·타입 표기, 머리 주석), `domain/driverShareBase.js`(상수 1줄).
-- 머리 주석 최종 문구: `cloudStorage.js` → `// 서버 저장 행 만들기와 번호 읽기 도우미(차량·거래처·일지 서버 저장이 공유).`, `clients.js` → `// 거래처 저장 + domain/clients.js 재수출 배럴.`
+- 운영 10개: `components/ReportShareModal.jsx`, `components/revenue/driverRevenueScope.js`, `domain/fuelRecords.js`, `domain/maintenanceRecords.js`, `domain/miscExpenseRecords.js`, `lib/clientMutations.js`, `lib/invoices.js`, `lib/workData.js`, `lib/practiceSettings.js`, `store/commitHelpers.js`.
+- 테스트 8개: `ReportShareModal.test.js`, `driverRevenueScope.test.js`, `fuelRecords.test.js`, `maintenanceRecords.test.js`, `miscExpenseRecords.test.js`, `vehicleMutations.test.js`, `guestBackup.test.js`, `workData.test.js`(위 표 그대로).
 
 ### 안 건드릴 것
-- 93-B 대상(테스트만 부르는 것): `buildReportSmsUrl`·`resolveDriverVehicleNumber`·`group{Fuel,Maint,Misc}ExpensesByDate`·`requestClientFixedUnitPrice`·`loadInvoices`·`loadPracticeSettings`·`loadWorkData`·`commitWorkDataDeletedDates`.
-- 테스트용 손잡이(일부러 테스트를 위해 둔 것): `reset*ForTests` 3개, `store/persist.js` `writeJsonKey`(테스트 8개가 저장소 준비에 씀), `pendingDayWriteCount`(테스트 7개가 관찰에 씀).
-- 일지 저장 실패 장치 `durableWriteGuard.js`의 `hasUnsafeRegistration`·`hasAnyUnsafeRegistration` — 91번.
-- 자기 파일 안에서는 쓰는데 밖으로 내보내기만 하는 이름(약 70개, 예: `app/usePullToRefresh.js` `pullDistance`) — 대부분 테스트가 가져다 검사하는 것이라 정리 대상 아님.
+- `domain/clients.js` `updateClientFixedUnitPrice`(`:159`) — 6번을 지우면 이것도 쓰는 곳 0이 되지만, 파일이 **246줄(200 초과)**이라 AGENTS §6상 고치려면 분리설계안이 먼저 — 아래 "확인할 점" 1.
+- 테스트용 손잡이 `reset*ForTests`·`writeJsonKey`·`pendingDayWriteCount`, 91번 대상 `durableWriteGuard.js` — 93-A와 같은 이유.
+- `lib/clients.js`·`invoices.js`·`workData.js`·`practiceSettings.js`의 `save*`·재수출 — 계속 쓰임.
 
 ### 검증
-- `npm test`·타입 검사·빌드 통과(테스트 수 그대로 — 1004 + 497).
-- 목표 1 grep 0건을 진행 기록에.
-- `git diff --stat`에 테스트 파일 0개인지 진행 기록에.
+- `npm test`·타입 검사·빌드 통과. 테스트 수는 지운 만큼(2번 1개 + 6번 1개 + 3~5번이 통째 테스트면 그만큼)만 줄어듦 — 진행 기록에 전후 수.
+- 목표 1 grep을 진행 기록에.
 - 새 테스트 없음(동작 변화 없음 — revert-check 해당 없음).
-- 개발 서버(비회원): 거래처 추가, 기사 차량 화면 열기(기사 몫 기준 드롭다운 보임) → 콘솔 오류 없음.
+- 개발 서버(비회원): 지출 화면(정비·주유 날짜별 묶음), 서류 발급 → 운송비 내역서 공유 창 열기(문자 단추), 매출 화면 → 콘솔 오류 없음.
 
 ### 파일 길이
-- 줄어들기만 함: `lib/directMutations.js` 177 → 약 110, `lib/cloudStorage.js` 114 → 약 70, `lib/clients.js` 21 → 약 14, `domain/driverShareBase.js` 54 → 53. 운영 코드 약 150줄 삭제(파일 1개 포함).
+- 줄어들기만 함: `driverRevenueScope.js` 54 → 약 35, `fuelRecords.js` 131 → 약 120, `maintenanceRecords.js` 125 → 약 114, `miscExpenseRecords.js` 122 → 약 111, `clientMutations.js` 145 → 약 132, `invoices.js` 42 → 약 35, `workData.js` 78 → 약 72, `practiceSettings.js` 69 → 약 65, `commitHelpers.js` 106 → 약 100, `ReportShareModal.jsx` 65 → 64.
 
 ### 실패 시 처리
 - 새 저장 장치·재시도·대비 장치 없음(지우기만).
-- 지우고 나서 타입 검사·테스트가 하나라도 실패하면 어딘가에서 아직 쓴다는 뜻 — 되살리지 말고 멈추고 어디서 쓰는지 이 파일에 적어 다시 승인받는다.
+- 지우고 나서 테스트·타입 검사가 하나라도 실패하면 앱 어딘가에서 아직 쓴다는 뜻 — 되살리지 말고 멈추고 어디서 쓰는지 이 파일에 적어 다시 승인받는다.
 
 ### 사용자 확인 방법 (배포 뒤, AI가 로그인 계정으로)
-1. 앱 켜기 → 차량·거래처·기사 목록 그대로.
-2. 기사 연동 관리 → 기사 "수정" 창 열고 닫기(저장 안 함) → 오류 없음.
+1. 차량 유지비 화면 → 날짜별 묶음 그대로.
+2. 서류 발급 → 운송비 내역서 공유 창 → 문자 단추 보임(누르지 않음).
+3. 매출 화면 → 금액 그대로.
 
 ### 확인할 점
-1. 93-B(테스트만 부르는 함수 10개)는 93-A 바로 다음에 따로 지시서를 씁니다. 함수마다 "그 테스트가 화면이 실제로 쓰는 다른 코드를 대신 지키고 있는지" 보고, 그렇다면 테스트를 화면이 쓰는 함수 쪽으로 옮기고, 아니면 함수와 테스트를 같이 지우는 방식을 권합니다.
+1. `domain/clients.js`(246줄)에서 쓸모없어지는 함수 하나(`updateClientFixedUnitPrice`, 약 10줄)를 지우는 것도 AGENTS §6의 "200줄 넘는 파일을 고치면 분리설계안 먼저"에 걸립니다. **지우기만 하는 수정(줄이 줄어듦)은 예외로 이번에 같이 지우기**를 권합니다. 다른 안: 이번엔 남기고 `domain/clients.js` 분리설계 때 지우기.
