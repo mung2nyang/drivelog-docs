@@ -365,7 +365,7 @@ GPS 같은 기능을 자문 뒤에 넣으면 자문을 다시 받아야 해서(�
     서버 연결 코드 직접 호출 2군데(`app/App.jsx:8`, `components/AuthPage.jsx:3`). `showToast`를 화면 44개에 손으로 넘김.
     알림은 `useToast()`로 꺼내 쓰게 바꿈. 한 번에 옮기지 않고 기능 폴더 하나씩(예: `cars/` 먼저) → `data/`·`shared/` 정리. 하위 슬라이스 나누는 방식은 착수 때 1회 보고.
     **나누는 방식 확정** `[확인: 2026-10-19 보리 — "응 권하는대로"]`: 아래층부터 9조각 — 59-A `shared/`(공용 디자인·부품) → 59-B `data/store`·`data/cloud` → 59-C `data/hydrate`·`data/sync`(+88-B) → 59-D~G 기능 폴더(차량·거래처·기사 / 미수금·매출·서류 / 달력·홈·알림·계정·설정·고객센터 / 일지) → 59-H `lib/` 남은 것·`app/routes`·`app/shell` → 59-I 92번(공용 값). 경로 줄만 바뀌는 200줄 넘는 파일은 §6 분리설계 예외. 상세는 59-A 지시서(`git log -p -- docs/report.md`).
-    ~~**59-A `shared/`**~~ `[x]` react-app `716424e`(2026-10-19, 옮김 50·경로 74, 배포 디자인 파일 이름까지 그대로). ~~**59-B `data/store`·`data/cloud`**~~ `[x]` react-app `705afdb`(2026-10-19, 옮김 34·경로 183, 배포 묶음 파일 이름까지 그대로). 다음 59-C.
+    ~~**59-A `shared/`**~~ `[x]` react-app `716424e`(2026-10-19, 옮김 50·경로 74, 배포 디자인 파일 이름까지 그대로). ~~**59-B `data/store`·`data/cloud`**~~ `[x]` react-app `705afdb`(2026-10-19, 옮김 34·경로 183, 배포 묶음 파일 이름까지 그대로). ~~**59-C `data/hydrate`·`data/sync` + 88-B**~~ `[x]` react-app `5cf6595`(2026-10-20, 옮김 47·경로 141, `outboxCommit`·`outboxErrors`·`outboxTypes` → `localCommit`·`saveErrors`·`syncTypes`). 다음 59-D.
 60. ~~**화면 파일 안의 여러 단계 처리 흐름을 훅으로 옮기기**~~ `[x]` react-app `9c1c218`(2026-10-19, 차량 관리 화면 → `useCarListActions`, 231→129줄, 옮기기 전 흐름 테스트 4개 먼저; 같은 모양 찾기 결과 다른 화면은 여러 단계 아님, `EmployerLinkCard`는 59번) (⑥) `[확인: 2026-10-12 보리]` — `components/cars/CarListPage.jsx:94-175`가 차량 저장·연동 해제 요청·기사 삭제·초대 저장
     순서(약 80줄)를 화면에서 직접 지휘. 처리 흐름은 훅으로, 화면은 그리기만. 착수 때 같은 모양의 다른 화면도 grep으로 찾아 범위 확정.
     참고: 하루 화면 돈 합계를 화면이 직접 계산하는 문제(`components/day-log/CallDetailList.jsx:31-34`)는 40번을 고칠 때 계산을 `domain/`으로 옮겨 같이 해결.
@@ -468,7 +468,7 @@ GPS 같은 기능을 자문 뒤에 넣으면 자문을 다시 받아야 해서(�
     옛 편지함이 남은 기기에선 `lib/outboxRollback.js:13-15`가 기사 목록을 빈 목록으로 바꿀 수 있음(데이터 위험 → ①).
     대상 약 600줄: `mutationOutbox`·`outboxFlush`·`outboxReconcile`·`outboxRollback`·`outboxDriverMerge`·`syncQueue`·`app/syncFlushListeners.js`. `outboxTypes.js`의 `AppSession`·`DriverRecord` 타입, `outboxErrors.js`·`outboxCommit.js`(`commitLocalOnly`)는 다른 곳이 쓰므로 이름·자리만 옮김.
     착수 때 정할 것: 옛 편지함이 남은 기기 처리 — "그냥 지움"(AI 권함: 서버가 정본, 직접 저장 전환 후 한 달 넘음) / "한 번 보내 보고 지움".
-    ~~**88-A 연결 끊기·파일 7개 지우기**~~ `[x]` react-app `88247d7`(2026-10-19, 옛 편지함 기록은 보내지 않고 지움 — 보리 결정). **88-B**(남은 `outboxTypes.js`·`outboxErrors.js`·`outboxCommit.js` 이름·자리 옮기기)는 59번 때 `[확인: 2026-10-19 보리]`.
+    ~~**88-A 연결 끊기·파일 7개 지우기**~~ `[x]` react-app `88247d7`(2026-10-19, 옛 편지함 기록은 보내지 않고 지움 — 보리 결정). ~~**88-B** 남은 `outboxTypes.js`·`outboxErrors.js`·`outboxCommit.js` 이름·자리 옮기기~~ `[x]` 59-C에서 react-app `5cf6595`(2026-10-20). **88번 끝.**
 89. **쓰기만 하고 아무도 안 읽는 변경 기록장(`lib/dirtyJournal.js`, 97줄) 지우기** (⑥) — `store/batchWrites.js:68`이 저장마다 휴대폰 저장소에 기록하지만,
     읽는 함수(`hasDirty`·`getDirtyDomains`)는 테스트만 부르고 운영 코드는 `lib/hydrate.js:75,171`에서 지우기만 함 → 저장마다 쓸모없는 쓰기 1번. 88번과 같은 성격이라 88번 뒤.
     **같이 지움** `[확인: 2026-10-19 보리 — 88-A 리뷰 뒤 89번에 합침]`: 88-A가 남긴 `store/app-store.js:145` 안 쓰는 `memoryOnly` 변수·가져오기와 `store/batchWrites.js:34` `allEntriesCloudMemoryOnly`(사용처 0).
