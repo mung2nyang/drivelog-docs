@@ -1,76 +1,91 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-## 로드맵 59-C 불러오기·공용 저장 장치를 `src/data/`로 + 88-B 이름 정리 `[x]`
+## 로드맵 59-D 기능 폴더 1 — 차량·거래처·기사를 `src/features/`로 `[x]`
 
-보리 승인(2026-10-19, 59-B `[x]`). 59번 세 번째 조각(로드맵 59 `[확인: 2026-10-19 보리]`). 59-A·B와 같은 방식(옮기기·경로만, 상대 경로, `git mv`, 경로 줄만 바뀌는 200줄 넘는 파일은 §6 예외). 88-B `[확인: 2026-10-19 보리 — 59번 때]`를 여기서 같이.
-플레이북 트리거(`lib/hydrate*`·`lib/*commit*`·`lib/*mutation*`) 해당 — 저장 경로의 **동작**은 안 바꾸고 위치·파일 이름만.
+보리 승인(2026-10-20, 59-C `[x]`). 59번 네 번째 조각(로드맵 59 `[확인: 2026-10-19 보리]`). 59-A~C와 같은 방식(옮기기·경로만, 상대 경로, `git mv`, 경로 줄만 바뀌는 200줄 넘는 파일은 §6 예외). 기능 폴더는 처음이라 자리 정하는 규칙을 아래에 적음.
 
-> **진행(2026-10-19)**: 보리 "착수지시서 확정,작업진행해". 코드 커밋 react-app `5cf6595`(188개 파일: 옮김 47(이름 바뀜 3 포함) + 경로·주석 고침 141).
-> - 교차검증(AGENTS §1): 33개·짝 테스트 14개 모두 지시서대로 있음. 고친 것: `lib/` 운영 파일은 87이 아니라 85개 → 옮긴 뒤 남는 것 54가 아니라 52개(확인함). 지시서에 없던 옛 이름 5곳을 목표 3(0건)에 맞춰 고침 — 로그 머리표 `console.error('[outboxCommit] …')` → `[localCommit]`(`data/sync/localCommit.js:21`, 개발자 콘솔에만 보이는 글자)와 그걸 확인하는 기존 테스트 기대값 1줄(`lib/directMutationActions.test.js:35`), 주석 속 옛 경로 3줄(`lib/directMutationActions.js:10`, `components/day-log/useDayDraft.js:187`, `domain/taxInvoices.js:5`).
-> - 경로는 59-A·B와 같은 대본. 머리 주석 4곳은 지시서 최종 문구 그대로. `package.json`은 이미 `src/data/**` 포함이라 안 바뀜.
-> - 목표 3: 옛 경로 grep·`outboxCommit|outboxErrors|outboxTypes` grep 모두 0건.
-> - 빌드 비교: 옮기기 전(`HEAD`를 따로 풀어 빌드)·후 48개 파일, 묶음 파일 이름의 해시를 지우고 비교 → 다른 곳은 `index` 묶음 안 로그 머리표 `[outboxCommit]`→`[localCommit]` 한 군데뿐. 그 머리표 때문에 해시가 바뀌어 다른 묶음들이 부르는 파일 이름도 따라 바뀜(내용은 같음).
-> - `git diff -M`: 47개 모두 이름 바뀜으로 잡힘. 경로 아닌 바뀐 줄 9개 — 머리 주석 4, 주석 속 경로 3, 로그 머리표 1, 테스트 기대값 1.
-> - `npm test` 1004 + 499 통과(같은 수), 타입 검사·빌드 통과.
-> - 개발 서버(비회원): 차량·거래처 추가, 일지 한 건 저장 → 새로고침 뒤 셋 다 그대로, 콘솔 오류 없음.
-> - 지시서 오류(데스크톱 AI): `lib/` 운영 파일 수를 87로 적음(실제 85), 개발자 콘솔 로그 머리표 `[outboxCommit]`와 주석 속 옛 경로 3줄을 목록에서 빠뜨림 — 교차검증이 채움.
-> - push 뒤 CI verify·deploy 초록(run 39253667833).
-> - §5 리뷰(데스크톱 AI): ①범위 = 옮김 47(이름 바뀜 3: `localCommit` R053·`saveErrors` R082·`syncTypes` R095 — 머리 주석·로그 머리표만 바뀌어 비율이 낮음) + 경로·주석 141 ②새 파일 0, 새 저장 키 0 ③타입 꼼수 0 ④줄 수 그대로(§6 예외) ⑤테스트 수 그대로, 바뀐 테스트 기대값 1줄은 로그 머리표 글자 ⑥공용 값 — 해당 없음 ⑦목표 1~5 대조(`lib/` 남은 운영 52개). 경로 아닌 바뀐 줄 9개 = 머리 주석 4·주석 속 경로 3·로그 머리표 1·테스트 기대값 1.
->   남은 것(기록만, 범위 밖): 옮긴 파일 안쪽 설명 주석에 "outbox 없이/쓰지 않는다" 같은 옛 표현이 남음(`data/sync/driverLinkRpc.js:2·35`·`localCommit.js:11`·`syncTypes.js:53`, `lib/directMutationActions.js:5·7·32·37`) — 동작 아님, 94번(주석 정리) 또는 해당 기능을 옮길 때.
-> - 배포본 로그인 확인(2026-10-19, 내장 브라우저): 새 묶음 파일(`index-C7TV2Mkv.js` — 로그 머리표 한 글자 차이로 이름 바뀜, 교차검증 빌드 비교와 맞음), 로그인 유지, 차량 3·거래처 1·연동 기사 1 그대로(불러오기), 오늘 일지 2회 저장 → 새로고침 뒤 그대로 → 비워서 되돌림(저장), 콘솔 오류 없음.
+> **진행(2026-10-20)**: 보리 "착수지시서 진행해, 확인할점 두개는 권하는점으로". 코드 커밋 react-app `ba0b845`(86개 파일: 옮김 65 + 지움 2 + 경로 고침 19).
+> - 확인할 점 답 `[확인: 2026-10-20 보리 — "권하는점으로"]`: 1 이번엔 세 폴더로 옮기기만, 기능 사이 부르기는 목록으로 남겨 59 끝에서 결정 / 2 `EmployerLinkCard`의 앱 시작 코드 부르기 바로잡기는 59-H로.
+> - 교차검증(AGENTS §1): 표의 파일·쓰는 곳 모두 코드와 같음(`carInviteFromDraft`는 차량 화면 2곳만, `driverInviteSms`는 `DriverFormModal`만, `clientCloudSave`·`vehicleDeletion`·`vehicleRename`·`requestDriverInviteSave`는 `data/sync`로 가는 파일들이 부름). 고친 것: 옮길 파일 "약 50"이 아니라 65개(차량 15·거래처 11·기사 24·`data/sync` 15, 짝 테스트 포함).
+> - 순서: `app/lazyPages.js` 2줄을 진짜 화면으로 바꾸고 넘겨주기 파일 2개 `git rm` → 59-A~C와 같은 대본으로 옮기기·경로 다시 계산(75개 파일).
+> - 손으로 고친 줄: `lazyPages.js` 2줄(위), `package.json` `test:app`에 `src/features/**/*.test.js`, 옛 경로가 남은 2줄 — `features/drivers/ui/DriverConnectionPage.jsx:2` 주석 속 `lib/directMutationActions.js`, `shared/ui/CardActionButtons.test.js:40` 읽는 경로 `components/clients/client-management.css`.
+> - 목표 3: 옛 경로 grep 0건. `components/cars|clients|drivers` 폴더 없어짐.
+> - 빌드 비교(옮기기 전 빌드 원본 보관 → 후): 48개 파일, 해시 지우고 비교 → 내용 모두 같음. 다른 것은 묶음 이름 `CarManagementPage`→`CarListPage`(JS·디자인), `ClientManagementPage`→`ClientListPage` 3개뿐(넘겨주기 파일이 없어져서).
+> - `git diff -M`: 65개 모두 이름 바뀜으로 잡힘, 경로 아닌 바뀐 줄은 지운 넘겨주기 파일 2개(5줄)와 위 손으로 고친 줄뿐.
+> - `npm test` 997 + 506 = 1503 통과(전과 합계 같음 — `carInviteFromDraft.test` 7개가 `lib/`(unit)에서 `features/`(app) 범위로 옮겨 감), 타입 검사·빌드 통과.
+> - 개발 서버(비회원): 차량 2대 추가 → 삭제 확인 창, 거래처 추가 → 삭제 확인 창, 기사 연동 관리 화면 열림(비회원 안내 문구), 콘솔 오류 없음.
+> - 목표 6 "기능 사이 부르기"(grep): `cars/ui/CarDriverConnectPanel.jsx:4` → `drivers/ui/driver-connection.css` / `clients/ui/ScopedClientsList.jsx:7` → `drivers/ui/linked-driver.css` / `drivers/ui/LinkedDriverClientsPage.jsx:10-11` → `clients/ui/ScopedClientsList.jsx`·`client-management.css` / (테스트) `clients/ui/ScopedClientsPages.test.js:19` → `drivers/ui/LinkedDriverClientsPage.jsx`. 기능 밖에서 부르기: `components/day-log/CallClientQuickAdd.jsx` → `clients/ui/ClientFormModal.jsx`, `components/PersonalInfoPage.jsx` → `drivers/ui/EmployerLinkCard.jsx`(그 기능이 옮겨질 때 기능 사이 부르기가 됨).
+> - 지시서 오류(데스크톱 AI): 옮길 파일을 "약 50"으로 적음(실제 65) — 교차검증 정정이 맞음.
+> - push 뒤 CI verify·deploy 초록(run 39382757501).
+> - §5 리뷰(데스크톱 AI): ①범위 = 옮김 65(모두 이름 바뀜)·지움 2(넘겨주기)·경로 19 ②새 파일 0, 새 저장 키 0 ③타입 꼼수 0 ④줄 수 그대로(§6 예외) ⑤테스트 수 1,424 → 1,424(`test(` 줄 기준), 테스트 바뀐 줄은 경로뿐 ⑥공용 디자인 — 차량 화면 디자인 묶음 이름 해시가 옮기기 전 `CarManagementPage-DMpQeZnp.css`와 같은 `CarListPage-DMpQeZnp.css`(내용 같음) ⑦목표 1~6 대조. 경로 아닌 바뀐 줄 = `package.json` 1·주석 1·읽는 경로 1·지운 넘겨주기 5줄. `src/features/`는 `cars`(api·hooks·ui)·`clients`(hooks·ui)·`drivers`(api·ui).
+> - 배포본 로그인 확인(2026-10-20, 내장 브라우저): 새 묶음(`index-BS5lM7qj.js`, 차량 화면 `CarListPage-ktuK8OE_.js`), 차량 3·거래처 1·연동 기사 1 그대로, 연동 기사 관리 화면(세금계산서 묶음 "64번시험 1건, 22가2222, 합계 11,000원") 열림, 기사 [수정] 창·차량 [수정] 창 열고 [취소], 마이페이지 개인정보 열림(차주 계정이라 소속 연결 카드는 안 나옴 — 기사 계정 화면은 `EmployerLinkCard.test`로만), 콘솔 오류 없음.
 > - 보리 최종 승인(2026-10-20).
 
 ### 쉬운 요약
-- `lib/` 87개 중 "앱 켤 때 불러오기"와 "여러 기능이 같이 쓰는 저장 장치" 33개를 `data/hydrate`·`data/sync`·`data/cloud`로 옮깁니다.
-- 지금은 없는 "보낼 편지함(outbox)" 이름이 붙어 있는 공용 파일 3개는 옮기면서 실제 하는 일에 맞는 이름으로 바꿉니다(88-B).
-- 한 기능만 쓰는 저장 함수(예: 거래처 저장)는 이번에 안 옮기고, 그 기능 폴더를 옮길 때(59-D~G) 그 기능의 `api/`로 갑니다.
-- 화면·저장·불러오기 동작은 그대로입니다.
+- 차량 관리·거래처·기사 연동 화면과 그 화면만 쓰는 부품·훅·저장 함수를 `features/cars`·`features/clients`·`features/drivers`로 모읍니다.
+- 여러 기능이 같이 쓰는 저장 함수(차량 저장·거래처 저장·연동 해제 등)는 `data/sync`로 내립니다.
+- 한 줄짜리 넘겨주기 파일 2개(`CarManagementPage`·`ClientManagementPage`)는 지우고 화면 주소 목록이 진짜 화면을 바로 부르게 합니다.
+- 화면·저장 동작은 그대로입니다.
 
-### 현재 상태 (코드 확인 — 파일마다 쓰는 곳을 grep으로 셈)
-- 불러오기 10개: `hydrate`·`hydrateEmployedDriver`·`hydrateEmployedDriverCar`·`hydrateMerge`·`hydrateMergeCars`·`hydrateMergeClients`·`hydrateMergeTypes`·`hydrateMergeWork`·`hydrateOwnerDriverExpenses`·`hydrateVehicleDayLogs` — 서로와 앱 시작(`app/`)·기사 화면이 씀.
-- 일지 저장 실패 대비 장치 10개(91번 대상, 위치만): `pendingWorkDataWrites`·`pendingWorkDataWritesState`·`pendingWorkDataWritesTypes`·`pendingRetryPulse`·`pendingLogOwner`·`durableStorage`·`durablePatchSchema`·`durableWriteGuard`·`logPendingLifecycle`·`dayDraftActivity`.
-- 여러 기능이 같이 쓰는 서버 저장 도우미 7개: `dayLogCloudCommit`(일지·회원 복원·미수금)·`syncWorkData`·`dailyLogRemoval`·`mainDayLogRouting`(앱·일지·서류·홈)·`syncVehiclesClients`(차량·거래처·기사 초대)·`directMutations`·`driverLinkRpc`(앱 시작·불러오기·기사).
-- 저장 공용 3개(88-B): `outboxCommit.js`(`commitLocalOnly` — 기기 저장만 하는 커밋, 4곳)·`outboxErrors.js`(세션 바뀜·영구 실패 오류 종류, 9곳)·`outboxTypes.js`(직접 저장 파일들이 같이 쓰는 타입 — `AppSession`·`DriverRecord`·`SessionCapture` 등, 20곳 넘음).
-- 그 밖 공용 3개: `ownerSaveQueue`(같은 owner 저장 한 줄 세우기)·`singleFlight`(같은 일 동시 한 번 — `cloudSession`·`hydrate`가 씀)·`fetchAllRows`(서버에서 1,000줄 넘게 끝까지 받기).
-- 위 33개를 부르는 파일 176개. 짝 테스트 14개: `hydrate`·`hydrateEmployedDriver`·`hydrateEmployedDriverCar`·`hydrateMerge`·`hydrateVehicleDayLogs`·`pendingWorkDataWrites`·`pendingWorkDataWritesSyncSpy`·`durableWriteGuard`·`dayDraftActivity`·`dayLogCloudCommit`·`dailyLogRemoval`·`fetchAllRows`·`fetchAllRows.saves`·`singleFlight`(각 `.test.js`).
+### 자리 정하는 규칙 (59-D~G 공통으로 씀)
+1. 화면·부품·그 디자인 파일 → `features/<기능>/ui/`, 처리 흐름 훅(`use…`) → `features/<기능>/hooks/`, 그 기능만 쓰는 저장·서버 함수 → `features/<기능>/api/`. 짝 테스트는 본 파일 옆.
+2. `lib/`의 저장 함수를 **두 기능 이상(또는 앱 틀·`data/`)이 쓰면** → `data/sync/`(목표 구조의 "같이 쓸 것은 아래로").
+3. 화면 부품·디자인 파일을 다른 기능이 쓰는 경우(아래 표 ※) → 이번엔 주인 기능 폴더에 두고 "기능 사이 부르기"로 진행 기록에 목록만 남김. 정리할지는 59 끝 의존 방향 검사 때 결정(확인할 점 1).
+
+### 현재 상태 (코드 확인 — 파일마다 쓰는 곳 grep)
+| 옮길 곳 | 파일 | 쓰는 곳 |
+|---|---|---|
+| `features/cars/ui` | `CarListPage`·`CarListItem`·`CarFormModal`·`CarDriverConnectPanel`·`CarDriverIncomeFields`·`CarShareBaseField`·`car-management.css` + 테스트 5(`CarDriverConnectPanel`·`CarDriverIncomeFields`·`CarFormModal`·`CarListPage.dupKey`·`CarListPage.flows`) | 차량 화면 안 |
+| `features/cars/hooks` | `useCarListActions` | `CarListPage` |
+| `features/cars/api` | `lib/carInviteFromDraft` + 테스트 | 차량만 |
+| `features/clients/ui` | `ClientListPage`·`ClientListItem`·`ClientFormModal`※·`ClientTradeFields`·`OwnerScopedClientsView`·`ScopedClientsList`※·`client-management.css`※ + 테스트 2(`ClientFormModal`·`ScopedClientsPages`) | ※`ClientFormModal`은 일지 `CallClientQuickAdd`도, `ScopedClientsList`·`client-management.css`는 기사 화면도 씀 |
+| `features/clients/hooks` | `useClientReorder`·`useScopedClients` | 거래처 화면 |
+| `features/drivers/ui` | `components/DriverConnectionPage`(+ 테스트 5)·`DriverFormModal`(+ 테스트)·`components/drivers/` 전부(`DriverUnlinkControls`·`LinkedDriverManagementPage`·`LinkedDriverClientsPage`·`CarBusinessInfoSection`·`ClientInvoiceGroups`·`SettlementSummaryCard`·`EmployerLinkCard`※·`linkedDriverLink.js` + 디자인 3※ + 테스트 4) | ※`EmployerLinkCard`는 계정 `PersonalInfoPage`가, `driver-connection.css`는 차량 화면이, `linked-driver.css`는 거래처 화면이 씀 |
+| `features/drivers/api` | `lib/driverInviteSms` | `DriverFormModal`만 |
+| `data/sync` | `lib/clientMutations`(+ `clientMutations.fixedRoute.test`)·`clientCloudSave`·`vehicleMutations`(+ 테스트 3)·`vehicleRename`(+ 테스트)·`vehicleDeletion`·`requestDriverInviteSave`·`directMutationActions`(+ 테스트)·`driverUnlink`(+ 테스트) | 두 기능 이상 — 예: `clientMutations`는 거래처·일지·앱 설정·서류, `driverUnlink`는 앱 시작·차량·기사·불러오기, `vehicleMutations`는 차량·기사·온보딩 |
+| 지움 | `components/CarManagementPage.jsx`(2줄)·`ClientManagementPage.jsx`(3줄) — 넘겨주기만 | `app/lazyPages.js` |
+
+- 이번 조각 밖(다른 기능 소속, 59-F): `LinkStatusChip`·`InviteRedeemModal`(마이페이지), `FixedRouteBlock`·`FixedRouteClientLink`·`FixedRouteClientModal`·`RoutePresetEditor`(앱 설정).
+- 재수출 껍데기 `lib/cars.js`·`lib/drivers.js`·`lib/clients.js` — 59-H.
+- `EmployerLinkCard`가 앱 시작 코드(`app/boot.js:4` `buildCloudAppSession` 등)를 부르는 것 — 이번엔 경로만, 바로잡기는 59-H(`supabaseClient`→`app/routerBasename`과 함께 "아래층이 위층 부르기" 정리). 로드맵 59 계획의 "59-D에서 해소"를 59-H로 옮김.
 
 ### 목표 상태 (기대 동작)
-1. 옮길 곳(이름 그대로, 짝 테스트 함께):
-   - `src/data/hydrate/` ← 불러오기 10개.
-   - `src/data/sync/` ← 실패 대비 장치 10개 + 서버 저장 도우미 7개 + `ownerSaveQueue` + 88-B 3개(새 이름, 아래 2).
-   - `src/data/cloud/` ← `singleFlight`·`fetchAllRows`(서버 연결 쪽 공용).
-2. 88-B 새 파일 이름(안의 내보내는 이름 `commitLocalOnly`·`StaleSessionError`·`PermanentFailureError` 등은 그대로): `outboxCommit.js` → `data/sync/localCommit.js`, `outboxErrors.js` → `data/sync/saveErrors.js`, `outboxTypes.js` → `data/sync/syncTypes.js`. 세 파일의 머리 주석에서 "outbox" 표현을 빼고 하는 일로(아래 최종 문구). `directMutations.js:2` 머리 주석의 "즉시 시도와 outbox 재시도가 같은 함수를 쓴다"도 정리(93-A 때 남긴 것).
-3. 옛 경로·이름 grep 0건: `lib/(hydrate|pending|durable|logPendingLifecycle|dayDraftActivity|ownerSaveQueue|outbox|dayLogCloudCommit|syncWorkData|dailyLogRemoval|mainDayLogRouting|syncVehiclesClients|directMutations\.|driverLinkRpc|singleFlight|fetchAllRows)`, 그리고 `outboxCommit|outboxErrors|outboxTypes` 0건(문서 아닌 `src` 전체).
-4. 테스트 수 그대로, 전부 통과. 빌드 결과는 경로·파일 이름 말고 같음(59-B처럼 내용 비교).
-5. `lib/`에는 한 기능 전용 저장 함수·내보내기·재수출 껍데기 등 54개 남음(59-D~H에서 옮김).
+1. 위 표대로 옮김(약 50개, 짝 테스트 포함). `components/cars/`·`components/clients/`·`components/drivers/` 폴더 없어짐.
+2. `CarManagementPage`·`ClientManagementPage` 삭제, `app/lazyPages.js`가 `features/cars/ui/CarListPage.jsx`·`features/clients/ui/ClientListPage.jsx`를 바로 부름(화면 주소·나중 불러오기 방식 그대로).
+3. 옛 경로 grep 0건: `components/(cars|clients|drivers)/`, `components/(DriverConnectionPage|DriverFormModal|CarManagementPage|ClientManagementPage)`, `lib/(carInviteFromDraft|driverInviteSms|clientMutations|clientCloudSave|vehicleMutations|vehicleRename|vehicleDeletion|requestDriverInviteSave|directMutationActions|driverUnlink)`.
+4. `package.json` `test:app`에 `src/features/**/*.test.js` 추가. `data/sync`로 간 테스트는 이미 `test:unit` 범위(`src/data/**`).
+5. 테스트 수 그대로, 전부 통과. 빌드 결과는 경로·파일 이름 말고 같음(넘겨주기 파일 2개가 없어져 묶음 파일 이름이 바뀌는 정도는 허용 — 진행 기록에).
+6. "기능 사이 부르기" 목록(규칙 3)을 진행 기록에 grep 결과로.
 
 ### 건드릴 파일
-- 옮김(`git mv`): 33개 + 짝 테스트 14개 = 47개(그중 3개는 이름도 바뀜).
-- 경로만 고침: 부르는 파일 약 176개 + 옮긴 파일 안의 상대 경로 + 테스트의 `mock.module`·`import()` 경로. `package.json`은 이미 `src/data/**` 포함이라 안 바뀜(확인만).
-- 주석만: 88-B 세 파일 머리 주석, `directMutations.js:2`.
-- 머리 주석 최종 문구: `localCommit.js` → `// 기기 저장만 하는 커밋 — 저장 실패해도 예외를 던지지 않고 결과(문구·실패 여부)로 돌려준다.`, `saveErrors.js` → `// 저장 중 세션이 바뀜·영구 실패 같은 오류 종류 — 부르는 쪽이 종류로 나눠 안내한다.`, `syncTypes.js` → `// 서버 직접 저장 파일들이 같이 쓰는 JSDoc 타입(런타임 코드 없음).`, `directMutations.js` → `// Supabase를 직접 부르는 실행기 함수. 삭제는 이미 없는 행 삭제도 성공이라 중간부터 다시 돌아도 안전하다.`(이미 있는 뒷문장 유지, outbox 문장만 뺌).
+- 옮김(`git mv`) 약 50개, 지움 2개, 경로만 고침(부르는 파일 + 옮긴 파일 안 상대 경로 + 테스트 `mock.module`·`import()`·경로로 읽는 테스트) — 개수는 진행 기록에.
+- `package.json` 1줄, `app/lazyPages.js`(경로 2줄 — 넘겨주기 대신 진짜 화면).
+- 동작 코드·문구는 안 바꿈.
 
 ### 안 건드릴 것
-- 한 기능 전용 저장 함수(`clientCloudSave`·`clientMutations`·`vehicleMutations`·`vehicleDeletion`·`vehicleRename`·`requestDriverInviteSave`·`carInviteFromDraft`·`directMutationActions`·`driverUnlink`·`profileCloudCommit`·`syncExpenseItems`·`syncTaxInvoicesTable`·`accountWithdrawal`·`supportInquiryMutations` 등) — 59-D~G에서 기능의 `api/`로.
-- `failureMessages.js`(화면·저장 어디서나 쓰는 안내 문구), 재수출 껍데기, 내보내기·엑셀 — 59-H.
-- 여러 파일을 함께 검사하는 테스트(`cloudMemorySave`·`assignedVehicleDay`·`receivablesCloudCommit`·`employedDriverClients`·`vehicleMutations.syncSpy` 등) — 위치 그대로, 경로만.
-- 실패 대비 장치의 내용(91번) — 위치만.
+- 위 "이번 조각 밖" 목록, `lib/` 재수출 껍데기, `EmployerLinkCard`의 앱 시작 코드 부르기(59-H).
+- 기능 사이 부르기 정리(확인할 점 1).
+- 92번(같은 값 손 넘기기) — 59-I.
 
 ### 검증
 - `npm test`·타입 검사·빌드 통과, 테스트 수 그대로.
-- 목표 3 grep 0건을 진행 기록에.
-- `git diff -M --stat`: 47개가 이름 바뀜으로 잡히는지, 경로 아닌 바뀐 줄은 주석 4곳뿐인지 진행 기록에.
-- 빌드 결과 내용 비교(이름 해시 뺌) — 같음을 진행 기록에(파일 이름 바뀐 3개는 묶음 안 이름 차이 정도만 허용, 있으면 적음).
-- 개발 서버(비회원): 차량·거래처 추가, 일지 저장 → 새로고침 뒤 그대로, 콘솔 오류 없음.
+- 목표 3 grep 0건, 목표 6 목록을 진행 기록에.
+- `git diff -M --stat`: 옮긴 파일이 이름 바뀜으로 잡히는지, 경로 아닌 바뀐 줄 목록(있으면 전부)을 진행 기록에.
+- 빌드 결과 내용 비교(이름 해시 뺌) — 차이를 진행 기록에.
+- 개발 서버(비회원): 차량 관리·거래처·기사 연동 관리 화면 열기, 차량·거래처 추가 → 삭제 확인 창, 콘솔 오류 없음.
 
 ### 파일 길이
-- 옮기기만 해서 줄 수 그대로(주석 4곳은 한 줄 안에서 바뀜). 200줄 넘는 파일은 경로 줄만 — §6 예외.
+- 옮기기만 해서 줄 수 그대로. 200줄 넘는 파일은 경로 줄만 — §6 예외.
 
 ### 실패 시 처리
-- 새 저장 장치·재시도·대비 장치 없음(위치·이름만).
-- 테스트가 하나라도 실패하면(특히 가짜 모듈 경로를 못 찾는 경우) 멈추고 어느 경로인지 이 파일에 적어 다시 승인받는다.
+- 새 저장 장치·재시도·대비 장치 없음(위치·경로만, 넘겨주기 파일 2개 삭제).
+- 테스트가 하나라도 실패하면 멈추고 어느 경로인지 이 파일에 적어 다시 승인받는다.
 
 ### 사용자 확인 방법 (배포 뒤, AI가 로그인 계정으로)
-1. 앱 켜기 → 로그인 유지, 차량·거래처·기사 목록 그대로(불러오기 확인).
-2. 오늘 일지 한 건 저장 → 새로고침 뒤 그대로 → 되돌림(저장 확인).
-3. 콘솔 오류 없음.
+1. 차량 관리·거래처·기사 연동 관리·연동 기사 관리 화면 열기 → 목록 그대로.
+2. 기사 [수정] 창 열고 [취소], 차량 [수정] 창 열고 [취소].
+3. 마이페이지 개인정보(기사 계정이면 소속 연결 카드) 열림, 콘솔 오류 없음.
+
+### 확인할 점
+1. 차량·거래처·기사는 서로 화면 부품과 디자인 파일을 섞어 씁니다(거래처 입력 창을 일지 화면도 쓰고, 기사 화면 디자인을 차량 화면도 씀 등). 목표 구조의 "기능끼리 서로 부르지 않기"를 지금 지키려면 그런 부품을 `shared/`로 내리거나 세 기능을 한 폴더로 합쳐야 합니다. **권함: 이번엔 세 폴더로 옮기기만 하고, 서로 부르는 곳은 목록으로 남겨 59 끝(의존 방향 검사)에서 한꺼번에 정하기.** 다른 안: 지금 `shared/`로 내리기(범위 늘어남).
+2. `EmployerLinkCard`의 앱 시작 코드 부르기 바로잡기를 계획(59-D)에서 59-H로 옮기는 것 — 권함: 예(이번 조각은 옮기기만으로 두어 확인이 쉽게).
