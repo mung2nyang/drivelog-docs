@@ -1,75 +1,78 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-## 로드맵 59-E 기능 폴더 2 — 미수금·매출·서류를 `src/features/`로 `[x]`
+## 로드맵 59-F1 기능 폴더 3 — 달력·홈·알림·차량 유지비를 `src/features/`로 `[x]`
 
-보리 승인(2026-10-20, 59-D `[x]`). 59번 다섯 번째 조각(로드맵 59 `[확인: 2026-10-19 보리]`). 59-D에서 정한 **자리 정하는 규칙**을 그대로 씀: ① 화면·부품·디자인 → `features/<기능>/ui/`, 훅 → `hooks/`, 그 기능만 쓰는 저장·서버·내보내기 함수 → `api/` ② `lib/` 함수를 두 기능 이상(또는 앱 틀·`data/`)이 쓰면 → `data/sync/` ③ 다른 기능이 쓰는 화면 부품·훅은 주인 기능에 두고 "기능 사이 부르기" 목록만(보리 결정 2026-10-20, 59 끝에서 정함). 옮기기·경로만, `git mv`, 경로 줄만 바뀌는 200줄 넘는 파일은 §6 예외.
+보리 승인(2026-10-20, 59-E `[x]`). 59번 여섯 번째 조각. 59-D·E의 **자리 정하는 규칙** 그대로: ① 화면·부품·디자인 → `features/<기능>/ui/`, 훅 → `hooks/`, 그 기능만 쓰는 함수 → `api/` ② `lib/` 함수를 두 기능 이상(또는 앱 틀·`data/`)이 쓰면 → `data/sync/` ③ 다른 기능이 쓰는 부품·훅은 주인 기능에 두고 "기능 사이 부르기" 목록만(보리 결정 2026-10-20). 옮기기·경로만, `git mv`, 경로 줄만 바뀌는 200줄 넘는 파일은 §6 예외.
+**계획 바꿈(보리 결정 2026-10-20, 아래 확인할 점 1)**: 59-F(달력·홈·알림·계정·설정·고객센터)는 조사해 보니 옮길 파일이 100개를 넘어, F1(달력·홈·알림 + 계획에 빠져 있던 차량 유지비)과 F2(계정·설정·고객센터)로 나눔. 이 지시서는 F1.
 
-> **진행(2026-10-20)**: 보리 "착수지시서 확정,작업진행해". 코드 커밋 react-app `1e062a1`(93개 파일: 옮김 72 + 경로 고침 21).
-> - 교차검증(AGENTS §1): 표의 파일·쓰는 곳 모두 코드와 같음(`ShareFileModal`은 `ReportShareModal`·`DailyInspectionShareModal`만, `useReceivablesData`는 홈도, `ownerFinance`·`dailyInspections`는 여러 기능). 고친 것 ① `components/TaxInvoicePage.workInvoiceSoT.test.js`(`ReportPage`를 검사) 목록에 없었음 → 서류 `ui/`로 같이 옮김 ② `lib/receivablesPaths.test.js`는 옮길 곳에 같은 이름 테스트가 이미 있어 `features/receivables/ui/receivablesPaths.lib.test.js`로 이름 바꿔 옮김 ③ 옮길 파일 "약 60"이 아니라 72개.
-> - 손으로 고친 줄 3개: `features/documents/ui/ReportDetailView.test.js:128` 읽는 경로(`report/report.css` → 같은 폴더 `report.css`), 주석 속 옛 경로 2줄(`domain/financeOwnerDetail.js:3`, `domain/financeTypes.js:59`). 나머지는 같은 대본. `package.json` 안 바뀜(이미 범위 안).
-> - 목표 2: 옛 경로 grep 0건. 다섯 폴더와 `shared/ui/ShareFileModal.jsx` 없어짐.
-> - **목표 3 미달**: `shared/`→`components/`·`features/` 부르기가 `ShareFileModal` 1곳뿐이라던 지시서와 달리 1곳이 더 있었음 — `shared/ui/CardActionButtons.jsx:2` → `components/day-log/icons.jsx`(일지 그림 아이콘; 거래처 `ClientFormModal`·`ClientListItem`도 씀). 테스트 `shared/ui/PageHeader.test.js:18-19`도 `MyPage`·`RevenuePage`를 부름(테스트라 제외 가능). `ShareFileModal` 쪽은 없어짐. 아이콘 파일을 `shared/ui`로 옮기는 건 범위 밖이라 안 함 — 보리 결정 필요(이번에 옮길지 / 일지 조각 59-G에서 할지).
+> **진행(2026-10-20)**: 보리 "착수지시서 확정,작업진행해". 코드 커밋 react-app `80821cb`(49개 파일: 옮김 38 + 경로 고침 11).
+> - 교차검증(AGENTS §1): 표의 파일·쓰는 곳 모두 코드와 같음(옮길 파일 38개 — 달력 15·홈 10·알림 4 + `lib/notifications` 4·차량 유지비 5). `lib/notifications.js`는 알림 폴더 파일과 그 테스트만 부름(앱 틀 `AppShell`은 `useNotifications` 훅을 부름). 고친 것 없음.
+> - 같은 대본으로 옮기기·경로 다시 계산(38개 파일). 손으로 고친 줄 1개: 주석 속 옛 경로 `domain/practiceSettings.js:12`(`lib/notifications.js` → `features/notifications/api/notifications.js`). `homeMonthCard.test.js`는 같은 폴더 `home.css`를 읽어 그대로. `package.json` 안 바뀜.
+> - 목표 2: 옛 경로 grep 0건, 세 폴더 없어짐.
+> - 목표 3: `shared/`가 `components/`·`features/`를 부르는 곳은 59-E 예외 아이콘(`shared/ui/CardActionButtons.jsx:2`)과 테스트 `PageHeader.test.js:18-19`뿐, 새로 생긴 것 없음.
 > - 빌드 비교: 옮기기 전·후 48개 파일, 해시 지우고 비교 → 이름·내용 모두 같음.
-> - `git diff -M`: 72개 모두 이름 바뀜으로 잡힘, 경로 아닌 바뀐 줄은 위 3줄뿐.
-> - `npm test` 944 + 559 = 1503 통과(합계 같음 — `lib/` 테스트 일부가 `features/`(app) 범위로), 타입 검사·빌드 통과.
-> - 개발 서버(비회원, 운행 1건 30만 원): 미수금 목록 → 상세(입금 예정일·D-41), 매출 월·년 전환(10월 300,000원), 서류 발급 세금계산서·운송비 내역서 탭, 내역서 [공유] → "내역서 보내기" 창(`ShareFileModal`) 열림, 콘솔 오류 없음. 일상점검표 탭은 비회원에겐 원래 안 보임(`DocumentIssuePage.jsx:45` `ownerKey !== 'guest'`) — 배포본 로그인에서 확인.
-> - 목표 5 "기능 사이 부르기"(59-D 목록에 더해짐): 새 세 기능끼리는 0건. 기능 밖에서: `components/home/HomePage.jsx:9` → `receivables/hooks/useReceivablesData.js`, (테스트) `components/modalOutsideClick.test.js:21` → `documents/ui/TaxInvoiceDraftModal.jsx`, `shared/ui/PageHeader.test.js:19` → `revenue/ui/RevenuePage.jsx`.
-> - 지시서 오류(데스크톱 AI): 목표 3을 `ShareFileModal` 1곳만 보고 적음(`shared/` 전체를 grep하지 않음) — 아이콘 1곳을 놓침. 짝 테스트 `TaxInvoicePage.workInvoiceSoT.test.js`도 목록에서 빠뜨림. 옮길 파일 "약 60"(실제 72).
-> - push 뒤 CI verify·deploy 초록(run 39386457900).
-> - §5 리뷰(데스크톱 AI): ①범위 = 옮김 72(모두 이름 바뀜) + 경로 21 ②새 파일 0, 새 저장 키 0 ③타입 꼼수 0 ④줄 수 그대로(§6 예외) ⑤테스트 수 1,424 → 1,424, 테스트 바뀐 줄은 경로뿐(`receivablesPaths.lib.test.js`는 같은 이름 충돌로 이름만 바꿈) ⑥공용 값 — 해당 없음 ⑦목표 1·2·4·5 충족, **목표 3 미충족 1곳**: `shared/ui/CardActionButtons.jsx:2` → `components/day-log/icons.jsx`(아이콘을 쓰는 곳: `CardActionButtons`·거래처 `ClientFormModal`·`ClientListItem` + 일지 화면 안). 경로 아닌 바뀐 줄 3(주석 2·읽는 경로 1).
-> - 배포본 로그인 확인(2026-10-20, 내장 브라우저): 묶음 파일 이름이 59-D 배포와 같음(빌드 결과 이름·내용 모두 같다는 교차검증과 맞음). 미수금 목록 3묶음 → 테스터거래처 상세(2026.10.10, 200,000원, D-41 — 입금 처리 안 함), 매출 월(당월 순이익 2,284,586원)·년 전환(10월 2,284,586원), 서류 발급 세 탭(세금계산서 작성 전 1건·일상점검표 표·운송비 내역서), 내역서 [공유] → "내역서 보내기" 창 열고 닫음, 홈 "미수금 10건 2,509,258원" 그대로, 콘솔 오류 없음.
-> - 목표 3 예외 `[확인: 2026-10-20 보리 — "아이콘 1곳은 59-G에서 shared/ui로 옮겨. 59-E는 그 1곳만 예외로 하고 승인"]`(AGENTS §2 의도적 제외 항목). 로드맵 59-G에 적음.
+> - `git diff -M`: 38개 모두 이름 바뀜으로 잡힘, 경로 아닌 바뀐 줄은 위 주석 1줄뿐.
+> - `npm test` 926 + 577 = 1503 통과(합계 같음 — `lib/notifications` 테스트가 `features/`(app) 범위로), 타입 검사·빌드 통과.
+> - 개발 서버(비회원, 운행 1건): 홈(할 일 미수금 1건·이번 달 합계), 달력(10월 → 월 고르기 창 → 11월로 바뀜), 알림 화면, 차량 유지비 정비·주유·기타 탭, [+ 추가] → "정비 내역 추가" 창 → [취소]로 닫힘, 콘솔 오류 없음.
+> - 목표 5 "기능 사이 부르기"(59-D·E 목록에 더해짐): `drivers/ui/SettlementSummaryCard.jsx:2`·`revenue/ui/RevenueNav.jsx:3`·`documents/ui/MonthNavigator.jsx:4`·`expenses/ui/MaintFuelPage.jsx:5` → `calendar/ui/CalendarDateSelect.jsx` / `documents/ui/TaxInvoiceTab.jsx:21` → `calendar/ui/SummaryInfoToggle.jsx` / `home/ui/HomePage.jsx:7` → `calendar/hooks/useMonthSettlement.js`, `:9` → `receivables/hooks/useReceivablesData.js` / (테스트) `home/ui/HomePage.test.js:29` → `calendar/ui/CalendarPage.jsx`. 기능 밖에서: `components/day-log/DayLogExpenses.jsx:3` → `expenses/ui/ExpenseFormModal.jsx`, (테스트) `components/modalOutsideClick.test.js:19` → 같은 파일. 앱 틀(`AppShell`·`AppShellRoutes`·`lazyPages`·`MainPageRoute`)에서 기능 부르기는 허용 방향.
+> - push 뒤 CI verify·deploy 초록(run 39388702159).
+> - §5 리뷰(데스크톱 AI): ①범위 = 옮김 38(모두 이름 바뀜) + 경로 11 ②새 파일 0, 새 저장 키 0 ③타입 꼼수 0 ④줄 수 그대로(§6 예외) ⑤테스트 수 1,424 → 1,424 ⑥공용 값 — 해당 없음 ⑦목표 1~5 대조(`shared/` 위로 부르기는 59-E 예외 아이콘 1곳뿐). 경로 아닌 바뀐 줄 1(주석). `src/features/` 10개 기능.
+> - 배포본 로그인 확인(2026-10-20, 내장 브라우저): 묶음 파일 이름이 59-E 배포와 같음(빌드 결과 같음과 맞음). 홈(미수금 10건 2,509,258원·이번 달 정산 2,645,513원) 그대로, 달력 10월 → 월 선택 창(1~12월) → 다음 달 11월 → 이전 달, 알림 화면 열림, 차량 유지비 정비(50,000원)·주유(100,000원) 탭 → [+ 추가] "주유 내역 추가" 창 → [취소](저장 안 함), 콘솔 오류 없음.
 > - 보리 최종 승인(2026-10-20).
 
 ### 쉬운 요약
-- 미수금·매출·서류 발급(운송비 내역서·세금계산서·일상점검표) 화면과 그 화면만 쓰는 부품·훅·내보내기 함수를 `features/receivables`·`features/revenue`·`features/documents`로 모읍니다.
-- 여러 기능이 같이 쓰는 함수 2개(미수·정산 계산과 저장 `ownerFinance`, 일상점검표 저장·읽기 `dailyInspections`)는 `data/sync`로 내립니다.
-- 59-A 때 공용 부품으로 옮겼던 파일 보내기 창(`ShareFileModal`)은 실제로 서류 발급만 써서 서류 폴더로 내립니다 — 공용 폴더가 기능 폴더의 디자인 파일을 부르던 거꾸로 된 연결도 함께 없어집니다.
-- 화면·저장·내보내기 동작은 그대로입니다.
+- 달력·홈·알림 화면과, 계획 목록에서 빠져 있던 차량 유지비(정비·주유·기타) 화면을 기능 폴더 넷으로 옮깁니다.
+- 알림 계산 파일(`lib/notifications.js`)은 알림 기능만 써서 알림 폴더로 갑니다.
+- 화면·저장 동작은 그대로입니다.
 
 ### 현재 상태 (코드 확인 — 파일마다 쓰는 곳 grep)
 | 옮길 곳 | 파일 | 쓰는 곳 |
 |---|---|---|
-| `features/receivables/ui` | `components/ReceivablesPage`(화면 주소 묶음)·`receivables/ReceivablesListPage`·`ReceivablesDetailPage`·`ReceivableItemCard`·`receivablesPaths.js`·`receivables.css`·`receivablesGroupHead.css` + 테스트 `ReceivablesPages`·`receivablesPaths`(같은 폴더) + `lib/receivablesPaths.test.js`(이 파일을 검사) | 미수금 화면 안 |
-| `features/receivables/hooks` | `useReceivablesActions`(+ 테스트)·`useReceivablesData`※·`useConfirm.jsx` | ※`useReceivablesData`는 홈 `HomePage`도 씀 |
-| `features/revenue/ui` | `components/RevenuePage`·`revenue/` 전부(`OwnerRevenueView`·`DriverRevenueView`·`OwnerMonthlyCards`·`RevenueNav`·`RevenuePeriodParts`·`revenueFormat.js`·`revenuePeriod.js`·`driverRevenueScope.js`·디자인 2 + 테스트 5) | 매출 화면 안 |
-| `features/documents/ui` | `documents/` 전부(`DocumentIssuePage`·`TaxInvoiceTab`·`DailyInspectionMonthSheet`·`DailyInspectionExportBar`·`DailyInspectionLegalForm`·`DailyInspectionShareModal`·`MonthNavigator`·디자인 2 + 테스트 2), `components/ReportPage`·`ReportDetailView`·`ReportShareModal`·`ReportSummaryContent`·`TaxInvoiceDraftModal`·`TaxInvoiceEntryList`(+ 테스트 5), `components/report/report.css`, `components/tax-invoice/tax-invoice.css`, **`shared/ui/ShareFileModal.jsx`** | `ShareFileModal`은 `ReportShareModal`·`DailyInspectionShareModal`(둘 다 서류)만 씀, 지금 `components/report/report.css`를 부름(`shared/ui/ShareFileModal.jsx:3`) |
-| `features/documents/api` | `lib/report`(+ 테스트)·`reportDetail`·`reportSummary`(+ 테스트)·`reportExport`(+ 테스트)·`taxInvoiceActions`(+ 테스트)·`taxInvoiceExcel`·`taxInvoiceExcelBuilder`(+ 테스트) | 서류 화면만 |
-| `data/sync` | `lib/ownerFinance`(+ 이 파일을 검사하는 `lib/receivablesCloudCommit.test.js`)·`lib/dailyInspections`(+ 테스트) | `ownerFinance`: 서류·미수금·매출·기사·알림 / `dailyInspections`: 일지·서류·홈·회원 백업 |
+| `features/calendar/ui` | `calendar/` 의 `CalendarPage`·`CalendarGrid`·`CalendarCell`·`CalendarHeader`·`CalendarMonthSummary`·`CalendarSubLogBanner`·`CalendarDateSelect`※·`SummaryInfoToggle`※·디자인 3(`calendar`·`calendar-grid`·`calendar-date-select`※) + 테스트 3 | ※`CalendarDateSelect`(+디자인)는 서류·기사·매출·차량 유지비가, `SummaryInfoToggle`은 서류가 씀 |
+| `features/calendar/hooks` | `useMonthSettlement`※ | ※홈도 씀 |
+| `features/home/ui` | `home/` 의 `HomePage`·`HomeAssistantBar`·`HomeMonthCard`·`HomeTodayCard`·`HomeTodoCard`·디자인 2 + 테스트 2(`HomePage`·`homeMonthCard` — 같은 폴더 `home.css`를 경로로 읽음, 같이 옮기면 그대로) | 홈 안 |
+| `features/home/hooks` | `useTodayInspectionMissing` | 홈 |
+| `features/notifications/ui` | `notifications/NotificationsPage`·`notifications-page.css` + 테스트 | 알림 화면 |
+| `features/notifications/hooks` | `useNotifications` | 앱 틀 `AppShell`(위층→기능, 허용 방향)·알림 화면 |
+| `features/notifications/api` | `lib/notifications.js` + 테스트 3(`notifications`·`notifications.dailyInspection`·`notifications.dateLabel`) | 알림 기능만 |
+| `features/expenses/ui` | `components/MaintFuelPage`·`ExpenseFormModal`※(+ 테스트)·`maint-fuel.css`·`expense-form.css` | ※`ExpenseFormModal`은 일지 `DayLogExpenses`도 씀 |
 
-- 이번 조각 밖: `lib/invoices.js`(계산서 저장 + 계산 규칙 재수출 껍데기)·`syncTaxInvoicesTable.js`·`lib/receivables.js`·`lib/finance.js`(재수출 껍데기) — 59-H 껍데기 정리 때. `DataDownloadModal`(마이페이지) — 59-F.
+- 이번 조각 밖: `components/day-log/useExpenseForm.js`(일지 `DayLogExpenses`·`DayLogPage`가 씀 — 59-G), `lib/calendar.js`·`lib/expenses.js`(재수출 껍데기 겸 저장 — 59-H), 앱 틀 부품(`BottomNav`·`SideMenu` 등 — 59-H), 계정·설정·고객센터(59-F2).
 
 ### 목표 상태 (기대 동작)
-1. 위 표대로 옮김(짝 테스트 포함). `components/receivables/`·`revenue/`·`documents/`·`report/`·`tax-invoice/` 폴더 없어짐, `shared/ui/ShareFileModal.jsx` 없어짐(서류 폴더로).
-2. 옛 경로 grep 0건: `components/(receivables|revenue|documents|report|tax-invoice)/`, `components/(ReceivablesPage|RevenuePage|ReportPage|ReportDetailView|ReportShareModal|ReportSummaryContent|TaxInvoiceDraftModal|TaxInvoiceEntryList)`, `shared/ui/ShareFileModal`, `lib/(report|reportDetail|reportSummary|reportExport|taxInvoiceActions|taxInvoiceExcel|taxInvoiceExcelBuilder|ownerFinance|dailyInspections)(\.js)?'`.
-3. `shared/`에서 `features/`·`components/`를 부르는 곳 0건(grep — 지금 `ShareFileModal` 1곳).
-4. 테스트 수 그대로, 전부 통과(`features/**`·`data/**`는 이미 실행 범위 — `package.json` 안 바뀜, 확인만). 빌드 결과 내용 같음(묶음 이름이 바뀌면 진행 기록에).
-5. "기능 사이 부르기" 목록(규칙 ③)을 진행 기록에 grep 결과로 — 59-D 목록에 이어 적음.
+1. 위 표대로 옮김(짝 테스트 포함, 약 40개). `components/calendar/`·`home/`·`notifications/` 폴더 없어짐.
+2. 옛 경로 grep 0건: `components/(calendar|home|notifications)/`, `components/(MaintFuelPage|ExpenseFormModal|maint-fuel|expense-form)`, `lib/notifications(\.js)?'`.
+3. `shared/`에서 `features/`·`components/`를 부르는 곳 — 59-E 예외 1곳(아이콘, 59-G)만, 새로 생기지 않음(grep).
+4. 테스트 수 그대로, 전부 통과(`package.json` 안 바뀜, 확인만). 빌드 결과 내용 같음(묶음 이름이 바뀌면 진행 기록에).
+5. "기능 사이 부르기" 목록(규칙 ③)을 진행 기록에 grep 결과로 — 59-D·E 목록에 이어 적음.
 
 ### 건드릴 파일
-- 옮김(`git mv`) 약 60개, 경로만 고침(부르는 파일 약 30개 + 옮긴 파일 안 상대 경로 + 테스트 `mock.module`·`import()`·경로로 읽는 테스트).
+- 옮김(`git mv`) 약 40개, 경로만 고침(부르는 파일 + 옮긴 파일 안 상대 경로 + 테스트 `mock.module`·`import()`·경로로 읽는 테스트). 개수는 진행 기록에.
 - 동작 코드·문구는 안 바꿈.
 
 ### 안 건드릴 것
-- 위 "이번 조각 밖" 목록, 기능 사이 부르기 정리(59 끝), 92번(59-I).
-- 엑셀·PDF 내보내기 내용, 세금계산서 저장 순서 — 위치만.
+- 위 "이번 조각 밖", 기능 사이 부르기 정리(59 끝), 92번(59-I).
+- 59-E 예외 아이콘(59-G).
 
 ### 검증
 - `npm test`·타입 검사·빌드 통과, 테스트 수 그대로.
-- 목표 2·3 grep 0건, 목표 5 목록을 진행 기록에.
+- 목표 2·3 grep, 목표 5 목록을 진행 기록에.
 - `git diff -M --stat`: 옮긴 파일이 이름 바뀜으로 잡히는지, 경로 아닌 바뀐 줄 목록을 진행 기록에.
 - 빌드 결과 내용 비교(이름 해시 뺌) — 차이를 진행 기록에.
-- 개발 서버(비회원): 미수금 목록·상세, 매출(월·년), 서류 발급 세 탭(세금계산서·운송비 내역서·일상점검표), 내역서 [공유] 창 열기 → 콘솔 오류 없음.
+- 개발 서버(비회원): 홈, 달력(월 이동·날짜 고르기 창), 알림 화면, 차량 유지비(정비·주유·기타 탭, [+ 추가] 창 열고 닫기) → 콘솔 오류 없음.
 
 ### 파일 길이
-- 옮기기만 해서 줄 수 그대로. 200줄 넘는 파일(`ReportPage.jsx` 235 등)은 경로 줄만 — §6 예외.
+- 옮기기만 해서 줄 수 그대로. 200줄 넘는 파일(`MaintFuelPage.jsx` 245)은 경로 줄만 — §6 예외.
 
 ### 실패 시 처리
 - 새 저장 장치·재시도·대비 장치 없음(위치·경로만).
 - 테스트가 하나라도 실패하면 멈추고 어느 경로인지 이 파일에 적어 다시 승인받는다.
 
 ### 사용자 확인 방법 (배포 뒤, AI가 로그인 계정으로)
-1. 미수금 목록 → 상세 열기(입금 처리는 안 함).
-2. 매출 화면(월·년 전환) 금액 그대로.
-3. 서류 발급 세 탭 열기, 운송비 내역서 [공유] 창 열고 닫기.
-4. 홈의 미수금 줄 그대로(기능 사이 부르기 `useReceivablesData`), 콘솔 오류 없음.
+1. 홈(오늘 카드·할 일·이번 달 금액) 그대로, 알림 숫자.
+2. 달력 열기·달 바꾸기·날짜 고르기 창.
+3. 알림 화면 열기.
+4. 차량 유지비 정비·주유·기타 탭, [+ 추가] 창 열고 [취소], 콘솔 오류 없음.
+
+### 확인할 점 — 답 받음 `[확인: 2026-10-20 보리 — "나눠"]`: 59-F를 F1(이 지시서)·F2(계정·설정·고객센터)로 나눔
+1. 59-F를 F1(이 지시서: 달력·홈·알림·차량 유지비, 약 40개)과 F2(계정·설정·고객센터 + 그 저장 함수, 약 60개)로 나눠도 될까요? **권함: 예** — 한 번에 하면 100개가 넘어 확인이 어렵습니다. 차량 유지비는 처음 계획 목록에 빠져 있던 기능이라 F1에 넣었습니다. 안 나누면 F2 범위를 이 지시서에 합쳐 다시 씁니다.
