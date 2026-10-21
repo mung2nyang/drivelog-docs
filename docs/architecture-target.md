@@ -104,7 +104,32 @@ app → features → data → domain
 ```
 - 아래층은 위층을 부르지 않는다.
 - 기능 폴더끼리 서로 부르지 않는다. 같이 쓸 것은 `shared/`·`data/`로 내린다.
-- 규칙은 의존 분석 검사로 자동 확인할 수 있다(CI에 넣을지는 착수 때 보리 결정).
+- 규칙은 의존 방향 검사(`npm run depcheck`, `dependency-cruiser`, 설정 `react-app/.dependency-cruiser.cjs`)가 CI `verify`에서 매번 확인한다. 어기면 CI 빨강(로드맵 98-B).
+
+**층 규칙** (운영 파일의 실제 `import`만 — 테스트 파일·JSDoc 타입 표기는 검사 밖)
+
+| 층 | 부를 수 있는 곳 |
+|---|---|
+| `domain/` | `domain/`만(+ 외부 라이브러리) |
+| `shared/` | `shared/`, `domain/` |
+| `data/` | `data/`, `shared/`, `domain/` |
+| `features/<기능>/` | 자기 기능, `data/`, `shared/`, `domain/` — 다른 기능은 아래 허용 예외만 |
+| `app/` | 모두 |
+
+**허용 예외 8곳** (다른 기능 부품을 화면 안에 끼워 넣는 곳, 보리 결정 2026-10-21 — 검사 설정의 목록과 같음)
+
+| 부르는 파일 | 부르는 대상 |
+|---|---|
+| 일지 `day-log/ui/CallClientQuickAdd.jsx` | 거래처 `clients/ui/ClientFormModal.jsx` |
+| 일지 `day-log/ui/DayLogExpenses.jsx` | 차량 유지비 `expenses/ui/ExpenseFormModal.jsx` |
+| 홈 `home/ui/HomePage.jsx` | 미수금 `receivables/hooks/useReceivablesData.js` |
+| 기사 `drivers/ui/LinkedDriverClientsPage.jsx` | 거래처 `clients/ui/ScopedClientsList.jsx` |
+| 계정 `account/ui/PersonalInfoPage.jsx` | 기사 `drivers/ui/EmployerLinkCard.jsx` |
+| 차량 `cars/ui/CarDriverConnectPanel.jsx` | 기사 `drivers/ui/driver-connection.css` |
+| 거래처 `clients/ui/ScopedClientsList.jsx` | 기사 `drivers/ui/linked-driver.css` |
+| 기사 `drivers/ui/LinkedDriverClientsPage.jsx` | 거래처 `clients/ui/client-management.css` |
+
+예외를 늘리거나 줄이면 이 표와 검사 설정을 같이 고친다.
 
 **목표 화면 계층**
 
