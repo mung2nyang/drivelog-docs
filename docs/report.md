@@ -1,62 +1,78 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-## 로드맵 99-A 운행일지 화면 나누기 — 콜 상세·고정 노선 처리 흐름을 훅으로 `[x]`
+## 로드맵 101 지출 입력 흐름 두 벌을 한 벌로 + `domain/expenses.js`(203줄) 나누기 — 분리설계 + 101-A·101-B
 
-> **진행(2026-10-21) — 코드 커밋 `ca32941`** `[x]`: 보리 "착수지시서확정 작업진행해줘".
-> - 교차검증(AGENTS §1): 234줄·처리 흐름 줄 위치·긴 주석 4곳·`patchDraft` 밖 사용 3곳·`onWorkChanged`·테스트 현황 모두 지시서와 같음. 고친 것 없음.
-> - 테스트 먼저: 새 `DayLogPage.callActions.test.js`(152줄, 6개 — 고정 장소 저장 함수만 가짜로 실패). ①은 빈 일지에서 [+ 운행일지 추가]로 입력, ②~④·⑥은 미리 넣은 콜 1개(부산 → 대구, 50,000원)로 시작. 처음엔 입력 칸을 여는 3개가 끝나지 않고 멈춤 — 입력 칸의 뒤로가기 붙잡기(`usePanelBackGuard`)가 브라우저 기록을 보는데 테스트가 `MemoryRouter`(가짜 기록)로 그려 붙잡기를 끝없이 다시 쌓은 것. 화면 문제가 아니라 테스트 준비 문제라 `App.test.js`처럼 `BrowserRouter`로 바꿈(파일 머리 주석에 이유 1줄) → **옛 코드에서 6개 모두 통과** → 옮긴 뒤 같은 6개 통과(단언 그대로).
-> - 한 일: 새 `hooks/useCallDetailActions.js`(78줄 — `patchDraft`·`runRoute`·`saveCall`·`deleteCall`·`togglePayment`·`togglePinnedLocation`, 알림·`ownerKey`는 안에서 `useToast`·`useSession`). `DayLogPage.jsx` 234 → **171줄**: 처리 흐름용 가져오기 8개 옮김, 머리 주석 4줄 → 2줄, 긴 주석 3곳 → 1줄씩(네 번째 123~124줄은 훅으로 옮기며 1줄).
-> - 줄 대조(목표 1): 옮긴 본문에서 다른 줄은 함수 이름 4개(`handleRouteRun`→`runRoute`·`handleSaveCall`→`saveCall`·`handleTogglePinnedLocation`→`togglePinnedLocation`·`handleTogglePayment`→`togglePayment`), 주석 2줄 → 1줄, 도메인 함수 `togglePinnedLocation`을 `togglePinnedLocationIn`이라는 별명으로 가져옴(훅이 돌려주는 함수 이름과 겹쳐서, 2줄), `deleteCall`은 184줄 JSX 한 줄을 그대로 옮김. 그 밖 같음.
-> - 결과: `npm test` unit 866 + app 661(6개 늘어남) = 1527 전부 통과, 타입 검사·빌드·`npm run depcheck`(위반 0) 통과, lint 경고 50 그대로.
-> - 개발 서버(비회원, 거래처 한진 + 콜 1건): "세부 입력을 저장했습니다."·카드 1 → 수금 단추 "수금"·"수금 처리했습니다." → 다시 "미수"·"수금을 취소했습니다." → [수정]에 장소 칩 "부산, 대구" → 저장 "세부 입력을 수정했습니다." → [삭제] 카드 0. 콘솔 오류 0건. 고정 노선 칩은 테스트로만(비회원 기본 설정에 노선 없음).
-> - 코드 커밋 react-app `ca32941`(push 안 함).
-> - push 뒤 CI verify·deploy 초록(run 39543827717) — 테스트·타입 검사·빌드·의존 방향 검사 모두 성공.
-> - §5 리뷰(데스크톱 AI): ①범위 = 지시서의 3개 파일 ②새 층·저장 키 0, 새 파일 2개(훅·테스트)는 지시서대로 ③타입 꼼수 0 ④`DayLogPage` 171·`useCallDetailActions` 78, 테스트 152(§6 예외) ⑤새 테스트 6개는 카드 수·알림 문구·수금 단추 글자·칩 횟수와 고정 횟수 칸 값·저장 함수 호출 수를 직접 봄(가짜는 고정 장소 저장 함수 하나뿐), `BrowserRouter`로 바꾼 이유는 파일 머리 1줄 ⑥공용 영향 없음(화면 받는 값·`useDayDraft`·`inlinePanelActions` 그대로, `onWorkChanged` 그대로 — 91번) ⑦목표 1~4 대조. 옮긴 본문은 옛 줄과 같고 다른 줄은 진행 기록의 목록(이름 4개·주석 1줄·도메인 함수 별명) 그대로 확인. 훅 부르기는 일찍 끝나는(`periodNotice`) 줄보다 앞이라 훅 순서 규칙 문제 없음.
-> - 배포본 로그인 확인(데스크톱 AI, 새 빌드 `index-BbnTa4H2.js`): 10월 21일 운행일지에서 [+ 운행일지 추가] → 즐겨찾기 장소 칩들 보임 → 확인상차 → 확인하차·테스터거래처·10,000원 저장 → 카드 1(미수) → [미수] "수금 처리했습니다."·단추 "수금" → 다시 "수금을 취소했습니다." → [삭제] 카드 0. 새로고침해도 카드 0(넣은 데이터 되돌림 확인). 고정 노선 칩은 이 계정 설정에 노선이 없어 테스트로만. 콘솔 오류 0건.
-> - 보리 최종 승인(2026-10-21). **99번 끝.** 다음 101번.
+> **결정 `[확인: 2026-10-21 보리 — "권하는대로 101-A, 101-B 둘로 나눠서"]`**: 확인할 점 1 권함대로 — 이 분리설계는 한 번에 승인, 만드는 일은 **101-A(파일 나누기, 경로만) 먼저 → 101-B(흐름 합치기)** 두 슬라이스. 슬라이스마다 코드 커밋·`[x]` 문서 커밋 따로. 101-B는 101-A `[x]` 뒤 이 설계 그대로 짧은 지시서로.
+> 다음: 터미널 AI가 교차검증 뒤 **101-A만** 착수(아래 "건드릴 파일"의 101-A 줄까지).
 
-보리 지시 "작성해"(2026-10-21). 97·99 분리설계 `[확인: 2026-10-21 보리 — "권하는대로 진행하는걸로"]`(설계 원문 `git show 1e9e6e2:docs/report.md`의 "분리설계" 절)의 네 번째이자 99번 마지막 슬라이스. 순서 97 → 99-C → 99-B → **99-A** → 101 → 100 → 91 → 94.
+> **101-A 진행(2026-10-21) — 코드 커밋 `f9cd2ec`** `[x]`: 보리 "착수지시서 확정,작업진행해".
+> - 교차검증(AGENTS §1): 203줄·옮길 함수 4개 줄 위치(53~144)·가져다 쓰는 곳 모두 지시서와 같음. 지시서와 다른 점: `domain/expenses.test.js` 첫 묶음 "정비/기타 저장 조건"에 옮길 함수 테스트 5개와 남는 함수(`groupExpensesByDate`·`dedupeExpensesById`) 테스트 2개가 섞여 있어, **같은 묶음 이름으로 두 파일에 나눔**(새 파일엔 5개, 옛 파일엔 2개). "로드맵 77"(지출 번호, `dedupeExpensesById`도 씀)·"checkExpenseDraft" 묶음은 새 파일로.
+> - 한 일: 새 `domain/expenseDraft.js`(99줄 — 머리 주석 1줄, `todayKey`·분류 상수는 `expenses.js`에서 가져옴, 함수 4개와 그 위 주석 2줄 그대로). `domain/expenses.js` 203 → **108줄**(머리 주석에 "입력값·검사·목록 고치기는 expenseDraft.js", 안 쓰이게 된 `generateLocalId` 가져오기·`ExpenseDraft` 타입 설명 지움). 경로만: `useExpenseForm.js`, `MaintFuelPage.jsx`(가져오기 4줄 → 2줄, 155 → 153줄), `ExpenseFormModal.jsx`(198 → 199줄), `owner-state.persistRoundtrip.test.js`.
+> - 대조: 옮긴 92줄이 옛 53~144줄과 글자까지 같음(diff 0). 테스트·단언 줄을 옛 파일과 새 두 파일 합으로 비교 — 다른 것은 묶음 이름 줄 하나가 두 파일에 있는 것뿐. 테스트 수 unit 866·app 661 그대로.
+> - 결과: `npm test` 1527 전부 통과, 타입 검사·빌드·`npm run depcheck`(위반 0) 통과, lint 경고 50 그대로. 빌드 결과(이름 해시 뺌) 49개 파일 이름 같음, `index.js`만 다름 → 압축 없이(`--minify false`) 옛 커밋과 새 코드를 빌드해 줄을 정렬 비교하니 **다른 줄 0**(함수 순서만 바뀜).
+> - 개발 서버 확인은 안 함(101-A 검증 항목에 없고, 빌드 내용이 줄까지 같음).
+> - 코드 커밋 react-app `f9cd2ec`(push 안 함).
+> - push 뒤 CI verify·deploy 초록(run 39549745495) — 테스트·타입 검사·빌드·의존 방향 검사 모두 성공.
+> - §5 리뷰(데스크톱 AI): ①범위 = 지시서 101-A 줄의 8개 파일 ②새 층·저장 키 0, 새 파일 2개(`expenseDraft.js`·그 테스트)는 지시서대로 ③타입 꼼수 0 ④`expenses.js` 203 → 108·`expenseDraft.js` 99·`ExpenseFormModal.jsx` 199·`MaintFuelPage.jsx` 153 ⑤테스트 수 10 = 10, 단언 줄 31 = 31(옛 파일 대 새 두 파일 합) ⑥공용 영향: `expenseDraft.js` → `expenses.js`(상수·`todayKey`) 한 방향만, 다른 기능이 `expenses.js`에서 가져오는 것(`todayKey`·`KINDS`·`expenseTitle`·`dedupeExpensesById`) 그대로 ⑦목표 1 대조. 옮긴 본문을 데스크톱에서 따로 비교 — 옛 53~144줄과 커밋된 `expenseDraft.js` 8줄째부터가 같음(줄 끝 문자만 다른 것 빼고 diff 0). 경로 바뀐 4개 파일은 가져오기 줄만.
+> - 배포본 로그인 확인(데스크톱 AI, 새 빌드 `index-BcQU6fQj.js`): 차량 유지비 [+ 추가] → 빈 칸 저장 "항목명 또는 비용을 입력해 주세요."(검사 문구) → "확인용정비" 저장 "내역을 등록했습니다."·10월 21일 묶음 생김 → 삭제 "내역을 삭제했습니다."·원래 10월 10일 소모품 50,000원만 남음(넣은 데이터 되돌림). 운행일지 10월 21일 [+ 정비 추가] → 정비 항목명 칸 열림 → 취소. 콘솔 오류 0건.
+> - 보리 최종 승인(2026-10-21). 다음 101-B(이 설계 그대로 짧은 지시서).
+
+보리 지시 "작성해"(2026-10-21). 로드맵 101 `[확인: 2026-10-21 보리 — 97·99 착수 때 "권하는대로", 99 다음·100 앞]`. 순서 99 끝 → **101** → 100 → 91 → 94.
 
 ### 쉬운 요약
-- 운행일지 화면 파일(234줄)에는 화면 짜기와 함께 "콜 상세 저장·삭제·수금 바꾸기, 고정 노선 횟수, 고정 장소 저장" 처리 흐름이 들어 있습니다. 이 흐름을 훅 파일 하나로 옮겨 화면 파일을 약 180줄로 줄입니다.
-- 긴 설명 주석 4곳은 결론 1줄씩으로 줄입니다(경위는 이미 로드맵·커밋에 있음).
-- 이 흐름들은 지금 알림 문구까지 확인하는 테스트가 없습니다. 그래서 97·99-C처럼 옮기기 전 동작 테스트를 먼저 붙입니다. 화면 모양·동작은 그대로입니다.
+- 차량 유지비 화면과 운행일지의 비용 칸이 "내역 고치기 창 열기 → 최신 목록 다시 읽기 → 검사 → 저장 → 실패하면 알림"을 **각자 똑같이** 갖고 있습니다. 이 공통 부분을 한 곳에 두고 두 화면이 같이 쓰게 합니다.
+- 지출 계산 파일(`domain/expenses.js`)이 200줄을 넘어서, "입력값 만들기·검사·목록 고치기"를 새 파일로 나눕니다.
+- 화면 모양·알림 문구·저장 결과는 그대로입니다. 두 화면의 진짜로 다른 점(일지는 날짜 고정·종류 고르기 창, 유지비는 날짜 자유·삭제 알림)은 각자 남깁니다.
 
-### 현재 상태 (코드 확인 — `features/day-log/ui/DayLogPage.jsx` 234줄, 마지막 변경 `26abaa1`)
-- 처리 흐름(약 45줄): `patchDraft`(102줄)·`indexOfCall`(104줄), `handleRouteRun`(112~116줄, 고정 노선 칩 +/−), `handleSaveCall`(119~128줄, 콜 상세 새로 저장·수정 → 알림 "세부 입력을 저장했습니다."/"세부 입력을 수정했습니다."), `handleTogglePinnedLocation`(131~139줄, 고정 장소 저장 → 실패 알림 "고정 장소 저장에 실패했습니다."), `handleTogglePayment`(142~151줄, 수금 처리/취소 → 알림 "수금 처리했습니다."/"수금을 취소했습니다."), 콜 삭제는 184줄 JSX 안에 한 줄로.
-- 긴 설명 주석: 82~86줄(고정노선 거래처 찾기), 94~96줄(나가기 확인), 106~107줄(인라인 패널), 123~124줄(콜 id 타입 좁히기).
-- `patchDraft`는 처리 흐름 밖에서도 씀(휴무 토글·고정 횟수·팔레트 칸, 162·168·171줄).
-- `onWorkChanged`(55·62·65줄)는 안 쓰이는 값 — **91번 몫이라 이번엔 그대로**.
-- 테스트: 이 화면을 혼자 그리는 테스트는 `AssignmentPeriodPage.test.js`(배정 기간 안내 4개)뿐. 위 알림 문구 5개를 확인하는 테스트 0개(grep), 고정 노선 횟수는 `App` 테스트들이 저장 값으로 봄.
+### 현재 상태 (코드 확인)
+- `domain/expenses.js` 203줄, §6 예외 표시 없음. 섞인 것: ① 상수(`KINDS`·분류 3개) ② 날짜·달 계산(`todayKey`·`monthPrefix`·`filterMonth`·`monthTotal`) ③ **입력값·검사·목록 고치기**(`emptyExpenseDraft` 58~75·`checkExpenseDraft` 84~89·`upsertExpense` 96~136·`removeExpense` 142~144, 약 90줄) ④ 화면 표시(`groupExpensesByDate`·`expenseTitle`·`filterByDate`) ⑤ 불러오기용 `dedupeExpensesById`.
+- ③을 가져다 쓰는 곳: `features/day-log/hooks/useExpenseForm.js`, `features/expenses/ui/MaintFuelPage.jsx`, `features/expenses/ui/ExpenseFormModal.jsx`(`checkExpenseDraft`, 지금 198줄), 테스트 `domain/expenses.test.js`·`data/store/owner-state.persistRoundtrip.test.js`.
+- 두 벌인 흐름:
+  - 창 열 때 내역 → 입력값 바꾸기 11줄: `MaintFuelPage.jsx` `openEdit` ↔ `useExpenseForm.js:53~65`. 다른 점은 날짜(유지비는 내역 날짜, 일지는 그날로 고정)와 `liters`를 글자로 바꾸는지뿐.
+  - 저장: 최신 목록 다시 읽기(`readOwnerExpenses`) → `upsertExpense` → 검사 문구 알림 → `saveExpenses` → 실패면 콘솔 + `saveFailMessage(getCloudOwnerKey() === ownerKey)` 알림 → 성공이면 창 닫고 "내역을 등록/수정했습니다." — 양쪽 같음.
+  - 삭제: 최신 목록에서 빼고 저장, 실패면 같은 실패 알림. 다른 점: 유지비만 성공 알림 "내역을 삭제했습니다.", 콘솔 앞말이 유지비는 `비용 저장 실패:`·일지는 `비용 삭제 실패:`.
+- 두 기능 폴더(`expenses`·`day-log`)가 같이 쓸 코드는 기능 폴더에 둘 수 없음(층 규칙·허용 예외 8곳 — 98-B). 여러 기능이 쓰는 저장 함수 자리는 `data/sync`(59-D에서 정한 규칙).
+- 테스트: 유지비는 `MaintFuelPage.test.js` 7개(97), 일지 비용 저장·삭제 **실패**는 `App.guestDurable.test.js` 2개(콘솔 앞말 `비용 저장 실패:`·`비용 삭제 실패:`를 셈). 일지 비용 저장 **성공** 알림을 보는 테스트는 착수 때 확인(없으면 101-B 테스트 먼저에 더함).
+
+### 분리설계 (AGENTS §6 — 책임 경계·모듈 구조·의존성)
+**101-A `domain/expenses.js` 나누기** — 203 → 약 110
+- 새 `domain/expenseDraft.js`(약 95줄): `emptyExpenseDraft`·`checkExpenseDraft`·`upsertExpense`·`removeExpense`를 **내용 그대로** 옮김("입력값 만들기·저장 전 검사·목록 고치기"). 분류 상수는 `expenses.js`에서 가져옴(`domain` → `domain`).
+- `domain/expenses.js`에 남는 것: 상수·날짜·달 계산·화면 표시·`dedupeExpensesById`. 머리 주석에 "입력값·검사는 expenseDraft.js" 1줄.
+- 가져오는 경로만 바뀌는 곳: `useExpenseForm.js`·`MaintFuelPage.jsx`·`ExpenseFormModal.jsx`(198줄 — 가져오기 줄이 둘로 나뉘어 199줄, 200 이하)·테스트 2개. `domain/expenses.test.js`에서 옮긴 함수의 테스트 묶음은 새 `domain/expenseDraft.test.js`로 그대로 옮김(테스트·단언 수 같음). 동작 변화 0.
+
+**101-B 지출 입력 흐름 한 벌로** — 공통 부분만 아래층으로
+- `domain/expenseDraft.js`에 `expenseToDraft(item, date = item.date)`(약 15줄): 내역 → 입력값. 일지는 그날, 유지비는 내역 날짜를 넘김. `liters`는 일지처럼 글자로(유지비 칸 표시는 같음).
+- `data/sync/expensesSave.js`(58 → 약 90줄)에 두 함수: `saveExpenseDraft(ownerKey, draft, editingId)`·`deleteExpense(ownerKey, id)`. 둘 다 최신 목록을 다시 읽고(`readOwnerExpenses`) → `upsertExpense`/`removeExpense` → `saveExpenses`. **실패 알림 문구를 돌려줌**(검사 문구 또는 `saveFailMessage(...)`, 성공이면 `null`), 콘솔은 저장 `비용 저장 실패:`·삭제 `비용 삭제 실패:`. 알림 띄우기·창 닫기·성공 알림은 화면 몫으로 남김(`data` → `shared`는 실패 문구 함수만 — 이미 11곳에서 씀).
+- `useExpenseForm.js`(100 → 약 75)·`MaintFuelPage.jsx`(155 → 약 125): `persist`·`openEdit` 본문·`save`·`remove` 본문이 위 함수 부르기 + 알림으로 줄어듦. 일지의 종류 고르기 창(420ms 뒤 열기)·날짜 고정, 유지비의 삭제 성공 알림은 그대로.
+- 새 공용 훅은 만들지 않음 — 두 화면의 창 상태가 다르고(일지는 종류 고르기 + 인라인 칸, 유지비는 모달), 같은 것은 "읽고·고치고·저장·실패 문구"뿐이라 함수로 충분. 기능 사이 허용 예외도 안 늘어남.
 
 ### 목표 상태 (기대 동작)
-1. 새 `features/day-log/hooks/useCallDetailActions.js`(약 75줄): `useCallDetailActions(draft, dispatch, { dateKey, clients, settings, editingCallId })` → `{ patchDraft, runRoute, saveCall, deleteCall, togglePayment, togglePinnedLocation }`. 알림·`ownerKey`는 훅 안에서 `useToast()`·`useSession()`. 본문은 지금 함수들을 그대로 옮김(이름만 위처럼, 콜 삭제는 JSX 한 줄을 `deleteCall(id)`로).
-2. `DayLogPage.jsx`(약 180줄)에는 데이터 읽기·보이는 값 계산·나가기 확인·인라인 패널 묶기·화면 짜기만 남음. 처리 흐름에 쓰던 가져오기(`applyFixedRouteRun`·`getFixedRouteCounts`·`upsertCallDetail`·`removeCallDetail`·`getDetailPaymentSummary`·`togglePinnedLocation`·`toggleCallPaymentStatus`·`savePracticeSettings`)는 훅으로 옮겨감.
-3. 긴 주석 4곳 → 결론 1줄씩(123~124줄 것은 훅으로 옮기면서). 머리 주석(2~5줄)도 지금 구조에 맞게 1~2줄로.
-4. 알림 문구·저장 값·화면 모양 변화 0. `onWorkChanged`·`useDayDraft`·`inlinePanelActions`는 안 바뀜.
+1. (101-A) `domain/expenses.js` 200줄 이하, `domain/expenseDraft.js` 200줄 이하, 옮긴 함수 본문이 옛 줄과 같음. 테스트 수·단언 수 그대로.
+2. (101-B) 내역 → 입력값 바꾸기, 저장·삭제 흐름이 `domain/expenseDraft.js`·`data/sync/expensesSave.js` 한 곳에만 있음(grep `readOwnerExpenses(ownerKey)`가 두 화면 파일에서 0).
+3. 알림 문구·저장 값·창 닫힘·화면 모양 변화 0. 바뀌는 것은 유지비 **삭제 실패 콘솔 앞말**이 `비용 저장 실패:` → `비용 삭제 실패:`(화면에 안 보임, 일지와 맞춤) 하나.
+4. `npm run depcheck` 통과(허용 예외 목록 변경 없음).
 
 ### 건드릴 파일
-- `features/day-log/ui/DayLogPage.jsx`(줄어듦), 새 `features/day-log/hooks/useCallDetailActions.js`
-- 새 `features/day-log/ui/DayLogPage.callActions.test.js`(옮기기 전 동작 테스트)
+- 101-A: `domain/expenses.js`, 새 `domain/expenseDraft.js`, 경로만 `features/day-log/hooks/useExpenseForm.js`·`features/expenses/ui/MaintFuelPage.jsx`·`features/expenses/ui/ExpenseFormModal.jsx`, 테스트 `domain/expenses.test.js`·새 `domain/expenseDraft.test.js`·`data/store/owner-state.persistRoundtrip.test.js`(경로)
+- 101-B: `domain/expenseDraft.js`, `data/sync/expensesSave.js`, `features/day-log/hooks/useExpenseForm.js`, `features/expenses/ui/MaintFuelPage.jsx`, 테스트(`domain/expenseDraft.test.js`에 `expenseToDraft`, 새 `data/sync/expensesSave.draft.test.js`, 필요하면 일지 비용 성공 테스트)
 
 ### 안 건드릴 것
-- `onWorkChanged`·`useDayDraft`·`dayDraftLifecycle`(91번), `useExpenseForm`(101번), `CallDetailForm`·`CallDetailList`·`inlinePanelActions`, 디자인 파일, 도메인 계산 함수.
+- `saveExpenses` 본문(서버 칸 나누기), 불러오기(`data/hydrate`), `ExpenseFormModal`의 칸·검사 표시, 일지 `DayLogExpenses`·`ExpenseSelectPanel`·`inlinePanelActions`, `todayKey`를 다른 기능이 `domain/expenses.js`에서 가져오는 것(알림·일상점검표 — 그대로 둠), 100·91번.
 
 ### 검증
-- **옮기기 전** 새 테스트를 옛 코드에서 먼저 통과 확인(그리는 방법은 `AssignmentPeriodPage.test.js`처럼 화면 혼자 + `withSession`, 알림은 `withToast`): ① 콜 상세 새로 저장 → 카드 1개, "세부 입력을 저장했습니다." ② 그 카드 수정 → "세부 입력을 수정했습니다." ③ 수금 단추 → "수금 처리했습니다.", 다시 → "수금을 취소했습니다." ④ 콜 삭제 → 카드 0개 ⑤ 고정 노선 칩 +1 → 칩 횟수와 고정 횟수가 같이 1 오름 ⑥ 고정 장소 저장이 실패하면 "고정 장소 저장에 실패했습니다.". 폼 입력이 너무 복잡한 흐름은 미리 넣은 콜로 시작해도 됨(진행 기록에 적음). 옮긴 뒤 같은 테스트 통과(단언 그대로).
-- 옮긴 함수 본문을 옛 줄과 줄 단위로 대조(진행 기록에 다른 줄 목록).
-- `npm test`·타입 검사·빌드·`npm run depcheck` 통과, lint 경고 수 그대로.
-- 배포본 로그인 확인(데스크톱 AI): 운행일지에서 콜 상세 추가 → 수금 처리 → 취소 → 삭제, 고정 노선 칩 +1 → −1로 되돌림(데이터는 처음 상태로 되돌림), 즐겨찾기 장소 칩 보임.
+- 101-A: `git diff -M`로 옮긴 함수 본문이 같은지, 테스트 수·단언 수 그대로. `npm test`·타입 검사·빌드·`depcheck`.
+- 101-B: **고치기 전** 새 `expensesSave.draft.test.js`는 새 함수라 옛 코드엔 없으므로, 대신 화면 테스트로 옛 동작을 고정 — `MaintFuelPage.test.js` 7개 + `App.guestDurable.test.js` 비용 실패 2개(콘솔 앞말 셈 포함) + 일지 비용 저장 성공 테스트(없으면 먼저 붙여 옛 코드에서 통과)가 옛 코드·새 코드 모두 통과. 유지비 삭제 실패 콘솔 앞말을 세는 테스트가 있으면 그 기대값만 `비용 삭제 실패:`로(진행 기록에 적음). 새 함수 테스트: 검사 문구 돌려줌·저장 실패면 실패 문구·성공이면 `null`·최신 목록 기준으로 고침.
+- 배포본 로그인 확인(데스크톱 AI): 차량 유지비 추가 → 수정 → 삭제, 운행일지 비용 칸 정비 추가 → 수정 → 삭제(넣은 데이터 되돌림), 알림 문구 확인.
 
 ### 파일 길이
-- `DayLogPage.jsx` 약 180, `useCallDetailActions.js` 약 75. 테스트 파일은 §6 예외.
+- `domain/expenses.js` 약 110, `domain/expenseDraft.js` 약 95(B 뒤 약 110), `data/sync/expensesSave.js` 약 90, `useExpenseForm.js` 약 75, `MaintFuelPage.jsx` 약 125, `ExpenseFormModal.jsx` 199. 테스트 파일은 §6 예외.
 
 ### 실패 시 처리
-- 새 저장 장치·재시도·대비 장치 없음(코드 자리만 옮김, 고정 장소 저장 실패 알림도 지금 그대로).
-- 새 테스트가 옛 코드에서 실패하면 화면을 고치지 말고 멈추고, 기대와 다른 동작을 이 파일에 적어 다시 승인받는다.
+- 새 저장 장치·재시도·대비 장치 없음(저장은 지금 `saveExpenses` 그대로, 실패는 지금처럼 알림만).
+- 옛 동작을 고정한 테스트가 옛 코드에서 실패하면 화면을 고치지 말고 멈추고 이 파일에 적어 다시 승인받는다.
 
 ### 사용자 확인 방법
-- 화면은 바뀌지 않음. push 뒤 AI가 CI와 배포본 운행일지(콜 상세·수금·고정 노선)를 확인해 보고.
+- 화면은 바뀌지 않음. push 뒤 AI가 CI와 배포본(차량 유지비·운행일지 비용 칸 추가·수정·삭제)을 확인해 보고.
 
 ### 확인할 점
-- 없음(승인된 분리설계 그대로. 줄 수 추정만 설계의 "약 165"에서 "약 180"으로 — 처리 흐름 밖에서도 쓰는 `patchDraft` 호출 줄이 남기 때문).
+1. **한 슬라이스로 할까요, 둘로 나눌까요?** **권함: 둘로 — 101-A(파일 나누기, 경로만 바뀌는 기계적 일) 먼저, 101-B(흐름 합치기) 다음.** A는 동작 변화가 0이라 검사가 쉽고, B는 저장 흐름을 바꾸니 따로 보는 게 안전합니다(§3 "1~3개 파일"에도 가까움). 다른 안: 한 번에(커밋 하나, 파일 약 11개).

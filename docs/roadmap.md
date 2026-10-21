@@ -505,6 +505,7 @@ GPS 같은 기능을 자문 뒤에 넣으면 자문을 다시 받아야 해서(�
      이 타입 3개를 `domain/`으로 옮기고 가리키는 표기 경로(약 50개 파일)를 고침. 동작 변화 0.
 101. **지출 입력 흐름 두 벌을 한 벌로 + `domain/expenses.js`(203줄) 나누기** (⑥) `[확인: 2026-10-21 보리 — 97·99 착수 때 "권하는대로", 99 다음·100 앞]` — 차량 유지비 화면(`features/expenses/ui/MaintFuelPage.jsx`)과 일지 `features/day-log/hooks/useExpenseForm.js`가 내역 → 입력값 바꾸기·저장 실패 알림·삭제를 각자 가짐(날짜 고정 여부·삭제 알림만 다름).
      합칠 자리인 `domain/expenses.js`가 이미 200줄을 넘고 §6 예외 표시도 없음. 착수 때 §6 분리설계부터.
+     분리설계·나누기 `[확인: 2026-10-21 보리 — "권하는대로 101-A, 101-B 둘로"]`: ~~**101-A** `domain/expenses.js`의 입력값·검사·목록 고치기 → 새 `domain/expenseDraft.js`(경로만)~~ `[x]` react-app `f9cd2ec`(2026-10-21, 203 → 108줄 + `expenseDraft.js` 99줄, 옮긴 본문 그대로) → **101-B** 내역 → 입력값 바꾸기 `expenseToDraft`(domain), 저장·삭제 `saveExpenseDraft`·`deleteExpense`(`data/sync/expensesSave.js`)를 두 화면이 같이 씀(새 공용 훅은 안 만듦).
 
 - **AI관찰 (미확인 — 실행 지시 아님, 보리 결정 대기)** — 외부 검수 중 나온 물음:
   ① 미수금이 부가세 뺀 운송료로만 잡혀, 전자계산서 35만원 운행에 38만 5천원이 들어와도 입력 불가("남은 금액보다 큰 금액은…", 보리 직접 확인) — 미수금에 부가세를 넣을지.
