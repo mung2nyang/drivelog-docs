@@ -1,68 +1,201 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-## 로드맵 103 CI에서 테스트 파일 맨 끝 결과가 가끔 빠짐 `[x]` `[확인: 2026-10-22 보리 — "103 [x] 승인. 마무리해."]`
+103 지시서·기록은 drivelog-docs `27aa8b3`.
 
-보리 지시 "작성해"(2026-10-22, 94-C `[x]` 뒤, 103번 등재 `[확인: 2026-10-22 보리 — "로드맵에 등록해"]`). 플레이북 §6(테스트 진실성·Clean Run) 확인함. 운영 코드는 안 건드림.
+## 로드맵 23-A 문의 관리자 — 서버 명단·관리자 함수·문의 표 권한 `[x]` `[확인: 2026-10-22 보리 — "모바일 다른계정으로 확인완료 승인"]`
 
-### 결정 — CI 테스트 단계 시간 제한 `[확인: 2026-10-22 보리 — "응 그렇게해그럼"]`
-- **CI 테스트 단계에 15분 제한 한 줄**(`timeout-minutes: 15` — 지금 테스트는 약 2분). 강제 종료 옵션을 뺀 뒤 누가 가짜 서버 연결 없이 테스트를 쓰면 그 파일이 안 끝나 CI가 GitHub 기본 제한(6시간)까지 멈추는 것을, 15분 뒤 빨강으로 바로 보이게 함.
+보리 지시(2026-10-22): 23번을 관리자 화면 방식으로 바꿈 `[확인: 2026-10-22 보리 — "응 내계정으로 붙혀, 순서도 좋은데"]`, "좋아 작성해". 로드맵 23번 순서 A(서버) → B(관리자 화면) → C(사용자 답변 알림) → D(보리 메일 알림) 중 **이번엔 A만**. 앱 코드는 안 바뀜(B에서 씀). 관리자 계정은 ya01na111@gmail.com `[확인: 2026-10-22 보리 — "응 맞아"]`.
 
 ### 쉬운 요약
-- CI가 테스트 파일마다 "다 끝나면 바로 강제로 끄기" 옵션을 쓰는데, 리눅스에서는 끄는 순간 아직 못 보낸 마지막 결과가 버려져 맨 끝 테스트가 통과로도 실패로도 안 잡히는 일이 생깁니다(두 번 확인됨).
-- 이 옵션을 넣은 이유는 테스트 10개 파일이 진짜 서버 연결을 불러와 프로세스가 안 끝나기 때문입니다. 이 10개 파일도 다른 62개 테스트처럼 이미 있는 가짜 서버 연결을 쓰게 하고, 강제로 끄기 옵션을 뺍니다.
-- 그러면 모든 테스트 결과가 빠짐없이 CI에 잡히고, 테스트가 실제 서버 주소로 연결 객체를 만들지 않게 됩니다. 앱 동작은 안 바뀝니다(테스트·설정만).
+- 서버에 "관리자 명단"을 만들고 보리 계정을 한 줄 넣습니다. 명단에 있는 계정만 모든 문의를 보고 답변을 저장할 수 있게 서버가 막습니다.
+- 조회해 보니 **지금은 사용자가 자기 문의의 답변 칸을 직접 채울 수 있게 서버가 열려 있습니다**(앱엔 그런 화면이 없지만 서버는 허용). 이것도 이번에 막습니다.
+- 일반 사용자는 자기 문의를 쓰고 읽기만 합니다. 화면은 이번에 안 바뀝니다(관리자 화면은 23-B).
 
 ### 현재 상태 (확인 근거)
-- 빠진 결과 두 번 모두 파일 맨 끝: CI run 39736913821(`079aee8`) `domain/finance.test.js` 마지막 테스트 1개, run 39712649021(`de91e4d`) `domain/clients.test.js` 마지막 묶음(테스트 2개). 둘 다 그 묶음의 앞부분만 찍히고 끝 줄 없이 다음 파일로 넘어감, 실패로 안 셈. 이 PC(윈도)에서는 878개 그대로.
-- `package.json` `test:unit`·`test:app`에 `--test-force-exit` — `ce08638`(2026-09-03, 테스트 명령 나눌 때)에 들어옴, 이유 기록 없음. 추정 원인: 강제 종료가 아직 못 보낸 출력을 버림(리눅스는 출력 보내기가 비동기, 윈도는 동기라 이 PC에서는 안 생김 — 확인 안 함, 두 번 모두 파일 끝이라는 것과 맞음).
-- 옵션 없이 돌리면(이 PC, 파일 변경 없음) 10개 파일이 테스트는 다 통과한 뒤 안 끝남 — 400초 뒤 강제로 멈춤: `data/store/ownerDataHooks.test.js`, `data/sync/onboardingFinish.test.js`, `app/shell/usePullToRefresh.test.js`, `features/notifications/api/notifications.test.js`·`notifications.dateLabel.test.js`·`notifications.dailyInspection.test.js`, `features/documents/api/reportSummary.test.js`, `features/documents/ui/TaxInvoiceDraftModal.test.js`, `features/day-log/ui/CallDetailForm.test.js`·`AssignmentPeriodPage.test.js`.
-- 원인(추적함): 10개 모두 진짜 `data/cloud/supabaseClient.ts`를 가짜로 안 바꿈(`mock.module`·`stubSupabaseClient` 0) → `createClient`가 Supabase 로그인 모듈을 만들면서 탭 사이 로그인 맞추기 창구(`BroadcastChannel`, `GoTrueClient.js:258`)를 엶 — 가짜 화면(`setupDom.js`)이 `window`를 만들어 브라우저로 여기기 때문. 이 창구가 프로세스를 붙잡음.
-- 이미 있는 해결 도구: `testSupport/stubSupabaseClient.js`(머리 주석이 바로 이 "안 끝나고 매달리는 문제"용), 테스트 62개가 씀 — 맨 먼저 불러오고 시험 대상은 `await import`로 뒤에 불러오는 방식.
-- 시험(파일 변경 없음): 10개 파일을 이 도구를 먼저 불러온 채 옵션 없이 돌리니 57개 전부 통과, 10초에 스스로 끝남.
+- 앱: `features/support/api/supportInquiryMutations.js`가 insert(`user_id·type·title·content·status:'open'`)와 본인 조회(`select('*')`)만(같은 파일 grep `.update`·`.delete` 0). "답변 완료"는 `answer`에 글이 있으면(`MyInquiriesList.jsx:41`). 관리자 개념은 어디에도 없음(react-app grep `admin` 0, sot grep `관리자` 0). 로그인은 구글뿐(`supabaseClient.ts:23`).
+- 서버 — 0번 읽기 전용 조회(2026-10-22, 데스크톱 AI가 보리 허락으로 SQL Editor에서 실행. 이관 기록 0001~0024엔 없음):
+  - 칸: `id uuid`(기본 `gen_random_uuid()`, 기본키)·`user_id uuid`(→ `auth.users`, 계정 지우면 같이 지움)·`type`·`title`·`content`·`status`(기본 `'open'`, 허용 값 제한 없음)·`answer`·`answered_at timestamptz`·`raw jsonb`·`created_at timestamptz`(기본 `now()`). 트리거 0. **줄 0개**(아직 문의 없음).
+  - RLS 켜짐. 정책 3개(모두 `public` 대상): "본인 문의만 작성" INSERT `auth.uid() = user_id` / "본인 문의만 조회" SELECT 같음 / **"본인 문의만 수정" UPDATE `auth.uid() = user_id`** — 칸 제한이 없어 본인 줄의 `answer`·`status`·`answered_at`을 사용자가 채울 수 있음.
+  - 권한: `anon`·`authenticated` 둘 다 표 전체 권한(INSERT·SELECT·UPDATE·DELETE·TRUNCATE 등, Supabase 기본값). 지우기 정책이 없어 DELETE는 막혀 있음.
+  - 그 밖: `admin_users` 없음, 같은 이름 함수 없음, `profiles`에 `id uuid`·`name text` 있음, `auth.users`에 ya01na111@gmail.com 계정 1개.
 
 ### 목표 상태 (기대 동작)
-1. 10개 테스트 파일이 `stubSupabaseClient.js`를 맨 먼저 불러오고, 진짜 서버 연결을 거쳐 오는 시험 대상은 그 뒤 `await import`로 불러옴(다른 62개와 같은 방식). 테스트 내용·단언은 안 바뀜.
-2. `package.json` `test:unit`·`test:app`에서 `--test-force-exit`만 뺌(나머지 옵션 그대로).
-3. `ci.yml` 테스트 단계(`테스트 (npm test)`)에 `timeout-minutes: 15`.
-4. `npm test`가 옵션 없이 스스로 끝나고 878·663 그대로 전부 통과. 옵션 없이 따로 돌려도 안 끝나는 파일 0.
-5. push 뒤 CI에서도 878·663, 각 테스트 파일의 마지막 결과까지 찍힘.
+1. 새 표 `admin_users`(`user_id` 기본키 → `auth.users`, 계정 지우면 같이 지움 / `created_at`). RLS 켜고 정책 없음, `anon`·`authenticated` 권한 없음 → 앱에서 아무도 직접 못 읽고 못 고침.
+2. 서버 함수 3개, 모두 `security definer` + `set search_path = public`, `anon` 실행 불가·`authenticated`만:
+   - `is_admin()` → 지금 계정이 명단에 있으면 true(23-B 화면 문에 씀).
+   - `admin_list_support_inquiries()` → 관리자가 아니면 오류. 관리자면 모든 문의(id·유형·제목·내용·상태·답변·답변 시각·접수 시각) + 문의한 사람 이름(`profiles.name`만), 답변 대기 먼저·최근 먼저.
+   - `admin_answer_support_inquiry(inquiry_id, answer_text)` → 관리자가 아니면 오류, 빈 답변·없는 문의도 오류. 관리자면 `answer`·`status = 'answered'`·`answered_at = now()`만 바꿈(답변을 고치면 시각도 새로).
+3. 문의 표 권한: "본인 문의만 수정" 정책 지움. `anon` 권한 전부 뺌. `authenticated`는 읽기 + **넣기는 `user_id·type·title·content·status` 칸만**(답변 칸을 넣을 때부터 채우는 것도 막음). 넣기·읽기 정책은 같은 조건으로 대상만 `authenticated`로. 지금 앱 동작(넣기·본인 조회)은 그대로 됨(앱이 넣는 칸이 정확히 이 5개).
+4. 문의 표 모양을 이관 기록에 담음: `create table if not exists`로 위 조회 결과 그대로(이미 있으니 실제로는 안 바뀜).
+5. 보리 계정 1줄을 명단에 넣음 — SQL Editor에서 따로, 파일에는 메일 주소를 안 남김.
 
 ### 건드릴 파일
-- 위 10개 테스트 파일 — 가져오는 순서·방식만
-- `package.json` — 테스트 명령 2줄에서 옵션 하나씩 빼기
-- `.github/workflows/ci.yml` — 테스트 단계에 한 줄
-- §3 "1~3개 파일" 예외: 같은 원인·같은 고침이 10개 파일에 걸려 있어 한 슬라이스로(나누면 옵션을 뺄 수 없는 중간 상태가 생김).
+- 새 파일 `react-app/supabase/migrations/0025_support_admin.sql` — 아래 SQL 완성본 그대로 + 맨 아래 사후검증 주석(0021과 같은 형식).
+- 서버(Supabase SQL Editor): 그 파일 실행 + 명단 1줄 넣기. 실행은 데스크톱 AI(보리 로그인·허락) 또는 보리.
+- 문서(`[x]` 때): `docs/sot.md` §8-2 문의 줄에 권한 한 줄(사용자 본인 넣기·읽기 / 관리자 전체 읽기·답변, 관리자는 서버 명단).
 
 ### 안 건드릴 것
-- 운영 코드 전부(`supabaseClient.ts` 포함 — 탭 사이 로그인 맞추기는 앱에 필요), `stubSupabaseClient.js`·`setupDom.js`, 다른 테스트 파일, 테스트 내용·단언, 빌드·타입·의존 검사 설정.
+- `src/` 전부(관리자 화면·메뉴·`is_admin` 부르기는 23-B, 답변 알림은 23-C), 메일 알림(23-D), 처리방침 문구, `profiles` 권한(함수가 이름만 꺼내 줌), `raw` 칸(앱이 안 씀 — `supportInquiryMutations.js` insert에 없음, 그대로 둠).
+- 데이터: 지우거나 고치지 않음(`DROP TABLE`·`TRUNCATE`·`DELETE` 없음, AGENTS §9). 지우는 건 정책 1개("본인 문의만 수정")뿐.
+
+### SQL 완성본 (`0025_support_admin.sql`, 멱등)
+```sql
+-- 0025: 고객센터 문의 관리자(로드맵 23-A). 관리자는 admin_users 명단으로만 정하고, 관리자 함수로만 모든 문의를 읽고 답변을 저장한다. 일반 사용자는 본인 문의 넣기·읽기만.
+-- 명단 넣기는 이 파일에 없다 — SQL Editor에서 계정 id로 한 줄 넣는다(메일 주소를 저장소에 남기지 않으려고).
+begin;
+
+-- 문의 표는 이관 기록 없이 만들어져 있었다. 2026-10-22 조회 결과 그대로 적는다(이미 있으면 안 바뀜).
+create table if not exists public.support_inquiries (
+  id uuid primary key default gen_random_uuid(),
+  user_id uuid references auth.users(id) on delete cascade,
+  type text,
+  title text,
+  content text,
+  status text default 'open',
+  answer text,
+  answered_at timestamptz,
+  raw jsonb,
+  created_at timestamptz default now()
+);
+alter table public.support_inquiries enable row level security;
+
+-- 사용자가 본인 줄의 답변 칸을 채울 수 있던 수정 정책을 없애고, 넣기 칸을 앱이 쓰는 5개로 묶는다.
+drop policy if exists "본인 문의만 수정" on public.support_inquiries;
+drop policy if exists "본인 문의만 작성" on public.support_inquiries;
+create policy "본인 문의만 작성" on public.support_inquiries
+  for insert to authenticated
+  with check (auth.uid() = user_id);
+drop policy if exists "본인 문의만 조회" on public.support_inquiries;
+create policy "본인 문의만 조회" on public.support_inquiries
+  for select to authenticated
+  using (auth.uid() = user_id);
+
+revoke all on public.support_inquiries from anon;
+revoke all on public.support_inquiries from authenticated;
+grant select on public.support_inquiries to authenticated;
+grant insert (user_id, type, title, content, status) on public.support_inquiries to authenticated;
+
+create table if not exists public.admin_users (
+  user_id uuid primary key references auth.users(id) on delete cascade,
+  created_at timestamptz not null default now()
+);
+alter table public.admin_users enable row level security;
+revoke all on public.admin_users from anon;
+revoke all on public.admin_users from authenticated;
+
+create or replace function public.is_admin()
+returns boolean
+language sql
+stable
+security definer
+set search_path = public
+as $$
+  select exists (select 1 from public.admin_users where user_id = auth.uid());
+$$;
+
+create or replace function public.admin_list_support_inquiries()
+returns table (
+  id uuid,
+  type text,
+  title text,
+  content text,
+  status text,
+  answer text,
+  answered_at timestamptz,
+  created_at timestamptz,
+  user_name text
+)
+language plpgsql
+stable
+security definer
+set search_path = public
+as $$
+begin
+  if not public.is_admin() then
+    raise exception '관리자만 볼 수 있습니다.' using errcode = '42501';
+  end if;
+  return query
+    select q.id, q.type, q.title, q.content, q.status, q.answer, q.answered_at, q.created_at, p.name
+    from public.support_inquiries q
+    left join public.profiles p on p.id = q.user_id
+    order by (q.answer is null or btrim(q.answer) = '') desc, q.created_at desc;
+end;
+$$;
+
+create or replace function public.admin_answer_support_inquiry(inquiry_id uuid, answer_text text)
+returns void
+language plpgsql
+security definer
+set search_path = public
+as $$
+begin
+  if not public.is_admin() then
+    raise exception '관리자만 답변할 수 있습니다.' using errcode = '42501';
+  end if;
+  if answer_text is null or btrim(answer_text) = '' then
+    raise exception '답변 내용이 비어 있습니다.' using errcode = '22023';
+  end if;
+  update public.support_inquiries
+     set answer = answer_text, status = 'answered', answered_at = now()
+   where id = inquiry_id;
+  if not found then
+    raise exception '없는 문의입니다.' using errcode = 'P0002';
+  end if;
+end;
+$$;
+
+revoke all on function public.is_admin() from public;
+revoke execute on function public.is_admin() from anon;
+grant execute on function public.is_admin() to authenticated;
+revoke all on function public.admin_list_support_inquiries() from public;
+revoke execute on function public.admin_list_support_inquiries() from anon;
+grant execute on function public.admin_list_support_inquiries() to authenticated;
+revoke all on function public.admin_answer_support_inquiry(uuid, text) from public;
+revoke execute on function public.admin_answer_support_inquiry(uuid, text) from anon;
+grant execute on function public.admin_answer_support_inquiry(uuid, text) to authenticated;
+
+commit;
+```
+
+명단 넣기(파일 밖, SQL Editor에서 한 번):
+```sql
+insert into public.admin_users (user_id)
+select id from auth.users where email = 'ya01na111@gmail.com'
+on conflict (user_id) do nothing;
+```
 
 ### 검증
-- 고치기 전 실패 확인(플레이북 §6): 지금 코드로 옵션 없이 돌리면 10개 파일이 안 끝남(위 기록, 400초) — 고친 뒤 같은 명령이 스스로 끝나야 함.
-- `npm test`(옵션 빠진 명령)로 878·663 전부 통과, 걸린 시간 기록. 10개 파일 각각 옵션 없이 따로 실행해 스스로 끝나는지.
-- 10개 파일 diff가 가져오기 줄 말고 안 바뀌었는지(테스트 이름·단언 그대로), 테스트 이름 목록이 고치기 전과 같은지.
-- 빌드 결과는 안 바뀜(운영 코드 안 건드림) — `npm run build` 해시 같음. 타입 검사·lint·의존 검사.
-- push 뒤 CI 기록에서 878·663, `finance.test.js`·`clients.test.js` 마지막 테스트가 찍혔는지 데스크톱 AI가 확인.
+- 사후검증(파일 끝 주석, 기대 출력):
+  - `select policyname, cmd, roles::text from pg_policies where tablename = 'support_inquiries';` → "본인 문의만 작성" INSERT `{authenticated}`, "본인 문의만 조회" SELECT `{authenticated}` 2개만.
+  - `select grantee, privilege_type from information_schema.role_table_grants where table_name in ('support_inquiries', 'admin_users') and grantee in ('anon', 'authenticated');` → `authenticated SELECT` 1줄만(칸 단위 INSERT는 여기 안 나옴).
+  - `select column_name from information_schema.column_privileges where table_name = 'support_inquiries' and grantee = 'authenticated' and privilege_type = 'INSERT';` → content·status·title·type·user_id 5개.
+  - `select relrowsecurity from pg_class where oid = 'public.admin_users'::regclass;` → true, `select count(*) from pg_policies where tablename = 'admin_users';` → 0, `select count(*) from public.admin_users;` → 1.
+  - `select proname, prosecdef, has_function_privilege('anon', oid, 'execute') anon_exec, has_function_privilege('authenticated', oid, 'execute') auth_exec from pg_proc where proname in ('is_admin', 'admin_list_support_inquiries', 'admin_answer_support_inquiry');` → 3줄 모두 prosecdef true·anon_exec false·auth_exec true.
+- 흉내 확인(SQL Editor, `begin … rollback`이라 남는 것 없음, `set local role authenticated` + `request.jwt.claims`에 계정 id): 아무 계정 id → `is_admin()` false, 두 관리자 함수 오류. 보리 계정 id → `is_admin()` true, 목록 함수 0줄(문의 없음). 일반 계정으로 `update support_inquiries set answer = 'x'` → 권한 오류.
+- 앱 CI 영향 없음(앱 코드 안 바뀜, 마이그레이션 파일은 CI 대상 밖). 앱에서 문의 넣기·나의 문의 보기가 그대로 되는지 브라우저로 한 번.
 
 ### 파일 길이
-- 10개 테스트 파일(지금 38~190줄, 합계 1,019줄) — 가져오기 줄이 1~5줄 늘 수 있음. 테스트 파일은 200줄 제한 예외지만 `CallDetailForm.test.js`(190)는 200 안쪽 유지 목표.
-- `package.json`·`ci.yml` 길이 변화 없음 / +1줄.
+- `0025_support_admin.sql` 새 파일 약 135줄(위 완성본 약 120줄 + 사후검증 주석, 200 이하). 다른 파일 변화 없음.
 
 ### 코드에 넣을 주석(최종 문구)
-- 새 주석 없음(`stubSupabaseClient.js` 머리 주석이 이미 이유를 설명함).
+- 위 완성본의 주석 그대로(머리 2줄, 문의 표 기록 1줄, 권한 정리 1줄).
 
 ### 실패 시 처리
-- 새 저장 장치·층 없음. 옵션을 빼고도 안 끝나는 파일이 남거나 테스트 수가 달라지면 코드는 그대로 두고 이 파일에 수정 착수지시서를 써서 다시 승인받음.
+- 새 저장 장치·재시도 없음(AGENTS §7). 실행이 오류로 멈추면 `begin…commit`이라 아무것도 안 바뀜 — 그대로 멈추고 보고. 사후검증·흉내 확인이 기대와 다르면 이 파일에 수정 착수지시서를 써서 다시 승인받음. 되돌리기가 필요하면 그때 되돌리는 SQL(함수 3개·`admin_users` 지우기, 정책·권한 원래대로)을 함께 제시.
 
 ### 사용자 확인 방법
-- 화면에서 볼 것은 없음(앱 코드 안 바뀜). push 뒤 CI 초록·테스트 수 878·663을 데스크톱 AI가 확인해 보고.
+- 이번엔 화면 변화 없음. 앱(로그인) → 마이페이지 → 고객센터 → 1:1 문의/건의에서 시험 문의 1건 보내기 → "나의 문의/건의 확인"에 "답변 대기"로 보이면 그대로 잘 됨. 관리자 확인은 위 흉내 확인 결과로 보고, 화면은 23-B에서.
 
 ### 진행 기록
-- 2026-10-22 보리 "착수지시서 확정,작업진행해". 교차검증: 10개 파일·`--test-force-exit` 2줄·도구 사용 방식 모두 지시서와 같음. 정적 `import`는 가짜 바꾸기보다 먼저 묶이므로 앱 모듈을 정적으로 불러오던 4개(`onboardingFinish`·알림 3개)는 `await import`로 옮김(`domain/`은 서버 연결을 안 거쳐 그대로), 나머지 6개는 도구 한 줄만.
-- 결과(커밋 전): 10개 파일 diff는 가져오기 줄만(+29 −15, 테스트 이름·단언 그대로). `npm test`(옵션 없음) 878·663 전부 통과·스스로 끝남, 이 PC 1분 24초. 10개 각각 따로 옵션 없이 1~8초에 스스로 끝남(합계 57개 통과). 빌드 해시 94-C 커밋과 같음(62개 파일), 타입 검사 통과, lint 경고 50 그대로, 의존 검사 위반 0. `CallDetailForm.test.js` 191줄.
-- `ci.yml` 테스트 단계 `timeout-minutes: 15` `[확인: 2026-10-22 보리 — "권함으로"]`.
-- 코드 커밋 react-app `af0d443`(2026-10-22, 12개 파일, push 안 함). 남은 것: 보리 push → CI(878·663, 파일 끝 결과까지) → §5 리뷰 → 최종 승인.
-- (데스크톱 AI) push 뒤 CI verify·deploy 초록(run 39753613464). 테스트 878·663, 묶음 182·51(이 PC와 같음), 전에 빠졌던 `finance.test.js` 마지막 테스트·`clients.test.js` 마지막 묶음 모두 찍힘. 테스트 단계 65초(강제 종료 옵션 없이 리눅스에서도 모든 파일이 스스로 끝남), 의존 검사 1,619 그대로.
-- §5 리뷰: ①범위 — 12개 = 지시서 "건드릴 파일"과 같음(테스트 10·`package.json`·`ci.yml`) ②증설 — 새 파일·저장 장치·의존성 없음(이미 있는 `stubSupabaseClient.js` 사용) ③타입 꼼수 — 없음 ④200줄 — 테스트 파일 예외, `CallDetailForm.test.js` 191 ⑤테스트 — 바뀐 줄은 가짜 연결 한 줄과 가져오기 방식(`import` → `await import`)뿐, 테스트 이름·단언 그대로, 수 그대로 ⑥공용 — 운영 코드 안 바뀜(빌드 해시 같음) ⑦기대 동작 1~5 충족. `--test-force-exit` 남은 곳 0, `timeout-minutes: 15`는 테스트 단계에.
+- 2026-10-22 보리 "착수지시서 확정,작업진행해". 교차검증: 앱 넣기 칸 5개·본인 조회·`admin` 0·0021/0024 형식 모두 지시서와 같음. `0025_support_admin.sql` 127줄 — 완성본 그대로 + 사후검증 주석 4묶음.
+- 서버 실행 전 미리 시험(저장소 밖 시험용 Postgres, PGlite 0.3.7 — 옛 정책 3개·전체 권한을 조회 결과대로 꾸민 뒤 실행): 두 번 실행 오류 없음, 사후검증 전부 기대값. 흉내: 사용자 5칸 넣기 됨·답변 칸 같이 넣기·남 대신 넣기·답변 고치기·지우기·명단 보기 막힘, 본인 조회 됨. 사용자 `is_admin` false·관리자 함수 2개 오류. 관리자 `is_admin` true·목록 1줄(이름 포함)·빈 답변·없는 문의 오류·답변 저장 뒤 사용자 쪽 "answered". 진짜 서버 실행·명단 1줄은 아직(데스크톱 AI 또는 보리).
+- 코드 커밋 react-app `24afd74`(2026-10-22, 파일 1개, push 안 함). 남은 것: 서버 실행·명단 1줄 → 사후검증·흉내 확인 → 앱 문의 1건 확인 → 보리 push → CI → §5 리뷰 → 최종 승인.
+- 보리 push 뒤 CI verify·deploy 초록(run 39759243299). 데스크톱 AI 확인: `0025` 파일이 지시서 완성본과 같음(`commit;`까지 diff 0). 진짜 서버는 아직 적용 전(2026-10-22 조회: 옛 정책 3개·전체 권한 그대로, `admin_users`·함수 없음, 문의 0줄).
+- 2026-10-22 보리 "0025 서버 실행하고 명단 1줄 넣고 사후검증·흉내 확인까지 해" → 데스크톱 AI가 SQL Editor에서 실행(파일과 들여쓰기 빼고 같음 확인 뒤, "파괴적 작업" 경고 확인) — 성공. 명단 1줄 넣음. 사후검증 4묶음 모두 기대값(정책 2개 `{authenticated}`, 표 권한 `authenticated SELECT`만, 넣기 칸 5개, `anon` 칸 권한 0, `admin_users` RLS true·정책 0·1줄, 함수 3개 definer·anon 불가·authenticated 가능·`search_path=public`).
+- 흉내 확인(진짜 서버, 끝에 오류를 내 전부 되돌림 — 뒤 조회로 문의 0줄·명단 1줄 확인): 일반 계정 `is_admin` false, 목록·답변 함수 막힘, 명단 읽기 막힘, 5칸 넣기 됨, 답변 칸 같이 넣기·남 대신 넣기·답변 고치기·지우기 막힘, 본인 줄만 보임. 관리자 `is_admin` true, 목록 1줄(이름 있음), 빈 답변·없는 문의 막힘, 답변 저장 됨 → 일반 계정에서 `answered`와 답변 글이 보임.
+- 보리 확인: 휴대폰 다른 계정으로 앱에서 문의 넣기 됨(넣기 칸 5개로 묶은 뒤에도 앱 그대로).
+- §5 리뷰: ① 범위 — 바뀐 파일 `0025_support_admin.sql` 1개(지시서 "건드릴 파일"과 같음, `src/` 변화 0) ② 몰래 증설 — 새 표 `admin_users`는 지시서 목표 1(승인), 다른 저장 장치·재시도 없음 ③ 타입 꼼수 — SQL뿐, 해당 없음 ④ 200줄 — 127줄 ⑤ 테스트 — 앱 테스트 변화 없음, 서버 동작은 흉내 확인으로 ⑥ 공용 영향 — 문의 표를 쓰는 앱 코드는 `supportInquiryMutations.js` 하나(넣기 5칸·본인 조회, 그대로 됨) ⑦ 목표 1~5 모두 충족.
+- sot 기록 위치: 지시서엔 §8-2라 했으나 §8-2는 "원본과 다른 점" 표라 맞지 않아 새 절 §4-15로 적음.
 
 ---
 
