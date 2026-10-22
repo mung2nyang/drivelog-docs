@@ -1,80 +1,66 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-> 다음 작업 커밋에 같이 넣을 것(보리 지시 2026-10-22): react-app의 `CLAUDE.md`, `privacy-draft/privacy.html`, 지워진 `design-assets/assistant/unbiseo-basic-original.png`. 같은 그림이 이 저장소 `design-assets/`에 아직 커밋 안 된 채 있음 — 102 문서 커밋에 같이.
+## 로드맵 100 계산 규칙(`domain/`)이 가리키는 타입 3개를 `domain/`으로 `[x]`
 
-## 로드맵 102 부가세 끝전 반올림 → 버림 `[x]`
+> **결정 `[확인: 2026-10-22 보리 — "한 슬라이스로. 착수지시서 확정, 작업 진행해"]`**: 85개 파일 한 슬라이스. 커밋은 보리 지시 뒤.
 
-> **결정 `[확인: 2026-10-22 보리 — "건마다 버림으로. 착수지시서 확정, 작업 진행해"]`**: 버리는 단위는 건마다(고정·파렛트는 날마다). 커밋은 보리 지시 뒤.
+> **진행(2026-10-22, 데스크톱 AI)** `[x]` 코드 커밋 react-app `de91e4d`, CI 초록, 보리 최종 승인(2026-10-22).
+> - 바꾸기 전: 옛 경로를 가리키는 85개 파일 목록과 옛 코드 빌드 결과(파일 62개 해시)를 저장소 밖에 저장.
+> - 한 일: 새 `domain/jsonTypes.js`(14줄)·`domain/driverTypes.js`(20줄)에 정의를 글자 그대로 옮김. `pendingWorkDataWritesTypes.js` 50 → 39줄, `syncTypes.js` 87 → 71줄(`OutboxPayload.previousDriverSnapshot`은 새 자리를 가리킴). 85개 파일의 99곳 경로를 파일마다 상대 경로를 계산하는 스크립트(저장소 밖)로 바꿈 — 옛 경로가 실제로 `data/sync`의 그 파일을 가리키는지 하나씩 확인하며 바꿈.
+> - 대조: 옛 경로 grep 0, `domain/` 운영 파일의 `../data/` 0. 바뀐 파일 목록 = 85개 + 정의 지운 2개(계획과 같음) + 새 파일 2개. 바뀐 낱말 198개(지운 99·넣은 99)를 경로만 지우고 비교하면 양쪽이 같음 — 경로 말고 바뀐 글자 0.
+> - `data/` 안에서 다시 이름을 붙이는 `atomicPersist.js`·`hydrateMergeTypes.js`도 85개에 들어 있어 새 자리를 가리키게 됨(별칭은 데이터 쪽 것이라 그대로).
+> - 결과: 타입 검사 통과, `npm test` unit 878·app 663 전부 통과(테스트 수 그대로), **빌드 결과 파일 62개 해시까지 옛 커밋과 같음**, `npm run depcheck` 위반 0, lint 경고 50 그대로.
+> - 코드 커밋 react-app `de91e4d`(2026-10-22, 89개 파일, push 안 함 — push는 보리).
+> - push 뒤 CI verify·deploy 초록(run 39712649021). §5 리뷰 7개 문제 없음(옛 경로 0, `domain/` 운영 파일 `../data/` 0, 경로 말고 바뀐 낱말 0, 타입 꼼수 0, 테스트는 경로 17줄만, 200줄 넘는 바뀐 파일은 `taxInvoiceExcelBuilder.js` 251줄 하나 — 원래 251줄·응집도 예외 주석 있음).
+> - 지시서 정정: "파일 길이"의 "전부 200줄 이하 유지"는 틀림 — 경로만 바뀐 `taxInvoiceExcelBuilder.js`는 원래 251줄(응집도 예외 주석 있음, 줄 수 그대로).
+> - 보리 최종 승인(2026-10-22). 다음 91.
 
-> **진행(2026-10-22, 데스크톱 AI)** `[x]` 코드 커밋 react-app `db5ea29`, CI 초록, 보리 최종 승인(2026-10-22).
-> - 테스트 먼저: 반올림 값을 못 박은 3개를 버림 값으로(12,468·2,714·12,468, 이름 "반올림" → "버림"), 새 `domain/vatFloor.test.js`(`vatOf`·하루 화면·매출·세금계산서 묶음 4개), `CallDetailForm.test.js`에 미리보기 15,555원 → 17,110원 1개. 고치기 전 코드에서 전부 실패 확인(예: 미리보기 17,111원).
-> - 한 일: `domain/money.js`에 `vatOf`(62 → 67줄), 6개 파일 13곳 `Math.round(x * 0.1)` → `vatOf(x)`, 가져오기는 기존 `parseCurrencyValue` 줄에 붙임(줄 수 그대로). `reportDetail.js` 줄 끝 주석 "건마다 버림". grep `* 0.1` 앱 코드에서 0.
-> - 결과: unit 878 통과, app 663 중 1개 실패 → `PersonalInfoPage.typing.test.js` "칸을 벗어나면 0.7초를 안 기다리고 바로 저장"(이번에 안 건드린 파일, 시간 재는 테스트 — 브라우저 확인과 동시에 돌던 때). 그 파일만 3번 다시 돌려 3번 다 통과, app 묶음 다시 돌려 663 전부 통과. 타입 검사·빌드·`npm run depcheck`(위반 0) 통과, lint 경고 50 그대로.
-> - 브라우저 확인(개발 서버 5174, 비회원, "운행일지 세부 입력" 잠깐 켬): 10월 22일 콜 운송료 15,555원 → 입력 창 "부가세 포함 17,110원" → 하루 화면 부가세 1,555원·합계 17,110원 → 달력 월간 정산·매출(당월 부가세)·세금계산서 작성 전(세액)·운송비 내역서 전체·세부 내역 모두 1,555원/17,110원. 150,000원 → 15,000원은 `vatOf` 테스트로 확인(화면으로는 안 함). 콘솔 오류 0건. 넣은 콜·설정·비회원 표시는 브라우저 저장소에서 지워 되돌림.
-> - 코드 커밋 react-app `db5ea29`(2026-10-22, 102 파일 11개 + 보리 지시로 `CLAUDE.md`·`privacy-draft/privacy.html`·지운 그림 1개, push 안 함 — push는 보리).
-> - push 뒤 CI verify·deploy 초록(run 39710815533).
-> - §5 리뷰(데스크톱 AI): ①범위 = 지시서 "건드릴 파일"(react-app 7개 + 테스트 4개) + 보리 지시 세 파일 ②새 파일은 `domain/vatFloor.test.js` 하나, 새 저장 키·층 0 ③타입 꼼수 0(커밋 추가 줄 grep) ④`money.js` 67, 나머지 6개 파일 줄 수 그대로(최대 `day-record.js` 199) ⑤지운 테스트 0 — 빠진 줄은 반올림 값·이름을 버림으로 바꾼 3개뿐(규칙 변경) ⑥`vatOf` 쓰는 곳 13곳 + 가져오기 6줄, grep `* 0.1` 앱 코드 0 ⑦목표 1~6 대조 — 15,555원이 다섯 화면 모두 1,555원(브라우저), 저장 데이터 손대지 않음.
-> - 보리 최종 승인(2026-10-22). 다음 100(타입 3개를 `domain/`으로).
-
-보리 지시 "102번 부가세 버림 착수지시서 써줘"(2026-10-22). 규칙 sot §4-14, 로드맵 102 `[확인: 2026-10-21 보리 — "버림으로 바꾼다"]`. 101 끝난 바로 뒤.
+보리 지시 "100번 착수지시서 써줘"(2026-10-22). 로드맵 100 `[확인: 2026-10-21 보리 — 98-B 착수 때 "권함으로"]`, 순서 102 → **100** → 91 → 94.
 
 ### 쉬운 요약
-- 부가세(운송료의 10%)에서 1원 미만을 지금은 반올림합니다. 이것을 버림으로 바꿉니다. 예: 운송료 15,555원이면 부가세 1,556원 → 1,555원.
-- 부가세를 계산하는 곳이 6개 파일 13곳이라, 한 곳에 "부가세 계산" 함수를 두고 모두 그걸 쓰게 합니다. 일부만 바꾸면 화면끼리 1원씩 어긋나기 때문입니다.
-- 운송료가 10원 단위로 끝나는 보통 경우(예: 150,000원)는 값이 그대로입니다. 1원 단위가 5~9로 끝나는 운송료만 1원 줄어듭니다.
+- 계산 규칙 폴더(`domain/`)는 맨 아래층이라 다른 폴더를 보면 안 되는데, 타입 설명(코드 옆 "이 값은 이런 모양" 메모) 일부가 위층인 데이터 폴더(`data/`)의 타입 3개를 가리킵니다. 이 3개를 `domain/`으로 옮기고, 가리키는 곳의 경로만 고칩니다.
+- 앱 동작·화면·저장은 그대로입니다. 타입 설명은 실행되지 않는 메모라 빌드 결과도 같아야 합니다.
 
-### 확인할 점 (하나 — 착수 전 보리 결정)
-- **버리는 단위**: 지금처럼 **운행 건마다**(고정 노선·파렛트는 날마다) 버린 뒤 더함 / 세금계산서처럼 **합계에서 한 번** 버림.
-  - **권함: 건마다(지금 구조 그대로).** 바꾸는 것이 "반올림 → 버림" 하나뿐이라 달력·매출·하루 화면·내역서·세금계산서가 지금처럼 서로 같은 값입니다.
-  - 합계에서 한 번으로 바꾸면 홈택스에 한 줄로 올리는 세금계산서와는 맞기 쉽지만, 세금계산서 세액과 달력·매출 부가세 합이 건수만큼 몇 원씩 달라지고 6개 파일의 계산 순서를 다 바꿔야 합니다. 원하시면 따로 슬라이스로.
-- 아래 내용은 "건마다"로 썼습니다.
+### 확인할 점 (하나)
+- **한 슬라이스로 할지**: 경로만 바뀌는 파일이 85개(테스트 16개 포함)라 "한 슬라이스 1~3개 파일" 기준을 크게 넘습니다. **권함: 한 번에.** 바뀌는 건 경로 글자뿐이고, "옛 경로 0건" grep 하나와 타입 검사로 전부 증명됩니다. 나눠도 각 조각 검증 방법이 같아 이득이 없습니다(59번 폴더 옮기기 때와 같은 방식).
 
-### 현재 상태 (코드 확인, react-app `3aa8bfa`)
-- `Math.round(x * 0.1)` 13곳(grep `* 0.1` — 앱 코드에서 부가세 계산은 이것뿐, `* 1.1`·`/ 1.1` 없음):
-  - `domain/monthSettlement.js:97,117,123`(달력 정산 — 고정·파렛트 날마다, 콜 건마다)
-  - `domain/financeOwnerDetail.js:79,87,104`(매출)
-  - `domain/day-record.js:117`(`callVatTotal`, 하루 화면)·`:138`(`monthWorkFareSummary` — 앱에선 안 쓰고 테스트만 부름, grep)
-  - `domain/financeTaxInvoiceGroups.js:67,78,171`(세금계산서 묶음, 기사 세금계산서)
-  - `features/documents/api/reportDetail.js:105`(운송비 내역서)
-  - `features/day-log/ui/CallDetailForm.jsx:61`(콜 입력 창 "부가세 포함 N원" 미리보기)
-- 6개 파일 모두 이미 `domain/money.js`에서 `parseCurrencyValue`를 가져옴(grep) — 같은 줄에 하나 더 가져오면 줄 수 그대로.
-- 세금계산서 목록은 열 때마다 다시 계산한 값이 저장값을 덮음(`domain/financeTaxInvoiceEntries.js:95~96` `...saved, ...group`). 서버에 이미 저장된 세금계산서의 세액(`tax_amount`)은 다시 저장할 때까지 옛 값.
-- 반올림을 못 박은 테스트 3개: `domain/monthSettlement.test.js:250`(12,470원)·`:263`(고정·파렛트 2,718원), `features/documents/api/report.test.js:376`(12,470원).
+### 현재 상태 (코드 확인, react-app `db5ea29`)
+- 타입 정의 자리: `JsonValue`·`JsonArray`·`JsonRecord` → `data/sync/pendingWorkDataWritesTypes.js:22~31`, `DriverRecord` → `data/sync/syncTypes.js:7~21`.
+- `domain/` 운영 파일 19개가 가리킴(`JsonValue` 16번·`JsonRecord` 6번·`DriverRecord` 3번 — `domain/drivers.js`는 둘 다). 그 밖에 `domain/`에서 `data/`를 가리키는 운영 파일 없음(grep `../data/`, 남는 2개는 테스트 `drivers-cloud.test.js`·`receivables-invoices.test.js`가 실행 함수를 부르는 것 — 범위 밖).
+- 이 타입들을 가리키는 파일 전체 85개: `JsonValue`·`JsonRecord` 56개(`data/` 28·`domain/` 18·`features/` 10·`app/` 1 — 운영·테스트 합), `DriverRecord` 32개(`data/` 18·`domain/` 3·`features/` 11). 모두 `/** @typedef {import('…').이름} 이름 */` 같은 설명 줄.
+- 같은 파일의 다른 타입(`EffectivePatch` 24번 등 큐 타입, `OutboxPayload`·`AppSession` 등)은 데이터 쪽 것이라 그대로. `OutboxPayload.previousDriverSnapshot`(syncTypes.js:32)만 `DriverRecord`를 씀.
+- 의존 방향 검사(98-B `npm run depcheck`)는 실행되는 가져오기만 보고 타입 설명 줄은 안 봄 — 그래서 지금까지 안 잡혔음.
 
 ### 목표 상태 (기대 동작)
-1. `domain/money.js`에 `vatOf(amount)` = `Math.floor(amount / 10)`(공급가의 10%, 원 미만 버림. `* 0.1` 대신 `/ 10`이라 소수 오차 없음).
-2. 13곳이 모두 `vatOf(...)`를 씀. grep `\* 0.1`이 앱 코드(테스트 빼고)에서 0.
-3. 건마다(고정·파렛트는 날마다) 버리는 단위는 그대로. 면세는 0 그대로.
-4. 예: 운송료 15,555원 → 부가세 1,555원, 합계 17,110원(하루 화면·달력·매출·내역서·세금계산서·입력 창 미리보기 모두 같음). 150,000원 → 15,000원(변화 없음).
-5. 반올림을 못 박은 테스트 3개는 버림 값으로 고침(규칙이 바뀌어서 — 약화 아님): 12,470 → 12,468, 2,718 → 2,714(고정 1,234×2 + 파렛트 123×2), 12,470 → 12,468. 테스트 이름의 "반올림"도 "버림"으로.
-6. 이미 저장된 세금계산서·일지 데이터는 고치지 않음(화면은 다시 계산한 값을 보임).
+1. 새 `domain/jsonTypes.js`에 `JsonValue`·`JsonArray`·`JsonRecord`(설명 주석 포함, 내용 그대로), 새 `domain/driverTypes.js`에 `DriverRecord`(그대로). 둘 다 타입 전용(`export {}`).
+2. `data/sync/pendingWorkDataWritesTypes.js`에서 위 3개 정의를 지우고, `data/sync/syncTypes.js`에서 `DriverRecord` 정의를 지움. `OutboxPayload`는 `import('../../domain/driverTypes.js').DriverRecord`를 가리킴. 이어받기용 별칭은 남기지 않음(가리키는 곳을 모두 고치므로).
+3. grep `pendingWorkDataWritesTypes.js').Json`·`syncTypes.js').DriverRecord` 결과 0. grep `../data/`가 `domain/` 운영 파일에서 0.
+4. 타입 검사 통과, 테스트 수 그대로 전부 통과, 빌드 결과 파일(이름 해시 포함) 옛 커밋과 같음.
 
 ### 건드릴 파일
-- react-app: `domain/money.js`(`vatOf` 추가), 위 6개 파일(가져오기 + 13곳 바꾸기), `reportDetail.js:105` 줄 끝 주석 "건마다 반올림" → "건마다 버림"
-- 테스트: `domain/money.test.js`(있으면, 없으면 새로)에 `vatOf`, `domain/monthSettlement.test.js`·`features/documents/api/report.test.js`(값·이름), 하루 화면 `callVatTotal`·매출·세금계산서 묶음·입력 창 미리보기에 15,555원 테스트 하나씩(있는 테스트 파일 옆에)
-- 같이 커밋(보리 지시): react-app `CLAUDE.md`, `privacy-draft/privacy.html`, 지워진 그림 1개
-- 문서(`[x]` 때): sot §4-14 "아직 코드 안 바꿈"·"정하지 않은 것" 줄 정리, 로드맵 102 `[x]`, 이 저장소 `design-assets/`
+- 새 파일 2개: `domain/jsonTypes.js`, `domain/driverTypes.js`
+- 정의 지움: `data/sync/pendingWorkDataWritesTypes.js`(50 → 약 40줄), `data/sync/syncTypes.js`(87 → 약 73줄)
+- 경로만: 위 85개 파일(운영 69·테스트 16). 바꾸는 방법은 파일마다 새 파일까지의 상대 경로를 계산하는 스크립트(저장소 밖에 둠)로 `import('…/data/sync/pendingWorkDataWritesTypes.js').Json…` → `import('…/domain/jsonTypes.js').Json…`, `import('…/data/sync/syncTypes.js').DriverRecord` → `import('…/domain/driverTypes.js').DriverRecord`. 다른 글자는 안 바꿈.
 
 ### 안 건드릴 것
-- 수수료·산재·3.3% 끝전(`driverIncomeDeductions.js`의 `floorWon` 등 — 부가세 아님), 운송료 입력 반올림(43번), 미수금 계산(부가세 안 넣음, sot), 저장된 데이터(DB·기기), 세금계산서 엑셀 만들기(`taxInvoiceExcelBuilder.js` — 받은 `taxAmount`를 그대로 씀), `monthWorkFareSummary`가 고정 노선을 달 합계에서 한 번 계산하는 방식(앱에서 안 씀 — 끝전만 바꿈).
+- 큐 타입(`EffectivePatch`·`DurableReadResult` 등)과 서버 저장 타입(`OutboxPayload`·`CarRecord`·`DriverLinkRow`·`AppSession`)의 자리, 실행 코드 전부, `domain/` 테스트 2개가 `data/` 함수를 부르는 것, 의존 방향 검사 설정(타입 줄까지 검사하게 넓히는 것은 따로 — 원하면 로드맵 등재), 91·94번.
 
 ### 검증
-- **테스트 먼저**: 위 5번 값 고침 + 새 15,555원 테스트를 먼저 써서 지금 코드에서 실패하는지 확인(반올림이라 1,556이 나와야 실패) → 코드 수정 → 통과.
-- `npm test`·타입 검사·빌드·`npm run depcheck` 통과, lint 경고 수 그대로.
-- 브라우저: 아래 "사용자 확인 방법".
+- 바꾸기 전: 옛 경로 grep 결과 85개 파일 목록을 저장소 밖에 저장. 바꾼 뒤 `git diff --stat` 파일 목록이 그 목록 + 새 파일 2개 + 정의 지운 2개와 같은지 대조.
+- 바뀐 줄 검사: 모든 바뀐 줄이 경로 글자만 다른지(`git diff --word-diff`에서 바뀐 낱말이 경로뿐).
+- `npm run typecheck`(이 작업의 핵심 증명 — 경로가 틀리면 여기서 걸림)·`npm test`·`npm run build`·`npm run depcheck`, lint 경고 수 그대로.
+- 빌드 결과를 옛 커밋과 비교(파일 이름 해시까지 같아야 함 — 타입 설명은 빌드에 안 들어감).
+- 화면 확인은 안 함(실행 코드 변화 0 — 빌드 결과가 같으면 증명됨).
 
 ### 파일 길이
-- `domain/money.js` 62 → 약 65, `day-record.js` 199 → 199, `CallDetailForm.jsx` 194 → 194, `financeOwnerDetail.js` 175·`financeTaxInvoiceGroups.js` 176·`monthSettlement.js` 161·`reportDetail.js` 122 → 그대로(가져오기는 기존 줄에 붙임). 전부 200줄 이하.
+- 새 `domain/jsonTypes.js` 약 14줄, `domain/driverTypes.js` 약 20줄. `pendingWorkDataWritesTypes.js` 50 → 약 40, `syncTypes.js` 87 → 약 73. 경로만 바뀌는 85개 파일은 줄 수 변화 0(한 줄 안의 글자만 바뀜). 전부 200줄 이하 유지.
 
 ### 코드에 넣을 주석(최종 문구)
-- `money.js` `vatOf` 위: `/** 부가세 = 공급가의 10%, 원 미만 버림(sot §4-14). 화면마다 같은 값이 나오게 부가세는 모두 이 함수로. */`
+- `domain/jsonTypes.js` 머리: `// JSON 값 모양 타입 정본(타입 전용 모듈). 계산 규칙·데이터·화면이 같이 쓴다.` — 그 아래 옛 설명 주석 그대로.
+- `domain/driverTypes.js` 머리: `// 기사 레코드 타입 정본(타입 전용 모듈).`
 
 ### 실패 시 처리
-- 새 저장 장치·재시도·데이터 고치기 없음. 검증이 실패하면 코드는 그대로 두고 이 파일에 수정 착수지시서를 써서 다시 승인받음.
+- 새 저장 장치·층 없음. 타입 검사나 빌드 비교가 실패하면 코드는 그대로 두고 이 파일에 수정 착수지시서를 써서 다시 승인받음.
 
 ### 사용자 확인 방법
-1. 운행일지 아무 날 → 콜 추가 → 운송료 15,555 입력: 입력 창에 "부가세 포함 17,110원"(지금은 17,111원).
-2. 저장 → 하루 화면 부가세 1,555원.
-3. 달력 그 달 정산·매출 화면·운송비 내역서·세금계산서 작성 목록에서 그 콜의 부가세가 모두 1,555원으로 같음.
-4. 운송료 150,000원 콜은 부가세 15,000원 그대로.
-5. 넣은 확인용 콜은 지워서 되돌림.
+- 화면에서 볼 것은 없습니다(동작 변화 0). 확인은 CI 초록과, 빌드 결과가 옛 커밋과 같다는 기록으로 합니다.
