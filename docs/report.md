@@ -1,78 +1,218 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-24-B-2 지시서·기록은 drivelog-docs `c115e2b`, 24-B-1은 `18646c9`, 24-A는 `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+24-B-3-A 지시서·기록은 drivelog-docs `a0f2b64`, 24-B-2는 `c115e2b`, 24-B-1은 `18646c9`, 24-A는 `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
-## 로드맵 24-B-3-A 운비서 — 계약 기간 밖·휴무 날짜 안내 `[x]` `[확인: 2026-10-23 보리 — "승인"]`
+## 로드맵 24-B-3-B 다른 화면에서도 떠 있는 Ai 운비서 카드 `[x]` `[확인: 2026-10-23 보리 — "승인"]`
 
-보리 지시(2026-10-23, 24-B-2 `[x]` 뒤): "작성해". 24-B-3에 같이 넣기로 한 두 가지 `[확인: 2026-10-23 보리 — "둘다 권함으로"]`. 24-B-3 전체(떠 있는 카드 + 이 두 가지)는 파일이 약 16개라 한 슬라이스로 너무 커서 **둘로 나눔(AI 판단)**: **이번 A** = 홈 카드에서 기간 밖·휴무 안내(지금 구조 그대로), **다음 B** = 다른 화면에서도 떠 있는 카드(시안 먼저). A를 먼저 하는 이유: 휴무 날 입력 창이 흐린 채 열려 못 누르는 문제를 먼저 막음(⑤ 불편이 ⑥ 새 기능보다 앞). B는 A가 넣은 판단을 훅째 옮기므로 다시 만들 일 없음.
+보리 지시(2026-10-23, 24-B-3-A `[x]` 뒤): "작성해". 로드맵 24-B-3 `[확인: 2026-10-22 보리 — "다른 창으로 이동 시엔 네비게이션 위에 Ai 운비서 소통 카드, 항상 떠 있게(창 줄이기 가능하게도)"]`. 24-B-3 두 조각 중 B(마지막). 화면 모양 항목이라 시안 먼저(대화창에 보냄).
+
+### 확인할 점 (넷) — 시안과 함께
+1. **줄였을 때 모양** — 권함: 아래 메뉴 바로 위 한 줄(얼굴·"Ai 운비서"·안내·마이크·펼치기 꺾쇠). 마이크는 줄인 채로도 한 번에 듣기(홈 줄과 같음), 줄 나머지를 누르면 위로 펼침.
+2. **띄울 화면** — 권함: **홈을 뺀 모든 앱 화면**(홈은 지금 카드가 같은 대화를 보여 줌), **로그인 계정만**(비회원은 띄우지 않음 — 홈 카드에서 로그인 안내). 로그인·처음 정보 입력 화면은 앱 틀 밖이라 원래 안 뜸.
+3. **줄인 상태 기억** — 권함: 화면을 옮겨도 펼침/줄임 그대로, **앱을 다시 켜면 줄인 채로 시작**(휴대폰에 새로 저장하지 않음). [기록하기]를 누르면 저절로 줄임(입력 창을 안 가리게).
+4. **가림** — 권함: 줄이 떠 있는 동안 화면 아래 여백을 줄 높이만큼 늘리고, 화면 아래 알림 문구도 그만큼 위로. 펼친 카드는 잠깐 쓰는 것이라 내용을 가려도 됨.
 
 ### 쉬운 요약
-- 연동 기사가 계약 기간 밖 날짜를 말하면 [기록하기] 대신 "계약기간 전 날짜입니다. 10월 5일부터 기록할 수 있습니다." 같은 안내가 나옵니다(일지 화면과 같은 문장).
-- 그날이 휴무로 표시돼 있으면 "휴무를 취소하고 운행을 기록할까요?" + [휴무 취소하고 기록]. 누르면 그날 휴무가 꺼지고 채운 입력 창이 열립니다(닫아도 휴무는 꺼진 채).
+- 홈이 아닌 화면에서도 아래 메뉴 바로 위에 "Ai 운비서" 줄이 늘 떠 있습니다. 마이크를 누르면 바로 듣고, 줄을 누르면 위로 펼쳐져 홈 카드와 똑같이 쓰고 [기록하기]도 됩니다.
+- 홈 카드와 떠 있는 줄은 **같은 대화**입니다 — 홈에서 말한 결과가 다른 화면의 줄에도 그대로 있습니다.
 
 ### 현재 상태 (코드 확인)
-- 카드: `HomeAssistantPanel.tsx`(55줄)는 운행 결과면 "콜 상세" 켜짐 여부만 보고 [기록하기] 또는 [켜기]. 날짜의 기간·휴무는 안 봄(`useUnbiseoAssistant.ts` 60줄 grep `isOff`·`assignment` 0).
-- 기간 밖: 일지 `DayLogPage.jsx:72`가 연동 기사(`isEmployedDriver`)일 때 `assignmentPeriodNotice(dateKey, myLink.startDate, myLink.endDate)`로 판단해 입력 창 대신 안내 화면(`:99`). 이 함수는 화면 파일 `features/day-log/ui/AssignmentPeriodPage.jsx:18`에 있어 홈이 못 부름(의존 방향 — 기능끼리 못 부름). 같은 판단만 하는 `isDateWithinAssignment`는 `domain/drivers.ts:128`(146줄).
-- 휴무: 일지 칸 전체가 `.modal-work-details.is-off`(`day-log-shell.css:106` `opacity: 0.3; pointer-events: none`)라 휴무 날 채운 입력 창이 열려도 못 누름(코드 읽기). 휴무 끄기는 `OffToggle` → `patchDraft({ isOff: false, fixedCount })`(`DayLogPage.jsx`, 끌 때는 확인 창 없음 — `confirmOffWithCalls`는 켤 때만). 기록은 `useOwnerWorkData(ownerKey)[날짜].isOff`(`data/store/ownerWorkDataHooks.ts:35`, `domain/day-record.ts:43` `isOffDay`).
-- 이동: 카드 → `HomeAssistantBar` → `HomePage` → `AppShellRoutes.jsx:59` `onOpenAssistantCall(call)` → 주소 상태 `assistantCall` → `assistantCallState.js` `readAssistantCall`(30줄) → `MainPageRoute` → `DayLogPage`.
+- 대화 상태: `useUnbiseoAssistant.ts`(69줄)를 `HomeAssistantBar.jsx`(58줄)가 부름 → 홈을 떠나면 사라짐. 카드 안쪽은 `HomeAssistantPanel.tsx`(77줄, 운비서 상태를 값으로 받음 — 다른 곳에서도 그릴 수 있음). CSS 클래스 `home-assistant-*`는 부모 선택자 없이 이름만이라 다른 자리에서도 그대로 씀(`home-assistant.css` 181줄, 첫 줄만 `.home-card.home-assistant`).
+- [기록하기] 이동: `AppShellRoutes.jsx:59` → `HomePage` → `HomeAssistantBar` 로 함수가 내려감. 앱 틀 `AppShell.jsx`(192줄)의 `navigate`는 저장 안 된 편집 확인·입력 칸 붙잡기 기록 빼기를 거침.
+- 화면 아래: 아래 메뉴 `bottom-nav.css` `position: fixed; bottom: 0; z-index: 900`(높이 약 59px, 눕힌 화면 45px — 로드맵 54). 앱 틀 아래 여백 `app-shell-base.css:14` `padding: 20px 16px 108px`. 알림 문구 `toast.css:5` `bottom: calc(76px + …)`. 겹침 순서: 아래 메뉴 900·당겨서 새로고침 950·옆 메뉴 1000·창 1200(`z-index: 850` 줄 주석).
+- 같은 날짜 문제: 일지는 `key`가 날짜라(`MainPageRoute.jsx` `DayLogPage key`) 이미 그 날짜 일지에 있을 때 [기록하기]를 누르면 새로 안 그려지고, `DayLogPage.jsx`(185줄)는 운비서 값을 처음 그릴 때 한 번만 받음 → 입력 창이 안 열림.
 
 ### 목표 상태 (기대 동작)
-1. 운행 결과 아래 버튼 자리는 이 순서로 하나만: ① 연동 기사이고 그 날짜가 계약 기간 밖 → 기간 안내 두 줄(일지와 같은 문장), 버튼 없음 ② "콜 상세" 꺼짐 → 지금처럼 [켜기] ③ 그날 휴무 → "휴무를 취소하고 운행을 기록할까요?" + **[휴무 취소하고 기록]** ④ 그 밖 → 지금처럼 [기록하기]. 위의 결과 문장("…으로 기록할게요.")은 그대로.
-2. [휴무 취소하고 기록] → 그 날짜 일지로 가서 휴무를 끄고(휴무 단추를 누른 것과 같은 저장) 채운 입력 창을 엶. 닫아도 휴무는 꺼진 채, 저장은 사람이 [저장].
-3. 휴무 끄기는 주소 상태에 `cancelOff: true`가 있을 때만(모양 확인 — 참일 때만 참). 일지가 이미 휴무가 아니면 아무것도 안 바꿈. 주소 상태는 지금처럼 받자마자 지움(다시 그려도 휴무를 또 끄지 않음).
-4. `assignmentPeriodNotice`는 `domain/drivers.ts`로 옮겨 홈·일지가 같이 씀. 문장·판단은 그대로(기존 시험 5줄 그대로 옮겨 통과).
-5. 차주·비회원·기간 안 날짜·휴무 아닌 날은 24-B-2와 똑같이 동작.
+1. **같은 대화**: 운비서 상태(쓴 글·결과·듣는 중·보내는 중)를 앱 틀 한 곳에 둠. 홈 카드와 떠 있는 줄이 같은 것을 씀. 계정이 바뀌면 비움.
+2. **떠 있는 줄**: 로그인 계정 + 홈이 아닌 `/app/*` 화면에서 아래 메뉴 바로 위에(가운데, 앱 폭 480px 안). 줄인 모양은 확인할 점 1. 받아쓰기 지원 안 하면 마이크 없음.
+3. **펼치기**: 줄을 누르면 위로 펼쳐 `HomeAssistantPanel`을 그대로 그림(글 칸·결과·버튼 순서 24-B-3-A 그대로), 너무 길면 카드 안에서만 넘김. 꺾쇠를 누르면 줄임. 화면을 옮겨도 펼침/줄임 그대로, 앱을 다시 켜면 줄임.
+4. **[기록하기]·[휴무 취소하고 기록]**: 어디서 누르든 지금과 같은 주소·상태로 이동하고 떠 있는 줄은 줄임. **이미 그 날짜 일지에 있으면** 새 입력 창을 채워 엶 — 이동마다 다른 `location.key`로 새 값을 알아봄. 그때 입력 칸(콜 상세·지출)이 열려 있으면 기존 확인 창("저장하지 않은 입력이 있습니다")을 먼저, [계속 입력]이면 채우지 않음.
+5. **가림**: 떠 있는 줄이 있는 동안만 앱 틀 아래 여백 + 줄 높이, 알림 문구도 + 줄 높이(줄이 없는 화면·홈은 지금 그대로).
+6. 겹침: 줄은 아래 메뉴와 같은 층 바로 아래(890) — 옆 메뉴·창·확인 창이 그 위.
+7. 홈 카드 동작(24-B-1~3-A)은 그대로.
 
 ### 건드릴 파일
-- `src/domain/drivers.ts` — `assignmentPeriodNotice`(+ 날짜 글 만드는 도우미)를 옮겨 옴(146 → 약 165).
-- `src/features/day-log/ui/AssignmentPeriodPage.jsx` — 함수 빼고 화면만(37 → 약 20). `DayLogPage.jsx` — 부르는 위치를 `domain/drivers.ts`로 + `cancelOff`면 열기 전 `patchDraft({ isOff: false, fixedCount })`(181 → 약 186).
-- `src/features/home/hooks/useUnbiseoAssistant.ts` — 운행 결과 날짜의 기간 안내(연동 기사일 때, 일지와 같은 `session.accountType === 'employed_driver'`·연동된 기사 줄의 시작·종료일)와 휴무 여부를 내줌(60 → 약 75).
-- `src/features/home/ui/HomeAssistantPanel.tsx` — 목표 1 순서대로 그림(55 → 약 68). `HomeAssistantBar.jsx`·`HomePage.jsx` — 이동 함수에 `{ cancelOff }` 두 번째 값(설명 주석만 1줄씩).
-- `src/app/routes/AppShellRoutes.jsx` — 주소 상태에 `cancelOff` 넣기(줄 수 그대로). `src/app/routes/assistantCallState.js` — `cancelOff` 읽기(30 → 약 33).
-- 테스트: `domain/drivers.assignment.test.js`(옮긴 5줄), `AssignmentPeriodPage.test.js`(그 5줄 빼고 부르는 위치만), `HomeAssistantPanel.test.js`(기간 전·후 안내·버튼 없음, 휴무 → 질문·버튼 → 넘기는 값에 `cancelOff`), `MainPageRoute.assistantCall.test.js`(휴무 날 `cancelOff` → 휴무 꺼지고 입력 창 열림·눌림, `cancelOff` 없으면 휴무 그대로, 다시 그려도 안 바뀜).
-- 문서(`[x]` 때): sot §4-16 한 줄, 로드맵 24-B-3 줄 나눔(A `[x]`, B 남음).
-- 파일 수 10개(테스트 4 따로)로 보통보다 많음 — 대부분 몇 줄짜리 연결(설명 주석·주소 상태 한 칸), 실제 일은 `useUnbiseoAssistant`·`HomeAssistantPanel`·`DayLogPage`·`drivers.ts` 넷.
+- 새 `src/features/home/hooks/unbiseoContext.tsx`(약 45줄) — 운비서 상태를 앱 전체에 나눠 주는 틀(`UnbiseoProvider`·`useUnbiseo`), 이동 함수(`onOpenCall`)를 받음, 펼침/줄임도 여기(화면 메모리만).
+- 새 `src/features/home/ui/UnbiseoDock.tsx`(약 60줄) + 새 `src/features/home/ui/unbiseo-dock.css`(약 60줄) — 떠 있는 줄·펼친 카드(안쪽은 `HomeAssistantPanel`).
+- `src/app/shell/AppShell.jsx` — 틀로 감싸기 + 홈이 아닐 때 `<UnbiseoDock />` + 이동 함수(192 → 약 199). 이동 상태 만드는 줄은 `assistantCallState.js`에 `assistantCallNavState(call, options)`로 둬 앱 틀 줄 수를 아낌(32 → 약 42).
+- `src/features/home/ui/HomeAssistantBar.jsx` — 자기 훅 대신 `useUnbiseo()`(58 → 약 55). `HomePage.jsx`(70)·`AppShellRoutes.jsx`(104) — `onOpenAssistantCall` 전달 줄 빼기(이동은 앱 틀이).
+- `src/app/routes/MainPageRoute.jsx` — `DayLogPage`에 `assistantCallKey={location.key}`(109 → 약 110). `src/features/day-log/ui/DayLogPage.jsx` — 새 키면 다시 받기·열린 칸 확인(185 → 약 194).
+- `src/shared/styles/app-shell-base.css`·`src/shared/styles/toast.css` — 줄이 있을 때만(`:has(.unbiseo-dock)`) 여백·위치 + 줄 높이(각 +3줄). 영향: `.main-app-container`는 `AppShell.jsx` 한 곳, `.toast-message`는 `ToastMessage.jsx` 한 곳(grep) — 줄이 없을 땐 그대로.
+- 테스트: 새 `UnbiseoDock.test.js`(홈이면 없음·비회원 없음·다른 화면 줄임 → 펼침 → 같은 대화·[기록하기]면 이동 + 줄임), `HomeAssistantPanel.test.js`·`HomePage.test.js`(틀로 감싸 그리게 맞춤 — 약화 없음), `MainPageRoute.assistantCall.test.js`(같은 날짜에서 새 키 → 입력 창 열림, 입력 중이면 확인 창·[계속 입력]이면 그대로).
+- 문서(`[x]` 때): sot §4-16 한 줄, 로드맵 24-B-3 끝.
+- 파일 수 13개(새 3, 테스트 따로)로 큼 — 상태 올리기·떠 있는 줄·같은 날짜 열기는 따로 쓸 수 없는 한 묶음(줄만 있고 [기록하기]가 같은 날짜에서 안 열리면 반쪽). 고치는 것 중 6개는 몇 줄짜리.
 
 ### 안 건드릴 것
-- 떠 있는 카드(24-B-3-B), 서버 함수, 저장 길(`useDayDraft`·`useCallDetailActions` — 휴무 끄기는 기존 `patchDraft` 그대로), 휴무 화면 모양(`day-log-shell.css`), 일지의 기간 안내 화면 모양(`AssignmentPeriodPage` 화면 부분 그대로), 지출·질문(24-C·D).
+- 서버 함수, 저장 길(`useDayDraft`·`useCallDetailActions`·휴무 끄기 그대로), `HomeAssistantPanel.tsx`(그대로 재사용), `home-assistant.css`(181줄 — 새 줄 CSS는 새 파일), 아래 메뉴(`BottomNav`·`bottom-nav.css`), 지출·질문(24-C·D).
 
 ### 검증
-- 위 테스트(실제 누르기·이동 경로). 기존 테스트 전부 통과·경고 늘지 않음(특히 일지·기간 안내·운비서). 타입·빌드·의존 방향은 CI.
-- 플레이북: 휴무 끄기는 일지 저장 길을 지나므로 §2(호출 경로) 확인 — 새 저장 길 없이 `patchDraft` 한 번.
-- 브라우저(보리 계정 localhost): 어떤 날을 휴무로 → 운비서에 그 날짜 운행 → 질문·[휴무 취소하고 기록] → 휴무 꺼진 일지에 채운 입력 창 → [저장] 1건. 기간 밖은 연동 기사 계정이 필요해 테스트로(보리 휴대폰 계정이 연동 기사면 거기서도).
+- 위 테스트(실제 누르기·이동). 기존 테스트 전부 통과·경고 늘지 않음. 타입·빌드·의존 방향은 CI(앱 틀 → 기능 부르기는 허용, 기능끼리 안 부름).
+- 플레이북: 저장 길은 안 바꾸지만 일지 화면을 건드림 → §2(호출 경로) 확인, 같은 날짜에서 열린 칸이 있을 때 입력이 소리 없이 사라지지 않음.
+- 브라우저(보리 계정 localhost, 좁은 폭·눕힌 화면): 매출 화면에 줄 → 마이크 → 결과 → [기록하기] → 일지에 채운 창·줄은 줄어 있음. 그 일지에서 다시 말하고 [기록하기] → 새 창. 알림 문구가 줄에 안 가림. 휴대폰 보리 확인.
 
 ### 파일 길이
-- `drivers.ts` 146 → 약 165, `AssignmentPeriodPage.jsx` 37 → 약 20, `DayLogPage.jsx` 181 → 약 186, `useUnbiseoAssistant.ts` 60 → 약 75, `HomeAssistantPanel.tsx` 55 → 약 68, `assistantCallState.js` 30 → 약 33, 나머지 줄 수 그대로. 모두 200 이하.
+- 새: `unbiseoContext.tsx` 약 45, `UnbiseoDock.tsx` 약 60, `unbiseo-dock.css` 약 60. 고침: `AppShell.jsx` 192 → 약 199, `assistantCallState.js` 32 → 약 42, `HomeAssistantBar.jsx` 58 → 약 55, `HomePage.jsx` 70 → 약 68, `AppShellRoutes.jsx` 104 → 104, `MainPageRoute.jsx` 109 → 약 110, `DayLogPage.jsx` 185 → 약 194, `app-shell-base.css` 50 → 약 53, `toast.css` 43 → 약 46. 모두 200 이하 — `AppShell.jsx`가 빠듯하면 이동 함수를 `unbiseoContext` 쪽으로 더 옮김(앱 틀은 감싸기·줄 그리기만).
 
 ### 코드에 넣을 주석(최종 문구)
-- `useUnbiseoAssistant.ts`: `// [기록하기] 전에 일지와 같은 기준으로 계약 기간·휴무를 본다.`
-- `DayLogPage.jsx`: `// 운비서에서 "휴무 취소하고 기록"을 눌렀으면 휴무를 끄고 연다(휴무 단추와 같은 저장).`
+- `unbiseoContext.tsx`: `// 운비서 대화는 앱 전체에 하나 — 홈 카드와 떠 있는 줄이 같이 쓴다(로드맵 24-B-3-B). 휴대폰에 저장하지 않는다.`
+- `UnbiseoDock.tsx`: `// 홈이 아닌 화면에서 아래 메뉴 위에 떠 있는 운비서 줄. 줄을 누르면 위로 펼친다.`
+- `DayLogPage.jsx`: `// 같은 날짜 일지에서 운비서가 또 넘기면(이동 키가 바뀜) 새 입력 창으로 다시 연다.`
 
 ### 실패 시 처리
-- 새 저장 장치·재시도 없음(AGENTS §7). 기대와 다르면 코드는 그대로 두고 이 파일에 수정 착수지시서를 써서 다시 승인받음.
+- 새 저장 장치·재시도 없음(AGENTS §7) — 펼침/줄임도 화면 메모리만. 기대와 다르면 코드는 그대로 두고 이 파일에 수정 착수지시서를 써서 다시 승인받음.
 
 ### 사용자 확인 방법
-1. 달력에서 어제를 휴무로 표시 → 홈 Ai 운비서에 "어제 수원 화성 15만".
-2. "…으로 기록할게요." 아래에 "휴무를 취소하고 운행을 기록할까요?" + [휴무 취소하고 기록].
-3. 누르면 어제 일지로 가서 휴무가 꺼져 있고 입력 창이 채워진 채 눌림 → [저장] → 1건.
-4. (연동 기사 계정) 계약 시작 전 날짜를 말하면 버튼 대신 "계약기간 전 날짜입니다. ○월 ○일부터 기록할 수 있습니다."
+1. 보리 계정 → 매출 화면 → 아래 메뉴 바로 위에 "Ai 운비서" 줄.
+2. 줄의 마이크 → "어제 수원 화성 15만" → 줄이 펼쳐지며 결과 + [기록하기].
+3. [기록하기] → 어제 일지에 채운 입력 창, 줄은 줄어 있음 → [저장].
+4. 그 일지 화면에서 줄 마이크로 "어제 평택 용인 30만" → [기록하기] → 같은 일지에 새 채운 창.
+5. 홈으로 → 홈 카드에 방금 대화가 그대로, 떠 있는 줄은 없음.
 
 ### 진행 기록
-- 2026-10-23 터미널 AI: 교차검증 — 현재 상태(`AssignmentPeriodPage.jsx:18`·`DayLogPage.jsx:72·99`·`isOffDay`·`OffToggle` 끌 때 `{ isOff, fixedCount }`·`assistantCallState.js` 30줄)가 코드와 맞음. 구현 완료(커밋 전).
-  - `domain/drivers.ts`(160줄)로 `assignmentPeriodNotice`·날짜 글 도우미를 옮김(문장·판단 그대로). `AssignmentPeriodPage.jsx`(18줄)는 화면만.
-  - 홈: `useUnbiseoAssistant.ts`(69줄)가 운행 결과 날짜로 기간 안내(`employed_driver`일 때, 연동된 기사 줄의 시작·종료일)와 휴무 여부(`isOffDay`)를 내줌. `HomeAssistantPanel.tsx`(77줄)는 버튼 자리 하나 — 기간 밖 안내 두 줄(버튼 없음) → [켜기] → "휴무를 취소하고 운행을 기록할까요?"+[휴무 취소하고 기록] → [기록하기]. 이동 함수 두 번째 값 `{ cancelOff }`(`HomeAssistantBar.jsx`·`HomePage.jsx` 설명 1줄씩, `AppShellRoutes.jsx` 줄 수 그대로).
-  - 일지: `cancelOff`는 `assistantCall` 안에 넣어 주소 상태 지울 때 같이 지워짐. `assistantCallState.js`(32줄)는 `=== true`일 때만 참. `DayLogPage.jsx`(185줄)는 입력 창을 열기 직전 `cancelOff`이고 지금 휴무면 `patchDraft`와 같은 동작(`{ isOff: false, fixedCount }`) 한 번 — `patchDraft` 함수 대신 같은 `dispatch({ type: 'patchDraft' })`를 직접 씀(효과 안에서 매번 새로 만들어지는 함수를 안 부르려고).
-  - 시험: 기간 안내 5줄을 `domain/drivers.assignment.test.js`로 옮김(`AssignmentPeriodPage.test.js`는 화면 시험 4개 그대로). `HomeAssistantPanel.test.js` +3(연동 기사 기간 전·후 안내·버튼 없음·기간 안은 [기록하기], 차주는 안내 없음, 휴무 → 질문·버튼 → `cancelOff: true`)·기존 [기록하기]는 `cancelOff: false` 확인. `MainPageRoute.assistantCall.test.js` +4(`cancelOff` → 휴무 꺼짐·입력 창 채움·확인 창 0·저장 기록도 휴무 아님, 없으면 휴무 그대로, 글자 "true"·1은 거짓, 다시 그려도 휴무 안 건드림).
-  - 로컬 확인: 테스트 884 + 723 전부 통과(act 경고 10 그대로), 타입 오류 0, lint 50 → 49(화면 파일에서 함수를 빼서 줄어든 것으로 봄), 의존 방향 위반 0, 빌드 성공.
-  - 커밋 react-app `d7e750e`(2026-10-23, 13개 파일, push 안 함).
-- 보리 push 뒤 CI verify·deploy 초록(run 39804299992, 약 2분 반).
-- §5 리뷰(데스크톱 AI): ① 범위 — 13개 파일, 지시서 "건드릴 파일" 10개 + 테스트 3개(`AssignmentPeriodPage.test.js`는 옮긴 5줄 뺀 것)와 같음, 저장 길·CSS·서버 안 바뀜 ② 몰래 증설 없음(새 저장 칸·재시도 없음, `cancelOff`는 기존 주소 상태 한 칸) ③ 타입 꼼수 0 ④ 200줄 — 최대 `DayLogPage.jsx` 185 ⑤ 테스트 — 새 7개(홈 3·일지 4), 기간 안내 시험 5줄은 그대로 옮김(내용 같음), 기존 [기록하기] 시험엔 `cancelOff: false` 확인을 더함(약화 없음) ⑥ 공용 영향 — `assignmentPeriodNotice`를 부르는 곳은 `DayLogPage`·`useUnbiseoAssistant` 둘뿐(grep), 문장 그대로 ⑦ 목표 1~5 충족. 휴무 끄기는 `patchDraft` 함수 대신 같은 `dispatch({ type: 'patchDraft' })`(진행 기록에 이유) — 저장된 기록도 휴무 아님을 시험이 확인. 브라우저·휴대폰 확인은 보리 몫.
+- 2026-10-23 터미널 AI: 교차검증 — 현재 상태(줄 수·아래 메뉴 59/45px·여백 108px·알림 76px·겹침 900·같은 날짜 문제)가 코드와 맞음. 확인할 점 넷은 권함대로. 구현 완료(커밋 전).
+  - 상태 올리기: 새 `features/home/hooks/unbiseoContext.ts`(35줄, `UnbiseoProvider`·`useUnbiseo` — 대화·이동 함수·펼침/줄임, 화면 메모리만). `useUnbiseoAssistant.ts`(80줄)는 계정이 바뀌면 대화를 비우고 앞 계정에서 보낸 답은 버림. `HomeAssistantBar.jsx`(54줄)는 `useUnbiseo()`, `HomePage.jsx`(69줄)·`AppShellRoutes.jsx`(104줄)에서 이동 함수 전달을 뺌.
+  - 떠 있는 줄: 새 `UnbiseoDock.tsx`(60줄)·`unbiseo-dock.css`(64줄) — 로그인 계정 + 홈(`/app`)이 아닐 때, 아래 메뉴 바로 위(눕힌 화면은 45px 위), 겹침 890, 앱 폭 480px 안, 펼친 카드는 `min(60vh, 420px)`까지 카드 안에서 넘김. 마이크는 펼치며 바로 듣기(홈 줄과 같음). `AppShell.jsx`(198줄)가 감싸고 그림, 이동은 앱 틀 `navigate` + `assistantCallNavState`(`assistantCallState.js` 41줄).
+  - 가림: `app-shell-base.css`(53줄)·`toast.css`(46줄)에 줄이 있을 때만(`:has(.unbiseo-dock)`) + 64px.
+  - 같은 날짜: `MainPageRoute.jsx`(110줄)가 `assistantCallKey={location.key}`. 새 키로 값이 오면 열린 입력 칸 확인 창(기존 "저장하지 않은 입력이 있습니다") → [나가기]면 지출 칸·콜 상세 칸을 닫고 새 채운 창(입력 창 `key`를 바꿔 새로 그림), [계속 입력]이면 그대로.
+  - 지시서와 다른 점 3개: ① `unbiseoContext`는 `.tsx` 대신 `.ts`(`.tsx`에서 훅을 내보내면 lint 경고가 늘어서 — `useToast.js`처럼 `createElement`). ② `DayLogPage.jsx`에 넣으면 200줄을 넘어 운비서 값 받기를 새 `features/day-log/hooks/useAssistantPrefill.js`(57줄)로 뺌(24-B-2·3-A 부분도 같이 옮김, 동작 그대로) → `DayLogPage.jsx` 185 → 176. ③ 같은 날짜 시험은 `MainPageRoute.assistantCall.test.js` 대신 앱 틀째 그리는 새 시험 파일에 넣음(줄에서 누르는 실제 경로).
+  - 시험: 새 `app/shell/UnbiseoDock.test.js` 6개(홈엔 없음·다른 화면은 줄인 채·펼침/줄임, 비회원 없음, 홈 카드 결과가 다른 화면 줄에 그대로, 줄에서 [기록하기] → 일지에 채운 창·줄 줄임, 같은 날짜에서 입력 중이면 확인 창 → [계속 입력] 그대로·[나가기] 새로 채움, 같은 날짜에 열린 칸 없으면 바로). `HomeAssistantPanel.test.js`·`HomePage.test.js`는 틀로 감싸 그리게만 맞춤(확인 내용 그대로). 계정이 바뀔 때 비우기는 시험 없음(코드 읽기로만).
+  - 로컬 확인: 테스트 884 + 729 전부 통과(act 경고 10 그대로), 타입 오류 0, lint 49 그대로, 의존 방향 위반 0, 빌드 성공. 모든 파일 200줄 이하(가장 긴 `AppShell.jsx` 198).
+  - 커밋 react-app `5d922bf`(2026-10-23, 17개 파일, push 안 함).
+- 보리 push 뒤 **CI 빨강**(run 39808074038): 테스트 단계만 실패, 타입·빌드·의존 방향은 초록. 실패 1개 — `UnbiseoDock.test.js:83` "홈에는 줄이 없고, 다른 화면에는 줄인 채로 떠 있다"의 `assert.ok(view.dock())`(아래 메뉴 "매출"을 누른 직후 줄이 없음). 나머지 728개 통과.
+- 데스크톱 AI 원인 확인: `BrowserRouter`(react-router 7.18.2)는 주소 바뀜을 `startTransition`으로 그림(`node_modules/react-router/dist/development/chunk-62JRHF6Z.mjs` `function BrowserRouter` — `useTransitions`를 안 주면 전환). 매출 화면은 처음 누를 때 받는 화면(`lazyPages.js`)이라, 받는 동안 React가 **앞 화면(`/app`)을 그대로 둠** → 앱 틀의 `location.pathname`이 아직 `/app`이라 줄이 안 그려짐. 주소창(`window.location`)은 이미 바뀌어 위 줄 `assert.equal(pathname, '/app/revenue')`는 통과. 시험은 한 틱(`setTimeout 0`)만 기다려, 화면 파일 받기가 느린 CI에서만 실패(로컬은 통과). **앱 동작 문제 아님** — 실제 앱도 새 화면이 그려질 때 줄이 같이 나옴.
 
-### 다음 24-B-3-B 미리 보기(이번 범위 아님)
-- 떠 있는 카드: 운비서 상태를 앱 틀로 올리고(홈 카드와 같은 대화), 아래 메뉴 위에 늘 떠 있는 줄(줄이기 가능). 시안과 함께 정할 것 — 줄였을 때 모양, 띄울 화면(홈은 지금 카드로 두고 그 밖?), 줄인 상태 기억 여부, 가림(앱 틀 아래 여백 108px·알림 문구 위치 `toast.css` 76px도 같이 올려야 함).
-- 알아 둔 걸림돌: 이미 그 날짜 일지에 있을 때 [기록하기]는 같은 주소라 일지가 새로 안 그려져 지금 방식(처음 한 번 받기)으로는 안 열림 → 이동마다 다른 `location.key`로 새 값을 알아보게 바꿔야 함. 입력 중인 창이 열려 있으면 "저장하지 않은 입력" 확인 먼저.
+### 수정 착수지시서 — 줄 시험이 새 화면을 기다리게 `[x]`
+- **쉬운 요약**: 새 시험이 화면을 옮긴 뒤 새 화면 파일을 다 받기 전에 줄을 찾아서, 느린 CI에서만 실패했습니다. 앱은 그대로 두고 시험만 "줄이 나타날 때까지(최대 3초)" 기다리게 고칩니다(로드맵 28과 같은 방식 — 정해진 시간 대신 실제로 될 때까지).
+- **건드릴 파일**: `src/app/shell/UnbiseoDock.test.js`만(166 → 약 175, 테스트 파일). 파일 안에 기다리기 도우미 하나(`App.guestDurable.test.js:85` `waitUntil`과 같은 모양 — 20ms마다 확인, 3초 넘으면 실패) + **화면을 옮기는 모든 곳**(아래 메뉴로 다른 화면·[기록하기]로 일지) 다음에 "새 화면이 그려짐"(줄이 생김, 일지 입력 칸이 생김 등)을 기다림. 확인 내용은 줄이거나 빼지 않음.
+- **안 건드릴 것**: 운영 코드 전부(`AppShell.jsx`·`UnbiseoDock.tsx` 등 — 줄이 새 화면과 같이 나오는 지금 동작이 맞음), 공용 시험 도우미(`testSupport/`).
+- **검증**: 그 파일 6개 통과, 전체 테스트 통과·경고 늘지 않음. 느린 환경 흉내로, 시험 안에서 화면 받기를 늦춰도(예: 기다리기 전에 일부러 몇백 ms 지연 없이 바로 확인하면 실패하던 줄이) 통과하는지 한 번 확인. CI 초록.
+- **실패 시 처리**: 새 장치 없음. 그래도 실패하면 멈추고 다시 보고.
+- **커밋**: 수정 커밋 1개 더(AGENTS §3).
+- **진행 기록**(2026-10-23 터미널 AI, 커밋 전): `src/app/shell/UnbiseoDock.test.js`만 고침(166 → 182줄). 운영 코드·공용 도우미 0.
+  - 기다리기 도우미 `waitUntil`(20ms마다·3초 넘으면 실패). `App.guestDurable.test.js:85`와 다른 점 하나 — 그쪽은 `act` 하나 안에서 도는데, 그렇게 하면 기다리는 동안 React가 화면을 안 그려 확인 창이 끝내 안 보여 시간 초과(실제로 실패 확인). 그래서 **한 번 기다릴 때마다 `act`를 끝냄**.
+  - 화면을 옮기는 곳 모두 뒤에 기다림: 아래 메뉴 "매출"·"달력" 뒤 줄이 생길 때까지, 줄을 쓸 때마다 줄이 있을 때까지, [기록하기] 뒤 입력 칸이 그 값(수원·평택)으로 채워질 때까지, 같은 날짜에서 확인 창·[나가기]가 나올 때까지. 한 틱 기다림(`settle`) 6곳을 바꿈. 확인 내용은 줄이거나 빼지 않음.
+  - 느린 환경 흉내: 시험 밖(scratchpad) 장치로 매출·달력 화면 파일 찾기를 0.4초·2.5초 늦춰 **고치기 전 시험**을 돌렸으나 **통과** — 이 컴퓨터에서는 React 시험 도구(`act`)가 늦은 파일을 끝까지 기다려 줘 CI 실패를 다시 만들지 못함. 고친 시험도 같은 조건에서 통과. 즉 "고치기 전이면 실패하던 것이 통과"는 확인 못 함 — CI 초록으로 확인 필요.
+  - 로컬 확인: 그 파일 6개 통과, 테스트 884 + 729 전부 통과(act 경고 10 그대로), 타입 오류 0, lint 49 그대로.
+  - 수정 커밋 react-app `2026b26`(2026-10-23, 1개 파일, push 안 함).
+- §5 리뷰(데스크톱 AI, 수정 전 코드 기준 — CI 초록 뒤 마저): ① 범위 — 17개 파일, 지시서보다 새 파일 1개 더 `features/day-log/hooks/useAssistantPrefill.js`(`DayLogPage.jsx` 200줄 넘김 막으려고, 진행 기록에 이유) ② 몰래 증설 없음(펼침/줄임은 화면 메모리, 휴대폰 저장 0 — grep `localStorage` 0) ③ 타입 꼼수 0 ④ 200줄 — 최대 `AppShell.jsx` 198 ⑤ 기존 테스트 2개는 틀로 감싸 그리게만 바뀜(약화 없음), 계정 바뀔 때 대화 비우기는 시험 없음 ⑥ 공용 CSS — `.main-app-container`(`AppShell.jsx`만)·`.toast-message`(`ToastMessage.jsx`만)에 줄이 있을 때만 +64px ⑦ 목표 1~7은 CI 초록 뒤 대조.
+- 보리 push(`2026b26`) 뒤 CI verify·deploy 초록(run 39810035541). 수정 커밋은 시험 파일 1개, 지운 줄은 한 틱 기다리기(`settle`) 6곳을 "새 화면이 그려질 때까지 기다리기"로 바꾼 것뿐(확인 내용 그대로).
+- §5 ⑦ 목표 대조: 1 같은 대화(시험 "홈 카드 결과가 다른 화면 줄에 그대로") 2 홈·비회원엔 없음·다른 화면 줄인 채(시험) 3 펼침/줄임(시험, 다시 켜면 줄임 — 화면 메모리만) 4 [기록하기] → 일지·줄 줄임, 같은 날짜 새 키·입력 중 확인 창(시험) 5 가림 +64px(CSS, 줄 있을 때만) 6 겹침 890(`unbiseo-dock.css`) 7 홈 카드 기존 시험 그대로 통과 — 모두 충족. 남은 것: 보리 휴대폰 확인(사용자 확인 방법 1~5) → 최종 승인.
 
 ---
+
+### 수정 착수지시서 2 — 떠 있는 줄을 작은 캐릭터 버튼으로 `[x]`
+- 보리(2026-10-23, 달력 화면 캡처): "왜 항상 켜져 있는 거야? 이럴 거면 마이크 부분에 운비서 캐릭터 하나만 하든지 미니로 작아지게, 너무 시야 방해잖아". 지금 줄인 모양은 폭 456px·높이 60px 줄(아래 메뉴 바로 위 한 줄 전체).
+- **모양 가로 정함** `[확인: 2026-10-23 보리 — "가로 정할게"]`.
+- **확인할 점(하나) — 모양**(시안 대화창): **가.** 오른쪽 아래 캐릭터 동그라미 하나(약 52px) — 누르면 위로 카드가 열리며 바로 듣기(받아쓰기 없는 휴대폰이면 글 칸만), 카드 안 꺾쇠로 다시 작게. **나.** 캐릭터 + 마이크 작은 알약 — 캐릭터 = 카드 열기(글로 쓰기), 마이크 = 바로 듣기. 권함: **가**(가리는 면적이 가장 작고, 한 번 눌러 바로 듣기는 그대로).
+- **건드릴 파일**: `src/features/home/ui/UnbiseoDock.tsx`(줄인 모양을 동그라미 버튼으로, 60 → 약 60), `src/features/home/ui/unbiseo-dock.css`(오른쪽 아래·크기, 64 → 약 70), 여백 줄이기 — `src/shared/styles/app-shell-base.css`·`toast.css`의 `+ 64px`를 버튼 높이만큼으로(동그라미는 오른쪽에만 있어 여백을 아예 안 늘리는 안도 있음 — 착수 때 화면 보고 정함), `src/app/shell/UnbiseoDock.test.js`(줄 찾기 → 버튼 찾기).
+- **안 건드릴 것**: 대화 상태·[기록하기]·같은 날짜 열기(그대로), 홈 카드, 서버.
+- **실패 시 처리**: 새 장치 없음. 수정 커밋 1개 더.
+- **진행 기록**(2026-10-23 터미널 AI, 보리 "수정2번도 진행해", 가안, 커밋 전):
+  - `UnbiseoDock.tsx`(60 → 65줄): 작을 땐 오른쪽 캐릭터 동그라미 버튼 하나(`.unbiseo-dock-fab`, "Ai 운비서 열기"). 누르면 카드가 열리고 받아쓰기 되는 휴대폰이면 바로 듣기(아니면 글 칸만). 카드 머리: 얼굴·"Ai 운비서"·마이크(다시 듣기)·꺾쇠(`.unbiseo-dock-close`, "작게" — 듣는 중이면 멈추고 작게). 카드 안은 `HomeAssistantPanel` 그대로.
+  - `unbiseo-dock.css`(64 → 82줄): 52px 동그라미를 아래 메뉴 바로 위 오른쪽(앱 폭 480px 안), 동그라미 옆 빈 곳은 아래 화면을 그대로 누르게(`pointer-events`). 펼친 카드는 폭 전체·`min(60vh, 460px)`까지 카드 안에서 넘김. 겹침 890·눕힌 화면 45px 그대로.
+  - 여백(착수 때 정함): 화면을 직접 못 봐서 **안 가리는 쪽**으로 — `app-shell-base.css`·`toast.css`의 `+ 64px`를 동그라미 높이 + 틈 `+ 60px`로(아예 안 늘리면 화면 맨 아래 오른쪽 내용·좁은 폭의 알림 문구가 동그라미에 가릴 수 있음). 브라우저에서 보고 줄이고 싶으면 이 두 줄만 바꾸면 됨.
+  - 시험 `UnbiseoDock.test.js`(182 → 213줄): 줄 찾기 → 버튼 찾기로 바꿈(작을 땐 버튼만·긴 줄 없음·누르면 카드·꺾쇠로 작게, [기록하기] 뒤 다시 버튼), +1(받아쓰기 되는 휴대폰: 한 번 누르면 바로 듣기·작게 하면 듣기 멈춤). 나머지 확인 내용 그대로.
+  - 로컬 확인: 그 파일 7개 통과, 테스트 884 + 730 전부 통과(act 경고 10 그대로), 타입 오류 0, lint 49 그대로, 의존 방향 위반 0, 빌드 성공.
+  - 수정 커밋 react-app `aef951d`(2026-10-23, 5개 파일, push 안 함).
+- 수정 2 확인(데스크톱 AI): react-app `aef951d`(5개 파일 — `UnbiseoDock.tsx` 69·`unbiseo-dock.css` 82·`app-shell-base.css`·`toast.css`(+64 → +60px)·`UnbiseoDock.test.js`), CI verify·deploy 초록(run 39818088915). 작게일 땐 오른쪽 아래 캐릭터 동그라미(52px)만, 누르면 카드가 열리며 바로 듣기(받아쓰기 없으면 글 칸만), 카드 머리에 마이크·꺾쇠(작게 — 듣는 중이면 멈춤). 시험: 캐릭터 버튼·카드·꺾쇠, 받아쓰기 되는 휴대폰 흉내로 한 번에 듣기·작게 하면 멈춤 추가, 기존 확인 줄은 버튼 기준으로 바꿈(약화 없음). 타입 꼼수·휴대폰 저장 0. 배포본(보리 계정, 달력)에서 버튼 오른쪽 아래 확인. 남은 것: 보리 휴대폰 확인(사용자 확인 방법 1~5, 줄 대신 버튼) → 최종 승인.
+
+## 로드맵 24-A2 운비서 AI 회사를 xAI Grok으로 `[ ]`
+
+보리 결정(2026-10-23): Gemini 무료 구간이 너무 안 됨(AI Studio 화면 — 10월 22일 성공률 약 절반, 503 약 45번·429 몇 번) → "그록으로 변경할게" `[확인: 2026-10-23 보리]`. 키는 보리가 Supabase 함수 비밀값 **`XAI_API_KEY`**에 넣음(2026-10-23, `GEMINI_API_KEY`는 되돌리기용으로 남김). 24-A 때 "AI 부르는 곳은 한 파일(`gemini.ts`)만 — 회사를 바꿀 땐 그 파일과 비밀값만"으로 만들어 둔 그대로 바꿈. 24-B-3-B는 코드·CI 끝, 휴대폰 확인(AI가 되어야 함)을 이 슬라이스 뒤로 미룸.
+
+### 확인할 점 (하나) — 모델 — 권함대로 `[확인: 2026-10-23 보리 — "권함은 알아서해", xAI 계정에 $15 충전(배포 전 시험용), 코드는 터미널 AI]`
+- 권함: **`grok-4.20-0309-non-reasoning`**(xAI 공식 모델 목록 2026-10-23: 입력 100만 토큰당 $1.25·출력 $2.50, "생각 안 함" 판이라 빠름, 날짜가 붙은 이름이라 xAI가 바꿔도 그대로). 한 번 부를 때 지시문·날짜 표·거래처로 약 1,000토큰 + 답 약 60토큰 → **1,000번에 약 $1.4(약 2천 원)**. 다른 안: `grok-4.3`(같은 값, 생각 여부 안 적힘), `grok-4.7`(최신, 입력 $2·출력 $6 — 이 일엔 과함), `grok-build-0.1`(가장 쌈 $1/$2, 코드 쓰기용 이름).
+- xAI는 **무료 구간이 없음** — 쓰려면 xAI 계정에 충전(크레딧)이 있어야 함(보리 확인). 하루 횟수 제한은 그대로 11번(출시 직전).
+
+### 쉬운 요약
+- 운비서가 말을 알아듣는 AI를 Google Gemini 무료 구간에서 xAI Grok(유료)으로 바꿉니다. 앱 화면·문장·버튼은 그대로이고, 서버 함수 안에서 AI를 부르는 파일 하나만 바뀝니다.
+- 지시문·날짜 표(24-A에서 맞춘 것)는 그대로 넘겨, 15문장 시험으로 Gemini 때와 같은 정확도인지 확인합니다.
+
+### 현재 상태 (코드 확인)
+- `supabase/functions/unbiseo-parse/gemini.ts`(102줄): Gemini SDK(`npm:@google/genai@2.27.0`)로 `gemini-3.1-flash-lite`, 지시문 `INSTRUCTION`·날짜 표 `dateTable`·칸 모양 `RESPONSE_SCHEMA`, 15초 넘으면 null, 답 길이 상한 300, 기록은 끝난 이유·쓴 양·시간만. 내보내는 것: `askAi`·`AiUnavailableError`·`ParseInput`·`dateTable`.
+- `index.ts`(132줄)는 `./gemini.ts`에서 `askAi`·`AiUnavailableError`·`ParseInput`만 가져옴(회사와 상관없음 — 로그인 확인·입력 검사·답 모양 확인 `readAiAnswer`).
+- 앱(`src/`)은 함수 이름 `unbiseo-parse`만 부름 — 회사가 바뀌어도 앱은 안 바뀜.
+
+### 목표 상태 (기대 동작)
+1. 새 `grok.ts`가 xAI 대화 API(`https://api.x.ai/v1/chat/completions`, `Authorization: Bearer` + 비밀값 `XAI_API_KEY`)를 `fetch`로 부름(SDK 없음 — 표준 웹 요청). 보내는 것: 모델(확인할 점), `messages`(시스템 = 지금 `INSTRUCTION` 그대로, 사용자 = 지금 날짜 표·거래처 목록·한 말 그대로), `response_format: { type: 'json_schema', json_schema: { name, schema: 지금 칸 모양, strict: true } }`, `temperature: 0`, `max_tokens: 300`.
+2. 답: `choices[0].message.content`(JSON 글자)를 지금처럼 `index.ts`의 `readAiAnswer`가 확인. 끝난 이유가 길이 초과(`length`)·빈 답·15초 넘김이면 null(502 "알아듣지 못했습니다"). 키 없음·xAI가 4xx/5xx(429·503 포함)·연결 실패면 `AiUnavailableError`(503 "잠시 뒤 다시"). 재시도 없음.
+3. 기록(함수 Logs): 지금과 같이 끝난 이유·쓴 양(`usage.completion_tokens`)·걸린 시간·실패면 상태 번호만 — 말한 문장·AI 답 내용은 안 남김.
+4. 날짜 표·지시문·칸 모양은 글자 하나 안 바꿈(옮기기만). `index.ts`는 가져오는 파일 이름 한 줄만.
+5. `gemini.ts`는 지움(되돌릴 땐 git의 `f96df4f` 판으로). 서버의 함수도 `grok.ts`·`index.ts` 두 파일로.
+
+### 건드릴 파일
+- 새 `react-app/supabase/functions/unbiseo-parse/grok.ts`(약 100줄) — 위 1~3, 날짜 표·지시문·칸 모양은 `gemini.ts`에서 그대로 옮김.
+- `react-app/supabase/functions/unbiseo-parse/index.ts` — `./gemini.ts` → `./grok.ts` 1줄(132줄 그대로). 머리 주석은 회사 이름 없음 — 그대로.
+- `react-app/supabase/functions/unbiseo-parse/gemini.ts` — 지움.
+- 서버(Supabase 관리 화면): 바뀐 두 파일 올리고 `gemini.ts` 빼기(데스크톱 AI, 보리 허락 — 24-A와 같은 방법, 올린 뒤 저장소와 같은지 비교).
+- 문서(`[x]` 때): sot §4-16 AI 회사 줄(Gemini → xAI Grok·모델·비밀값), 로드맵 24 "AI 회사" 줄·11번 "AI 회사 다시 정하기"(유료로 바뀜 → 하루 횟수 제한이 더 중요해짐 메모), 10-P 자문 목록 "AI 전달(24번)"의 회사 이름(Google → xAI, 미국).
+
+### 안 건드릴 것
+- 앱 `src/` 전부(카드·문장·버튼·`unbiseoParse.ts` — 함수 이름·응답 모양 같음), `index.ts`의 로그인 확인·입력 검사·답 확인, 비밀값 `GEMINI_API_KEY`(보리가 남겨 둠), DB.
+
+### 검증
+- 저장소 밖 가짜 시험(24-A와 같은 방식, 터미널 AI): 가짜 네트워크로 보내는 요청(주소·머리·모델·`response_format`·지시문·날짜 표)·답 읽기·길이 초과·빈 답·시간 넘김 null·429/503/401·키 없음 → `AiUnavailableError`, 기록에 말한 문장 없음. 함수 타입 검사. 앱 lint 그대로.
+- 진짜 서버(데스크톱 AI, 올린 뒤): 공개 키만 401, 24-A의 **15문장 표 다시** — 목표: 답이 온 것 모두 종류·날짜·칸 맞음(Gemini 때 13/13), 503·429가 Gemini 때(15개 중 7개 첫 번 실패)보다 확실히 적음, 걸린 시간 기록. 함수 Logs에 말한 문장 없음.
+- 앱 CI는 앱 코드가 안 바뀌어 영향 없음.
+
+### 파일 길이
+- `grok.ts` 약 100줄(`gemini.ts` 102줄과 비슷 — SDK 대신 요청 몇 줄), `index.ts` 132 그대로. 200 이하.
+
+### 코드에 넣을 주석(최종 문구)
+- `grok.ts` 머리: `// AI 회사(xAI Grok) 부르기만 — 회사를 바꿀 땐 이 파일과 비밀값만 바꾼다(로드맵 24-A2, 2026-10-23 Gemini 무료 구간 503이 잦아 바꿈).`
+- 날짜 표·답 길이 상한 주석은 `gemini.ts`의 것 그대로.
+
+### 실패 시 처리
+- 새 저장 장치·재시도 없음(AGENTS §7). 정확도가 떨어지면 함수를 지금 Gemini 판(`f96df4f`)으로 다시 올려 두고 이 파일에 수정 착수지시서. 키·충전 문제(401·402·403)면 보리에게 xAI 계정 확인 요청.
+
+### 사용자 확인 방법
+- 보리 할 일: xAI 계정에 충전(크레딧)이 있는지 확인.
+- 올린 뒤 휴대폰 홈 운비서에 "어제 수원 화성 15만" 여러 번 → "잠시 뒤 다시 시도해 주세요"가 거의 안 나오고 "10월 ○일 수원 → 화성, 150,000원으로 기록할게요."가 나오면 성공. 이어서 24-B-3-B 휴대폰 확인(1~5)도 그때.
+
+### 진행 기록
+- 2026-10-23 터미널 AI: 교차검증 — 현재 상태(`gemini.ts` 102줄·내보내는 것 4개, `index.ts`는 `askAi`·`AiUnavailableError`·`ParseInput`만, 앱은 함수 이름만)가 코드와 맞음. xAI 공식 문서(구조화 출력)로 지금 칸 모양을 그대로 쓸 수 있는지 확인 — `required`에 없는 칸은 선택으로 봄, `strict: true` 받음, `enum`·`integer` 됨. 모델은 권함대로 `grok-4.20-0309-non-reasoning`. 구현 완료(커밋 전).
+  - 새 `supabase/functions/unbiseo-parse/grok.ts`(110줄): `fetch`로 `https://api.x.ai/v1/chat/completions`, `Authorization: Bearer` + `XAI_API_KEY`, `response_format` json_schema(strict), `temperature: 0`, `max_tokens: 300`, 15초 넘김 신호. `finish_reason`이 `length`·빈 답·시간 넘김·응답 몸통이 JSON 아님 → null(502). 키 없음·4xx/5xx·연결 실패 → `AiUnavailableError`(503). 재시도 없음. 기록은 끝난 이유·`completion_tokens`·시간, 실패는 상태 번호만.
+  - 지시문·날짜 표·칸 모양·사용자 글 만드는 줄은 `gemini.ts`와 글자 그대로(비교 도구로 같음 확인). `index.ts`는 가져오는 파일 이름 2줄(`import`·`import type`)만, 132줄 그대로. `gemini.ts` 지움(되돌릴 땐 `f96df4f`).
+  - 저장소 밖 가짜 시험(scratchpad `24a/harness-grok.mjs`) 통과: 로그인·입력 검사 그대로(AI 안 부름), 보내는 요청(주소·방법·머리 2개·모델·온도·길이 상한·시간 신호·`response_format`·시스템 지시문·사용자 글 = 날짜 표+거래처+한 말, 거래처 없으면 "(없음)"), 운행·지출·질문·관계없음 답, 502(길이 초과·빈 답·null·JSON 아님·모양 틀림·시간 넘김·몸통이 JSON 아님), 503(429·503·401·402·403·500·연결 실패·키 없음 — `GEMINI_API_KEY`만 있어도 안 씀), 기록에 말한 문장 없음. 날짜 표 시험(`datetable-grok.mjs`) 통과. 함수 타입 검사 통과. 앱 lint 49 그대로(앱 `src/` 안 바뀜).
+  - 커밋 react-app `42191bf`(2026-10-23, 파일 2개 — git은 `gemini.ts` → `grok.ts` 이름 바꿈으로 봄, push 안 함).
+
+- 2026-10-23 보리 "unbiseo-parse 함수 Supabase에 올리고 15문장 시험까지 해" → 데스크톱 AI가 관리 화면 편집기로 올림(`index.ts` 2줄 바꿈, `grok.ts` 새로, `gemini.ts` 뺌, "Deploy updates" 확인 창 → 확인). 다시 불러온 서버 두 파일이 커밋 `42191bf`와 SHA-256 같음(`grok.ts` `37878ac4…`, `index.ts` `02f12e24…`). 공개 키만 → 401 "로그인이 필요합니다.".
+- 15문장 시험(보리 계정 로그인된 getdrivelog.com에서, 오늘 2026-10-22·거래처 한진·CJ대한통운·롯데로 24-A와 같게, 재시도 없음·문장 사이 2초):
+
+| 말한 문장 | 결과 | 맞나 |
+|---|---|---|
+| 평택에서 용인 30만원 한진 | 운행, 10-22, 300000, 한진 (1.2초) | 맞음 |
+| 어제 수원 화성 15만 | 운행, 10-21, 150000 (1.5초) | 맞음 |
+| 주유 8만원 | 지출 (0.6초) | 맞음 |
+| 이번 달 매출 얼마야 | 질문 (0.6초) | 맞음 |
+| 오늘 날씨 어때 | 관계없음 (0.6초) | 맞음 |
+| 인천에서 부산까지 45만원 롯데 | 운행, 450000, 롯데 (1.1초) | 맞음 |
+| 그제 시화에서 반월 8만 5천 씨제이 | 운행, 10-20, 85000, CJ대한통운 (0.9초) | 맞음 |
+| 평택 용인 한진 | 운행, **운송료 0** (0.7초) | **틀림**(말 안 함 → 없음이어야, 앱엔 "0원") |
+| 정비소에서 타이어 교체 20만원 | 지출 (0.6초) | 맞음 |
+| 지난주 금요일 이천에서 광주 25만원 | 운행, 10-16, 250000, **거래처 한진** (1.0초) | **틀림**(말 안 한 거래처를 지어냄) |
+| 모레 안산에서 시흥 12만원 | 운행, **10-24** (0.8초) | **틀림**(앞날은 오늘 10-22이어야) |
+| 3일 전 김포 일산 9만 | 운행, 10-19, 90000 (1.3초) | 맞음 |
+| 지난 월요일 평택에서 천안 18만 한진 | 운행, 10-19, 180000, 한진 (0.9초) | 맞음 |
+| 이번 주 화요일 용인에서 수원 7만 | 운행, 10-20, 70000 (0.9초) | 맞음 |
+| 10월 15일 화성에서 오산 11만원 롯데 | 운행, 10-15, 110000, 롯데 (0.8초) | 맞음 |
+
+  **15/15 답 옴(503·429 0번), 0.6~1.5초** — Gemini(15개 중 7개 첫 번 실패, 1.4~12.5초)보다 확실히 좋음. 종류 15/15. 다만 칸까지 다 맞은 건 **12/15** — 말 안 한 칸을 채움 2번(운송료 0, 거래처 지어냄), 앞날 날짜 1번. Gemini는 답 온 13개 모두 맞음.
+
+### 수정 착수지시서 — 말 안 한 칸·앞날 날짜 `[ ]`
+- **쉬운 요약**: Grok은 빠르고 안 끊기지만, 말하지 않은 운송료를 0으로, 말하지 않은 거래처를 목록에서 골라 채우고, "모레"를 오늘로 안 바꿨습니다. ① 칸 모양에서 "말 안 했으면 비움(null)"을 AI가 분명히 고르게 하고 ② 앞날 날짜는 함수가 직접 오늘로 바꿉니다(계산이라 AI에 맡기지 않음 — 날짜 표와 같은 원칙).
+- **건드릴 파일**: `supabase/functions/unbiseo-parse/grok.ts` — 칸 모양에서 `date`·`loadLoc`·`unloadLoc`·`fare`·`client`를 "글자(또는 정수) 또는 null"로 두고 모두 필수(xAI 구조화 출력은 필수 칸을 꼭 채우므로 비울 땐 null을 고르게 됨), 지시문 한 줄 "말하지 않은 칸은 null — 운송료 0이나 목록 거래처로 채우지 마라"(110 → 약 115). `index.ts` `readAiAnswer` — `date`가 `today`보다 뒤면 `today`(132 → 약 133). null은 지금도 빈 칸·운송료 없음으로 읽음(`place`는 글자 아니면 빈 칸, `fare`는 정수 아니면 null — 그대로).
+- **안 건드릴 것**: 앱 `src/`, 날짜 표, 모델, 나머지 지시문.
+- **검증**: 저장소 밖 가짜 시험(null 칸 → 빈 칸·운송료 없음, 앞날 → 오늘), 다시 올린 뒤 같은 15문장 표 — 목표 15/15 칸까지 맞음. 그래도 말 안 한 칸을 채우면 다시 보고.
+- **실패 시 처리**: 새 장치 없음. 수정 커밋 1개 더. 다시 올리기·시험은 데스크톱 AI.
+- **진행 기록**(2026-10-23 터미널 AI, 보리가 두 수정 지시서 중 이것 먼저 고름, 커밋 전):
+  - `grok.ts`(110 → 112줄): 칸 모양에서 `date`·`loadLoc`·`unloadLoc`·`client`는 `['string', 'null']`, `fare`는 `['integer', 'null']`, `required`에 여섯 칸 모두(주석 1줄). 지시문 끝에 한 줄 "말하지 않은 칸은 null — 운송료 0이나 목록 거래처로 채우지 마라." 날짜 표·모델·나머지 지시문 그대로.
+  - `index.ts`(132 → 133줄): `readAiAnswer`에서 날짜가 오늘보다 뒤면 오늘(주석 1줄 — "앞날(내일·모레)은 오늘로 — 날짜 계산은 AI에 맡기지 않는다."). null 읽기는 그대로(글자 아니면 빈 칸, 정수 아니면 운송료 없음).
+  - 저장소 밖 가짜 시험(`24a/harness-grok.mjs`) 통과 — 기존 경우 전부 + 칸 모양(여섯 칸 필수·null 허용)·새 지시문 줄, null 칸 → 빈 칸·운송료 없음, 모든 칸 null → 날짜 오늘·빈 칸, 앞날(10-23·10-24·내년) → 오늘, 오늘·지난날·작년은 그대로, 지출에 null 칸이 와도 `{ kind: 'expense' }`. 날짜 표 시험·함수 타입 검사 통과, 앱 lint 49 그대로.
+  - 수정 커밋 react-app `c7932e1`(2026-10-23, 2개 파일, push 안 함).
+- 보리 push 뒤 CI 초록(run 39816790090, 앱 코드 안 바뀜). 데스크톱 AI가 관리 화면 편집기에서 두 파일을 커밋과 같게 고침(SHA-256 `grok.ts` `ed8470bf…`, `index.ts` `10bd6a3f…`) — "Deploy updates" 누르기는 Claude Code 권한 확인에서 막혀 **보리가 직접 배포**. 다시 불러온 서버 두 파일이 커밋과 같음.
+- 15문장 다시(같은 조건, 재시도 없음): **15/15 답 옴, 15/15 종류·날짜·칸 모두 맞음, 0.8~1.4초.** 틀렸던 셋 — "평택 용인 한진" 운송료 없음(null), "지난주 금요일 이천에서 광주 25만원" 거래처 빈 칸, "모레 안산에서 시흥 12만원" 10-22(오늘). 나머지 12개는 앞 시험과 같은 답. Gemini(답 온 13/15·1.4~12.5초)보다 정확도·속도·안정 모두 나음.
+- §5 리뷰(데스크톱 AI, 24-A2 전체 `42191bf`·`c7932e1`): ① 범위 — `supabase/functions/unbiseo-parse/` 두 파일(`gemini.ts` → `grok.ts`, `index.ts`)뿐, `src/`·DB 0 ② 몰래 증설 없음(재시도·저장 없음) ③ 타입 꼼수 0(xAI 응답은 `ChatAnswer` 모양으로 받되 칸마다 있으면 읽기, 끝에 `readAiAnswer`가 다시 확인) ④ 200줄 — `grok.ts` 112·`index.ts` 133 ⑤ 함수는 앱 CI 밖 — 저장소 밖 가짜 시험(터미널 AI)·진짜 서버 401·15문장 표 ⑥ 공용 영향 없음(앱은 함수 이름만) ⑦ 목표 1~5 충족 + 수정 지시서 목표(15/15 칸까지) 충족. 남은 것: 보리 휴대폰 확인 → 최종 승인.
 
 ## 로드맵 94 `.ts` 전환 — 남은 조각 (94-A·B·C `[x]`, D~G는 출시 전 순서 뒤)
 
