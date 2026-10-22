@@ -1,6 +1,6 @@
 # Agent handbook
 
-React 구현은 `react-app` 저장소. 보고·원칙은 이 저장소(`ubiquitous-parakeet`)에 둔다.
+React 구현은 `react-app` 저장소. 보고·원칙은 이 저장소(`drivelog-docs`)에 둔다.
 원본(바닐라) 앱 코드는 태그 `original-app-final`로 보존만 한다 — **AI는 읽지도, 대조하지도 않는다.**
 매 세션 이 파일 + 루트 `STATUS.md`를 읽는다. `docs/`는 §0에 해당할 때만 연다.
 루트에 새 보고 `.md`를 만들지 마라.

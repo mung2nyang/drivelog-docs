@@ -1,6 +1,6 @@
 # 단일진실원 (SoT)
 
-> 이전 파일명: `handoff-2026-08-30.md`. 대상: `react-app` (구현) + `ubiquitous-parakeet` (원칙·계획).
+> 이전 파일명: `handoff-2026-08-30.md`. 대상: `react-app` (구현) + `drivelog-docs` (원칙·계획).
 > 갱신일: 2026-09-11. "Step 8 미착수" 등 오래된 오기 3곳 삭제(보리 승인, 실제로는 Step 0~11 로드맵 전체 완료 — 상세는 `docs/report.md`, 지난 스냅샷은 git 이력).
 > 푸시는 별도 지시 전 하지 않는다. 신규 durable/fallback/unsafe/tombstone/큐 금지.
 
@@ -538,6 +538,16 @@ Step 8 전. `error TS\d+:` 테스트·지원 **384 → 314**(캡 355 이하). �
 - 콜이 있는 날을 휴무로 바꿀 때는 앱 확인 창으로 먼저 묻는다(`OffToggle.jsx` `confirmOffWithCalls`). 콜이 없거나 휴무를 끌 때는 묻지 않는다.
 - 이전 결정 F-03(`docs/finance-parity.md`, 2026-09-21 "휴무일도 합산")을 바꾼 것이다. 원본 앱은 달력만 합산하고 미수금·매출·내역서는 뺐다(화면마다 달랐음) — 이 결정으로 원본과 다르게 전부 뺀다.
 - react-app `7395b21`.
+
+## 4-14. 2026-10-21 — 부가세 끝전은 버림 (보리 결정, 로드맵 102, 아직 코드 안 바꿈)
+
+- 부가세 = 공급가 x 10%, **원 미만 버림**. 면세 운행은 0(그대로).
+- 지금 코드는 반올림(`Math.round`)이다 — 로드맵 102에서 바꾸기 전까지는 이 절과 코드가 다르다.
+- 모든 화면이 같은 끝전을 써야 한다. 지금 반올림하는 곳(6개 파일): `domain/monthSettlement.js`(달력),
+  `domain/financeOwnerDetail.js`(매출), `domain/day-record.js`(하루 화면), `domain/financeTaxInvoiceGroups.js`(세금계산서),
+  `features/documents/api/reportDetail.js`(운송비 내역서), `features/day-log/ui/CallDetailForm.jsx`(입력 창 미리보기).
+- 정하지 않은 것: 건마다 버리는지(지금 코드는 건마다 계산) 합계에서 한 번 버리는지 — 착수 때 보리 결정.
+- 근거: 다른 운송·정산 앱(화물노트, 날라 TMS)은 버림. 비교는 `docs/external-calc-comparison.md` 3절 1번.
 
 ## 5. 남은 단일 진실원
 
