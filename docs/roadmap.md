@@ -476,7 +476,7 @@ GPS 같은 기능을 자문 뒤에 넣으면 자문을 다시 받아야 해서(�
 90. ~~**알림 숫자를 손으로 다시 세게 하는 방식 → 구독으로**~~ `[x]` react-app `8aa427a`(2026-10-19, `useNotifications` 훅, 신호 줄 삭제, 남은 일지 쪽 빈 칸은 91번) (⑤) — `lib/notifications.js` `collectNotifications`가 Store를 구독하지 않고 직접 꺼내 읽어서,
     화면 31곳이 `onWorkChanged`/`bumpNotifTick`을 손으로 불러야 숫자가 바뀜(한 곳 빠뜨리면 숫자가 옛값). `app/AppShell.jsx:114` `useMemo`가 안 쓰는 `notifTick`·`drivers`·`settings`를 의존성에 넣어 억지로 다시 계산.
     알림을 구독 훅 하나로 → 손으로 부르던 31곳 삭제.
-91. **일지 저장 훅 `components/day-log/useDayDraft.js` 단순하게** (⑥) — `useRef` 10개, 저장 길 두 갈래(서버/기기), 기기 저장 실패용 장치 4종(대기 큐·"안전하지 않음" 표시·대기 주인·활동 등록)이 얽힘.
+91. ~~**일지 저장 훅 `components/day-log/useDayDraft.js` 단순하게**~~ `[x]` react-app `73e2a52`(2026-10-22, `features/day-log/hooks/dayDraftLifecycle.js` `createDayDraftSaver`로 모음, 훅 195 → 63줄, `onCommitted`·`onWorkChanged`·`useMountedRef` 지움 — sot §3 그대로 `[확인: 2026-10-22 보리 — "가"]`) (⑥) — `useRef` 10개, 저장 길 두 갈래(서버/기기), 기기 저장 실패용 장치 4종(대기 큐·"안전하지 않음" 표시·대기 주인·활동 등록)이 얽힘.
     200줄을 맞추려 훅 안 상태를 밖으로 꺼내 `commitLocalDayWrite`에 값 14개(ref 5개 포함)를 넘김(`useDayDraft.js:93`) — 같이 읽어야 할 코드가 갈라짐. `useMountedRef` 패턴도 같이 정리.
     **착수 전 `docs/sot.md` §3 "기존 일지 durable/fallback/unsafe/tombstone 걷어내지 않음" 결정을 바꿔야 함 — 보리 결정.** 바꾸지 않으면 훅 정리(ref·인자 줄이기)만.
     **같이 지움(90번 뒤)**: 90번에서 알림 다시 세기 신호를 없애면 `DayLogPage.jsx`의 `onWorkChanged` 칸·`useDayDraft`의 `onCommitted` 인자·`dayDraftLifecycle.js`의 `onCommittedRef`가 받기만 하고 비게 됨 — 이 훅을 다시 짤 때 함께.
