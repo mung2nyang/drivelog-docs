@@ -1,75 +1,80 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-## 로드맵 101-B 지출 입력 흐름 한 벌로 `[x]`
+> 다음 작업 커밋에 같이 넣을 것(보리 지시 2026-10-22): react-app의 `CLAUDE.md`, `privacy-draft/privacy.html`, 지워진 `design-assets/assistant/unbiseo-basic-original.png`. 같은 그림이 이 저장소 `design-assets/`에 아직 커밋 안 된 채 있음 — 102 문서 커밋에 같이.
 
-보리 지시 "진행해"(2026-10-21). 101 분리설계는 승인됨(`git show e1c2775:docs/report.md`의 "분리설계" 절, `[확인: 2026-10-21 보리 — "권하는대로 101-A, 101-B 둘로"]`). 101-A `[x]`(react-app `f9cd2ec`) 뒤 그 설계 그대로. 다음은 102(부가세 버림).
+## 로드맵 102 부가세 끝전 반올림 → 버림 `[x]`
 
-> **진행(2026-10-22, 데스크톱 AI — 터미널 AI가 첫 단계에서 멈춰 보리 지시 "101-B 이어서 해줘"로 이어받음)** `[x]` 코드 커밋 react-app `3aa8bfa`, CI 초록, 보리 최종 승인(2026-10-22).
-> - 터미널 AI가 남긴 것: 일지 비용 저장 성공 테스트(`App.guestDurable.test.js`) + 확인용 줄. 확인용 줄 걷어냄.
-> - 지시서와 다른 점 2개: ① 그 테스트의 "창 닫힘" 확인을 `#expenseName` 없음 → 칸 `.maint-fuel-inline-host`의 `aria-hidden="true"`로(일지 칸은 닫히는 애니메이션이 끝날 때까지 내용을 남기고, 테스트 환경엔 애니메이션 끝이 없음. 옛 확인은 틀리면 화면 요소 전체를 글로 풀다 메모리가 넘쳐 다른 테스트 뒤에서 멈췄음). ② `MaintFuelPage.test.js`가 저장 파일 전체를 가짜로 바꿔 끼우던 것을 실제 저장 함수 + 기기 저장소 지출 키 쓰기 막기로(가짜엔 새 함수가 없어 불러오기부터 실패) — 7개 테스트 내용은 그대로.
-> - 테스트 먼저: 일지 성공 테스트가 바꾸기 전 코드에서 통과 확인 뒤 코드 수정.
-> - 한 일: `expenseToDraft`(domain/expenseDraft.js 99 → 116), `saveExpenseDraft`·`deleteExpense`(data/sync/expensesSave.js 58 → 101, 최신 목록은 `getState()`로), `useExpenseForm.js` 100 → 75, `MaintFuelPage.jsx` 153 → 126. 목표 4 grep(`readOwnerExpenses`·`upsertExpense`·`saveExpenses`가 두 화면 파일에서) 0. 새 테스트: `expenseToDraft` 2개, `data/sync/expensesSave.draft.test.js` 6개.
-> - 결과: `npm test` unit 874·app 662 전부 통과, 타입 검사·빌드·`npm run depcheck`(위반 0) 통과, lint 경고 50 그대로(바뀐 파일엔 0).
-> - 브라우저 확인(2026-10-22, 데스크톱 AI, 개발 서버 5174, 비회원 — 보리 지시): 차량 유지비 빈 칸 저장 "항목명 또는 비용을 입력해 주세요." → "확인용정비" 12,345원 저장 "내역을 등록했습니다."·목록에 생김 → 수정 창에 내역 날짜·값 그대로, 이름 바꿔 저장 "내역을 수정했습니다." → 삭제 "내역을 삭제했습니다."·"이번 달 등록된 정비 내역이 없습니다.". 운행일지 10월 22일 [+ 정비 추가] → "일지확인용" 5,000원 저장 "내역을 등록했습니다."·칸 닫힘·기기 저장 날짜 2026-10-22 → 수정 칸 날짜 2026-10-22 잠김, 6,000원 저장 "내역을 수정했습니다." → 삭제하면 빠짐(성공 알림 없음 — 전과 같음). 콘솔·서버 오류 0건. 넣은 데이터와 비회원 표시는 브라우저 저장소에서 지워 되돌림.
-> - 코드 커밋 react-app `3aa8bfa`(2026-10-22, 101-B 파일 8개만, push 안 함 — push는 보리).
-> - push 뒤 CI verify·deploy 초록(run 39707905479).
-> - §5 리뷰(데스크톱 AI): ①범위 = 지시서 "건드릴 파일" + `MaintFuelPage.test.js`(지시서와 다른 점 ②로 적음) ②새 파일은 지시서의 `expensesSave.draft.test.js` 하나, 새 저장 키·층 0 ③타입 꼼수 0(커밋 추가 줄 grep) ④`expenseDraft.js` 116·`expensesSave.js` 101·`useExpenseForm.js` 75·`MaintFuelPage.jsx` 126 ⑤지운 테스트·단언 0(바뀐 건 가짜 저장 파일 줄과 일지 "닫힘" 확인 방법) ⑥새 함수 3개를 부르는 곳은 두 화면뿐(grep), `saveExpenses` 본문 그대로 ⑦목표 1~6 대조 — 4번 grep 0, 6번 depcheck 위반 0.
-> - 다음 작업 커밋에 같이 넣을 것(보리 지시 2026-10-22): react-app의 `CLAUDE.md`, `privacy-draft/privacy.html`, 지워진 `design-assets/assistant/unbiseo-basic-original.png`.
-> - 보리 최종 승인(2026-10-22). **101번 끝.** 다음 102(부가세 버림).
+> **결정 `[확인: 2026-10-22 보리 — "건마다 버림으로. 착수지시서 확정, 작업 진행해"]`**: 버리는 단위는 건마다(고정·파렛트는 날마다). 커밋은 보리 지시 뒤.
+
+> **진행(2026-10-22, 데스크톱 AI)** `[x]` 코드 커밋 react-app `db5ea29`, CI 초록, 보리 최종 승인(2026-10-22).
+> - 테스트 먼저: 반올림 값을 못 박은 3개를 버림 값으로(12,468·2,714·12,468, 이름 "반올림" → "버림"), 새 `domain/vatFloor.test.js`(`vatOf`·하루 화면·매출·세금계산서 묶음 4개), `CallDetailForm.test.js`에 미리보기 15,555원 → 17,110원 1개. 고치기 전 코드에서 전부 실패 확인(예: 미리보기 17,111원).
+> - 한 일: `domain/money.js`에 `vatOf`(62 → 67줄), 6개 파일 13곳 `Math.round(x * 0.1)` → `vatOf(x)`, 가져오기는 기존 `parseCurrencyValue` 줄에 붙임(줄 수 그대로). `reportDetail.js` 줄 끝 주석 "건마다 버림". grep `* 0.1` 앱 코드에서 0.
+> - 결과: unit 878 통과, app 663 중 1개 실패 → `PersonalInfoPage.typing.test.js` "칸을 벗어나면 0.7초를 안 기다리고 바로 저장"(이번에 안 건드린 파일, 시간 재는 테스트 — 브라우저 확인과 동시에 돌던 때). 그 파일만 3번 다시 돌려 3번 다 통과, app 묶음 다시 돌려 663 전부 통과. 타입 검사·빌드·`npm run depcheck`(위반 0) 통과, lint 경고 50 그대로.
+> - 브라우저 확인(개발 서버 5174, 비회원, "운행일지 세부 입력" 잠깐 켬): 10월 22일 콜 운송료 15,555원 → 입력 창 "부가세 포함 17,110원" → 하루 화면 부가세 1,555원·합계 17,110원 → 달력 월간 정산·매출(당월 부가세)·세금계산서 작성 전(세액)·운송비 내역서 전체·세부 내역 모두 1,555원/17,110원. 150,000원 → 15,000원은 `vatOf` 테스트로 확인(화면으로는 안 함). 콘솔 오류 0건. 넣은 콜·설정·비회원 표시는 브라우저 저장소에서 지워 되돌림.
+> - 코드 커밋 react-app `db5ea29`(2026-10-22, 102 파일 11개 + 보리 지시로 `CLAUDE.md`·`privacy-draft/privacy.html`·지운 그림 1개, push 안 함 — push는 보리).
+> - push 뒤 CI verify·deploy 초록(run 39710815533).
+> - §5 리뷰(데스크톱 AI): ①범위 = 지시서 "건드릴 파일"(react-app 7개 + 테스트 4개) + 보리 지시 세 파일 ②새 파일은 `domain/vatFloor.test.js` 하나, 새 저장 키·층 0 ③타입 꼼수 0(커밋 추가 줄 grep) ④`money.js` 67, 나머지 6개 파일 줄 수 그대로(최대 `day-record.js` 199) ⑤지운 테스트 0 — 빠진 줄은 반올림 값·이름을 버림으로 바꾼 3개뿐(규칙 변경) ⑥`vatOf` 쓰는 곳 13곳 + 가져오기 6줄, grep `* 0.1` 앱 코드 0 ⑦목표 1~6 대조 — 15,555원이 다섯 화면 모두 1,555원(브라우저), 저장 데이터 손대지 않음.
+> - 보리 최종 승인(2026-10-22). 다음 100(타입 3개를 `domain/`으로).
+
+보리 지시 "102번 부가세 버림 착수지시서 써줘"(2026-10-22). 규칙 sot §4-14, 로드맵 102 `[확인: 2026-10-21 보리 — "버림으로 바꾼다"]`. 101 끝난 바로 뒤.
 
 ### 쉬운 요약
-- 차량 유지비 화면과 운행일지 비용 칸이 "고치기 창 열 때 내역 옮겨 담기, 최신 목록 다시 읽고 저장, 실패하면 같은 알림"을 각자 똑같이 갖고 있습니다. 이 부분을 한 곳에 두고 두 화면이 같이 씁니다.
-- 화면 모양, 알림 문구, 저장되는 값은 그대로입니다. 두 화면이 진짜로 다른 점(일지는 날짜 고정·종류 고르기 창, 유지비는 날짜 자유·삭제 성공 알림)은 각자 남깁니다.
+- 부가세(운송료의 10%)에서 1원 미만을 지금은 반올림합니다. 이것을 버림으로 바꿉니다. 예: 운송료 15,555원이면 부가세 1,556원 → 1,555원.
+- 부가세를 계산하는 곳이 6개 파일 13곳이라, 한 곳에 "부가세 계산" 함수를 두고 모두 그걸 쓰게 합니다. 일부만 바꾸면 화면끼리 1원씩 어긋나기 때문입니다.
+- 운송료가 10원 단위로 끝나는 보통 경우(예: 150,000원)는 값이 그대로입니다. 1원 단위가 5~9로 끝나는 운송료만 1원 줄어듭니다.
 
-### 현재 상태 (코드 확인, react-app `f9cd2ec`)
-- 내역 → 입력값 바꾸기 두 벌: `features/expenses/ui/MaintFuelPage.jsx:75~91` `openEdit`(날짜는 내역 날짜, `liters: item.liters || ''`) ↔ `features/day-log/hooks/useExpenseForm.js:53~65`(날짜는 그날 `dateKey`, `liters: String(item.liters || '')`). 나머지 칸 9개는 같은 식.
-- 저장 두 벌: 둘 다 `readOwnerExpenses(ownerKey)` → `upsertExpense` → 검사 문구면 알림 → `saveExpenses` → 실패면 `console.error('비용 저장 실패:')` + `saveFailMessage(getCloudOwnerKey() === ownerKey)` 알림·창 유지 → 성공이면 창 닫고 "내역을 수정했습니다."/"내역을 등록했습니다."(`MaintFuelPage.jsx:93~102`, `useExpenseForm.js:77~91`). 넘기는 입력값만 다름: 유지비 `{ ...draft, kind: draft.kind || kind }`, 일지 `{ ...draft, date: dateKey }`.
-- 삭제 두 벌: 최신 목록에서 빼고 저장, 실패면 같은 알림. 다른 점: 유지비만 성공 알림 "내역을 삭제했습니다."(`MaintFuelPage.jsx:105~108`), 실패 콘솔 앞말이 유지비 `비용 저장 실패:`(`:62`)·일지 `비용 삭제 실패:`(`useExpenseForm.js:72`).
-- 빼는 목록 함수도 두 벌: 유지비 `removeExpense`(`domain/expenseDraft.js:97~99`), 일지는 같은 식을 직접 `filter`(`useExpenseForm.js:70`).
-- `readOwnerExpenses`를 쓰는 화면 파일은 이 두 개뿐(grep, 그 밖은 백업·복원·내역서 — 범위 밖). `readOwnerExpenses`는 `getState().expenses[ownerKey] || EMPTY_EXPENSES`(`data/store/ownerDataHooks.js:21~23`)라, `data/sync/expensesSave.js`는 이미 쓰는 `getState()`로 같은 값을 읽을 수 있음(훅 파일을 안 불러도 됨).
-- `data/sync`가 `shared/utils/failureMessages.js`를 부르는 곳이 이미 10개 파일(grep `failureMessages` in `data/`) — 층 규칙 안.
-- 테스트: 유지비 `MaintFuelPage.test.js` 7개(등록·수정·삭제 성공 알림, 저장 실패 포함). 일지 비용 저장·삭제 실패 `app/App.guestDurable.test.js:551`·`:608`(콘솔 앞말을 셈). **일지 비용 저장 성공 알림 테스트는 없음**(grep "내역을 등록했습니다" — 유지비·알림 띄우기 테스트뿐).
+### 확인할 점 (하나 — 착수 전 보리 결정)
+- **버리는 단위**: 지금처럼 **운행 건마다**(고정 노선·파렛트는 날마다) 버린 뒤 더함 / 세금계산서처럼 **합계에서 한 번** 버림.
+  - **권함: 건마다(지금 구조 그대로).** 바꾸는 것이 "반올림 → 버림" 하나뿐이라 달력·매출·하루 화면·내역서·세금계산서가 지금처럼 서로 같은 값입니다.
+  - 합계에서 한 번으로 바꾸면 홈택스에 한 줄로 올리는 세금계산서와는 맞기 쉽지만, 세금계산서 세액과 달력·매출 부가세 합이 건수만큼 몇 원씩 달라지고 6개 파일의 계산 순서를 다 바꿔야 합니다. 원하시면 따로 슬라이스로.
+- 아래 내용은 "건마다"로 썼습니다.
+
+### 현재 상태 (코드 확인, react-app `3aa8bfa`)
+- `Math.round(x * 0.1)` 13곳(grep `* 0.1` — 앱 코드에서 부가세 계산은 이것뿐, `* 1.1`·`/ 1.1` 없음):
+  - `domain/monthSettlement.js:97,117,123`(달력 정산 — 고정·파렛트 날마다, 콜 건마다)
+  - `domain/financeOwnerDetail.js:79,87,104`(매출)
+  - `domain/day-record.js:117`(`callVatTotal`, 하루 화면)·`:138`(`monthWorkFareSummary` — 앱에선 안 쓰고 테스트만 부름, grep)
+  - `domain/financeTaxInvoiceGroups.js:67,78,171`(세금계산서 묶음, 기사 세금계산서)
+  - `features/documents/api/reportDetail.js:105`(운송비 내역서)
+  - `features/day-log/ui/CallDetailForm.jsx:61`(콜 입력 창 "부가세 포함 N원" 미리보기)
+- 6개 파일 모두 이미 `domain/money.js`에서 `parseCurrencyValue`를 가져옴(grep) — 같은 줄에 하나 더 가져오면 줄 수 그대로.
+- 세금계산서 목록은 열 때마다 다시 계산한 값이 저장값을 덮음(`domain/financeTaxInvoiceEntries.js:95~96` `...saved, ...group`). 서버에 이미 저장된 세금계산서의 세액(`tax_amount`)은 다시 저장할 때까지 옛 값.
+- 반올림을 못 박은 테스트 3개: `domain/monthSettlement.test.js:250`(12,470원)·`:263`(고정·파렛트 2,718원), `features/documents/api/report.test.js:376`(12,470원).
 
 ### 목표 상태 (기대 동작)
-1. `domain/expenseDraft.js`에 `expenseToDraft(item, date = item.date)` — 내역 → 입력값. `liters`는 `String(item.liters || '')`(일지 방식, 유지비 칸 표시·저장 값 같음 — `upsertExpense:61`이 `parseFloat(String(...))`로 읽음).
-2. `data/sync/expensesSave.js`에 `saveExpenseDraft(ownerKey, draft, editingId)`·`deleteExpense(ownerKey, id)`. 둘 다 `Promise<string|null>` — 알림에 띄울 문구(검사 문구 또는 실패 문구), 성공이면 `null`. 최신 목록은 `getState().expenses[ownerKey] || []`로 다시 읽고 `upsertExpense`/`removeExpense` → `saveExpenses`. 콘솔 앞말은 저장 `비용 저장 실패:`·삭제 `비용 삭제 실패:`.
-3. 두 화면은 위 함수를 부르고 알림만 띄움. 창 닫기·성공 알림·일지 종류 고르기 창(420ms)·날짜 고정·유지비 삭제 성공 알림은 화면에 그대로.
-4. grep `readOwnerExpenses`·`upsertExpense`·`saveExpenses`가 `MaintFuelPage.jsx`·`useExpenseForm.js`에서 0.
-5. 알림 문구·저장 값·창 닫힘·화면 모양 변화 0. 바뀌는 것은 유지비 **삭제 실패 콘솔 앞말** `비용 저장 실패:` → `비용 삭제 실패:` 하나(화면에 안 보임, 일지와 맞춤).
-6. `npm run depcheck` 위반 0, 허용 예외 목록 그대로.
+1. `domain/money.js`에 `vatOf(amount)` = `Math.floor(amount / 10)`(공급가의 10%, 원 미만 버림. `* 0.1` 대신 `/ 10`이라 소수 오차 없음).
+2. 13곳이 모두 `vatOf(...)`를 씀. grep `\* 0.1`이 앱 코드(테스트 빼고)에서 0.
+3. 건마다(고정·파렛트는 날마다) 버리는 단위는 그대로. 면세는 0 그대로.
+4. 예: 운송료 15,555원 → 부가세 1,555원, 합계 17,110원(하루 화면·달력·매출·내역서·세금계산서·입력 창 미리보기 모두 같음). 150,000원 → 15,000원(변화 없음).
+5. 반올림을 못 박은 테스트 3개는 버림 값으로 고침(규칙이 바뀌어서 — 약화 아님): 12,470 → 12,468, 2,718 → 2,714(고정 1,234×2 + 파렛트 123×2), 12,470 → 12,468. 테스트 이름의 "반올림"도 "버림"으로.
+6. 이미 저장된 세금계산서·일지 데이터는 고치지 않음(화면은 다시 계산한 값을 보임).
 
 ### 건드릴 파일
-- `domain/expenseDraft.js` — `expenseToDraft` 추가
-- `data/sync/expensesSave.js` — `saveExpenseDraft`·`deleteExpense` 추가(`upsertExpense`·`removeExpense`·`saveFailMessage` 가져오기)
-- `features/day-log/hooks/useExpenseForm.js` — `persist` 지움, `openEdit`·`save`·`remove` 본문을 위 함수 부르기로
-- `features/expenses/ui/MaintFuelPage.jsx` — 같음
-- 테스트: `domain/expenseDraft.test.js`(`expenseToDraft`), 새 `data/sync/expensesSave.draft.test.js`(검사 문구·성공 `null`·실패 문구·콘솔 앞말), `app/App.guestDurable.test.js`(일지 비용 저장 성공 테스트 1개 — 551줄 실패 테스트와 같은 준비)
+- react-app: `domain/money.js`(`vatOf` 추가), 위 6개 파일(가져오기 + 13곳 바꾸기), `reportDetail.js:105` 줄 끝 주석 "건마다 반올림" → "건마다 버림"
+- 테스트: `domain/money.test.js`(있으면, 없으면 새로)에 `vatOf`, `domain/monthSettlement.test.js`·`features/documents/api/report.test.js`(값·이름), 하루 화면 `callVatTotal`·매출·세금계산서 묶음·입력 창 미리보기에 15,555원 테스트 하나씩(있는 테스트 파일 옆에)
+- 같이 커밋(보리 지시): react-app `CLAUDE.md`, `privacy-draft/privacy.html`, 지워진 그림 1개
+- 문서(`[x]` 때): sot §4-14 "아직 코드 안 바꿈"·"정하지 않은 것" 줄 정리, 로드맵 102 `[x]`, 이 저장소 `design-assets/`
 
 ### 안 건드릴 것
-- `saveExpenses` 본문(서버 칸 나누기), `upsertExpense`·`removeExpense`·`emptyExpenseDraft`·`checkExpenseDraft` 본문, `ExpenseFormModal.jsx`, 일지 `DayLogExpenses`·`ExpenseSelectPanel`·`inlinePanelActions`, `readOwnerExpenses`를 쓰는 백업·복원·내역서(`features/account/api/*`·`features/documents/api/reportSummary.js`), 새 공용 훅(두 화면 창 상태가 달라 함수로 충분 — 분리설계 결정).
+- 수수료·산재·3.3% 끝전(`driverIncomeDeductions.js`의 `floorWon` 등 — 부가세 아님), 운송료 입력 반올림(43번), 미수금 계산(부가세 안 넣음, sot), 저장된 데이터(DB·기기), 세금계산서 엑셀 만들기(`taxInvoiceExcelBuilder.js` — 받은 `taxAmount`를 그대로 씀), `monthWorkFareSummary`가 고정 노선을 달 합계에서 한 번 계산하는 방식(앱에서 안 씀 — 끝전만 바꿈).
 
 ### 검증
-- **테스트 먼저**: 일지 비용 저장 성공 테스트를 바꾸기 전 코드에서 통과시켜 둠(지금 동작 고정). 기존 유지비 7개·일지 실패 2개는 그대로 통과해야 함(고치거나 약하게 하지 않음).
-- 새 함수 테스트: 검사 문구, 성공 `null`·저장소 반영, 저장 실패 문구·저장소 그대로, 삭제 콘솔 앞말 `비용 삭제 실패:`.
-- `npm test`·타입 검사·빌드·`npm run depcheck` 통과.
+- **테스트 먼저**: 위 5번 값 고침 + 새 15,555원 테스트를 먼저 써서 지금 코드에서 실패하는지 확인(반올림이라 1,556이 나와야 실패) → 코드 수정 → 통과.
+- `npm test`·타입 검사·빌드·`npm run depcheck` 통과, lint 경고 수 그대로.
+- 브라우저: 아래 "사용자 확인 방법".
 
 ### 파일 길이
-- `domain/expenseDraft.js` 99 → 약 117
-- `data/sync/expensesSave.js` 58 → 약 90
-- `features/day-log/hooks/useExpenseForm.js` 100 → 약 78
-- `features/expenses/ui/MaintFuelPage.jsx` 153 → 약 125
-- 전부 200줄 이하, 나누기 설계 필요 없음.
+- `domain/money.js` 62 → 약 65, `day-record.js` 199 → 199, `CallDetailForm.jsx` 194 → 194, `financeOwnerDetail.js` 175·`financeTaxInvoiceGroups.js` 176·`monthSettlement.js` 161·`reportDetail.js` 122 → 그대로(가져오기는 기존 줄에 붙임). 전부 200줄 이하.
 
 ### 코드에 넣을 주석(최종 문구)
-- `useExpenseForm.js` 3줄째: `// 화면은 useOwnerExpenses로 구독하고, 저장·삭제는 saveExpenseDraft·deleteExpense(최신 목록을 다시 읽어 고침).` — 27~31줄 `persist` 설명 주석은 `persist`와 같이 지움. 83~84줄 "모달을 안 닫는다" 주석은 남김.
-- `expensesSave.js` 새 함수 위: `/** 입력값을 최신 목록에 반영해 저장. 알림 문구(검사·실패)를 돌려주고, 성공이면 null. */`, `/** 최신 목록에서 빼고 저장. 실패 문구를 돌려주고, 성공이면 null. */`
-- `expensesSave.js` 머리 주석: `// 지출 저장(saveExpenses)과 두 화면이 같이 쓰는 입력값 저장·삭제. 화면 읽기는 useOwnerExpenses, 계산 규칙은 domain/expenses.js.`
+- `money.js` `vatOf` 위: `/** 부가세 = 공급가의 10%, 원 미만 버림(sot §4-14). 화면마다 같은 값이 나오게 부가세는 모두 이 함수로. */`
 
 ### 실패 시 처리
-- 새 저장 장치·재시도·임시 보관 없음. 저장 실패는 지금처럼 알림 + 창 유지 + 저장소 그대로. 검증에서 실패하면 코드는 그대로 두고 이 파일에 수정 착수지시서를 써서 다시 승인받음.
+- 새 저장 장치·재시도·데이터 고치기 없음. 검증이 실패하면 코드는 그대로 두고 이 파일에 수정 착수지시서를 써서 다시 승인받음.
 
 ### 사용자 확인 방법
-1. 차량 유지비 → [+ 추가] → 빈 칸으로 저장: "항목명 또는 비용을 입력해 주세요."
-2. 항목명·비용 넣고 저장: "내역을 등록했습니다.", 목록에 생김 → 눌러 고치고 저장: "내역을 수정했습니다." → 삭제: "내역을 삭제했습니다.", 목록에서 빠짐.
-3. 운행일지 아무 날 → [+ 정비 추가] → 항목명·비용 넣고 저장: "내역을 등록했습니다.", 그날 정비 칸에 보임 → 고치기 창 날짜가 그날로 나옴 → 삭제하면 빠짐(성공 알림 없음 — 지금과 같음).
-4. 넣은 확인용 내역은 지워서 되돌림.
+1. 운행일지 아무 날 → 콜 추가 → 운송료 15,555 입력: 입력 창에 "부가세 포함 17,110원"(지금은 17,111원).
+2. 저장 → 하루 화면 부가세 1,555원.
+3. 달력 그 달 정산·매출 화면·운송비 내역서·세금계산서 작성 목록에서 그 콜의 부가세가 모두 1,555원으로 같음.
+4. 운송료 150,000원 콜은 부가세 15,000원 그대로.
+5. 넣은 확인용 콜은 지워서 되돌림.

@@ -506,7 +506,7 @@ GPS 같은 기능을 자문 뒤에 넣으면 자문을 다시 받아야 해서(�
 101. ~~**지출 입력 흐름 두 벌을 한 벌로 + `domain/expenses.js`(203줄) 나누기**~~ `[x]` 조각 모두 끝(2026-10-22, 마지막 101-B react-app `3aa8bfa`) (⑥) `[확인: 2026-10-21 보리 — 97·99 착수 때 "권하는대로", 99 다음·100 앞]` — 차량 유지비 화면(`features/expenses/ui/MaintFuelPage.jsx`)과 일지 `features/day-log/hooks/useExpenseForm.js`가 내역 → 입력값 바꾸기·저장 실패 알림·삭제를 각자 가짐(날짜 고정 여부·삭제 알림만 다름).
      합칠 자리인 `domain/expenses.js`가 이미 200줄을 넘고 §6 예외 표시도 없음. 착수 때 §6 분리설계부터.
      분리설계·나누기 `[확인: 2026-10-21 보리 — "권하는대로 101-A, 101-B 둘로"]`: ~~**101-A** `domain/expenses.js`의 입력값·검사·목록 고치기 → 새 `domain/expenseDraft.js`(경로만)~~ `[x]` react-app `f9cd2ec`(2026-10-21, 203 → 108줄 + `expenseDraft.js` 99줄, 옮긴 본문 그대로) → ~~**101-B** 내역 → 입력값 바꾸기 `expenseToDraft`(domain), 저장·삭제 `saveExpenseDraft`·`deleteExpense`(`data/sync/expensesSave.js`)를 두 화면이 같이 씀(새 공용 훅은 안 만듦)~~ `[x]` react-app `3aa8bfa`(2026-10-22, `useExpenseForm` 100 → 75줄·`MaintFuelPage` 153 → 126줄, 일지 비용 저장 성공 테스트 먼저). **101번 끝.**
-102. **부가세 끝전 반올림 → 버림** (②) `[확인: 2026-10-21 보리 — "버림으로 바꾼다", 등재 지시]` — 규칙은 sot §4-14. 지금은 6개 파일이 공급가 x 10%를 반올림(`Math.round`).
+102. ~~**부가세 끝전 반올림 → 버림**~~ `[x]` react-app `db5ea29`(2026-10-22, `domain/money.js` `vatOf` 하나로 13곳, 건마다 버림 `[확인: 2026-10-22 보리]`) (②) `[확인: 2026-10-21 보리 — "버림으로 바꾼다", 등재 지시]` — 규칙은 sot §4-14. 그전엔 6개 파일이 공급가 x 10%를 반올림(`Math.round`).
      바꿀 곳: `domain/monthSettlement.js`, `domain/financeOwnerDetail.js`, `domain/day-record.js`, `domain/financeTaxInvoiceGroups.js`, `features/documents/api/reportDetail.js`, `features/day-log/ui/CallDetailForm.jsx` — 일부만 바꾸면 화면끼리 1원씩 어긋남.
      착수 때 정할 것: 건마다 버림(지금 방식 유지) / 합계에서 한 번 버림. 착수지시서는 보리 지시 뒤. 순서: 101-B 바로 뒤, 100 앞(돈 금액이라 ⑥보다 먼저, 하던 101-B는 먼저 마무리).
 
