@@ -1,88 +1,74 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-23-B 지시서·기록은 drivelog-docs `4e692ce`(23-A는 `ac81245`, 103은 `27aa8b3`).
+23-C 지시서·기록은 drivelog-docs `aedd08d`(23-B는 `4e692ce`, 23-A는 `ac81245`).
 
-## 로드맵 23-C 문의 알림(앱 안) — 사용자 "답변 도착"·관리자 "새 문의" `[x]` `[확인: 2026-10-22 보리 — "휴대폰에서 답변 도착 알림 확인했어, 23-C [x] 승인"]`
+## 로드맵 23-D 답변 자주 쓰는 문구 버튼 `[x]` `[확인: 2026-10-22 보리 — "승인"(문구 네 개·글 끝에 붙이기·버튼 36px 그대로)]`
 
-보리 지시(2026-10-22, 23-B `[x]` 뒤): "23-C 문의 알림 착수지시서 작성해". 로드맵 23-C `[확인: 2026-10-22 보리 — "응 그렇게 하자"]`(메일 알림 대신 앱 안 알림). 서버는 23-A로 끝 — 이번엔 앱만, DB 변경 없음.
+보리 지시(2026-10-22, 23-C `[x]` 뒤): "23-D 답변 문구 버튼 착수지시서 작성해". 로드맵 23-D `[확인: 2026-10-22 보리 — "가안으로, 순서는 권하는대로"]`(문구는 앱 코드에, 서버·저장 없음). **23번 마지막 조각.** 서버 변경 없음.
 
-### 정한 것 (셋) `[확인: 2026-10-22 보리 — "권하는대로 지시서 작성해줘"]`
-1. **사용자 "답변 도착"이 사라지는 때** — 지금 다른 알림처럼 [닫기]를 누르면 사라짐. 관리자가 답변을 **수정하면 다시 뜸**(바뀐 답을 봐야 하니). 누르면 고객센터 **"나의 문의/건의 확인" 탭이 바로** 열림. (탭을 열기만 해도 사라지게 하는 안은 안 함 — 본 기록을 따로 남겨야 해서.)
-2. **관리자 "새 문의"** — 문의마다가 아니라 **한 줄로 "답변 대기 문의 N건"**. [닫기]를 눌러도 **새 문의가 들어오면 다시 뜸**, 모두 답하면 사라짐. 누르면 관리자 화면.
-3. **"알림 받기" 스위치** — "문의 답변 도착"(로그인 계정 모두) 추가, "새 문의"(관리자 계정에만 보임) 추가. 다른 알림처럼 끌 수 있음.
+### 확인할 점 (둘)
+1. **문구 네 개** — 아래 초안 그대로 쓸지, 바꿀 문장이 있는지. 버튼에 보이는 이름은 앞의 짧은 말.
+   - 인사: "안녕하세요, 운행일지입니다."
+   - 맺음: "이용해 주셔서 감사합니다."
+   - 건의 감사: "소중한 의견 감사합니다. 검토 후 반영하겠습니다."
+   - 오류 사과: "불편을 드려 죄송합니다. 확인 후 바로 고치겠습니다."
+2. **넣는 자리** — 권함: 누르면 **글 칸 맨 끝에 붙음**(이미 글이 있으면 줄을 바꿔서). 인사 → 본문 → 맺음 순서로 누르면 그대로 한 답변이 됨. (다른 안: 인사는 늘 맨 앞, 맺음은 늘 맨 뒤 — 규칙이 늘어남.)
 
 ### 쉬운 요약
-- 앱을 켜거나 화면을 옮길 때 서버에 물어봐서, 문의한 사람에게는 "문의에 답변이 도착했습니다", 보리(관리자)에게는 "답변 대기 문의 N건"을 알림 목록과 종 숫자에 띄웁니다.
-- 앱을 열어야 보입니다(앱이 꺼져 있을 때 휴대폰을 울리는 푸시는 11번 앱 포장 때).
-- 서버·문의 화면·답변 방식은 그대로입니다.
+- 관리자 화면에서 "답변하기"/"답변 수정"을 누르면 글 칸 위에 문구 버튼 네 개가 생깁니다. 누르면 그 문장이 글 칸에 들어가고, 이어서 고쳐 쓸 수 있습니다.
+- 문구는 앱 안에 적어 두며, 바꾸려면 코드를 고칩니다. 사용자 화면·서버는 그대로입니다.
 
 ### 현재 상태 (확인 근거)
-- 알림 목록은 `features/notifications/api/notifications.js`(156줄) `collectNotifications(ownerKey, session)`이 **휴대폰에 있는 값(Store)으로만** 만든다 — 연체 미수금·기사 초대·오늘 일지·일상점검·백업. 서버에서 가져오는 알림은 없음(같은 파일에 `supabase` 0).
-- 알림 줄 모양: `{ id, kind, page, title, body, dateLabel, actionLabel?, dismissLabel? }`. [닫기] → `dismissNotification(ownerKey, id)` → 닫은 id 목록 `dismissedNotifications`(기존 저장 칸, `data/store/app-store.ts:41`)에 들어가 다시 안 보임. 끈 종류는 설정 `notifOff`로 뺌(`notifications.js:153-155`).
-- 끌 수 있는 종류 이름 목록 `domain/practiceSettings.ts:11` `NOTIF_KINDS = ['overdue', 'today', 'driverInvite', 'backup']` — 목록에 없는 이름은 저장할 때 버려짐(`normalizeNotifOff`). 스위치 목록은 `NotificationsPage.jsx:30-35`(101줄).
-- 알림을 쓰는 곳: `AppShell.jsx:114` `useNotifications(ownerKey, null, location.pathname)` → 종 숫자 `notifications.length`(홈 `AppTopBar`). 알림 화면 `NotificationsPage.jsx:28` `useNotifications(ownerKey, session)`. 훅 `features/notifications/hooks/useNotifications.js`(31줄)는 Store 값을 구독해 다시 셈, 세 번째 값(화면 주소)이 바뀌어도 다시 셈.
-- 알림을 누르면 `onOpenPage(item.page)` → `AppShell` `goToPage` → `PAGE_PATH`(이름 → 주소). 고객센터는 `support` → `/app/support`, 첫 탭은 늘 FAQ(`CustomerCenterPage.jsx:53` `useState('faq')`, 109줄) — 주소로 탭을 고를 방법 없음.
-- 서버: 사용자는 본인 문의를 읽을 수 있음(`id·title·answer·answered_at` 등, sot §4-15). 관리자는 `admin_list_support_inquiries()`(답변 대기 먼저·최근 먼저). 관리자인지는 `data/cloud/adminRole.ts` `useIsAdmin()`(23-B).
-- 의존 방향: `notifications` 기능은 `support` 기능을 못 부름(`.dependency-cruiser.cjs` no-cross-feature) → 문의를 읽는 부분은 `data/cloud`에 둠.
-- 관련 기존 테스트: `notifications.test.js`·`notifications.dailyInspection.test.js`·`notifications.dateLabel.test.js`·`NotificationsPage.test.js`·`persistDomainSchema.notifOff.test.js`·`settingsSave.serial.test.js`(끈 종류 저장).
+- 답변 글 칸은 `features/support/ui/AdminInquiryCard.tsx`(104줄) 안 `AnswerEditor` — `draft` 상태 + `textarea`(`maxLength` 2000, `ANSWER_MAX`) + "취소"·"저장"(저장 중 `busy`면 잠금, 공백뿐이면 저장 잠금). 문구 버튼 없음.
+- 모양은 `features/support/ui/customer-center.css`(45줄)의 `admin-inquiry-*` 클래스(23-B에서 새로 만든 관리자 전용).
+- 테스트 `features/support/ui/AdminInquiriesPage.test.js`(175줄)가 "답변하기" → 글 칸 → 저장 흐름을 실제 누르기로 검사.
+- `textarea`의 `maxLength`는 사람이 칠 때만 막고, 코드로 글을 넣을 때는 안 막음 → 문구를 넣을 때 길이를 따로 확인해야 함.
 
 ### 목표 상태 (기대 동작)
-1. **언제 물어보나**: 로그인 계정일 때만, 앱을 켤 때와 화면 주소가 바뀔 때(지금 알림이 다시 세는 때와 같음), 알림 화면을 열 때. 비회원은 서버를 안 부름. 서버 오류면 문의 알림만 조용히 안 보임(다른 알림은 그대로, 알림 문구·재시도 없음). 받은 값은 화면 메모리에만(새 저장 없음), 계정이 바뀌면 이전 계정 값은 버림.
-2. **사용자 "답변 도착"**: 본인 문의 중 답변이 있는 것마다 한 줄 — 제목 "문의에 답변이 도착했습니다", 내용 문의 제목, 날짜 줄 "답변 MM.DD". id는 `inquiryAnswer:<문의 id>:<답변 시각>` → [닫기]하면 사라지고, 답변이 수정돼 시각이 바뀌면 다시 뜸. 누르면 고객센터 "나의 문의/건의 확인" 탭.
-3. **관리자 "새 문의"**: 관리자 계정이고 답변 대기 문의가 1건 이상이면 한 줄 — 제목 "답변 대기 문의 N건", 내용 가장 최근 대기 문의 제목. id는 `adminInquiry:<가장 최근 대기 문의 id>` → [닫기]해도 새 문의가 들어오면 다시 뜸, 0건이면 없음. 누르면 관리자 화면.
-4. **스위치**: "알림 받기"에 "문의 답변 도착"(`inquiryAnswer`, 로그인 계정), "새 문의"(`adminInquiry`, 관리자 계정에만) — 끄면 목록·종 숫자에서 빠짐. `NOTIF_KINDS`에 두 이름 추가(저장할 때 안 버려지게).
-5. **종 숫자**에 위 알림도 셈(홈 종 아이콘).
-6. **고객센터 탭 주소**: `/app/support?tab=my`로 열면 "나의 문의/건의 확인" 탭이 처음부터 선택됨. 주소에 없거나 모르는 값이면 지금처럼 FAQ.
-7. 다른 알림(연체·초대·오늘 일지·일상점검·백업)의 동작·순서는 그대로, 문의 알림은 목록 맨 뒤.
+1. 글 칸이 열리면 글 칸 바로 위에 버튼 네 개(인사·맺음·건의 감사·오류 사과). 문의 유형과 상관없이 늘 네 개.
+2. 누르면 그 문장이 글 칸 맨 끝에 붙음 — 글 칸이 비었으면 문장만, 글이 있으면 줄을 바꾼 뒤 문장. 넣은 뒤 글 칸에 커서가 가서 바로 이어 쓸 수 있음(커서는 맨 끝).
+3. 넣으면 2000자를 넘으면 넣지 않고 "답변은 2000자까지 쓸 수 있습니다." 알림. 글 칸은 그대로.
+4. 저장 중(`busy`)엔 문구 버튼도 잠김. 문구를 넣으면 "저장"이 눌리는 상태가 됨(글이 생겼으므로).
+5. 저장·취소·실패 처리·관리자 화면 나머지는 그대로(23-B).
 
 ### 건드릴 파일
-- 새 `src/data/cloud/inquiryNotices.ts` — `fetchMyAnsweredInquiries(userId)`(본인 문의 `id·title·answer·answered_at` 읽기 → 답 있는 것만), `fetchPendingInquirySummary()`(관리자 함수로 대기 건수·가장 최근 대기 문의). 응답은 칸마다 모양 확인(AGENTS §6).
-- 새 `src/features/notifications/api/inquiryNoticeItems.ts` — 받은 값 → 알림 줄(목표 2·3, 닫은 id·끈 종류 빼기). 계산만, 서버·저장 없음.
-- 새 `src/features/notifications/hooks/useInquiryNotices.ts` — 목표 1(언제 물어보나, 계정 바뀜 버리기).
-- `src/features/notifications/hooks/useNotifications.js` — 기존 목록 뒤에 문의 알림 붙이기(31 → 약 40).
-- `src/features/notifications/ui/NotificationsPage.jsx` — 스위치 2개(관리자 것은 관리자만)(101 → 약 106).
-- `src/domain/practiceSettings.ts` — `NOTIF_KINDS`에 `'inquiryAnswer'`, `'adminInquiry'`.
-- `src/app/shell/AppShell.jsx` — `PAGE_PATH`에 `'my-inquiries': 'support?tab=my'` 1줄(191 → 192).
-- `src/features/support/ui/CustomerCenterPage.jsx` — 처음 탭을 주소 `tab=my`에서(109 → 약 113).
-- 새 테스트: `src/data/cloud/inquiryNotices.test.js`, `src/features/notifications/api/inquiryNoticeItems.test.js`, `src/features/notifications/hooks/useInquiryNotices.test.js`(또는 알림 화면 테스트에 붙임), `CustomerCenterPage.test.js`에 `?tab=my` 한 개 추가, `persistDomainSchema.notifOff.test.js`에 새 두 이름 남는지 한 개 추가.
-- 문서(`[x]` 때): sot §4-15에 문의 알림 규칙 한 줄.
+- 새 `src/features/support/ui/AnswerTemplateButtons.tsx` — 문구 목록(이름·문장)과 버튼 줄. 누르면 문장을 위로 넘김(목표 1).
+- `src/features/support/ui/AdminInquiryCard.tsx` — `AnswerEditor`에 버튼 줄 + 문장 붙이기·길이 확인·커서(목표 2~4).
+- `src/features/support/ui/customer-center.css` — **새 클래스만 추가**(`admin-answer-template*` 버튼 줄·버튼). 기존 클래스 안 고침.
+- 테스트: `src/features/support/ui/AdminInquiriesPage.test.js`에 추가(아래 검증) — 새 테스트 파일은 안 만듦(같은 화면 흐름이라).
+- 문서(`[x]` 때): sot §4-15에 "답변 문구 버튼 네 개(앱 코드)" 한 줄, 로드맵 23번 끝.
 
 ### 안 건드릴 것
-- 서버(SQL 없음), `notifications.js` `collectNotifications`(그대로 — 새 알림은 훅에서 뒤에 붙임), 닫은 알림 저장 방식(기존 `dismissedNotifications` 그대로 씀 — 새 저장 칸 없음), 관리자 화면·답변 저장(23-B), 답변 문구 버튼(23-D), 휴대폰 푸시(11번).
-- `testSupport/stubSupabaseClient.js`(그대로 — 새 테스트는 `fakeSupabaseClient.js`).
+- 서버·`adminInquiries.ts`(저장 방식 그대로), 사용자 화면(고객센터), 알림(23-C), `AdminInquiriesPage.tsx`(목록·문 그대로).
 
 ### 검증
-- 새 테스트: 서버 응답 모양 확인(이상한 줄 버림), 답 있는 문의만 알림·id에 답변 시각, 닫은 id·끈 종류는 빠짐, 관리자 0건이면 없음·새 대기 문의면 id가 바뀜, 비회원은 서버 안 부름, 서버 오류면 문의 알림만 빠짐, 계정이 바뀌면 이전 값 안 보임, 스위치 두 개(관리자 것은 관리자만), `?tab=my`로 "나의 문의" 탭, `notifOff`에 새 이름이 남음.
-- 기존 알림 테스트 전부 그대로 통과, act 경고·처리 안 된 오류 늘지 않음(플레이북 §6). 타입·빌드·의존 방향은 CI.
-- 브라우저: 휴대폰 계정(답변 받은 시험 문의 있음) → 종 숫자 +1, 알림 화면에 "문의에 답변이 도착했습니다" → 누르면 "나의 문의/건의 확인" 탭 → [닫기]하면 사라짐. 보리 계정 → 휴대폰으로 새 문의 넣기 → 화면 옮기면 "답변 대기 문의 1건" → 누르면 관리자 화면 → 답변하면 사라짐.
+- 테스트(실제 누르기 경로): 글 칸을 열면 버튼 4개 / 빈 칸에서 "인사" → 글 칸이 그 문장 / 이어서 "맺음" → 줄바꿈 + 문장 / 글이 1990자일 때 문구 → 안 들어가고 알림 / 문구만 넣고 "저장" → 서버에 그 글로 1번 / 저장 중엔 문구 버튼 잠김.
+- 기존 테스트 전부 통과, 경고 늘지 않음. 타입·빌드·의존 방향은 CI.
+- 브라우저: 보리 계정 → 관리자 → 답변 대기 문의 "답변하기" → 버튼으로 인사·본문·맺음 넣고 고쳐 쓴 뒤 저장 → 휴대폰 "나의 문의"에 그 답변.
 
 ### 파일 길이
-- 새 파일: `inquiryNotices.ts` 약 70줄, `inquiryNoticeItems.ts` 약 60줄, `useInquiryNotices.ts` 약 50줄 — 200 이하.
-- 고치는 파일: `useNotifications.js` 31 → 약 40, `NotificationsPage.jsx` 101 → 약 106, `practiceSettings.ts` 줄 수 그대로, `AppShell.jsx` 191 → 192, `CustomerCenterPage.jsx` 109 → 약 113.
-- 파일 수 8개(새 3·고침 5, 테스트 따로)로 보통 슬라이스보다 많음 — 사용자 알림과 관리자 알림은 같은 "서버에서 물어 와 알림에 붙이기"를 같이 써서 한 슬라이스로 둠. 고치는 5개는 몇 줄씩.
+- 새 `AnswerTemplateButtons.tsx` 약 35줄. `AdminInquiryCard.tsx` 104 → 약 125. `customer-center.css` 45 → 약 49. 모두 200 이하.
 
 ### 코드에 넣을 주석(최종 문구)
-- `inquiryNotices.ts`: `// 알림용 문의 읽기 — 내 문의 중 답변 온 것, 관리자면 답변 대기 건수(로드맵 23-C). 저장 없음.`
-- `inquiryNoticeItems.ts`: `// 문의 알림 줄 만들기 — 답변 시각·최근 대기 문의를 id에 넣어 바뀌면 다시 뜬다.`
-- `useInquiryNotices.ts`: `// 앱을 켤 때·화면을 옮길 때 서버에 물어 문의 알림을 만든다. 실패하면 문의 알림만 빠진다.`
+- `AnswerTemplateButtons.tsx`: `// 관리자 답변 칸 위 자주 쓰는 문구 버튼(로드맵 23-D). 문구를 바꾸려면 아래 목록을 고친다.`
+- `AdminInquiryCard.tsx`(붙이기 함수 위): `// 문구는 글 끝에 붙인다(글이 있으면 줄바꿈). 2000자를 넘으면 넣지 않는다.`
 
 ### 실패 시 처리
-- 새 저장 장치·재시도·대기열 없음(AGENTS §7). 서버 오류는 문의 알림만 빠지는 것으로 끝(사용자에게 알림 문구 없음 — 뒤에서 도는 확인이라). 테스트·브라우저가 기대와 다르면 코드는 그대로 두고 이 파일에 수정 착수지시서를 써서 다시 승인받음.
+- 새 저장 장치·재시도 없음(AGENTS §7). 테스트·브라우저가 기대와 다르면 코드는 그대로 두고 이 파일에 수정 착수지시서를 써서 다시 승인받음.
 
 ### 사용자 확인 방법
-1. 휴대폰(답변 받은 시험 문의가 있는 계정) → 홈 종 아이콘에 숫자 → 누르면 "문의에 답변이 도착했습니다"(내용: 문의 제목).
-2. 그 알림 누르기 → 고객센터 "나의 문의/건의 확인" 탭이 바로 열리고 답변이 보임.
-3. 알림 화면에서 [닫기] → 사라지고 숫자 줄어듦. 보리가 관리자 화면에서 그 답변을 수정하면 → 휴대폰에서 화면을 옮길 때 다시 뜸.
-4. 휴대폰에서 새 문의 → 보리 계정(PC)에서 화면 옮기기 → "답변 대기 문의 1건" → 누르면 관리자 화면 → 답변 저장 뒤 화면 옮기면 사라짐.
-5. 알림 화면 "알림 받기"에 "문의 답변 도착"(두 계정)·"새 문의"(보리 계정에만), 끄면 그 알림이 빠짐.
+1. 보리 계정 → 마이페이지 또는 옆 메뉴 "관리자" → 답변 대기 문의(실험1) "답변하기".
+2. 글 칸 위에 버튼 네 개(인사·맺음·건의 감사·오류 사과)가 보임.
+3. "인사" → 글 칸에 "안녕하세요, 운행일지입니다." → 이어서 본문을 치고 "맺음" → 다음 줄에 "이용해 주셔서 감사합니다.".
+4. "저장" → "답변을 저장했습니다." → 휴대폰 "나의 문의/건의 확인"에 그 답변이 보이고 "답변 도착" 알림.
 
 ### 진행 기록
-- 2026-10-22 보리 "착수지시서 확정,작업진행해". 교차검증: 알림 줄 모양·닫기·`NOTIF_KINDS`·스위치·`PAGE_PATH`·의존 방향 모두 지시서와 같음.
-- 지시서와 다른 점 2개: ① `?tab=my`는 `CustomerCenterPage`가 주소를 직접 읽지 않고, 이미 주소 값을 읽는 `AppShellRoutes.jsx`가 `initialTab`으로 넘김(1줄 고침, 파일 1개 늘어남) — 고객센터 기존 테스트가 주소 없이 화면을 그려서. ② `AppShell`은 `useNotifications`에 세션을 안 넘기므로(`null`) 문의 알림 훅은 세션을 `useSession()`에서 직접 읽음. 답변 날짜 줄은 서버 시각을 이 휴대폰 날짜로 바꿔 'MM.DD'.
-- 결과(커밋 전): 새 테스트 3개 파일 + 기존 2개 파일에 1개씩, 27개 통과. `npm test` 883(878 + 5)·690(680 + 10) 전부 통과, act 경고 10 그대로. 타입 오류 0, lint 경고 50 그대로, 의존 검사 위반 0(430개 모듈), 빌드 통과. 줄 수: `inquiryNotices.ts` 52·`inquiryNoticeItems.ts` 55·`useInquiryNotices.ts` 33, `useNotifications.js` 38·`NotificationsPage.jsx` 105·`practiceSettings.ts` 110(그대로)·`AppShell.jsx` 192·`CustomerCenterPage.jsx` 110·`AppShellRoutes.jsx` 104(그대로). 브라우저 확인은 아직.
-- 코드 커밋 react-app `1b8981c`(2026-10-22, 14개 파일, push 안 함). 남은 것: 보리 push → CI → 배포본 브라우저 확인(사용자 확인 방법 1~5) → §5 리뷰 → 최종 승인.
-- 보리 push 뒤 CI verify·deploy 초록(run 39770001992). 데스크톱 AI 브라우저 확인(보리 계정 로그인된 localhost:5174, 코드는 `1b8981c`와 같음): 홈 종 숫자 1, 알림 화면 "답변 대기 문의 1건 / 실험1", 스위치에 "문의 답변 도착"·"새 문의", 알림을 누르면 `/app/admin/inquiries`(답변 대기 1건), `/app/support?tab=my`면 "나의 문의/건의 확인" 탭, 콘솔 오류 0. [닫기]는 보리 기록이라 안 누름. 사용자 쪽("답변 도착", 확인 방법 1~3)은 휴대폰 계정이라 보리 몫.
-- §5 리뷰(데스크톱 AI): ① 범위 — 14개 파일, 지시서 + 진행 기록의 다른 점(`AppShellRoutes.jsx` 1줄)과 같음 ② 몰래 증설 없음(받은 값은 화면 메모리, 닫기는 기존 `dismissedNotifications`) ③ 타입 꼼수 0 ④ 200줄 — 최대 `AppShell.jsx` 192 ⑤ 테스트 — 새 3개 파일 + 기존 2개 파일에 1개씩, 기존 테스트 약화 없음. 주소 `?tab=my` → `initialTab` 연결은 테스트 없이 브라우저로만 확인 ⑥ 공용 영향 — `NOTIF_KINDS`에 이름 추가뿐(저장 값 검사 테스트 추가됨) ⑦ 목표 1~7 코드 대조 맞음.
+- 2026-10-22 보리 "착수지시서 확정,작업진행해" — 확인할 점 둘은 초안 문구 네 개·권함(글 끝에 붙이기) 그대로로 봄. 교차검증: `AnswerEditor`·`ANSWER_MAX`·`admin-inquiry-*`·테스트 흐름 모두 지시서와 같음.
+- 구현 메모: 문구 목록·붙이기 함수는 내보내지 않음(화면 파일이 다른 것을 내보내면 lint 경고가 늘어서). 이미 글이 줄바꿈으로 끝나면 줄을 또 바꾸지 않음. 커서는 글이 바뀐 직후(`useLayoutEffect`) 맨 끝으로.
+- 결과(커밋 전): 새 테스트 3개(`AdminInquiriesPage.test.js`에 추가, 그 파일 8개 통과). `npm test` 883·693(690 + 3) 전부 통과, act 경고 10 그대로. 타입 오류 0, lint 경고 50 그대로, 의존 검사 위반 0(431개 모듈), 빌드 통과. 줄 수: `AnswerTemplateButtons.tsx` 30, `AdminInquiryCard.tsx` 104 → 132(지시서 약 125), `customer-center.css` 48, 테스트 파일 175 → 236(테스트 파일은 200줄 예외). 브라우저 확인은 아직.
+- 코드 커밋 react-app `ba46d25`(2026-10-22, 4개 파일, push 안 함). 남은 것: 보리 push → CI → 배포본 브라우저 확인(사용자 확인 방법 1~4) → §5 리뷰 → 최종 승인.
+- 보리 push 뒤 CI verify·deploy 초록(run 39772279945). 데스크톱 AI 브라우저 확인(보리 계정 localhost:5174): 답변 칸 위 버튼 4개(인사·맺음·건의 감사·오류 사과), 글이 있는 칸에서 "맺음" → 줄바꿈 + 문장이 끝에 붙고 커서가 글 칸 맨 끝, "취소"로 닫음(저장 안 함 — 서버 답변 그대로), 콘솔 오류 0.
+- §5 리뷰(데스크톱 AI): ① 범위 — 4개 파일, 지시서와 같음 ② 몰래 증설 없음 ③ 타입 꼼수 0 ④ 200줄 — `AdminInquiryCard.tsx` 132(지시서 약 125보다 김, 200 이하) ⑤ 테스트 — 같은 파일에 3개 추가, 기존 약화 없음 ⑥ 공용 CSS — 새 `admin-answer-template*`만 ⑦ 목표 1~5 맞음. 확인할 점 둘(문구·넣는 자리)은 보리 답 없이 초안·권함대로 들어감(진행 기록 첫 줄) — 보리 확인 필요. 문구 버튼 높이 36px(로드맵 앞 점검에서 권장 44px로 적은 적 있음).
 
 ---
 
