@@ -1,101 +1,92 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-105번: 105-A drivelog-docs `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
 ---
 
-## 로드맵 105-B 코드 검사기 경고 0 + CI 검사 단계 `[x]`
+## 로드맵 108 떠 있는 운비서 버튼을 끌어서 옮기기 `[x]`
 
-로드맵 105번 두 번째(마지막) 조각. 105-A `[x]`(react-app `d7a69fa`, drivelog-docs `aa5c8b9`) 뒤 남은 경고 29개를 0으로 하고 CI에 넣는다. 결정은 105-A 때 받음 `[확인: 2026-10-23 보리 — "권함으로"]`: 경고도 실패, `only-export-components` 끔, 테스트 파일만 `immutability`·`globals` 끔, 안 쓰는 변수 지움.
+2026-10-23 보리 요청("고정말고 사용자가 원하는 위치로"). 방식 "나"(자유롭게 끌고 놓으면 좌우 가장자리에 붙기), 아래 네 가지 "권함대로" `[확인: 2026-10-23 보리]`. 떠 있는 운비서는 24-B-3-B `[x]`(sot §4-16 570줄 "아래 메뉴 위 오른쪽"). 한 슬라이스.
 
 ### 쉬운 요약
-- 남은 경고 29개를 없애고, 앞으로 push할 때마다 CI가 코드 검사기도 돌리게 한다. 경고가 하나라도 생기면 CI가 빨강이 된다.
-- 앱 동작은 바뀌지 않는다(운영 코드는 주석 1줄만, 나머지는 설정·테스트 파일).
+- 오른쪽 아래 운비서 동그라미를 손가락으로 끌어 옮길 수 있게 한다. 놓으면 가까운 왼쪽이나 오른쪽 가장자리에 붙는다.
+- 옮긴 자리는 이 휴대폰에 기억해서, 앱을 다시 켜도 그 자리에 있다. 눌러서 펼치는 카드는 지금처럼 아래 메뉴 바로 위에 열린다.
+- 동그라미가 가리던 화면 내용을 볼 수 있게 된다.
+
+### 정한 것 (보리 확인)
+1. 끌기 도구: `@use-gesture/react`(10.3.1, React 16.8 이상) 들여 씀 — 누르기·끌기 구분을 도구에 맡김.
+2. 위치 기억: 이 휴대폰에 저장(앱 다시 켜도 그 자리). 계정 데이터가 아니라 기기 설정 — 서버로 안 감.
+3. 카드: 늘 지금 자리(아래 메뉴 위, 앱 폭 전체)에 펼침. 접으면 동그라미는 옮겨 둔 자리로.
+4. 화면 아래 여백·알림 문구 +60px: 그대로(`app-shell-base.css:20`).
 
 ### 현재 상태 (코드 확인)
-- `npx oxlint` 29개(2026-10-23, HEAD `d7a69fa`): 테스트 `immutability` 11·`globals` 1, 테스트 안 쓰는 변수 8, `only-export-components` 8(`FieldError.jsx` 2·`SideMenu.jsx` 2·`confirmDialog.jsx` 3·`OffToggle.jsx` 1), `PageLoadErrorBoundary.jsx:30` 1.
-- `package.json` `"lint": "oxlint"` — 경고만 있으면 성공(끝 코드 0)으로 끝남. `.github/workflows/ci.yml` verify에 검사 단계 없음(테스트·타입·빌드·의존 방향 4개만).
-- 아래 설정을 저장소 밖 임시 파일로 시험(`oxlint -c`): 남는 경고가 정확히 안 쓰는 변수 8 + `PageLoadErrorBoundary` 1 = 9개, `--deny-warnings`면 끝 코드 1.
-- 테스트 파일은 246개 모두 `*.test.js`(`find src -name "*.test.*"`).
+- 위치는 CSS 고정: `unbiseo-dock.css:3-18` `.unbiseo-dock` `position: fixed; bottom: calc(59px + safe-area)`, 앱 폭 480px 안, `align-items: flex-end`(오른쪽). 눕힌 화면은 `bottom: 45px`(같은 파일 끝 `@media`).
+- 버튼: `UnbiseoDock.tsx:25` `.unbiseo-dock-fab` `onClick={openAndListen}` — 누르면 카드 열고 바로 듣기. 끌기·위치 저장 코드 없음.
+- 끌기 라이브러리 없음(`package.json`에 `use-gesture`·`drag` 없음).
+- 기기 설정 저장 선례: `app/guestSessionPersist.js` — 키 하나 `localStorage`, `try/catch`로 실패하면 기본값.
 
 ### 목표 상태 (기대 동작)
-1. `npm run lint` 결과 경고 0·오류 0, 끝 코드 0.
-2. 경고가 하나라도 있으면 `npm run lint`가 실패(끝 코드 1)한다.
-3. CI verify에 "코드 검사 (npm run lint)" 단계가 있고, 다른 4개 단계처럼 하나가 실패해도 나머지는 계속 돈다(`if: ${{ !cancelled() }}`). 이 단계가 실패하면 배포하지 않는다(기존 `success()` 조건 그대로).
-4. `only-export-components`는 꺼지고, 테스트 파일에서만 `immutability`·`globals`가 꺼진다. 운영 코드에서는 두 규칙이 그대로 켜져 있다.
-5. 안 쓰는 변수 8개가 테스트에서 없어지고, 테스트 수·통과는 그대로다(지운 것은 어디서도 읽지 않던 값 — 단언 삭제 없음).
-6. `PageLoadErrorBoundary.jsx`는 코드는 그대로 두고 30줄 위에 검사 끄기 주석 1줄만 단다.
-
-`.oxlintrc.json` 최종 모습(시험한 것과 같음, 테스트 파일 이름은 앞으로 `.ts`로 바뀌어도 되게 3가지):
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "oxc"],
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": "off"
-  },
-  "overrides": [
-    {
-      "files": ["**/*.test.js", "**/*.test.ts", "**/*.test.tsx"],
-      "rules": {
-        "react/immutability": "off",
-        "react/globals": "off"
-      }
-    }
-  ]
-}
-```
-- `package.json`: `"lint": "oxlint --deny-warnings"`.
-- `ci.yml`: "의존 방향 검사" 다음에 단계 추가, 위 주석 "아래 4개는" → "아래 5개는".
-  ```yaml
-      - name: 코드 검사 (npm run lint)
-        if: ${{ !cancelled() }}
-        run: npm run lint
-  ```
-
-코드에 넣을 주석 최종 문구:
-- `PageLoadErrorBoundary.jsx` 30줄 위: `// oxlint-disable-next-line react/no-did-update-set-state -- 다른 화면으로 가면 안내를 풀어야 해서, 화면이 바뀐 때 한 번만 바꾼다.`
+1. 동그라미를 끌면 손가락을 따라 움직인다. 끄는 동안 화면이 같이 스크롤되지 않는다.
+2. 손을 떼면 놓은 곳의 가로 위치가 앱 폭 가운데보다 왼쪽이면 왼쪽 가장자리, 아니면 오른쪽 가장자리에 붙는다(지금 오른쪽 여백 12px과 같은 여백). 높이는 놓은 곳 그대로.
+3. 높이는 아래 메뉴 바로 위(지금 자리)보다 낮아지지 않고, 화면 위로도 나가지 않는다(위 여백 12px). 화면을 돌려 높이가 줄어도 화면 안에 남는다.
+4. 짧게 누르면(거의 안 움직이면) 지금처럼 카드가 열리며 바로 듣는다. 끌고 놓은 경우에는 카드가 열리지 않는다.
+5. 카드는 위치와 상관없이 지금 자리(아래 메뉴 위, 앱 폭 전체)에 펼친다. 꺾쇠로 접으면 동그라미는 옮겨 둔 자리에 다시 보인다.
+6. 옮긴 위치(왼쪽/오른쪽, 아래 메뉴에서 띄운 높이)를 휴대폰에 저장한다. 새로고침·앱 재실행 뒤에도 그 자리다. 계정이 바뀌어도 같은 기기면 같은 자리다.
+7. 저장 값이 없거나 깨졌으면(왼쪽/오른쪽 아닌 값, 숫자 아님·음수) 지금 기본 자리(오른쪽, 높이 0)를 쓴다. 저장소를 못 쓰면 저장 없이 그대로 동작한다.
+8. 홈 화면 운비서 줄, 카드 안 동작(대화·[기록하기]), 비회원 숨김, 다크모드 색은 그대로다.
 
 ### 건드릴 파일
-- `.oxlintrc.json` — 위 최종 모습
-- `package.json` — `lint` 한 줄
-- `.github/workflows/ci.yml` — 단계 1개 추가, 주석 숫자 1곳
-- `src/app/shell/PageLoadErrorBoundary.jsx` — 주석 1줄
-- 테스트 4개 파일(안 쓰는 변수 8개):
-  - `src/app/App.test.js` — `totalSupabaseCalls` 함수와 그 위 설명 주석 4줄(18~21줄), 가져오기 목록에서 `hasPendingDayWrites`·`getUnsafeRegistrationPatch`·`clearUnsafeRegistrationFailure`·`subscribe` 이름만
-  - `src/data/sync/receivablesCloudCommit.test.js` — 가져오기 목록에서 `getState`
-  - `src/app/accountPermissionUi.test.js` — 읽지 않는 `selectedPage` 변수와 그것을 채우던 줄(82줄 `onSelect`는 빈 함수로)
-  - `src/features/day-log/ui/CallDetailList.test.js` — `mountList(props)`의 안 쓰는 `props`(부르는 4곳 모두 인자 없음, 52·73·98·124줄)
+- `react-app/package.json`, `package-lock.json` — `@use-gesture/react` 추가(`npm install @use-gesture/react@10.3.1`).
+- `react-app/src/features/home/hooks/useDockPosition.ts` (새 파일) — 저장 값 읽기·검증(`toDockPosition`), 놓은 자리 → 좌우·높이 계산(`snapDockPosition`, 순수 함수), 저장, `useDrag` 연결, 끈 직후 누르기 무시. 맨 위 주석(최종 문구):
+  `// 운비서 버튼 위치(왼쪽·오른쪽, 아래 메뉴에서 띄운 높이) — 이 휴대폰에만 저장한다.`
+- `react-app/src/features/home/ui/UnbiseoDock.tsx` — 접힌 상태 버튼에 끌기 연결·위치 적용(왼쪽이면 클래스, 높이는 CSS 변수), 펼친 카드는 그대로. 1줄 주석을 아래로 바꿈(최종 문구):
+  `// 홈이 아닌 화면에 떠 있는 운비서 캐릭터 버튼. 끌어서 옮기면 왼쪽·오른쪽 가장자리에 붙고, 누르면 아래 메뉴 위에 카드가 열리며 바로 듣는다.`
+- `react-app/src/features/home/ui/unbiseo-dock.css` — 접힌 상태만 높이 변수·왼쪽 정렬·`touch-action: none`, 화면 밖으로 안 나가게 `min()`으로 위쪽 한계. 펼친 상태(`.open`)는 지금 자리 그대로. 맨 위 주석 "작을 땐 오른쪽 캐릭터 동그라미(52px)"를 "작을 땐 캐릭터 동그라미(52px, 끌어서 좌우 가장자리·높이를 옮김)"로.
+- 테스트(200줄 예외): 새 `src/features/home/hooks/useDockPosition.test.js` — 목표 2·3·7(좌우 판정, 높이 한계, 깨진 값 → 기본값). `src/app/shell/UnbiseoDock.test.js` — 저장된 왼쪽·높이가 다시 열 때 버튼에 적용됨, 깨진 값이면 기본 자리, 카드는 늘 지금 자리.
+- 공용 클래스 영향: `.unbiseo-dock`·`.unbiseo-dock-fab`는 `UnbiseoDock.tsx`에서만 씀(`grep -rn unbiseo-dock src`: 이 CSS·이 컴포넌트·테스트·`app-shell-base.css:20`의 `:has(.unbiseo-dock)` 뿐). `:has` 여백은 위치와 무관해 영향 없음.
+- 문서: `[x]` 때 `docs/sot.md` §4-16 570줄 "아래 메뉴 위 오른쪽" → 옮길 수 있음·위치 기억·카드 자리로 고침, `STATUS.md`·로드맵 108 `[x]`.
 
 ### 안 건드릴 것
-- `only-export-components`가 걸린 4개 파일(`FieldError.jsx`·`SideMenu.jsx`·`confirmDialog.jsx`·`OffToggle.jsx`) — 규칙을 끄므로 코드 그대로.
-- 테스트 `immutability`·`globals`가 걸린 10개 파일 — 설정으로 끄므로 그대로.
-- 운영 코드 동작, 새 파일, 새 라이브러리 — 없음(oxlint는 이미 `devDependencies`에 있음, `package.json:36`).
-- `AGENTS.md` §4의 CI 설명(테스트·타입·빌드) — AI는 못 고침. 의존 방향 검사도 지금 거기 없음. 고칠지는 보리 판단.
+- `app-shell-base.css`·`toast.css` 여백 +60px(정한 것 4).
+- `HomeAssistantPanel.tsx`·`HomeAssistantBar.jsx`·`unbiseoContext.ts`·`useUnbiseoAssistant.ts` — 카드 안 동작·대화 상태는 그대로(목표 8).
+- 앱 데이터 저장(`data/store/*`) — 위치는 계정 데이터가 아니라 기기 설정이라 `guestSessionPersist.js`처럼 키 하나만 쓴다.
+- 키보드로 위치 옮기기는 안 만듦(버튼 누르기는 키보드로 그대로 됨).
 
 ### 검증
-- 로컬 `npm run lint`(목표 1), `npm test`(테스트 수가 지금과 같은지 — 105-A 진행 기록 884 + 757), `npm run typecheck`.
-- 실패 흉내(목표 2·4, 98-B와 같은 방식, 확인 뒤 바로 되돌림·커밋 안 함): ① 운영 파일 하나에 안 쓰는 변수 → `npm run lint` 끝 코드 1 ② 운영 파일에서 `immutability` 경고 만들기 → 잡힘(테스트 밖에서는 꺼지지 않음) ③ `.test.js`에서 같은 것 → 안 잡힘.
-- push 뒤 CI에 "코드 검사" 단계가 보이고 초록인지(목표 3).
+- CI 초록(테스트·타입·빌드·코드 검사·의존 방향).
+- 새 테스트는 고치기 전 코드에서 실패하는지 확인(revert-check).
+- 빌드 결과 크기 차이 보고(도구 추가분).
+- 끌기 자체는 jsdom에서 손가락 동작 재현이 불안정해 순수 함수 테스트 + 보리 화면 확인으로 대신한다.
 
 ### 파일 길이
-- `PageLoadErrorBoundary.jsx` 43 → 44, `.oxlintrc.json` 8 → 18, `package.json` 40 → 40, `ci.yml` 84 → 89. 테스트 파일은 줄어듦(제한 예외). 모두 200줄 이하.
+- `UnbiseoDock.tsx` 65 → 약 80줄.
+- `unbiseo-dock.css` 87 → 약 105줄.
+- `useDockPosition.ts` 새로 약 70줄.
+- 모두 200줄 아래, 분리 설계 필요 없음. 테스트 파일은 예외.
 
 ### 실패 시 처리
-- 새 저장 장치·재시도·대비 장치 없음. 시험·CI가 실패하면 코드는 그대로 두고 이 파일에 수정 착수지시서를 써서 다시 승인받는다.
+- 새 복구·재시도·대비 장치를 만들지 않는다. 위치 저장·읽기 실패는 기본 자리로 동작할 뿐(`guestSessionPersist.js`와 같은 `try/catch`).
+- 도구가 React 19에서 문제를 일으키거나 목표 4(누르기·끌기 구분)를 못 맞추면 멈추고 보고한다. 직접 만들기로 바꿀지는 보리가 정한다.
 
 ### 진행 기록
-- 2026-10-23 터미널 AI 교차검증 — 지금 설정(`only-export-components` warn)·`"lint": "oxlint"`·CI 4단계·안 쓰는 변수 8곳(줄 번호 포함) 모두 지시서와 맞음. 고친 사실 하나: `App.test.js`의 `totalSupabaseCalls`를 지우면 그 안에서만 쓰던 `callCounts`(16줄 `createFakeSupabase()` 꺼내기)가 새로 안 쓰는 변수가 됨 → 꺼내기 목록에서 `callCounts`도 뺌(다른 곳에서 안 읽음, grep 3건 = 꺼내기·주석·함수 안).
-- 결과: 8개 파일. `npm run lint`(`oxlint --deny-warnings`) 경고 0·끝 코드 0. 줄 수 `.oxlintrc.json` 17·`ci.yml` 88·`PageLoadErrorBoundary.jsx` 44. 전체 테스트 884 + 757 그대로 통과(단언 삭제 없음), 타입 검사·빌드·의존 검사 통과.
-- 실패 흉내(저장소 안 임시 파일, 확인 뒤 바로 지움·커밋 안 함): ① 운영 파일에 안 쓰는 변수 → 끝 코드 1 ② 운영 파일에서 `globals`(밖 변수 바꾸기) → 잡힘·끝 코드 1, `immutability`는 105-A 이전 `MessageTemplateSheet.jsx`(`window.location.href =`)를 그대로 복사한 운영 파일 → 잡힘·끝 코드 1 ③ 같은 두 코드를 `.test.js`로 → 안 잡힘·끝 코드 0. (손으로 만든 짧은 `props.value =` 예시는 검사기가 화면 부품으로 보지 않아 원래부터 안 잡힘 — 그래서 실제 코드로 확인.)
-- 코드 커밋 react-app `6119398`(2026-10-23, 8개 파일 — 설정 3·운영 1·테스트 4, push 안 함). 남은 것: 보리 push → CI verify에 "코드 검사" 단계 초록 확인 → 배포본 확인 → §5 리뷰 → 최종 승인. `AGENTS.md` §4 CI 설명은 안 건드림(보리 판단).
-- push 뒤 CI verify·deploy 초록(run 39891498006), verify 안 "코드 검사 (npm run lint)" 단계 초록. §5 리뷰(데스크톱 AI): 범위 8개 파일 지시서와 같음(`callCounts` 1개 더 뺀 것은 교차검증 기록대로), 새 파일·라이브러리 없음, 타입 꼼수 0, 200줄 이하, 단언 삭제 없음, 목표 1~6 충족. 배포본 홈 정상, 앱 파일 이름(`index-BfhXmTpQ.js`)이 105-A 배포 때와 같음 — 운영 코드 변화가 주석 1줄뿐이라 빌드 결과가 같음.
-- 보리 최종 `[x]` 승인(2026-10-23).
+- 교차검증: 지시서 내용과 코드가 맞음. 시작할 때 `unbiseo-dock.css`에 커밋 안 된 다크모드 동그라미 색 5줄(`[data-theme="dark"] .unbiseo-dock-fab`)이 있었음 — 이번 작업이 아니라 커밋에서 빼고 워킹카피에 그대로 둠.
+- 구현: `useDockPosition.ts`(80줄) — `toDockPosition`(저장 값 검사), `snapDockPosition`(가로 가운데 기준 좌우, 높이 0 ~ 화면 위 12px), `useDrag`(`filterTaps`), 끌고 놓은 뒤 0.4초 안 누르기는 무시(손가락이 버튼 밖에서 떨어져 누르기가 안 오면 다음 누르기를 막지 않게 시간으로). 저장 키 `drivelogUnbiseoDockPosition`.
+- `UnbiseoDock.tsx` 65 → 79줄: 접힌 상태만 `left` 클래스·`--dock-lift` 변수, 끄는 동안 `transform`, 이미지 `draggable={false}`. `unbiseo-dock.css` 커밋 기준 82 → 92줄(워킹카피 다크 5줄 포함 97줄, 지시서의 87은 다크 5줄을 넣은 수): 아래 메뉴 높이를 `--dock-nav` 변수로(눕힌 화면 45px), 높이는 `min(옮긴 높이, 화면 높이 - 아래 메뉴 - 72px)`.
+- 검사: 테스트 884 + 762(새 5개), 타입·코드 검사(경고 0)·의존 방향·빌드 통과.
+- 고치기 전 실패 확인: 새 테스트 5개 중 `UnbiseoDock.test.js` 2개(저장 위치 적용, 깨진 값 기본 자리)는 수정 전 코드에서 실패. `useDockPosition.test.js` 3개는 새 파일만 시험해 되돌릴 것이 없어 통과(정상).
+- 빌드 크기: 첫 화면 묶음 `index` 757.48 → 779.71 kB(+22.2 kB, gzip 230.86 → 238.62 kB, +7.8 kB).
+- 끌기 동작 자체(손가락 따라옴, 끌고 놓으면 카드 안 열림, 스크롤 안 됨)는 jsdom에서 확인하지 않음 — 보리 화면 확인 필요.
+- 코드 커밋: react-app `0de05e4`(7개 파일, push 안 함). 남은 것: 보리 push → CI 초록 → 휴대폰 확인 → `[x]` 때 sot §4-16·STATUS·로드맵 108.
+- push 뒤 CI verify·deploy 초록(run 39901559992, react-app `0de05e4`).
+- 2026-10-23 보리 휴대폰 확인 후 승인("나머지 다 테스트 해봣어 승인"). `[x]`.
 
 ### 사용자 확인 방법
-1. push 뒤 GitHub Actions 실행 화면: verify 안에 "코드 검사 (npm run lint)"가 있고 초록.
-2. 배포본(getdrivelog.com)이 전과 같이 열림 — 화면 바뀐 것 없음.
+1. 로그인 → 아래 메뉴 [달력] → 오른쪽 아래 운비서 동그라미.
+2. 동그라미를 위·왼쪽으로 끌어 화면 왼쪽 절반에서 놓기 → 왼쪽 가장자리에 붙고 놓은 높이에 있으면 성공. 끄는 동안 달력이 스크롤되지 않아야 함.
+3. 동그라미를 짧게 누르기 → 아래 메뉴 바로 위에 카드가 열림. 꺾쇠로 접기 → 동그라미가 옮긴 자리에 다시 보임.
+4. 새로고침 → 그 자리 그대로.
+5. 아래로 끝까지, 위로 끝까지 끌어 보기 → 아래 메뉴를 넘지 않고, 화면 위로 안 나감.
+6. 휴대폰을 눕혔다 세우기 → 동그라미가 화면 안에 있음.
 
 ---
 
