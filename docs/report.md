@@ -1,92 +1,91 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-24-D-1 지시서·기록은 drivelog-docs `ac195e4`, 24-C-2는 `455cd19`, 24-C-1은 `a26815e`, 24-A2는 `2ea514e`, 24-B-3-B는 `0548640`, 24-B-3-A는 `a0f2b64`, 24-B-2는 `c115e2b`, 24-B-1은 `18646c9`, 24-A는 `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
-## 로드맵 24-D-2 운비서 → 질문에 앱이 계산한 답 문장 `[x]` `[확인: 2026-10-23 보리 — "승인"]`
+---
 
-보리 지시(2026-10-23, 24-D-1 `[x]` 뒤): "작성해". 24번 마지막 조각. 서버가 알아들은 질문(sot §4-16 — 종류·달/연·거래처·지출 종류)으로 **앱이 매출·미수금 화면과 같은 함수로 숫자를 내고, 앱이 정한 틀에 넣어** 카드에 답 문장. AI에는 숫자가 안 감(로드맵 24 `[확인: 2026-10-22 보리]`). 질문에는 버튼 없음.
+## 로드맵 105-A 코드 검사기 경고 — 운영 코드 20개 정리 `[x]`
 
-### 확인할 점 (둘) — 1번 권함대로, 2번은 보리 정정으로 바꿈 `[확인: 2026-10-23 보리 — "권함대로, 근데 그거 세금계산서 드가면 보이잖아 거래처별매출"]`
-1. **누구 기준 숫자** — 권함: **그 계정이 매출 화면을 열었을 때 처음 보이는 숫자**. 차주 = 매출 화면 기본 "차주" 탭(`OwnerRevenueView.jsx` `useState('owner')`), 연동 기사 = 기사 본인 매출 화면(`DriverRevenueView.jsx`). 그래서 문장 이름도 화면과 같게 — 차주 "매출"·"순이익", 연동 기사 "운송 수입(정산 전)"·"정산액".
-2. **거래처별 매출**(예: "한진 10월 매출") — **답함**: 서류 발급 [세금계산서] 탭의 그 거래처 금액과 같은 숫자. 그 탭 계산은 `domain/financeTaxInvoiceGroups.ts` `getTaxInvoiceSourceGroups(달, 'sales', settings, workDataByLogId, 'main')`(탭은 `TaxInvoiceTab.jsx`가 차량별 `logKey`로 부름 — 메인 서류는 `'main'`)이라 홈도 부를 수 있음. 그 거래처(`clientName`) 묶음의 공급가액·합계(부가세 포함)를 더함, 연은 12달 합. 순이익·지출·운행 횟수에 거래처를 붙이면 "거래처별로는 매출과 미수금만 답할 수 있어요." **미수금도 거래처별로 답함**(미수금 화면이 거래처로 묶음 — 같은 숫자).
+로드맵 105번(아키텍처 점검 2026-10-23) 첫 조각. 보리 2026-10-23 "권함으로 착수지시서 작성해" — 아래 결정 3가지는 105-B에서 쓴다. **이번엔 105-A만.**
+- 결정(105-B용): ① 경고도 CI 실패로 셈(`oxlint --deny-warnings`) ② "개발 중 자동 새로고침" 경고(`only-export-components`)는 규칙을 끔(새 파일 안 만듦) ③ 테스트 파일에서만 전역값 바꾸기 규칙 2개(`immutability`·`globals`)를 끄고, 안 쓰는 변수 8개는 지움.
 
 ### 쉬운 요약
-- "이번 달 매출 얼마야" → "10월 매출은 1,234,000원입니다.", "한진 미수금 얼마 남았어" → "한진 남은 미수금은 300,000원입니다.(2건)", "이번 달 몇 번 뛰었어" → "10월 운행은 25회입니다." 숫자는 매출·미수금 화면과 똑같은 계산입니다.
-- "오늘 매출"처럼 달보다 짧은 기간, 목록에 없는 질문은 쉬운 안내로 답합니다.
+- 코드 검사기가 운영 코드에서 찾은 경고 20개를 고친다. 대부분은 "화면을 그린 직후 한 번 더 그림"이나 "계산을 매번 다시 함" 같은 낭비이고, 보이는 동작은 그대로다.
+- 끝나면 경고가 49개에서 29개로 준다. 남은 29개(테스트 20·자동 새로고침 8·오류 화면 1)와 CI 검사 단계는 105-B에서 다룬다.
 
 ### 현재 상태 (코드 확인)
-- 서버는 질문을 `{ kind: 'question', question: { type, period, client, expenseType } }`로 줌(24-D-1, 진짜 서버 12문장 확인). 앱 `features/home/api/unbiseoParse.ts`(152줄)는 question이면 종류만 읽고 "질문 답하기는 곧 할 수 있게 됩니다."(`describeResult`).
-- 매출 화면 숫자: 차주 `domain/finance.ts` `getOwnerMonthlyFinanceDetail(monthKey, 'owner', settings, workDataByLogId, expenses, driverExpenses)` → `income.total`(화면 "합계")·`netProfit`·`expense.total`/`fuel`/`maint`/`misc`·`tripCount`(화면 "총 ○회 운행"). 연동 기사 `domain/driverSelfRevenue.ts` `getDriverSelfMonthlyDetail(monthKey, settings, workDataByLogId, expenses)`(같은 모양, `netProfit` = 정산액, `income.total` = "운송 수입 합계(정산 전)"). 계산 설정은 `data/sync/ownerFinance.ts` `buildFinanceSettings(ownerKey)`. 연 단위 화면은 달마다 같은 함수(`revenuePeriod.js` `buildYearlyRows`) — 연 답은 12달 합.
-- 미수금 화면 숫자: `domain/finance.ts` `getReceivableItems(settings, workDataByLogId)`의 `remainingAmount` 합(`receivables.ts` `groupByClientMonth`, 거래처 `client`, 달은 `workDate` 앞 7자).
-- 그 순간 값 읽기: `readOwnerWorkDataByLogId`·`readOwnerExpenses`·`readOwnerDriverExpenses`(data/store) — 홈은 매출 기능 폴더를 못 부르지만(의존 방향) 위 함수들은 `domain/`·`data/`라 부를 수 있음.
+- `npx oxlint` 경고 49개(2026-10-23 다시 뽑음, 로드맵 기록과 같음). 이번 대상 20개는 아래 "건드릴 파일"의 줄들.
+- 서버에서 불러오는 화면 4곳이 불러오기 시작할 때 "불러오는 중" 상태를 effect 안에서 바로 바꿈 → 화면을 두 번 그림(`set-state-in-effect`).
+- `|| {}`, `|| []`처럼 값이 없을 때 매번 새 빈 묶음을 만들어 계산 재사용(`useMemo`)이 매번 다시 돎: `ReportPage.jsx:50`(3개), `LinkedDriverManagementPage.jsx:76·79`(3개), `DayLogPage.jsx:69`(1개).
+- `useReceivablesData.js:21~27`: 설정 계산이 읽지 않는 일지(`workDataByLogId`)를 다시 계산 조건에 넣었고, 실제로 읽는 거래처(`buildFinanceSettings`가 `readOwnerClients` 호출, `data/sync/ownerFinance.ts:80`)는 조건에 없음.
+- 그리는 중에 ref 값을 씀: `ModalShell.jsx:27`, `useConfirm.jsx:12`.
+- 진짜 문제가 아닌 경고 3개: `useAppSession.js:103`(저장된 기록 채우기는 effect에서 해야 함), `usePersonalInfoDraft.js:50`(저장 함수가 남은 값을 저장하려고 자기 자신을 다시 부름), `MessageTemplateSheet.jsx:37`(문자 앱 열기 주소 이동).
 
 ### 목표 상태 (기대 동작)
-1. 답 문장(앱이 만든 틀, 금액은 쉼표+원, 기간 이름은 이번 해면 "10월", 다른 해면 "2025년 9월", 연이면 "2026년"):
-   - 매출: 차주 "{기간} 매출은 ○원입니다." / 연동 기사 "{기간} 운송 수입(정산 전)은 ○원입니다."
-   - 순이익: 차주 "{기간} 순이익은 ○원입니다." / 연동 기사 "{기간} 정산액은 ○원입니다."
-   - 지출: "{기간} 지출은 ○원입니다." — 종류가 있으면 "주유비"·"정비비"·"기타 지출".
-   - 미수금: 전체 "남은 미수금은 ○원입니다.(○건)", 거래처 "한진 남은 미수금은 ○원입니다.(○건)", 달 "10월 운행분 남은 미수금은 ○원입니다.(○건)", 0원이면 "남은 미수금이 없습니다."(거래처·달 붙여서).
-   - 운행 횟수: "{기간} 운행은 ○회입니다."
-   - 기간 지원 안 함(달보다 짧음)·미수금 아닌데 전체 기간: "달이나 연으로 물어봐 주세요. 예: 이번 달 매출 얼마야"
-   - 그 밖: "아직 답할 수 없는 질문이에요. 매출·순이익·지출·미수금·운행 횟수를 물어봐 주세요."
-   - 거래처 매출: "{거래처} {기간} 매출은 공급가액 ○원, 부가세 포함 ○원입니다." — 세금계산서 탭 그 거래처 금액, 운행이 없으면 "{거래처} {기간} 매출이 없습니다."
-   - 순이익·지출·운행 횟수에 거래처: "거래처별로는 매출과 미수금만 답할 수 있어요."
-2. 숫자는 질문을 받은 그 순간 Store 값으로 화면과 같은 함수를 불러 냄(구독·저장 없음). 연은 12달 합.
-3. 카드: "내가 한 말" + 답 문장, 버튼 없음. 홈 카드·떠 있는 버튼 둘 다.
-4. 비회원은 지금처럼 카드 자체를 못 씀. 운행·지출 흐름은 그대로.
+1. `npx oxlint` 결과가 29개이고, 아래 "건드릴 파일" 줄의 경고는 0개다(남은 29개는 테스트 20·`only-export-components` 8·`PageLoadErrorBoundary.jsx:30` 1).
+2. 서버에서 불러오는 4곳(`MyInquiriesList`·`DailyInspectionNotice`·`DailyInspectionMonthSheet`·`useTodayInspectionMissing`): 결과에 "어느 요청의 결과인지" 열쇠(사용자·차량·날짜·다시 시도 횟수)를 같이 담고, 열쇠가 지금 것과 다르면 "불러오는 중"으로 본다. effect 안에서는 결과가 온 뒤에만 상태를 바꾼다. 보이는 순서(불러오는 중 → 결과/실패, [다시 시도] 누르면 다시 불러오는 중)는 지금과 같다.
+3. `OwnerRevenueView`: 기사 차량이 없어졌을 때 "기사" 탭·고른 기사를 effect로 되돌리지 않고, 화면에 쓸 값을 그 자리에서 고른다(기사 차량이 없으면 "차주", 고른 기사가 없어졌으면 "전체 기사 합산"). 보이는 결과는 같다. 다른 점 하나: 없어졌던 기사 차량이 다시 생기면 전에 고른 탭·기사가 되살아난다.
+4. 빈 묶음은 파일 맨 위 고정 상수로 바꿔 매번 같은 것을 쓴다(`DayLogPage`의 기존 `EMPTY_WORK`와 같은 방식). 계산 결과는 같다.
+5. `useReceivablesData`: 다시 계산 조건에서 일지를 빼고 거래처 목록(`useOwnerClients`)을 넣는다 — `LinkedDriverManagementPage.jsx:64~71`과 같은 방식. 거래처가 바뀌면 미수금 설정이 바로 다시 계산된다.
+6. `ModalShell`: 최신 닫기 함수 담기를 그리는 중이 아니라 그린 뒤(`useEffect`, 조건 없음)로 옮기고(`usePersonalInfoDraft.js:26`과 같은 방식), 열 때 초점 effect 조건에 `initialFocusRef`를 넣는다(넘기는 곳은 `ConfirmModal.jsx:21` 하나, `useRef`라 바뀌지 않음 — 착수 때 확인). Esc·바깥 누름·초점 동작은 같다.
+7. `useConfirm`: 그리는 중에 ref를 맞추지 않고, 확인 창을 열 때 ref에 담고 닫을 때 비운다. 동작은 같다.
+8. `MessageTemplateSheet`: `window.location.href = …`를 `window.location.assign(…)`으로. 동작은 같다.
+9. `useAppSession.js:103`·`usePersonalInfoDraft.js:50`은 코드를 그대로 두고 그 줄 바로 위에 검사 끄기 주석 1줄만 단다(최종 문구 아래).
+
+코드에 넣을 주석 최종 문구:
+- `useAppSession.js` 103줄 위: `// oxlint-disable-next-line react/set-state-in-effect -- 저장된 기록 채우기는 화면 밖 작업이라 effect에서 하고 결과만 담는다.`
+- `usePersonalInfoDraft.js` 50줄 위: `// oxlint-disable-next-line react/immutability -- 저장 중 바뀐 값이 남으면 한 번 더 저장한다(자기 호출).`
+- (규칙 이름 표기는 착수 때 `oxlint`로 실제 꺼지는지 확인하고, 다르면 이름만 고친다.)
 
 ### 건드릴 파일
-- 새 `src/features/home/api/unbiseoQuestion.ts`(약 110줄) — 서버 질문 칸 모양 확인(목록 밖 → 그 밖, 기간 모양 확인) + 답 문장 틀(숫자를 받아 문장만 만듦 — 계산 없음).
-- 새 `src/features/home/api/unbiseoNumbers.ts`(약 85줄) — 그 순간 Store 값으로 화면과 같은 함수를 불러 숫자(차주/연동 기사 갈림, 연은 12달 합, 미수금은 거래처·달 걸러 합·건수, 거래처 매출은 `getTaxInvoiceSourceGroups` 메인 묶음의 공급가액·합계).
-- `src/features/home/api/unbiseoParse.ts` — question이면 `unbiseoQuestion.ts`로 읽어 `{ kind: 'question', question }`, 문장은 숫자를 받아 만듦(152 → 약 160).
-- `src/features/home/hooks/useUnbiseoAssistant.ts` — 질문이면 `unbiseoNumbers`로 숫자를 내 문장(85 → 약 92).
-- 테스트: 새 `unbiseoQuestion.test.js`(문장 틀 전부·기간 이름·0원·지원 안 함·그 밖), 새 `unbiseoNumbers.test.js`(**같은 자료로 화면 함수를 직접 부른 값과 같음** — 차주·연동 기사·연 합·미수금 거래처/달·거래처 매출 = 세금계산서 그룹), `HomeAssistantPanel.test.js`(질문 → 답 문장·버튼 없음), `unbiseoParse.test.js`(질문 읽기).
-- 문서(`[x]` 때): sot §4-16 앱 줄에 질문 답, 로드맵 24 끝.
+- `src/features/support/ui/MyInquiriesList.jsx` — 목표 2
+- `src/features/day-log/ui/DailyInspectionNotice.jsx` — 목표 2
+- `src/features/documents/ui/DailyInspectionMonthSheet.jsx` — 목표 2
+- `src/features/home/hooks/useTodayInspectionMissing.js` — 목표 2
+- `src/features/revenue/ui/OwnerRevenueView.jsx` — 목표 3
+- `src/features/documents/ui/ReportPage.jsx` — 목표 4
+- `src/features/drivers/ui/LinkedDriverManagementPage.jsx` — 목표 4
+- `src/features/day-log/ui/DayLogPage.jsx` — 목표 4(`pinnedLocations`)
+- `src/features/receivables/hooks/useReceivablesData.js` — 목표 5
+- `src/shared/ui/ModalShell.jsx` — 목표 6. 공용 창 껍데기(사용처 15개 파일) — 바뀌는 건 내부 ref 담는 시점뿐, 받는 값(props)·CSS는 그대로
+- `src/features/receivables/hooks/useConfirm.jsx` — 목표 7(사용처 `ReceivablesListPage`·`ReceivablesDetailPage`)
+- `src/features/day-log/ui/MessageTemplateSheet.jsx` — 목표 8
+- `src/app/useAppSession.js`, `src/features/account/hooks/usePersonalInfoDraft.js` — 목표 9, 주석 1줄씩
 
 ### 안 건드릴 것
-- 서버 함수(24-D-1 끝), 매출·미수금 화면과 계산 함수(`domain/finance*`·`driverSelfRevenue.ts` — 부르기만), `HomeAssistantPanel.tsx`(질문엔 버튼이 없어 지금 그림 그대로 — 문장만 바뀜), 운행·지출 흐름, 서류(내역서) 계산.
+- 테스트 파일 경고 20개, `only-export-components` 8개, `PageLoadErrorBoundary.jsx`, `.oxlintrc.json`, `.github/workflows/ci.yml`, `package.json` — 105-B.
+- 저장·동기화 코드(`src/data/**`) — 이번 파일 중 `localStorage`를 직접 쓰는 곳 없음(14개 파일 grep 0건). `useAppSession.js`는 주석 1줄만이라 저장 경로 동작 변화 없음.
+- 새 파일·새 저장 키 없음.
 
 ### 검증
-- 위 테스트. 특히 `unbiseoNumbers.test.js`는 화면이 쓰는 함수를 같은 자료로 직접 불러 숫자가 같은지 확인(다른 계산을 새로 만들지 않았다는 증명). 기존 테스트 전부 통과·경고 늘지 않음. 타입·빌드·의존 방향은 CI.
-- 플레이북: `domain/finance*`를 부르기만 하고 저장 안 함 — §4 트리거("화면에 보여주기만") 참고 수준.
-- 브라우저(보리 계정): "이번 달 매출 얼마야" → 매출 화면(차주 탭) 10월 "합계"와 같은 숫자, "미수금 얼마야" → 미수금 화면 합계와 같음, "이번 달 몇 번 뛰었어" → 매출 화면 "총 ○회 운행"과 같음, "한진 이번 달 매출" → 서류 발급 [세금계산서] 탭 한진 공급가액·합계와 같음.
+- 로컬 `npm test`, `npm run typecheck`, `npx oxlint`(목표 1 숫자 대조).
+- 기존 테스트가 지켜 주는 것: `DailyInspectionNotice.test.js`(불러오는 중·실패·다시 시도), `OwnerRevenueView.vehicleScope.test.js`(기사 탭·기사 고르기), `ModalShell.test.js`(Esc·겹친 창·초점). 기존 테스트는 지우거나 약하게 바꾸지 않는다.
+- 새 테스트는 만들지 않는다 — 목표 2~4·6~9는 보이는 동작이 같아 기존 테스트로 증명. 목표 5(거래처 바뀌면 바로 다시 계산)는 브라우저 확인.
 
 ### 파일 길이
-- 새 `unbiseoQuestion.ts` 약 115·`unbiseoNumbers.ts` 약 85, `unbiseoParse.ts` 152 → 약 160, `useUnbiseoAssistant.ts` 85 → 약 92. 모두 200 이하(감시 목록 파일 안 건드림).
-
-### 코드에 넣을 주석(최종 문구)
-- `unbiseoNumbers.ts` 머리: `// 운비서 질문의 숫자 — 매출·미수금 화면과 같은 함수를 그 순간 값으로 부른다(로드맵 24-D-2). 새 계산 없음.`
-- `unbiseoQuestion.ts` 머리: `// 운비서 질문 읽기와 답 문장 틀 — 문장은 앱이 만들고 숫자는 unbiseoNumbers가 낸다.`
+- `LinkedDriverManagementPage.jsx` 198 → 200 이하(빈 묶음 상수 2줄 — 넘으면 상수를 한 줄로). 감시 목록 파일.
+- `DayLogPage.jsx` 179 → 약 180, `ReportPage.jsx` 164 → 약 165, `useAppSession.js` 145 → 146, `OwnerRevenueView.jsx` 129 → 약 125, `DailyInspectionMonthSheet.jsx` 125 → 약 127, `DailyInspectionNotice.jsx` 106 → 약 108, `usePersonalInfoDraft.js` 72 → 73, `MyInquiriesList.jsx` 67 → 약 68, `ModalShell.jsx` 63 → 약 64, `MessageTemplateSheet.jsx` 61 → 61, `useConfirm.jsx` 37 → 약 39, `useReceivablesData.js` 33 → 약 34, `useTodayInspectionMissing.js` 27 → 약 29. 모두 200줄 이하.
 
 ### 실패 시 처리
-- 새 저장 장치·재시도 없음(AGENTS §7). 화면 숫자와 다르면 코드는 그대로 두고 이 파일에 수정 착수지시서.
+- 새 저장 장치·재시도·대비 장치 없음. 테스트나 화면 확인이 실패하면 코드는 그대로 두고 이 파일에 수정 착수지시서를 써서 다시 승인받는다.
 
 ### 진행 기록
-- 2026-10-23 터미널 AI 교차검증 — 함수 이름·인자·돌려주는 칸(`income.total`·`netProfit`·`expense.total/fuel/maint/misc`·`tripCount`), 계정별 화면 고르기(`RevenuePage.jsx` `accountType === 'employed_driver'`), 미수금 화면 재료(`useReceivablesData.js` = `buildFinanceSettings` + `getReceivableItems`) 모두 지시서와 맞음. 고친 사실 하나: 세금계산서 탭은 `getTaxInvoiceSourceGroups`를 바로 부르지 않고 `listMonthInvoices` → `listTaxInvoiceEntries`를 거침. 다만 작성 전 목록은 그룹 금액을 그대로 쓰므로(`buildTaxInvoiceEntry`가 `...group`을 뒤에 펼침) 지시서 방식이 맞음. 이미 "발급 완료"로 저장된 건은 발급 때 금액이 남아 있어, 발급 뒤 운행을 고쳤다면 그 탭 [발급 완료] 숫자와 다를 수 있음(운행 기준 숫자를 답함).
-- 정한 것: ① 금액 표시는 매출 화면(`revenueFormat.js` `won`)과 같이 음수도 그대로 — 앱 공용 `formatWon`은 0 밑을 0으로 막아 순이익 적자가 "0원"이 됨. 홈은 매출 기능 폴더를 못 불러(의존 방향) 같은 한 줄 함수를 `unbiseoQuestion.ts`에 둠. ② 서버가 질문 칸 없이 `{ kind: 'question' }`만 보내면 "알아듣지 못했습니다"(지출과 같음). ③ 미수금 + 연 기간이면 "2026년 운행분 남은 미수금은…". ④ `describeResult`가 질문 답 문장을 만드는 함수를 받게 바꿈(숫자 계산은 훅에서, 문장 틀 파일은 계산 없음).
-- 결과: 새 `unbiseoQuestion.ts` 86·새 `unbiseoNumbers.ts` 60, `unbiseoParse.ts` 156, `useUnbiseoAssistant.ts` 89줄. `HomeAssistantPanel.tsx`·서버·계산 함수 안 바뀜.
-- 기존 테스트 중 바꾼 것(동작이 바뀌어서, 약화 아님): "질문은 종류만" → 질문 칸 읽기 + 칸 없으면 알아듣지 못함 목록에 넣음, `describeResult({ kind: 'question' })` "곧…" → 질문 답 함수를 부름, 패널 "질문·실패엔 버튼 없음"의 서버 답을 질문 칸 있는 모양으로.
-- 시험: 전체 884 + 757 모두 통과, 타입 검사·빌드·의존 검사 통과, lint 경고 49 그대로. `unbiseoNumbers.test.js`는 같은 자료(`finance.fixtures.ts` + 메인 4월 운행 하나)를 Store에 넣고 화면 함수를 직접 부른 값과 같은지 — 차주(달·연·지출 종류별·운행 횟수), 연동 기사(운송 수입·정산액·연), 미수금(전체·거래처·달·없는 거래처), 거래처 매출(세금계산서 그룹·없는 달·연). 고치기 전 코드로 돌리면 카드·읽기 테스트 4개 실패, 새 두 파일의 테스트는 새 파일이 남아 통과(정상), 패널 "버튼 없음"은 안전 확인, 복구 확인.
-- 코드 커밋 react-app `daed064`(2026-10-23, 8개 파일 — 운영 4·테스트 4, push 안 함). 남은 것: 보리 push → CI → 브라우저 확인(아래 1~5) → §5 리뷰 → 최종 승인.
-- 보리 push 뒤 CI verify·deploy 초록(run 39886881459). 데스크톱 AI 배포본 확인(보리 계정, 떠 있는 운비서에 글로, 저장 동작 없음) — 화면 숫자와 모두 같음: "이번 달 매출" 3,303,011원 = 매출 화면(차주 탭) 10월 합계 / 순이익 2,599,496원 = 당월 순이익 / 지출 703,515원 = 운행 지출 합계 / "몇 번 뛰었어" 26회 = 총 26회 운행 / "미수금 얼마야" 3,309,258원(14건) = 미수금 화면 세 묶음 합(1,373,456·3건 + 1,435,802·9건 + 500,000·2건) / "테스터거래처 미수금" 1,373,456원(3건) = 그 묶음 / "테스터거래처 이번 달 매출" 공급가액 2,073,456원·부가세 포함 2,280,801원 = [세금계산서] 탭 테스터거래처 / "오늘 매출" → 달이나 연으로 / "가장 많이 간 곳" → 아직 답할 수 없는 질문 / 거래처 순이익 → 매출과 미수금만.
-- §5 리뷰(데스크톱 AI): ① 범위 — 8개 파일(운영 4·테스트 4), 지시서와 같음, `HomeAssistantPanel.tsx`·서버·계산 함수 안 바뀜 ② 몰래 증설 없음(그 순간 값 읽기, 구독·저장 0) ③ 타입 꼼수 0 ④ 200줄 — 최대 `unbiseoParse.ts` 156 ⑤ 테스트 — 지운 줄은 "질문은 종류만·곧…"처럼 동작이 바뀐 확인을 새 확인으로 바꾼 것, `unbiseoNumbers.test.js`는 화면 함수를 같은 자료로 직접 불러 비교 ⑥ 공용 영향 없음(계산 함수는 부르기만) ⑦ 목표 1~4 충족(정한 것 4가지 — 진행 기록). 남은 것: 보리 휴대폰 확인 → 최종 승인.
-
-### 수정 착수지시서 — 미수금 답에 "기사 차량 포함" `[x]`
-- 보리(2026-10-23): 매출 화면 위 "미수금(11건) 2,609,258원"과 미수금 화면 "3,309,258원(14건)"이 다른 까닭 확인 요청 → 데스크톱 AI 확인: 버그 아님 — 매출 화면은 보는 탭 기준(기본 "차주" 탭 = 메인 차량만, `domain/financeOwnerDetail.ts:125-129` `scope === 'owner'` → `logId === 'main'`, 그 달만), 미수금 화면은 메인 + 기사 차량 전체(`financeReceivables.ts` `getReceivableItems`, 달 구분 없음). 차이 700,000원·3건 = 기사 차량 2222 몫. 운비서는 매출은 차주 탭(메인만), 미수금은 미수금 화면(기사 차량 포함)이라 헷갈릴 수 있음 → "2번으로"(문장에 범위 붙이기) `[확인: 2026-10-23 보리]`.
-- **쉬운 요약**: 숫자는 그대로(미수금 화면과 같음), 셈에 기사 차량 운행분이 들어 있으면 문장에 "기사 차량 포함"을 붙입니다. 예: "남은 미수금은 3,309,258원입니다(기사 차량 포함, 14건)." 기사 차량분이 없으면 "남은 미수금은 1,373,456원입니다(3건)."
-- **건드릴 파일**: `src/features/home/api/unbiseoNumbers.ts` — 미수금 숫자에 "센 것 중 메인이 아닌 차량(`logId !== 'main'`) 운행분이 있나" 한 칸(`withSub`)(60 → 약 62). `src/features/home/api/unbiseoQuestion.ts` — `QuestionNumbers`에 그 칸, 미수금 문장 괄호를 마침표 앞으로 옮기고("…원입니다(14건)." — 지금 "…입니다.(14건)"은 마침표 뒤 괄호라 어색) 기사 차량분이 있으면 "기사 차량 포함, "(86 → 약 88). 테스트 `unbiseoQuestion.test.js`·`unbiseoNumbers.test.js`(기사 차량분 있음/없음·거래처·달), 문구를 찾는 `HomeAssistantPanel.test.js`가 있으면 맞춤.
-- **안 건드릴 것**: 숫자 계산(미수금 화면 숫자 그대로), 매출 화면, 다른 질문 문장.
-- **검증**: 위 테스트, 전체 테스트·경고. 배포본: "미수금 얼마야" → "(기사 차량 포함, 14건)", "테스터거래처 미수금" → "(3건)"(메인만).
-- **실패 시 처리**: 새 장치 없음. 수정 커밋 1개 더(AGENTS §3).
-- **진행 기록**: 2026-10-23 터미널 AI — 교차검증: 지시서 줄 수(60·86)·미수금 숫자가 `getReceivableItems` 항목에서 나옴 맞음, `HomeAssistantPanel.test.js`·`UnbiseoDock.test.js`에는 미수금 문장을 찾는 곳이 없어 안 바꿈. `withSub`는 미수금 답에만 쓰여 `QuestionNumbers`에 선택 칸으로 둠(다른 질문 숫자는 그대로). 결과 `unbiseoNumbers.ts` 61·`unbiseoQuestion.ts` 87줄. 시험: 미수금 문장(괄호 위치·기사 차량 포함 있음/없음·거래처+달·0원), 숫자(전체 = 메인+기사 차량 → 포함, 한진 = 메인만 → 없음, 대한 = 기사 차량만 → 포함, 달·거래처+달·없는 거래처). 전체 884 + 757 통과, 타입 검사 통과, lint 49 그대로. 고치기 전 코드로 돌리면 미수금 시험 2개 실패·나머지 9개 통과(안전 확인), 복구 확인. 수정 커밋 react-app `a40a95d`(4개 파일 — 운영 2·테스트 2, push 안 함). 남은 것: 보리 push → CI → 배포본 "미수금 얼마야"·"테스터거래처 미수금" 확인 → 최종 승인.
-- 보리 push 뒤 CI verify·deploy 초록(run 39888238152). 데스크톱 AI 배포본 확인: "미수금 얼마야" → "남은 미수금은 3,309,258원입니다(기사 차량 포함, 14건).", "테스터거래처 미수금" → "테스터거래처 남은 미수금은 1,373,456원입니다(3건).", "이번 달 매출" → 그대로 3,303,011원. §5: 범위 4개 파일(운영 2·테스트 2)·숫자 계산 안 바뀜·타입 꼼수 0·200줄 이하·지운 시험 줄은 옛 문장(마침표 뒤 괄호)을 새 문장으로 바꾼 것.
+- 2026-10-23 터미널 AI 교차검증 — `npx oxlint` 49개 중 운영 코드 29개, 그중 이번 대상 20개가 지시서 "건드릴 파일" 줄과 정확히 같음(나머지 9 = `only-export-components` 8 + `PageLoadErrorBoundary.jsx:30`). 줄 번호만 조금 다름(경고가 뜨는 줄은 빈 묶음을 쓰는 `useMemo` 쪽 — `ReportPage.jsx:55~63`, `LinkedDriverManagementPage.jsx:98·103`, `DayLogPage.jsx:72`). `initialFocusRef`를 넘기는 곳은 `ConfirmModal.jsx:21` 하나(`useRef`)와 `ModalShell.test.js`(`createRef` 한 번) 확인. 검사 끄기 규칙 이름 `react/set-state-in-effect`·`react/immutability`는 그대로 꺼짐 확인.
+- 정한 것: ① 불러오기 열쇠 = 내 문의 `userId`, 일상점검 안내 줄 `사용자|차량|날짜|다시 시도`, 일상점검표 `사용자|차량|연-달|다시 시도`, 홈 할 일 `사용자|차량|날짜`. 다른 점 하나: 휴무를 켰다 끄면 전에는 "불러오는 중"부터 다시 보였는데, 이제는 같은 열쇠의 지난 결과가 바로 보이고 뒤에서 다시 읽어 바꿈(같은 차량·날짜라 내용은 같음). ② "불러오는 중" 대신 값은 파일 위 타입 붙인 상수(`LOADING`)로(타입 검사가 빈 묶음 모양을 잡음). ③ `LinkedDriverManagementPage.jsx`는 상수 3줄을 넣고 기존 형 설명 줄을 옮겨 정확히 200줄.
+- 결과: 14개 파일, 모두 200 이하(최대 `LinkedDriverManagementPage.jsx` 200·`DayLogPage.jsx` 180). `npx oxlint` 29개(테스트 20·`only-export-components` 8·`PageLoadErrorBoundary.jsx` 1) — 목표 1 그대로. 전체 테스트 884 + 757 통과(기존 테스트 안 바꿈·새 테스트 없음, 지시서대로), 타입 검사·빌드·의존 검사 통과. 저장·동기화 코드 안 바뀜.
+- 코드 커밋 react-app `d7a69fa`(2026-10-23, 14개 파일, push 안 함). 남은 것: 보리 push → CI → 브라우저 확인(아래 1~8) → §5 리뷰 → 최종 승인.
+- push 뒤 CI verify·deploy 초록(run 39889929378). §5 리뷰(데스크톱 AI): 범위 14개 파일 지시서와 같음, 새 파일·저장 키 없음, 타입 꼼수 0, 최대 200줄, 테스트 안 바뀜, `ModalShell` 받는 값 그대로, 목표 1~9 충족. 지시서에 미리 안 적은 설명 주석 5줄(불러오기 열쇠 4·매출 1) 들어감 — 결론 1줄짜리라 그대로 둠(보리 판단).
+- 배포본 확인(데스크톱 AI, 보리 계정, 2026-10-23): 1 내 문의 빈 목록 안내 / 2 일지 "일상점검표 작성이 필요합니다."·홈 "오늘 일상점검 안 함" / 3 일상점검표 10월 서버 기록(9·10·12일) 표시, 9월로 바꾸면 "불러오는 중" → 표 / 4 매출 기사 탭 합산 558,000원 → 22가2222 고르면 568,000원 / 5 내역서 계 3,525,510원 = 홈 정산 합계, 기사 관리 22가2222 운송료 710,000·정산금 142,000 = 매출 기사 탭 / 7 입금완료 확인 창 열림(초점 "취소")·취소·Esc 닫힘, 닫은 뒤 초점 "입금완료"로 돌아옴, 입금 처리 안 함 — 모두 통과. 6(거래처 단가 바꾸기)·8(문자 앱 열기)은 계정 자료를 바꾸거나 다른 앱을 여는 일이라 AI가 안 함 → 보리 확인 완료, 최종 `[x]` 승인(2026-10-23).
 
 ### 사용자 확인 방법
-1. 운비서에 "이번 달 매출 얼마야" → "10월 매출은 ○원입니다." → 매출 화면 10월 "합계"와 같은지.
-2. "미수금 얼마야" → 미수금 화면 합계와 같은지, "한진 미수금 얼마 남았어" → 한진 묶음 합과 같은지.
-3. "이번 달 몇 번 뛰었어" → 매출 화면 "총 ○회 운행"과 같은지.
-4. "한진 이번 달 매출 얼마야" → 서류 발급 [세금계산서] 탭 한진 공급가액·합계와 같은지.
-5. "오늘 매출 얼마야" → "달이나 연으로 물어봐 주세요." / "가장 많이 간 곳이 어디야" → "아직 답할 수 없는 질문이에요."
+1. 고객센터 → 내 문의: 잠깐 회색 막대 뒤 목록(또는 "아직 접수한 문의나 건의가 없습니다").
+2. 로그인 계정 일지(오늘): 일상점검 안내 줄이 회색 막대 뒤 뜸. 홈 할 일에 "오늘 일상점검 안 함"이 전과 같이 보이거나 안 보임.
+3. 서류 발급 → 일상점검표: 달을 바꾸면 회색 → 표.
+4. 매출 → 차주 손익: "기사" 탭과 기사 고르기가 전과 같이 바뀜.
+5. 운송비 내역서·기사 관리 화면: 숫자가 전과 같음.
+6. 거래처 단가를 바꾼 뒤 미수금 화면: 바뀐 값이 바로 반영됨.
+7. 미수금 화면에서 입금 처리 확인 창: 열고 취소·확인, Esc로 닫기가 전과 같음.
+8. 일지 콜에서 문자 보내기: 문자 앱이 열림.
 
 ---
 
