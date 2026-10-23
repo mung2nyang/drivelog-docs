@@ -1,79 +1,72 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
----
+## 로드맵 24-E 운비서 답을 소리로 읽어 주기 `[x]` `[확인: 2026-10-23 보리 — "승인"]`
 
-## 로드맵 110-B 일지 저장 실패를 알림 목록에 보이기 `[x]`
+보리 지시(2026-10-23): "응 좋아 작성해" — 24-E~I 순서 권함대로 `[확인: 2026-10-23 보리]`, 음성은 "1번으로 시도"(휴대폰 기본 목소리). 24-E~I 첫 조각, 앱만(서버·저장 없음).
 
-로드맵 110 두 번째(마지막) 조각. 110-A `[x]`(react-app `d3ecf58`, drivelog-docs `b57e0b1`, sot §4-18)가 남긴 실패 날짜 목록으로 알림을 만든다. 정한 것 `[확인: 2026-10-23 보리]`: ② 문구 제목 "M월 D일 운행일지 저장이 실패했습니다.", 내용 "일지를 확인한 후 저장이 안 된 내용이 있으면 다시 입력해 주세요." `[확인: 2026-10-23 보리 — "에→이로 바꾸고 나 문구를 이걸로"]`, 누르면 그 날짜 일지 ③ [닫기] 없음 — 다시 저장되거나 그 날짜 일지를 열면 저절로 사라짐 ④ 알림 받기 스위치로 못 끔.
+### 확인할 점 (하나) — 언제 읽나
+- 권함: **마이크로 말했을 때만** 답을 읽음(운전 중 = 마이크, 글로 쳤으면 화면을 보고 있으니 안 읽음). 읽는 동안 카드에 **[멈추기]**. 끄기 스위치는 이번엔 안 둠 — 글로 치면 안 읽으니 끌 일이 적고, 스위치를 두면 설정 저장 칸이 하나 늘어남(써 보고 필요하면 그때). 다른 안: 늘 읽기 + 앱 설정에 끄기 스위치.
 
 ### 쉬운 요약
-- 로그인 계정의 일지가 서버 저장에 실패하면, 알림 목록(종)에 "10월 22일 운행일지 저장이 실패했습니다."가 맨 위에 남는다. 앱을 껐다 켜도 남는다.
-- 누르면 그 날짜 일지가 열리고, 열면 알림이 사라진다(110-A 규칙). 다시 실패하면 다시 생긴다.
-- [닫기] 단추가 없고, 알림 받기 설정에도 이 종류는 없다(끌 수 없음).
+- 마이크로 "이번 달 매출 얼마야"라고 하면 카드에 답이 나오면서 휴대폰이 "10월 매출은 3,303,011원입니다."를 소리로 읽어 줍니다. 운행·지출도 "…으로 기록할게요."를 읽고, [기록하기]는 지금처럼 눌러야 합니다.
+- 휴대폰 크롬에 들어 있는 읽어 주기라 무료, 인터넷으로 문장을 보내지 않습니다.
 
 ### 현재 상태 (코드 확인)
-- 실패 날짜 목록: `data/sync/failedDayLogDates.ts`(65줄) `listFailedDayLogDates(ownerKey)` → `{ logId, dateKey }[]`, `subscribeFailedDayLogDates(listener)`. 읽을 때마다 새 배열을 만들어 화면 구독용 "지금 값" 함수는 없음.
-- 알림 만들기: `features/notifications/api/notifications.js`(156줄) `collectNotifications` — 항목 `{ id, kind, page, title, body, dateLabel, actionLabel?, dismissLabel? }`, 닫은 id 제외, 마지막에 `notifOff`에 든 종류 제외(154~155줄).
-- 알림 다시 세기: `features/notifications/hooks/useNotifications.js`(38줄) — Store 값·화면 주소가 바뀔 때만. 실패 목록은 Store가 아니라 바뀌어도 안 다시 셈.
-- 알림 화면: `features/notifications/ui/NotificationsPage.jsx`(105줄) — 알림 받기 스위치 목록 `kinds`(33~40줄), 항목을 누르면 `onOpenPage(item.page)`(89줄), 모든 항목에 [닫기](98줄).
-- 화면 이동: `app/shell/AppShell.jsx:50-53` `pagePath(page)` = `/app/` + (표에 없으면 page 그대로) → `page`를 `day/2026-10-22`로 주면 `/app/day/2026-10-22`, 기사 차량 일지는 `logs/<logId>/day/<날짜>`(`AppShellRoutes.jsx:70`). AppShell은 안 고쳐도 됨.
-- 알림 숫자(종 위 빨간 숫자)는 `AppShell.jsx:118` `useNotifications(...).length`.
+- 답 문장은 `features/home/hooks/useUnbiseoAssistant.ts`(89줄) `send`가 `setAnswer({ sentence })`로 만듦. 말로 왔는지 글로 왔는지 구분 없음 — 받아쓰기 끝나면 `useSpeechInput` → `send(heard)`(`:44-47`), 글은 `HomeAssistantPanel.tsx` 폼 → `send(text)`.
+- 읽어 주기 코드 없음(`src` grep `speechSynthesis` 0). 받아쓰기는 `useSpeechInput.ts`(80줄, `webkitSpeechRecognition`, 지원 안 하면 마이크 없음).
+- 대화 상태는 앱 틀 한 곳(`unbiseoContext.ts`) — 홈 카드·떠 있는 버튼이 같이 씀(24-B-3-B).
 
 ### 목표 상태 (기대 동작)
-1. 실패 목록에 있는 날짜·차량마다 알림 하나: 제목 "{M}월 {D}일 운행일지 저장이 실패했습니다." 내용 "일지를 확인한 후 저장이 안 된 내용이 있으면 다시 입력해 주세요."(보리 문구, 띄어쓰기만 고침), 기사 차량 일지면 제목의 "운행일지" 뒤에 차량 짧은 번호(예: "10월 22일 운행일지(5678) 저장이 실패했습니다."). 일지 화면에서 뜨는 실패 알림 문구(109-B "…저장에 실패했습니다. 네트워크 상태를 확인해 주세요.")는 그대로. 날짜 줄은 비움(제목에 날짜).
-2. 이 알림들은 목록 맨 위, 날짜 오래된 순.
-3. 누르면 그 날짜 일지로 간다 — 메인은 `day/<날짜>`, 기사 차량은 `logs/<logId>/day/<날짜>`.
-4. [닫기] 단추가 없다. 다른 알림의 [닫기]는 그대로.
-5. 알림 받기 스위치 목록에 이 종류가 없고, `notifOff`에 무엇이 있어도 이 알림은 빠지지 않는다.
-6. 실패가 생기거나 지워지면(110-A) 알림 목록과 종 위 숫자가 화면을 옮기지 않아도 바로 바뀐다.
-7. 비회원·서버 밖 차량 일지(휴대폰 대기 목록, 자동 재시도)는 이번에 알림을 만들지 않는다 — 110-A 목록이 로그인 갈래만이라서.
+1. 마이크로 받아쓴 말로 보낸 답이면, 답 문장이 나올 때 휴대폰이 그 문장을 한국어(`ko-KR`)로 한 번 읽음. "알아듣는 중…"은 안 읽음. 실패 문구("잠시 뒤 다시 시도해 주세요." 등)도 읽음.
+2. 글로 쳐서 보낸 답은 읽지 않음.
+3. 읽는 동안 답 아래 **[멈추기]** — 누르면 바로 멈춤. 마이크를 다시 누르면(듣기 시작) 읽던 것을 먼저 멈춤 — 휴대폰 소리를 마이크가 받아쓰지 않게. 새 답이 오면 앞 것은 멈추고 새 것을 읽음. 계정이 바뀌거나 앱 틀이 사라지면 멈춤.
+4. 읽어 주기를 지원하지 않는 브라우저면 조용히 안 읽음(카드는 그대로, [멈추기]도 없음).
+5. 문장·버튼·저장 흐름은 그대로.
 
 ### 건드릴 파일
-- `react-app/src/data/sync/failedDayLogDates.ts` — 화면 구독용 "지금 값" 함수 하나(바뀔 때만 달라지는 값, 예: 저장된 글 그대로 또는 바뀜 횟수). 65 → 약 72줄.
-- `react-app/src/features/notifications/api/notifications.js` — 실패 알림 항목 만들기(`kind: 'saveFailed'`, `noDismiss: true`), 맨 앞에 넣기, `notifOff` 거르기에서 이 종류 제외. 항목 타입에 `noDismiss?: boolean`. 156 → 약 175줄. 실패 알림 만드는 부분 위 주석(최종 문구):
-  `// 일지 저장 실패(로그인) — 휴대폰에 남은 실패 날짜마다. 닫기·끄기 없이, 다시 저장되거나 그 날짜 일지를 열면 사라진다.`
-- `react-app/src/features/notifications/hooks/useNotifications.js` — 실패 목록 구독(`useSyncExternalStore(subscribeFailedDayLogDates, 지금 값)`)을 다시 세는 조건에 더함. 38 → 약 42줄.
-- `react-app/src/features/notifications/ui/NotificationsPage.jsx` — `item.noDismiss`면 [닫기] 안 그림. 105 → 약 106줄.
-- 테스트(200줄 예외): 알림 만들기 — 실패 날짜 2개(메인·기사 차량) → 제목·page·맨 앞·닫은 id/notifOff 무시. 알림 화면 — 실패 알림에 [닫기] 없음, 누르면 `onOpenPage('day/2026-10-22')`, 알림 받기에 이 종류 없음. 구독 — 목록에 더하면 숫자가 바로 늘어남.
+- 새 `src/features/home/hooks/useSpeechOutput.ts`(약 45줄) — 읽어 주기 지원 여부·`speak(문장)`·`stop()`·읽는 중 상태(`window.speechSynthesis`·`SpeechSynthesisUtterance`, 없으면 아무것도 안 함).
+- `src/features/home/hooks/useUnbiseoAssistant.ts` — 받아쓰기로 보낸 것인지 기억해 답이 나오면 읽기, 듣기 시작·새 답·계정 바뀜에 멈추기, `speaking`·`stopSpeaking` 내줌(89 → 약 100).
+- `src/features/home/ui/HomeAssistantPanel.tsx` — 읽는 중이면 답 아래 [멈추기](기존 `home-assistant-action` 모양 — CSS 안 늘림)(78 → 약 83).
+- 테스트: 새 `useSpeechOutput.test.js`(가짜 `speechSynthesis` — 읽기·멈추기·지원 안 함), `HomeAssistantPanel.test.js`(가짜 받아쓰기로 말함 → 답을 읽음, 글로 보냄 → 안 읽음, [멈추기], 듣기 시작하면 멈춤).
+- 문서(`[x]` 때): sot §4-16 한 줄, 로드맵 24-E.
 
 ### 안 건드릴 것
-- `app/shell/AppShell.jsx`(198줄)·`AppShellRoutes.jsx` — 주소 변환이 이미 됨.
-- 110-A 기록·지우기 규칙, 일지 저장 흐름.
-- 다른 알림 종류·문구·[닫기].
-- 휴대폰 푸시(앱이 꺼져 있을 때 알림) — 로드맵 11번.
+- 서버 함수, 답 문장 만드는 곳(`unbiseoParse.ts`·`unbiseoQuestion.ts`), 떠 있는 버튼·홈 줄 모양(`UnbiseoDock.tsx`·`HomeAssistantBar.jsx`), CSS, 설정 저장(스위치 없음).
 
 ### 검증
-- CI 초록(테스트·타입·빌드·코드 검사·의존 방향).
-- 새 테스트는 고치기 전 코드에서 실패하는지 확인(revert-check).
-- 브라우저(개발 화면): 실패를 흉내 낼 수 있으면(인터넷 끊기) 일지 저장 실패 → 종 숫자 +1 → 알림 화면 맨 위 실패 알림·[닫기] 없음 → 누르면 그 날짜 일지 → 돌아오면 알림 사라짐. 흉내가 안 되면 테스트로 대신하고 보리 휴대폰 확인.
+- 위 테스트. 기존 테스트 전부 통과·경고 늘지 않음. 타입·빌드·의존 방향은 CI.
+- 휴대폰(보리): 마이크로 "이번 달 매출 얼마야" → 소리로 답, [멈추기] 누르면 멈춤, 글로 치면 조용함. (데스크톱 AI의 브라우저 창은 마이크가 막혀 있어 소리 확인은 보리 몫.)
 
 ### 파일 길이
-- `failedDayLogDates.ts` 65 → 약 72, `notifications.js` 156 → 약 175, `useNotifications.js` 38 → 약 42, `NotificationsPage.jsx` 105 → 약 106줄. 모두 200줄 아래. 테스트는 예외.
+- 새 `useSpeechOutput.ts` 약 45, `useUnbiseoAssistant.ts` 89 → 약 100, `HomeAssistantPanel.tsx` 78 → 약 83. 200 이하(감시 목록 파일 안 건드림).
+
+### 코드에 넣을 주석(최종 문구)
+- `useSpeechOutput.ts`: `// 휴대폰 기본 읽어 주기(한국어) — 무료, 문장을 밖으로 보내지 않는다. 지원 안 하면 조용히 안 읽는다.`
+- `useUnbiseoAssistant.ts`(읽기 부분): `// 마이크로 말했을 때만 답을 소리로 — 듣기를 시작하면 읽던 것을 먼저 멈춘다(로드맵 24-E).`
 
 ### 실패 시 처리
-- 새 저장·재시도 없음(110-A 목록을 읽기만).
-- 구독 때문에 화면이 계속 다시 그려지면(지금 값이 매번 달라짐) 멈추고 보고.
+- 새 저장 장치·재시도 없음(AGENTS §7). 기대와 다르면 코드는 그대로 두고 이 파일에 수정 착수지시서.
 
 ### 진행 기록
-- 교차검증: 줄 번호·흐름(`collectNotifications` 마지막 `notifOff` 거르기, `useNotifications` 다시 세기 조건, `NotificationsPage` [닫기]·`onOpenPage(item.page)`, `pagePath`가 `day/…`·`logs/<logId>/day/…`를 그대로 주소로)은 코드와 맞음.
-- `failedDayLogDates.ts` 65 → 72줄: `failedDayLogDatesVersion()` — 목록을 쓸 때마다 1 오르는 번호(바뀔 때만 달라져 다시 그리기 반복 없음).
-- `notifications.js` 156 → 174줄: 실패 알림을 다른 알림보다 먼저 넣음(날짜 → 차량 순 정렬), id `saveFailed:<logId>:<dateKey>`, 기사 차량은 제목에 `getShortCarNum`(예: "(5678)"). 닫은 id는 안 보고, `notifOff` 거르기에서 `saveFailed` 제외. 문의 알림은 원래대로 그 뒤.
-- `useNotifications.js` 38 → 41줄: `useSyncExternalStore(subscribeFailedDayLogDates, failedDayLogDatesVersion)`을 다시 세는 조건에 더함 — 종 위 숫자(`AppShell`)도 같은 훅이라 같이 바뀜.
-- `NotificationsPage.jsx` 105줄 그대로: `noDismiss`면 [닫기] 안 그림. 문의 알림 항목 타입에는 이 칸이 없어 `'noDismiss' in item`으로 확인. 알림 받기 목록(`kinds`)은 손대지 않아 이 종류 스위치 없음.
-- 검사: 테스트 892 + 776(새 3개), 타입·코드 검사·의존 방향(1727 → 1730)·빌드 통과.
-- 고치기 전 실패 확인: 새 테스트 3개(알림 만들기 2, 알림 화면 1 — [닫기] 없음·누르면 `day/2026-10-22`·스위치 없음·더하고 지우면 바로 바뀜) 모두 수정 전 코드에서 실패.
-- 브라우저: 로그인 개발 화면에서 서버 실패 흉내는 하지 않음 — 테스트로 대신, 보리 휴대폰 확인.
-- 코드 커밋: react-app `513ef5e`(6개 파일, push 안 함). 남은 것: 보리 push → CI 초록 → 휴대폰 확인 → `[x]` 때 STATUS·로드맵 110 `[x]`.
-- push 뒤 CI verify·deploy 초록(run 39913365148, react-app `513ef5e`). 브라우저(AI, 개발 화면): 휴대폰 실패 목록에 10월 21일을 임시로 넣고 새로고침 → 알림 화면 맨 위 "10월 21일 운행일지 저장이 실패했습니다." / "일지를 확인한 후 저장이 안 된 내용이 있으면 다시 입력해 주세요.", [닫기] 없음, 알림 받기에 이 종류 없음 → 누르면 `/app/day/2026-10-21` 열림·목록에서 지워짐 → 알림 화면에서 사라짐. 실제 서버 저장 실패(인터넷 끊기)와 화면을 안 옮겼을 때 종 숫자 바로 늘어남은 화면에서 안 봄(테스트로만) — 보리 휴대폰 확인 필요. 임시 값은 지움.
-- 2026-10-23 보리 승인("승인 처리해"). `[x]`.
+- 2026-10-23 AI: react-app `0ee92ea`(push 안 함). 확인할 점은 권함대로(마이크로 말했을 때만, 스위치 없음).
+- 새 `useSpeechOutput.ts` 46줄, `useUnbiseoAssistant.ts` 89 → 100, `HomeAssistantPanel.tsx` 78 → 79.
+- 교차검증·지시서와 다른 점:
+  - 마이크 단추는 패널이 아니라 `HomeAssistantBar.jsx`·`UnbiseoDock.tsx`에 있음 — 두 파일은 안 건드리고, 훅이 내주는 `speech.start`를 "읽던 것 멈춘 뒤 듣기"로 감싸 둘 다 같이 바뀜.
+  - 새로 보내는 순간("알아듣는 중…")에도 읽던 것을 멈춤 — 글로 새로 보내도 앞 답 소리가 이어지지 않게.
+  - [멈추기]는 답 문장 바로 아래, [기록하기] 위.
+  - 계정이 바뀔 때 멈추기는 테스트 없음(같은 효과 안에서 `currentOwner`와 함께 멈춤).
+- 테스트 892 + 781 통과, 타입·코드 검사·의존 방향(1732개 연결)·빌드 통과.
+- 고치기 전 실패 확인: 새 테스트 5개 중 패널 테스트 1개는 수정 전 코드로 실패. `useSpeechOutput.test.js` 4개는 새 파일만 시험해서 되돌릴 대상이 없어 통과(정상).
+- 소리는 휴대폰 확인 필요(아래 1~4).
+- 보리 push 뒤 CI verify·deploy 초록(run 39924283358). §5 리뷰(데스크톱 AI): ① 범위 — 5개 파일(운영 3·테스트 2), `HomeAssistantBar.jsx`·`UnbiseoDock.tsx`·CSS·서버 안 바뀜(마이크는 훅의 `speech.start`를 감싸 두 곳이 같이 바뀜 — 진행 기록) ② 몰래 증설 없음(설정 저장·휴대폰 저장 0, 읽기는 화면 메모리) ③ 타입 꼼수 0 ④ 200줄 — 최대 `useUnbiseoAssistant.ts` 100 ⑤ 테스트 — 지운 시험 줄 없음, 새 5개 ⑥ 공용 영향 — `speech.start`를 감싼 것뿐(멈춘 뒤 같은 듣기) ⑦ 목표 1~5 충족(계정 바뀔 때 멈추기는 시험 없음 — 진행 기록). 남은 것: 보리 휴대폰 소리 확인(1~4) → 최종 승인.
 
 ### 사용자 확인 방법
-1. 로그인 계정으로 일지를 열고, 인터넷을 끈 뒤 횟수 바꾸기 → 빨간 아이콘·실패 알림 문구.
-2. 다른 화면으로 가기 → 종 위 숫자가 1 늘었는지.
-3. 앱을 완전히 껐다 켜기 → 종 숫자 그대로, 알림 화면 맨 위에 "10월 22일 운행일지 저장이 실패했습니다." / "일지를 확인한 후 저장이 안 된 내용이 있으면 다시 입력해 주세요.", [닫기] 없음, 알림 받기 목록에 이 종류 없음.
-4. 알림 누르기 → 그 날짜 일지가 열림 → 뒤로 가서 알림 화면 → 알림이 사라졌는지.
+1. 휴대폰 홈 또는 다른 화면의 운비서 → 마이크 → "이번 달 매출 얼마야" → 답이 화면에 나오며 소리로 읽힘.
+2. 읽는 중 [멈추기] → 바로 멈춤.
+3. 글로 "이번 달 매출 얼마야" → 답만 나오고 소리 없음.
+4. 읽는 중에 마이크를 다시 누르면 읽기가 멈추고 듣기 시작.
 
 ---
 
