@@ -1,84 +1,10 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
 ---
 
-## 로드맵 24-F-2 운비서 → 고정 노선 [기록하기]면 일지에서 바로 더하기 `[x]` `[확인: 2026-10-23 보리 — "24-F-2 승인"]`
-
-보리 지시(2026-10-23, 24-F-1 `[x]` 뒤 — "승인", 이어서 F-2). 서버는 고정 노선을 `{ kind: 'fixed', fixed: { date, count, route } }`로 줌(sot §4-16, 앱이 보낸 `routeNames`와 같을 때만 노선). [기록하기]는 **가** — 그 날짜 일지로 가서 일지의 노선 칩·횟수와 같은 동작으로 바로 더함 `[확인: 2026-10-23 보리 — "가로"]`.
-
-### 쉬운 요약
-- "평택 용인 고정 2번 뛰었어" → 카드 "오늘 평택 → 용인 2회로 기록할게요." + [기록하기]. 누르면 오늘 일지로 가서 평택 → 용인 칩이 2회 올라가고(고정 노선 운행 횟수도 같이) "평택 → 용인 2회를 더했습니다." 알림. 잘못이면 칩 옆 [−]로 되돌림.
-- "오늘 고정 3번"처럼 노선을 안 말하면 고정 노선 운행 횟수만 3 올림.
-
-### 현재 상태 (코드 확인)
-- 앱 `features/home/api/unbiseoParse.ts`(156줄) `readAnswer`는 `fixed`를 모름 → 지금 "알아듣지 못했습니다". 보낼 때 `routeNames`를 안 보냄(`useUnbiseoAssistant.ts:65` — `text`·`today`·`clientNames`).
-- 일지 고정 노선: 칸은 `settings.fixedOn`일 때만 보임, 노선 칩은 `settings.fixedRouteOn`일 때만(`DayLogPage.jsx` `routePresets = settings.fixedRouteOn ? fixedRoutePresets : []`), 칩 누름 `runRoute(노선 id, +1)`(`useCallDetailActions.js:32-36` — `applyFixedRouteRun`(`domain/day-record.ts:35`)로 노선 횟수와 `fixedCount`를 같이), 횟수 칸은 `patchDraft({ fixedCount })`. 저장은 일지 자동 저장.
-- 운비서 이동 길: `assistantCallState.js`(88줄)가 주소 상태를 만들고 읽음(운행 `assistantCall`·지출 `assistantExpense`), `MainPageRoute.jsx`(112줄)가 읽고 지움, `DayLogPage.jsx`(181줄)가 훅으로 받음(`useAssistantPrefill`·`useAssistantExpense` — 이동 키로 같은 날짜 다시, 휴무 끄기).
-
-### 목표 상태 (기대 동작)
-1. **보내기**: `fixedOn`이고 `fixedRouteOn`이면 등록 노선을 "상차지 → 하차지" 이름(30개까지)으로 `routeNames`에 실어 보냄. 아니면 안 보냄(빈 목록 — 서버 그대로).
-2. **문장**: "{오늘|M월 D일} {노선 이름|고정 노선} {n}회로 기록할게요."
-3. **버튼 자리**(운행과 같은 순서): 기간 밖 안내 → **고정 노선 꺼짐**(`fixedOn` 아님) "고정 노선이 꺼져 있어요. 켤까요?" + [켜기](앱 설정과 같은 값 `fixedOn: true`) → 휴무면 "휴무를 취소하고 고정 노선을 기록할까요?" + [휴무 취소하고 기록] → [기록하기].
-4. **이동·더하기**: [기록하기] → `/app/day/{날짜}`, 주소 상태 `assistantFixed: { count, route, cancelOff }`(일지가 모양 확인 — 횟수 1~20 정수, 노선 100자 — 뒤 바로 지움). 주소 상태가 지워진 뒤 한 번: `cancelOff`면 휴무 끄기(지금과 같음) → 노선이 그날 설정의 노선 칩 이름과 같으면 `runRoute(그 id, 횟수)`, 아니면 `patchDraft({ fixedCount: 지금 + 횟수 })` → 알림 "{노선} {n}회를 더했습니다." / "고정 노선 {n}회를 더했습니다.". 저장은 일지 자동 저장 그대로(새 저장 길 없음).
-5. **같은 날짜**: 이미 그 날짜 일지에서 또 [기록하기]면 이동 키로 알아보고 한 번 더 더함(입력 칸이 열려 있어도 고정 노선은 입력 칸과 상관없어 확인 창 없음). 다시 그려도 두 번 더하지 않음.
-6. 고정 노선 칸이 꺼진 일지(`fixedOn` 아님)로 왔으면 더하지 않음(카드에서 이미 [켜기]로 막음 — 안전망). 운행·지출·질문 흐름 그대로.
-
-### 건드릴 파일
-- `src/features/home/api/unbiseoParse.ts` — `fixed` 읽기(모양 확인)·문장, 보낼 때 `routeNames`(156 → 약 175).
-- `src/features/home/hooks/useUnbiseoAssistant.ts` — 등록 노선 이름 만들어 보내기, `answer.fixed`, `fixedOn`·[켜기](100 → 약 112).
-- `src/features/home/hooks/unbiseoContext.ts` — 이동 함수 타입에 고정(35 → 약 36).
-- `src/features/home/ui/HomeAssistantPanel.tsx` — 고정 버튼 자리(79 → 약 92).
-- `src/app/routes/assistantCallState.js` — `assistantFixed` 만들기·읽기(88 → 약 108).
-- `src/app/routes/MainPageRoute.jsx` — `assistantFixed` 읽어 넘기고 지울 때 같이(112 → 약 115).
-- 새 `src/features/day-log/hooks/useAssistantFixed.js`(약 45줄) — 받아서 한 번 더하기·휴무 끄기·같은 날짜 다시·알림(운행·지출 훅은 안 건드림).
-- `src/features/day-log/ui/DayLogPage.jsx` — 새 훅 부르기(181 → 약 185).
-- 테스트: `unbiseoParse.test.js`(고정 읽기·문장·routeNames 보냄), `HomeAssistantPanel.test.js`(버튼 순서 — 꺼짐 [켜기]·휴무·[기록하기]), 일지 시험(`MainPageRoute.assistantCall.test.js`에 고정 — 노선 맞음 → 칩·횟수 같이·저장 기록, 노선 없음 → 횟수만, 휴무 끄기, 다시 그려도 한 번, 이상한 값 걸러냄), `UnbiseoDock.test.js`에 같은 날짜 고정 1개.
-- 문서(`[x]` 때): sot §4-16 앱 줄, 로드맵 24-F 끝.
-- 파일 수 8개(새 1, 테스트 따로)로 큼 — 문장·버튼·이동·더하기가 한 흐름(24-C-2와 같은 크기·같은 길).
-
-### 안 건드릴 것
-- 서버(24-F-1 끝), 일지 저장 길(`useDayDraft`·`dayLogCloudCommit` — 칩·횟수와 같은 `patchDraft`/`runRoute`), 노선 칩·횟수 칸 화면(`FixedRouteChips.jsx`·`FixedCountSection.jsx`), 운행·지출 훅, 앱 설정 화면, CSS.
-
-### 검증
-- 위 테스트(실제 누르기·이동). 기존 테스트 전부 통과·경고 늘지 않음. 타입·빌드·의존 방향은 CI.
-- 플레이북: 일지 기록을 바꿈(저장 길은 기존 그대로) — §2(호출 경로) 확인: 더하기는 칩 누름과 같은 `runRoute`/`patchDraft` 한 번, 저장된 기록에 노선·횟수가 맞게 남음.
-- 브라우저(보리 계정 — 노선 칩이 있는 계정): "평택 용인 고정 2번"(등록 노선 이름으로) → [기록하기] → 그날 칩 +2·횟수 +2·알림 → [−]로 되돌림 확인(저장 기록 원래대로).
-
-### 파일 길이
-- 위 "건드릴 파일" 예상 — 모두 200 이하. `DayLogPage.jsx` 약 185(200 가까움 — 넘으면 훅 부르기를 기존 훅 쪽으로 묶음). 감시 목록 파일 안 건드림.
-
-### 코드에 넣을 주석(최종 문구)
-- `useAssistantFixed.js`: `// 운비서가 넘긴 고정 노선을 그 날짜 일지에 한 번 더한다 — 노선 칩·횟수 칸과 같은 동작(로드맵 24-F-2).`
-
-### 실패 시 처리
-- 새 저장 장치·재시도 없음(AGENTS §7). 기대와 다르면 코드는 그대로 두고 이 파일에 수정 착수지시서.
-
-### 진행 기록
-- 2026-10-23 AI: react-app `1bb79b0`(13개 파일, push 안 함).
-- 줄 수: `unbiseoParse.ts` 156 → 191(예상 175보다 큼, 200 이하), `useUnbiseoAssistant.ts` 100 → 105, `HomeAssistantPanel.tsx` 79 → 80, `unbiseoContext.ts` 35(설명 주석만), `assistantCallState.js` 88 → 103, `MainPageRoute.jsx` 112 → 114, `DayLogPage.jsx` 181 → 184, 새 `useAssistantFixed.js` 38.
-- 교차검증·지시서와 다른 점:
-  - 노선 이름은 일지 칩 글자와 같게 `{상차지} → {하차지}`. 서버 상한(60자)을 넘는 이름은 빼고 보냄 — 넘기면 서버가 400을 돌려주기 때문.
-  - 노선 이름을 보내는 기준은 운비서의 기존 "콜 상세" 판단과 같은 메인 일지 설정(`resolveLogSettings(settings, 'main')`).
-  - [켜기]는 콜 상세와 한 함수로 묶음(`enableCallDetail` → `enableSetting(patch)`), 앱 설정 화면과 같은 `savePracticeSettings`.
-  - 노선이 오늘 보이는 칩과 맞지 않으면(칩 꺼짐 등) 횟수만 올리고 알림도 "고정 노선 n회를 더했습니다.".
-  - 휴무인데 `cancelOff`가 없으면 더하지 않음(칩이 휴무에 눌리지 않는 것과 같게, 지시서에 없던 안전망).
-  - 같은 날짜에서 다시 넘기면 이동 키로 알아보고 한 번 더 — 확인 창 없음(지시서대로).
-  - 110-B `notifications.saveFailed.test.js` 1개가 저녁(18시 뒤)에는 "오늘 일지" 알림이 먼저 끼어 실패 — 순서 대신 포함만 보게 고쳐 이 커밋에 같이 넣음.
-- 테스트 892 + 794 통과, 타입·코드 검사·의존 방향(1735개 연결)·빌드 통과.
-- 고치기 전 실패 확인: 새 테스트 13개 중 11개는 수정 전 코드로 실패, 2개(고정 노선 칸이 꺼진 일지면 안 더함, 노선 칩 끈 계정은 이름 안 보냄)는 안전 확인.
-- 플레이북 §2: 더하기는 칩 누름과 같은 `runRoute` 또는 횟수 칸과 같은 `patchDraft` 한 번, 저장된 기록의 노선·횟수를 시험에서 확인.
-- 보리 push 뒤 CI verify·deploy 초록(run 39933836995). 데스크톱 AI 배포본 확인(보리 계정, 매출 화면 운비서에 글로 — [기록하기]는 실제 기록을 바꾸므로 안 누름): "오늘 고정 2번" → "오늘 고정 노선 2회로 기록할게요." + [기록하기], "어제 고정 노선 한 번" → "10월 22일 고정 노선 1회로 기록할게요." + [기록하기]. 노선 이름 맞춤·일지 더하기·[−]는 보리 휴대폰 확인 몫.
-- §5 리뷰(데스크톱 AI): ① 범위 — 13개 파일(운영 8·테스트 5), 지시서 "건드릴 파일" + 지시서 밖 1개 `notifications.saveFailed.test.js`(110-B 시험이 18시 뒤 "오늘 일지" 알림이 먼저 끼어 실패 — 순서 대신 포함만 보게, 진행 기록에 이유, 운영 코드 아님) ② 몰래 증설 없음(저장 길은 칩·횟수와 같은 `runRoute`/`patchDraft`, 휴대폰 저장 0) ③ 타입 꼼수 0 ④ 200줄 — 최대 `unbiseoParse.ts` 191(지시서 약 175보다 큼, 200 이하 — 다음 조각에서 넘으면 나누기), `DayLogPage.jsx` 184 ⑤ 테스트 — 지운 줄은 새 칸(`readAssistantFixed`·`routeNames`)에 맞춘 것과 위 알림 시험 순서 한 줄, 새 13개 중 11개 고치기 전 실패 ⑥ 공용 영향 — [켜기]를 콜 상세와 한 함수(`enableSetting`)로 묶음(콜 상세 [켜기] 시험 그대로 통과) ⑦ 목표 1~6 충족(지시서와 다른 점 — 진행 기록: 휴무인데 cancelOff 없으면 안 더함 등). 남은 것: 보리 휴대폰 확인 → 최종 승인.
-
-### 사용자 확인 방법
-1. 운비서에 "{등록 노선 지명 두 개} 고정 2번 뛰었어" → "오늘 {노선} 2회로 기록할게요." + [기록하기].
-2. 누르면 오늘 일지로 가서 그 노선 칩 2회·운행 횟수 +2·알림 "{노선} 2회를 더했습니다.". 칩 [−] 두 번이면 원래대로.
-3. "오늘 고정 3번" → 운행 횟수 +3(칩은 그대로).
-4. 고정 노선을 끈 계정이면 "고정 노선이 꺼져 있어요. 켤까요?" + [켜기].
-
-## 로드맵 24-E2 운비서 답을 xAI 목소리(Iris)로 `[ ]`
+## 로드맵 24-E2 운비서 답을 xAI 목소리(Iris)로 `[x]` `[확인: 2026-10-23 보리 — "이건 승인"]`
 
 보리 지시(2026-10-23): "Iris 보이스로 일단 해 보고, 사용자가 없는 지금 내가 테스트하며 비용이 얼마나 나가는지 확인해 보고 싶은데" `[확인: 2026-10-23 보리]`. 24-E(휴대폰 기본 목소리)의 목소리만 xAI 음성(Text-to-speech, 목소리 Iris)으로 바꿈. 언제 읽는지(마이크로 말했을 때만)·[멈추기]는 24-E 그대로.
 
@@ -125,6 +51,25 @@
 
 ### 실패 시 처리
 - 새 저장 장치·재시도 없음(AGENTS §7) — 실패는 휴대폰 목소리로 대신(확인할 점). 비용이 생각보다 크면 24-E(휴대폰 목소리)로 되돌리는 수정 착수지시서.
+
+### 진행 기록
+- 2026-10-23 AI: react-app `f05f477`(6개 파일, push 안 함). 확인할 점은 권함대로(못 받으면 휴대폰 기본 목소리).
+- 줄 수: 새 함수 `unbiseo-voice/index.ts` 96(약 80 예상), 새 `unbiseoVoice.ts` 18, `useSpeechOutput.ts` 46 → 87. 함수 SHA-256(LF) `fdf25e48…`.
+- 교차검증·지시서와 다른 점:
+  - xAI 공식 문서(2026-10-23) 확인: `POST /v1/tts`, `text`·`voice_id`(대소문자 무관)·`language`(`ko` 있음)·`output_format { codec, sample_rate, bit_rate }`. 키가 함수 비밀값에만 있어 `GET /v1/tts/voices`로 Iris id를 직접 확인하지 못함 → `voice_id: 'iris'`로 넣음. 틀리면 xAI가 오류를 내고 앱은 휴대폰 목소리로 읽으니, 진짜 서버 시험에서 소리가 오는지로 확인.
+  - 소리 크기: mp3·24kHz·32kbps(문서가 허용하는 가장 낮은 비트레이트).
+  - **돌려주는 형식은 `audio/mpeg` 대신 `application/octet-stream`** — 앱의 `supabase.functions.invoke`는 `audio/mpeg`를 글자로 읽어 소리가 깨짐(설치된 `@supabase/functions-js` 코드 확인). 앱이 받은 것을 `audio/mpeg`로 다시 감쌈.
+  - 함수 기록: `{ chars, ms, ok, bytes }`(소리 크기도 같이 — 비용·속도 볼 때). xAI 실패는 상태 번호·시간 넘김만.
+  - 앱 5초 포기는 `invoke`의 `timeout` 칸으로.
+  - 소리를 받는 중에 [멈추기]·새로 읽기가 오면 늦게 온 소리는 틀지 않음. 재생 오류와 재생 거절이 둘 다 와도 휴대폰 목소리는 한 번만.
+  - 기존 패널 시험 1개(받아쓰기 → 보냄 횟수)는 목소리 부르기도 같은 가짜 서버를 거쳐 세어지므로 운비서 부르기만 세게 맞춤.
+- 테스트 892 + 800 통과, 타입·코드 검사·의존 방향(1737개 연결)·빌드 통과. 함수 타입 검사 통과.
+- 저장소 밖 가짜 시험(scratchpad `24e2/harness.mjs`) 통과: 공개 키만·로그인 없음 401, 틀린 모양·빈 문장·301자 400(AI 안 부름), 요청 모양(주소·키·`iris`·`ko`·mp3 32kbps·15초 신호), 소리 그대로·형식, xAI 400·401·429·500·503·시간 넘김·연결 실패·빈 소리·키 없음 → 503·재시도 없음, 기록에 문장 없음·글자 수 있음.
+- 고치기 전 실패 확인: `useSpeechOutput.test.js` 7개 중 4개(xAI 소리 틀기·늦게 온 소리·재생 막힘·트는 중 사라짐)와 패널 읽어 주기 시험은 수정 전 코드로 실패. 3개(둘 다 없음·못 받으면 휴대폰 목소리·휴대폰 목소리 멈추기)는 24-E 동작을 지키는 안전 확인. `unbiseoVoice.test.js` 3개와 함수는 새 파일이라 되돌릴 대상 없음(정상).
+- 남은 것: 데스크톱 AI가 새 함수 `unbiseo-voice` 만들기(편집기에 넣고 지문 확인, "Verify JWT" 켬) → 보리 배포 → 진짜 서버 시험(공개 키만 401, 보리 계정으로 문장 → mp3·크기·시간, 기록에 글자 수만) → 휴대폰 확인.
+- 2026-10-23 데스크톱 AI가 새 함수 화면에 이름·코드를 커밋과 같게 넣음(SHA-256 `fdf25e48…`), 보리가 "Deploy function". 설정 "Verify JWT with legacy secret" 켜짐. 시험: 앱 공개 키만 → 401 "로그인이 필요합니다."(함수 코드의 확인). **보리 로그인 표(ES256)로 부르면 401 `UNAUTHORIZED_ASYMMETRIC_JWT` "Invalid JWT"** — 같은 표로 `unbiseo-parse`는 200. 새로 만든 함수는 이 설정이 이름대로 "예전 키(HS256)로 서명된 표만" 받아 지금 로그인 표(ECC)를 문 앞에서 막음(24-A 때 `unbiseo-parse`는 같은 설정에도 통과 — 옛 함수와 새 함수가 다르게 동작). Supabase 화면 권장도 "끄고 함수 코드에서 확인". 함수 코드는 이미 `auth.getUser`로 로그인을 다시 확인하므로, **이 함수의 설정을 끄면 로그인 계정만 그대로**(공개 키만 → 함수가 401). 보리 결정 대기.
+- 보리 "unbiseo-voice Verify JWT 설정 꺼도 돼" `[확인: 2026-10-23 보리]` → 데스크톱 AI가 이 함수만 끄고 저장(다시 불러와 꺼짐 확인, `unbiseo-parse`는 그대로). 다시 시험: 공개 키만 → 401, 로그인 표 없음 → 401(둘 다 함수 코드의 "로그인이 필요합니다."). **보리 계정 → 200 소리 파일(`voice_id` `iris` 맞음)**: 22자 → 14,304바이트·3.6초 소리·0.9초에 받음 / 33자 → 15,552바이트·3.9초·0.8초 / 37자 → 25,824바이트·6.5초·0.9초. 함수 기록에 `{"chars":37,"ms":828,"ok":true,"bytes":25824}` 꼴만(문장 없음). CI verify·deploy 초록(run 39935601401). Iris 목소리로 실제 들리는지·휴대폰 목소리 대신 읽기는 보리 휴대폰 확인 몫.
+- §5 리뷰(데스크톱 AI): ① 범위 — 6개 파일(새 함수·새 `unbiseoVoice.ts`·`useSpeechOutput.ts` + 테스트 3), 지시서와 같음, `useUnbiseoAssistant.ts`·`unbiseo-parse` 안 바뀜 ② 몰래 증설 없음(받은 소리는 그 자리에서만, 저장·재시도 0 — 실패는 휴대폰 목소리) ③ 타입 꼼수 0 ④ 200줄 — 함수 96·`useSpeechOutput.ts` 87 ⑤ 테스트 — 지운 줄은 패널 시험의 보냄 횟수 세기를 운비서 부르기만 세게 바꾼 것(진행 기록), 새 시험 중 4개+패널 1개 고치기 전 실패 ⑥ 공용 영향 없음 ⑦ 목표 1~4 충족. 지시서와 다른 점: 함수 설정 "Verify JWT"는 끔(보리 확인, 로그인 확인은 함수 코드) — `[x]` 때 sot §4-16에 함수별로 적음. 남은 것: 보리 휴대폰 확인 → 최종 승인.
 
 ### 사용자 확인 방법
 1. 휴대폰 운비서 마이크 → "이번 달 매출 얼마야" → Iris 목소리로 답.
