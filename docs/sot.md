@@ -2,7 +2,7 @@
 
 > 이전 파일명: `handoff-2026-08-30.md`. 대상: `react-app` (구현) + `drivelog-docs` (원칙·계획).
 > 갱신일: 2026-09-11. "Step 8 미착수" 등 오래된 오기 3곳 삭제(보리 승인, 실제로는 Step 0~11 로드맵 전체 완료 — 상세는 `docs/report.md`, 지난 스냅샷은 git 이력).
-> 푸시는 별도 지시 전 하지 않는다. 신규 durable/fallback/unsafe/tombstone/큐 금지.
+> 푸시는 별도 지시 전 하지 않는다. 신규 durable/fallback/unsafe/tombstone/큐 금지. (예외 하나: 로그인 일지 저장 실패 날짜 목록 — §4-18, 2026-10-23 보리 허락)
 
 이 문서는 **도메인 읽기=Store** 와 화면이 **같은 계산 함수**를 쓰는지 한곳에 둔다.
 다음 도메인·리팩토링 착수 전에 `AGENTS.md` §0-1을 읽고 4대 기준 보고 + 명시적 승인을 받는다.
@@ -580,6 +580,12 @@ Step 8 전. `error TS\d+:` 테스트·지원 **384 → 314**(캡 355 이하). �
 - 횟수 입력 계정 달력 칸은 "N회" 그대로 — 파렛트는 운행 횟수가 아니라 횟수에 안 셈.
 - 운행일지 하루 화면(로드맵 109-B `[x]` react-app `34e5f56`·`455e77d`) `[확인: 2026-10-23 보리 — 시안 "다", 문구 "운송료 합계", 저장 표시 아이콘]`: 제목 바로 아래 "운송료 합계 금액"(같은 계산, 입력 중 값 기준), 0원·휴무면 글만 빼고 자리는 남김(아래 칸 안 밀림). 자동 저장 표시는 제목 오른쪽 작은 아이콘(저장 중 도는 원·완료 체크 원·실패 빨간 느낌표 원, 화면 읽기용 글 있음). 일지 저장 실패 알림 문구는 앞에 "M월 D일 운행일지 "(서버·휴대폰 저장 실패만). "배정 차량" 글씨는 제목 다음 줄.
 
+## 4-18. 2026-10-23 — 로그인 일지 저장 실패 날짜 목록 (보리 결정, 로드맵 110-A `[x]` react-app `d3ecf58`)
+
+- "신규 durable 금지"의 예외 `[확인: 2026-10-23 보리 — "가로 규칙 예외 허락"]`: 로그인 갈래 일지가 서버 저장에 실패하면 `{ logId, dateKey }`만 휴대폰 키 `drivelogFailedDayLogDates`(계정별)에 남김. 입력 내용·재시도·큐는 없음. 정본 `data/sync/failedDayLogDates.ts`.
+- 지우는 때: 그 날짜·차량이 서버 저장에 성공했을 때, 이 휴대폰에서 그 날짜 일지를 열었을 때(다른 기기에서 다시 저장해도 알림이 영영 남지 않게) `[확인: 2026-10-23 보리 — "가로"]`. 일지 화면을 닫는 것만으로는 안 지움.
+- 쓰는 곳: 알림 목록(로드맵 110-B).
+
 ## 5. 남은 단일 진실원
 
 권장 도메인 SoT와 홈 정산 수수료 SoT는 여기까지다. 신규 큐/overlay는 넣지 말 것.
@@ -688,7 +694,7 @@ Step 8 전. `error TS\d+:` 테스트·지원 **384 → 314**(캡 355 이하). �
 - 기사 초대(로그인, 슬라이스 A): `src/lib/requestDriverInviteSave.js` → `src/lib/driverLinkRpc.js` (`upsert_driver_link_idempotent`). outbox 없음.
 - 기사 상태/삭제(로그인, 슬라이스 B `[x]`): `requestDriverStatusChange` / `requestDriverDeletion` → `driver_links` update·delete 1회. outbox 없음. hydrate `mergeDriversFromRows`: 서버 배열(빈 배열 포함)이 정본.
 - 차량·거래처 삭제(로그인, 슬라이스 C `[x]`): `requestVehicleDeletion` / `requestClientDeletion` → 본체 delete 1회 후 Store. outbox/tombstone 없음. hydrate `mergeCarsFromRows` / `mergeClientsFromRows`: 서버 배열(빈 배열 포함)이 정본. `supabaseId` 없는 로컬만 빈 서버에서도 남을 수 있음.
-- 메인 일지(로그인, 슬라이스 D `[x]`): `commitMainDayLogToCloud` → 그 날짜 `daily_logs`(+`transport_details`) 1회 후 Store. durable/재시도 없음. hydrate `mergeWorkDataFromRows`: `dailyRows` 배열(빈 배열 포함)이 정본.
+- 메인 일지(로그인, 슬라이스 D `[x]`): `commitMainDayLogToCloud` → 그 날짜 `daily_logs`(+`transport_details`) 1회 후 Store. durable/재시도 없음(실패한 날짜만 휴대폰 목록에 — §4-18). hydrate `mergeWorkDataFromRows`: `dailyRows` 배열(빈 배열 포함)이 정본.
 - 기사 쓰기 배럴: `src/lib/drivers.js` `saveDrivers` (게스트 로컬 잔존 — **초대 제품 기능 아님**, §8 Out-of-Scope)
 - 비용 쓰기 창구: `src/lib/expenses.js` `saveExpenses` — 로그인: 서버 기록 1회 후 `commitExpenses(...)`. 게스트 persist 유지.
 - 차량 쓰기 창구: `src/lib/vehicleMutations.js` `requestVehicleSave` — 로그인: 서버 upsert 1회 후 Store. 게스트 persist 유지.
