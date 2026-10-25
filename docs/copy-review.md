@@ -187,7 +187,7 @@
 - 온보딩 문구도 **이번에 같이**.
 - 마침표는 **새로 붙이지 않는다**(원문에 마침표가 없던 곳).
 
-AI 정리: 중복 3개·수정 불필요 2개·마침표만 붙이는 2개 뺌, 수정안이 "이러면 원문 유지"라고 조건을 단 3개(전체 손익 탭, 달력 "총 N회 운행", 만 원 표시 예시 — 화면이 실제로 "11.5만"으로 보여 "11.5만 원" 예시가 틀림)는 원문 유지, 조사·변수 때문에 깨지는 3개는 메모대로 맞춤, 위치가 틀린 1개(`ExpenseFormModal.jsx:136-137` → 실제 `CarFormModal.jsx`)는 실제 위치에서 고침. 적용 중 정함(2026-10-25 보리): 수정안의 가운뎃점(·) 3곳은 로드맵 87 규칙대로 쉼표·빗금으로. "자동 입력:"은 문자 양식 4곳 모두 같은 문구라 4곳 다 바꿈. 확정 105개 — **A 묶음 70개(계정·온보딩·설정·고객센터·차량·거래처·기사·서류·달력·일지)**, **B 묶음 35개(운비서·알림·미수금·매출·결제 조건)**.
+AI 정리: 중복 3개·수정 불필요 2개·마침표만 붙이는 2개 뺌, 수정안이 "이러면 원문 유지"라고 조건을 단 3개(전체 손익 탭, 달력 "총 N회 운행", 만 원 표시 예시 — 화면이 실제로 "11.5만"으로 보여 "11.5만 원" 예시가 틀림)는 원문 유지, 조사·변수 때문에 깨지는 3개는 메모대로 맞춤, 위치가 틀린 1개(`ExpenseFormModal.jsx:136-137` → 실제 `CarFormModal.jsx`)는 실제 위치에서 고침. 적용 중 정함(2026-10-25 보리): 수정안의 가운뎃점(·) 3곳은 로드맵 87 규칙대로 쉼표·빗금으로. "자동 입력:"은 문자 양식 4곳 모두 같은 문구라 4곳 다 바꿈. 5-B: 날씨 "시·군·구"도 같은 규칙으로 "시, 군, 구", #94(문자 구간 "○월분 N건")는 원문 유지. 확정 105개 — **A 묶음 70개(계정·온보딩·설정·고객센터·차량·거래처·기사·서류·달력·일지)**, **B 묶음 35개(운비서·알림·미수금·매출·결제 조건)**.
 
 | # | 묶음 | 위치 | 지금 | 바꿀 문구 | 메모 |
 |---|---|---|---|---|---|
@@ -235,7 +235,7 @@ AI 정리: 중복 3개·수정 불필요 2개·마침표만 붙이는 2개 뺌, 
 | 42 | B | `features/home/api/unbiseoQuestion.ts:92` | ${question.client} ${label} 매출은 공급가액 ${formatWon(supply)}, 부가세 포함 ${formatWon(amount)}입니다. | ${question.client}의 ${label} 매출은 공급가액 기준 ${formatWon(supply)}이며, 부가가치세를 포함하면 ${formatWon(amount)}입니다. |  |
 | 43 | B | `features/home/api/unbiseoQuestion.ts:97-98` | ${label} ${isDriver ? '정산액은' : '순이익은'} ${formatWon(amount)}입니다. / ${label} ${isDriver ? '운송 수입(정산 전)은' : '매출은'} ${formatWon(amount)}입니다. | ${label} ${isDriver ? '정산액은' : '순이익은'} ${formatWon(amount)}입니다. / ${label} ${isDriver ? '정산 전 운송 수입은' : '매출은'} ${formatWon(amount)}입니다. |  |
 | 44 | B | `features/home/api/unbiseoWeather.ts:15-17` | 지난 날씨는 알려 드리지 않아요. 모레까지만 알려 드릴 수 있어요. 위치를 허용하거나 지역을 말해 주세요. | 과거 날씨는 안내하지 않아요. 날씨는 모레까지 확인할 수 있어요. 위치 정보 사용을 허용하거나 지역명을 말해 주세요. |  |
-| 45 | B | `features/home/api/unbiseoWeather.ts:84` | ${withParticle(weather.place, '은', '는')} 찾지 못했어요. 시나 구 이름으로 말해 주세요. | ${weather.place} 지역을 찾지 못했어요. 시·군·구 이름을 말해 주세요. | sot·로드맵 문구도 같이 |
+| 45 | B | `features/home/api/unbiseoWeather.ts:84` | ${withParticle(weather.place, '은', '는')} 찾지 못했어요. 시나 구 이름으로 말해 주세요. | ${weather.place} 지역을 찾지 못했어요. 시, 군, 구 이름을 말해 주세요. | sot·로드맵 문구도 같이 |
 | 46 | B | `features/home/ui/HomeAssistantBar.jsx, UnbiseoDock.tsx` | Ai 운비서 | AI 운비서 | sot·로드맵 문구도 같이 |
 | 47 | B | `features/notifications/api/notifications.js:61` | ${Number(dateKey.slice(5, 7))}월 ${Number(dateKey.slice(8, 10))}일 운행일지${car} 저장이 실패했습니다. | ${Number(dateKey.slice(5, 7))}월 ${Number(dateKey.slice(8, 10))}일 운행일지${car}를 저장하지 못했습니다. | sot·로드맵 문구도 같이; 조사 "을(를)" → "를"(운행일지에 붙음) |
 | 48 | B | `features/notifications/api/notifications.js:123-124` | 오늘 운행일지가 비어 있습니다. 홈에서 [운행 기록하기]를 눌러 일지나 휴무를 남겨 주세요. | 오늘 작성한 운행일지가 없습니다. 홈에서 [운행 기록하기]를 눌러 운행 기록을 추가하거나 휴무를 등록해 주세요. |  |
@@ -284,7 +284,7 @@ AI 정리: 중복 3개·수정 불필요 2개·마침표만 붙이는 2개 뺌, 
 | 91 | A | `features/drivers/ui/DriverUnlinkControls.jsx:19` | (${due} 자동 해제) | (${due}에 자동으로 연동 해제) | sot·로드맵 문구도 같이 |
 | 92 | B | `features/receivables/ui/ReceivableItemCard.jsx:77` | 입금 예정일 미등록 | 입금 예정일이 등록되지 않았습니다 | 마침표 안 붙임 |
 | 93 | B | `features/receivables/ui/ReceivablesDetailPage.jsx:63` | 입금 예정일 미등록 | 입금 예정일이 등록되지 않았습니다 | 마침표 안 붙임 |
-| 94 | B | `features/home/api/unbiseoSms.ts:79-82` | ${monthLabel(pick.month, today)} ${picked.length}건 / 전체 ${picked.length}건 / ${first} 외 ${picked.length - 1}건 | ${monthLabel(pick.month, today)} 미수금 ${picked.length}건 / 전체 미수금 ${picked.length}건 / ${first} 외 ${picked.length - 1}건의 미수금 |  |
+| 94 | B | `features/home/api/unbiseoSms.ts:79-82` | ${monthLabel(pick.month, today)} ${picked.length}건 / 전체 ${picked.length}건 / ${first} 외 ${picked.length - 1}건 | ${monthLabel(pick.month, today)} 미수금 ${picked.length}건 / 전체 미수금 ${picked.length}건 / ${first} 외 ${picked.length - 1}건의 미수금 | **원문 유지** — 화면 버튼이 아니라 거래처 문자 {운행구간} 자리에 들어가는 말이라 "미수금 3건 … 미수 상태"로 겹침 `[확인: 2026-10-25 보리 — "가"]` |
 | 95 | B | `features/home/ui/HomeAssistantPanel.tsx:42` | 고정 노선이 꺼져 있어요. 켤까요? / 콜 상세가 꺼져 있어요. 켤까요? | 고정 노선 기능이 꺼져 있어요. 켤까요? / 운행 세부 입력 기능이 꺼져 있어요. 켤까요? | sot·로드맵 문구도 같이 |
 | 96 | A | `features/account/ui/PersonalInfoPage.jsx:19-20` | 모든 운행 기록, 거래처, 정산 데이터가 영구적으로 삭제되며 복구할 수 없습니다. / 탈퇴하면 되돌릴 수 없습니다. 마지막으로 한 번 더 확인해 주세요. | 모든 운행 기록, 거래처 정보, 정산 데이터가 영구 삭제되며 복구할 수 없습니다. / 탈퇴 후에는 계정을 복구할 수 없습니다. 계속 진행할까요? |  |
 | 97 | A | `features/support/ui/AdminInquiriesPage.tsx:35, features/support/ui/MyInquiriesList.jsx:36` | 문의 목록 불러오는 중 | 문의 목록을 불러오는 중… |  |

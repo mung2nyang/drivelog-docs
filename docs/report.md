@@ -1,61 +1,58 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
 ---
 
-## 문구 정리 5-A — 계정·온보딩·설정·고객센터·차량·거래처·기사·서류·달력·일지 문구 `[x]`
+## 문구 정리 5-B — 운비서·알림·미수금·매출·결제 조건 문구 `[x]`
 
-> react-app `d64cc39`, CI 초록, 2026-10-25 보리 "승인". 가운뎃점 3곳은 로드맵 87대로 쉼표·빗금(보리 결정), "자동 입력:"은 4곳 모두, 연동 칩 ">"는 문자열로 감쌈. 시험 1,780개·린트·타입 통과, 바뀐 87줄 표와 어긋남 0. 온보딩은 `/onboarding` 직접 열어 첫 단계만 확인.
+> react-app `f768d8e`, CI 초록, 2026-10-25 보리 "승인". #94 문자 구간 문구는 보리 결정으로 원문 유지(거래처 문자에서 "미수금 … 미수 상태" 겹침), 날씨 "시·군·구"는 "시, 군, 구". 시험 1,780개·린트·타입 통과, 바뀐 56줄 표와 어긋남 0.
 
-보리 지시(2026-10-25): 보리가 쓴 수정안을 AI가 대조한 뒤 "2,3번은 빼고 4번은 수정할 때 바꾸고 5번은 다음 달 이렇게 변경해, 온보딩 문구 이번에 같이, 마침표는 넣지 말자". 로드맵 번호 없음.
-- 확정 목록 105개는 `docs/copy-review.md` "문구 정리 5" 표에 있다(번호·묶음·위치·지금·바꿀 문구·메모). **5-A(이번) = 표의 A 묶음 70개** → 5-B = B 묶음 35개(운비서·알림·미수금·매출·결제 조건).
-- 10월 문구 정리 결정(용어 통일, "~습니다" 말투, "휴대폰", 법정 서식 그대로)과 부딪히는 것은 표에서 이미 뺐다.
+보리 지시(2026-10-25, 5-A `[x]` 뒤): "ㅇㅇ"(5-B 지시서 작성). 로드맵 번호 없음. 확정 목록은 `docs/copy-review.md` "문구 정리 5" 표의 **B 묶음 35개**(5-A 70개는 `d64cc39`로 끝남). 결정은 5-A와 같다 — 표에서 뺀 것은 넣지 않음, 원래 마침표가 없던 곳은 안 붙임, 가운뎃점(·)은 쓰지 않음(로드맵 87), 결제 조건은 "다음 달·다다음 달".
 
 ### 쉬운 요약
-- 앱 화면 문구 중 어색하거나 뜻이 흐린 문장 70개를 보리 수정안대로 바꾼다(온보딩 5개 항목 포함).
-- 원래 마침표가 없던 곳에는 마침표를 붙이지 않는다.
-- 같은 문구를 그대로 확인하던 시험은 새 문구로 고친다. 문구 말고 동작은 바뀌지 않는다.
+- 운비서가 하는 말·안내, 알림 목록, 미수금 화면, 매출 카드, 거래처 결제 조건 이름의 어색한 문구 35개를 보리 수정안대로 바꾼다.
+- 결제 조건 "익월·익익월"은 "다음 달·다다음 달"로 바뀐다(거래처 입력 칸 목록과 운비서가 말하는 정산 문구 둘 다). 저장된 값은 그대로라 기존 거래처에 영향 없다.
+- 같은 문구를 그대로 확인하던 시험과 sot·로드맵 기록도 새 문구로 고친다. 동작은 바뀌지 않는다.
 
 ### 현재 상태 (코드 확인)
-- 표의 A 묶음 70개 원문은 모두 코드에 실제로 있다(2026-10-25 대조 — 원문 조각을 파일에서 찾음). 수정안이 위치를 잘못 적은 1개("건당(또는 월) 고정으로…")는 실제 위치 `features/cars/ui/CarFormModal.jsx`.
-- 같은 원문을 그대로 확인하는 시험 파일: `LinkStatusChip.test.js`, `PersonalInfoPage.employedReadonly.test.js`, `CallDetailForm.test.js`, `MainPageRoute.assistantCall.test.js`, `DayLogPage.callActions.test.js`, `DailyInspectionNotice.test.js`, `ScopedClientsPages.test.js`, `DailyInspectionShareModal.test.js`, `ReportSummaryContent.test.js`, `DriverConnectionPage.unlink.test.js`, `EmployerLinkCard.test.js`, `SettlementSummaryCard.test.js`, `WelcomeProfileView.test.js`, `AppSettingsPage.backup.test.js`, `CustomerCenterPage.test.js`, `Skeleton.test.js`, `AuthRoute.test.js`, `AuthPage.google.test.js`(원문 조각 검색 — 착수 때 한 번 더 검색해 빠진 곳 확인).
-- sot·로드맵에 그대로 적힌 A 묶음 문구: "○ 기사 거래처"(`LinkedDriverClientsPage`), "(○ 자동 해제)"(`DriverUnlinkControls`), 점검표 지우기 확인 창 문장·"일상점검표 작성이 필요합니다."(`DailyInspectionNotice`).
+- B 묶음 35개 원문은 모두 코드에 있다(2026-10-25 대조). 여러 문장이 따로 나뉜 3개(날씨 안내 `unbiseoWeather.ts:15-17`, 알림 `notifications.js:123-124·136-137`)와 결제 조건(`clientPaymentTerms.ts` 목록 5~10줄 + `getPaymentTermLabel` 18~23줄의 "익월 N일 정산" 등)은 조각별로 확인.
+- 원문을 그대로 확인하는 시험(원문 조각 검색 — 착수 때 실패로 다시 확인): `unbiseoQuestion.test.js`, `HomeAssistantPanel.test.js`, `unbiseoWeather.test.js`, `unbiseoParse.test.js`, `HomePage.test.js`, `notifications.saveFailed.test.js`, `NotificationsPage.test.js`, `notifications.dateLabel.test.js`, `useReceivablesActions.test.js`, `OwnerMonthlyCards.driverSelf.test.js` 등 많아야 15개.
+- sot에 그대로 적힌 문구: 날씨 카드 "…은 찾지 못했어요"(`sot.md` 날씨 카드 줄), 입력 창 채워 열기의 "고정 노선이/콜 상세가 꺼져 있어요. 켤까요?", 알림 목록 제목 "M월 D일 운행일지 저장이 실패했습니다.". 로드맵에 적힌 것: 110번 알림 제목, 112번 근처 "오늘 일상점검 안 함", 45번 "운송 수입 합계(정산 전)".
 
 ### 목표 상태 (기대 동작)
-1. 표의 A 묶음 70개가 "바꿀 문구"대로 화면에 보인다. 메모 칸의 맞춤(조사 "를" 고정, `${from}` 문장)도 그대로 따른다.
-2. 원문에 마침표가 없던 곳은 바꾼 뒤에도 마침표가 없다.
-3. 문구가 들어 있는 줄 말고는 아무것도 안 바뀐다(동작·조건·배치 그대로). JSX 줄 나눔도 지금 모양 그대로 둔다.
-4. 시험이 원문을 그대로 확인하던 곳은 새 문구로 고치고, 시험이 확인하는 뜻(무엇을 보여야 하는지)은 그대로다.
-5. sot·로드맵에 적힌 위 문구는 새 문구로 같이 고친다(문서 쪽은 `[x]` 문서 커밋에 포함).
+1. 표의 B 묶음 35개가 "바꿀 문구"대로 보인다. 메모 칸의 맞춤(알림 제목 조사 "를" 고정, 결제 조건 두 곳)도 그대로 따른다.
+2. 원래 마침표가 없던 곳은 마침표가 없다. 화면 글자에 가운뎃점이 없다(`noMiddleDot.test.js` 통과 — .ts 파일은 이 검사 밖이라 직접 확인).
+3. 문구가 든 줄 말고는 아무것도 안 바뀐다(동작·조건·저장 값 그대로). 결제 조건은 `label`만 바뀌고 `value`(`same_day`·`next_month_day` 등)는 그대로.
+4. 미수금 [전체 입금 완료] 확인 창은 제목 "{거래처}의 {M}월 미수금을 모두 입금 완료로 처리할까요?", 본문 "미수 N건, ○원입니다. 취소하려면 각 건을 하나씩 처리해야 합니다."로 나눠 넣는다(수정안이 한 줄로 이은 것을 지금의 제목·본문 자리에 맞춤).
+5. 시험이 원문을 확인하던 곳은 새 문구로, 확인하는 뜻은 그대로. sot·로드맵의 위 문구는 새 문구로(`[x]` 문서 커밋에 포함). STATUS 완료 목록의 옛 기록은 당시 기록이라 그대로 둔다.
 6. 새 주석은 없다.
 
 ### 건드릴 파일
-- 화면·문구 파일 43개(문구 줄만): `features/account/ui/` AuthIntroView·DataDownloadModal·InviteRedeemModal·LinkStatusChip·OnboardingPage·PersonalInfoPage·WelcomeProfileView, `features/calendar/ui/CalendarMonthSummary.jsx`, `features/cars/ui/` CarDriverConnectPanel·CarDriverIncomeFields·CarFormModal·CarListPage·CarShareBaseField, `features/clients/ui/` ClientFormModal·OwnerScopedClientsView, `features/day-log/ui/` CallDetailForm·CallDetailList·DailyInspectionNotice·ExpenseGroups·FixedCountSection·FixedRouteChips·MessageTemplateSheet·callDetailFormHelpers, `features/documents/ui/` DailyInspectionExportBar·DailyInspectionShareModal·ReportSummaryContent·ShareFileModal·TaxInvoiceTab, `features/drivers/ui/` DriverConnectionPage·DriverFormModal·DriverUnlinkControls·EmployerLinkCard·LinkedDriverClientsPage·SettlementSummaryCard, `features/expenses/ui/ExpenseFormModal.jsx`, `features/settings/ui/` AppSettingsBackupSection·AppSettingsPage·MessageSettingsPage·RoutePresetEditor, `features/support/ui/` AdminInquiriesPage·CustomerCenterPage·InquiryForm·MyInquiriesList
-- 시험 파일 18개(위 목록, 문구 기대값만)
-- 문서: `docs/sot.md`·`docs/roadmap.md`의 해당 문구(`[x]` 때)
-- 영향 목록: 공용 클래스·공용 부품은 안 바꾼다. 문구 상수를 여러 화면이 같이 쓰는 곳은 착수 때 문구 검색으로 확인해 같이 바뀌는지 본다.
+- 문구 파일 18개(문구 줄만): `domain/clientPaymentTerms.ts`, `features/home/api/` unbiseoParse·unbiseoQuestion·unbiseoSentence·unbiseoSms·unbiseoWeather(.ts), `features/home/hooks/useSpeechInput.ts`, `features/home/ui/` HomeAssistantBar·HomeAssistantPanel·HomeTodoCard·UnbiseoDock, `features/notifications/api/notifications.js`, `features/notifications/ui/NotificationsPage.jsx`, `features/receivables/hooks/useReceivablesActions.js`, `features/receivables/ui/` ReceivableItemCard·ReceivablesDetailPage·ReceivablesListPage, `features/revenue/ui/OwnerMonthlyCards.jsx`
+- 시험 파일: 위 목록 중 실패하는 곳(문구 기대값만)
+- 문서: `docs/sot.md`(3곳)·`docs/roadmap.md`(3곳)(`[x]` 때)
+- 영향 목록: 결제 조건 이름은 거래처 입력 창 목록(`ClientFormModal.jsx:108`), 거래처 카드 "결제주기:"(`ClientListItem.jsx:51`), 콜 상세 입력 창 결제 조건 안내(`CallDetailForm.jsx:66`), 운비서 거래처 등록 문장(`unbiseoSentence.ts:58`)이 같이 쓴다. 값 검사(`clients.ts:43`, `useAssistantClient.js:41`, `unbiseoFields.ts`)는 `value`만 보므로 영향 없음. 서버 운비서 지시문(`supabase/functions/unbiseo-parse/grok.ts`)은 이미 "다음 달 N일"도 알아들어 고치지 않는다.
 
 ### 안 건드릴 것
-- 표에서 뺀 것(2·3번, 중복, 수정 불필요, 조건부 원문 유지), B 묶음 35개(5-B에서).
-- 문구가 아닌 코드, 클래스 이름, 저장 값.
+- 표에서 뺀 것(날씨 문장 띄어쓰기, "이번 달 정산액:", 홈 오늘 카드 "~예요" 등), 5-A 묶음.
+- 저장 값, 서버 함수, 클래스 이름.
 
 ### 검증
-- 테스트·타입·빌드는 CI가 한다. 시험은 문구 기대값만 고치므로 고치기 전 실패 확인 대상이 아니다(새 동작 없음).
-- 바꾼 줄을 표와 1:1로 맞대어 "지금 → 바꿀 문구" 말고 다른 글자가 안 바뀌었는지 기계로 확인. 원문이 코드에 남지 않았는지 검색.
-- 개발 서버 375px에서 문구가 길어진 곳(온보딩 선택지, 달력 설명, 기사 연동 안내, 차량 기사 수입 안내, 세금계산서 발급 순서 등)의 넘침·줄바꿈 확인.
+- 테스트·타입·빌드는 CI가 한다. 문구 기대값만 고치므로 고치기 전 실패 확인 대상이 아니다.
+- 바꾼 줄을 표와 1:1로 맞대어 "지금 → 바꿀 문구" 말고 다른 글자가 안 바뀌었는지 기계로 확인, 원문이 남지 않았는지 검색, 바뀐 화면 글자에 가운뎃점이 없는지 검색.
+- 개발 서버 375px에서 미수금 목록·상세, 매출 카드, 알림 목록, 운비서 창(문구 버튼·되묻기 버튼) 넘침 확인.
 
 ### 파일 길이
-- 문구는 같은 줄 안에서 바뀌어 줄 수가 그대로다.
-- 200줄 가까운 파일: `ExpenseFormModal.jsx` 200, `ReportSummaryContent.jsx` 199, `PersonalInfoPage.jsx`·`TaxInvoiceTab.jsx` 198, `CallDetailForm.jsx` 196, `DriverConnectionPage.jsx` 194 — 줄이 늘면 200줄을 넘을 수 있다. 넘으면 그 파일만 §6 분리설계를 먼저 보고한다(문구 줄을 나누지 않고 한 줄에 둔다).
+- 문구는 같은 줄 안에서 바뀌어 줄 수가 그대로다. 가장 긴 파일은 `notifications.js` 174줄로 200줄과 거리가 있다.
 
 ### 실패 시 처리
-- 새 보호 장치·대비 장치를 만들지 않는다. 375px 넘침이나 시험 실패가 나오면 고치지 말고 멈춘 뒤, 원인과 수정 계획을 다시 써서 승인받는다.
+- 새 보호 장치·대비 장치를 만들지 않는다. 375px 넘침이나 예상 밖 시험 실패가 나오면 고치지 말고 멈춘 뒤, 원인과 수정 계획을 다시 써서 승인받는다.
 
 ### 사용자 확인 방법
-1. 로그아웃 상태에서 첫 화면 → 비회원 시작 → 온보딩 질문·선택지가 새 문구로 보이면 성공.
-2. 일일운행 → [+ 세부 내역 추가]를 눌러 창 제목이 "N일 운행일지 세부 내역 입력"이면 성공([취소]로 닫기).
-3. 서류 발급 → 세금계산서 탭 발급 순서 안내, 앱 설정 백업 칸 이름 "데이터 관리(백업·복원)"를 본다.
+1. 홈 위 "AI 운비서"를 열고 "지난주 날씨 어때"처럼 말해 보면 "과거 날씨는 안내하지 않아요."가 나오면 성공.
+2. 거래처 → [추가]의 결제 주기 목록이 "다음 달 말일 정산" 같은 이름이면 성공([취소]로 닫기).
+3. 미수금 화면의 탭 이름 "월별 미수금 정산", 카드의 "○원 입금 / ○원 미수"를 본다.
 
 ---
 
