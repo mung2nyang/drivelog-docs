@@ -1,61 +1,68 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
 ---
 
-## UI 위계화 C-2 — 화면 제목을 화면 읽기용 제목(h1)으로 `[x]`
+## UI 위계화 D-1 — 화면 카드 모서리 공용 값 `[x]`
 
-> react-app `bd15b4d`, CI 초록, 2026-10-25 보리 "승인". 새 시험 고치기 전 실패·고친 뒤 통과, 관련 시험 24개 통과. 매출·앱 설정·일일운행·거래처 화면 머리 높이 44px·제목 위치·크기·굵기 전후 같음, 화면마다 h1 1개. 화면 읽기 기능 실제 낭독은 확인 못 함.
+> react-app `5968d0b`, CI 초록, 2026-10-25 보리 "승인". 로그인 화면 11개 카드 32개 모서리 모두 20px, 카드 크기·위치 전후 같음, 달력 붙는 쪽 0 유지. 미수금 상세 요약·연동 기사 카드는 화면 비교 못 하고 값만 확인.
 
-보리 지시(2026-10-25, C-1 `[x]` 뒤): "응"(C-2 지시서 작성). 로드맵 번호 없음. 위계화 순서 A(`023edeb`) → B(`1933adc`) → C-1(`12e52cc`) → **C-2(이번)** → D 간격·모서리 → E 버튼.
+보리 지시(2026-10-25, C-2 `[x]` 뒤): "응"(D 지시서 작성). 로드맵 번호 없음. 위계화 순서 A(`023edeb`) → B(`1933adc`) → C-1(`12e52cc`) → C-2(`bd15b4d`) → **D 간격·모서리** → E 버튼.
+- 조사해 보니 간격·여백은 조합이 수백 가지라(아래 현재 상태) 한 번에 묶기 어렵다. **D-1은 화면 카드 모서리만** 한다. 여백은 하지 않기로 했다(확인할 점 2).
 
 ### 쉬운 요약
-- 지금 모든 화면 위 가운데 제목("매출", "앱 설정" 등)은 그냥 글자라서, 휴대폰 화면 읽기 기능(시각장애인용 음성 안내)이 "이 화면의 제목"으로 알아보지 못한다.
-- 화면 머리 부품 하나만 고쳐 이 제목을 "제목 1단계"로 표시한다. 화면을 쓰는 20여 곳이 한 번에 바뀐다.
-- **보이는 모습은 그대로**다. 화면 읽기 기능이 "제목, 매출"처럼 읽고, 제목으로 바로 건너뛸 수 있게 된다.
+- 화면 바탕 위에 올라앉은 흰 카드(홈 카드, 매출 요약 카드, 설정 묶음 카드, 일일운행 카드 등)의 모서리 둥글기가 화면마다 16·18·20·22·24px로 섞여 있다.
+- 같은 단계의 카드인데 화면을 옮기면 모서리가 달라 보여서, "같은 급의 상자"라는 느낌이 약하다.
+- 카드 모서리를 공용 값 하나(`--radius-card`)로 묶는다. 바뀌는 건 모서리 둥글기뿐이고 크기·배치·여백은 그대로다.
 
 ### 현재 상태 (코드 확인)
-- 화면 제목은 `shared/ui/PageHeader.jsx` 22·26줄 `<div className="settings-title">{title}</div>` — 제목 표시가 아닌 그냥 칸이다.
-- `PageHeader`를 쓰는 파일 24개(`grep -rn "PageHeader" src --include=*.jsx --include=*.tsx | grep import`). 화면 안 앱 화면에 `h1`은 0개(지금 `h1`은 첫 화면 오류 3곳·온보딩·처음 정보 입력뿐, 모두 `PageHeader` 없는 화면).
-- 창(입력·확인 창)은 이미 화면 읽기용 이름이 붙어 있다(`ModalShell.jsx` 52~55줄 `role`·`aria-modal`·`aria-labelledby`, `ConfirmModal.jsx` 21줄). 이번에 안 건드린다.
-- 테스트는 제목을 클래스(`.settings-title`)로 찾는다(`PageHeader.test.js` 54·64·71줄, `Skeleton.test.js` 71·88줄, `DocumentIssuePage.test.js` 71줄). 태그가 바뀌어도 클래스는 그대로라 영향 없음.
+- 모서리 값: CSS 57개 파일 215곳, 값 16가지(12px 43곳, 10px 21곳, 999px 20곳, 24px 20곳, 18px·16px 각 13곳 등 — `grep -rhoE "border-radius:\s*[^;]+"` 집계). 모서리 공용 값은 없다.
+- 흰 카드 바탕(`var(--card-bg)`)에 16~24px 모서리를 쓰는 규칙 39개 중, 화면 바탕 위 카드로 확인한 31개(로딩 자리 4개 포함)와 달력 위아래가 붙을 때의 규칙 2개, 모두 33개:
+  - 18px(5): 일상점검표 안내 카드(`daily-inspection.css:10`), 일일운행 카드(`day-log-shell.css:24`), 세금계산서 거래처 카드(`tax-invoice.css:93`), 기사 연결 카드(`driver-connection.css:50`), 미수금 상세 요약(`receivables.css:182`)
+  - 16px(1): 문자 양식 카드(`message-settings.css:3`)
+  - 20px(6): 마이페이지 바로가기·프로필 카드(`mypage-shortcuts.css:7`, `mypage.css:12`), 서류 발급 카드(`documents.css:149`), 홈 카드(`home.css:9`), 알림 설정 카드(`notifications-page.css:11`), 설정 묶음 카드(`controls-common.css:43` — 앱 설정·개인정보 등 4개 화면)
+  - 22px(2): 고객센터 카드·문의 쓰기 카드(`customer-center.css:8·17`)
+  - 24px(13 + 달력 붙는 규칙 2): 달력(`calendar-grid.css:38`, 위 머리와 붙을 때 `:13`·`:22`), 운송비 내역서 위 카드(`report.css:8`), 기사 사업자 정보(`car-business-info.css:9`), 연동 기사 카드 4개(`linked-driver.css:11·133·163·172`), 차량 유지비 카드 2개(`maint-fuel.css:12·84`), 매출 위 카드(`revenue-controls.css:6`), 매출 연도 목록(`revenue.css:5`), 빈 목록 안내(`management-common.css:145`), 요약 카드(`shared-controls.css:5` — 매출·서류 등 6개 파일)
+  - 로딩 자리(4): `skeleton.css:25`(18px)·`:47`(20px)·`:58`·`:63`(24px)
+- 여백: `padding` 298곳·`margin` 365곳, 대부분 위·오른쪽·아래·왼쪽을 따로 쓴 조합(예: `14px 15px 12px`). 카드 안쪽 여백만 봐도 12px~24px, 위아래가 다른 것이 많다.
 
 ### 목표 상태 (기대 동작)
-1. `PageHeader.jsx` 22·26줄의 제목 칸이 `<h1 className="settings-title">{title}</h1>`이 된다(두 곳 모두 — 제목 아래 보조 글이 있는 경우와 없는 경우).
-2. `header-controls.css` `.settings-title`에 `margin: 0;` 한 줄을 더한다. `h1`은 브라우저 기본 위아래 여백이 있어서, 지우지 않으면 화면 머리 높이가 달라진다. 크기·굵기는 C-1 공용 값이 이미 정해 두어 그대로.
-3. 화면에서 보이는 위치·크기·굵기·화면 머리 높이가 바꾸기 전과 같다.
-4. 시험: `PageHeader.test.js`의 "onBack이 없으면…" 시험에 "제목은 `h1`이다" 확인 한 줄을 더한다 — `assert.equal(view.header?.querySelector('h1.settings-title')?.textContent, '매출')`. 고치기 전 코드에서 실패하는지 확인한다.
-5. 새 주석은 없다.
+1. `variables.css` `:root`에 `--radius-card: 20px;` 한 줄을 더한다.
+2. 위 33개 규칙의 모서리 값이 `var(--radius-card)`가 된다. 달력 머리·몸통처럼 위아래가 붙는 곳은 붙는 쪽 0을 그대로 둔다(`var(--radius-card) var(--radius-card) 0 0`, `0 0 var(--radius-card) var(--radius-card)`).
+3. 모서리 말고는 아무것도 안 바뀐다(크기·여백·그림자·배치 그대로).
+4. 새 주석은 없다.
 
 ### 건드릴 파일
-- `src/shared/ui/PageHeader.jsx` — 22·26줄 `div` → `h1`
-- `src/shared/styles/header-controls.css` — `.settings-title`에 `margin: 0;` 1줄
-- `src/shared/ui/PageHeader.test.js` — 확인 1줄
-- 영향 목록: `PageHeader`를 쓰는 화면 24개 파일 전부(태그만 바뀌고 클래스 그대로). `.settings-title` 클래스는 `PageHeader` 안에서만 쓴다(`grep -rn "settings-title" src --include=*.jsx` — 알림 화면의 `notif-settings-title`은 다른 클래스).
+- `src/shared/styles/variables.css` — 1줄 추가
+- 모서리 값만(같은 줄): `daily-inspection.css`, `day-log-shell.css`, `tax-invoice.css`, `driver-connection.css`, `receivables.css`, `message-settings.css`, `mypage-shortcuts.css`, `mypage.css`, `documents.css`, `home.css`, `notifications-page.css`, `controls-common.css`, `customer-center.css`, `calendar-grid.css`, `report.css`, `car-business-info.css`, `linked-driver.css`, `maint-fuel.css`, `revenue-controls.css`, `revenue.css`, `management-common.css`, `shared-controls.css`, `skeleton.css` — 23개
+- 영향 목록(여러 화면이 같이 쓰는 클래스): `.setting-section`(4개 파일), `.summary-card`(6개 파일), `.empty-state`(관리형 목록 화면들), 로딩 자리(`Skeleton.jsx`). 바뀌는 속성은 모서리 하나라 배치 영향은 없다.
 
 ### 안 건드릴 것
-- 카드·묶음 제목 태그(`h2`·`h3`) — 안 함(확인할 점 1).
-- 창 제목 — 이미 화면 읽기용 이름이 있음(위 현재 상태).
-- 달력·미수금 화면 머리 — 제목 글자가 없는 화면 머리(달 이동 등)라 해당 없음(`CalendarHeader.jsx` 26줄~).
-- 첫 화면 오류·온보딩·처음 정보 입력의 기존 `h1`.
+- 창(입력·확인 창 18px, 점검표 창) — 화면 위에 뜨는 다른 단계라 따로 정한다.
+- 카드 안의 칸·버튼·입력칸 모서리(12px·10px 등), 동그란 배지·알약 모양(999px·50%).
+- 카드 안에 들어 있는 작은 카드(고객센터 자주 묻는 질문 칸, 내 문의 칸, 기사 요약 칸 16px), 운비서 떠 있는 카드, 로그인·온보딩, 운송비 내역서 표(내려받기 모양과 이어짐).
+- 여백·간격 — 이번 위계화에서 안 함(확인할 점 2).
 
 ### 검증
-- 테스트·타입·빌드는 CI가 한다. 새 확인 1줄은 고치기 전 코드에서 실패, 고친 뒤 통과를 확인한다.
-- 개발 서버에서 화면 4개(매출·앱 설정·일일운행·거래처)의 화면 머리 높이와 제목 위치·크기·굵기를 바꾸기 전과 후로 잰다. 같아야 한다.
+- 테스트·타입·빌드는 CI가 한다. 화면 모양만 바뀌어 새 테스트는 없다.
+- 남은 16~24px 카드 모서리가 위 "안 건드릴 것"뿐인지 검색으로 확인.
+- 로그인 개발 서버에서 홈·달력·일일운행·매출·마이페이지·앱 설정·서류 발급·고객센터·알림·문자 양식 화면의 카드 계산된 모서리가 모두 같은 값인지, 크기·위치는 전과 같은지 잰다.
 
 ### 파일 길이
-- `PageHeader.jsx` 41줄 그대로, `header-controls.css` 85 → 86줄, `PageHeader.test.js` 76 → 77줄(테스트 파일).
+- 모서리 값은 같은 줄 안에서 바뀌어 줄 수가 그대로다. `variables.css`만 70 → 71줄.
+- 200줄 넘는 `receivables.css` 419는 값만 바꾸고 나누지 않는다(A 때 정한 방식). `calendar-grid.css` 194·`home.css` 182·`linked-driver.css` 178도 줄이 안 늘어 그대로.
 
 ### 실패 시 처리
-- 새 보호 장치·대비 장치를 만들지 않는다. 화면 머리 높이나 제목 위치가 달라지면 고치지 말고 멈춘 뒤, 원인과 수정 계획을 다시 써서 승인받는다.
+- 새 보호 장치·대비 장치를 만들지 않는다. 카드 크기·위치가 달라지는 곳이 나오면 고치지 말고 멈춘 뒤, 원인과 수정 계획을 다시 써서 승인받는다.
 
 ### 사용자 확인 방법
-1. 배포본에서 아무 화면이나 열어 위 제목이 전과 똑같이 보이면 성공(보이는 변화 없음).
-2. (선택) 아이폰 VoiceOver나 안드로이드 TalkBack을 켜고 화면 위 제목을 누르면 "제목 1" 또는 "머리글"이라고 읽으면 성공.
+1. 홈 → 매출 → 마이페이지 → 앱 설정 → 일일운행을 차례로 열어, 흰 카드 모서리 둥글기가 화면마다 같아 보이면 성공.
+2. 달력 화면에서 위 달 이동 칸과 아래 날짜 칸이 붙은 곳에 틈이나 모서리가 생기지 않으면 성공.
 
 ### 확인할 점
-1. 카드 제목 `h2` 바꾸기 — 가(이번엔 화면 제목만, 카드 제목은 그대로 `h3`) `[확인: 2026-10-25 보리 — "가로"]`.
+1. 카드 모서리 값 — 가(20px) `[확인: 2026-10-25 보리 — "권함으로"]`.
+2. 여백·간격 — 가(이번 위계화에서는 안 함, D는 D-1로 끝) `[확인: 2026-10-25 보리 — "권함으로"]`.
 
 ---
 
