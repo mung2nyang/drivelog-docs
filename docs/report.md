@@ -1,102 +1,61 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
 ---
 
-## UI 위계화 C-1 — 제목 3단계 공용 값 `[x]`
+## UI 위계화 C-2 — 화면 제목을 화면 읽기용 제목(h1)으로 `[x]`
 
-> react-app `12e52cc`, CI 초록, 2026-10-25 보리 "승인". 로그인 화면 11개 375px 전후 비교 표대로만 바뀜, 넘침·줄 수 변화 0. 창 4종(삭제 확인·거래처 입력 16/800, 점검표 16/800·묶음 13.6/700, 콜 상세 16/800) 확인.
+> react-app `bd15b4d`, CI 초록, 2026-10-25 보리 "승인". 새 시험 고치기 전 실패·고친 뒤 통과, 관련 시험 24개 통과. 매출·앱 설정·일일운행·거래처 화면 머리 높이 44px·제목 위치·크기·굵기 전후 같음, 화면마다 h1 1개. 화면 읽기 기능 실제 낭독은 확인 못 함.
 
-보리 지시(2026-10-25, B `[x]` 뒤): "진행해". 로드맵 번호 없음. 위계화 순서 A 굵기(`023edeb`) → B 크기(`1933adc`) → **C 제목 3단계** → D 간격·모서리 → E 버튼.
-- C는 둘로 나눈다: **C-1 제목 모양 3단계(이번)** → C-2 화면 읽기용 제목 표시(제목을 `h1`·`h2`·`h3`로, 화면 파일을 고침). 이번엔 C-1만.
-- sot에 제목 규칙 없음(`docs/sot.md` "제목" 검색에 글자 모양 규칙 0건).
+보리 지시(2026-10-25, C-1 `[x]` 뒤): "응"(C-2 지시서 작성). 로드맵 번호 없음. 위계화 순서 A(`023edeb`) → B(`1933adc`) → C-1(`12e52cc`) → **C-2(이번)** → D 간격·모서리 → E 버튼.
 
 ### 쉬운 요약
-- 제목을 "화면 제목 / 창·카드 제목 / 묶음 제목" 3단계로 정하고, 크기·굵기를 `variables.css`의 공용 값 한 곳에서 정한다.
-- 지금은 카드·묶음 제목이 화면마다 12.5~17.3px로 제각각이고, 화면 제목(700)이 카드 제목(900)보다 얇아 굵기 순서가 거꾸로다.
-- 바뀌고 나면 "화면 제목이 가장 크고 굵고 → 창·카드 제목 → 묶음 제목" 순서가 모든 화면에서 같다. 나중에 단계 값을 바꾸려면 공용 값 한 줄만 고치면 된다.
+- 지금 모든 화면 위 가운데 제목("매출", "앱 설정" 등)은 그냥 글자라서, 휴대폰 화면 읽기 기능(시각장애인용 음성 안내)이 "이 화면의 제목"으로 알아보지 못한다.
+- 화면 머리 부품 하나만 고쳐 이 제목을 "제목 1단계"로 표시한다. 화면을 쓰는 20여 곳이 한 번에 바뀐다.
+- **보이는 모습은 그대로**다. 화면 읽기 기능이 "제목, 매출"처럼 읽고, 제목으로 바로 건너뛸 수 있게 된다.
 
-### 현재 상태 (코드·화면 확인)
-로그인 개발 서버에서 홈·매출·마이페이지·앱 설정·일일운행·미수금·거래처·서류 발급·고객센터·개인정보 화면의 계산된 크기·굵기를 쟀다(2026-10-25).
-
-| 역할 | 예(화면) | 지금 크기 / 굵기 |
-|---|---|---|
-| 화면 제목 | 모든 화면 위 가운데 제목(`.settings-title`) | 18.88px / 700 |
-| 창 제목 | 입력·확인 창 제목(`.modal-title`) | 17.28px / 900 |
-| 창 제목 | 점검표 창 제목(`.di-title`) | 17.28px / 800 |
-| 창 제목 | 콜 상세 창 제목(`.call-detail-modal-title`) | 14.72px / 800 |
-| 카드 제목 | 일일운행 "고정 노선"·"운행일지 세부 입력"(`.modal-section-title`) | 16px / 800 |
-| 카드 제목 | 매출·서류 요약 카드 "당월 순이익"(`.summary-title`) | 14.72px / 700 |
-| 카드 제목 | 거래처 카드 이름(`.client-card-title strong`) | 14.72px / 900 |
-| 카드 제목 | 개인정보 "사업자 정보"(`.personal-card-heading h3`) | 14.72px / 800 |
-| 카드 제목 | 마이페이지 "업무 바로가기"(`.mypage-section-heading h3`) | 14.72px / 900 |
-| 카드 제목 | 고객센터 "자주 묻는 질문"(`.support-card h3`) | 17.28px / 700 |
-| 카드 제목 | 기사 연결 카드·세금계산서 거래처 묶음 이름 | 14.72px / 900 |
-| 카드 제목 | 기사 사업자 정보 카드·문자 양식 제목 | 13.6px / 900 |
-| 묶음 제목 | 앱 설정 "화면 표시"·"고정 노선"(`.settings-group-title`) | 12.48px / 700 |
-| 묶음 제목 | 설정 묶음 제목(`.setting-section h3`, 4개 화면이 같이 씀) | 13.6px / 800 |
-| 묶음 제목 | 점검표 "외관 점검"(`.di-section-head h3`) | 14.72px / 800 |
-| 묶음 제목 | 알림 설정 "알림 받기"·기사 연결 묶음 제목 | 13.6px / 700(기사 연결은 굵기 줄이 없어 `h3` 기본 700) |
+### 현재 상태 (코드 확인)
+- 화면 제목은 `shared/ui/PageHeader.jsx` 22·26줄 `<div className="settings-title">{title}</div>` — 제목 표시가 아닌 그냥 칸이다.
+- `PageHeader`를 쓰는 파일 24개(`grep -rn "PageHeader" src --include=*.jsx --include=*.tsx | grep import`). 화면 안 앱 화면에 `h1`은 0개(지금 `h1`은 첫 화면 오류 3곳·온보딩·처음 정보 입력뿐, 모두 `PageHeader` 없는 화면).
+- 창(입력·확인 창)은 이미 화면 읽기용 이름이 붙어 있다(`ModalShell.jsx` 52~55줄 `role`·`aria-modal`·`aria-labelledby`, `ConfirmModal.jsx` 21줄). 이번에 안 건드린다.
+- 테스트는 제목을 클래스(`.settings-title`)로 찾는다(`PageHeader.test.js` 54·64·71줄, `Skeleton.test.js` 71·88줄, `DocumentIssuePage.test.js` 71줄). 태그가 바뀌어도 클래스는 그대로라 영향 없음.
 
 ### 목표 상태 (기대 동작)
-1. `variables.css` `:root`에 제목 공용 값 6개를 더한다.
-   - `--title-1-size: var(--fs-7)` / `--title-1-weight: var(--fw-heavy)` — 화면 제목 18.88px / 800
-   - `--title-2-size: var(--fs-5)` / `--title-2-weight: var(--fw-heavy)` — 창·카드 제목 16px / 800
-   - `--title-3-size: var(--fs-3)` / `--title-3-weight: var(--fw-bold)` — 묶음 제목 13.6px / 700
-2. 위 표의 제목 규칙이 크기·굵기로 이 공용 값을 쓴다. 바뀌는 모습:
-
-| 역할 | 지금 → 바뀜 |
-|---|---|
-| 화면 제목 | 18.88/700 → 18.88/**800** (굵기만) |
-| 입력·확인 창 제목 | 17.28/900 → **16/800** |
-| 점검표 창 제목 | 17.28/800 → **16**/800 |
-| 콜 상세 창 제목 | 14.72/800 → **16**/800 |
-| 일일운행 카드 제목 | 16/800 → 그대로 |
-| 요약 카드 제목 | 14.72/700 → **16/800** |
-| 거래처·기사 연결·세금계산서 묶음 이름, 마이페이지 바로가기 | 14.72/900 → **16/800** |
-| 개인정보 카드 제목 | 14.72/800 → **16**/800 |
-| 고객센터 카드 제목 | 17.28/700 → **16/800** |
-| 기사 사업자 정보·문자 양식 제목 | 13.6/900 → **16/800** |
-| 앱 설정 묶음 제목 | 12.48/700 → **13.6**/700 |
-| 설정 묶음 제목(`.setting-section h3`) | 13.6/800 → 13.6/**700** |
-| 점검표 묶음 제목 | 14.72/800 → **13.6/700** |
-| 알림 설정·기사 연결 묶음 제목 | 13.6/700 → 그대로(기사 연결은 굵기 줄을 공용 값으로 새로 붙임, 보이는 굵기 같음) |
-
-3. 색·여백·배치 속성은 안 바꾼다(창 제목의 파란색, 일일운행 카드 제목 앞 파란 막대 그대로).
-4. 새 주석은 없다.
+1. `PageHeader.jsx` 22·26줄의 제목 칸이 `<h1 className="settings-title">{title}</h1>`이 된다(두 곳 모두 — 제목 아래 보조 글이 있는 경우와 없는 경우).
+2. `header-controls.css` `.settings-title`에 `margin: 0;` 한 줄을 더한다. `h1`은 브라우저 기본 위아래 여백이 있어서, 지우지 않으면 화면 머리 높이가 달라진다. 크기·굵기는 C-1 공용 값이 이미 정해 두어 그대로.
+3. 화면에서 보이는 위치·크기·굵기·화면 머리 높이가 바꾸기 전과 같다.
+4. 시험: `PageHeader.test.js`의 "onBack이 없으면…" 시험에 "제목은 `h1`이다" 확인 한 줄을 더한다 — `assert.equal(view.header?.querySelector('h1.settings-title')?.textContent, '매출')`. 고치기 전 코드에서 실패하는지 확인한다.
+5. 새 주석은 없다.
 
 ### 건드릴 파일
-- `src/shared/styles/variables.css` — 제목 공용 값 6줄 추가
-- 크기·굵기 값만(같은 줄): `shared/styles/header-controls.css`(`.settings-title`), `shared/styles/modal-base.css`(`.modal-title`), `features/day-log/ui/daily-inspection.css`(`.di-title`·`.di-section-head h3`), `features/day-log/ui/call-detail-form.css`(`.call-detail-modal-title`), `shared/styles/shared-controls.css`(`.summary-title`·`.modal-section-title`), `features/day-log/ui/day-log.css`·`day-log-shell.css`(`.work-log-page .modal-section-title`), `features/clients/ui/client-management.css`(`.client-card-title strong`), `features/account/ui/PersonalInfoPage.css`, `features/account/ui/mypage-shortcuts.css`, `features/support/ui/customer-center.css`, `features/drivers/ui/driver-connection.css`(카드 이름·묶음 제목), `features/documents/ui/tax-invoice.css`(`.tax-invoice-entry-head strong`), `features/drivers/ui/car-business-info.css`, `features/settings/ui/message-settings.css`, `features/settings/ui/app-settings-groups.css`, `shared/styles/controls-common.css`(`.setting-section h3`), `features/notifications/ui/notifications-page.css` — 18개
-- 영향 목록(여러 화면이 같이 쓰는 클래스): `.settings-title` — `PageHeader` 를 쓰는 화면 20개 전부. `.modal-title` — 차량·거래처·지출·기사·콜 상세·고정 노선 거래처·세금계산서 작성·운송비 상세·데이터 내려받기·초대 코드·연동 상태 창과 `ConfirmModal`(확인 창 전부). `.summary-title` — 6개 파일(매출·서류·기사 관리 등). `.modal-section-title` — 3개 파일(일일운행·입력 창). `.setting-section h3` — 4개 파일(앱 설정·개인정보 등). 착수 뒤 각 클래스 이름 전체 검색으로 목록을 다시 확인한다.
+- `src/shared/ui/PageHeader.jsx` — 22·26줄 `div` → `h1`
+- `src/shared/styles/header-controls.css` — `.settings-title`에 `margin: 0;` 1줄
+- `src/shared/ui/PageHeader.test.js` — 확인 1줄
+- 영향 목록: `PageHeader`를 쓰는 화면 24개 파일 전부(태그만 바뀌고 클래스 그대로). `.settings-title` 클래스는 `PageHeader` 안에서만 쓴다(`grep -rn "settings-title" src --include=*.jsx` — 알림 화면의 `notif-settings-title`은 다른 클래스).
 
 ### 안 건드릴 것
-- 미수금 화면 제목들(`receivables.css` 419줄 — 묶음 이름과 같은 줄에 다른 글자가 같이 묶여 있어, 나누려면 줄이 늘어 분리설계가 필요). 미수금은 따로 정한다.
-- 로그인·온보딩 큰 제목, 인쇄 서류, 첫 화면 오류 안내, 옆 메뉴 묶음 이름표("경영·관리·설정" — 메뉴 이름표라 제목 단계와 역할이 다름).
-- 제목 태그(`h1`·`h2`·`h3`) 바꾸기 — C-2에서.
-- A에서 따로 둔 굵기 750(`--fw-strong`) 합치기 — E에서(확인할 점 2).
+- 카드·묶음 제목 태그(`h2`·`h3`) — 안 함(확인할 점 1).
+- 창 제목 — 이미 화면 읽기용 이름이 있음(위 현재 상태).
+- 달력·미수금 화면 머리 — 제목 글자가 없는 화면 머리(달 이동 등)라 해당 없음(`CalendarHeader.jsx` 26줄~).
+- 첫 화면 오류·온보딩·처음 정보 입력의 기존 `h1`.
 
 ### 검증
-- 테스트·타입·빌드는 CI가 한다. 화면 모양만 바뀌어 새 테스트는 없다.
-- 위 표의 클래스마다 개발 서버에서 계산된 크기·굵기가 목표 값인지 잰다(로그인 화면 10개 + 입력 창·확인 창·점검표 창).
-- 375px에서 위 화면들의 글자 넘침·줄 수를 바꾸기 전과 후로 비교한다. 제목이 커지는 곳(요약 카드, 거래처 이름, 기사 사업자 정보)은 특히 본다.
+- 테스트·타입·빌드는 CI가 한다. 새 확인 1줄은 고치기 전 코드에서 실패, 고친 뒤 통과를 확인한다.
+- 개발 서버에서 화면 4개(매출·앱 설정·일일운행·거래처)의 화면 머리 높이와 제목 위치·크기·굵기를 바꾸기 전과 후로 잰다. 같아야 한다.
 
 ### 파일 길이
-- 대부분 같은 줄 안에서 값만 바뀐다. 굵기 줄이 없는 규칙(`.support-card h3`, `.driver-section-heading h3`)은 같은 줄에 굵기를 붙여 줄 수를 안 늘린다. `variables.css`만 64 → 70줄.
-- 200줄 넘는 `call-detail-form.css` 285·`daily-inspection.css` 254는 값만 바꾸고 나누지 않는다(A 때 정한 방식). `shared-controls.css` 191·`day-log-shell.css` 193은 줄이 안 늘어 그대로.
+- `PageHeader.jsx` 41줄 그대로, `header-controls.css` 85 → 86줄, `PageHeader.test.js` 76 → 77줄(테스트 파일).
 
 ### 실패 시 처리
-- 새 보호 장치·대비 장치를 만들지 않는다. 375px에서 넘침·줄바꿈이 새로 생기면 고치지 말고 멈춘 뒤, 원인과 수정 계획을 다시 써서 승인받는다.
+- 새 보호 장치·대비 장치를 만들지 않는다. 화면 머리 높이나 제목 위치가 달라지면 고치지 말고 멈춘 뒤, 원인과 수정 계획을 다시 써서 승인받는다.
 
 ### 사용자 확인 방법
-1. 매출 화면 → 맨 위 "매출"이 전보다 조금 굵고, "당월 순이익" 같은 카드 제목이 조금 커졌으면 성공.
-2. 거래처 → [추가]로 입력 창을 열어 제목("거래처 등록")이 전보다 조금 작고 덜 굵으면 성공(창 제목이 화면 제목보다 작아짐).
-3. 앱 설정 → "화면 표시" 같은 묶음 제목이 전보다 조금 커졌는지, 개인정보 → 카드 제목들이 같은 크기인지 본다.
+1. 배포본에서 아무 화면이나 열어 위 제목이 전과 똑같이 보이면 성공(보이는 변화 없음).
+2. (선택) 아이폰 VoiceOver나 안드로이드 TalkBack을 켜고 화면 위 제목을 누르면 "제목 1" 또는 "머리글"이라고 읽으면 성공.
 
 ### 확인할 점
-1. 3단계 값 — 가(표대로: 화면 18.88/800, 창·카드 16/800, 묶음 13.6/700) `[확인: 2026-10-25 보리 — "권함으로"]`.
-2. 굵기 750 합치기 — 가(E 버튼 단계에서 정함, 이번엔 안 함) `[확인: 2026-10-25 보리 — "권함으로"]`.
+1. 카드 제목 `h2` 바꾸기 — 가(이번엔 화면 제목만, 카드 제목은 그대로 `h3`) `[확인: 2026-10-25 보리 — "가로"]`.
 
 ---
 
