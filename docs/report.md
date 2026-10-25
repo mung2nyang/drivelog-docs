@@ -1,18 +1,75 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
 ---
 
-## UI 위계화 A — 글자 굵기 공용 값 + 미수금 합계 크기 `[x]`
+## UI 위계화 B — 단계 밖 글자 크기를 공용 단계로 `[x]`
 
-> react-app `023edeb`, CI 초록, 2026-10-25 보리 "승인".
+> react-app `1933adc`, 2026-10-25 보리 "승인". 375px 차량 입력 창·달력·설정·일일운행 전후 비교에서 바뀐 건 연월 버튼 17→17.28px·입력 창 제목 16.8→17.28px뿐, 넘침·줄 수 변화 0. 로그인 화면에서 점검표 창(제목 17.28px·묶음 제목 14.72px)·삭제 확인 창(제목 17.28px) 넘침 0. `.confirm-modal-text`(문장 있는 확인 창)는 띄우지 못해 값만 확인.
 
-보리 지시(2026-10-25): "위계화부터 진행해, ui위계화를 로드맵에 올리지마, 아까 1번(`--fs-8`)은 위계화 진행할때 같이해". 로드맵 번호 없음.
-- 위계화 전체 순서(AI 권함): **A 글자 굵기(이번)** → B 단계 밖 글자 크기 약 40곳 → C 제목 3단계(화면·카드·묶음 제목)와 화면 읽기용 제목 표시 `[확인: 2026-10-25 보리 — "B 다음에 제목 3단계 넣기 해"]` → D 간격·모서리 공용 값 → E 버튼 단계(주·보조 버튼 모양 통일 포함, 직접 만들지 들여 쓸지 E 착수 때 비교해서 질문). 이번엔 A만.
-- sot에 글자 모양 규칙 없음(`docs/sot.md` "굵기·글자 크기·위계" 검색 0건).
+보리 지시(2026-10-25, A `[x]` 뒤): "작성해". 로드맵 번호 없음(로드맵에 안 올림). 위계화 순서 A 굵기(`023edeb`) → **B 크기(이번)** → C 제목 3단계 → D 간격·모서리 → E 버튼.
+- sot에 글자 크기 규칙 없음. 지킬 원칙은 "가장 작은 글씨 12px(`--fs-floor`)"(STATUS 완료 목록, 2026-10-02 가이드라인 슬라이스 A `eb183aa`).
 
 ### 쉬운 요약
+- 글자 크기를 공용 7단계 대신 숫자로 직접 쓴 곳이 38곳 있다. 그중 25곳(+코드 안 2곳)을 가장 가까운 단계로 바꾼다.
+- 14곳은 지금과 크기가 똑같고, 13곳은 0.5px 안팎으로 아주 조금 바뀐다(눈으로는 거의 구분 안 됨).
+- 인쇄 서류·로고·큰 제목·기호(×, ›)처럼 일부러 크기를 정한 10곳은 그대로 둔다. 12px보다 작은 3곳은 확인할 점으로 묻는다.
+
+### 현재 상태 (코드 확인)
+- 공용 단계: `--fs-floor` 0.75rem(12px) / `--fs-2` 0.78rem(12.48px) / `--fs-3` 0.85rem(13.6px) / `--fs-4` 0.92rem(14.72px) / `--fs-5` 1rem / `--fs-6` 1.08rem(17.28px) / `--fs-7` 1.18rem(18.88px)(`shared/styles/variables.css` 5~11줄).
+- 숫자로 쓴 크기: CSS 38곳(`grep -rnE "font-size:\s*[0-9.]+(rem|px|em)" --include=*.css src`) + `clamp` 2곳 + 코드 안 `HydrationRetryBanner.jsx` 13px 2곳(16·27줄).
+- 12px보다 작은 곳 3곳: 달력 정비 배지 0.68rem(좁은 화면 380px 이하만, `calendar-grid.css` 191줄 `.maint-badge`), 서류 탭 0.7rem(380px 이하만, `documents.css` 173줄 `.doc-scope-tab`), 알림 숫자 배지 11px(`app-top-bar.css` 52줄 `.notification-count-badge`). 셋 다 12px 작업(10-02) 뒤에 생겼고, 앞의 둘은 좁은 화면에서 넘치지 않게 일부러 줄인 것이다(react-app `1c20f77` 2026-10-12 "작은 화면: 달력 배지 축소, 서류 종류 탭 한 줄"). 알림 배지는 새 홈(`99a317d` 2026-10-10)에서 생김.
+
+### 목표 상태 (기대 동작)
+1. **크기 그대로(14곳)**: 0.85rem 13곳 → `var(--fs-3)` — `calendar.css` 98, `client-management.css` 138, `call-detail-form.css` 72, `daily-inspection.css` 22·144·157·178·214·246, `car-business-info.css` 15, `expense-form.css` 21, `modal-form.css` 28·126. 12px 1곳 → `var(--fs-floor)` — `call-detail-payment.css` 37. (아래 2번 13곳과 합쳐 바꾸는 곳 27곳 = CSS 25 + 코드 2)
+2. **0.5px 안팎 바뀜(13곳)** — 가장 가까운 단계로:
+   - 0.95rem(15.2px) → `--fs-4`(14.72px, -0.48): `boot-retry.css` 17(첫 화면 오류 안내 문장), `calendar.css` 92(연동 차량 배너 제목), `daily-inspection.css` 131(점검표 묶음 제목)·231(점검표 비고 이름), `modal-base.css` 21(확인 창 문장)
+   - 1.15rem → `--fs-7`(+0.48): `boot-retry.css` 16(첫 화면 오류 제목)
+   - 1.1rem → `--fs-6`(-0.32): `daily-inspection.css` 76(점검표 창 제목)
+   - 0.9rem → `--fs-4`(+0.32): `report.css` 132(운송비 내역서 들여 쓴 줄 이름)
+   - 1.05rem → `--fs-6`(+0.48): `modal-base.css` 19(`.modal-title`, 입력 창 제목 — 차량·거래처·지출·콜 상세 등 창 11곳이 같이 씀)
+   - 17px → `--fs-6`(+0.28): `app-dropdown.css` 17(`.app-dropdown-trigger`, 연월 고르기 버튼 — `AppDropdown.jsx` 하나가 씀, 입력칸이 아니라 아이폰 확대와 무관)
+   - 13px → `--fs-2`(-0.52): `app-settings.css` 116(고정 노선 프리셋 줄 버튼), `HydrationRetryBanner.jsx` 16·27(불러오기 다시 시도 띠 문장·버튼, `fontSize: 'var(--fs-2)'`)
+3. **그대로 두는 10곳(예외)**: `legal-form.css` 21·26·51·60·87(인쇄 서류, 종이 양식에 맞춘 px) / 로고·큰 제목 `account-flow.css` 153(2.2rem)·`auth-form.css` 53(clamp)·93(1.78rem)·`onboarding.css` 25(clamp)·`app-top-bar.css` 22(1.45rem 앱 이름) / 기호 `message-template.css` 32(1.7rem ×)·`home.css` 122(1.2rem ›). 줄 수로는 12줄(clamp 2곳 포함).
+4. 끝나면 숫자로 쓴 크기는 위 3번 예외 12줄 + 12px보다 작은 3곳(그대로 둠)뿐이다.
+5. 새 주석은 없다.
+
+### 건드릴 파일
+- CSS 13개(값만): `app/shell/boot-retry.css`, `features/calendar/ui/calendar.css`, `features/clients/ui/client-management.css`, `features/day-log/ui/call-detail-form.css`, `features/day-log/ui/call-detail-payment.css`, `features/day-log/ui/daily-inspection.css`, `features/documents/ui/report.css`, `features/drivers/ui/car-business-info.css`, `features/expenses/ui/expense-form.css`, `features/settings/ui/app-settings.css`, `shared/styles/modal-base.css`, `shared/styles/modal-form.css`, `shared/ui/app-dropdown.css`
+- 코드 1개: `app/shell/HydrationRetryBanner.jsx` 16·27줄 값만
+- 영향 목록(여러 곳이 같이 쓰는 클래스): `.modal-title` — `DataDownloadModal`·`InviteRedeemModal`·`LinkStatusChip`·`CarFormModal`·`ClientFormModal`·`CallDetailForm`·`ReportDetailView`·`TaxInvoiceDraftModal`·`DriverFormModal`·`ExpenseFormModal`·`FixedRouteClientModal`·`ConfirmModal`. `.confirm-modal-text` — `DataDownloadModal`·`LinkStatusChip`·`ConfirmModal`. `.app-dropdown-trigger` — `AppDropdown` 하나. 배치·너비·높이 속성은 안 바꾼다.
+
+### 안 건드릴 것
+- 위 3번 예외 10곳(12줄), 12px보다 작은 3곳(`calendar-grid.css` 191, `documents.css` 173, `app-top-bar.css` 52), `index.html` 첫 로딩 화면 22px(앱 CSS보다 먼저 그려짐).
+- 공용 단계 값 자체(`--fs-*`)와 새 단계 추가 — 안 함.
+- 제목 단계 정하기 — C에서.
+
+### 검증
+- 테스트·타입·빌드는 CI가 한다. 화면 모양만 바뀌는 일이라 새 테스트는 없다.
+- 바꾼 줄을 바꾸기 전 줄과 1:1로 맞대어 위 1·2번 대응표대로만 바뀌었는지 기계로 확인. 남은 숫자 크기가 4번 목록과 같은지 검색으로 확인.
+- 개발 서버 375px 폭에서 바뀌는 화면(확인 창, 입력 창 제목, 일상점검표 창, 달력 연동 차량 배너, 운송비 내역서, 고정 노선 설정, 연월 고르기)의 글자 넘침·줄바꿈을 바꾸기 전과 후로 비교.
+
+### 파일 길이
+- 값만 같은 줄 안에서 바뀌므로 모든 파일 줄 수가 그대로다.
+- 이미 200줄 넘는 3개(`call-detail-form.css` 285, `report.css` 257, `daily-inspection.css` 254)는 A 때 정한 대로 값만 바꾸고 나누지 않는다 `[확인: 2026-10-25 보리 — A "가"]`. `app-settings.css` 197줄도 줄이 안 늘어 그대로.
+
+### 실패 시 처리
+- 새 보호 장치·대비 장치를 만들지 않는다. 375px에서 넘침·이상한 줄바꿈이 새로 생기면 고치지 말고 멈춘 뒤, 원인과 수정 계획을 다시 써서 승인받는다.
+
+### 사용자 확인 방법
+1. 배포본에서 차량 관리 → [추가]를 눌러 입력 창 제목을 본다 → 전과 거의 같은 크기면 성공.
+2. 일일운행 → 일상점검표 창을 연다 → 제목·묶음 제목이 깨지거나 넘치지 않으면 성공.
+3. 아무 지우기 버튼을 눌러 확인 창 문장이 잘 보이는지 본다(지우지 말고 [취소]).
+
+### 확인할 점
+1. 12px보다 작은 3곳(좁은 화면 달력 정비 배지 10.9px, 좁은 화면 서류 탭 11.2px, 알림 숫자 배지 11px) — 가(그대로 둠) `[확인: 2026-10-25 보리 — "가"]`
+   - 가: 그대로 둔다(예외). 앞의 둘은 좁은 화면 넘침을 막으려고 일부러 줄였고(`1c20f77`), 알림 배지는 작은 동그라미 안 숫자라 키우면 동그라미도 커져야 할 수 있다.
+   - 나: 12px(`--fs-floor`)로 키운다. 375px·320px에서 넘침을 확인하고, 넘치면 멈추고 다시 묻는다.
+
+---
+
+## 쉬운 요약
 - 지금 글자 굵기는 화면마다 숫자를 직접 써서 9가지가 섞여 있다. 이걸 `variables.css`의 공용 굵기 7개로 묶는다.
 - 이번엔 **어느 기기에서도 보이는 굵기가 그대로**다. 묶어 두면 나중에 "제목은 더 굵게, 굵기 단계 줄이기"가 공용 값 한 줄 고치기로 끝난다.
 - 미수금 상세 창의 합계 금액 숫자가 정의 안 된 크기를 써서 의도보다 작게 보인다. 가장 큰 글자 단계로 고친다.
