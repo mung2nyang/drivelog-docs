@@ -1,146 +1,222 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
 ---
 
-## 로그인 화면 개편 A — 계정 화면 강제 다크 없애고 테마 따라가기 `[x]`
+## 수정 착수지시서: 로그인 화면 개편 A — 로그인 계정이 로그아웃하면 라이트로 바뀜 `[x]`
 
-보리 요청(2026-10-25): 피그마 시안으로 로그인 첫 화면을 바꾸면서 라이트 버전도 만든다. 대화로 정한 것:
-- 색·버튼·글자 크기는 공통 UI 값을 쓴다 `[확인: 2026-10-25 보리]`
-- 계정 화면 세 곳(로그인 첫 화면·환영·첫 설정)이 모두 테마를 따른다 `[확인: 2026-10-25 보리 — "온보딩을 테마 따라가기로"]`
-- 로그아웃해도 라이트로 바뀌면 안 된다 `[확인: 2026-10-25 보리]`
-
-두 조각으로 나눈다: **A(이번) = 테마**, B = 시안 반영(아래 미리 보기). B의 색이 A에 기대므로 A가 먼저다.
+보리 확인(2026-10-25, B 배포본 확인 중): "첫 로그인 후 설정에서 다크모드 → 로그아웃 → 로그인 화면이 라이트로 바뀌고, 로그인 후 메인부터 다크. 재로그인 시 로그인 화면도 다크여야지." A의 목표 2(sot 4-19)를 못 지킨 것이다.
 
 ### 쉬운 요약
-- 지금 로그인·환영·첫 설정 화면은 테마와 상관없이 늘 어둡다. 이 강제 설정을 없애 세 화면이 앱 테마를 따르게 한다.
-- 로그아웃하면 로그인 화면이 라이트로 바뀌고 "마지막 테마" 기억까지 라이트로 덮이던 것을 막는다. 다크로 쓰던 사람은 로그아웃해도 다크다.
-- 처음 쓰는 휴대폰은 휴대폰 설정(다크/라이트)을 따른다.
+- 로그아웃 버튼을 누르면 "로그인 정보 지우기"와 "로그인 화면으로 이동"이 차례로 일어난다.
+- 그 사이 아주 짧은 순간 앱이 "로그인 안 된 사람이 아직 메인 화면에 있음" 상태가 되고, 이때 비회원 기본 테마(라이트)로 칠해 버린다. 마지막 테마 기억까지 라이트로 덮인다.
+- 로그인 안 된 상태에서는 테마를 칠하지 않게 막는다.
 
 ### 현재 상태 (코드 확인)
-- 강제 다크가 켜지는 길:
-  - 주소가 `/auth`·`/welcome`·`/onboarding`이면 `inAccountFlow`가 참이다(`src/app/useAppSession.js:37`).
-  - 그러면 `AccountFlowBodyClass`가 body에 `account-flow-active`를 붙인다(`src/app/App.jsx:68`, `src/app/providers.jsx:25-31`).
-  - 이 클래스가 색 값을 어두운 값으로 덮는다(`src/shared/styles/account-flow.css:3-13`).
-  - 덮는 값은 앱 공통 다크와 다르다. 배경 `#1e1e1e`(공통 `#121212`), 칸 `#393939`(공통 `#2a2a2a`), 테두리 `#4a4a4a`(공통 `#333333`).
-- 로그아웃하면 라이트로 바뀌는 이유:
-  - 부트가 끝나면 주소가 바뀔 때마다 그때 owner 설정의 테마로 다시 칠한다(`useAppSession.js:107-110`).
-  - 테마 칸이 없으면 라이트다(`settingsSave.ts:44-46`, 테마는 선택 칸 `persistDomainSchema.ts:42`).
-  - 이때 `lastTheme`도 덮는다(`settingsSave.ts:48`).
-  - 지금은 강제 다크에 가려 안 보인다.
-- 앱을 켤 때는 `index.html`이 `lastTheme`을 읽고, 없으면 휴대폰 설정으로 칠한다(`index.html:27-33`).
-- 흰색으로 고정된 글자 3곳(밝은 배경에서 안 보이게 됨):
-  - `.auth-logo-text`(`account-flow.css:48`, 로그인 첫 화면)
-  - `.auth-brand-sm`(`auth-form.css:41`, 환영 화면)
-  - `.onboarding-logo-text`(`onboarding.css:20`, 첫 설정)
-  - 각 클래스를 쓰는 곳은 위 화면 하나씩뿐이다(클래스명 grep).
-- 흰 글씨지만 그대로 둘 곳(파란 바탕 위 글씨·로딩 표시라 테마와 무관): `onboarding.css:84`, `account-flow.css:91·115·116`.
-- 로고 그림 `banner_image.png`는 앱을 켤 때 로딩 화면이 라이트·다크 둘 다에서 같은 그림으로 쓴다(`LoadingScreen.jsx:5`, `index.html:69-72`). 그래서 바꾸지 않는다.
+- 로그아웃 순서(`src/app/useAppSession.js:120-130` `handleLogout`): `setSession(null)` → `navigate('/auth')`.
+- 세션이 없으면 owner가 `'guest'`가 된다(`src/data/cloud/appSession.ts:76-81`). 비회원 설정에 테마가 없으면 라이트다.
+- 라우터(react-router-dom 7, `package.json:24`)는 화면 이동을 낮은 우선순위로 늦게 처리한다(`AuthRoute.jsx` 맨 위 주석에도 같은 설명이 있다). 그래서 세션이 비는 화면이 먼저 그려지고, 이때 주소는 아직 `/app`이다.
+- 테마 칠하기 조건은 `booting || inAccountFlow`뿐이다(`useAppSession.js:108-111`). 주소가 아직 `/app`이라 조건을 통과해 `applyTheme(라이트)`가 불리고 `lastTheme`도 light가 된다.
+- 비회원이 로그아웃할 때는 owner가 그대로 `'guest'`라 테마가 안 바뀌어서 증상이 없다. 브라우저에서 비회원 다크 → [로그인하기]로 확인하면 다크가 유지됐다.
+- A의 시험(`accountFlowTheme.test.js`)은 `/auth`로 바로 들어가는 경우만 봐서 이 순간을 못 잡았다.
 
 ### 목표 상태 (기대 동작)
-1. 강제 다크를 없앤다. `AccountFlowBodyClass`와 `body.account-flow-active` 규칙을 지우고, 세 화면은 `variables.css`의 라이트/다크 값을 쓴다.
-2. 계정 화면(`inAccountFlow`)에서는 테마를 새로 칠하지 않는다. 지금 보이는 테마와 `lastTheme`을 그대로 둔다.
-   - 다크로 쓰던 사람이 로그아웃하면 로그인 화면은 다크다.
-   - 처음 쓰는 휴대폰이면 휴대폰 설정을 따른다(`index.html` 그대로).
-3. 계정 화면을 지나 앱 안으로 들어가면 지금처럼 그 계정 설정의 테마로 칠한다.
-4. 흰색 고정 글자 3곳을 `var(--text-color)`로 바꾼다.
-5. 구글 버튼은 테마를 따른다. 라이트는 구글 규칙의 밝은 버튼(흰 바탕 `#ffffff`·테두리 `#747775`·글씨 `#1f1f1f`), 다크는 지금 버튼(`#131314`·`#8e918f`·`#e3e3e3`)이다. 모양·크기·로고는 그대로다. `[확인: 2026-10-25 보리 — "라이트버전에서 밝은버튼으로 바꿔줘"]`
-6. 설정 화면에서 테마를 바꾸는 동작, 앱 켤 때 로딩 화면 색은 지금과 같다.
+1. 로그인 계정이 다크로 쓰다 로그아웃하면 로그인 화면이 다크이고, `lastTheme`도 dark로 남는다.
+2. 세션이 없을 때는 주소와 상관없이 테마를 칠하지 않는다.
+3. 다시 로그인해 앱 안으로 들어가면 그 계정 설정의 테마다(지금과 같음).
+4. 비회원 시작·비회원 로그아웃·설정에서 테마 바꾸기는 지금과 같다.
 
 ### 건드릴 파일
-- `src/app/useAppSession.js` — 테마 칠하기 조건에 `inAccountFlow` 추가(107~110줄)
-- `src/app/App.jsx` — `AccountFlowBodyClass` 가져오기·쓰기 삭제(14·68줄)
-- `src/app/providers.jsx` — `AccountFlowBodyClass` 삭제
-- `src/shared/styles/account-flow.css` — `body.account-flow-active` 규칙(3~13줄) 삭제, 48줄 흰색을 공통 값으로, 맨 위 설명 주석 고침
-- `src/shared/styles/auth-form.css` — 41줄 흰색을 공통 값으로
-- `src/shared/styles/onboarding.css` — 20줄 흰색을 공통 값으로
-- `src/shared/styles/variables.css` — 구글 버튼 색 3개를 라이트/다크 공통 값으로 추가(목표 5)
-- `account-flow.css` 구글 버튼 색 3줄을 그 값으로, 위 설명 주석 고침
-- 시험: `src/app/App.test.js`에 추가(기존 `BrowserRouter`+`App` 그리는 방식)
-- 영향 목록:
-  - `account-flow-active`는 `providers.jsx`에서만 붙이고 `account-flow.css`에서만 읽는다(grep).
-  - 바뀌는 클래스는 색만 바뀌고 자리 속성은 그대로다.
-- 크기: 파일 6개지만 각각 1~11줄 수정이다. 시안 반영은 B로 뺐다.
+- `src/app/useAppSession.js` — 테마 칠하기 조건에 `!session` 추가(108~111줄)
+- 시험 `src/app/App.test.js`(로그인 세션으로 부트하는 파일)에 1개 추가:
+  - 프로필 설정 테마 dark로 부트 → `/app`에서 dark
+  - 개인정보 화면 [로그아웃] → `/auth` 도착 → dark와 `lastTheme` dark 유지
 
 ### 안 건드릴 것
-- 로그인 첫 화면 배치·문구(B에서)
-- 구글 버튼 모양·크기·로고(색만 목표 5), 로딩 동그라미 색
-- `settingsSave.ts` `applyTheme` — 칠하기·`lastTheme` 기억은 그대로 맞게 동작한다. 부르는 쪽 조건만 바꾼다(`LoadingScreen.test.js:56-63`이 이 동작을 지킴).
-- `index.html` — 앱 켤 때 테마 고르기는 이미 원하는 동작이다(`index.html:27-33`).
-- `AppSettingsPage.jsx` 테마 바꾸기(`:47`)
-- 로고 그림(위 현재 상태 근거)
-- 앱 안 기본 테마 — 설정 안 했으면 라이트, 지금 그대로
+- `handleLogout` 순서·라우터 설정 — 화면 이동 방식은 다른 화면 동작과 얽혀 있어(`AuthRoute.jsx` 부트 처리) 바꾸지 않는다.
+- B의 화면 코드(`866f9a4`)
+- `applyTheme`·`index.html`
 
 ### 검증
-- 새 시험(`App.test.js`):
-  - ① `data-theme="dark"`·`lastTheme=dark`인 채로 세션 없이 `/auth`를 그리면, 부트가 끝난 뒤에도 dark와 `lastTheme` dark가 남는다.
-  - ② body에 `account-flow-active`가 없다.
-- ①은 고치기 전 코드에서 실패해야 한다(revert-check). 고치기 전에는 라이트로 덮임.
-- 기존 시험 전부 통과. 특히 `LoadingScreen.test.js`, `AuthRoute.test.js`, `AuthPage.google.test.js`, `App.guestDurable.test.js`.
-- 브라우저: 아래 사용자 확인 방법.
+- 새 시험은 고치기 전 코드에서 실패해야 한다(revert-check).
+- 기존 `accountFlowTheme.test.js` 2개 그대로 통과. 둘째 시험(비회원 → 앱 안 진입 시 설정 테마)이 `!session`과 안 부딪히는지 같이 본다. 비회원은 세션이 있다.
+- 전체 `npm test`·`typecheck`
+- 브라우저: 비회원 다크 → 로그아웃 → 다크 유지(회귀 확인). 로그인 계정 확인은 구글 로그인이 필요해 보리 확인.
 
 ### 파일 길이
-- `useAppSession.js` 146 → 146
-- `App.jsx` 164 → 163
-- `providers.jsx` 32 → 약 19
-- `account-flow.css` 164 → 약 153
-- `auth-form.css` 94 → 94
-- `onboarding.css` 102 → 102
-- `variables.css` 78 → 84
-- 200줄을 넘는 파일 없음.
+- `useAppSession.js` 146 → 146(같은 줄 수정)
+- 시험 파일은 제한 없음.
 
 ### 코드에 넣을 주석(최종 문구)
-- `useAppSession.js` 테마 칠하기 조건 줄:
-  `// 부트 중·계정 화면은 덮지 않고 마지막 테마를 둔다(로그아웃해도 라이트로 바뀌지 않게).`
-- `account-flow.css` 1줄:
-  `/* 계정 화면 틀(컨테이너·페이지)과 로그인 첫 화면·단추. 색은 variables.css 공통 값. 입력 단계는 auth-form.css, 처음 정보 입력은 onboarding.css. */`
+- 108줄 주석을 바꾼다: `// 부트 중·세션 없음·계정 화면은 덮지 않고 마지막 테마를 둔다(로그아웃해도 라이트로 바뀌지 않게).`
 
 ### 실패 시 처리
-- 새 저장 키·재시도·대비 장치 없음. `lastTheme`은 이미 있는 키를 그대로 쓴다.
+- 새 저장 키·재시도·대비 장치 없음.
 - 실패하면 수정 착수지시서를 다시 써서 승인받는다.
 
 ### 사용자 확인 방법
-1. 앱 설정에서 다크로 바꾸고 로그아웃 → 로그인 화면이 다크인지 본다. 새로고침해도 다크인지 본다.
-2. 라이트로 바꾸고 로그아웃 → 로그인 화면이 라이트이고 "운행일지" 글자가 보이는지 본다.
-3. 새 구글 계정으로 처음 로그인 → 환영·첫 설정 화면이 로그인 화면과 같은 테마인지, 로고 글자와 입력칸이 잘 보이는지 본다.
-4. 앱 안으로 들어가면 그 계정 설정의 테마인지 본다.
+1. 구글 계정으로 로그인 → 설정에서 다크 → 개인정보 화면 [로그아웃]
+2. 로그인 화면이 다크인지 본다. 새로고침해도 다크인지 본다.
+3. 다시 로그인하면 메인도 다크인지 본다.
 
 ### 진행 기록
-- 2026-10-25 보리 "착수지시서 확정, 작업 진행해"(데스크톱 AI가 직접 작업하라고 지시).
-- 지시서와 다른 점:
-  - `inAccountFlow`가 더는 밖에서 안 쓰여 `useAppSession.js` 반환값과 `App.jsx` 받는 줄에서도 뺐다. 줄 수: `useAppSession.js` 146 → 146, `App.jsx` 164 → 162.
-  - 시험은 `App.test.js`(로그인 세션으로 부트)가 아니라 세션 없는 부트용 새 파일 `src/app/accountFlowTheme.test.js`에 넣었다.
-- 새 시험 2개는 모두 수정 전 코드로 돌리면 실패했다(revert-check):
-  - ① 로그인 화면에서 다크가 라이트로 덮임
-  - ② 로그인 화면이 비회원 설정 테마로 칠해짐
-- 전체 `npm test` 통과(unit 896, app 886), `typecheck` 통과.
-- 브라우저(데스크톱 미리보기, 375px):
-  - 마지막 테마 dark로 `/auth` → dark 유지, `lastTheme` dark, body 클래스 없음.
-  - light로 `/auth` → 배경 `#eef1f5`, "운행일지" 글자 `#2d3748`, 구글 버튼은 어두운 그대로.
-  - 콘솔 오류 없음.
-- 확인 못 한 것: 환영·첫 설정 화면은 구글 로그인이 필요해 보리 확인이 필요하다(사용자 확인 방법 3).
-- 2026-10-25 보리 "라이트버전에서 밝은버튼으로 바꿔줘" → 목표 5 고침.
-  - 구글 버튼 색 3개를 `variables.css` 라이트/다크 값으로 옮겼다.
-  - 브라우저에서 라이트는 흰 바탕·`#747775` 테두리·`#1f1f1f` 글씨, 다크는 지금 버튼 그대로임을 확인했다. 콘솔 오류 없음.
-  - CSS만 바뀌어 시험 결과에는 영향이 없다.
-- 보리 "커밋해" → react-app `60d23d7`(push 안 함).
-- 보리 push 뒤 CI verify·deploy 초록(run 40198860838). 남은 것: 환영·첫 설정 화면 휴대폰 확인, 최종 승인.
-- 2026-10-25 보리 "승인" → `[x]`. sot 4-19에 계정 화면 테마 규칙 기록.
+- 2026-10-25 보리 "착수지시서 확정, 작업 진행해".
+- `useAppSession.js`: 조건에 `!session`, 의존 목록에 `session`, 주석은 지시서 문구 그대로. 146줄 그대로.
+- 지시서와 다른 점: 시험을 "프로필 설정 테마 dark로 부트"가 아니라 보리가 한 그대로 짰다(로그인 부트 → 설정 화면 다크 스위치 → 개인정보 [로그아웃] → `/auth`). 시험 하네스의 서버 설정 테마가 Store에 dark로 들어오지 않아(원인 미조사, 이번 범위 밖) 실제 사용 흐름으로 바꿨다.
+- 새 시험은 수정 전 코드에서 "로그아웃 뒤 로그인 화면이 라이트로 바뀌면 안 된다"로 실패했다(revert-check).
+- 전체 `npm test` 통과(unit 896, app 888), `typecheck` 통과.
+- 브라우저(개발 서버 새로 켬): `lastTheme` dark로 `/auth` → dark, 비회원 시작 → `/app` dark(비회원 설정), 콘솔 오류 없음.
+  - 그 전 탭에 보인 오류 2건은 revert-check가 파일을 잠깐 되돌린 사이 화면 자동 갱신이 생긴 것이다. 새로 켠 서버에서는 없다.
+- 로그인 계정 실제 로그아웃은 보리 확인이 필요하다.
+- 보리 "커밋해" → react-app `68af422`(push 안 함).
+- push 뒤 CI verify·deploy 초록(run 40202981651). 배포본 앱 파일에 조건(`!session`)이 들어간 것도 확인했다.
+  - 보리가 처음 "동일해"라고 한 것은 배포 전에 확인한 것이었다.
+- 서버 설정값으로 조사하다 따로 찾은 것(이번 범위 밖, 보리 결정 대기): 이 기기에 테마 기억이 없으면 서버 설정이 다크여도 로그인 뒤 라이트로 나온다(`owner-state.ts` `initializeOwnerFromPersist`가 hydrate 뒤 기기 값으로 덮음).
+- 2026-10-25 보리 "해당건 승인 문제없어" → `[x]`.
 
-### 다음 B 미리 보기(이번 범위 아님) — 로그인 첫 화면 시안 반영
-정한 것 `[확인: 2026-10-25 보리]`:
-- 위에서부터: 로고(트럭+"운행일지") → 작은 제목 "간편한 차량 운행 관리" → 헤드라인 "운행 기록을 / 간편하게 관리하세요" → 설명 "매일의 운행 내역을 쉽고 빠르게 기록해 보세요." → 구글 버튼 → 비회원 → 약관 문구.
-- 왼쪽 정렬선 하나로 모두 맞춤(지금 가운데 정렬을 없앰).
-- 크기는 시안과 달라도 되고, 만들어 둔 위계를 쓴다.
-  - 헤드라인·설명은 환영 화면의 `auth-heading-box h1`·`auth-desc-text`를 재사용한다.
-  - 로고는 그보다 작게 해서 헤드라인이 가장 크게 한다.
-- 작은 제목과 약관 문서 이름은 시안과 비슷한 연한 파랑이다. 라이트에서는 같은 계열의 진한 색이다. `variables.css`에 공통 값 하나를 새로 둔다.
-- 구글 버튼은 A에서 정한 테마별 색 그대로다. 누르면 글자와 로고를 감추고, 버튼 안에 로딩 점 세 개(`boot-loading-dots`, 앱 켤 때 쓰는 그것)를 띄운다. 실패하면 지금처럼 토스트를 띄우고 첫 화면에 머문다(`AuthPage.jsx`, 이미 됨).
-- 비회원 버튼은 지금 모양 그대로, 왼쪽 정렬로 두고 누르는 높이만 44px 이상으로 늘린다.
-- 약관 문구 "최초 로그인 시 서비스 이용약관 및 개인정보 처리방침, 위치기반서비스 이용약관에 동의하는 것으로 간주합니다."
-  - 문서 이름만 색을 다르게 하고 링크는 없다. 링크는 로드맵 10-P ⓒ-2 때 붙인다.
-- 로그인 첫 화면 CSS를 `account-flow.css`에서 새 파일(`features/account/ui/auth-intro.css`)로 옮긴다(200줄 대비).
+---
+
+## 로그인 화면 개편 B — 로그인 첫 화면 시안 반영 `[~]`
+
+보리 요청(2026-10-25, 피그마 시안). A `[x]`(react-app `60d23d7`, sot 4-19) 다음 조각이다. 대화로 정한 것 `[확인: 2026-10-25 보리]`:
+- 색·버튼·글자 크기는 공통 UI 값을 쓴다. 크기는 시안과 달라도 되고, 만들어 둔 위계를 쓴다.
+- 구글 버튼과 비회원 버튼은 지금 것을 쓴다. 비회원 버튼은 왼쪽 정렬로 바꾸고 누르는 높이만 늘린다.
+- 작은 제목과 약관 문서 이름은 시안과 비슷한 연한 파랑으로 한다.
+- 약관 문구는 링크 없이 글자만 넣는다(링크는 로드맵 10-P ⓒ-2).
+- 로딩 중에는 버튼 안에 점 세 개를 띄운다. 실패하면 토스트를 띄우고 첫 화면에 머문다.
+- 왼쪽 정렬선은 AI가 알아서 하나로 맞춘다.
+
+### 쉬운 요약
+- 로그인 첫 화면을 시안 배치로 바꾼다. 위에서부터 로고 → 작은 제목 → 큰 제목 → 설명 → 구글 버튼 → 비회원 → 약관 문구 순서이고, 모두 왼쪽 한 줄에 맞춘다.
+- 구글 버튼을 누르면 글자 대신 점 세 개가 움직인다.
+- 화면 CSS가 200줄을 넘지 않게 로그인 첫 화면 것만 새 파일로 옮긴다.
+
+### 현재 상태 (코드 확인)
+- 화면은 로고와 버튼 둘만 있고 가운데 정렬이다(`src/features/account/ui/AuthIntroView.jsx`, 45줄).
+  - 가운데 정렬 규칙: `account-flow.css:132-148`(`.auth-intro-view` 계열, 로고 그림 54px·글자 2.2rem).
+- 로그인 첫 화면만 쓰는 클래스가 `account-flow.css`에 섞여 있다.
+  - `.auth-brand-head`·`.auth-logo-img`·`.auth-logo-text`(26~36줄)
+  - `.auth-intro-bottom`·`.auth-btn-stack`(38~45줄)
+  - `.auth-google-btn`·`:disabled`·`.auth-google-logo`(47~67줄)
+  - `.auth-guest-btn`(118~130줄)
+  - `.auth-intro-view` 계열(132~148줄)
+  - 모두 `AuthIntroView.jsx`에서만 쓴다(클래스명 grep, 시험은 `App.guestDurable.test.js:147`이 `.auth-guest-btn`로 찾음).
+- 다른 화면과 같이 쓰는 것은 그대로 둔다.
+  - `.account-flow-container`·`.account-flow-page`·`.auth-view`: 환영·첫 설정 화면과 같이 씀
+  - `.auth-primary-btn`·`save-action-spin`: 환영 화면
+- 비회원 버튼은 글자 `--fs-2`, 위아래 여백 8px이라 누르는 높이가 약 34px이다(`account-flow.css:118-130`).
+- 구글 버튼은 누르면 `busy`로 잠기고 흐려지기만 한다(`AuthIntroView.jsx:35`, `:disabled` 흐림 0.6). 실패하면 토스트를 띄우고 다시 누를 수 있다(`AuthPage.jsx:16-29`, `AuthPage.google.test.js`).
+- 재사용할 것:
+  - 큰 제목과 설명: 환영 화면의 `.auth-heading-box h1`(`clamp(1.9rem, 8vw, 2.3rem)`)·`.auth-desc-text`(`auth-form.css:49-62`, `WelcomeProfileView.jsx:40-42`)
+  - 점 세 개: `.boot-loading-dots`(`index.html:51-63`, 색은 `currentColor`라 버튼 글씨색을 따름, 움직임 줄이기 설정도 이미 있음)
+  - 로고 크기: 앱 켤 때 로딩 화면의 그림 40px·글자 22px(`index.html:49-50`)
+
+### 목표 상태 (기대 동작)
+1. 위에서부터 차례로 보인다.
+   - 로고(트럭 그림 + "운행일지")
+   - 작은 제목 "간편한 차량 운행 관리"
+   - 큰 제목 "운행 기록을" / "간편하게 관리하세요"(두 줄)
+   - 설명 "매일의 운행 내역을 쉽고 빠르게 기록해 보세요."
+   - [Google 계정으로 로그인하기], [비회원으로 시작하기]
+   - 약관 문구 "최초 로그인 시 서비스 이용약관 및 개인정보 처리방침, 위치기반서비스 이용약관에 동의하는 것으로 간주합니다."
+2. 모든 요소의 왼쪽 시작점이 같다. 가운데 정렬 규칙을 없앤다.
+3. 크기 위계: 큰 제목이 가장 크다.
+   - 큰 제목과 설명은 환영 화면과 같은 클래스(`auth-heading-box h1`·`auth-desc-text`)
+   - 로고는 로딩 화면과 같은 크기(그림 40px·글자 22px)
+   - 작은 제목은 `--fs-2` 굵게
+   - 약관 문구는 `--fs-2` 보조 글자색
+4. 작은 제목과 약관 문서 이름 3개는 새 공통 값 `--accent-soft-color`를 쓴다(`variables.css`).
+   - 다크 `#a3b3f5`(시안과 비슷한 연한 파랑, `#121212` 위 대비 약 9:1)
+   - 라이트 `#3b56b0`(같은 계열 진한 색, `#eef1f5` 위 대비 약 5.9:1)
+5. 약관 문서 이름은 색만 다르고 누를 수 없다(링크 없음).
+6. 구글 버튼을 누르면 로고와 글자를 감추고 버튼 가운데에 점 세 개가 움직인다.
+   - 버튼 크기는 그대로이고, 로딩 중에는 흐리게 하지 않는다.
+   - 실패하면 점이 사라지고 원래 버튼으로 돌아와 다시 누를 수 있다(토스트는 지금 그대로).
+   - 화면 읽기 프로그램용으로 버튼에 `aria-busy`를 붙인다.
+7. 비회원 버튼은 모양(글자 크기·색·밑줄)을 그대로 두고 왼쪽 정렬, 누르는 높이 44px 이상이다.
+8. 위아래 배치: 위 묶음(로고~설명)과 아래 묶음(버튼~약관)을 화면 세로 가운데에 두고 둘 사이를 띄운다.
+9. 라이트·다크 둘 다 A의 테마 규칙(sot 4-19)대로 보인다.
+10. 로그인 첫 화면 CSS를 새 파일 `src/features/account/ui/auth-intro.css`로 옮기고 `AuthIntroView.jsx`가 가져온다(`WelcomeProfileView.jsx`의 `welcome-profile.css`와 같은 방식).
+
+### 건드릴 파일
+- `src/features/account/ui/AuthIntroView.jsx` — 배치·문구·로딩 점
+- `src/features/account/ui/auth-intro.css`(새) — `account-flow.css`에서 옮긴 로그인 첫 화면 규칙 + 새 규칙(작은 제목·약관·로딩·정렬)
+- `src/shared/styles/account-flow.css` — 위 "현재 상태"의 로그인 첫 화면 전용 규칙을 빼고, 맨 위 설명 주석 고침
+- `src/shared/styles/variables.css` — `--accent-soft-color` 라이트/다크 2줄
+- 시험 `src/features/account/ui/AuthPage.google.test.js` — 문구·약관(링크 0개)·로딩 점이 생기고 실패 뒤 사라지는지
+- 영향 목록: 옮기는 클래스는 모두 `AuthIntroView.jsx`에서만 쓴다(클래스명 grep). 같이 쓰는 클래스(`.auth-heading-box`·`.auth-desc-text`)는 바꾸지 않고 가져다 쓰기만 한다.
+
+### 안 건드릴 것
+- `AuthPage.jsx` — 실패 시 토스트·다시 누르기는 이미 원하는 동작이다(`AuthPage.google.test.js` 실패 시험).
+- 구글 버튼 문구 "Google 계정으로 로그인하기"·색(sot 4-19)
+- `auth-form.css`의 `.auth-heading-box`·`.auth-desc-text` — 환영 화면과 같이 쓰므로 값을 바꾸지 않는다.
+- `index.html`의 점 세 개 모양 — 그대로 가져다 쓴다.
+- 환영·첫 설정 화면
+
+### 검증
+- 시험(`AuthPage.google.test.js`):
+  - 화면에 큰 제목·설명·약관 문구가 있고, 약관 안에 링크(`a`)가 0개다.
+  - 누르면 버튼 안에 `.boot-loading-dots`가 생기고, 실패하면 사라진다.
+  - 기존 버튼 이름 시험(`['Google 계정으로 로그인하기', '비회원으로 시작하기']`)은 그대로 통과한다. 점은 빈 칸이라 버튼 글자가 바뀌지 않는다.
+- 새 시험 중 문구·점 시험은 고치기 전 코드에서 실패해야 한다(revert-check).
+- 전체 `npm test`·`typecheck` 통과
+- 브라우저(375px, 라이트·다크): 왼쪽 정렬선 하나, 위계, 비회원 버튼 높이 44px 이상(계산값), 로딩 점, 콘솔 오류 없음
+
+### 파일 길이
+- `AuthIntroView.jsx` 45 → 약 65
+- `auth-intro.css`(새) 0 → 약 105
+- `account-flow.css` 152 → 약 75
+- `variables.css` 84 → 86
+- 200줄을 넘는 파일 없음.
+
+### 코드에 넣을 주석(최종 문구)
+- `auth-intro.css` 1줄: `/* 로그인 첫 화면 — 로고·제목·구글 버튼·비회원·약관 문구. 색은 variables.css 공통 값. */`
+- `account-flow.css` 1줄: `/* 계정 화면 틀(컨테이너·페이지)과 환영 화면 단추. 색은 variables.css 공통 값. 로그인 첫 화면은 auth-intro.css, 입력 단계는 auth-form.css, 처음 정보 입력은 onboarding.css. */`
+- `variables.css` 새 줄: `--accent-soft-color: #3b56b0; /* 작은 제목·약관 문서 이름 연한 강조 */`
+- 구글 버튼 주석은 A의 것을 그대로 옮긴다: `/* 구글 로그인 버튼 — 테마에 따라 구글 규칙의 밝은/어두운 버튼 색 */`
+
+### 실패 시 처리
+- 새 저장 키·재시도·대비 장치 없음. 화면 모양만 바꾼다.
+- 실패하면 수정 착수지시서를 다시 써서 승인받는다.
+
+### 사용자 확인 방법
+1. 로그아웃해 로그인 첫 화면을 연다. 시안 순서대로 보이고, 왼쪽 끝이 한 줄로 맞는지 본다.
+2. 앱 테마를 바꿔 라이트·다크 둘 다 본다. 작은 제목과 약관 문서 이름이 연한 파랑(라이트는 진한 파랑)으로 읽히는지 본다.
+3. 구글 버튼을 누른다. 구글 화면으로 넘어가기 전에 버튼 안에 점 세 개가 움직이는지 본다.
+4. [비회원으로 시작하기] 글자 위아래를 눌러도 눌리는지 본다.
+
+### 진행 기록
+- 2026-10-25 보리 "착수지시서 확정, 작업 진행해"(데스크톱 AI가 직접 작업).
+- 지시서와 다른 점:
+  - `auth-intro.css`에 로딩 규칙 설명 주석 한 줄을 더 넣었다: `/* 로딩 중: 로고·글자는 자리만 두고 감추고 가운데에 점 세 개(모양은 index.html) */`
+  - `AuthIntroView.jsx` 맨 위 설명 주석을 새 화면 내용에 맞게 고쳤다.
+  - 이제 쓸 데가 없는 `.auth-btn-stack` 감싸기를 뺐다.
+- 시험(`AuthPage.google.test.js`, 새 시험 1개와 기존 2개에 확인 추가) — 수정 전 코드로 돌려 확인했다(revert-check):
+  - 실패: 로딩 점 시험, 소개 문구·약관 시험
+  - 통과(안전 확인): 실패 뒤 점 없음 시험 — 수정 전에도 점이 없으므로 정상
+- 전체 `npm test` 통과(unit 896, app 887), `typecheck` 통과.
+- 줄 수:
+  - `AuthIntroView.jsx` 63
+  - `auth-intro.css` 98
+  - `account-flow.css` 77
+  - `variables.css` 86
+- 브라우저(375px):
+  - 로고·작은 제목·큰 제목·설명·구글·비회원·약관의 왼쪽 끝이 모두 18px로 같다.
+  - 큰 제목 30.4px, 로고 글자 22px, 비회원 버튼 높이 44px, 가로 넘침 없음.
+  - 작은 제목 색: 다크 `#a3b3f5`, 라이트 `#3b56b0`.
+  - 로딩 모양은 JS로 로딩 상태를 붙여 확인했다. 버튼 높이 60px 그대로, 흐림 없음, 점 세 개가 가운데. 구글 화면으로 실제로 넘어가는 것은 확인하지 않았다.
+  - 콘솔 오류 없음.
+  - 개발 서버가 `variables.css` 두 번째 수정을 늦게 반영해 서버를 다시 켜고 확인했다(코드 문제 아님).
+- 2026-10-25 보리 화면 보고 고침 지시: "트럭이랑 로고 두 배", "비회원과 약관 사이 넓혀 약관을 더 아래로".
+  - `auth-intro.css`: 로고 그림 40 → 80px, 글자 22 → 44px, 약관 위 간격 20 → 96px.
+  - 그래서 목표 3의 "큰 제목이 가장 크다"가 바뀌었다. 로고 글자(44px)가 큰 제목(30.4px)보다 크다. 보리 지시다.
+  - 브라우저 375×812: 비회원~약관 간격 96px, 가로 넘침·세로 스크롤 없음. 375×667(작은 휴대폰)도 스크롤 없음.
+- 보리 "너무 커, 처음과 이번 사이 정도" → 로고 그림 60px, 글자 33px(처음과 두 배의 중간). 약관 간격 96px는 그대로. 브라우저 가로 넘침 없음.
+- 보리 "위치를 살짝 더 위로" → 로고 줄만 12px 올림(`.auth-brand-head` 여백 `-12px 0 40px`). 나머지 자리는 그대로(375×812에서 구글 버튼 위치 같음).
+- 보리 "12px만 더" → 로고 줄 여백 `-24px 0 52px`(처음보다 24px 위). 작은 제목 아래는 그대로.
+- 보리 "커밋해" → react-app `866f9a4`(push 안 함).
+- 보리 push 뒤 CI verify·deploy 초록(run 40201495861). 남은 것: 최종 승인.
 
 ---
 
