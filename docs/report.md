@@ -1,280 +1,238 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
 ---
 
-## UI 위계화 E-2 — 버튼 모양 공용 값(크기 3단계) `[x]`
+## 로드맵 24-K-2 운비서 앱 — 칸 읽기 나누기 + [휴무로 하기]·[휴무 취소하기] `[x]`
 
-> react-app `56b1bd7`, CI 초록, 2026-10-25 보리 "승인". 홈·거래처 창·문자 양식·개인정보·세금계산서 카드 버튼 375px 표대로, 넘침·줄바꿈 0(문자 양식 버튼 한 줄 확인). 미수금 2개·고정 노선 [추가]는 같은 모양 임시 버튼으로 값 확인. 기사 연결 카드·운비서·서류/첫 화면 [다시 시도]·문의 관리 버튼은 화면에 안 나와 값만 확인.
+> 2026-10-25 보리 "24-K-2 [x] 승인. 커밋은 아직 하지 마." — 문서 커밋 전이라 지우지 않고 남겨 둔다.
 
-보리 지시(2026-10-25, E-1 `[x]` 뒤): "웅"(E-2 지시서 작성). 버튼은 직접 만든다 `[확인: 2026-10-25 보리 — "권함으로"]`. 로드맵 번호 없음. 위계화 마지막 단계.
+보리 지시(2026-10-25, 24-K-1 `[x]` 뒤): "24-K-2 착수지시서 작성해(커밋은 나중에 한 번에)". 24-K의 둘째(마지막) 조각이다. 서버(K-1, react-app `6a52421`)는 이미 배포됐다.
+- 확인할 점 1~4는 K-1 때 모두 "가"로 정해졌다 `[확인: 2026-10-25 보리 — "확인할 점 1~4 전부 가로"]`. 이번에 새로 물을 것은 없다.
+- 규칙은 sot "휴무 말 알아듣기" 줄과 아래 목표를 따른다.
 
 ### 쉬운 요약
-- "저장", "입금 완료" 같은 주 버튼과 그 짝 버튼(취소·삭제 등)이 화면마다 높이 36~52px, 모서리 8~14px, 글자 12~16px, 굵기 700~900으로 제각각이다.
-- 버튼 모양(높이·모서리·글자 크기·굵기)을 `variables.css` 공용 값으로 정하고, 크기를 **큰 / 기본 / 좁은 칸** 3단계로 나눠 버튼 15종에 입힌다.
-- **색은 안 바꾼다.** 파란 주 버튼, 회색·테두리 보조 버튼, 빨간 위험 버튼은 지금 색 그대로이고, 모양만 같아진다.
+- "오늘 휴무"라고 하면 카드에 "오늘을 휴무로 할게요."와 [휴무로 하기]가 보인다. 누르면 그 날짜 일지로 가서 휴무 단추를 누른 것과 똑같이 바뀐다. "휴무 취소"면 [휴무 취소하기]로 같은 길을 간다.
+- 콜이 있는 날을 휴무로 하면 일지 휴무 단추와 같은 확인 창이 뜬다. 고정 횟수는 0이 된다.
+- 그 전에 앱 파일 `unbiseoParse.ts`(193줄)에서 종류별 칸 읽기를 새 파일로 떼어 낸다. 하는 일은 바뀌지 않는다.
 
 ### 현재 상태 (코드 확인)
-- 버튼 248개, 버튼 꾸밈 이름 44가지(`grep "<button"`, `className`에 btn·button 집계). 공용 버튼은 창 안 `.modal-btn`(`modal-base.css:28` — 44px·12px·14.72px·700, `.confirm` 파랑·`.cancel` 회색·`.confirm.danger` 빨강, 15곳)뿐이다.
-- 따로 꾸민 버튼(로그인·온보딩 제외):
-
-| 버튼(파일:줄) | 높이 | 모서리 | 글자 | 굵기 |
-|---|---|---|---|---|
-| 창 버튼 `.modal-btn`(`modal-base.css:28`) | 44 | 12 | 14.72 | 700 |
-| 홈 [운행 기록하기] `.home-today-btn`(`home.css:38`) | 52 | 14 | 16 | 800 |
-| 미수금 [전체 입금 완료] `.receivable-detail-all-paid`(`receivables.css:403`) | 46 | 14 | 13.6 | 900 |
-| 미수금 부분 입금 [확인] `.receivable-partial-confirm-btn`(`receivables.css:384`) | 36 | 9 | 12 | 800 |
-| 기사 사업자 정보 [저장] `.car-biz-save`(`car-business-info.css:25`) | 44 | 12 | 12 | 900 |
-| 운비서 [보내기]·[기록하기] `.home-assistant-send`·`-action`(`home-assistant.css:117·164`) | 44 | 12 | 13.6 | 700 |
-| 앱 설정 고정 노선 [추가] `.fixed-route-preset-add-row button`(`app-settings.css:145`) | 40 | 10 | 12.48 | 700 |
-| 개인정보 계정 버튼 `.personal-account-btn`(`controls-common.css:21`) | 44 | 14 | (물려받음) | 800 |
-| 서류 [다시 시도] `.doc-retry-btn`(`documents.css:111`) | (여백으로 약 26) | 8 | 12 | 700 |
-| 세금계산서 카드 버튼 `.tax-invoice-action-btn`(`tax-invoice.css:146`) | 44 | 9 | 12 | 800 |
-| 기사 연결 카드 버튼 `.driver-card-action-btn`(`driver-connection.css:109`) | 44 | 9 | 12 | 800 |
-| 문의 관리 버튼 `.admin-inquiry-btn`(`customer-center.css:43`) | 44 | 12 | 13.6 | 700 |
-| 문자 양식 [저장]·[기본값] `.message-settings-actions button`(`message-settings.css:12`) | 44 | 12 | 12 | 900 |
-| 첫 화면 [다시 시도] `.boot-retry button`(`boot-retry.css:18`) | 48 | 12 | (물려받음) | 700 |
-
-- 2026-10-07 로드맵 14번 B에서 "자주 누르는 버튼은 44px"로 맞춘 적이 있다(상단 버튼·달력 화살표). 위 표에서 44px보다 낮은 건 부분 입금 [확인]·고정 노선 [추가]·서류 [다시 시도] 3개다.
+- 앱은 휴무 답을 읽지 못한다. `readAnswer`(`features/home/api/unbiseoParse.ts` 116줄~)에 dayOff 갈래가 없어 마지막 줄에서 "알아듣지 못했습니다"가 된다.
+- `unbiseoParse.ts`는 193줄이다.
+  - 칸 읽기: 상수, `record`·`text`·`dateOf`·`wonOf`·`readExpense`·`readFixed`·`readClient`·`readWeather`(45~114줄)
+  - 나머지: 형, 실패 문구, `readAnswer`, `clientNamesForAi`·`routeNamesForAi`, `requestUnbiseoParse`
+- 휴무는 일지 화면의 저장 장치로만 바뀐다. 운비서가 이미 쓰는 길이 있다.
+  - [기록하기]·[휴무 취소하고 기록]은 주소 상태로 그 날짜 일지(`/app/day/{날짜}`)에 값을 넘긴다(`app/routes/assistantCallState.js` `assistantNavTarget`).
+  - 일지 훅이 받아 `patchDraft({ isOff, fixedCount })`로 바꾼다(`features/day-log/hooks/useAssistantFixed.js` 30~31줄). 휴무 단추와 같은 저장이다(`DayLogPage.jsx` 111줄).
+- 콜이 있는 날 휴무 확인은 `confirmOffWithCalls`(`features/day-log/ui/OffToggle.jsx`)다.
+- 연동 기사가 계약 기간 밖 날짜를 열면 일지 전체가 기간 안내 화면이다(`DayLogPage.jsx` 102줄). 카드는 이동 전에 `assignmentPeriodNotice`로 같은 판단을 한다(운행 카드, 24-B-3-A).
 
 ### 목표 상태 (기대 동작)
-1. `variables.css` `:root`에 버튼 공용 값 8개를 더한다.
-   - `--btn-radius: 12px`
-   - `--btn-height: 44px` / `--btn-font: var(--fs-4)` / `--btn-weight: var(--fw-bold)` — **기본**: 44px · 14.72px · 700
-   - `--btn-height-lg: 52px` / `--btn-font-lg: var(--fs-5)` / `--btn-weight-lg: var(--fw-heavy)` — **큰**: 52px · 16px · 800
-   - `--btn-font-sm: var(--fs-2)` — **좁은 칸**: 높이 44px · 12.48px · 700
-2. 버튼마다 단계를 입힌다(색·여백·너비는 그대로):
-
-| 버튼 | 단계 | 지금 → 바뀜 |
-|---|---|---|
-| 창 버튼(확인·취소·삭제) | 기본 | 그대로 |
-| 홈 [운행 기록하기] | 큰 | 모서리 14 → 12 |
-| 미수금 [전체 입금 완료] | 기본 | 46/14/13.6/900 → 44/12/14.72/700 |
-| 기사 사업자 정보 [저장] | 기본 | 글자 12/900 → 14.72/700 |
-| 운비서 [보내기]·[기록하기] | 기본 | 글자 13.6 → 14.72 |
-| 개인정보 계정 버튼 | 기본 | 모서리 14 → 12, 글자 → 14.72, 굵기 800 → 700 |
-| 문의 관리 버튼 | 기본 | 글자 13.6 → 14.72 |
-| 문자 양식 [저장]·[기본값] | 기본 | 글자 12/900 → 14.72/700 |
-| 첫 화면 [다시 시도] | 기본 | 높이 48 → 44, 글자 → 14.72 |
-| 세금계산서·기사 연결 카드 버튼(한 줄에 2~3개) | 좁은 칸 | 모서리 9 → 12, 글자 12/800 → 12.48/700 |
-| 미수금 부분 입금 [확인] | 좁은 칸 | 36/9/12/800 → 44/12/12.48/700 |
-| 앱 설정 고정 노선 [추가] | 좁은 칸 | 40/10 → 44/12 |
-| 서류 [다시 시도] | 좁은 칸 | 약 26/8/12 → 44/12/12.48 |
-
-3. 새 주석은 없다.
+1. **나누기(동작 그대로)**: `unbiseoParse.ts`의 칸 읽기(위 45~114줄 목록)를 새 `unbiseoFields.ts`로 옮긴다. 옮기기 전과 후에 기존 시험이 모두 같아야 한다.
+2. 서버 답이 dayOff면 앱이 `{ date, off }`를 읽는다. 날짜 모양이 틀리면 오늘이고, 앞날은 그대로 둔다. `off`가 boolean이 아니면 "알아듣지 못했습니다"다.
+3. 카드 문장과 버튼 — 차례로 보고 처음 걸리는 것 하나만 보인다. 날짜 말은 오늘이면 "오늘", 아니면 "M월 D일"이다(`dateLabelOf`).
+   1. 연동 기사이고 계약 기간 밖 → 운행 카드와 같은 기간 안내, 버튼 없음
+   2. 휴무로 하기인데 그날 이미 휴무 → "{날짜}은 이미 휴무예요.", 버튼 없음
+   3. 휴무 취소인데 그날 휴무가 아님 → "{날짜}은 휴무가 아니에요.", 버튼 없음
+   4. 그 밖 → "{날짜}을 휴무로 할게요." + [휴무로 하기] / "{날짜} 휴무를 취소할게요." + [휴무 취소하기]
+   - 조사는 받침을 따른다(`withParticle`, 예: "오늘을"·"10월 26일을"·"오늘은").
+4. 버튼을 누르면 [기록하기]처럼 떠 있는 카드를 접고 그 날짜 일지로 간다(주소 상태 `assistantDayOff: { off }`). 일지가 값을 받은 뒤 한 번만:
+   - 휴무로 하기: 콜이 있으면 `confirmOffWithCalls`로 묻는다. [취소]면 바꾸지 않는다. 확인하면 `patchDraft({ isOff: true, fixedCount: 0 })`(휴무 단추와 같음).
+   - 휴무 취소하기: `patchDraft({ isOff: false, fixedCount: 그대로 })`.
+   - 바뀌면 알림 "{M월 D일}을 휴무로 바꿨습니다." / "{M월 D일} 휴무를 취소했습니다."를 띄운다. 이미 그 상태면 아무것도 바꾸지 않는다.
+   - 저장은 일지의 평소 저장이 한다(새 저장 길 없음).
+5. 마이크로 물었으면 3번 문장을 소리로 읽는다(지금 읽기 방식).
+6. 계정이 바뀌면 받아 온 답을 버린다(지금 `send` 그대로). 홈 카드·떠 있는 운비서 둘 다 같다.
+7. 다른 종류(운행·지출·질문·고정·거래처·문자·날씨·점검표)는 지금과 같다.
 
 ### 건드릴 파일
-- `src/shared/styles/variables.css` — 8줄 추가
-- 버튼 규칙의 높이·모서리·글자 크기·굵기 값만: `shared/styles/modal-base.css`, `features/home/ui/home.css`, `features/receivables/ui/receivables.css`(2개), `features/drivers/ui/car-business-info.css`, `features/home/ui/home-assistant.css`(2개), `features/settings/ui/app-settings.css`, `shared/styles/controls-common.css`, `features/documents/ui/documents.css`, `features/documents/ui/tax-invoice.css`, `features/drivers/ui/driver-connection.css`, `features/support/ui/customer-center.css`, `features/settings/ui/message-settings.css`, `app/shell/boot-retry.css` — 14개, 규칙 15개
-- 영향 목록: `.modal-btn` — 창 15곳(값이 같아 보이는 변화 없음). `.personal-account-btn` — 개인정보 화면. 나머지는 각 화면 하나씩. 배치(너비·`flex`)는 안 바꾼다. 높이가 커지는 3개(부분 입금 [확인], 고정 노선 [추가], 서류 [다시 시도])는 그 줄 높이가 같이 커질 수 있다.
+- `src/features/home/api/unbiseoFields.ts`(새): `unbiseoParse.ts`에서 옮긴 칸 읽기 + 휴무 칸 읽기.
+- `src/features/home/api/unbiseoParse.ts`: 칸 읽기를 떼어 내고 가져오기, `UnbiseoResult`·`UnbiseoRecord`에 휴무, `readAnswer`에 한 줄.
+- `src/features/home/api/unbiseoSentence.ts`: 휴무 문장 함수, `describeResult`에 한 줄.
+- `src/features/home/hooks/useUnbiseoAssistant.ts`: 답에 휴무 칸, 이미 휴무·휴무 아님 판단(그날 `workData`), 기간 판단에 휴무 날짜 포함.
+- `src/features/home/ui/HomeAssistantPanel.tsx`: [휴무로 하기]·[휴무 취소하기] 버튼(버튼 자리 순서: 기간 안내 → 휴무 버튼).
+- `src/app/routes/assistantCallState.js`: 휴무 주소 상태 만들기·읽기(`readAssistantDayOff`).
+- `src/app/routes/MainPageRoute.jsx`: 일지에 휴무 값 넘기기.
+- `src/features/day-log/ui/DayLogPage.jsx`: 휴무 값 받기와 훅 한 줄.
+- `src/features/day-log/hooks/useAssistantDayOff.js`(새): 넘겨받은 휴무를 한 번만 적용(콜 확인·고정 0·알림). `useAssistantFixed.js`와 같은 모양.
+- 시험: `unbiseoParse.test.js`(휴무 읽기, 나누기 뒤 기존 그대로), `assistantCallState` 시험(휴무 상태), `HomeAssistantPanel.test.js`(문장·버튼·이미 휴무·휴무 아님·기간 밖), 일지 쪽 휴무 적용 시험(콜 있음 확인·취소·고정 0·이미 같은 상태).
+- 크기: 9개 파일(새 파일 2개). 24-J-2처럼 한 기능의 앱 조각이라 나누지 않는다. 나누기(1번)는 먼저 따로 확인하고 기능을 붙인다.
 
 ### 안 건드릴 것
-- 버튼 색(주·보조·위험), 탭·칩·선택 상태 버튼(일지 횟수 버튼, 달력·매출 탭 등 — 버튼이라기보다 고르는 칸), 아이콘 버튼(뒤로가기·메뉴), 로그인·온보딩 버튼.
-- 버튼 이름(클래스)·화면 파일 — CSS 값만 바꾼다.
-
-### 검증
-- 테스트·타입·빌드는 CI가 한다. 화면 모양만 바뀌어 새 테스트는 없다.
-- 개발 서버(로그인)에서 위 버튼들의 계산된 높이·모서리·글자·굵기가 표대로인지 잰다. 375px에서 카드 버튼(한 줄 2~3개) 글자 넘침·줄바꿈을 바꾸기 전과 후로 비교한다.
-- 저장·입금 같은 버튼은 누르지 않고 모양만 잰다.
-
-### 파일 길이
-- 대부분 같은 줄 안에서 값만 바뀐다. 줄이 없는 속성은 한 줄 더한다: `.personal-account-btn` 글자 크기(`controls-common.css` 170 → 171), `.doc-retry-btn` 높이(`documents.css` 177 → 178), `.boot-retry button`은 같은 줄에 붙인다. `variables.css` 70 → 78.
-- 200줄 넘는 `receivables.css` 419는 두 규칙 모두 네 값이 이미 있어 같은 줄에서 값만 바꾼다(A 때 정한 방식). `app-settings.css` 197도 값만.
-
-### 실패 시 처리
-- 새 보호 장치·대비 장치를 만들지 않는다. 375px에서 버튼 글자 넘침이나 줄 밀림이 새로 생기면 고치지 말고 멈춘 뒤, 원인과 수정 계획을 다시 써서 승인받는다.
-
-### 사용자 확인 방법
-1. 홈 [운행 기록하기], 거래처 [추가] 창의 [저장]·[취소], 미수금 상세의 [전체 입금 완료]를 열어 보고(누르지 않음) 모서리·글자가 비슷한 느낌이면 성공.
-2. 서류 발급 → 세금계산서 카드 버튼, 기사 연동 카드 버튼 글자가 넘치지 않으면 성공.
-
-### 확인할 점
-1. 크기 3단계와 버튼별 단계 — 가(표대로, 큰 버튼은 홈 [운행 기록하기] 하나) `[확인: 2026-10-25 보리 — "권함으로"]`.
-2. 44px보다 낮은 버튼 3개 — 가(44px로 올림) `[확인: 2026-10-25 보리 — "권함으로"]`.
-
----
-
-## 쉬운 요약
-- 지금 글자 굵기는 화면마다 숫자를 직접 써서 9가지가 섞여 있다. 이걸 `variables.css`의 공용 굵기 7개로 묶는다.
-- 이번엔 **어느 기기에서도 보이는 굵기가 그대로**다. 묶어 두면 나중에 "제목은 더 굵게, 굵기 단계 줄이기"가 공용 값 한 줄 고치기로 끝난다.
-- 미수금 상세 창의 합계 금액 숫자가 정의 안 된 크기를 써서 의도보다 작게 보인다. 가장 큰 글자 단계로 고친다.
-
-### 현재 상태 (코드 확인)
-- 글자 크기는 공용 단계 `--fs-floor`~`--fs-7`이 있다(`shared/styles/variables.css` 5~11줄). 굵기 공용 값은 없다(같은 파일, `--fw` 0건).
-- 굵기 숫자 직접 지정: CSS 54개 파일 220곳. 값별로 400(9)·500(7)·600(15)·650(10)·700(72)·750(28)·800(53)·850(22)·900(4)(`grep -rhoE "font-weight:\s*[^;]+"` 집계). `bold`·`normal` 같은 글자 값은 0건.
-- 코드 안 직접 지정 1곳: `features/revenue/ui/OwnerMonthlyCards.jsx` 70줄 `fontWeight: 850`.
-- 앱 글꼴은 휴대폰 기본 글꼴이다(`shared/styles/app-base.css` 6줄). 650·850은 브라우저가 700·900과 똑같이 그린다(이 PC 크롬에서 같은 문장 글자 폭 650=700, 850=900). **750은 기기마다 다르다** — 이 PC에선 700과 같고(750≠800), 굵기가 촘촘한 글꼴(아이폰)에선 규칙상 800 쪽이다. 그래서 750은 따로 둔다 `[확인: 2026-10-25 보리 — "다로"]`.
-- 미수금 합계: `features/receivables/ui/receivables.css` 214줄 `font-size: var(--fs-8)`. `--fs-8`은 어디에도 없다(`grep -rn "fs-8"` 이 1곳뿐). 없는 값이라 이 줄은 무시되고 바깥 글자 크기를 받는다.
-
-### 목표 상태 (기대 동작)
-1. `variables.css` `:root`에 굵기 공용 값 7개를 더한다: `--fw-regular: 400` / `--fw-medium: 500` / `--fw-semibold: 600` / `--fw-bold: 700` / `--fw-strong: 750` / `--fw-heavy: 800` / `--fw-black: 900`. 다크모드는 굵기가 같아 따로 안 적는다.
-2. 굵기 숫자를 공용 값으로 바꾼다. 400→regular, 500→medium, 600→semibold, 650·700→bold, 750→strong, 800→heavy, 850·900→black. 750을 700·800으로 합칠지는 C(제목 3단계)에서 화면 보고 정한다.
-3. 끝나면 `src/` CSS에 `font-weight: 숫자`가 0건이다. 로고 글꼴(Jua) 3곳의 400도 regular로 바꾼다.
-4. `OwnerMonthlyCards.jsx` 70줄은 `fontWeight: 'var(--fw-black)'`.
-5. `receivables.css` 214줄은 `font-size: var(--fs-7)`(새 단계를 만들지 않음). 미수금 상세 창 합계 숫자가 1.18rem으로 보인다.
-6. 새 주석은 없다. `variables.css` 첫 줄 설명("디자인 토큰 단일 출처")이 이미 범위를 말한다.
-
-### 건드릴 파일
-- `src/shared/styles/variables.css` — 굵기 공용 값 7줄 추가
-- `src/` 아래 굵기 숫자가 있는 CSS 54개 — 값만 바꿈(목록: `grep -rlE "font-weight:\s*[0-9]" --include=*.css src`)
-- `src/features/revenue/ui/OwnerMonthlyCards.jsx` — 70줄 값만
-- `src/features/receivables/ui/receivables.css` — 위 54개에 포함, 214줄 크기도 바꿈
-- 영향 목록: 클래스 이름·자리 잡는 속성(배치·너비·높이 등)은 하나도 안 바꾼다. 굵기 값만 같은 줄에서 바뀌므로 영향은 각 줄의 그 글자뿐이다. 보이는 변화는 미수금 합계 크기 1곳.
-
-### 안 건드릴 것
-- 글자 크기의 단계 밖 값 약 40곳 — B에서. `legal-form.css`(인쇄 서류 px)와 로고 큰 제목(`clamp`)은 B에서도 예외 후보.
-- 제목 단계 — C에서. 간격·모서리·버튼 — D·E에서.
-- 굵기 단계를 줄이는 일(예: 900을 800으로) — 이번엔 안 함. 보이는 굵기가 바뀌므로 화면 보고 따로 정한다.
-- `index.html` 50줄 첫 로딩 화면의 400 — 앱 CSS보다 먼저 그려져 공용 값을 못 쓴다.
-
-### 검증
-- 테스트·타입·빌드는 CI가 한다.
-- `grep -rnE "font-weight:\s*[0-9]" --include=*.css src` 0건, `grep -rn "fs-8" src` 0건.
-- 바꾸기 전 CSS의 굵기 줄과 바꾼 뒤 줄을 1:1로 맞대어, 위 2번 대응표대로만 바뀌었는지 기계로 확인.
-- 개발 서버에서 650=700, 850=900 글자 폭이 같은지 다시 재고, 홈·미수금 상세 화면을 바꾸기 전과 후 사진으로 비교. 미수금 상세 합계만 크기가 바뀜.
-- 화면 모양만 바뀌는 일이라 새 테스트는 만들지 않는다. 그래서 고치기 전 실패 확인도 없다.
-
-### 파일 길이
-- 굵기 값은 같은 줄 안에서 바뀌므로 모든 파일 줄 수가 그대로다. `variables.css`만 57 → 64줄.
-- **이미 200줄 넘는 파일 5개를 값만 바꾼다**: `receivables.css` 419, `call-detail-form.css` 285, `report.css` 257, `daily-inspection.css` 254, `call-detail-card.css` 213. AGENTS §6은 "200줄 초과 파일을 수정하면 분리설계 먼저"인데, 이번은 줄이 늘지 않는 값 바꾸기라 분리 없이 한다 `[확인: 2026-10-25 보리 — "가로 진행해"]`. 나누기는 A에 섞지 않는다. 그 파일에 줄이 늘어나는 작업이 생길 때 그 파일 하나만 분리설계한다.
-
-### 실패 시 처리
-- 새 보호 장치·대비 장치를 만들지 않는다. 보이는 굵기가 바뀐 화면이 있으면 고치지 말고 멈춘 뒤, 원인과 수정 계획을 다시 써서 승인받는다.
-
-### 사용자 확인 방법
-1. 배포본에서 홈·일일운행·설정 화면을 열고 글자 굵기가 전과 같아 보이는지 본다(달라 보이면 성공 아님).
-2. 미수금 → 거래처 하나를 눌러 상세 창을 연다 → 위 합계 금액 숫자가 전보다 조금 커졌으면 성공.
-
-### 확인할 점
-1. 200줄 넘는 CSS 5개는 분리 없이 값만 바꾼다 — 가 `[확인: 2026-10-25 보리 — "일단 그럼 가로 진행해"]`.
-
----
-
-## 로드맵 112 일상점검표 지우기 — 다 비우고 저장하면 지움 `[x]`
-
-보리 지시(2026-10-25): "점검표를 지우는 기능도 추가해야해" → "112번 점검표 지우기 먼저 하자. 착수지시서 작성해"(34번보다 먼저).
-- 계기: 24-J-2 배포본 시험으로 저장한 10월 25일 점검표(테스트 계정)를 지울 길이 없었다.
-- 처음 지시서는 보기 창에 [삭제] 버튼을 두는 안이었다. 보리 정정으로 바꿨다: "걍 수정에서 양호나 불량을 눌러야지 저장가능햇다면 비어도 저장가능하게 바꿔". 따로 버튼을 두지 않고, 수정에서 다 비우고 [저장]하면 지우는 방식이다.
-- 저장·삭제 경로라 `docs/testing-playbook.md`를 열람했다(AGENTS §4). 점검표는 휴대폰에 보관하지 않고 바로 서버로 가므로, 해당하는 것은 §3의 서버 실패(12·13)와 §5의 세션 확인뿐이다.
-
-### 확인할 점 (둘) — **1·2 모두 가로 확정** `[확인: 2026-10-25 보리 — "확인할 점 1·2 둘 다 가로"]`
-1. **일부만 고른 점검표**(11항목 중 몇 개만 고르고 [저장])
-   - **권함 가**: 지금처럼 "모든 항목을 선택해 주세요."로 막는다. **전부 비운 경우만** 새로 허용한다.
-     - 서류 한 달 표·법정 서식은 고르지 않은 칸을 "미"(미운행 표시)로 적는다(`domain/dailyInspectionMonth.ts` `inspectionMark`). 그래서 일부만 저장하면 운행한 날인데 "미"가 섞인다.
-   - 나: 일부만 골라도 저장한다. 고르지 않은 칸은 서식에 "미"로 나온다.
-2. **전부 비우고 [저장]했을 때**
-   - **권함 가**: 앱 공용 확인 창으로 한 번 묻고 지운다.
-     - 제목 "점검표를 지울까요?"
-     - 본문 "모든 항목이 비어 있어 {M월 D일} 점검표가 지워집니다. 되돌릴 수 없습니다."
-     - 버튼 [지우기](빨간색)·[취소]. [취소]면 수정 화면에 그대로 남는다.
-     - 지우면 창이 닫히고, 알림 "일상점검표를 지웠습니다."가 뜨고, 안내 줄이 "작성이 필요합니다 [+ 입력]"으로 바뀐다.
-   - 나: 묻지 않고 바로 지운다(알림만).
-
-### 쉬운 요약
-- 점검표 수정 화면에서 양호·불량을 모두 해제하고(또는 [모두 양호]를 한 번 더 눌러 전부 해제하고) [저장]하면 그날 점검표가 지워진다. 그날은 다시 "작성 필요"가 된다.
-- 버튼은 새로 만들지 않는다. 서버는 이미 지우기를 허락하므로 데이터베이스도 바꾸지 않는다.
-
-### 현재 상태 (코드 확인)
-- 저장 조건은 11항목 모두 선택이다(`domain/dailyInspectionItems.ts` `isInspectionComplete`). 하나라도 비면 `DailyInspectionModal.jsx` `save`가 "모든 항목을 선택해 주세요."를 띄우고 멈춘다.
-- 수정 화면에서 같은 버튼을 다시 누르면 선택이 풀리고(`toggleItem`), [모두 양호]를 전부 양호일 때 다시 누르면 전부 풀린다(`toggleAllGood`). 그래서 다 비우는 길은 이미 있다.
-- 앱에는 지우는 함수가 없다. `data/sync/dailyInspections.ts`에는 읽기와 저장(`saveDailyInspection`, 차량+날짜로 덮어씀)만 있다.
-- 서버는 이미 지울 수 있다. DB `0014` "일상점검 삭제" 정책은 쓰기·수정과 같은 조건이다: 그 차량·날짜에 쓸 수 있는 연동 기사, 또는 내 차량이면서 그날 연동 기사가 없을 때.
-  - 이 정책이 막으면 서버는 **오류 없이 0줄을 지운다**(Supabase 동작). 그래서 지운 줄 수를 받아 확인해야 한다.
-- 안내 줄 `DailyInspectionNotice.jsx`는 그날 1장을 화면 상태로 들고 있고, 저장하면 그 상태를 바로 바꾼다(`save` → `setResult`).
-- 다른 곳은 열 때마다 서버에서 다시 읽는다. 그래서 따로 고칠 것이 없다.
-  - 홈 할 일 "오늘 일상점검 안 함": `home/hooks/useTodayInspectionMissing.js`가 홈을 열 때 읽는다.
-  - 서류 한 달 표: `fetchMonthDailyInspections`가 화면을 열 때 읽는다.
-  - 운비서 점검표 카드(24-J-2): 말할 때마다 읽는다.
-- 공용 확인 창은 `confirmDialog`(`shared/ui/confirmDialog.jsx`, `danger` 지원)다.
-
-### 목표 상태 (기대 동작)
-1. 수정 화면(저장된 점검표를 연필로 연 경우)에서 11항목이 **모두 비어 있으면** [저장]이 지우기로 동작한다(확인할 점 2).
-2. 일부만 고른 경우는 확인할 점 1대로 한다(가: 지금처럼 막음).
-3. **처음 입력**(저장된 점검표가 없는 날)에서 다 비우고 [저장]하면 지울 것이 없다. 지금처럼 "모든 항목을 선택해 주세요."를 띄운다.
-4. 지우기는 그 차량·날짜 점검표를 서버에서 지운다. 지우는 동안 [저장]이 잠긴다(두 번 눌림 막기).
-   - 성공(1줄 지움) → 창이 닫히고 안내 줄이 "작성 필요 [+ 입력]"이 된다. 알림을 띄운다(확인할 점 2).
-   - 서버 오류 또는 0줄(권한 없음·이미 없음) → 실패 알림을 띄우고 수정 화면에 남는다. 실패 알림은 저장 실패와 같은 것을 쓴다(오류 문구, 없으면 `SERVER_SAVE_FAIL`). 0줄일 때 문구는 "일상점검표를 지우지 못했습니다."다.
-5. 저장과 같은 막기를 한다. 로그인이 아니면 지우지 않고, 쓰기 막힘 사유(`blockedReasonForCloudWrite`)가 있으면 그 문구를 띄운다. 기다리는 동안 계정이 바뀌면 결과를 붙이지 않는다(`captureSession`·`assertSessionStillCurrent`).
-6. 지운 날에 다시 [+ 입력]으로 새로 저장할 수 있다. 운비서 "오늘 점검표 모두 양호"도 다시 [저장하기]를 보인다.
-7. 조치 기록 칸만 쓰고 항목을 다 비운 경우도 "모두 비어 있음"으로 본다(항목 기준).
-8. 휴대폰 보관·재시도·지운 흔적(tombstone)은 만들지 않는다.
-
-### 건드릴 파일
-- `src/data/sync/dailyInspections.ts`: `deleteDailyInspection({ vehicleId, workDate })`를 추가한다. 저장과 같은 막기를 하고, 지운 줄 수를 받아 0줄이면 실패로 한다.
-- `src/domain/dailyInspectionItems.ts`: `isInspectionEmpty(items)`(11항목 모두 비었는지) 한 개.
-- `src/features/day-log/ui/DailyInspectionModal.jsx`: `save`에서 "수정 중 + 모두 비어 있음"이면 `onDelete`로 넘긴다. 지우는 중 잠금.
-- `src/features/day-log/ui/DailyInspectionNotice.jsx`: 확인 창을 띄우고 지우기를 부르고, 성공하면 상태를 "없음"으로 바꾸고 알림을 띄운다.
-- 시험: `dailyInspections.test.js`(지우기 성공·0줄·오류·막힘), `DailyInspectionNotice.test.js`(다 비우고 저장 → 확인·취소·성공·실패·잠금, 처음 입력에서 비우고 저장은 지금처럼 막힘), 필요하면 `dailyInspectionItems` 시험.
-
-### 안 건드릴 것
-- DB(정책 `0014`가 이미 있음 — `react-app/supabase/migrations/0014_daily_inspections.sql` 79~83줄).
-- 버튼·CSS(새 버튼 없음).
-- 홈 할 일·서류 한 달 표·운비서 점검표 카드(열 때 다시 읽음 — 현재 상태 근거).
-- 공용 확인 창(그대로 씀).
+- 서버 함수(K-1에서 끝남, 배포본 지문이 커밋과 같음).
+- 휴무 단추 `OffToggle.jsx`(확인 함수를 그대로 부름), 일지 저장 장치(`dayDraftLifecycle.js` 등 — 평소 저장 그대로).
 
 ### 검증
 - 로컬 `npm test`·타입·검사기(CI가 다시 함). 새 시험은 고치기 전 코드에서 실패하는지 확인한다.
-- 실패 주입(플레이북 §3 12·13): 서버가 오류를 던질 때, `{ data: null, error }`일 때, 0줄일 때 모두 수정 화면이 남고 안내 줄 상태가 그대로이며 성공 알림이 없는지 본다.
-- 계정 바뀜(플레이북 §5): 지우는 중 계정이 바뀌면 화면 상태를 바꾸지 않는지 본다.
-- 배포본: 데스크톱 AI가 테스트 계정의 10월 25일 점검표(24-J-2 시험분)를 연필 → [모두 양호] 다시 눌러 전부 해제 → [저장] → 확인 → 안내 줄 "작성 필요" → 서류 한 달 표 25일이 O가 아님 → 운비서 "오늘 점검표 모두 양호"가 다시 [저장하기]를 보임(이때는 저장하지 않음).
+- 나누기만 한 상태에서 기존 시험 전부 통과를 먼저 본다.
+- 일지 저장을 건드리는 경로라 `docs/testing-playbook.md`를 열람한다(AGENTS §4). 새 저장 길은 없고 `patchDraft`만 부르므로, 같은 값을 두 번 적용하지 않는지(다시 그려도 한 번)와 계정이 바뀐 경우를 본다.
+- 배포본: 데스크톱 AI가 테스트 계정으로 한다. 날짜는 보리가 정한다(일지 데이터가 바뀌므로). 그 날짜를 휴무로 → 일지 휴무 켜짐·알림 → 같은 말 다시 "이미 휴무예요" → 휴무 취소 → 원래대로. 콜이 있는 날 확인 창은 [취소]만 눌러 본다.
 
 ### 파일 길이
 | 파일 | 지금 | 예상 |
 |---|---|---|
-| `data/sync/dailyInspections.ts` | 95 | ~115 |
-| `domain/dailyInspectionItems.ts` | 62 | ~66 |
-| `day-log/ui/DailyInspectionModal.jsx` | 136 | ~145 |
-| `day-log/ui/DailyInspectionNotice.jsx` | 110 | ~130 |
+| `home/api/unbiseoParse.ts` | 193 | ~110 |
+| `home/api/unbiseoFields.ts`(새) | — | ~95 |
+| `home/api/unbiseoSentence.ts` | 85 | ~95 |
+| `home/hooks/useUnbiseoAssistant.ts` | 164 | ~175 |
+| `home/ui/HomeAssistantPanel.tsx` | 85 | ~95 |
+| `app/routes/assistantCallState.js` | 115 | ~130 |
+| `app/routes/MainPageRoute.jsx` | 114 | ~117 |
+| `day-log/ui/DayLogPage.jsx` | 184 | ~187 |
+| `day-log/hooks/useAssistantDayOff.js`(새) | — | ~45 |
 
-- 200줄 감시 목록 파일은 없다.
+- 나누기 기준(AGENTS §6): `unbiseoParse.ts` = 서버 부르기·답 종류 가르기·실패 문구, `unbiseoFields.ts` = 종류별 칸 검사. `unbiseoFields.ts`는 `unbiseoParse.ts`를 가져오지 않는다(형은 `unbiseoFields.ts`에 두고 `unbiseoParse.ts`가 다시 내보냄).
+- 200줄 감시 목록 파일은 없다. `DayLogPage.jsx`는 187줄이 되어 다음에 더할 때 나누기를 볼 것.
 
 ### 코드에 넣을 주석(최종 문구)
-- `dailyInspections.ts` 지우기 함수 위: `/** 그 차량·날짜 점검표 지우기. 권한이 막으면 서버가 오류 없이 0줄을 지우므로 0줄도 실패로 본다. */`
-- `DailyInspectionModal.jsx` `save` 안: `// 저장된 점검표를 다 비우고 저장하면 지운다(처음 입력은 지금처럼 막음).`
-- `DailyInspectionNotice.jsx` 지우기 처리 위: `// 지우기는 확인 창을 거쳐 서버에서 지운 뒤 "작성 필요"로 돌린다.`
+- `unbiseoFields.ts` 첫 줄: `// 운비서 칸 읽기 — 서버 답의 종류별 칸을 앱 목록·범위로 다시 검사한다. 틀린 칸은 빈 칸.`
+- `useAssistantDayOff.js` 첫 줄: `// 운비서가 넘긴 휴무를 그 날짜 일지에 한 번 적용 — 휴무 단추와 같은 확인·같은 저장.`
+- `HomeAssistantPanel.tsx` 휴무 버튼 위: `// 휴무는 그 날짜 일지로 가서 휴무 단추와 같이 바꾼다.`
 
 ### 실패 시 처리
-- 새 저장·재시도·임시 보관·지운 흔적은 만들지 않는다(AGENTS §7). 실패는 알림만 띄운다.
+- 새 저장·재시도·임시 보관은 만들지 않는다(AGENTS §7). 일지 저장 실패는 지금 일지 알림 그대로다.
 - 시험이나 배포본이 기대와 다르면 수정 착수지시서를 써서 다시 승인받는다.
 
 ### 사용자 확인 방법
-- 휴대폰에서 점검표가 있는 날의 일지를 연다 → 안내 줄 [보기] → 연필 → [모두 양호]를 눌러 전부 해제(또는 하나씩 해제) → [저장] → 확인 창 [지우기].
-- 창이 닫히고 "일상점검표를 지웠습니다." 알림이 뜬다. 안내 줄이 "일상점검표 작성이 필요합니다. [+ 입력]"으로 바뀐다.
-- [+ 입력]으로 다시 저장할 수 있다.
+- 휴대폰에서 운비서 마이크로 "내일 휴무"라고 말한다 → "내일을 휴무로 할게요."가 들리고 [휴무로 하기]가 보인다 → 누른다 → 내일 일지가 열리고 휴무가 켜져 있으며 "M월 D일을 휴무로 바꿨습니다." 알림이 뜬다.
+- 같은 말을 다시 하면 "이미 휴무예요"가 나온다.
+- "내일 휴무 취소" → [휴무 취소하기] → 일지 휴무가 꺼진다.
 
 ### 진행 기록
-- 2026-10-25 보리 정정: 보기 창 [삭제] 버튼 안 대신 "수정에서 비어도 저장 가능하게" → 다 비우고 저장하면 지우는 방식으로 지시서를 고침.
-- 2026-10-25 보리: "확인할 점 1·2 둘 다 가로." — 일부만 고른 것은 지금처럼 막고 전부 비운 경우만 허용, 지우기 전 확인 창("점검표를 지울까요?", [지우기]·[취소]), 지우면 알림 "일상점검표를 지웠습니다.". 구현은 터미널 AI(시작 전 교차검증).
 - 2026-10-25 보리: "착수지시서 확정 작업진행해" — 터미널 AI.
-  - 교차검증: 지시서의 코드 사실(`isInspectionComplete`·`toggleItem`·`toggleAllGood`, 지우는 함수 없음, `0014` 79~83줄 "일상점검 삭제" 정책, 안내 줄 `save` → `setResult`, `confirmDialog` `danger`)이 모두 맞아 고친 것 없음. 조회 정책(62줄)이 삭제 정책보다 넓어 지운 줄을 돌려받을 수 있음도 확인.
-  - 구현: react-app `ad2902d`(push 안 함).
-    - `dailyInspections.ts`(109줄): `deleteDailyInspection`. 차량·거래처 지우기와 같은 방식(`.delete()…select('id')`, `directMutations.ts`)으로 지운 줄을 받아, 오류·0줄·줄 정보 없음이면 던진다. 0줄 문구 `DELETE_FAIL`.
-    - `dailyInspectionItems.ts`(67줄): `isInspectionEmpty`.
-    - `DailyInspectionModal.jsx`(142줄): 연필로 연 수정에서 다 비었으면 `onDelete`, 아니면 지금처럼. `DailyInspectionNotice.jsx`(129줄): 확인 창 → 지우기 → 상태 "없음"·알림, 실패면 오류 문구 또는 `SERVER_SAVE_FAIL`.
-  - 지시서와 다른 점: 저장 중 잠금을 상태에서 ref로 바꿈(모달 +3줄). 상태만으로는 같은 순간 두 번 눌림이 두 번 지워져서(시험으로 확인). 기존 저장도 같이 막힌다.
-  - 검증: lint·typecheck·depcheck(1802)·npm test(896·873) 통과. 실패 주입: 서버 오류(던짐·`{ error }`)·0줄·줄 정보 없음 모두 실패, 수정 화면·안내 줄 그대로, 성공 알림 없음. 로그인 안 함·서버 값 받는 중이면 서버를 부르지 않음. 지우는 사이 계정이 바뀌면 던짐.
-  - 고치기 전 실패 확인: 새 시험 8개(서버 3·화면 4·항목 1) 모두 고치기 전 코드에서 실패(항목 1개는 함수가 없어 파일을 못 불러와 실패), 고친 뒤 통과.
-  - 남은 일: 보리 push → CI → 데스크톱 AI 배포본 시험(10월 25일 시험분 지우기) → 보리 휴대폰 확인.
-- 2026-10-25 보리 push 뒤 CI verify·deploy 초록(run 40159988220). §5 리뷰: 범위 = 지시서 파일 그대로, 새 저장·재시도 없음, 타입 꼼수 없음, 주석 지시서 문구(+ `isInspectionEmpty` 설명 한 줄), 200줄 안(최대 `DailyInspectionModal.jsx` 142).
-- **배포본 시험 실패(데스크톱 AI)**: 10월 25일 점검표 보기 → 연필 → [모두 양호] 다시 눌러 11항목 해제 → [저장] → 확인 창이 **점검표 창 뒤에 가려져 보이지 않음**. 문구("점검표를 지울까요? / 모든 항목이 비어 있어 10월 25일 점검표가 지워집니다. 되돌릴 수 없습니다.", [취소]·[지우기])는 맞으나 [지우기] 자리를 누르면 점검표 창 글자(`di-sign`)가 눌린다. Esc로 취소 → 지워지지 않음, 수정 취소 → 안내 줄 "작성 완료" 그대로.
-  - 원인: 두 창 바깥막 `.modal-overlay`가 둘 다 `z-index: 1200`(`shared/styles/modal-base.css` 10줄)이고 같은 층이다. 확인 창 자리 `<ConfirmDialogHost />`는 앱 틀에서 화면 내용 **앞**(`app/shell/AppShell.jsx` 160줄)에 있고, 점검표 창은 일지 화면 안(`.modal-work-details`)이라 문서 순서상 뒤 → 점검표 창이 위에 그려진다.
-  - 지금까지는 확인 창을 다른 창 위에서 띄운 곳이 없어 드러나지 않았다: `confirmDialog`를 부르는 곳은 `OffToggle.jsx`·`inlinePanelActions.js`·`callDetailFormHelpers.js`(콜 상세 입력 칸, 창 아님)·이번 `DailyInspectionNotice.jsx`. 창 껍데기(`ModalShell`)를 쓰는 일지 쪽 파일은 `DailyInspectionModal.jsx`·`MessageTemplateSheet.jsx`뿐이고, 문구 시트에서는 확인 창을 띄우지 않는다.
+  - 교차검증 고친 사실: "사용자 확인 방법"의 "내일을 휴무로 할게요."는 실제로 "10월 26일을 휴무로 할게요."처럼 나온다. 날짜 말(`dateLabelOf`)은 오늘이면 "오늘", 그 밖은 "M월 D일"이기 때문(목표 3과 같음). 그 밖(`readAnswer` 116줄~·칸 읽기 45~114줄, `assistantNavTarget`, `useAssistantFixed.js` 30~31줄, `DayLogPage.jsx` 102·111줄, `confirmOffWithCalls`)은 맞음. 플레이북 §2·§5·§7 열람.
+  - 구현: react-app `7dec724`(push 안 함).
+    - 나누기 먼저: `unbiseoParse.ts` 193 → 115줄, 새 `unbiseoFields.ts`. 옮긴 줄을 옛 파일과 한 줄씩 맞춰 봐 다른 줄은 첫 줄 주석뿐(`export`만 붙음). 나누기만 한 상태에서 타입·lint·npm test(896·874) 통과.
+    - 휴무: `unbiseoFields.ts`(92줄) `UnbiseoDayOff`·`readDayOff`, `unbiseoParse.ts`(119줄) 결과·기록에 휴무와 `readAnswer` 3줄, `unbiseoSentence.ts`(93줄) `describeDayOff`.
+    - `useUnbiseoAssistant.ts`(174줄): 이미 그 상태인지(그 순간 store 값, 연동 기사 기간 밖이면 기간 안내가 먼저), 답에 `dayOff`, 기간 판단 날짜에 휴무 날짜. `HomeAssistantPanel.tsx`(87줄): 기간 안내 다음에 휴무 버튼, 지시서 문구 주석.
+    - `assistantCallState.js`(127줄) `readAssistantDayOff`·갈 곳, `MainPageRoute.jsx`(116줄) 넘기기·지우기, `DayLogPage.jsx`(187줄) 받기와 훅 한 줄, 새 `useAssistantDayOff.js`(42줄, `useAssistantFixed.js`와 같은 모양).
+  - 지시서와 다른 점:
+    1. 이미 그 상태인지·기간 밖인지는 훅의 화면 값이 아니라 묻는 그 순간 store에서 읽는다(24-J-2와 같은 이유 — `send` 안에서 연동 기사 화면 값을 읽으면 검사기 경고).
+    2. `useAssistantDayOff.js`는 콜 확인 창을 기다리는 사이 일지 화면이 닫히면(계정 바뀜 등) 바꾸지 않는다(플레이북 §5). 지시서에 없던 막기.
+    3. 일지 적용 시험은 기존 `MainPageRoute.assistantCall.test.js`(425줄)에 더하지 않고 새 `MainPageRoute.assistantDayOff.test.js`에 둠(주소 상태 읽기 시험 포함).
+  - 검증: lint·typecheck·depcheck(1809)·npm test(896·884) 통과.
+  - 고치기 전 실패 확인: 새 시험 10개(칸 읽기 1·카드 3·일지 적용·주소 상태 6) 중 8개는 고치기 전 코드에서 실패, 고친 뒤 통과. 2개("이미 그 상태면 아무것도 안 바꿈", "다시 그려도 또 바꾸지 않음")는 바뀌면 안 되는 것을 지키는 안전 확인이라 고치기 전에도 통과.
+  - 남은 일: 보리 push → CI → 데스크톱 AI 배포본 시험(날짜는 보리가 정함, 콜이 있는 날 확인 창은 [취소]만) → 보리 휴대폰 확인.
+- 2026-10-25 보리 push 뒤 CI verify·deploy 초록(run 40170715985).
+- §5 리뷰(데스크톱 AI): 범위 = 지시서 9개 파일 + 시험 3개(일지 적용 시험은 새 파일 — 교차검증 3번), 새 저장 길 없음(`patchDraft`만), 타입 꼼수 없음, 200줄 안(최대 `DayLogPage.jsx` 187), 주석 세 줄 지시서 문구 그대로. "(로드맵 24-F-2)" 주석은 옛 `unbiseoParse.ts`에서 그대로 옮긴 것.
+- 배포본 시험(데스크톱 AI, 테스트 계정, 2026-10-25, 날짜 10-26 — 보리 "내일(10월 26일)로 휴무 바꿨다가 취소해서 시험해"): 시작 전 10-26 휴무 아님·콜 없음 → 홈 "내일 휴무" → "10월 26일을 휴무로 할게요." + [휴무로 하기] → 누름 → 10-26 일지로 이동, 휴무 켜짐, 알림 "10월 26일을 휴무로 바꿨습니다." → 새로 고쳐도 휴무(저장됨) → 홈 "내일 휴무" 다시 → "10월 26일은 이미 휴무예요."(버튼 없음) → "내일 휴무 취소" → "10월 26일 휴무를 취소할게요." + [휴무 취소하기] → 누름 → 일지 휴무 꺼짐, 알림 "10월 26일 휴무를 취소했습니다." → 새로 고쳐도 꺼짐(원래대로). 콜이 있는 날 확인 창·연동 기사 기간 밖은 배포본에서 안 함(시험으로만). 소리 읽기는 보리 휴대폰 확인 남음.
 
-### 수정 착수지시서 — 확인 창을 다른 창 위로 `[x]`
+---
 
-- **확인할 점 (하나)** — 고치는 방법
-  - **권함 가**: `app/shell/AppShell.jsx`에서 `<ConfirmDialogHost />`를 화면 내용 **뒤**(컨테이너 맨 끝)로 옮긴다. 같은 층에서는 나중 것이 위에 그려지므로 확인 창이 늘 위에 온다. 한 줄 자리만 바뀌고 줄 수는 그대로다(198줄, 200줄 감시 목록 파일이라 줄을 늘리지 않음). CSS는 바꾸지 않는다.
-  - 나: 확인 창 바깥막에만 새 클래스로 `z-index: 1250`을 준다(`ConfirmModal.jsx`·`modal-base.css`). 공용 클래스 `.modal-overlay`는 그대로다. 단, 문구 시트(`message-template.css` 1300) 같은 더 높은 층 위에서는 다시 가려질 수 있다.
-- **건드릴 파일**(가): `src/app/shell/AppShell.jsx`(한 줄 옮김). 시험: `DailyInspectionNotice.test.js` 또는 앱 틀 시험에 "확인 창이 점검표 창보다 문서 순서상 뒤에 있음" 확인 하나.
-- **안 건드릴 것**: `.modal-overlay` 공용 CSS(영향 범위가 앱 전체 창), 확인 창 부품, 112번 지우기 코드(동작은 맞음 — 문구·취소·안 지워짐 확인).
-- **영향 범위**(가): 확인 창을 부르는 네 곳(`OffToggle.jsx`·`inlinePanelActions.js`·`callDetailFormHelpers.js`·`DailyInspectionNotice.jsx`) 모두 확인 창이 맨 위로 온다 — 지금도 다른 창이 없을 때는 같은 모습이다. 앱 틀의 다른 띠(`OfflineBanner`·`HydrationRetryBanner`)는 자리 그대로다.
-- **검증**: 로컬 시험·CI. 배포본에서 다시 10월 25일 점검표를 다 비우고 [저장] → 확인 창이 위에 보이고 [지우기]가 눌림 → 지워짐 → 안내 줄 "작성 필요". 휴무 바꾸기 확인 창(`OffToggle`)도 그대로 뜨는지 본다.
-- **실패 시 처리**: 새 장치 없음(AGENTS §7). 다른 화면 확인 창이 이상하면 다시 보고.
-- **추가 수정 커밋 하나**로 올린다(AGENTS §3, 이력 되감기 없음).
-- 2026-10-25 보리: "가로확정 터미널ai말고 직접고쳐" → 데스크톱 AI 구현: react-app `f337971`(push 안 함). `AppShell.jsx`에서 `<ConfirmDialogHost />`를 컨테이너 맨 끝(`SideMenu` 뒤)으로 옮김, 198줄 그대로. 새 시험 `app/shell/confirmLayer.test.js` 1개(앱 틀을 그려 확인 창이 `.page-transition`보다 문서 순서상 뒤인지) — 고치기 전 앱 틀에서 실패("확인 창이 화면 내용 뒤"), 고친 뒤 통과. lint·typecheck·`npm test`(896·874) 통과. 남은 일: 보리 push → CI → 배포본에서 10월 25일 점검표 다시 지우기.
-- 보리 push 뒤 `f337971` CI verify·deploy 초록(run 40160744252).
-- 배포본 다시 시험(데스크톱 AI, 테스트 계정, 2026-10-25): 10월 25일 보기 → 연필 → [모두 양호] 다시 눌러 11항목 해제 → [저장] → 확인 창 "점검표를 지울까요? / 모든 항목이 비어 있어 10월 25일 점검표가 지워집니다. 되돌릴 수 없습니다."가 **점검표 창 위에** 보임([지우기]가 그 자리 맨 위 요소) → [지우기] → 창 닫힘, 알림 "일상점검표를 지웠습니다." 1개, 안내 줄 "일상점검표 작성이 필요합니다. [+ 입력]" → 서류 발급 일상점검표 탭 25일 칸 "미" → 운비서 "오늘 점검표 모두 양호" → 다시 "… 저장할게요." + [저장하기](저장 안 함). 24-J-2 시험분은 이것으로 지워짐. 휴무 바꾸기 확인 창은 배포본에서 따로 누르지 않음(일지 데이터를 바꿀 수 있어서) — 확인 창 자리는 앱 전체에 하나라 같은 자리에서 뜬다.
+## 로드맵 24-K-1 운비서 서버 — 답 읽기 나누기 + 휴무 말 알아듣기 `[x]`
+
+> 2026-10-25 보리 "24-K-1 [x] 승인 … 커밋은 나중에 한 번에" — 문서 커밋 전이라 이 지시서를 지우지 않고 남겨 둔다(지울 때는 커밋 뒤).
+
+보리 지시(2026-10-25): "ai추가할거잇어 휴무처리 아직불가능햄?" → "24-K 착수지시서 작성해".
+- 24-F~J처럼 **둘로 나눈다(AI 판단)**. 순서는 `docs/unbiseo.md` 5절을 따른다.
+  - **이번 K-1(서버)**: `unbiseo-parse/index.ts`를 먼저 나누고(194줄, AGENTS §6), 휴무 종류를 더한다.
+  - **다음 K-2(앱)**: 앱 `unbiseoParse.ts`(193줄)도 먼저 나누고, 카드 문장과 버튼을 붙인다.
+- 확인할 점은 K-2 것까지 한 번에 묻는다. 2번만 이번 서버에 걸린다.
+
+### 확인할 점 (넷) — **1~4 모두 가로 확정** `[확인: 2026-10-25 보리 — "확인할 점 1~4 전부 가로"]`
+1. **바꾸는 방식** (K-2)
+   - **권함 가**: 카드에 "{날짜}을 휴무로 할게요."와 [휴무로 하기] 버튼을 보인다. 누르면 일지 휴무 단추와 같은 저장으로 바꾼다. 24-J [저장하기]와 같은 길이고, 버튼 한 번이 확인이 된다.
+   - 나: 말하면 바로 바꾸고 알림만 띄운다.
+2. **날짜** (K-1)
+   - **권함 가**: 오늘·지난 날·**앞날 모두** 받는다. 말이 없으면 오늘이다. 휴무는 미리 정하는 일이 많고, 일지·달력도 앞날을 막지 않는다(`features/calendar`·`features/day-log`에서 앞날 막는 코드 0건).
+   - 나: 운행·지출처럼 앞날은 오늘로 바꾼다.
+3. **휴무 취소도 받을지** (K-1·K-2)
+   - **권함 가**: 받는다. "오늘 휴무 취소" → "{날짜} 휴무를 취소할게요." + [휴무 취소하기]. 이미 휴무가 아니면 "{날짜}은 휴무가 아니에요."라고 문장만 보인다. 이미 휴무면 "{날짜}은 이미 휴무예요."라고 문장만 보인다.
+   - 나: 휴무로 바꾸기만 받는다. 취소는 일지에서 한다.
+4. **콜·고정 횟수가 있는 날을 휴무로** (K-2)
+   - **권함 가**: 일지 휴무 단추와 똑같이 한다. [휴무로 하기]를 누를 때 콜이 있으면 같은 확인 창("휴무로 바꾸시겠습니까? / 이날 콜 n건이 있습니다…")을 띄우고, 고정 횟수는 0으로 한다(`OffToggle.jsx`·`DayLogPage.jsx` 111줄과 같은 규칙).
+   - 나: 콜이 있는 날은 문장만 보인다("콜이 있는 날은 일지에서 바꿔 주세요.").
+
+### 쉬운 요약
+- "오늘 휴무", "내일 쉬어", "오늘 휴무 취소"를 운비서가 휴무 말로 알아듣고, 날짜와 휴무·취소를 돌려준다.
+- 그 전에 서버 파일이 200줄에 닿아서, AI 답을 읽는 부분을 새 파일로 떼어 낸다. 하는 일은 바뀌지 않는다.
+- 이번엔 서버만 바꾼다. 앱은 K-2 전까지 휴무 말에 지금처럼 "알아듣지 못했습니다"라고 한다.
+
+### 현재 상태 (코드 확인)
+- 배포본에서 "오늘 휴무"·"내일 쉬어"·"어제 휴무로 해줘"·"오늘 휴무 취소" 모두 unknown이다(2026-10-25 데스크톱 AI가 직접 부름).
+- 서버 지시문(`grok.ts`)과 종류 목록(`RESPONSE_SCHEMA.kind.enum`, 87줄)에 휴무가 없다.
+- `index.ts`는 194줄이다. 담긴 것:
+  - 요청 받기: `reply`·`readInput`·`signedInUserId`·`publishableKey`·`handleRequest`
+  - AI 답 읽기: `Call`·`Expense`·`Parsed` 형, 지출 목록 상수, `record`·`isDateKey`·`place`·`dayOf`·`won`·`clientOf`·`oneOf`·`readExpense`·`readAiAnswer`(109~144줄)
+  - 한 줄만 더해도 195를 넘는다(24-J-1에서 정한 한도).
+- `dayOf`(74줄)는 앞날을 오늘로 바꾼다. 날씨는 앞날을 그대로 두려고 따로 `weatherDraft.ts`의 날짜 검사를 쓴다.
+- 날짜 표에는 내일·모레·글피 줄이 이미 있다(24-I-1, 날씨용). "11월 3일"처럼 월·일만 말하면 올해 그 날짜라는 지시도 있다(`grok.ts` 31줄).
+- 말 막기 선례: "문자"(sms)·"점검"(inspection)이 없으면 서버 코드가 unknown으로 바꾼다(`index.ts` 121·124줄).
+
+### 목표 상태 (기대 동작)
+1. **나누기(동작 그대로)**: AI 답 읽기 부분(위 "AI 답 읽기" 목록 전부)을 새 `answer.ts`로 옮긴다. `index.ts`는 요청 받기·로그인·`handleRequest`만 남기고, `readInput`이 쓰는 `record`·`isDateKey`는 `answer.ts`에서 가져온다.
+   - 옮기기 전과 후에 기존 시험 문장 전부의 답이 같아야 한다.
+   - 저장소 밖 시험이 `readAiAnswer`를 `index.ts`에서 가져오고 있으면 `answer.ts`로 바꾼다(`index.ts`에서 다시 내보내지 않음).
+2. **휴무 종류**: `kind: 'dayOff'`, 답은 `{ kind: 'dayOff', dayOff: { date, off } }`이다.
+   - `off`는 휴무로 바꾸면 `true`, 휴무 취소면 `false`다(확인할 점 3). 새 칸은 `dayOffCancel`(boolean|null) 하나다.
+   - `date`는 기존 `date` 칸을 쓰고, 확인할 점 2(가)대로 앞날도 그대로 둔다(날짜 모양만 검사, 틀리거나 없으면 오늘).
+3. **말 막기**: 말에 "휴무"나 "쉬"가 없으면 AI가 dayOff라 해도 서버 코드가 unknown으로 바꾼다.
+4. 운행·지출·질문·고정·거래처·문자·날씨·점검표 종류는 지금과 같다(기존 시험 문장 전부).
+5. 저장하지 않는다. 함수 기록은 지금처럼 끝난 이유·시간만 남긴다.
+
+### 건드릴 파일
+- `supabase/functions/unbiseo-parse/answer.ts`(새): `index.ts`에서 옮긴 답 읽기 + 휴무 분기·휴무 날짜 읽기.
+- `supabase/functions/unbiseo-parse/index.ts`: 답 읽기를 떼어 내고 `answer.ts`에서 가져오기.
+- `supabase/functions/unbiseo-parse/grok.ts`: 종류 목록에 dayOff, 종류 설명 한 마디, 설명·예 1~2줄, 칸 `dayOffCancel`.
+- 데스크톱 AI: 편집기 반영(새 `answer.ts` 추가, 바뀐 두 파일), 지문 확인, 보리 배포 뒤 배포본 지문·Verify JWT 꺼짐 확인과 문장 시험.
+
+### 안 건드릴 것
+- 앱 코드 전부(K-2). 배포 뒤 K-2 전까지 앱은 휴무 말에 "알아듣지 못했습니다"라고 한다. 앱 `readAnswer`(`api/unbiseoParse.ts`)에 dayOff 갈래가 없어 마지막 줄로 가기 때문이다.
+- 다른 칸 읽기 파일(`question.ts`·`clientDraft.ts`·`fixedRoute.ts`·`smsDraft.ts`·`weatherDraft.ts`), `unbiseo-weather`·`unbiseo-voice`.
+
+### 검증
+- 함수 타입 검사, 저장소 밖 가짜 시험(24-A2부터 쌓은 문장 전부 + 휴무 문장). 고치기 전 코드에서 휴무 시험이 실패하는지 확인한다.
+- 나누기는 **나누기만 한 상태**에서 기존 시험 전부가 같은 답을 내는지 먼저 본다. 그다음 휴무를 더한다.
+- 배포 뒤 문장 시험(데스크톱 AI)
+  - 휴무: "오늘 휴무"(오늘·true), "내일 쉬어"(내일·true), "어제 휴무로 해줘"(어제·true), "11월 3일 휴무"(그 날짜), "오늘 휴무 취소"(오늘·false), "오늘 쉬는 날 아니야 취소해" 등 취소 말, "휴게소에서 밥 먹었어"("휴무"·"쉬" 없음 → unknown 또는 다른 종류)
+  - 기존 종류 문장들
+  - Verify JWT 꺼짐 확인
+
+### 파일 길이
+| 파일 | 지금 | 예상 |
+|---|---|---|
+| `unbiseo-parse/index.ts` | 194 | ~85 |
+| `unbiseo-parse/answer.ts`(새) | — | ~125 |
+| `unbiseo-parse/grok.ts` | 176 | ~180 |
+
+- 나누기 기준(AGENTS §6 분리 설계): `index.ts` = 요청 받기·로그인·응답, `answer.ts` = AI 답을 돌려줄 모양으로 읽기. `answer.ts`는 `index.ts`를 가져오지 않는다(한 방향).
+
+### 코드에 넣을 주석(최종 문구)
+- `answer.ts` 첫 줄: `// AI 답 읽기 — 종류마다 칸을 검사해 돌려줄 모양으로. 말에 꼭 있어야 할 단어는 여기서 막는다.`
+- `answer.ts` 휴무 분기 위: `// "휴무"나 "쉬"가 없는 말은 AI가 휴무라 해도 관계없음으로.`
+
+### 실패 시 처리
+- 새 저장·재시도·임시 보관은 만들지 않는다(AGENTS §7).
+- 다른 종류가 깨지면 `unbiseo-parse`를 이전 판(react-app `c992cb7`)으로 되돌려 올린다.
+
+### 사용자 확인 방법
+- 앱 화면은 바뀌지 않는다. 보리 할 일은 편집기에서 "Deploy updates" 한 번이고, 결과는 문장 시험 표로 본다.
+
+### 다음 24-K-2 미리 보기(이번 범위 아님)
+- 앱 `unbiseoParse.ts` 나누기(종류별 칸 읽기 떼기) → 휴무 카드 문장 → [휴무로 하기]·[휴무 취소하기](일지 휴무 단추와 같은 저장, 콜이 있으면 같은 확인 창) → 이미 휴무·휴무 아님·연동 기사 계약 기간 밖은 문장만.
+
+### 진행 기록
+- 2026-10-25 보리: "확인할 점 1~4 전부 가로." — K-1은 앞날도 받고 휴무 취소도 받음(`off` true/false). K-2는 [휴무로 하기]·[휴무 취소하기] 버튼, 콜이 있으면 일지 휴무 단추와 같은 확인 창·고정 횟수 0. 구현은 터미널 AI(시작 전 교차검증).
+- 2026-10-25 보리: "착수지시서 확정 작업진행해" — 터미널 AI.
+  - 교차검증 고친 사실: `readAiAnswer`는 109~143줄(지시서 109~144). 그 밖(`grok.ts` 87줄 종류 목록·31줄 월·일 지시, `index.ts` 74줄 `dayOf`·121·124줄 말 막기, 저장소 밖 시험은 `handleRequest`만 부름)은 맞음.
+  - 구현: react-app `6a52421`(push 안 함).
+    - 나누기 먼저: `index.ts` 194 → 91줄, 새 `answer.ts`. 옮긴 줄을 옛 `index.ts`와 한 줄씩 맞춰 봐 다른 줄은 첫 줄 주석뿐(`record`·`isDateKey`에 `export`만 붙음). 나누기만 한 상태에서 함수 타입 검사와 저장소 밖 시험(24-J-1까지 누적) 전부 통과.
+    - 휴무: `answer.ts`(111줄)에 `Parsed` dayOff, 분기 한 줄과 지시서 문구 주석. 날짜는 `isDateKey`면 그대로(앞날 포함), 아니면 오늘. `off`는 `dayOffCancel`이 true일 때만 false.
+    - `grok.ts`(179줄): 종류 줄에 dayOff, 설명 줄 1개(앞날도 표에서 그대로)와 예 1줄, 칸 `dayOffCancel`(필수·null 허용), 출력 상한 주석 "칸 서른두 개".
+  - 지시서와 다른 점:
+    1. `grok.ts` 61줄 주석 "앞날은 날씨에만 쓴다(운행·지출은 index.ts가 오늘로 바꿈)"이 틀리게 되어 "날씨·휴무에만 … answer.ts가"로 고침.
+    2. 남은 것: `question.ts`·`smsDraft.ts`·`fixedRoute.ts` 주석의 "index.ts가 정리해 넘긴다"는 이제 `answer.ts`가 맞다. 지시서가 세 파일을 안 건드릴 것으로 정해 그대로 둠(동작 영향 없음). 고칠지 보리 판단.
+  - 검증: 함수 타입 검사(`answer.ts` 추가) 통과. 저장소 밖 가짜 시험 전부 통과(휴무 확인 18개 추가, 고정 확인 3곳은 새 칸·종류·문구로 바꿈). lint·typecheck·depcheck(1802)·npm test(896·874) 통과.
+  - 고치기 전 실패 확인: 휴무 확인 18개 중 16개는 고치기 전 코드에서 실패(502 또는 문구·칸 없음). 2개(점검표 앞날 → 오늘 그대로, 기록에 말 없음)는 고치기 전에도 통과하는 안전 확인.
+- 2026-10-25 보리 push 뒤 CI verify·deploy 초록(run 40162631646).
+- §5 리뷰(데스크톱 AI): 범위 = 지시서 파일 3개 그대로, 새 저장 없음, 타입 꼼수 없음, 200줄 안(`index.ts` 91·`answer.ts` 111·`grok.ts` 179), 새 주석 두 줄 지시서 문구 그대로. `answer.ts`의 "(로드맵 24-C-1)" 주석은 옛 `index.ts`에서 그대로 옮긴 것(새로 쓴 것 아님). 남은 주석 3곳("index.ts가 정리해 넘긴다")은 교차검증 2번대로 그대로.
+- 데스크톱 AI 편집기 반영(배포 전): 편집기 내용이 이전 판 `c992cb7`과 같음 확인 → `grok.ts`·`index.ts` 바꾸고 새 `answer.ts` 추가(커밋에서 받아 넣음), 8개 파일 지문 커밋과 같음(`answer` `972adfc7`, `grok` `8acb2b45`, `index` `6de3b388`, 나머지 그대로). 보리 "Deploy updates" 대기.
+- 보리 배포 → 배포본 8개 파일 지문 커밋과 같음("a few seconds ago"), Verify JWT 꺼짐 그대로, 공개 키만이면 401.
+- 문장 시험(배포본, 2026-10-25, 로그인 계정, 오늘 10-25):
+  - 휴무: 오늘 휴무 → dayOff 10-25·off true / 내일 쉬어 → 10-26·true / 어제 휴무로 해줘 → 10-24·true / 11월 3일 휴무 → 11-03·true / 모레 쉬는 날이야 → 10-27·true / 오늘 휴무 취소 → 10-25·false / 어제 휴무 취소해줘 → 10-24·false / 내일 안 쉬어 휴무 빼줘 → 10-26·false / 휴게소에서 밥 먹었어·오늘 놀아 → unknown.
+  - 기존 종류 그대로: 점검표 → inspection / 날씨 → weather / 운행 → call 10-24 / 경유 → expense fuel / 이번 달 매출 → question / 고정 2번 → fixed / 거래처 등록 → client / 미수금 문자 → sms / 전부 양호야·뉴스 → unknown.
+  - 남은 일: 보리 push → CI → 데스크톱 AI 편집기 반영(새 `answer.ts` 추가, 바뀐 두 파일)·보리 "Deploy updates" → 지문·Verify JWT 꺼짐 확인·문장 시험.
 
 ---
 
