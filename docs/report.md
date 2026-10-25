@@ -1,55 +1,97 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
 ---
 
-## UI 위계화 E-1 — 굵기 750을 700으로 합치기 `[x]`
+## UI 위계화 E-2 — 버튼 모양 공용 값(크기 3단계) `[x]`
 
-> react-app `02924ad`, CI 초록, 2026-10-25 보리 "승인". 28줄 1:1 대응 확인, `fw-strong` 0건. 고객센터·앱 설정·미수금·콜 상세 입력 창의 750 글자 23개 모두 700, 그 밖 변화·넘침 0. 아이폰 모습은 확인 못 함.
+> react-app `56b1bd7`, CI 초록, 2026-10-25 보리 "승인". 홈·거래처 창·문자 양식·개인정보·세금계산서 카드 버튼 375px 표대로, 넘침·줄바꿈 0(문자 양식 버튼 한 줄 확인). 미수금 2개·고정 노선 [추가]는 같은 모양 임시 버튼으로 값 확인. 기사 연결 카드·운비서·서류/첫 화면 [다시 시도]·문의 관리 버튼은 화면에 안 나와 값만 확인.
 
-보리 지시(2026-10-25, D-1 `[x]` 뒤): E 지시서 작성, 질문 두 개 "권함으로" `[확인: 2026-10-25 보리]` — ① 버튼은 직접 만든다(부품 모음 들이지 않음), ② 굵기 750은 700으로 합친다. 로드맵 번호 없음.
-- E는 둘로 나눈다: **E-1 굵기 750 합치기(이번)** → E-2 공용 버튼(주·보조·위험) 만들고 주 버튼 옮기기. 이번엔 E-1만.
+보리 지시(2026-10-25, E-1 `[x]` 뒤): "웅"(E-2 지시서 작성). 버튼은 직접 만든다 `[확인: 2026-10-25 보리 — "권함으로"]`. 로드맵 번호 없음. 위계화 마지막 단계.
 
 ### 쉬운 요약
-- A 때 기기마다 다르게 그려져서 따로 남겨 둔 굵기 750(`--fw-strong`)을 700(`--fw-bold`)으로 합친다.
-- 750은 입력칸 이름("차량번호" 등), 탭, 작은 칩, 운비서 버튼, 운송비 내역서 표 머리에 쓰인다. 제목(800)보다 한 단계 낮은 굵기로 맞춰진다.
-- 끝나면 공용 굵기는 6개(400·500·600·700·800·900)가 되고, 애매한 750이 없어진다.
+- "저장", "입금 완료" 같은 주 버튼과 그 짝 버튼(취소·삭제 등)이 화면마다 높이 36~52px, 모서리 8~14px, 글자 12~16px, 굵기 700~900으로 제각각이다.
+- 버튼 모양(높이·모서리·글자 크기·굵기)을 `variables.css` 공용 값으로 정하고, 크기를 **큰 / 기본 / 좁은 칸** 3단계로 나눠 버튼 15종에 입힌다.
+- **색은 안 바꾼다.** 파란 주 버튼, 회색·테두리 보조 버튼, 빨간 위험 버튼은 지금 색 그대로이고, 모양만 같아진다.
 
 ### 현재 상태 (코드 확인)
-- `variables.css`에 `--fw-strong: 750`(A, `023edeb`). 쓰는 곳: CSS 13개 파일 28줄(`grep -rn "fw-strong" src`, `variables.css` 제외). 코드(.jsx·.tsx·.js)에는 없음.
-- 그려지는 굵기: 이 PC 크롬에서 750은 700과 같은 글자 폭(A 조사). 굵기가 촘촘한 글꼴(아이폰)에서는 규칙상 800 쪽으로 그려진다.
+- 버튼 248개, 버튼 꾸밈 이름 44가지(`grep "<button"`, `className`에 btn·button 집계). 공용 버튼은 창 안 `.modal-btn`(`modal-base.css:28` — 44px·12px·14.72px·700, `.confirm` 파랑·`.cancel` 회색·`.confirm.danger` 빨강, 15곳)뿐이다.
+- 따로 꾸민 버튼(로그인·온보딩 제외):
+
+| 버튼(파일:줄) | 높이 | 모서리 | 글자 | 굵기 |
+|---|---|---|---|---|
+| 창 버튼 `.modal-btn`(`modal-base.css:28`) | 44 | 12 | 14.72 | 700 |
+| 홈 [운행 기록하기] `.home-today-btn`(`home.css:38`) | 52 | 14 | 16 | 800 |
+| 미수금 [전체 입금 완료] `.receivable-detail-all-paid`(`receivables.css:403`) | 46 | 14 | 13.6 | 900 |
+| 미수금 부분 입금 [확인] `.receivable-partial-confirm-btn`(`receivables.css:384`) | 36 | 9 | 12 | 800 |
+| 기사 사업자 정보 [저장] `.car-biz-save`(`car-business-info.css:25`) | 44 | 12 | 12 | 900 |
+| 운비서 [보내기]·[기록하기] `.home-assistant-send`·`-action`(`home-assistant.css:117·164`) | 44 | 12 | 13.6 | 700 |
+| 앱 설정 고정 노선 [추가] `.fixed-route-preset-add-row button`(`app-settings.css:145`) | 40 | 10 | 12.48 | 700 |
+| 개인정보 계정 버튼 `.personal-account-btn`(`controls-common.css:21`) | 44 | 14 | (물려받음) | 800 |
+| 서류 [다시 시도] `.doc-retry-btn`(`documents.css:111`) | (여백으로 약 26) | 8 | 12 | 700 |
+| 세금계산서 카드 버튼 `.tax-invoice-action-btn`(`tax-invoice.css:146`) | 44 | 9 | 12 | 800 |
+| 기사 연결 카드 버튼 `.driver-card-action-btn`(`driver-connection.css:109`) | 44 | 9 | 12 | 800 |
+| 문의 관리 버튼 `.admin-inquiry-btn`(`customer-center.css:43`) | 44 | 12 | 13.6 | 700 |
+| 문자 양식 [저장]·[기본값] `.message-settings-actions button`(`message-settings.css:12`) | 44 | 12 | 12 | 900 |
+| 첫 화면 [다시 시도] `.boot-retry button`(`boot-retry.css:18`) | 48 | 12 | (물려받음) | 700 |
+
+- 2026-10-07 로드맵 14번 B에서 "자주 누르는 버튼은 44px"로 맞춘 적이 있다(상단 버튼·달력 화살표). 위 표에서 44px보다 낮은 건 부분 입금 [확인]·고정 노선 [추가]·서류 [다시 시도] 3개다.
 
 ### 목표 상태 (기대 동작)
-1. 28줄의 `var(--fw-strong)`이 `var(--fw-bold)`가 된다.
-2. `variables.css`에서 `--fw-strong: 750;` 줄을 지운다. 끝나면 `src`에 `fw-strong`이 0건이다.
-3. PC에서는 보이는 굵기가 그대로, 아이폰에서는 28곳이 조금 얇아진다(800 쪽 → 700).
-4. 굵기 말고는 아무것도 안 바뀐다. 새 주석은 없다.
+1. `variables.css` `:root`에 버튼 공용 값 8개를 더한다.
+   - `--btn-radius: 12px`
+   - `--btn-height: 44px` / `--btn-font: var(--fs-4)` / `--btn-weight: var(--fw-bold)` — **기본**: 44px · 14.72px · 700
+   - `--btn-height-lg: 52px` / `--btn-font-lg: var(--fs-5)` / `--btn-weight-lg: var(--fw-heavy)` — **큰**: 52px · 16px · 800
+   - `--btn-font-sm: var(--fs-2)` — **좁은 칸**: 높이 44px · 12.48px · 700
+2. 버튼마다 단계를 입힌다(색·여백·너비는 그대로):
+
+| 버튼 | 단계 | 지금 → 바뀜 |
+|---|---|---|
+| 창 버튼(확인·취소·삭제) | 기본 | 그대로 |
+| 홈 [운행 기록하기] | 큰 | 모서리 14 → 12 |
+| 미수금 [전체 입금 완료] | 기본 | 46/14/13.6/900 → 44/12/14.72/700 |
+| 기사 사업자 정보 [저장] | 기본 | 글자 12/900 → 14.72/700 |
+| 운비서 [보내기]·[기록하기] | 기본 | 글자 13.6 → 14.72 |
+| 개인정보 계정 버튼 | 기본 | 모서리 14 → 12, 글자 → 14.72, 굵기 800 → 700 |
+| 문의 관리 버튼 | 기본 | 글자 13.6 → 14.72 |
+| 문자 양식 [저장]·[기본값] | 기본 | 글자 12/900 → 14.72/700 |
+| 첫 화면 [다시 시도] | 기본 | 높이 48 → 44, 글자 → 14.72 |
+| 세금계산서·기사 연결 카드 버튼(한 줄에 2~3개) | 좁은 칸 | 모서리 9 → 12, 글자 12/800 → 12.48/700 |
+| 미수금 부분 입금 [확인] | 좁은 칸 | 36/9/12/800 → 44/12/12.48/700 |
+| 앱 설정 고정 노선 [추가] | 좁은 칸 | 40/10 → 44/12 |
+| 서류 [다시 시도] | 좁은 칸 | 약 26/8/12 → 44/12/12.48 |
+
+3. 새 주석은 없다.
 
 ### 건드릴 파일
-- `src/shared/styles/variables.css` — 1줄 삭제
-- 굵기 값만(같은 줄): `client-management.css`, `call-client-quick-add.css`, `call-detail-form.css`, `daily-inspection.css`, `report.css`, `car-business-info.css`, `expense-form.css`, `home-assistant.css`, `receivables.css`, `app-settings.css`, `customer-center.css`, `controls-common.css`, `modal-form.css` — 13개
-- 영향 목록: 위 28줄의 글자뿐(배치 속성 안 바꿈). 여러 화면이 같이 쓰는 곳은 `modal-form.css`(차량·거래처 입력 창 칸 이름), `controls-common.css`(화면 모드 버튼).
+- `src/shared/styles/variables.css` — 8줄 추가
+- 버튼 규칙의 높이·모서리·글자 크기·굵기 값만: `shared/styles/modal-base.css`, `features/home/ui/home.css`, `features/receivables/ui/receivables.css`(2개), `features/drivers/ui/car-business-info.css`, `features/home/ui/home-assistant.css`(2개), `features/settings/ui/app-settings.css`, `shared/styles/controls-common.css`, `features/documents/ui/documents.css`, `features/documents/ui/tax-invoice.css`, `features/drivers/ui/driver-connection.css`, `features/support/ui/customer-center.css`, `features/settings/ui/message-settings.css`, `app/shell/boot-retry.css` — 14개, 규칙 15개
+- 영향 목록: `.modal-btn` — 창 15곳(값이 같아 보이는 변화 없음). `.personal-account-btn` — 개인정보 화면. 나머지는 각 화면 하나씩. 배치(너비·`flex`)는 안 바꾼다. 높이가 커지는 3개(부분 입금 [확인], 고정 노선 [추가], 서류 [다시 시도])는 그 줄 높이가 같이 커질 수 있다.
 
 ### 안 건드릴 것
-- 버튼 모양(높이·모서리·색) — E-2에서.
-- 다른 굵기 값(400·500·600·800·900).
+- 버튼 색(주·보조·위험), 탭·칩·선택 상태 버튼(일지 횟수 버튼, 달력·매출 탭 등 — 버튼이라기보다 고르는 칸), 아이콘 버튼(뒤로가기·메뉴), 로그인·온보딩 버튼.
+- 버튼 이름(클래스)·화면 파일 — CSS 값만 바꾼다.
 
 ### 검증
 - 테스트·타입·빌드는 CI가 한다. 화면 모양만 바뀌어 새 테스트는 없다.
-- 바뀐 28줄을 바꾸기 전 줄과 맞대어 `fw-strong` → `fw-bold`만 바뀌었는지 기계로 확인, `src`에 `fw-strong` 0건 확인.
-- 개발 서버에서 고객센터·앱 설정·일일운행 콜 상세 입력 창의 해당 글자 계산된 굵기가 700인지, 글자 넘침·줄 수가 전과 같은지 잰다.
+- 개발 서버(로그인)에서 위 버튼들의 계산된 높이·모서리·글자·굵기가 표대로인지 잰다. 375px에서 카드 버튼(한 줄 2~3개) 글자 넘침·줄바꿈을 바꾸기 전과 후로 비교한다.
+- 저장·입금 같은 버튼은 누르지 않고 모양만 잰다.
 
 ### 파일 길이
-- 굵기 값은 같은 줄 안에서 바뀌어 줄 수가 그대로다. `variables.css`만 71 → 70줄.
-- 200줄 넘는 `receivables.css` 419·`call-detail-form.css` 285·`report.css` 257·`daily-inspection.css` 254는 값만 바꾸고 나누지 않는다(A 때 정한 방식).
+- 대부분 같은 줄 안에서 값만 바뀐다. 줄이 없는 속성은 한 줄 더한다: `.personal-account-btn` 글자 크기(`controls-common.css` 170 → 171), `.doc-retry-btn` 높이(`documents.css` 177 → 178), `.boot-retry button`은 같은 줄에 붙인다. `variables.css` 70 → 78.
+- 200줄 넘는 `receivables.css` 419는 두 규칙 모두 네 값이 이미 있어 같은 줄에서 값만 바꾼다(A 때 정한 방식). `app-settings.css` 197도 값만.
 
 ### 실패 시 처리
-- 새 보호 장치·대비 장치를 만들지 않는다. 넘침·줄바꿈이 새로 생기면 고치지 말고 멈춘 뒤, 원인과 수정 계획을 다시 써서 승인받는다.
+- 새 보호 장치·대비 장치를 만들지 않는다. 375px에서 버튼 글자 넘침이나 줄 밀림이 새로 생기면 고치지 말고 멈춘 뒤, 원인과 수정 계획을 다시 써서 승인받는다.
 
 ### 사용자 확인 방법
-1. 휴대폰에서 거래처 → [추가]를 눌러 칸 이름("거래처명" 등)이 전과 같거나 아주 조금 얇아 보이면 성공(저장하지 말고 [취소]).
-2. 고객센터 위 탭([자주 묻는 질문] 등) 글자가 깨지거나 넘치지 않으면 성공.
+1. 홈 [운행 기록하기], 거래처 [추가] 창의 [저장]·[취소], 미수금 상세의 [전체 입금 완료]를 열어 보고(누르지 않음) 모서리·글자가 비슷한 느낌이면 성공.
+2. 서류 발급 → 세금계산서 카드 버튼, 기사 연동 카드 버튼 글자가 넘치지 않으면 성공.
+
+### 확인할 점
+1. 크기 3단계와 버튼별 단계 — 가(표대로, 큰 버튼은 홈 [운행 기록하기] 하나) `[확인: 2026-10-25 보리 — "권함으로"]`.
+2. 44px보다 낮은 버튼 3개 — 가(44px로 올림) `[확인: 2026-10-25 보리 — "권함으로"]`.
 
 ---
 
