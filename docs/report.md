@@ -1,58 +1,146 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
 ---
 
-## 문구 정리 5-B — 운비서·알림·미수금·매출·결제 조건 문구 `[x]`
+## 로그인 화면 개편 A — 계정 화면 강제 다크 없애고 테마 따라가기 `[x]`
 
-> react-app `f768d8e`, CI 초록, 2026-10-25 보리 "승인". #94 문자 구간 문구는 보리 결정으로 원문 유지(거래처 문자에서 "미수금 … 미수 상태" 겹침), 날씨 "시·군·구"는 "시, 군, 구". 시험 1,780개·린트·타입 통과, 바뀐 56줄 표와 어긋남 0.
+보리 요청(2026-10-25): 피그마 시안으로 로그인 첫 화면을 바꾸면서 라이트 버전도 만든다. 대화로 정한 것:
+- 색·버튼·글자 크기는 공통 UI 값을 쓴다 `[확인: 2026-10-25 보리]`
+- 계정 화면 세 곳(로그인 첫 화면·환영·첫 설정)이 모두 테마를 따른다 `[확인: 2026-10-25 보리 — "온보딩을 테마 따라가기로"]`
+- 로그아웃해도 라이트로 바뀌면 안 된다 `[확인: 2026-10-25 보리]`
 
-보리 지시(2026-10-25, 5-A `[x]` 뒤): "ㅇㅇ"(5-B 지시서 작성). 로드맵 번호 없음. 확정 목록은 `docs/copy-review.md` "문구 정리 5" 표의 **B 묶음 35개**(5-A 70개는 `d64cc39`로 끝남). 결정은 5-A와 같다 — 표에서 뺀 것은 넣지 않음, 원래 마침표가 없던 곳은 안 붙임, 가운뎃점(·)은 쓰지 않음(로드맵 87), 결제 조건은 "다음 달·다다음 달".
+두 조각으로 나눈다: **A(이번) = 테마**, B = 시안 반영(아래 미리 보기). B의 색이 A에 기대므로 A가 먼저다.
 
 ### 쉬운 요약
-- 운비서가 하는 말·안내, 알림 목록, 미수금 화면, 매출 카드, 거래처 결제 조건 이름의 어색한 문구 35개를 보리 수정안대로 바꾼다.
-- 결제 조건 "익월·익익월"은 "다음 달·다다음 달"로 바뀐다(거래처 입력 칸 목록과 운비서가 말하는 정산 문구 둘 다). 저장된 값은 그대로라 기존 거래처에 영향 없다.
-- 같은 문구를 그대로 확인하던 시험과 sot·로드맵 기록도 새 문구로 고친다. 동작은 바뀌지 않는다.
+- 지금 로그인·환영·첫 설정 화면은 테마와 상관없이 늘 어둡다. 이 강제 설정을 없애 세 화면이 앱 테마를 따르게 한다.
+- 로그아웃하면 로그인 화면이 라이트로 바뀌고 "마지막 테마" 기억까지 라이트로 덮이던 것을 막는다. 다크로 쓰던 사람은 로그아웃해도 다크다.
+- 처음 쓰는 휴대폰은 휴대폰 설정(다크/라이트)을 따른다.
 
 ### 현재 상태 (코드 확인)
-- B 묶음 35개 원문은 모두 코드에 있다(2026-10-25 대조). 여러 문장이 따로 나뉜 3개(날씨 안내 `unbiseoWeather.ts:15-17`, 알림 `notifications.js:123-124·136-137`)와 결제 조건(`clientPaymentTerms.ts` 목록 5~10줄 + `getPaymentTermLabel` 18~23줄의 "익월 N일 정산" 등)은 조각별로 확인.
-- 원문을 그대로 확인하는 시험(원문 조각 검색 — 착수 때 실패로 다시 확인): `unbiseoQuestion.test.js`, `HomeAssistantPanel.test.js`, `unbiseoWeather.test.js`, `unbiseoParse.test.js`, `HomePage.test.js`, `notifications.saveFailed.test.js`, `NotificationsPage.test.js`, `notifications.dateLabel.test.js`, `useReceivablesActions.test.js`, `OwnerMonthlyCards.driverSelf.test.js` 등 많아야 15개.
-- sot에 그대로 적힌 문구: 날씨 카드 "…은 찾지 못했어요"(`sot.md` 날씨 카드 줄), 입력 창 채워 열기의 "고정 노선이/콜 상세가 꺼져 있어요. 켤까요?", 알림 목록 제목 "M월 D일 운행일지 저장이 실패했습니다.". 로드맵에 적힌 것: 110번 알림 제목, 112번 근처 "오늘 일상점검 안 함", 45번 "운송 수입 합계(정산 전)".
+- 강제 다크가 켜지는 길:
+  - 주소가 `/auth`·`/welcome`·`/onboarding`이면 `inAccountFlow`가 참이다(`src/app/useAppSession.js:37`).
+  - 그러면 `AccountFlowBodyClass`가 body에 `account-flow-active`를 붙인다(`src/app/App.jsx:68`, `src/app/providers.jsx:25-31`).
+  - 이 클래스가 색 값을 어두운 값으로 덮는다(`src/shared/styles/account-flow.css:3-13`).
+  - 덮는 값은 앱 공통 다크와 다르다. 배경 `#1e1e1e`(공통 `#121212`), 칸 `#393939`(공통 `#2a2a2a`), 테두리 `#4a4a4a`(공통 `#333333`).
+- 로그아웃하면 라이트로 바뀌는 이유:
+  - 부트가 끝나면 주소가 바뀔 때마다 그때 owner 설정의 테마로 다시 칠한다(`useAppSession.js:107-110`).
+  - 테마 칸이 없으면 라이트다(`settingsSave.ts:44-46`, 테마는 선택 칸 `persistDomainSchema.ts:42`).
+  - 이때 `lastTheme`도 덮는다(`settingsSave.ts:48`).
+  - 지금은 강제 다크에 가려 안 보인다.
+- 앱을 켤 때는 `index.html`이 `lastTheme`을 읽고, 없으면 휴대폰 설정으로 칠한다(`index.html:27-33`).
+- 흰색으로 고정된 글자 3곳(밝은 배경에서 안 보이게 됨):
+  - `.auth-logo-text`(`account-flow.css:48`, 로그인 첫 화면)
+  - `.auth-brand-sm`(`auth-form.css:41`, 환영 화면)
+  - `.onboarding-logo-text`(`onboarding.css:20`, 첫 설정)
+  - 각 클래스를 쓰는 곳은 위 화면 하나씩뿐이다(클래스명 grep).
+- 흰 글씨지만 그대로 둘 곳(파란 바탕 위 글씨·로딩 표시라 테마와 무관): `onboarding.css:84`, `account-flow.css:91·115·116`.
+- 로고 그림 `banner_image.png`는 앱을 켤 때 로딩 화면이 라이트·다크 둘 다에서 같은 그림으로 쓴다(`LoadingScreen.jsx:5`, `index.html:69-72`). 그래서 바꾸지 않는다.
 
 ### 목표 상태 (기대 동작)
-1. 표의 B 묶음 35개가 "바꿀 문구"대로 보인다. 메모 칸의 맞춤(알림 제목 조사 "를" 고정, 결제 조건 두 곳)도 그대로 따른다.
-2. 원래 마침표가 없던 곳은 마침표가 없다. 화면 글자에 가운뎃점이 없다(`noMiddleDot.test.js` 통과 — .ts 파일은 이 검사 밖이라 직접 확인).
-3. 문구가 든 줄 말고는 아무것도 안 바뀐다(동작·조건·저장 값 그대로). 결제 조건은 `label`만 바뀌고 `value`(`same_day`·`next_month_day` 등)는 그대로.
-4. 미수금 [전체 입금 완료] 확인 창은 제목 "{거래처}의 {M}월 미수금을 모두 입금 완료로 처리할까요?", 본문 "미수 N건, ○원입니다. 취소하려면 각 건을 하나씩 처리해야 합니다."로 나눠 넣는다(수정안이 한 줄로 이은 것을 지금의 제목·본문 자리에 맞춤).
-5. 시험이 원문을 확인하던 곳은 새 문구로, 확인하는 뜻은 그대로. sot·로드맵의 위 문구는 새 문구로(`[x]` 문서 커밋에 포함). STATUS 완료 목록의 옛 기록은 당시 기록이라 그대로 둔다.
-6. 새 주석은 없다.
+1. 강제 다크를 없앤다. `AccountFlowBodyClass`와 `body.account-flow-active` 규칙을 지우고, 세 화면은 `variables.css`의 라이트/다크 값을 쓴다.
+2. 계정 화면(`inAccountFlow`)에서는 테마를 새로 칠하지 않는다. 지금 보이는 테마와 `lastTheme`을 그대로 둔다.
+   - 다크로 쓰던 사람이 로그아웃하면 로그인 화면은 다크다.
+   - 처음 쓰는 휴대폰이면 휴대폰 설정을 따른다(`index.html` 그대로).
+3. 계정 화면을 지나 앱 안으로 들어가면 지금처럼 그 계정 설정의 테마로 칠한다.
+4. 흰색 고정 글자 3곳을 `var(--text-color)`로 바꾼다.
+5. 구글 버튼은 테마를 따른다. 라이트는 구글 규칙의 밝은 버튼(흰 바탕 `#ffffff`·테두리 `#747775`·글씨 `#1f1f1f`), 다크는 지금 버튼(`#131314`·`#8e918f`·`#e3e3e3`)이다. 모양·크기·로고는 그대로다. `[확인: 2026-10-25 보리 — "라이트버전에서 밝은버튼으로 바꿔줘"]`
+6. 설정 화면에서 테마를 바꾸는 동작, 앱 켤 때 로딩 화면 색은 지금과 같다.
 
 ### 건드릴 파일
-- 문구 파일 18개(문구 줄만): `domain/clientPaymentTerms.ts`, `features/home/api/` unbiseoParse·unbiseoQuestion·unbiseoSentence·unbiseoSms·unbiseoWeather(.ts), `features/home/hooks/useSpeechInput.ts`, `features/home/ui/` HomeAssistantBar·HomeAssistantPanel·HomeTodoCard·UnbiseoDock, `features/notifications/api/notifications.js`, `features/notifications/ui/NotificationsPage.jsx`, `features/receivables/hooks/useReceivablesActions.js`, `features/receivables/ui/` ReceivableItemCard·ReceivablesDetailPage·ReceivablesListPage, `features/revenue/ui/OwnerMonthlyCards.jsx`
-- 시험 파일: 위 목록 중 실패하는 곳(문구 기대값만)
-- 문서: `docs/sot.md`(3곳)·`docs/roadmap.md`(3곳)(`[x]` 때)
-- 영향 목록: 결제 조건 이름은 거래처 입력 창 목록(`ClientFormModal.jsx:108`), 거래처 카드 "결제주기:"(`ClientListItem.jsx:51`), 콜 상세 입력 창 결제 조건 안내(`CallDetailForm.jsx:66`), 운비서 거래처 등록 문장(`unbiseoSentence.ts:58`)이 같이 쓴다. 값 검사(`clients.ts:43`, `useAssistantClient.js:41`, `unbiseoFields.ts`)는 `value`만 보므로 영향 없음. 서버 운비서 지시문(`supabase/functions/unbiseo-parse/grok.ts`)은 이미 "다음 달 N일"도 알아들어 고치지 않는다.
+- `src/app/useAppSession.js` — 테마 칠하기 조건에 `inAccountFlow` 추가(107~110줄)
+- `src/app/App.jsx` — `AccountFlowBodyClass` 가져오기·쓰기 삭제(14·68줄)
+- `src/app/providers.jsx` — `AccountFlowBodyClass` 삭제
+- `src/shared/styles/account-flow.css` — `body.account-flow-active` 규칙(3~13줄) 삭제, 48줄 흰색을 공통 값으로, 맨 위 설명 주석 고침
+- `src/shared/styles/auth-form.css` — 41줄 흰색을 공통 값으로
+- `src/shared/styles/onboarding.css` — 20줄 흰색을 공통 값으로
+- `src/shared/styles/variables.css` — 구글 버튼 색 3개를 라이트/다크 공통 값으로 추가(목표 5)
+- `account-flow.css` 구글 버튼 색 3줄을 그 값으로, 위 설명 주석 고침
+- 시험: `src/app/App.test.js`에 추가(기존 `BrowserRouter`+`App` 그리는 방식)
+- 영향 목록:
+  - `account-flow-active`는 `providers.jsx`에서만 붙이고 `account-flow.css`에서만 읽는다(grep).
+  - 바뀌는 클래스는 색만 바뀌고 자리 속성은 그대로다.
+- 크기: 파일 6개지만 각각 1~11줄 수정이다. 시안 반영은 B로 뺐다.
 
 ### 안 건드릴 것
-- 표에서 뺀 것(날씨 문장 띄어쓰기, "이번 달 정산액:", 홈 오늘 카드 "~예요" 등), 5-A 묶음.
-- 저장 값, 서버 함수, 클래스 이름.
+- 로그인 첫 화면 배치·문구(B에서)
+- 구글 버튼 모양·크기·로고(색만 목표 5), 로딩 동그라미 색
+- `settingsSave.ts` `applyTheme` — 칠하기·`lastTheme` 기억은 그대로 맞게 동작한다. 부르는 쪽 조건만 바꾼다(`LoadingScreen.test.js:56-63`이 이 동작을 지킴).
+- `index.html` — 앱 켤 때 테마 고르기는 이미 원하는 동작이다(`index.html:27-33`).
+- `AppSettingsPage.jsx` 테마 바꾸기(`:47`)
+- 로고 그림(위 현재 상태 근거)
+- 앱 안 기본 테마 — 설정 안 했으면 라이트, 지금 그대로
 
 ### 검증
-- 테스트·타입·빌드는 CI가 한다. 문구 기대값만 고치므로 고치기 전 실패 확인 대상이 아니다.
-- 바꾼 줄을 표와 1:1로 맞대어 "지금 → 바꿀 문구" 말고 다른 글자가 안 바뀌었는지 기계로 확인, 원문이 남지 않았는지 검색, 바뀐 화면 글자에 가운뎃점이 없는지 검색.
-- 개발 서버 375px에서 미수금 목록·상세, 매출 카드, 알림 목록, 운비서 창(문구 버튼·되묻기 버튼) 넘침 확인.
+- 새 시험(`App.test.js`):
+  - ① `data-theme="dark"`·`lastTheme=dark`인 채로 세션 없이 `/auth`를 그리면, 부트가 끝난 뒤에도 dark와 `lastTheme` dark가 남는다.
+  - ② body에 `account-flow-active`가 없다.
+- ①은 고치기 전 코드에서 실패해야 한다(revert-check). 고치기 전에는 라이트로 덮임.
+- 기존 시험 전부 통과. 특히 `LoadingScreen.test.js`, `AuthRoute.test.js`, `AuthPage.google.test.js`, `App.guestDurable.test.js`.
+- 브라우저: 아래 사용자 확인 방법.
 
 ### 파일 길이
-- 문구는 같은 줄 안에서 바뀌어 줄 수가 그대로다. 가장 긴 파일은 `notifications.js` 174줄로 200줄과 거리가 있다.
+- `useAppSession.js` 146 → 146
+- `App.jsx` 164 → 163
+- `providers.jsx` 32 → 약 19
+- `account-flow.css` 164 → 약 153
+- `auth-form.css` 94 → 94
+- `onboarding.css` 102 → 102
+- `variables.css` 78 → 84
+- 200줄을 넘는 파일 없음.
+
+### 코드에 넣을 주석(최종 문구)
+- `useAppSession.js` 테마 칠하기 조건 줄:
+  `// 부트 중·계정 화면은 덮지 않고 마지막 테마를 둔다(로그아웃해도 라이트로 바뀌지 않게).`
+- `account-flow.css` 1줄:
+  `/* 계정 화면 틀(컨테이너·페이지)과 로그인 첫 화면·단추. 색은 variables.css 공통 값. 입력 단계는 auth-form.css, 처음 정보 입력은 onboarding.css. */`
 
 ### 실패 시 처리
-- 새 보호 장치·대비 장치를 만들지 않는다. 375px 넘침이나 예상 밖 시험 실패가 나오면 고치지 말고 멈춘 뒤, 원인과 수정 계획을 다시 써서 승인받는다.
+- 새 저장 키·재시도·대비 장치 없음. `lastTheme`은 이미 있는 키를 그대로 쓴다.
+- 실패하면 수정 착수지시서를 다시 써서 승인받는다.
 
 ### 사용자 확인 방법
-1. 홈 위 "AI 운비서"를 열고 "지난주 날씨 어때"처럼 말해 보면 "과거 날씨는 안내하지 않아요."가 나오면 성공.
-2. 거래처 → [추가]의 결제 주기 목록이 "다음 달 말일 정산" 같은 이름이면 성공([취소]로 닫기).
-3. 미수금 화면의 탭 이름 "월별 미수금 정산", 카드의 "○원 입금 / ○원 미수"를 본다.
+1. 앱 설정에서 다크로 바꾸고 로그아웃 → 로그인 화면이 다크인지 본다. 새로고침해도 다크인지 본다.
+2. 라이트로 바꾸고 로그아웃 → 로그인 화면이 라이트이고 "운행일지" 글자가 보이는지 본다.
+3. 새 구글 계정으로 처음 로그인 → 환영·첫 설정 화면이 로그인 화면과 같은 테마인지, 로고 글자와 입력칸이 잘 보이는지 본다.
+4. 앱 안으로 들어가면 그 계정 설정의 테마인지 본다.
+
+### 진행 기록
+- 2026-10-25 보리 "착수지시서 확정, 작업 진행해"(데스크톱 AI가 직접 작업하라고 지시).
+- 지시서와 다른 점:
+  - `inAccountFlow`가 더는 밖에서 안 쓰여 `useAppSession.js` 반환값과 `App.jsx` 받는 줄에서도 뺐다. 줄 수: `useAppSession.js` 146 → 146, `App.jsx` 164 → 162.
+  - 시험은 `App.test.js`(로그인 세션으로 부트)가 아니라 세션 없는 부트용 새 파일 `src/app/accountFlowTheme.test.js`에 넣었다.
+- 새 시험 2개는 모두 수정 전 코드로 돌리면 실패했다(revert-check):
+  - ① 로그인 화면에서 다크가 라이트로 덮임
+  - ② 로그인 화면이 비회원 설정 테마로 칠해짐
+- 전체 `npm test` 통과(unit 896, app 886), `typecheck` 통과.
+- 브라우저(데스크톱 미리보기, 375px):
+  - 마지막 테마 dark로 `/auth` → dark 유지, `lastTheme` dark, body 클래스 없음.
+  - light로 `/auth` → 배경 `#eef1f5`, "운행일지" 글자 `#2d3748`, 구글 버튼은 어두운 그대로.
+  - 콘솔 오류 없음.
+- 확인 못 한 것: 환영·첫 설정 화면은 구글 로그인이 필요해 보리 확인이 필요하다(사용자 확인 방법 3).
+- 2026-10-25 보리 "라이트버전에서 밝은버튼으로 바꿔줘" → 목표 5 고침.
+  - 구글 버튼 색 3개를 `variables.css` 라이트/다크 값으로 옮겼다.
+  - 브라우저에서 라이트는 흰 바탕·`#747775` 테두리·`#1f1f1f` 글씨, 다크는 지금 버튼 그대로임을 확인했다. 콘솔 오류 없음.
+  - CSS만 바뀌어 시험 결과에는 영향이 없다.
+- 보리 "커밋해" → react-app `60d23d7`(push 안 함).
+- 보리 push 뒤 CI verify·deploy 초록(run 40198860838). 남은 것: 환영·첫 설정 화면 휴대폰 확인, 최종 승인.
+- 2026-10-25 보리 "승인" → `[x]`. sot 4-19에 계정 화면 테마 규칙 기록.
+
+### 다음 B 미리 보기(이번 범위 아님) — 로그인 첫 화면 시안 반영
+정한 것 `[확인: 2026-10-25 보리]`:
+- 위에서부터: 로고(트럭+"운행일지") → 작은 제목 "간편한 차량 운행 관리" → 헤드라인 "운행 기록을 / 간편하게 관리하세요" → 설명 "매일의 운행 내역을 쉽고 빠르게 기록해 보세요." → 구글 버튼 → 비회원 → 약관 문구.
+- 왼쪽 정렬선 하나로 모두 맞춤(지금 가운데 정렬을 없앰).
+- 크기는 시안과 달라도 되고, 만들어 둔 위계를 쓴다.
+  - 헤드라인·설명은 환영 화면의 `auth-heading-box h1`·`auth-desc-text`를 재사용한다.
+  - 로고는 그보다 작게 해서 헤드라인이 가장 크게 한다.
+- 작은 제목과 약관 문서 이름은 시안과 비슷한 연한 파랑이다. 라이트에서는 같은 계열의 진한 색이다. `variables.css`에 공통 값 하나를 새로 둔다.
+- 구글 버튼은 A에서 정한 테마별 색 그대로다. 누르면 글자와 로고를 감추고, 버튼 안에 로딩 점 세 개(`boot-loading-dots`, 앱 켤 때 쓰는 그것)를 띄운다. 실패하면 지금처럼 토스트를 띄우고 첫 화면에 머문다(`AuthPage.jsx`, 이미 됨).
+- 비회원 버튼은 지금 모양 그대로, 왼쪽 정렬로 두고 누르는 높이만 44px 이상으로 늘린다.
+- 약관 문구 "최초 로그인 시 서비스 이용약관 및 개인정보 처리방침, 위치기반서비스 이용약관에 동의하는 것으로 간주합니다."
+  - 문서 이름만 색을 다르게 하고 링크는 없다. 링크는 로드맵 10-P ⓒ-2 때 붙인다.
+- 로그인 첫 화면 CSS를 `account-flow.css`에서 새 파일(`features/account/ui/auth-intro.css`)로 옮긴다(200줄 대비).
 
 ---
 
