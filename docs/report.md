@@ -1,68 +1,55 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
 ---
 
-## UI 위계화 D-1 — 화면 카드 모서리 공용 값 `[x]`
+## UI 위계화 E-1 — 굵기 750을 700으로 합치기 `[x]`
 
-> react-app `5968d0b`, CI 초록, 2026-10-25 보리 "승인". 로그인 화면 11개 카드 32개 모서리 모두 20px, 카드 크기·위치 전후 같음, 달력 붙는 쪽 0 유지. 미수금 상세 요약·연동 기사 카드는 화면 비교 못 하고 값만 확인.
+> react-app `02924ad`, CI 초록, 2026-10-25 보리 "승인". 28줄 1:1 대응 확인, `fw-strong` 0건. 고객센터·앱 설정·미수금·콜 상세 입력 창의 750 글자 23개 모두 700, 그 밖 변화·넘침 0. 아이폰 모습은 확인 못 함.
 
-보리 지시(2026-10-25, C-2 `[x]` 뒤): "응"(D 지시서 작성). 로드맵 번호 없음. 위계화 순서 A(`023edeb`) → B(`1933adc`) → C-1(`12e52cc`) → C-2(`bd15b4d`) → **D 간격·모서리** → E 버튼.
-- 조사해 보니 간격·여백은 조합이 수백 가지라(아래 현재 상태) 한 번에 묶기 어렵다. **D-1은 화면 카드 모서리만** 한다. 여백은 하지 않기로 했다(확인할 점 2).
+보리 지시(2026-10-25, D-1 `[x]` 뒤): E 지시서 작성, 질문 두 개 "권함으로" `[확인: 2026-10-25 보리]` — ① 버튼은 직접 만든다(부품 모음 들이지 않음), ② 굵기 750은 700으로 합친다. 로드맵 번호 없음.
+- E는 둘로 나눈다: **E-1 굵기 750 합치기(이번)** → E-2 공용 버튼(주·보조·위험) 만들고 주 버튼 옮기기. 이번엔 E-1만.
 
 ### 쉬운 요약
-- 화면 바탕 위에 올라앉은 흰 카드(홈 카드, 매출 요약 카드, 설정 묶음 카드, 일일운행 카드 등)의 모서리 둥글기가 화면마다 16·18·20·22·24px로 섞여 있다.
-- 같은 단계의 카드인데 화면을 옮기면 모서리가 달라 보여서, "같은 급의 상자"라는 느낌이 약하다.
-- 카드 모서리를 공용 값 하나(`--radius-card`)로 묶는다. 바뀌는 건 모서리 둥글기뿐이고 크기·배치·여백은 그대로다.
+- A 때 기기마다 다르게 그려져서 따로 남겨 둔 굵기 750(`--fw-strong`)을 700(`--fw-bold`)으로 합친다.
+- 750은 입력칸 이름("차량번호" 등), 탭, 작은 칩, 운비서 버튼, 운송비 내역서 표 머리에 쓰인다. 제목(800)보다 한 단계 낮은 굵기로 맞춰진다.
+- 끝나면 공용 굵기는 6개(400·500·600·700·800·900)가 되고, 애매한 750이 없어진다.
 
 ### 현재 상태 (코드 확인)
-- 모서리 값: CSS 57개 파일 215곳, 값 16가지(12px 43곳, 10px 21곳, 999px 20곳, 24px 20곳, 18px·16px 각 13곳 등 — `grep -rhoE "border-radius:\s*[^;]+"` 집계). 모서리 공용 값은 없다.
-- 흰 카드 바탕(`var(--card-bg)`)에 16~24px 모서리를 쓰는 규칙 39개 중, 화면 바탕 위 카드로 확인한 31개(로딩 자리 4개 포함)와 달력 위아래가 붙을 때의 규칙 2개, 모두 33개:
-  - 18px(5): 일상점검표 안내 카드(`daily-inspection.css:10`), 일일운행 카드(`day-log-shell.css:24`), 세금계산서 거래처 카드(`tax-invoice.css:93`), 기사 연결 카드(`driver-connection.css:50`), 미수금 상세 요약(`receivables.css:182`)
-  - 16px(1): 문자 양식 카드(`message-settings.css:3`)
-  - 20px(6): 마이페이지 바로가기·프로필 카드(`mypage-shortcuts.css:7`, `mypage.css:12`), 서류 발급 카드(`documents.css:149`), 홈 카드(`home.css:9`), 알림 설정 카드(`notifications-page.css:11`), 설정 묶음 카드(`controls-common.css:43` — 앱 설정·개인정보 등 4개 화면)
-  - 22px(2): 고객센터 카드·문의 쓰기 카드(`customer-center.css:8·17`)
-  - 24px(13 + 달력 붙는 규칙 2): 달력(`calendar-grid.css:38`, 위 머리와 붙을 때 `:13`·`:22`), 운송비 내역서 위 카드(`report.css:8`), 기사 사업자 정보(`car-business-info.css:9`), 연동 기사 카드 4개(`linked-driver.css:11·133·163·172`), 차량 유지비 카드 2개(`maint-fuel.css:12·84`), 매출 위 카드(`revenue-controls.css:6`), 매출 연도 목록(`revenue.css:5`), 빈 목록 안내(`management-common.css:145`), 요약 카드(`shared-controls.css:5` — 매출·서류 등 6개 파일)
-  - 로딩 자리(4): `skeleton.css:25`(18px)·`:47`(20px)·`:58`·`:63`(24px)
-- 여백: `padding` 298곳·`margin` 365곳, 대부분 위·오른쪽·아래·왼쪽을 따로 쓴 조합(예: `14px 15px 12px`). 카드 안쪽 여백만 봐도 12px~24px, 위아래가 다른 것이 많다.
+- `variables.css`에 `--fw-strong: 750`(A, `023edeb`). 쓰는 곳: CSS 13개 파일 28줄(`grep -rn "fw-strong" src`, `variables.css` 제외). 코드(.jsx·.tsx·.js)에는 없음.
+- 그려지는 굵기: 이 PC 크롬에서 750은 700과 같은 글자 폭(A 조사). 굵기가 촘촘한 글꼴(아이폰)에서는 규칙상 800 쪽으로 그려진다.
 
 ### 목표 상태 (기대 동작)
-1. `variables.css` `:root`에 `--radius-card: 20px;` 한 줄을 더한다.
-2. 위 33개 규칙의 모서리 값이 `var(--radius-card)`가 된다. 달력 머리·몸통처럼 위아래가 붙는 곳은 붙는 쪽 0을 그대로 둔다(`var(--radius-card) var(--radius-card) 0 0`, `0 0 var(--radius-card) var(--radius-card)`).
-3. 모서리 말고는 아무것도 안 바뀐다(크기·여백·그림자·배치 그대로).
-4. 새 주석은 없다.
+1. 28줄의 `var(--fw-strong)`이 `var(--fw-bold)`가 된다.
+2. `variables.css`에서 `--fw-strong: 750;` 줄을 지운다. 끝나면 `src`에 `fw-strong`이 0건이다.
+3. PC에서는 보이는 굵기가 그대로, 아이폰에서는 28곳이 조금 얇아진다(800 쪽 → 700).
+4. 굵기 말고는 아무것도 안 바뀐다. 새 주석은 없다.
 
 ### 건드릴 파일
-- `src/shared/styles/variables.css` — 1줄 추가
-- 모서리 값만(같은 줄): `daily-inspection.css`, `day-log-shell.css`, `tax-invoice.css`, `driver-connection.css`, `receivables.css`, `message-settings.css`, `mypage-shortcuts.css`, `mypage.css`, `documents.css`, `home.css`, `notifications-page.css`, `controls-common.css`, `customer-center.css`, `calendar-grid.css`, `report.css`, `car-business-info.css`, `linked-driver.css`, `maint-fuel.css`, `revenue-controls.css`, `revenue.css`, `management-common.css`, `shared-controls.css`, `skeleton.css` — 23개
-- 영향 목록(여러 화면이 같이 쓰는 클래스): `.setting-section`(4개 파일), `.summary-card`(6개 파일), `.empty-state`(관리형 목록 화면들), 로딩 자리(`Skeleton.jsx`). 바뀌는 속성은 모서리 하나라 배치 영향은 없다.
+- `src/shared/styles/variables.css` — 1줄 삭제
+- 굵기 값만(같은 줄): `client-management.css`, `call-client-quick-add.css`, `call-detail-form.css`, `daily-inspection.css`, `report.css`, `car-business-info.css`, `expense-form.css`, `home-assistant.css`, `receivables.css`, `app-settings.css`, `customer-center.css`, `controls-common.css`, `modal-form.css` — 13개
+- 영향 목록: 위 28줄의 글자뿐(배치 속성 안 바꿈). 여러 화면이 같이 쓰는 곳은 `modal-form.css`(차량·거래처 입력 창 칸 이름), `controls-common.css`(화면 모드 버튼).
 
 ### 안 건드릴 것
-- 창(입력·확인 창 18px, 점검표 창) — 화면 위에 뜨는 다른 단계라 따로 정한다.
-- 카드 안의 칸·버튼·입력칸 모서리(12px·10px 등), 동그란 배지·알약 모양(999px·50%).
-- 카드 안에 들어 있는 작은 카드(고객센터 자주 묻는 질문 칸, 내 문의 칸, 기사 요약 칸 16px), 운비서 떠 있는 카드, 로그인·온보딩, 운송비 내역서 표(내려받기 모양과 이어짐).
-- 여백·간격 — 이번 위계화에서 안 함(확인할 점 2).
+- 버튼 모양(높이·모서리·색) — E-2에서.
+- 다른 굵기 값(400·500·600·800·900).
 
 ### 검증
 - 테스트·타입·빌드는 CI가 한다. 화면 모양만 바뀌어 새 테스트는 없다.
-- 남은 16~24px 카드 모서리가 위 "안 건드릴 것"뿐인지 검색으로 확인.
-- 로그인 개발 서버에서 홈·달력·일일운행·매출·마이페이지·앱 설정·서류 발급·고객센터·알림·문자 양식 화면의 카드 계산된 모서리가 모두 같은 값인지, 크기·위치는 전과 같은지 잰다.
+- 바뀐 28줄을 바꾸기 전 줄과 맞대어 `fw-strong` → `fw-bold`만 바뀌었는지 기계로 확인, `src`에 `fw-strong` 0건 확인.
+- 개발 서버에서 고객센터·앱 설정·일일운행 콜 상세 입력 창의 해당 글자 계산된 굵기가 700인지, 글자 넘침·줄 수가 전과 같은지 잰다.
 
 ### 파일 길이
-- 모서리 값은 같은 줄 안에서 바뀌어 줄 수가 그대로다. `variables.css`만 70 → 71줄.
-- 200줄 넘는 `receivables.css` 419는 값만 바꾸고 나누지 않는다(A 때 정한 방식). `calendar-grid.css` 194·`home.css` 182·`linked-driver.css` 178도 줄이 안 늘어 그대로.
+- 굵기 값은 같은 줄 안에서 바뀌어 줄 수가 그대로다. `variables.css`만 71 → 70줄.
+- 200줄 넘는 `receivables.css` 419·`call-detail-form.css` 285·`report.css` 257·`daily-inspection.css` 254는 값만 바꾸고 나누지 않는다(A 때 정한 방식).
 
 ### 실패 시 처리
-- 새 보호 장치·대비 장치를 만들지 않는다. 카드 크기·위치가 달라지는 곳이 나오면 고치지 말고 멈춘 뒤, 원인과 수정 계획을 다시 써서 승인받는다.
+- 새 보호 장치·대비 장치를 만들지 않는다. 넘침·줄바꿈이 새로 생기면 고치지 말고 멈춘 뒤, 원인과 수정 계획을 다시 써서 승인받는다.
 
 ### 사용자 확인 방법
-1. 홈 → 매출 → 마이페이지 → 앱 설정 → 일일운행을 차례로 열어, 흰 카드 모서리 둥글기가 화면마다 같아 보이면 성공.
-2. 달력 화면에서 위 달 이동 칸과 아래 날짜 칸이 붙은 곳에 틈이나 모서리가 생기지 않으면 성공.
-
-### 확인할 점
-1. 카드 모서리 값 — 가(20px) `[확인: 2026-10-25 보리 — "권함으로"]`.
-2. 여백·간격 — 가(이번 위계화에서는 안 함, D는 D-1로 끝) `[확인: 2026-10-25 보리 — "권함으로"]`.
+1. 휴대폰에서 거래처 → [추가]를 눌러 칸 이름("거래처명" 등)이 전과 같거나 아주 조금 얇아 보이면 성공(저장하지 말고 [취소]).
+2. 고객센터 위 탭([자주 묻는 질문] 등) 글자가 깨지거나 넘치지 않으면 성공.
 
 ---
 
