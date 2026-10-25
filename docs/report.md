@@ -4,6 +4,61 @@ UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28
 
 ---
 
+## 문구 정리 5-A — 계정·온보딩·설정·고객센터·차량·거래처·기사·서류·달력·일지 문구 `[x]`
+
+> react-app `d64cc39`, CI 초록, 2026-10-25 보리 "승인". 가운뎃점 3곳은 로드맵 87대로 쉼표·빗금(보리 결정), "자동 입력:"은 4곳 모두, 연동 칩 ">"는 문자열로 감쌈. 시험 1,780개·린트·타입 통과, 바뀐 87줄 표와 어긋남 0. 온보딩은 `/onboarding` 직접 열어 첫 단계만 확인.
+
+보리 지시(2026-10-25): 보리가 쓴 수정안을 AI가 대조한 뒤 "2,3번은 빼고 4번은 수정할 때 바꾸고 5번은 다음 달 이렇게 변경해, 온보딩 문구 이번에 같이, 마침표는 넣지 말자". 로드맵 번호 없음.
+- 확정 목록 105개는 `docs/copy-review.md` "문구 정리 5" 표에 있다(번호·묶음·위치·지금·바꿀 문구·메모). **5-A(이번) = 표의 A 묶음 70개** → 5-B = B 묶음 35개(운비서·알림·미수금·매출·결제 조건).
+- 10월 문구 정리 결정(용어 통일, "~습니다" 말투, "휴대폰", 법정 서식 그대로)과 부딪히는 것은 표에서 이미 뺐다.
+
+### 쉬운 요약
+- 앱 화면 문구 중 어색하거나 뜻이 흐린 문장 70개를 보리 수정안대로 바꾼다(온보딩 5개 항목 포함).
+- 원래 마침표가 없던 곳에는 마침표를 붙이지 않는다.
+- 같은 문구를 그대로 확인하던 시험은 새 문구로 고친다. 문구 말고 동작은 바뀌지 않는다.
+
+### 현재 상태 (코드 확인)
+- 표의 A 묶음 70개 원문은 모두 코드에 실제로 있다(2026-10-25 대조 — 원문 조각을 파일에서 찾음). 수정안이 위치를 잘못 적은 1개("건당(또는 월) 고정으로…")는 실제 위치 `features/cars/ui/CarFormModal.jsx`.
+- 같은 원문을 그대로 확인하는 시험 파일: `LinkStatusChip.test.js`, `PersonalInfoPage.employedReadonly.test.js`, `CallDetailForm.test.js`, `MainPageRoute.assistantCall.test.js`, `DayLogPage.callActions.test.js`, `DailyInspectionNotice.test.js`, `ScopedClientsPages.test.js`, `DailyInspectionShareModal.test.js`, `ReportSummaryContent.test.js`, `DriverConnectionPage.unlink.test.js`, `EmployerLinkCard.test.js`, `SettlementSummaryCard.test.js`, `WelcomeProfileView.test.js`, `AppSettingsPage.backup.test.js`, `CustomerCenterPage.test.js`, `Skeleton.test.js`, `AuthRoute.test.js`, `AuthPage.google.test.js`(원문 조각 검색 — 착수 때 한 번 더 검색해 빠진 곳 확인).
+- sot·로드맵에 그대로 적힌 A 묶음 문구: "○ 기사 거래처"(`LinkedDriverClientsPage`), "(○ 자동 해제)"(`DriverUnlinkControls`), 점검표 지우기 확인 창 문장·"일상점검표 작성이 필요합니다."(`DailyInspectionNotice`).
+
+### 목표 상태 (기대 동작)
+1. 표의 A 묶음 70개가 "바꿀 문구"대로 화면에 보인다. 메모 칸의 맞춤(조사 "를" 고정, `${from}` 문장)도 그대로 따른다.
+2. 원문에 마침표가 없던 곳은 바꾼 뒤에도 마침표가 없다.
+3. 문구가 들어 있는 줄 말고는 아무것도 안 바뀐다(동작·조건·배치 그대로). JSX 줄 나눔도 지금 모양 그대로 둔다.
+4. 시험이 원문을 그대로 확인하던 곳은 새 문구로 고치고, 시험이 확인하는 뜻(무엇을 보여야 하는지)은 그대로다.
+5. sot·로드맵에 적힌 위 문구는 새 문구로 같이 고친다(문서 쪽은 `[x]` 문서 커밋에 포함).
+6. 새 주석은 없다.
+
+### 건드릴 파일
+- 화면·문구 파일 43개(문구 줄만): `features/account/ui/` AuthIntroView·DataDownloadModal·InviteRedeemModal·LinkStatusChip·OnboardingPage·PersonalInfoPage·WelcomeProfileView, `features/calendar/ui/CalendarMonthSummary.jsx`, `features/cars/ui/` CarDriverConnectPanel·CarDriverIncomeFields·CarFormModal·CarListPage·CarShareBaseField, `features/clients/ui/` ClientFormModal·OwnerScopedClientsView, `features/day-log/ui/` CallDetailForm·CallDetailList·DailyInspectionNotice·ExpenseGroups·FixedCountSection·FixedRouteChips·MessageTemplateSheet·callDetailFormHelpers, `features/documents/ui/` DailyInspectionExportBar·DailyInspectionShareModal·ReportSummaryContent·ShareFileModal·TaxInvoiceTab, `features/drivers/ui/` DriverConnectionPage·DriverFormModal·DriverUnlinkControls·EmployerLinkCard·LinkedDriverClientsPage·SettlementSummaryCard, `features/expenses/ui/ExpenseFormModal.jsx`, `features/settings/ui/` AppSettingsBackupSection·AppSettingsPage·MessageSettingsPage·RoutePresetEditor, `features/support/ui/` AdminInquiriesPage·CustomerCenterPage·InquiryForm·MyInquiriesList
+- 시험 파일 18개(위 목록, 문구 기대값만)
+- 문서: `docs/sot.md`·`docs/roadmap.md`의 해당 문구(`[x]` 때)
+- 영향 목록: 공용 클래스·공용 부품은 안 바꾼다. 문구 상수를 여러 화면이 같이 쓰는 곳은 착수 때 문구 검색으로 확인해 같이 바뀌는지 본다.
+
+### 안 건드릴 것
+- 표에서 뺀 것(2·3번, 중복, 수정 불필요, 조건부 원문 유지), B 묶음 35개(5-B에서).
+- 문구가 아닌 코드, 클래스 이름, 저장 값.
+
+### 검증
+- 테스트·타입·빌드는 CI가 한다. 시험은 문구 기대값만 고치므로 고치기 전 실패 확인 대상이 아니다(새 동작 없음).
+- 바꾼 줄을 표와 1:1로 맞대어 "지금 → 바꿀 문구" 말고 다른 글자가 안 바뀌었는지 기계로 확인. 원문이 코드에 남지 않았는지 검색.
+- 개발 서버 375px에서 문구가 길어진 곳(온보딩 선택지, 달력 설명, 기사 연동 안내, 차량 기사 수입 안내, 세금계산서 발급 순서 등)의 넘침·줄바꿈 확인.
+
+### 파일 길이
+- 문구는 같은 줄 안에서 바뀌어 줄 수가 그대로다.
+- 200줄 가까운 파일: `ExpenseFormModal.jsx` 200, `ReportSummaryContent.jsx` 199, `PersonalInfoPage.jsx`·`TaxInvoiceTab.jsx` 198, `CallDetailForm.jsx` 196, `DriverConnectionPage.jsx` 194 — 줄이 늘면 200줄을 넘을 수 있다. 넘으면 그 파일만 §6 분리설계를 먼저 보고한다(문구 줄을 나누지 않고 한 줄에 둔다).
+
+### 실패 시 처리
+- 새 보호 장치·대비 장치를 만들지 않는다. 375px 넘침이나 시험 실패가 나오면 고치지 말고 멈춘 뒤, 원인과 수정 계획을 다시 써서 승인받는다.
+
+### 사용자 확인 방법
+1. 로그아웃 상태에서 첫 화면 → 비회원 시작 → 온보딩 질문·선택지가 새 문구로 보이면 성공.
+2. 일일운행 → [+ 세부 내역 추가]를 눌러 창 제목이 "N일 운행일지 세부 내역 입력"이면 성공([취소]로 닫기).
+3. 서류 발급 → 세금계산서 탭 발급 순서 안내, 앱 설정 백업 칸 이름 "데이터 관리(백업·복원)"를 본다.
+
+---
+
 ## 로드맵 24-K-2 운비서 앱 — 칸 읽기 나누기 + [휴무로 하기]·[휴무 취소하기] `[x]`
 
 > 2026-10-25 보리 "24-K-2 [x] 승인. 커밋은 아직 하지 마." — 문서 커밋 전이라 지우지 않고 남겨 둔다.
