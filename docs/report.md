@@ -1,83 +1,10 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
 ---
 
-## 수정 착수지시서: 로그인 화면 개편 A — 로그인 계정이 로그아웃하면 라이트로 바뀜 `[x]`
-
-보리 확인(2026-10-25, B 배포본 확인 중): "첫 로그인 후 설정에서 다크모드 → 로그아웃 → 로그인 화면이 라이트로 바뀌고, 로그인 후 메인부터 다크. 재로그인 시 로그인 화면도 다크여야지." A의 목표 2(sot 4-19)를 못 지킨 것이다.
-
-### 쉬운 요약
-- 로그아웃 버튼을 누르면 "로그인 정보 지우기"와 "로그인 화면으로 이동"이 차례로 일어난다.
-- 그 사이 아주 짧은 순간 앱이 "로그인 안 된 사람이 아직 메인 화면에 있음" 상태가 되고, 이때 비회원 기본 테마(라이트)로 칠해 버린다. 마지막 테마 기억까지 라이트로 덮인다.
-- 로그인 안 된 상태에서는 테마를 칠하지 않게 막는다.
-
-### 현재 상태 (코드 확인)
-- 로그아웃 순서(`src/app/useAppSession.js:120-130` `handleLogout`): `setSession(null)` → `navigate('/auth')`.
-- 세션이 없으면 owner가 `'guest'`가 된다(`src/data/cloud/appSession.ts:76-81`). 비회원 설정에 테마가 없으면 라이트다.
-- 라우터(react-router-dom 7, `package.json:24`)는 화면 이동을 낮은 우선순위로 늦게 처리한다(`AuthRoute.jsx` 맨 위 주석에도 같은 설명이 있다). 그래서 세션이 비는 화면이 먼저 그려지고, 이때 주소는 아직 `/app`이다.
-- 테마 칠하기 조건은 `booting || inAccountFlow`뿐이다(`useAppSession.js:108-111`). 주소가 아직 `/app`이라 조건을 통과해 `applyTheme(라이트)`가 불리고 `lastTheme`도 light가 된다.
-- 비회원이 로그아웃할 때는 owner가 그대로 `'guest'`라 테마가 안 바뀌어서 증상이 없다. 브라우저에서 비회원 다크 → [로그인하기]로 확인하면 다크가 유지됐다.
-- A의 시험(`accountFlowTheme.test.js`)은 `/auth`로 바로 들어가는 경우만 봐서 이 순간을 못 잡았다.
-
-### 목표 상태 (기대 동작)
-1. 로그인 계정이 다크로 쓰다 로그아웃하면 로그인 화면이 다크이고, `lastTheme`도 dark로 남는다.
-2. 세션이 없을 때는 주소와 상관없이 테마를 칠하지 않는다.
-3. 다시 로그인해 앱 안으로 들어가면 그 계정 설정의 테마다(지금과 같음).
-4. 비회원 시작·비회원 로그아웃·설정에서 테마 바꾸기는 지금과 같다.
-
-### 건드릴 파일
-- `src/app/useAppSession.js` — 테마 칠하기 조건에 `!session` 추가(108~111줄)
-- 시험 `src/app/App.test.js`(로그인 세션으로 부트하는 파일)에 1개 추가:
-  - 프로필 설정 테마 dark로 부트 → `/app`에서 dark
-  - 개인정보 화면 [로그아웃] → `/auth` 도착 → dark와 `lastTheme` dark 유지
-
-### 안 건드릴 것
-- `handleLogout` 순서·라우터 설정 — 화면 이동 방식은 다른 화면 동작과 얽혀 있어(`AuthRoute.jsx` 부트 처리) 바꾸지 않는다.
-- B의 화면 코드(`866f9a4`)
-- `applyTheme`·`index.html`
-
-### 검증
-- 새 시험은 고치기 전 코드에서 실패해야 한다(revert-check).
-- 기존 `accountFlowTheme.test.js` 2개 그대로 통과. 둘째 시험(비회원 → 앱 안 진입 시 설정 테마)이 `!session`과 안 부딪히는지 같이 본다. 비회원은 세션이 있다.
-- 전체 `npm test`·`typecheck`
-- 브라우저: 비회원 다크 → 로그아웃 → 다크 유지(회귀 확인). 로그인 계정 확인은 구글 로그인이 필요해 보리 확인.
-
-### 파일 길이
-- `useAppSession.js` 146 → 146(같은 줄 수정)
-- 시험 파일은 제한 없음.
-
-### 코드에 넣을 주석(최종 문구)
-- 108줄 주석을 바꾼다: `// 부트 중·세션 없음·계정 화면은 덮지 않고 마지막 테마를 둔다(로그아웃해도 라이트로 바뀌지 않게).`
-
-### 실패 시 처리
-- 새 저장 키·재시도·대비 장치 없음.
-- 실패하면 수정 착수지시서를 다시 써서 승인받는다.
-
-### 사용자 확인 방법
-1. 구글 계정으로 로그인 → 설정에서 다크 → 개인정보 화면 [로그아웃]
-2. 로그인 화면이 다크인지 본다. 새로고침해도 다크인지 본다.
-3. 다시 로그인하면 메인도 다크인지 본다.
-
-### 진행 기록
-- 2026-10-25 보리 "착수지시서 확정, 작업 진행해".
-- `useAppSession.js`: 조건에 `!session`, 의존 목록에 `session`, 주석은 지시서 문구 그대로. 146줄 그대로.
-- 지시서와 다른 점: 시험을 "프로필 설정 테마 dark로 부트"가 아니라 보리가 한 그대로 짰다(로그인 부트 → 설정 화면 다크 스위치 → 개인정보 [로그아웃] → `/auth`). 시험 하네스의 서버 설정 테마가 Store에 dark로 들어오지 않아(원인 미조사, 이번 범위 밖) 실제 사용 흐름으로 바꿨다.
-- 새 시험은 수정 전 코드에서 "로그아웃 뒤 로그인 화면이 라이트로 바뀌면 안 된다"로 실패했다(revert-check).
-- 전체 `npm test` 통과(unit 896, app 888), `typecheck` 통과.
-- 브라우저(개발 서버 새로 켬): `lastTheme` dark로 `/auth` → dark, 비회원 시작 → `/app` dark(비회원 설정), 콘솔 오류 없음.
-  - 그 전 탭에 보인 오류 2건은 revert-check가 파일을 잠깐 되돌린 사이 화면 자동 갱신이 생긴 것이다. 새로 켠 서버에서는 없다.
-- 로그인 계정 실제 로그아웃은 보리 확인이 필요하다.
-- 보리 "커밋해" → react-app `68af422`(push 안 함).
-- push 뒤 CI verify·deploy 초록(run 40202981651). 배포본 앱 파일에 조건(`!session`)이 들어간 것도 확인했다.
-  - 보리가 처음 "동일해"라고 한 것은 배포 전에 확인한 것이었다.
-- 서버 설정값으로 조사하다 따로 찾은 것(이번 범위 밖, 보리 결정 대기): 이 기기에 테마 기억이 없으면 서버 설정이 다크여도 로그인 뒤 라이트로 나온다(`owner-state.ts` `initializeOwnerFromPersist`가 hydrate 뒤 기기 값으로 덮음).
-- 2026-10-25 보리 "해당건 승인 문제없어" → `[x]`.
-
----
-
-## 로그인 화면 개편 B — 로그인 첫 화면 시안 반영 `[~]`
+## 로그인 화면 개편 B — 로그인 첫 화면 시안 반영 `[x]`
 
 보리 요청(2026-10-25, 피그마 시안). A `[x]`(react-app `60d23d7`, sot 4-19) 다음 조각이다. 대화로 정한 것 `[확인: 2026-10-25 보리]`:
 - 색·버튼·글자 크기는 공통 UI 값을 쓴다. 크기는 시안과 달라도 되고, 만들어 둔 위계를 쓴다.
@@ -216,7 +143,9 @@
 - 보리 "위치를 살짝 더 위로" → 로고 줄만 12px 올림(`.auth-brand-head` 여백 `-12px 0 40px`). 나머지 자리는 그대로(375×812에서 구글 버튼 위치 같음).
 - 보리 "12px만 더" → 로고 줄 여백 `-24px 0 52px`(처음보다 24px 위). 작은 제목 아래는 그대로.
 - 보리 "커밋해" → react-app `866f9a4`(push 안 함).
-- 보리 push 뒤 CI verify·deploy 초록(run 40201495861). 남은 것: 최종 승인.
+- 보리 push 뒤 CI verify·deploy 초록(run 40201495861).
+- 2026-10-25 보리 "승인" → `[x]`.
+- 이어서 보리 지시(착수지시서 없이 바로): 작은 제목을 "간편한 화물 차량 운행 관리"로 바꿈 → react-app `3276b6d`(문구와 같은 문구를 보던 시험 기대값, 로그인 첫 화면 시험 4개 통과, push 안 함).
 
 ---
 
