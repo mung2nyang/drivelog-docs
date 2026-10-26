@@ -1,96 +1,82 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-운비서·+ 버튼 겹침: drivelog-docs `6fe917d`. 로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+운비서 버튼 설정: drivelog-docs `d65beaf`. 운비서·+ 버튼 겹침: drivelog-docs `6fe917d`. 로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
 ---
 
-## 앱 설정에 "운비서 버튼" 켜기·끄기 `[x]`
+## 로드맵 113-A 세금계산서에 파렛트 금액 넣기 `[x]`
 
-보리 지시(2026-10-26): "설정에 운비서 on,off추가해". 정한 것 `[확인: 2026-10-26 보리 — "1.2 가 3 켜짐"]`:
-- 끄면 다른 화면에 떠 있는 운비서 동그라미만 사라지고, 홈 카드는 그대로 남는다.
-- 계정 설정에 저장한다. 다크 모드처럼 다른 휴대폰에서 로그인해도 같다.
-- 처음 값은 켜짐이다.
+보리 지시(2026-10-26): "파렛트계산해야해" → 계산 비교 문서 `docs/external-calc-comparison.md` 5절 C(정해 둔 규칙 없음)를 보이자 "넣어야지 당연히" `[확인: 2026-10-26 보리]`. 같은 지시의 "파렛트가 빠진게 또잇는지봐" 조사 결과는 대화로 따로 보고했다(이 지시서 범위 아님).
 
 ### 쉬운 요약
-- 앱 설정 "화면 표시" 묶음의 다크 모드 아래에 "운비서 버튼" 스위치를 넣는다. 끄면 홈이 아닌 화면에 운비서 동그라미가 안 뜬다.
-- 홈 화면의 운비서 카드는 켜든 끄든 그대로라서, 끈 뒤에도 운비서는 홈에서 쓸 수 있다.
-- **서버 DB는 안 바꾼다.** 설정은 서버 한 칸에 묶음째 저장되기 때문이다(아래 근거). 대신 이 휴대폰 설정 검사 목록에 새 이름을 꼭 넣는다. 빠뜨리면 다음에 앱을 켤 때 설정 읽기가 형식 오류로 막힌다.
+- 고정 노선 거래처에 파렛트를 받는 날, 달력·매출 화면에는 파렛트 금액이 들어가는데 세금계산서에는 빠져 있다. 세금계산서에도 넣는다.
+- 예: 고정 노선 1회 25만 원 + 파렛트 2장(1장 5천 원) → 지금 세금계산서 공급가액 250,000원, 고친 뒤 260,000원(달력·매출과 같음). 부가세도 1,000원 늘어난다.
+- 운비서에게 "거래처 매출"을 물으면 세금계산서와 같은 계산을 쓰기 때문에 그 답도 같이 맞춰진다.
 
 ### 현재 상태 (코드 확인)
-- 서버 저장: 앱 설정 전체를 `profiles.settings` 한 칸(jsonb)에 통째로 넣는다(`data/sync/profileCloudCommit.ts` 20~25줄 `settings`). 그래서 새 이름이 생겨도 DB 구조를 안 바꿔도 된다.
-  - 근거: 같은 방식으로 나중에 생긴 `notifOff`·`dailyInspectionOn`이 `supabase/migrations/` 어디에도 없다(`grep -rn notifOff supabase` 결과 없음). 연동 기사도 자기 행의 `settings`를 읽는다(`hydrateEmployedDriver.ts` 86~87줄).
-- 이 휴대폰 저장 검사: `SETTINGS`는 `v.strictObject`(`data/store/persistDomainSchema.ts` 31줄)라 모르는 이름이 있으면 설정 읽기가 형식 오류다. `notifOff`를 넣을 때도 그래서 칸과 시험을 같이 넣었다(`persistDomainSchema.notifOff.test.js` 1~2줄 설명).
-- 기본값·정리: `domain/practiceSettings.ts` `defaults`(19~41줄)와 `normalizeSettings`(49~79줄). 정리 결과에 없는 이름은 버려진다.
-- 형: `domain/financeTypes.ts` `FinanceSettings`(62~98줄).
-- 떠 있는 운비서: `features/home/ui/UnbiseoDock.tsx`, 비회원이면 안 띄움(16줄 `if (!assistant.loggedIn) return null`). 앱 틀이 홈이 아닐 때만 그린다(`app/shell/AppShell.jsx` 177줄).
-- 떠 있는 동안만 생기는 아래 여백 +60px·알림 문구 자리는 `:has(.unbiseo-dock)` 규칙이다(`app-shell-base.css` 20줄, `toast.css` 24줄). 동그라미를 안 그리면 저절로 없어진다.
-- 앱 설정 화면: `features/settings/ui/AppSettingsPage.jsx`(173줄). "화면 표시" 묶음에 다크 모드 줄(`!logId`일 때, 90~98줄). 일상점검표 스위치는 비회원에게 안 보임(`ownerKey !== 'guest'`, 130줄).
+- 세금계산서 금액은 `getTaxInvoiceSourceGroups`(`domain/financeTaxInvoiceGroups.ts` 15~79줄)가 낸다. 차량(메인·기사 차량)마다, 거래처마다 콜 상세 운송료(53~63줄)와 고정 노선 횟수 × 단가(65~75줄)만 더하고, 파렛트는 안 본다.
+  - 확인: 위 예를 그대로 넣으면 세금계산서 `['한진', 250000, 25000]`, 달력 `monthSettlementSummary` 운송료 + 파렛트 260000(스크래치패드 시험 스크립트).
+- 다른 화면은 모두 같은 조건으로 파렛트를 넣는다: 그 차량 고정 노선 켜짐(메인 `fixedOn`, 기사 차량 `subFixedOn`) + 고정 노선 거래처 `palletOn`, 금액은 장수 × `palletPrice`.
+  - 달력 `monthSettlement.ts` 101~105줄(부가세 날마다 `vatOf`), 매출 `financeOwnerDetail.ts` 65~69줄(그 거래처 매출에 더함), 기사 몫 `financeCore.ts` 147~149줄, 하루 금액 `calendarBadges.ts` `dayFareTotal`(sot 4-17).
+- 파렛트 장수는 휴무 날 저장 때 0이 된다(`day-record.ts` 138줄). 그래서 휴무 확인은 따로 안 넣어도 된다.
+- 쓰는 곳: 서류 발급 세금계산서 탭(`listTaxInvoiceEntries` → `invoices.ts` 39줄), 운비서 거래처 매출 답(`unbiseoNumbers.ts` 47줄).
+- 세금계산서 목록은 `...saved, ...group` 순서라(`financeTaxInvoiceEntries.ts` 71~80줄) "발급 완료"로 표시한 달도 금액은 매번 다시 계산한다. 지금도 운행을 고치면 발급 완료분 금액이 바뀌는 방식이다.
 
 ### 목표 상태 (기대 동작)
-1. 로그인 계정의 앱 설정 "화면 표시"에서 다크 모드 바로 아래에 "운비서 버튼" 스위치가 보인다. 처음엔 켜짐이다.
-2. 비회원 화면과 기사 차량 일지 설정 화면(`/app/settings/:logId`)에는 이 스위치가 없다.
-3. 끄면 홈이 아닌 모든 화면에서 운비서 동그라미가 사라지고, 아래 여백 +60px·알림 문구 자리도 원래대로 돌아간다.
-4. 끌 때 운비서 카드가 펼쳐져 있었으면 접히고, 듣는 중이었으면 멈춘다.
-5. 다시 켜면 동그라미가 저장된 자리(왼쪽·오른쪽·높이)에 그대로 다시 뜬다.
-6. 홈 화면 운비서 카드는 켜든 끄든 그대로다.
-7. 서버에 저장돼서 다른 휴대폰에서 로그인해도 같은 값이다. 저장에 실패하면 다른 설정과 같은 알림 문구(`SERVER_SAVE_FAIL`)가 뜬다.
-8. 이 칸이 없는 옛 설정은 켜짐으로 읽는다. 이 칸이 든 설정을 다시 읽어도 형식 오류가 안 난다.
+1. 고정 노선 거래처 계산서의 공급가액에 그달 파렛트 금액(장수 × 파렛트 단가)이 더해진다. 조건은 달력·매출과 같다(그 차량 고정 노선 켜짐 + 거래처 파렛트 켜짐).
+2. 부가세는 고정 노선 금액과 파렛트 금액을 날마다 따로 버림해서 더한다(달력 `monthSettlement.ts`와 같은 규칙, sot 4-14).
+3. 건수(`count`)는 그대로다. 파렛트는 운행 횟수가 아니다(sot 4-17 마지막 줄).
+4. 고정 노선 횟수가 0이고 파렛트만 있는 날도 그 거래처 계산서에 들어간다(달력과 같음).
+5. 기사 차량 계산서도 같은 규칙이고, 그 차량 스코프 고정 노선 거래처의 파렛트 단가를 쓴다(`getFixedRouteClient(settings, source.logId)` 그대로).
+6. 고정 노선 거래처 이름이 없으면 지금처럼 고정 노선도 파렛트도 안 들어간다.
+7. 운비서 "거래처 매출" 답이 세금계산서 탭 숫자와 같다(파렛트 포함).
+8. 시험 바탕 데이터(`finance.fixtures.ts` — 메인 5월 10일 고정 2회 + 파렛트 3장, 단가 10,000원)로 메인 한진 계산서가 630,000 → 660,000원, 부가세 63,000 → 66,000원, 합계 726,000원, 건수 5 그대로.
 
 ### 건드릴 파일
-- `react-app/src/domain/financeTypes.ts` — `FinanceSettings`에 한 줄. 주석 최종 문구:
-  `unbiseoDockOn?: boolean // 홈이 아닌 화면의 운비서 버튼(기본 켜짐)`
-- `react-app/src/domain/practiceSettings.ts` — `defaults`에 `unbiseoDockOn: true`, `normalizeSettings`에 `unbiseoDockOn: asBool(raw.unbiseoDockOn, defaults.unbiseoDockOn)`. 주석 없음.
-- `react-app/src/data/store/persistDomainSchema.ts` — `SETTINGS` 47줄 `notifOff` 옆에 `unbiseoDockOn: opt(bool)`. 줄 수 그대로, 주석 없음.
-- `react-app/src/features/home/ui/UnbiseoDock.tsx` — 로그인 계정의 설정에서 `unbiseoDockOn`이 꺼져 있으면 안 그린다. 꺼질 때 카드가 열려 있으면 접고, 듣는 중이면 멈춘다. 주석 최종 문구:
-  `// 설정에서 끄면 띄우지 않는다 — 열린 카드는 접고 듣기도 멈춘다.`
-- `react-app/src/features/settings/ui/AppSettingsPage.jsx` — 다크 모드 줄 아래에 `!logId && ownerKey !== 'guest'`일 때 다크 모드 줄과 같은 모양의 스위치 줄을 넣는다(id `unbiseoDockToggle`, 이름 "운비서 버튼", 아래 구분선 포함). `patch({ unbiseoDockOn: checked })`.
-- 시험(새 시험은 고치기 전 코드에서 실패하는지 확인):
-  - `src/data/store/persistDomainSchema.notifOff.test.js`와 같은 방식의 새 시험 파일 — 저장 뒤 다시 읽어도 형식 오류가 안 나고 값이 그대로인지, 글자 같은 틀린 모양은 걸러지는지.
-  - `src/domain/practiceSettings.test.js` — 칸이 없으면 true, false면 false.
-  - `src/app/shell/UnbiseoDock.test.js` — 꺼진 설정이면 홈이 아닌 화면에 `.unbiseo-dock`이 없고, 켜진 설정이면 있는지.
-  - 앱 설정 화면 시험(`AppSettingsPage.*.test.js` 중 알맞은 곳) — 로그인이면 스위치가 있고, 비회원이면 없는지.
-- 문서(`[x]` 때): `docs/sot.md` 572줄 떠 있는 운비서 끝에 "앱 설정 '운비서 버튼'로 끄기(계정 설정, 기본 켜짐, 홈 카드는 그대로)" 한 문장, `STATUS.md` 완료 한 줄.
+- `react-app/src/domain/financeTaxInvoiceGroups.ts` — `getTaxInvoiceSourceGroups`의 차량 반복 안에 그 차량 고정 노선 켜짐·거래처 파렛트 켜짐·파렛트 단가를 구하고, 날마다 고정 노선 계산 바로 뒤에서 파렛트 금액을 같은 거래처 묶음에 더한다(공급가액·부가세만, 건수는 안 더함). 주석 최종 문구:
+  `// 파렛트도 고정 노선 거래처 계산서에 — 달력·매출과 같은 조건(고정 노선 켜짐 + 거래처 파렛트 켜짐), 부가세는 날마다.`
+- 시험:
+  - `src/domain/finance.test.js` 120~135줄 확정 금액 표, `src/domain/receivables-invoices.test.js` 105~112줄 확정 금액 표 — 메인 한진 값을 목표 8대로 바꾼다. 지금 값은 파렛트가 빠진 버그 값이라 바꾸는 것이다(지우거나 약하게 하지 않음).
+  - 새 시험(같은 `finance.test.js`나 `receivables-invoices.test.js` 안): 위 쉬운 요약 예 → 260,000/26,000, 건수 1. 거래처 파렛트 꺼짐이면 250,000. 그 차량 고정 노선 꺼짐이면 파렛트 없음. 파렛트만 있는 날(고정 0)도 들어감. 기사 차량 스코프 거래처 단가.
+  - `src/features/home/api/unbiseoNumbers.test.js` 105줄 근처 — 세금계산서와 같은 함수를 비교하므로 값이 같이 움직이는지 확인만, 필요하면 기대값만 고침.
+  - 새 시험은 고치기 전 코드에서 실패하는지 확인한다.
+- 문서(`[x]` 때): `docs/sot.md`에 "세금계산서에도 파렛트 포함(달력·매출과 같은 조건, 부가세 날마다, 건수 안 셈), 파렛트엔 거래처 수수료 안 뗌" 한 줄(4-17 아래), `docs/external-calc-comparison.md` 5절 C에 끝 표시, `STATUS.md` 완료 한 줄.
 
 ### 안 건드릴 것
-- 서버 DB·Supabase 함수 — 설정은 jsonb 한 칸이라 바꿀 것 없음(위 근거).
-- `HomeAssistantBar.jsx`(홈 카드) — 보리 결정 1 가.
-- `AppShell.jsx`(198줄, 200줄 가까움) — 끄기 판단은 `UnbiseoDock.tsx` 안에서 하므로 손대지 않는다.
-- `useDockPosition.ts` — 동그라미 위치 저장은 그대로라 다시 켜면 그 자리.
-- 기사 차량별 설정(`subCarSettings`) — 이 스위치는 계정 하나에 하나.
+- 콜 상세·고정 노선 계산(53~75줄의 기존 금액), 계산서 저장 형식·발급 상태 — 금액 더하기만.
+- 휴무 날 콜이 세금계산서에 남는 문제(같은 문서 5절 B) — 이번 범위 아님.
+- 파렛트 금액에는 거래처 수수료를 안 뗀다 `[확인: 2026-10-26 보리 — "파렛트는 수수료를 안때"]` — 지금 달력·매출 그대로, 세금계산서는 수수료와 무관(공급가액만).
+- 기사 차량 운송비 내역서 파렛트 스위치(113-B), 기사 관리 거래처 세금계산서 묶음의 고정 노선·파렛트(113-C) — 다음 슬라이스.
 
 ### 검증
-- 자동 검사는 CI가 한다(테스트·타입·빌드·의존 방향). 위 새 시험은 고치기 전 코드에서 실패하는지 확인한다.
-- 미리보기(로그인 계정): 스위치 끄기 → 거래처·매출 화면에 동그라미 없음, 화면 아래 여백 원래대로 → 다시 켜기 → 저장된 자리에 다시 뜸. 비회원 앱 설정에 스위치 없음.
-- 저장·동기화 경로(설정 저장)를 건드리므로 `docs/testing-playbook.md` §4 트리거에 해당하는지 확인하고, 해당하면 그 절차를 따른다.
+- 자동 검사는 CI가 한다(테스트·타입·빌드·검사기). 로컬에서도 lint·typecheck·npm test를 돌린다.
+- 새 시험은 고치기 전 코드로 되돌려 실패하는지 확인(revert-check).
+- 저장·동기화 경로는 안 건드린다(계산 함수 하나) — 플레이북 §4 해당 없음.
 
 ### 파일 길이
-- `financeTypes.ts` 108 → 109줄
-- `practiceSettings.ts` 110 → 112줄
-- `persistDomainSchema.ts` 82 → 82줄
-- `UnbiseoDock.tsx` 79 → 약 90줄
-- `AppSettingsPage.jsx` 173 → 약 183줄
-- 200줄 넘는 운영 파일 없음. `AppShell.jsx`(198줄)는 안 건드린다.
+- `financeTaxInvoiceGroups.ts` 161 → 약 170줄. 200줄 안.
+- 시험 파일: `finance.test.js` 445줄, `receivables-invoices.test.js` 186줄 — 새 시험은 줄이 적은 `receivables-invoices.test.js`에 넣는다(200줄 넘으면 새 시험 파일 `financeTaxInvoicePallet.test.js`로).
 
 ### 실패 시 처리
-- 새 저장 장치·재시도·대비 장치를 만들지 않는다. 저장 실패는 지금 앱 설정과 같은 알림 문구만 띄운다. 계획대로 안 되면 손대지 말고 지시서를 다시 써서 승인받는다.
+- 새 저장 장치·재시도·대비 장치를 만들지 않는다. 계산이 다른 화면과 안 맞으면 손대지 말고 지시서를 다시 써서 승인받는다.
 
 ### 사용자 확인 방법
-1. 앱 설정을 연다 → "화면 표시"의 다크 모드 아래에 "운비서 버튼"가 켜진 채 보이면 성공.
-2. 끄고 거래처 화면으로 간다 → 운비서 동그라미가 없으면 성공. 홈에 가면 운비서 카드는 그대로 있어야 한다.
-3. 다른 휴대폰이나 브라우저에서 같은 계정으로 들어간다 → 꺼진 채이면 성공.
-4. 다시 켠다 → 동그라미가 전에 두던 자리에 다시 뜨면 성공.
+1. 파렛트를 넣은 날이 있는 달의 서류 발급 → [세금계산서] 탭을 연다.
+2. 고정 노선 거래처 계산서의 공급가액이 그 달 달력(또는 매출 화면)의 그 거래처 운송료 + 파렛트와 같으면 성공.
+3. 운비서에게 "이번 달 (거래처 이름) 매출"을 묻는다 → 세금계산서 탭의 합계와 같으면 성공.
 
 ### 진행 기록
-- 2026-10-26 보리: "응 너가해 착수지시서 확정, 작업 진행해" — 데스크톱 AI.
-  - 교차검증 고친 사실: 줄 번호만(다크 모드 줄 90~98, 일상점검표 130, `defaults` 19~41, `normalizeSettings` 49~79, `FinanceSettings` 62~98). 플레이북 §4는 삭제 흐름 시나리오라 해당 없음(설정 저장 경로는 그대로 씀).
-  - 구현: react-app `14b89ff`(push 안 함). 5개 운영 파일 지시서대로, 주석 지시서 문구 그대로. 스위치 줄은 다크 모드 줄과 같은 모양(`settings-theme-row`). 끌 때 접기·듣기 멈춤은 `UnbiseoDock.tsx` 안 `useEffect`.
-  - 줄 수: `UnbiseoDock.tsx` 89, `AppSettingsPage.jsx` 182, `practiceSettings.ts` 112, `financeTypes.ts` 109, `persistDomainSchema.ts` 82.
-  - 시험: 새 6개 중 4개는 수정 전 코드로 돌리면 실패(다시 읽기 값 그대로, 기본 켜짐, 설정 화면 스위치, 끄고 켤 때 떠 있는 운비서). 2개는 안전 확인이라 수정 전에도 통과(틀린 모양 거르기, 비회원·기사차량 설정엔 스위치 없음).
-  - 검증: lint·typecheck·npm test(899·891) 통과.
-  - 미리보기(비회원, 로컬): 앱 설정에 스위치 없음, 콘솔 오류 없음. 로그인 계정 화면은 로컬에서 못 열어 시험으로만 확인.
-  - 남은 일: 보리 push → CI → 로그인 계정으로 사용자 확인 방법 1~4.
-- 2026-10-26 보리 "운비서 버튼 이라고만 바로 고쳐" — 스위치 이름 "운비서 버튼"으로, react-app `e51831e`(이름·시험 설명·주석만, 동작 그대로). 관련 시험·lint 통과. 지시서 안 이름도 맞춤.
-- 2026-10-26 보리 push 뒤 CI verify·deploy 초록(run 40257052323, `14b89ff`·`e51831e`).
+- 2026-10-26 보리: "확정하고 터미널ai가할거야" — 착수 승인, 터미널 AI 작업(시작 전 지시서 교차검증).
+- 2026-10-26 보리: "착수지시서 확정,작업진행해" — 터미널 AI.
+  - 교차검증 고친 사실: `financeTaxInvoiceGroups.ts` 콜 상세는 49~59줄, 고정 노선은 61~71줄(지시서 53~63·65~75). 플레이북은 "해당 없음"이 아니라 AGENTS §4 트리거(`domain/finance*`)라 열람함 — 저장·동기화 절(§1~5)은 계산 함수 하나라 해당 없고, §6 고치기 전 실패 확인만 해당. 새 시험은 `receivables-invoices.test.js`에 넣으면 200줄을 넘어 지시서대로 새 `financeTaxInvoicePallet.test.js`. 그 밖(달력·매출·기사 몫 파렛트 조건, `day-record.ts` 138줄 휴무 0, 시험 바탕 데이터)은 맞음.
+  - 구현: react-app `bdd5565`(push 안 함). `financeTaxInvoiceGroups.ts` 161 → 173줄, 주석 지시서 문구 그대로. 파렛트 장수는 달력과 같은 `getPalletCount`로 읽음.
+  - 시험: 새 시험 7개(달력 금액·부가세와 같음 포함). 확정 금액 표 메인 한진 630,000/63,000 → 660,000/66,000(합계 726,000, 건수 5 그대로), 작성 전 목록 합계 1,160,000 → 1,190,000. `unbiseoNumbers.test.js`는 고칠 것 없이 통과.
+  - 고치기 전 실패 확인: 새 시험 7개 중 5개는 고치기 전 코드에서 실패, 고친 뒤 통과. 2개(거래처 파렛트 꺼짐·고정 노선 꺼짐이면 파렛트 없음)는 바뀌면 안 되는 것을 지키는 안전 확인이라 고치기 전에도 통과.
+  - 검증: lint·typecheck·depcheck(1813)·npm test(906·891) 통과.
+  - 남은 일: 보리 push → CI → 서류 발급 세금계산서 탭·운비서 거래처 매출 확인(사용자 확인 방법 1~3).
+- 2026-10-26 보리 push 뒤 CI verify·deploy 초록(run 40259484062). 데스크톱 AI 확인: 커밋 `bdd5565`는 지시서 범위(계산 파일 1개 + 시험), 주석 문구 그대로, 시험 기대값 변경은 파렛트가 빠진 버그 값 3곳만.
+- 2026-10-26 보리 "고정노선 계산서를 안켯는데 어케확인해 니가해" — 데스크톱 AI가 로컬 미리보기(`bdd5565`와 같은 코드) 비회원 모드로 확인(이 브라우저에만 저장, 서버 안 감): 거래처 "시험고정" 고정 노선 1회 250,000원·파렛트 5,000원, 10월 20일 고정 1회 + 파렛트 2장 → 일지 운송료 합계 260,000원, 달력 월간 정산 250,000 + 파렛트 10,000 + 부가세 26,000 = 286,000원, 매출 운송료 260,000원·부가세 26,000원, 서류 발급 세금계산서 1건 공급가액 260,000원·부가세 26,000원·합계 286,000원 — 세 화면 같음. (비회원으로 연 것은 AI 실수 — 보리가 로그인해 둔 탭이 있었음).
+- 2026-10-26 로그인된 탭(localhost:5174 테스터 계정, 읽기만): 10월 달력 테스터거래처 기본 운송료 2,323,456원 + 파렛트 회수 청구액 50,000원 → 서류 발급 세금계산서 테스터거래처(메인 차량, 22건) 공급가액 2,373,456원·세액 237,345원·합계 2,610,801원, 운비서 "이번 달 테스터거래처 매출" 답 공급가액 2,373,456원·부가세 포함 2,610,801원 — 모두 같음.
 - 2026-10-26 보리 "승인" — `[x]`.
 
 ---
