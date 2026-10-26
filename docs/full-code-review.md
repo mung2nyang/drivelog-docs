@@ -62,7 +62,7 @@
 - K1: `removeFixedRoutePreset` 등이 설정 전체를 돌려주고 화면은 그걸 그대로 넘김 → `settingsSave.ts:33`이 최신 설정 위에 옛 전체를 덮음(차례 대기 장치가 있어도 소용없음)
 - K2: `carSettingsScope.ts:11` `defaultCarSettings()`가 `subFixedOn`을 안 넘겨 `callDetail: false`(`practiceSettings.ts:23`)
 - K3: `messageTemplates.ts` `localStorage`만
-- M1: `carInviteFromDraft.js:58` `endDate: ''` → `drivers.ts:112` 덮어씀. 같이 볼 것: 시작일도 `inviteStartDate || 오늘`이라 칸이 비면 오늘로 바뀔 수 있음
+- M1: `carInviteFromDraft.js:58` `endDate: ''` → `drivers.ts:112` 덮어씀. 시작일은 수정 창이 기존 값을 채워 둬서(`CarListPage.jsx:75`) 안 바뀜 — 테스트에는 지키는 확인으로 넣음
 - M2: `CarFormModal.jsx:154-162` 늘 % 칸, `formatPercentInput`(`money.ts:42`)이 100 넘으면 100
 - M3·R2: [저장] 처리 중 잠금 없음(`useCarListActions.js:33-43`, `ClientFormModal.jsx:123`)
 - R1: `checkClientDraft`(`clients.ts:47-61`)에 같은 이름 검사 없음
@@ -106,10 +106,14 @@
 | 서 | 문구 — 초대 문자 메뉴 이름(J1), 불러오기 실패 안내(E1), 고객센터 뒤로가기(E2) |
 | 어 | 매출 운행 거리(B6) |
 
-### 보리 결정이 필요한 물음
+### 보리 결정
 
-- B3: 공차·연동 혼짐을 운행 횟수(건당 기사 몫 계산 포함)에 넣는가 — 지금 달력·매출은 뺌
-- K3: 문자 문구를 로그인 회원은 서버에 둘지(sot §5대로) 아니면 휴대폰에 두기로 할지
+- B3: 공차·연동 혼짐은 운행 횟수에 넣지 않음 `[확인: 2026-10-26 보리 — "넣지마"]` → sot 4-21, 로드맵 139
+- K3: 문자 문구는 로그인 회원이면 서버에 둠 `[확인: 2026-10-26 보리 — "서버에 둬"]` → sot 4-21, 로드맵 135
+
+### 로드맵 등재 (2026-10-26)
+
+위 묶음을 `docs/roadmap.md` 126~148로 올림 — ① 126~135, ② 136~140, ⑤ 141~148. 묶음 기호 대응: 다 126, 가 127, 나 128, 라 129, 마 130, 바 131, 사 132, 아 133, 자 134, (K3) 135, 차 136, 카 137, 타 138, 파 139, 하 140, 거~어 141~148. 낮음 약 77개는 아직 대조 전.
 
 ---
 

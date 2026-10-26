@@ -2,6 +2,9 @@
 
 실행: `node --experimental-test-module-mocks --test-timeout=60000 --test <파일>` — 13개 모두 실패(= 지금 코드에서 재현됨).
 
+테스트 파일은 저장소에 두지 않는다(보리 지시) — 고칠 때 이 문서의 코드를 그대로 파일로 만든다.
+고침(2026-10-26, 데스크톱 AI): A2는 고친 뒤에도 통과할 수 없던 기준을, A6는 고치는 방법을 하나로 묶던 기준을 바꿈. M1에 시작일 확인 추가. `any` 표기는 뺌(이 저장소는 JS 타입 검사를 안 해서 동작 같음). 바꾼 A2·A6·M1은 다시 돌려 실패 확인.
+
 ## A1
 
 - 테스트 파일: `src/data/hydrate/retryHydrateLinkCheck.test.js`
@@ -94,11 +97,11 @@ not ok 1 - A1: 다시 불러오기 중 연동 확인이 실패하면 연동 기�
 import assert from 'node:assert/strict'
 import { mock, test } from 'node:test'
 
-/** @type {Array<{ items: Array<{ id: string, endDate?: string }>, editingId: string|null }>} */
+/** @type {Array<{ items: Array<{ id: string, startDate?: string, endDate?: string }>, editingId: string|null }>} */
 const saved = []
 mock.module('../../../data/sync/requestDriverInviteSave.ts', {
   namedExports: {
-    requestDriverInviteSave: async (/** @type {{ items: Array<{ id: string, endDate?: string }>, editingId: string|null }} */ args) => {
+    requestDriverInviteSave: async (/** @type {{ items: Array<{ id: string, startDate?: string, endDate?: string }>, editingId: string|null }} */ args) => {
       saved.push(args)
       return { items: args.items, blocked: null, toast: '기사 배정 정보를 수정했습니다.' }
     },
@@ -107,7 +110,7 @@ mock.module('../../../data/sync/requestDriverInviteSave.ts', {
 
 const { saveInviteAfterVehicle } = await import('./carInviteFromDraft.js')
 
-test('M1: 차량 창 저장(기사 연동 탭)이 기존 기사의 계약 종료일을 지우지 않는다', async () => {
+test('M1: 차량 창 저장(기사 연동 탭)이 기존 기사의 계약 기간을 바꾸지 않는다', async () => {
   const driver = {
     id: 'drv-1', name: '김기사', phone: '010-1111-2222', inviteCode: 'A2B3C4D5E6',
     vehicleNumber: '12가3456', startDate: '2026-11-01', endDate: '2026-12-31', status: 'linked',
@@ -119,9 +122,9 @@ test('M1: 차량 창 저장(기사 연동 탭)이 기존 기사의 계약 종료
     cloud: true,
     ownerKey: 'owner-m1',
     userId: 'user-m1',
-    drivers: /** @type {any} */ ([driver]),
-    cars: /** @type {any} */ ([car]),
-    saved: /** @type {any} */ ({ ...car, tonnage: '5톤' }),
+    drivers: [driver],
+    cars: [car],
+    saved: { ...car, tonnage: '5톤' },
     inviteDraft: {
       type: 'sub', number: '12가3456', driverName: '김기사', driverPhone: '010-1111-2222',
       inviteCode: driver.inviteCode, inviteStartDate: driver.startDate, inviteDriverId: driver.id,
@@ -130,6 +133,7 @@ test('M1: 차량 창 저장(기사 연동 탭)이 기존 기사의 계약 종료
 
   assert.equal(saved.length, 1, '배정 정보 저장 1번')
   const next = saved[0].items.find((item) => item.id === 'drv-1')
+  assert.equal(next?.startDate, '2026-11-01', `계약 시작일이 "${next?.startDate}"로 바뀜`)
   assert.equal(next?.endDate, '2026-12-31', `계약 종료일이 "${next?.endDate}"로 바뀜`)
 })
 ```
@@ -137,7 +141,7 @@ test('M1: 차량 창 저장(기사 연동 탭)이 기존 기사의 계약 종료
 ### 실행 결과
 
 ```
-not ok 1 - M1: 차량 창 저장(기사 연동 탭)이 기존 기사의 계약 종료일을 지우지 않는다
+not ok 1 - M1: 차량 창 저장(기사 연동 탭)이 기존 기사의 계약 기간을 바꾸지 않는다
   failureType: 'testCodeFailure'
   error: |-
     계약 종료일이 ""로 바뀜
@@ -276,11 +280,11 @@ test('A5: 두 번째 계산서에서 저장이 실패한 뒤 다시 저장해도
     { id: 'inv-2', flow: 'sales', monthKey: '2026-10', clientName: '대한', supplyAmount: 200000, taxAmount: 20000, totalAmount: 220000, status: 'draft' },
   ]
 
-  await assert.rejects(() => saveInvoices(ownerKey, /** @type {any} */ (items)), (/** @type {{ message?: string }} */ error) => error?.message === 'network down')
+  await assert.rejects(() => saveInvoices(ownerKey, items), (/** @type {{ message?: string }} */ error) => error?.message === 'network down')
   // 화면은 Store 값(실패라 그대로)으로 다시 저장한다 — TaxInvoiceTab.persist와 같은 입력.
   const again = getState().invoices[ownerKey]?.length ? getState().invoices[ownerKey] : items
   failSecond = false
-  await saveInvoices(ownerKey, /** @type {any} */ (again))
+  await saveInvoices(ownerKey, again)
 
   const inv1Count = insertedLocalIds.filter((id) => id === 'inv-1').length
   assert.equal(inv1Count, 1, `inv-1이 서버에 ${inv1Count}번 들어감(중복 계산서)`)
@@ -315,6 +319,7 @@ not ok 1 - A5: 두 번째 계산서에서 저장이 실패한 뒤 다시 저장�
 ```js
 // 전수점검 A6: 기사 차량 번호를 바꾸면(그 차량 계산서가 서버에 있을 때) 그 뒤 모든 세금계산서 저장이 계속 실패한다.
 // 계산서는 raw.carNumber(옛 번호)로 차량을 찾는데 vehicleRename은 계산서 차량 번호를 옮기지 않는다 → 2.5초 기다린 뒤 던짐.
+// 번호 바꾸기는 앱의 실제 저장 경로(requestVehicleSave)로 한다 — 어느 쪽을 고치든(번호 옮기기·서버 차량 번호로 찾기) 같은 기준.
 import '../../testSupport/setupDom.js'
 import assert from 'node:assert/strict'
 import { mock, test } from 'node:test'
@@ -324,39 +329,46 @@ const { fakeSupabase, handlers, resetHandlers, emptyOkHandlers } = createFakeSup
 mock.module('../cloud/supabaseClient.ts', { namedExports: { supabase: fakeSupabase } })
 
 const { saveInvoices } = await import('./invoicesSave.ts')
+const { requestVehicleSave } = await import('./vehicleMutations.ts')
 const { beginSessionEpoch, endCloudSession } = await import('../cloud/cloudSession.ts')
-const { setHydration } = await import('../store/app-store.ts')
-const { commitCars } = await import('../store/commitHelpers.ts')
+const { setHydration, getState } = await import('../store/app-store.ts')
+const { commitCars, commitInvoices } = await import('../store/commitHelpers.ts')
 
-test('A6: 기사 차량 번호를 바꾼 뒤에도 메인 차량 새 계산서는 저장된다', async () => {
+test('A6: 기사 차량 번호를 앱에서 바꾼 뒤에도 세금계산서 저장이 된다', async () => {
   const ownerKey = 'a6-owner'
   resetHandlers()
   Object.assign(handlers, emptyOkHandlers())
   handlers.tax_invoices = { insert: () => ({ data: { id: 9101 }, error: null }), update: () => ({ data: null, error: null }) }
-  beginSessionEpoch('a6-user', ownerKey)
-  setHydration({ status: 'ready', userId: 'a6-user', ownerKey })
-  // 기사 차량 "34나5678" → "56다7890"으로 번호를 바꾼 뒤(차량 id·서버 번호는 같음).
-  commitCars(ownerKey, [
-    { id: 'car-main', type: 'main', number: '12가3456', supabaseId: 700 },
-    { id: 'car-sub', type: 'sub', number: '56다7890', supabaseId: 801 },
+  handlers.rpc = { rename_sub_vehicle: () => ({ data: null, error: null }) }
+  beginSessionEpoch('a6-owner', ownerKey)
+  setHydration({ status: 'ready', userId: 'a6-owner', ownerKey })
+  const subCar = { id: 'car-sub', type: 'sub', number: '34나5678', supabaseId: 801, driverName: '김기사' }
+  commitCars(ownerKey, [{ id: 'car-main', type: 'main', number: '12가3456', supabaseId: 700 }, subCar])
+  // 번호 바꾸기 전에 서버에 저장된 그 기사 차량 계산서.
+  commitInvoices(ownerKey, [
+    { id: 'inv-old', supabaseId: 5001, flow: 'sales', monthKey: '2026-09', clientName: '한진', carNumber: '34나5678', supplyAmount: 1, taxAmount: 0, totalAmount: 1, status: 'issued' },
   ])
 
+  // 차량 관리에서 기사 차량 번호를 "56다7890"으로 바꾼다.
+  const renamed = await requestVehicleSave({ ownerKey, cars: getState().cars[ownerKey], draft: { ...subCar, number: '56다7890' }, editingId: 'car-sub', userId: 'a6-owner' })
+  assert.equal(renamed.failed, false, `차량 번호 바꾸기 실패: ${renamed.toast}`)
+
+  // 그다음 메인 차량 새 계산서를 저장한다(TaxInvoiceTab.persist처럼 목록 전체를 넘김).
   const items = [
-    // 번호 바꾸기 전에 서버에 저장된 그 차량 계산서 — 차량 번호가 옛 번호 그대로 남아 있다.
-    { id: 'inv-old', supabaseId: 5001, flow: 'sales', monthKey: '2026-09', clientName: '한진', carNumber: '34나5678', supplyAmount: 1, taxAmount: 0, totalAmount: 1, status: 'issued' },
-    // 지금 새로 저장하려는 메인 차량 계산서.
+    ...(getState().invoices[ownerKey] || []),
     { id: 'inv-new', flow: 'sales', monthKey: '2026-10', clientName: '대한', carNumber: '12가3456', supplyAmount: 100000, taxAmount: 10000, totalAmount: 110000, status: 'draft' },
   ]
-
-  await assert.doesNotReject(() => saveInvoices(ownerKey, /** @type {any} */ (items)))
+  await assert.doesNotReject(() => saveInvoices(ownerKey, items))
   endCloudSession()
 })
 ```
 
 ### 실행 결과
 
+차량 번호 바꾸기는 성공하고(첫 확인 통과), 계산서 저장에서 실패한다.
+
 ```
-not ok 1 - A6: 기사 차량 번호를 바꾼 뒤에도 메인 차량 새 계산서는 저장된다
+not ok 1 - A6: 기사 차량 번호를 앱에서 바꾼 뒤에도 세금계산서 저장이 된다
   failureType: 'testCodeFailure'
   error: |-
     Got unwanted rejection.
@@ -426,7 +438,7 @@ test('K1: 노선 A를 지우고 바로 B를 지우면 둘 다 지워진 채로 �
   // AppSettingsPage.patch와 같은 저장 — 설정 prop은 서버 저장이 끝나기 전이라 그대로(옛 값).
   await act(async () => {
     root.render(React.createElement(RoutePresetEditor, {
-      scope: 'main', settings, onPatch: (/** @type {object} */ patch) => { saves.push(savePracticeSettings(ownerKey, /** @type {any} */ (patch))) },
+      scope: 'main', settings, onPatch: (/** @type {object} */ patch) => { saves.push(savePracticeSettings(ownerKey, patch)) },
     }))
   })
   try {
@@ -760,6 +772,7 @@ not ok 1 - R2: 새 거래처 창 [저장]을 빨리 두 번 눌러도 거래처 
 ```js
 // 전수점검 A2: 서버에 차량이 하나도 없는 로그인 계정은 일지가 서버에도 휴대폰에도 저장되지 않는데 화면엔 "저장됨".
 // shouldCommitDayLogToCloud가 서버 차량이 없으면 false → 기기 경로(commitLocal)인데, 로그인 계정은 commitBatch가 기기에 안 쓴다(메모리만).
+// 고친 뒤 기대: 서버에 못 썼으면 "저장됨"이 아니고, 로그인 기록은 휴대폰에도 남기지 않는다(sot §5).
 import '../../../testSupport/setupDom.js'
 import assert from 'node:assert/strict'
 import { mock, test } from 'node:test'
@@ -774,7 +787,7 @@ const { setHydration } = await import('../../../data/store/app-store.ts')
 const { commitCars, commitWorkData } = await import('../../../data/store/commitHelpers.ts')
 const { readJsonKey } = await import('../../../data/store/persist.ts')
 
-test('A2: 차량 없는 로그인 계정에서 일지가 "저장됨"이면 서버나 휴대폰 어딘가에는 남아 있다', async () => {
+test('A2: 차량 없는 로그인 계정 일지는 서버에 저장되지 않았으면 "저장됨"으로 보이지 않는다', async () => {
   const ownerKey = 'a2-owner'
   resetHandlers()
   Object.assign(handlers, emptyOkHandlers())
@@ -796,25 +809,27 @@ test('A2: 차량 없는 로그인 계정에서 일지가 "저장됨"이면 서�
 
   const serverWrites = countOf('rpc', 'save_day_log')
   const onDevice = readJsonKey('workData', ownerKey, {})['2026-10-26']
-  assert.equal(statuses.at(-1), 'saved', '화면 표시는 "저장됨"')
-  assert.ok(
-    serverWrites > 0 || onDevice,
-    `"저장됨"인데 서버 저장 ${serverWrites}번, 휴대폰 저장 ${onDevice ? '있음' : '없음'} — 새로고침하면 사라짐`,
-  )
+  assert.equal(onDevice, undefined, '로그인 계정 일지가 휴대폰에 저장됨 — sot §5(로그인 업무 기록은 휴대폰에 안 남김)와 다름')
+  if (serverWrites === 0) {
+    assert.notEqual(statuses.at(-1), 'saved', '서버 저장 0번인데 화면은 "저장됨" — 새로고침하면 사라짐')
+  }
   endCloudSession()
 })
 ```
 
 ### 실행 결과
 
+휴대폰에는 안 남고(첫 확인 통과), 서버 저장 0번인데 "저장됨"이라 실패한다.
+
 ```
-not ok 1 - A2: 차량 없는 로그인 계정에서 일지가 "저장됨"이면 서버나 휴대폰 어딘가에는 남아 있다
+not ok 1 - A2: 차량 없는 로그인 계정 일지는 서버에 저장되지 않았으면 "저장됨"으로 보이지 않는다
   failureType: 'testCodeFailure'
-  error: '"저장됨"인데 서버 저장 0번, 휴대폰 저장 없음 — 새로고침하면 사라짐'
+  error: '서버 저장 0번인데 화면은 "저장됨" — 새로고침하면 사라짐'
   code: 'ERR_ASSERTION'
   name: 'AssertionError'
-  expected: true
-  operator: '=='
+  actual: 'saved'
+  expected: 'saved'
+  operator: 'notStrictEqual'
 ```
 
 ## A3
@@ -973,7 +988,7 @@ test('B5: 방금 만든 콜 상세가 들어 있는 하루 기록도 저장 대�
 
   // dayDraftLifecycle.commitNow와 같은 patch(structuredClone은 값 없는 칸도 그대로 둔다).
   const patch = structuredClone({ isOff: false, fixedCount: 0, palletCount: 0, callDetails: [built.item], fixedRouteCounts: {} })
-  const registered = registerPendingDayWrite('b5-owner', '2026-10-26', /** @type {any} */ (patch))
+  const registered = registerPendingDayWrite('b5-owner', '2026-10-26', patch)
   assert.equal(registered, true, '저장 대기 등록이 거절됨 — 휴대폰 저장 실패 뒤 새로고침하면 이 콜을 잃을 수 있음')
 })
 ```
