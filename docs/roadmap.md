@@ -573,7 +573,7 @@ GPS 같은 기능을 자문 뒤에 넣으면 자문을 다시 받아야 해서(�
     - ~~**113-A** 세금계산서에 파렛트 금액~~ `[x]` react-app `bdd5565`(2026-10-26, CI 초록, 로그인 테스터 계정에서 달력·세금계산서·운비서 같음 확인, 보리 승인)(`domain/financeTaxInvoiceGroups.ts` `getTaxInvoiceSourceGroups`가 콜·고정 노선만, 달력·매출과 같은 조건으로 더함, 운비서 거래처 매출 답도 같이).
     - ~~**113-B** 기사 차량 운송비 내역서 파렛트를 그 일지 스위치로~~ `[x]` react-app `cfa3231`(2026-10-26, CI 초록, 테스터 계정에서 스위치 두 조합 바꿔 보고 되돌림, 보리 승인)(전에는 메인 차량 고정 노선 스위치(`fixedOn`)를 봄 — 그 차의 달력은 기사 차량 스위치(`subFixedOn`)를 봐서 두 스위치가 다르면 내역서에서 파렛트가 빠지거나 더 들어감(`features/documents/api/reportSummary.js` `buildMonthReport`의 `practiceSettings.fixedOn`, `useMonthSettlement.ts` 30줄과 비교)).
     - **113-D** 운송비 내역서 월간 정산에 "파렛트 회수 청구액" 줄 `[확인: 2026-10-26 보리 — "응 그것도 고쳐"]` — 금액은 날짜 칸·부가세·계에 들어가지만 줄이 없어 줄을 다 더해도 계와 안 맞아 보임(달력엔 있음). `reportSummary.js` `buildMonthReport`가 `monthSettlementSummary`의 `palletFare`를 안 넘기고 `ReportSummaryContent.jsx` 월간 정산에 줄이 없음. 113-B 화면 확인 때 찾음.
-    - **113-C** 기사 관리 "거래처 세금계산서" 묶음에 고정 노선·파렛트(`financeTaxInvoiceGroups.ts` `getLinkedDriverClientInvoiceGroups`가 콜만 묶음 — `flattenLinkedDriverTrips`의 고정 노선 줄은 거래처 이름이 비어 있음).
+    - ~~**113-C** 기사 관리 "거래처 세금계산서" 묶음에 고정 노선·파렛트~~ `[x]` react-app `a7dfe85`(2026-10-26, CI 초록, 테스터 계정 99가9998 기사 관리 카드 = 서류 발급 세금계산서 66,000원 확인, 보리 승인)(`financeTaxInvoiceGroups.ts` `getLinkedDriverClientInvoiceGroups`가 콜만 묶음 — `flattenLinkedDriverTrips`의 고정 노선 줄은 거래처 이름이 비어 있음).
     - 파렛트 금액에는 거래처 수수료를 안 뗀다 `[확인: 2026-10-26 보리 — "파렛트는 수수료를 안때"]`(지금 모든 화면 그대로, 113-A `[x]` 때 sot에 적음). 미수금에는 고정 노선·파렛트 둘 다 안 들어감 — 미수금은 콜만 다루는 화면이라 그대로.
 
 - **AI관찰 (미확인 — 실행 지시 아님, 보리 결정 대기)** — 외부 검수 중 나온 물음:
