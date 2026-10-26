@@ -1,83 +1,84 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-113-B: drivelog-docs `1c95e76`. 113-A: drivelog-docs `25069f9`. 운비서 버튼 설정: drivelog-docs `d65beaf`. 운비서·+ 버튼 겹침: drivelog-docs `6fe917d`. 로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+113-C: drivelog-docs `afa3f5e`. 113-B: drivelog-docs `1c95e76`. 113-A: drivelog-docs `25069f9`. 운비서 버튼 설정: drivelog-docs `d65beaf`. 운비서·+ 버튼 겹침: drivelog-docs `6fe917d`. 로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
 ---
 
-## 로드맵 113-C 기사 관리 "거래처 세금계산서" 묶음에 고정 노선·파렛트 `[x]`
+## 로드맵 113-D 운송비 내역서 월간 정산에 "파렛트 회수 청구액" 줄 `[x]`
 
-로드맵 113(②) 셋째 조각. 113-A 조사 때 찾음, 보리 "고정노선도 넣어야지" `[확인: 2026-10-26 보리]`. 113-A(서류 발급 세금계산서 탭에 파렛트, react-app `bdd5565`)와 같은 규칙을 기사 관리 화면에도.
+로드맵 113(②) 마지막 조각. 113-B 화면 확인 때 찾음, 보리 "응 그것도 고쳐" `[확인: 2026-10-26 보리]`.
 
 ### 쉬운 요약
-- 기사 관리 화면(기사 차량마다) 아래쪽 거래처별 계산서 카드에는 콜만 들어가고, 고정 노선과 파렛트는 빠져 있다.
-- 테스터 계정 99가9998(10월, 고정 노선 66번시험거래처 2회 × 30,000원): 서류 발급 세금계산서 탭은 "66번시험거래처 2건 공급가액 60,000원 세액 6,000원 합계 66,000원"인데, 기사 관리는 "선택한 달에 거래처가 연결된 운송 기록이 없습니다."(로그인 탭에서 읽기만 해서 확인).
-- 고정 노선(파렛트 포함)을 그 차량 고정 노선 거래처 카드에 넣어 서류 발급 세금계산서 탭과 같게 한다.
+- 운송비 내역서 아래 "월간 운송료 정산"에는 거래처별 운송료·부가세·계 줄이 있는데, 파렛트 줄이 없다. 파렛트 금액은 날짜 칸·부가세·계에는 들어가 있어서, 줄을 다 더해도 계와 안 맞아 보인다.
+- 예(113-B 확인 때 테스터 계정 22가2222): 기본 운송료 210,000 + 테스트 기본 운송료 500,000 + 부가세 72,000 = 782,000인데 계는 792,000원(파렛트 10,000원이 줄에 없음).
+- 달력과 같은 이름 "파렛트 회수 청구액" 줄을 넣는다. 파렛트가 0원이면 안 보인다(달력과 같음).
+- 고칠 화면 파일이 이미 199줄이라, 월간 정산 칸을 새 파일로 떼어 낸다. 하는 일은 그대로다.
 
 ### 현재 상태 (코드 확인)
-- 기사 관리 카드는 `getLinkedDriverClientInvoiceGroups`(`domain/financeTaxInvoiceGroups.ts` 156~173줄)가 만든다. 161줄 `trips.filter((t) => t.type === 'call')`로 콜만 묶는다.
-- 운행 목록은 `flattenLinkedDriverTrips`(96~136줄)가 만든다. 고정 노선은 하루에 한 줄(`type: 'fixed'`, 132줄)이고 거래처 이름이 비어 있다. 금액은 `computeFixedRouteFare`(`clients.ts` 31~40줄) — 고정 노선 횟수 × 단가 + 파렛트(기사 차량 고정 노선 켜짐 + 거래처 파렛트 켜짐). 계약 기간 밖·휴무 날은 이미 빠진다(106~107줄).
-- 고정 노선 거래처는 `getFixedRouteClient(settings, link?.vehicleNumber)`(97줄) — 그 차량 스코프 거래처, 없으면 차주 것. 서류 발급 세금계산서 탭(113-A)도 같은 함수(차량 번호)를 쓴다.
-- 화면: `features/drivers/ui/ClientInvoiceGroups.jsx`(86줄). 운행 줄은 "날짜 상차지 → 하차지 금액"(`TripList`, 72~86줄) — 고정 노선 줄은 상하차지가 비어 있어 그대로 두면 "상차지 → 하차지"로 나온다.
-- 부르는 화면 `LinkedDriverManagementPage.jsx`는 200줄 — 이번에 안 건드린다(102~105줄은 함수만 부름).
-- 운행 목록(`detail.trips`)을 쓰는 곳은 이 카드와 `tripsFareSum`(152줄)뿐이다(`grep "\.trips\b"`).
+- 내역서 데이터 `buildMonthReport`(`features/documents/api/reportSummary.js` 80줄~)는 `monthSettlementSummary`의 결과를 넘기는데, `palletFare`는 안 넘긴다(돌려주는 칸 102~121줄). 계(`total`)와 부가세에는 파렛트가 이미 들어 있다(`monthSettlement.ts` 101~105·142줄).
+- 화면 `features/documents/ui/ReportSummaryContent.jsx`(199줄): 정보표 → 일자표 → 월간 정산 카드(149~196줄 — 거리·기본 운송료·거래처별 운송료와 수수료·산재보험료·부가세·계). 파렛트 줄 없음.
+- 달력 `CalendarMonthSummary.jsx` 112~117줄: 거래처·기사 차량 수수료 줄 다음, 산재보험료 앞에 `palletFare > 0`일 때 "파렛트 회수 청구액" 줄.
+- 같은 화면을 PDF·이미지로 저장할 때도 이 컴포넌트를 그대로 쓴다(`ReportPage.jsx` 112줄).
+- 세부 내역 보기(`ReportDetailView.jsx`, 거래처 선택)는 콜 상세만 다뤄 고정 노선도 파렛트도 없다(`reportDetail.js`) — 이번 범위 아님.
 
 ### 목표 상태 (기대 동작)
-1. 그 차량 고정 노선 거래처 이름이 있으면, 고정 노선 날(파렛트만 있는 날 포함)이 그 거래처 카드에 들어간다. 같은 거래처 이름의 콜이 있으면 한 카드로 합친다.
-2. 카드 건수는 고정 노선 횟수만큼 늘고, 파렛트는 건수에 안 센다(113-A·sot 4-17과 같음).
-3. 공급가액은 고정 노선 금액 + 파렛트 금액. 세액은 고정 노선과 파렛트를 날마다 따로 버림해 더한다(113-A와 같음).
-4. 고정 노선 거래처 이름이 없으면 지금처럼 고정 노선은 카드에도 "거래처 미지정"에도 안 들어간다.
-5. 카드 안 고정 노선 줄은 "MM/DD 고정 노선 N회" + 금액. 파렛트가 있으면 "MM/DD 고정 노선 N회 + 파렛트", 고정 노선 0회에 파렛트만 있으면 "MM/DD 파렛트". 콜 줄은 그대로.
-6. 테스터 계정 99가9998 10월이 "66번시험거래처 2건 공급가액 60,000원 세액 6,000원 합계 66,000원"으로 서류 발급 세금계산서 탭과 같다.
-7. 위 기사 정산 카드(총 운송료·기사 정산금 등)는 그대로다.
+1. 운송비 내역서 요약의 월간 운송료 정산에, 거래처별 줄 다음·산재보험료 앞에 "파렛트 회수 청구액 {금액}" 줄이 보인다(달력과 같은 자리·이름).
+2. 파렛트 금액이 0이면 줄이 없다.
+3. 줄 금액은 그 내역서의 날짜 칸 파렛트 금액 합과 같다. 계·부가세 숫자는 그대로다(이미 파렛트 포함).
+4. PDF 다운로드·이미지 저장에도 같은 줄이 나온다(같은 컴포넌트).
+5. 메인 차량·기사 차량·연동 기사 본인 내역서 모두 같다(파렛트 조건은 113-B 그대로).
+6. 나머지 줄 모양·순서·문구는 그대로다.
 
 ### 건드릴 파일
-- `react-app/src/domain/financeTaxInvoiceGroups.ts`
-  - `DriverTrip`(13줄)에 `palletFare?: number`.
-  - `flattenLinkedDriverTrips` 고정 노선 줄에 그날 파렛트 금액(`palletFare`)을 따로 싣는다(금액 `fare`는 지금처럼 합계). 저장된 옛 금액(`storedFare`)을 쓰는 날은 0.
-  - `getLinkedDriverClientInvoiceGroups`에서 `getFixedRouteClient(ownerSettings, car?.number)`의 거래처 이름으로 고정 노선 줄을 묶는다(목표 1~4). 주석 최종 문구:
-    `// 고정 노선(파렛트 포함)도 그 차량 고정 노선 거래처 카드에 — 서류 발급 세금계산서와 같게, 건수는 고정 횟수만, 부가세는 고정·파렛트 따로.`
-- `react-app/src/features/drivers/ui/ClientInvoiceGroups.jsx` — `InvoiceTrip` 형에 `type`·`fixedCount`·`palletFare`, `TripList`가 고정 노선 줄을 목표 5 문구로. 주석 없음(기존 "운행 줄 목록" 주석에 "고정 노선은 횟수로" 덧붙이는 정도만).
+- `react-app/src/features/documents/api/reportSummary.js` — 돌려주는 칸에 `palletFare: settled.palletFare` 한 줄.
+- `react-app/src/features/documents/ui/ReportSummaryContent.jsx`(199줄) — 월간 정산 카드(`<div className="summary-card">` 149~196줄)와 그 카드만 쓰는 값(`clientNames`·`baseFare`·`showBaseFare`·`tripCount`·`showDistance`)을 새 파일로 옮기고, 그 자리에 새 컴포넌트를 부른다. `report` 형 설명(JSDoc)에 `palletFare?: number`.
+- 새 `react-app/src/features/documents/ui/ReportMonthSummaryCard.jsx` — 옮겨 온 월간 정산 카드 + 파렛트 줄(목표 1·2). 받는 값: `report`·`formatWon`·`distanceOn`. 클래스 이름은 그대로(`summary-card`·`summary-row` 등, CSS는 부모가 이미 `report.css`를 불러옴). 맨 위 설명 주석 최종 문구:
+  `// 운송비 내역서 요약의 "월간 운송료 정산" 카드 — 거래처별 운송료·파렛트·산재·부가세·계.`
 - 시험:
-  - 새 파일 `src/domain/linkedDriverInvoiceFixed.test.js` — 목표 1~4: 고정 노선만, 콜과 합치기, 파렛트 포함 금액·건수, 부가세 따로 버림(예: 고정 33,335원 + 파렛트 5,555원 → 세액 3,333 + 555 = 3,888원, 합쳐서 버리면 3,889원), 고정 노선 거래처 없음이면 빠짐, 계약 기간 밖 날은 빠짐.
-  - 기존 `finance.test.js` 404~416줄(설정 `{}`라 고정 노선 거래처가 없어 빠지는 경우)은 그대로 통과해야 한다.
+  - 새 `src/features/documents/ui/ReportMonthSummaryCard.test.js` — 파렛트 10,000원이면 "파렛트 회수 청구액 10,000원" 줄이 거래처 줄 다음·부가세 앞에 있음, 0이면 없음.
+  - `src/features/documents/api/reportPalletSwitch.test.js`(113-B)에 `report.palletFare` 값 확인 한두 줄.
+  - 기존 `ReportSummaryContent.test.js`(6개 시험)는 그대로 통과해야 한다(옮긴 뒤에도 같은 모양 — 나누기만 한 증거).
   - 새 시험은 고치기 전 코드에서 실패하는지 확인한다.
-- 문서(`[x]` 때): `docs/sot.md` 4-17에 "기사 관리 거래처 세금계산서 카드도 고정 노선·파렛트 포함(서류 발급 세금계산서와 같은 규칙)" 한 줄, 로드맵 113-C 끝 표시, `STATUS.md` 완료 한 줄.
+- 문서(`[x]` 때): `docs/sot.md` 4-17에 "운송비 내역서 월간 정산에도 '파렛트 회수 청구액' 줄(달력과 같은 자리, 0원이면 없음)" 한 줄, 로드맵 113-D 끝 표시(113 끝), `STATUS.md` 완료 한 줄.
 
 ### 안 건드릴 것
-- `LinkedDriverManagementPage.jsx`(200줄) — 함수 결과 모양이 같아 손댈 것 없음.
-- 기사 정산 계산(`getLinkedDriverSettlementDetail`의 총 운송료·수수료·산재) — 운행 목록 금액(`fare`)은 그대로라 안 바뀜.
-- 서류 발급 세금계산서 탭(`getTaxInvoiceSourceGroups`) — 113-A로 이미 맞음.
-- 113-D(운송비 내역서 파렛트 줄) — 다음 슬라이스.
+- 계·부가세 계산(`monthSettlement.ts`) — 이미 파렛트 포함.
+- 일자표·정보표 모양, 세부 내역 보기(`ReportDetailView.jsx`).
+- `report.css` — 클래스 이름 그대로라 안 바꿈.
 
 ### 검증
 - 자동 검사는 CI가 한다. 로컬에서도 lint·typecheck·npm test.
 - 새 시험 revert-check.
-- 화면: 로그인 탭(테스터 계정)에서 99가9998 기사 관리 카드와 서류 발급 세금계산서 탭을 비교한다(읽기만, 목표 6).
+- 화면: 로그인 탭(테스터 계정, 읽기만) 메인 차량 10월 운송비 내역서 — 달력에 "파렛트 회수 청구액 50,000원"이 있으니 내역서에도 같은 줄·금액이 보이고, 줄을 다 더한 값이 계와 같은지 본다.
 
 ### 파일 길이
-- `financeTaxInvoiceGroups.ts` 173 → 약 186줄(200줄 안). 넘을 것 같으면 기사 관리 두 함수(`flattenLinkedDriverTrips`·`getLinkedDriverClientInvoiceGroups`)를 새 파일 `domain/linkedDriverInvoice.ts`로 옮기는 설계를 먼저 보고한다.
-- `ClientInvoiceGroups.jsx` 86 → 약 92줄.
-- 새 시험 파일 약 60줄.
+- `reportSummary.js` 122 → 123줄.
+- `ReportSummaryContent.jsx` 199 → 약 150줄(월간 정산 카드를 뗌).
+- 새 `ReportMonthSummaryCard.jsx` 약 70줄.
+- 새 시험 파일 약 50줄.
 
 ### 실패 시 처리
 - 새 저장 장치·재시도·대비 장치를 만들지 않는다. 계획대로 안 되면 손대지 말고 지시서를 다시 써서 승인받는다.
 
 ### 사용자 확인 방법
-1. 마이페이지 → 기사 관리(또는 차량 관리)에서 고정 노선을 쓰는 기사 차량을 연다.
-2. 아래쪽 거래처 카드에 고정 노선 거래처가 나오고, 줄에 "고정 노선 N회"가 보이면 성공.
-3. 같은 달 서류 발급(그 차량) → [세금계산서] 탭의 그 거래처 공급가액·세액과 같으면 성공.
+1. 파렛트가 있는 달의 서류 발급 → [운송비 내역서]를 연다.
+2. 아래 "월간 운송료 정산"에 "파렛트 회수 청구액" 줄이 보이고, 금액이 그 달 달력의 같은 줄과 같으면 성공.
+3. 줄을 위에서부터 더하고(수수료·산재는 빼고) 부가세를 더한 값이 "계"와 같으면 성공.
 
 ### 진행 기록
 - 2026-10-26 보리: "착수지시서 확정,작업진행해" — 터미널 AI.
-  - 교차검증: 고친 사실 없음(`financeTaxInvoiceGroups.ts` 13·96~136·132·156~173·161줄, `clients.ts` 31~40줄, `ClientInvoiceGroups.jsx` 86줄·72~86줄, `LinkedDriverManagementPage.jsx` 200줄·102~105줄, `finance.test.js` 404~416줄 모두 같음). 더한 것 하나: 금액 0원인 고정 노선 날(단가 없음)은 카드에 안 넣음 — 서류 발급 세금계산서(공급가액 0이면 안 넣음)와 같게, 콜의 0원 제외와도 같음.
-  - 구현: react-app `a7dfe85`(push 안 함). `financeTaxInvoiceGroups.ts` 173 → 178줄, `ClientInvoiceGroups.jsx` 86 → 92줄(줄 이름 함수 `fixedLabel`). 주석 지시서 문구 그대로, `TripList` 주석에 "(고정 노선은 횟수로)".
-  - 고치기 전 실패 확인: 새 시험 6개 중 5개는 고치기 전 코드에서 실패, 고친 뒤 통과. 1개(고정 노선 거래처 없으면 빠짐)는 안전 확인이라 고치기 전에도 통과. 기존 `finance.test.js` 404~416줄 그대로 통과.
-  - 검증: lint·typecheck·depcheck(1813)·npm test(912·895) 통과.
-  - 화면: 못 함. 이 터미널 세션의 Chrome은 5174에 로그인돼 있지 않음(비회원으로 시작하지 않음).
-  - 남은 일: 보리 push → CI → 로그인 탭에서 99가9998 10월 기사 관리 카드와 서류 발급 세금계산서 탭 비교(목표 6, 읽기만).
-- 2026-10-26 보리 push 뒤 CI verify·deploy 초록(run 40265122567). 데스크톱 AI 확인: 커밋 `a7dfe85`는 지시서 두 파일 + 새 시험, 주석 문구 그대로, `financeTaxInvoiceGroups.ts` 178줄. 로그인 탭(localhost:5174 테스터 계정, 읽기만): 99가9998 10월 기사 관리 카드 "66번시험거래처 2건, 99가9998 / 공급가액 60,000원 세액 6,000원 합계 66,000원 / 10/14 고정 노선 2회 60,000원" — 서류 발급 세금계산서 탭(66번시험거래처 2건 60,000·6,000·66,000)과 같음(고치기 전엔 "거래처가 연결된 운송 기록이 없습니다").
-- 2026-10-26 보리 "승인" — `[x]`.
+  - 교차검증: 고친 사실 없음(`reportSummary.js` 80줄~·돌려주는 칸, `ReportSummaryContent.jsx` 199줄·149~196줄, 달력 `CalendarMonthSummary.jsx` 112~117줄, `ReportPage.jsx` 112줄 모두 같음).
+  - 구현: react-app `8abf4db`(push 안 함).
+    - 나누기 먼저: 월간 정산 카드와 그 카드만 쓰는 값 다섯 개를 새 `ReportMonthSummaryCard.jsx`로 옮김. 나누기만 한 상태에서 문서 화면 시험 전부(기존 `ReportSummaryContent.test.js` 6개 포함) 통과.
+    - 그다음 파렛트 줄(거래처 줄 다음·산재 앞, 0원이면 없음)과 `reportSummary.js` `palletFare` 한 줄, 두 컴포넌트 JSDoc에 `palletFare?: number`. 첫 줄 주석 지시서 문구 그대로.
+    - 줄 수: `reportSummary.js` 123, `ReportSummaryContent.jsx` 149, `ReportMonthSummaryCard.jsx` 86.
+  - 고치기 전 실패 확인: 새 시험 3개 중 2개(줄이 거래처 다음·부가세 앞, `palletFare` 값)는 고치기 전(나누기만 한) 코드에서 실패, 고친 뒤 통과. 1개(0원이면 줄 없음)는 안전 확인이라 고치기 전에도 통과.
+  - 검증: lint·typecheck·depcheck(1814)·npm test(912·898) 통과.
+  - 화면: 못 함. 이 터미널 세션의 Chrome은 5174에 로그인돼 있지 않음(113-B·C 때 확인, 비회원으로 시작하지 않음).
+  - 남은 일: 보리 push → CI → 로그인 탭에서 메인 차량 10월 운송비 내역서의 "파렛트 회수 청구액 50,000원" 줄과 줄 합 = 계 확인(읽기만).
 
+- 2026-10-26 보리 push 뒤 CI verify·deploy 초록(run 40266422667). 데스크톱 AI 확인: 커밋 `8abf4db`는 지시서 범위(옮긴 카드는 원래 줄 그대로 + 파렛트 줄 하나, 클래스 이름 그대로), 주석 문구 그대로. 로그인 탭(localhost:5174 테스터 계정, 읽기만): 메인 차량 10월 운송비 내역서 월간 정산 "기본 운송료 785,802 / 테스터거래처 기본 운송료 2,323,456 / 수수료 −116,172 / 파렛트 회수 청구액 50,000 / 산재보험료 −1,000 / 부가세 305,924 / 계 3,348,010원" — 줄 합 = 계, 달력(파렛트 50,000·합계 3,348,010원)과 같음.
+- 2026-10-26 보리 "승인" — `[x]`. 로드맵 113 끝.
 ---
 
 ## 로드맵 24-K-2 운비서 앱 — 칸 읽기 나누기 + [휴무로 하기]·[휴무 취소하기] `[x]`
