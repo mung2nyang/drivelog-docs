@@ -1,138 +1,171 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-34-A: drivelog-docs `58331f0`. 113-D: drivelog-docs `0bcb19a`. 113-C: drivelog-docs `afa3f5e`. 113-B: drivelog-docs `1c95e76`. 113-A: drivelog-docs `25069f9`. 운비서 버튼 설정: drivelog-docs `d65beaf`. 운비서·+ 버튼 겹침: drivelog-docs `6fe917d`. 로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+34-B: drivelog-docs `a54be26`. 34-A: drivelog-docs `58331f0`. 113-D: drivelog-docs `0bcb19a`. 113-C: drivelog-docs `afa3f5e`. 113-B: drivelog-docs `1c95e76`. 113-A: drivelog-docs `25069f9`. 운비서 버튼 설정: drivelog-docs `d65beaf`. 운비서·+ 버튼 겹침: drivelog-docs `6fe917d`. 로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
 ---
 
-## 로드맵 34-B 서버 권한 회수·고정(G1~G4) — DB `0026` `[x]`
+## 로드맵 34-C 작성자 칸(`user_id`)을 남의 id로 못 바꾸게 — DB `0027` `[x]`
 
-로드맵 34 둘째 조각. 34-A `[x]`(drivelog-docs `58331f0`)에서 찾은 정리 5가지 중 G1~G4, 보리 "정리 5가지 34-B 착수지시서 써줘" `[확인: 2026-10-26 보리]`. G5(작성자 칸)는 표마다 앱 동작이 달라 34-C로 떼어 냄(AI 판단, 로드맵 34-C에 이유).
+로드맵 34 마지막 조각(34-A G5). 보리 "34-C 착수지시서 써줘"(2026-10-26). 34-B `[x]`(react-app `f8a571e`·DB `0026`, sot 4-20) 다음.
 
 ### 쉬운 요약
-- 지금 뚫린 구멍은 없지만, 막는 겹을 하나 더 두는 서버 권한 정리 네 가지를 한 번에 한다. 앱 화면·동작은 하나도 안 바뀐다.
-  1. 안 쓰는 옛 함수(연동 기사가 차주 설정 묶음을 읽던 것)를 아무도 못 부르게 한다.
-  2. 로그인 안 한 사람의 서버 표 권한을 모두 닫는다(앱 비회원은 서버를 안 씀). 로그인한 사람에게서도 앱이 안 쓰는 위험한 권한 셋(표 통째 비우기 등)을 뺀다.
-  3. 직접 부를 일이 없는 트리거 함수 2개에서 실행권을 뺀다.
-  4. 함수 하나에 다른 함수들처럼 "public만 본다" 설정을 고정한다.
-- 서버 변경이라 정해진 절차(읽기 확인 → 바꾸기 → 확인)로 하고, 바꾸는 문장은 파일 `0026`으로 남긴다.
+- 운행 기록·콜 상세·지출 3종·점검표 줄에는 "작성자" 칸이 있다. 지금은 그 줄을 고칠 수 있는 사람(차주·그 날짜 연동 기사)이 작성자를 아무 사람 id로나 바꿀 수 있다(남의 차량으로 옮기는 것은 이미 막힘).
+- 서버에 "작성자는 그대로 두거나, 저장하는 본인으로만 바꿀 수 있다"는 확인 장치(트리거)를 하나 둔다. 앱이 하는 저장은 모두 이 규칙 안이라 앱 동작은 그대로다.
+- 정책을 고치지 않고 트리거로 하는 이유: 앱이 표마다 작성자를 다르게 다뤄서(아래), 정책 한 줄로 막으면 차주·기사가 서로 고치는 기능이나 빈 날 정리가 깨진다.
 
 ### 현재 상태 (코드 확인)
-- 34-A 질문 결과(2026-10-26, 진행 기록은 drivelog-docs `58331f0`의 `docs/report.md`):
-  - G1 `get_linked_owner_profile_settings(uuid)` — SECURITY DEFINER, `authenticated` 실행 가능, 연동 중인 기사에게 차주 `name`·`business_name`·`settings`(설정 묶음 전체)를 돌려줌. 0015 머리 주석에 "이미 배포된 화면이 새로고침 전까지 부를 수 있어 그대로 둔다"(2026-10-01). 앱은 안 부름(`grep -rn get_linked_owner_profile_settings src` — `employedDriverClients.test.js`의 흉내만).
-  - G2 `anon`·`authenticated` 모두 public 표 11개(`clients`·`daily_inspections`·`daily_logs`·`driver_links`·지출 3종·`profiles`·`tax_invoices`·`transport_details`·`vehicles`)에 `SELECT·INSERT·UPDATE·DELETE·TRUNCATE·TRIGGER·REFERENCES`(Supabase 기본값). `support_inquiries`·`client_errors`·`admin_users`는 0025·0021이 이미 `anon` 회수·열 단위 허용.
-  - G3 트리거 함수 `guard_vehicle_delete_while_linked()`(SECURITY DEFINER, 트리거 `vehicles_guard_linked_delete`, 0020)·`touch_daily_inspections_updated_at()`(트리거 `daily_inspections_touch`, 0014)에 `anon`·`authenticated` 실행권(기본 PUBLIC 허용).
-  - G4 `upsert_driver_link_idempotent(text, uuid, text, date, date)` — SECURITY INVOKER, `proconfig` 비어 있음(`search_path` 고정 없음). 나머지 함수는 모두 `search_path=public`.
-- 앱이 로그인 전에 서버 표를 쓰는 곳 없음: 비회원은 이 휴대폰에만 저장, AI 함수 3개는 `anon` 키로 `auth.getUser`만 부르고 표는 안 읽음(`grep "\.from(" supabase/functions` 0건), 실시간 구독 없음(`grep "\.channel("` 0건).
-- 앱이 표 통째 비우기·트리거 만들기·외래키 만들기를 하는 곳 없음(PostgREST 길로는 원래 못 함).
-- 트리거는 실행될 때 함수 실행권을 다시 확인하지 않는다(PostgreSQL은 트리거를 만들 때만 확인) — 그래서 G3 회수 뒤에도 트리거는 그대로 동작해야 하고, 아래 사후검증 ⑤가 그걸 실제로 확인한다.
+- 서버 정책(34-A ②): 6개 표(`daily_logs`·`transport_details`·`fuel_records`·`maintenance_records`·`misc_expense_records`·`daily_inspections`)의 고치기 정책은 "차량 주인 또는 그 날짜 연동 기사"만 보고 작성자 칸은 안 본다. 넣기 정책은 이미 `user_id = auth.uid()`.
+- 앱이 작성자 칸을 다루는 방식:
+  - 운행 기록(`data/sync/syncWorkData.ts` `upsertDailyLog`)·점검표(`data/sync/dailyInspections.ts` 41~48줄): 같은 차량·날짜 줄을 덮어쓸 때 `user_id`를 **저장하는 본인**으로 보낸다(마지막에 저장한 사람이 작성자).
+  - 빈 날 정리(`data/sync/dailyLogRemoval.ts` 20~22줄): 운행 기록 줄을 비울 때 작성자 칸은 안 건드린다 — 차주가 기사가 쓴 줄을 비울 수 있다.
+  - 지출 3종 고치기(`data/sync/syncExpenseItems.ts` 105~107줄): "고치기는 원래 쓴 사람을 유지한다" — 작성자 칸을 빼고 보낸다.
+  - 콜 상세: 그날 전부 지우고 다시 넣는다(서버 함수 `replace_transport_details`, 넣기 정책 적용). 고치기는 거래처 지울 때 `client_id`만(`directMutations.ts` 24줄).
+- 서버 쪽에서 작성자 칸이 바뀌는 길: 계정을 지우면 외래키 `on delete set null`로 6개 표의 작성자 칸이 비워진다(0008·0014). 이 비우기도 "고치기"라 트리거가 걸린다 — 막으면 계정 탈퇴가 깨지므로 비우기는 허용해야 한다. 그 밖의 서버 함수는 이 표들의 작성자 칸을 고치지 않는다(`grep "update public.(daily_logs|…)" supabase/migrations` 0건, 기록 복사 함수 0012·0013은 넣기만).
+- 그래서 정책으로 "고친 뒤 작성자 = 본인"을 걸면 빈 날 정리·지출 고치기(작성자 그대로, 남이 쓴 줄)가 막히고, "작성자 그대로"를 걸면 운행 기록·점검표 저장(본인으로 바뀜)이 막힌다. 고치기 전·후를 같이 볼 수 있는 트리거가 맞다.
 
 ### 목표 상태 (기대 동작)
-1. `get_linked_owner_profile_settings(uuid)`는 `anon`·`authenticated` 누구도 실행 못 한다(함수는 지우지 않음 — 되돌리기 쉽게).
-2. `anon`은 public 표 어디에도 권한이 없다.
-3. `authenticated`는 public 표에서 `TRUNCATE`·`TRIGGER`·`REFERENCES`가 없고, 읽기·넣기·고치기·지우기(표마다 지금 있던 것)는 그대로다.
-4. 트리거 함수 2개는 `anon`·`authenticated`가 직접 실행 못 하지만, 트리거는 그대로 동작한다 — 연동 중 차량 지우기는 여전히 막히고, 점검표 고치면 고친 시각이 바뀐다.
-5. `upsert_driver_link_idempotent`의 `search_path`가 `public`으로 고정된다(하는 일 그대로).
-6. 앱: 로그인 계정으로 홈·달력·일지·매출·서류·기사 관리·고객센터가 지금처럼 열리고 저장되며, 비회원 모드도 그대로다.
-7. 이미 있는 데이터는 한 줄도 안 바뀐다(권한·설정만).
+1. 6개 표에서 줄을 고칠 때 작성자 칸은 (a) 그대로이거나 (b) 저장하는 본인(`auth.uid()`)으로 바뀌거나 (c) 비워지는(계정 탈퇴의 외래키 동작) 것만 된다.
+2. 그 밖에 작성자를 다른 사람 id로 바꾸려 하면 "작성자 칸은 저장하는 본인으로만 바꿀 수 있습니다." 오류로 막힌다.
+3. 앱 저장은 모두 그대로 된다: 차주·기사 운행 기록 저장, 빈 날 정리, 지출 고치기, 콜 상세 다시 넣기, 점검표 저장, 거래처 지울 때 콜 상세 거래처 비우기.
+4. 계정 탈퇴는 지금처럼 기록을 남기고 작성자만 비운다.
+5. 트리거 함수는 sot 4-20대로 실행권 없음·`search_path = public`.
+6. 데이터는 한 줄도 안 바뀐다.
 
 ### 건드릴 파일
-- 새 `react-app/supabase/migrations/0026_permission_tightening.sql` — 아래 완성본 그대로(멱등: 여러 번 실행해도 결과 같음). 머리 주석은 앞 파일들처럼 무엇을·왜 두세 줄, 끝에 사후검증 질문을 주석으로.
+- 새 `react-app/supabase/migrations/0027_guard_log_writer_change.sql` — 아래 완성본 그대로(멱등). 끝에 사후검증 주석.
   ```sql
-  -- 0026: 출시 전 권한 정리(로드맵 34-B). 34-A 점검에서 뚫린 곳은 없었고, 막는 겹을 하나 더 둔다. 앱 동작·데이터는 그대로.
-  -- 안 쓰는 옛 함수 실행권, 로그인 안 한 사람의 표 권한, 로그인한 사람의 TRUNCATE·TRIGGER·REFERENCES, 트리거 함수 실행권을 회수하고 search_path를 고정한다.
+  -- 0027: 운행·콜 상세·지출·점검표 줄의 작성자(user_id)를 남의 id로 못 바꾸게(로드맵 34-C).
+  -- 앱은 작성자를 그대로 두거나(지출 고치기·빈 날 정리) 저장하는 본인으로 바꾸고(운행 기록·점검표 덮어쓰기), 계정 탈퇴는 외래키로 비운다 — 이 셋만 허용.
   begin;
 
-  -- G1: 0015 이후 앱이 안 부르는 옛 함수(연동 기사가 차주 설정 묶음을 읽던 것). 지우지 않고 실행권만 회수.
-  revoke all on function public.get_linked_owner_profile_settings(uuid) from public, anon, authenticated;
+  create or replace function public.guard_log_writer_change()
+  returns trigger
+  language plpgsql
+  set search_path = public
+  as $$
+  begin
+    if new.user_id is distinct from old.user_id
+      and new.user_id is not null
+      and new.user_id is distinct from auth.uid() then
+      raise exception '작성자 칸은 저장하는 본인으로만 바꿀 수 있습니다.' using errcode = '42501';
+    end if;
+    return new;
+  end;
+  $$;
 
-  -- G2: 앱 비회원은 서버 표를 쓰지 않는다. 로그인한 사람도 표 통째 비우기·트리거·외래키 만들기는 쓰지 않는다.
-  revoke all on all tables in schema public from anon;
-  revoke truncate, trigger, references on all tables in schema public from authenticated;
+  revoke all on function public.guard_log_writer_change() from public, anon, authenticated;
 
-  -- G3: 트리거 함수는 직접 부를 일이 없다(트리거 실행은 실행권을 다시 보지 않음).
-  revoke all on function public.guard_vehicle_delete_while_linked() from public, anon, authenticated;
-  revoke all on function public.touch_daily_inspections_updated_at() from public, anon, authenticated;
-
-  -- G4: 다른 함수들처럼 public만 보게 고정.
-  alter function public.upsert_driver_link_idempotent(text, uuid, text, date, date) set search_path = public;
+  drop trigger if exists daily_logs_guard_writer on public.daily_logs;
+  create trigger daily_logs_guard_writer before update of user_id on public.daily_logs
+    for each row execute function public.guard_log_writer_change();
+  drop trigger if exists transport_details_guard_writer on public.transport_details;
+  create trigger transport_details_guard_writer before update of user_id on public.transport_details
+    for each row execute function public.guard_log_writer_change();
+  drop trigger if exists fuel_records_guard_writer on public.fuel_records;
+  create trigger fuel_records_guard_writer before update of user_id on public.fuel_records
+    for each row execute function public.guard_log_writer_change();
+  drop trigger if exists maintenance_records_guard_writer on public.maintenance_records;
+  create trigger maintenance_records_guard_writer before update of user_id on public.maintenance_records
+    for each row execute function public.guard_log_writer_change();
+  drop trigger if exists misc_expense_records_guard_writer on public.misc_expense_records;
+  create trigger misc_expense_records_guard_writer before update of user_id on public.misc_expense_records
+    for each row execute function public.guard_log_writer_change();
+  drop trigger if exists daily_inspections_guard_writer on public.daily_inspections;
+  create trigger daily_inspections_guard_writer before update of user_id on public.daily_inspections
+    for each row execute function public.guard_log_writer_change();
 
   commit;
   ```
-- 문서(`[x]` 때): `docs/sot.md`에 "서버 권한 원칙: 로그인 안 한 사람은 서버 표 권한 없음, 로그인한 사람도 TRUNCATE·TRIGGER·REFERENCES 없음, 새 표·함수도 같은 원칙"(새 절 또는 4-15 아래) 한 줄, 로드맵 34-B 끝 표시, `STATUS.md` 완료 한 줄.
+  - `before update of user_id`: 작성자 칸이 바뀌는 문장(덮어쓰기·외래키 비우기)에서만 확인한다.
+- 문서(`[x]` 때): `docs/sot.md` 4-20에 "6개 표 작성자 칸은 그대로·본인으로·비우기만(트리거 `guard_log_writer_change`)" 한 줄, 로드맵 34-C·34 끝 표시, `STATUS.md` 완료 한 줄.
 
 ### 절차 (AGENTS §9)
-1. **실행 전 읽기 확인**(서버 변경 없음) — 34-A 결과와 지금이 같은지 다시 본다.
+1. **실행 전 읽기 확인**
    ```sql
-   select (select count(*) from information_schema.role_table_grants where table_schema = 'public' and grantee = 'anon') as anon_grants,
-     (select count(*) from information_schema.role_table_grants where table_schema = 'public' and grantee = 'authenticated' and privilege_type in ('TRUNCATE', 'TRIGGER', 'REFERENCES')) as auth_risky,
-     has_function_privilege('authenticated', 'public.get_linked_owner_profile_settings(uuid)', 'EXECUTE') as g1_auth,
-     has_function_privilege('anon', 'public.guard_vehicle_delete_while_linked()', 'EXECUTE') as g3_guard_anon,
-     has_function_privilege('anon', 'public.touch_daily_inspections_updated_at()', 'EXECUTE') as g3_touch_anon,
-     (select proconfig from pg_proc where oid = 'public.upsert_driver_link_idempotent(text, uuid, text, date, date)'::regprocedure) as g4_config;
+   select (select count(*) from pg_trigger where tgname like '%_guard_writer') as writer_triggers,
+     (select count(*) from pg_proc where proname = 'guard_log_writer_change') as writer_func,
+     (select count(*) from pg_trigger where not tgisinternal and tgrelid in ('public.daily_logs'::regclass, 'public.transport_details'::regclass,
+        'public.fuel_records'::regclass, 'public.maintenance_records'::regclass, 'public.misc_expense_records'::regclass, 'public.daily_inspections'::regclass)) as other_triggers;
    ```
-   기대(2026-10-26 지시서 쓸 때 실제로 돌린 값): `anon_grants` 77(표 11개 × 7), `auth_risky` 33(11 × 3), `g1_auth` true, `g3_*` true, `g4_config` null. 다르면 멈추고 보고.
-2. **바꾸기** — 위 `0026` 완성본을 SQL Editor에서 한 번 실행. **보리가 "실행해"라고 한 뒤에만.** 실행은 로그인된 Supabase 탭에서 AI가 하거나 보리가 붙여넣기(보리가 정함).
-3. **사후검증**(서버 변경 없음, 마지막 ⑤만 되돌리는 시험).
+   기대(2026-10-26 지시서 쓸 때 실제로 돌린 값): `writer_triggers` 0, `writer_func` 0, `other_triggers` 1(`daily_inspections_touch`만 — 실행 뒤 7이 되어야 함). 다르면 멈추고 보고. (`daily_logs.id`는 uuid라 ②의 `%type`이 그대로 맞음.)
+2. **바꾸기** — `0027` 완성본 실행. **보리가 "실행해"라고 한 뒤에만**, 로그인된 Supabase 탭에서(34-B처럼 AI 실행 시 권한 확인 창이 뜨면 보리 허락).
+3. **사후검증**
    ```sql
-   -- ① 기대: anon_grants 0, auth_risky 0, g1_auth false, g3_guard_anon false, g3_touch_anon false, g4_config {search_path=public}
-   (1번 질문 그대로)
-   -- ② 기대: 표 11개 모두 authenticated에 DELETE,INSERT,SELECT,UPDATE 그대로(support_inquiries·client_errors는 열 단위라 이 목록에 없음)
-   select table_name, string_agg(privilege_type, ',' order by privilege_type) from information_schema.role_table_grants
-   where table_schema = 'public' and grantee = 'authenticated' group by table_name order by table_name;
-   -- ③ 기대: 트리거 2개 그대로 켜짐(tgenabled 'O')
-   select tgname, tgenabled from pg_trigger where tgname in ('vehicles_guard_linked_delete', 'daily_inspections_touch');
-   -- ④ 기대: 함수 수·SECURITY DEFINER 수 34-A와 같음(26·20)
-   select count(*), count(*) filter (where prosecdef) from pg_proc p join pg_namespace n on n.oid = p.pronamespace where n.nspname = 'public';
-   -- ⑤ 트리거가 로그인한 사람에게도 그대로 동작하는지(되돌림): 연동 중 차량의 차주로 흉내 내어 지우기 → 막혀야 함
+   -- ① 기대: 트리거 6개 모두 켜짐('O'), 함수 1개, anon·authenticated 실행권 false, config {search_path=public}
+   select tgrelid::regclass, tgname, tgenabled from pg_trigger where tgname like '%_guard_writer' order by 1;
+   select proconfig, has_function_privilege('anon', oid, 'EXECUTE') anon_exec, has_function_privilege('authenticated', oid, 'EXECUTE') auth_exec
+   from pg_proc where proname = 'guard_log_writer_change';
+
+   -- ② 되돌림 시험: 연동 중인 차주로 흉내 내어, 그 차량 운행 기록 한 줄의 작성자를 (가) 본인 (나) 연동 기사 (다) 그대로 바꿔 본다
    begin;
    select set_config('request.jwt.claims', json_build_object('sub', dl.owner_id, 'role', 'authenticated')::text, true)
-     from public.driver_links dl where dl.status = 'linked' limit 1;
+     from public.driver_links dl
+     where dl.status = 'linked' and exists (select 1 from public.daily_logs d where d.vehicle_id = dl.vehicle_id)
+     limit 1;
    set local role authenticated;
-   delete from public.vehicles where id = (select vehicle_id from public.driver_links where status = 'linked' limit 1);
+   do $$
+   declare
+     v_log public.daily_logs.id%type;
+     v_driver uuid;
+     v_out text := '';
+   begin
+     select d.id, dl.driver_id into v_log, v_driver
+       from public.daily_logs d join public.driver_links dl on dl.vehicle_id = d.vehicle_id
+       where dl.owner_id = auth.uid() and dl.status = 'linked' limit 1;
+     begin update public.daily_logs set user_id = auth.uid() where id = v_log; v_out := v_out || '(가) 본인으로: 됨 / ';
+     exception when others then v_out := v_out || '(가) 본인으로: ' || sqlerrm || ' / '; end;
+     begin update public.daily_logs set user_id = v_driver where id = v_log; v_out := v_out || '(나) 남으로: 됨 / ';
+     exception when others then v_out := v_out || '(나) 남으로: 막힘 — ' || sqlerrm || ' / '; end;
+     begin update public.daily_logs set raw = raw where id = v_log; v_out := v_out || '(다) 그대로: 됨';
+     exception when others then v_out := v_out || '(다) 그대로: ' || sqlerrm; end;
+     raise exception '시험 결과: %', v_out;
+   end $$;
    rollback;
    ```
-   ⑤ 기대: 지우기 문장이 0020의 "연동 중" 오류로 멈춤(오류가 나는 것이 정상). 혹시 지워져도 `rollback`으로 되돌아간다.
-4. **앱 확인**: 로그인해 둔 탭(테스터 계정)을 새로고침하고 홈·달력·일지·매출·서류 발급·기사 관리·고객센터를 열어 본다(읽기만). 비회원 확인은 새 탭에서 비회원 시작 → 홈·일지 열기(이 브라우저에만 저장). 저장 동작은 권한(넣기·고치기·지우기)을 안 건드려 따로 시험하지 않는다 — 보리가 원하면 테스터 계정에서 바꾸고 되돌리는 시험을 따로 묻는다.
+   ② 기대: 화면에 오류로 "시험 결과: (가) 본인으로: 됨 / (나) 남으로: 막힘 — 작성자 칸은 저장하는 본인으로만 바꿀 수 있습니다. / (다) 그대로: 됨"(결과를 보이려고 일부러 오류로 끝냄, 전부 `rollback`). 끝나고 ③.
+   ```sql
+   -- ③ 기대: 시험 전후로 운행 기록 수·연동 수 그대로(실행 전 값을 적어 두고 비교)
+   select (select count(*) from public.daily_logs) as logs, (select count(*) from public.driver_links where status = 'linked') as linked;
+   ```
+4. **앱 확인**(로그인해 둔 테스터 계정 탭): 새로고침 뒤 홈·달력·일지가 지금처럼 열리는지(읽기). 저장 시험 두 가지는 바꾸고 바로 되돌린다 — ① 22가2222 10월 3일 파렛트 0 → 1 → 0(운행 기록 덮어쓰기, 작성자 = 본인), ② 메인 차량 주유 기록 하나의 메모나 금액을 바꿨다가 원래대로(지출 고치기, 작성자 그대로). "저장 실패"가 안 뜨면 통과. 시작 값·되돌린 값을 진행 기록에 적는다.
 
 ### 안 건드릴 것
-- 표 정책(`pg_policies`)·데이터·함수 본문 — 권한·설정만.
-- 앞으로 만들 표·함수의 기본 권한(`alter default privileges`) — 이번엔 지금 있는 것만. 새 표는 AGENTS §9대로 만들 때마다 확인.
-- G5 작성자 칸 — 34-C.
-- 앱 코드 — 바꿀 것 없음(시험·CI 대상 아님, 마이그레이션 파일만 커밋).
+- 표 정책(`pg_policies`)·데이터·앱 코드 — 트리거와 함수 하나만 더함.
+- 넣기·지우기 — 넣기는 이미 정책이 본인만, 지우기는 작성자 칸과 무관.
+- `tax_invoices`·`clients`·`vehicles` — 본인 줄만 고칠 수 있어 해당 없음(34-A ②).
+- 작성자 칸을 "처음 쓴 사람"으로 통일하는 앱 변경 — 운행 기록·점검표는 지금처럼 마지막 저장자(바꾸려면 따로 결정).
 
 ### 검증
-- 위 절차 1·3의 기대값과 실제 결과를 진행 기록에 그대로 옮긴다.
-- 앱 확인(절차 4)에서 오류 안내·빈 화면이 없는지, 브라우저 콘솔에 권한 오류(`permission denied`, 401·403)가 없는지.
-- 코드 파일이 없어 CI는 파일 추가만 지나간다.
+- 절차 1·3의 기대값과 실제 결과를 진행 기록에 그대로.
+- 앱 저장 시험 두 가지 통과·되돌림 확인, 콘솔 권한 오류 없음.
+- 코드 파일 없음(마이그레이션 파일만 커밋) — CI는 파일 추가만.
 
 ### 파일 길이
-- `0026_permission_tightening.sql` 약 25줄(사후검증 주석 포함 약 45줄).
+- `0027_guard_log_writer_change.sql` 약 45줄(사후검증 주석 포함 약 75줄).
 
 ### 실패 시 처리
 - 새 저장 장치·재시도·대비 장치를 만들지 않는다.
-- 실행 전 확인이 기대와 다르면 바꾸지 않고 보고한다.
-- 실행 뒤 앱에서 권한 오류가 나면, 원인 권한만 되돌리는 문장(`grant … to …`)을 지시서로 다시 써서 승인받은 뒤 실행한다. 되돌리기 문장 예: `grant execute on function public.get_linked_owner_profile_settings(uuid) to authenticated;` / `grant select, insert, update, delete on public.<표> to anon;`.
+- 실행 전 확인이 다르면 바꾸지 않고 보고.
+- 실행 뒤 앱 저장이 막히면 트리거 6개를 끄는 되돌리기 문장(`drop trigger if exists … on …;` 6줄, 함수는 그대로)을 지시서로 다시 써서 승인받은 뒤 실행.
 
 ### 사용자 확인 방법
-1. 테스터 계정으로 앱을 새로고침하고 평소처럼 홈·달력·일지·매출·서류·기사 관리를 열어 본다 → 지금과 똑같이 보이면 성공.
-2. 운행 기록 하나를 고치고 저장해 본다(원하면) → "저장 실패"가 안 뜨면 성공.
-3. 로그아웃하고 비회원으로 시작해 일지를 열어 본다 → 지금처럼 쓰이면 성공.
+1. 테스터 계정으로 운행 기록 하나를 고쳐 저장한다 → "저장 실패"가 안 뜨면 성공.
+2. 지출(주유·정비·기타) 하나를 고쳐 저장한다 → 저장되면 성공.
+3. (연동 기사 계정이 있으면) 기사 앱에서 차주 차량 하루를 고쳐 저장한다 → 저장되면 성공.
 
 ### 진행 기록
 - 2026-10-26 보리: "착수지시서 확정,작업진행해" — 터미널 AI.
-  - 교차검증: 고친 사실 없음. 함수 네 개 이름·인자(0001·0002·0014·0020)와 트리거 이름 맞음. 앱은 `get_linked_owner_profile_settings`를 시험 흉내(`employedDriverClients.test.js`)에서만 씀. AI 함수에 표 읽기 없음(`supabase/functions`의 `.from(`은 `Array.from` 1건뿐), `.channel(` 0건. `client_errors`(0021)·`support_inquiries`·`admin_users`(0025)는 이미 anon 권한 없음이라 anon 전체 회수와 겹쳐도 그대로. 사후검증 ⑤는 차주로 흉내 낸 뒤 표 읽기 규칙 때문에 그 차주의 연동 차량만 보이므로 두 `limit 1`이 같은 차주 것을 고름.
-  - 파일: `react-app/supabase/migrations/0026_permission_tightening.sql`(41줄) — 지시서 완성본 그대로 + 끝에 사후검증 주석(①·②·③·⑤). 아직 커밋 안 함(실행·사후검증 뒤 한 번에).
-  - 실행 전 읽기 확인(절차 1)·실행(절차 2)·사후검증(절차 3): 이 터미널 세션은 Supabase SQL Editor·DB에 접근할 수 없어 못 함. 보리 결정 대기 — 데스크톱 AI가 로그인된 Supabase 탭에서 할지, 보리가 붙여넣을지.
-- 2026-10-26 보리 "작업햇어 수파베이스작업하라는데" — 데스크톱 AI가 로그인된 Supabase SQL Editor에서 실행 전 읽기 확인(절차 1): `anon_grants` 77, `auth_risky` 33, `g1_auth` true, `g3_guard_anon` true, `g3_touch_anon` true, `g4_config` null — 기대와 같음. 이어서 `0026` 실행(절차 2)을 시도했으나 Claude Code 권한 검사가 운영 서버 변경으로 막음 — 서버는 안 바뀜. 보리 결정 대기: 보리가 명시적으로 실행을 승인할지, 보리가 SQL Editor에 직접 붙여넣을지.
-- 2026-10-26 보리 "0026 실행해. 네가 Supabase 탭에서 실행하는 것 승인할게" — 데스크톱 AI가 로그인된 SQL Editor에서 `0026`(`begin;`~`commit;`) 실행: "Success. No rows returned".
-  - 사후검증 ①: `anon_grants` 0, `auth_risky` 0, `g1_auth` false, `g3_guard_anon` false, `g3_touch_anon` false, `g4_config` {search_path=public} — 기대와 같음.
-  - ②: `authenticated` 표 11개 모두 DELETE,INSERT,SELECT,UPDATE 그대로, `client_errors` INSERT·`support_inquiries` SELECT 그대로, 열 단위 권한 23개 그대로.
-  - ③: 트리거 `vehicles_guard_linked_delete`·`daily_inspections_touch` 둘 다 켜짐('O'). ④: 함수 26개·SECURITY DEFINER 20개 그대로.
-  - ⑤(되돌림 시험, Supabase "destructive" 경고 창에서 실행 누름): 연동 중 차량의 차주로 흉내 내어 지우기 → "ERROR: P0001: 기사가 연동된 차량은 삭제할 수 없습니다…"(`guard_vehicle_delete_while_linked`) — 실행권 회수 뒤에도 트리거 동작. 이어서 읽기 확인: 연동 5건·그 차량 5대 그대로.
-  - 앱 확인(로그인 탭 localhost:5174 테스터 계정, 읽기만): 홈 정산 합계 3,348,010원·달력 합계 3,348,010원·10월 26일 일지 운송료 합계 25,000원·매출 당월 순이익 2,406,996원·서류 발급 세금계산서 공급가액 2,373,456원·99가9998 기사 관리 카드 66,000원·고객센터 나의 문의 목록 — 모두 열림, 콘솔 오류 없음.
-  - 비회원 확인(배포 사이트 getdrivelog.com 새 탭, 이 브라우저에만 저장): 비회원 시작 → 홈·10월 26일 일지 열림, Supabase 요청 0건. 콘솔의 404는 직접 주소(`/app/day/…`)에 GitHub Pages가 주는 기존 동작, 400은 Supabase 요청이 아님(요청 목록에 없음) — 이번 변경과 무관.
-- 마이그레이션 파일 커밋: react-app `f8a571e`(데스크톱 AI, push 안 함).
-- 2026-10-26 보리 "34-B 승인" — `[x]`— push 뒤 CI verify·deploy 초록(run 40274064118).
+  - 교차검증: 고친 사실 없음. 작성자 칸을 보내는 곳(`upsertDailyLog`·`ensureDailyLog`(겹치면 안 덮어씀)·점검표·콜 상세·지출 넣기)은 모두 `getCloudUserId()` = 로그인 본인. 지출 고치기는 작성자 칸을 빼고, 빈 날 정리·거래처 지울 때 비우기는 작성자 칸을 안 보냄 — 트리거가 안 걸림. 줄 번호(점검표 41~48·빈 날 정리 20~22·지출 105~107·`directMutations.ts` 24)와 0008·0014 `on delete set null`, 마이그레이션 안 6개 표 `update` 0건 모두 맞음.
+  - 파일: `react-app/supabase/migrations/0027_guard_log_writer_change.sql` — 지시서 완성본 그대로 + 끝에 사후검증 ①~③ 주석. 아직 커밋 안 함(실행·사후검증 뒤).
+  - 실행 전 읽기 확인(절차 1)·실행·사후검증·앱 확인: 이 세션의 브라우저 탭 묶음이 없어져 로그인된 Supabase 탭에 닿지 못함. 보리 결정 대기.
+- 2026-10-26 보리 "작업완료햇어 너가 이제 진행해" — 데스크톱 AI: `0027` 파일이 지시서 완성본과 같음 확인. 실행 전 읽기 확인(절차 1): `writer_triggers` 0, `writer_func` 0, `other_triggers` 1 — 기대와 같음(운행 기록 349줄·연동 5건, 사후검증 ③ 비교용). `0027` 실행은 Claude Code 권한 검사가 운영 서버 변경으로 막음 — 서버 안 바뀜. 보리의 명시적 실행 승인 대기.
+- 2026-10-26 보리 "0027 실행해. 네가 Supabase 탭에서 실행하는 것 승인할게" — 데스크톱 AI가 로그인된 SQL Editor에서 `0027`(`begin;`~`commit;`) 실행. Supabase "destructive" 경고 창(`drop trigger if exists` 때문 — 없는 트리거라 지워진 것 없음)에서 실행 누름 → "Success. No rows returned".
+  - 사후검증 ①: 트리거 6개(`daily_inspections`·`daily_logs`·`fuel_records`·`maintenance_records`·`misc_expense_records`·`transport_details` `_guard_writer`) 모두 'O', 함수 `search_path=public`·`anon`/`authenticated` 실행권 false, 6개 표 트리거 1 → 7. (처음 질문은 AI의 질문 글자 실수로 `text || "char"` 오류 — 읽기 질문이라 서버 영향 없음, 고쳐서 다시 읽음.)
+  - ②(되돌림 시험): "시험 결과: (가) 본인으로: 됨 / (나) 남으로: 막힘 — 작성자 칸은 저장하는 본인으로만 바꿀 수 있습니다. / (다) 그대로: 됨" — 기대와 글자까지 같음, 전부 rollback.
+  - ③: 운행 기록 349줄·연동 5건 — 실행 전과 같음.
+  - 앱 저장 시험(테스터 계정, localhost:5174 개발 서버를 다시 켜서 같은 주소의 로그인 그대로): ① 22가2222 10월 3일 파렛트 0 → 1 저장(운송료 합계 200,000 → 203,000원, 서버 `pallet_count` 1) → 0으로 되돌림(서버 0, 합계 200,000원). ② 메인 차량 10월 10일 정비 "소모품" 50,000 → 51,000원 저장("내역을 수정했습니다", 서버 `cost_amount` 51000·작성자 = 차량 주인 그대로) → 50,000원으로 되돌림(서버 50000). 두 번 다 "저장 실패" 없음.
+  - 마이그레이션 파일 커밋: react-app `b154abb`(데스크톱 AI, push 안 함).
+- 2026-10-26 보리 "34-C 승인" — `[x]`— push 뒤 CI verify·deploy 초록(run 40282705196). 로드맵 34 끝.
 
 ---
 
