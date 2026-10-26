@@ -1,82 +1,96 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+운비서·+ 버튼 겹침: drivelog-docs `6fe917d`. 로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
 ---
 
-## 운비서 동그라미와 + 버튼 겹침 — + 버튼 화면에선 운비서 왼쪽, + 버튼 조금 작게 `[x]`
+## 앱 설정에 "운비서 버튼" 켜기·끄기 `[x]`
 
-보리 지시(2026-10-26): "+버튼이잇을때 운비서를 왼쪽 배치하자 그리고 +버튼 너무 커 좀만 줄여". 차량 관리·거래처 화면에서 + 버튼이 운비서 동그라미에 가려지던 것. 운비서 끌어 옮기기(로드맵 108, react-app `0de05e4`)의 뒤 정리다.
+보리 지시(2026-10-26): "설정에 운비서 on,off추가해". 정한 것 `[확인: 2026-10-26 보리 — "1.2 가 3 켜짐"]`:
+- 끄면 다른 화면에 떠 있는 운비서 동그라미만 사라지고, 홈 카드는 그대로 남는다.
+- 계정 설정에 저장한다. 다크 모드처럼 다른 휴대폰에서 로그인해도 같다.
+- 처음 값은 켜짐이다.
 
 ### 쉬운 요약
-- + 버튼이 있는 화면에서는 운비서 동그라미가 늘 왼쪽에 붙는다. 그래서 오른쪽 + 버튼과 겹치지 않는다.
-- 휴대폰에 저장된 운비서 위치는 그대로다. + 버튼이 없는 화면에 가면 원래 자리(오른쪽이면 오른쪽)로 돌아간다.
-- + 버튼을 지름 56px에서 48px로 조금 줄인다.
+- 앱 설정 "화면 표시" 묶음의 다크 모드 아래에 "운비서 버튼" 스위치를 넣는다. 끄면 홈이 아닌 화면에 운비서 동그라미가 안 뜬다.
+- 홈 화면의 운비서 카드는 켜든 끄든 그대로라서, 끈 뒤에도 운비서는 홈에서 쓸 수 있다.
+- **서버 DB는 안 바꾼다.** 설정은 서버 한 칸에 묶음째 저장되기 때문이다(아래 근거). 대신 이 휴대폰 설정 검사 목록에 새 이름을 꼭 넣는다. 빠뜨리면 다음에 앱을 켤 때 설정 읽기가 형식 오류로 막힌다.
 
 ### 현재 상태 (코드 확인)
-- 운비서 동그라미: 아래 메뉴 위 8px 틈, 52px, 앱 오른쪽 끝에서 12px(`features/home/ui/unbiseo-dock.css` 3~18줄). 왼쪽은 `.unbiseo-dock.left:not(.open)`일 때만(23줄). 층 890(8줄).
-- + 버튼: `bottom: 88px`, 오른쪽 20px, 56px, 층 95(`shared/styles/management-common.css` 149~168줄). 가운데 + 그림은 22px×3px 두 줄(158~159줄).
-- 그래서 화면 아래에서 운비서 67~119px, + 버튼 88~144px가 높이로 약 30px 겹치고, 운비서가 위층이라 + 버튼을 덮는다. 홈 막대가 있는 휴대폰은 운비서만 그 높이만큼 더 올라가 더 겹친다(운비서는 `env(safe-area-inset-bottom)`을 더하고 + 버튼은 안 더함).
-- 운비서를 끌어 왼쪽으로 옮기면 피하지만, 오른쪽에 두면 높이에 따라 또 겹친다(`useDockPosition.ts` `snapDockPosition` — + 버튼 자리를 보지 않음).
-- 화면에 운비서가 있을 때 다른 것을 비키게 하는 방식은 이미 있다: `body:has(.unbiseo-dock) .toast-message`(`shared/styles/toast.css` 24줄), `.container.main-app-container:has(.unbiseo-dock)`(`app-shell-base.css` 20줄).
+- 서버 저장: 앱 설정 전체를 `profiles.settings` 한 칸(jsonb)에 통째로 넣는다(`data/sync/profileCloudCommit.ts` 20~25줄 `settings`). 그래서 새 이름이 생겨도 DB 구조를 안 바꿔도 된다.
+  - 근거: 같은 방식으로 나중에 생긴 `notifOff`·`dailyInspectionOn`이 `supabase/migrations/` 어디에도 없다(`grep -rn notifOff supabase` 결과 없음). 연동 기사도 자기 행의 `settings`를 읽는다(`hydrateEmployedDriver.ts` 86~87줄).
+- 이 휴대폰 저장 검사: `SETTINGS`는 `v.strictObject`(`data/store/persistDomainSchema.ts` 31줄)라 모르는 이름이 있으면 설정 읽기가 형식 오류다. `notifOff`를 넣을 때도 그래서 칸과 시험을 같이 넣었다(`persistDomainSchema.notifOff.test.js` 1~2줄 설명).
+- 기본값·정리: `domain/practiceSettings.ts` `defaults`(19~41줄)와 `normalizeSettings`(49~79줄). 정리 결과에 없는 이름은 버려진다.
+- 형: `domain/financeTypes.ts` `FinanceSettings`(62~98줄).
+- 떠 있는 운비서: `features/home/ui/UnbiseoDock.tsx`, 비회원이면 안 띄움(16줄 `if (!assistant.loggedIn) return null`). 앱 틀이 홈이 아닐 때만 그린다(`app/shell/AppShell.jsx` 177줄).
+- 떠 있는 동안만 생기는 아래 여백 +60px·알림 문구 자리는 `:has(.unbiseo-dock)` 규칙이다(`app-shell-base.css` 20줄, `toast.css` 24줄). 동그라미를 안 그리면 저절로 없어진다.
+- 앱 설정 화면: `features/settings/ui/AppSettingsPage.jsx`(173줄). "화면 표시" 묶음에 다크 모드 줄(`!logId`일 때, 90~98줄). 일상점검표 스위치는 비회원에게 안 보임(`ownerKey !== 'guest'`, 130줄).
 
 ### 목표 상태 (기대 동작)
-1. + 버튼이 있는 화면(아래 영향 목록 5곳)에서는 운비서 동그라미가 저장 위치와 상관없이 왼쪽 가장자리에 붙는다. 높이는 저장된 높이 그대로.
-2. + 버튼이 없는 화면에서는 지금처럼 저장된 왼쪽·오른쪽 자리에 있다.
-3. + 버튼 화면에서 동그라미를 끌어 오른쪽에 놓으면 화면에서는 왼쪽으로 돌아가고, 저장은 놓은 자리(오른쪽)로 된다. 그래서 + 버튼이 없는 화면에 가면 오른쪽에 있다. 높이는 놓은 높이로 바뀐다.
-4. 소속 기사처럼 + 버튼이 안 보이는 계정은(`accountPermissionUi.test.js` 133줄) 같은 화면이어도 2번처럼 동작한다.
-5. 운비서 카드를 펼쳤을 때 자리는 그대로다(아래 메뉴 위 앱 폭 전체).
-6. + 버튼은 지름 48px, + 그림은 18px×3px. 오른쪽 20px·아래 88px 자리는 그대로(아래 끝 기준이라 위쪽만 8px 줄어든다).
+1. 로그인 계정의 앱 설정 "화면 표시"에서 다크 모드 바로 아래에 "운비서 버튼" 스위치가 보인다. 처음엔 켜짐이다.
+2. 비회원 화면과 기사 차량 일지 설정 화면(`/app/settings/:logId`)에는 이 스위치가 없다.
+3. 끄면 홈이 아닌 모든 화면에서 운비서 동그라미가 사라지고, 아래 여백 +60px·알림 문구 자리도 원래대로 돌아간다.
+4. 끌 때 운비서 카드가 펼쳐져 있었으면 접히고, 듣는 중이었으면 멈춘다.
+5. 다시 켜면 동그라미가 저장된 자리(왼쪽·오른쪽·높이)에 그대로 다시 뜬다.
+6. 홈 화면 운비서 카드는 켜든 끄든 그대로다.
+7. 서버에 저장돼서 다른 휴대폰에서 로그인해도 같은 값이다. 저장에 실패하면 다른 설정과 같은 알림 문구(`SERVER_SAVE_FAIL`)가 뜬다.
+8. 이 칸이 없는 옛 설정은 켜짐으로 읽는다. 이 칸이 든 설정을 다시 읽어도 형식 오류가 안 난다.
 
 ### 건드릴 파일
-- `react-app/src/features/home/ui/unbiseo-dock.css` — 23줄 `.left` 규칙 바로 아래에 두 줄 추가. 주석 최종 문구:
-  ```css
-  /* + 버튼(management-add-fab)이 있는 화면에선 저장 위치와 상관없이 왼쪽 — 오른쪽 아래 + 버튼과 겹치지 않게. */
-  body:has(.management-add-fab) .unbiseo-dock:not(.open) { align-items: flex-start; }
-  ```
-- `react-app/src/shared/styles/management-common.css` — `.management-add-fab`의 `width`·`height` 56px → 48px, + 그림 두 줄 22px → 18px. 줄 수 그대로.
-- 문서(`[x]` 때): `docs/sot.md` 572줄 떠 있는 운비서 끝에 "+ 버튼이 있는 화면에선 저장 위치와 상관없이 왼쪽(저장 값은 그대로)" 한 문장, `STATUS.md` 완료 한 줄.
-- 영향 목록 — `.management-add-fab`를 쓰는 곳 전부(`grep -rln management-add-fab src`):
-  - `features/cars/ui/CarListPage.jsx` 100줄(차량 관리)
-  - `features/clients/ui/ClientListPage.jsx` 114줄(거래처)
-  - `features/clients/ui/ScopedClientsList.jsx` 38줄(기사 화면 안 거래처 목록)
-  - `features/drivers/ui/DriverConnectionPage.jsx` 175줄(기사 연결 "+ 초대")
-  - `features/expenses/ui/MaintFuelPage.jsx` 124줄(정비·주유)
-  - 다섯 곳 모두 + 버튼이 작아지고, 운비서가 왼쪽으로 간다. 그 밖의 파일은 클래스 이름만 언급(`maint-fuel.css` 2줄 주석, `accountPermissionUi.test.js` 있음·없음 확인).
-- 바뀌는 것은 크기·좌우 정렬뿐이라 `display`·`position`·`overflow`는 안 바뀐다.
+- `react-app/src/domain/financeTypes.ts` — `FinanceSettings`에 한 줄. 주석 최종 문구:
+  `unbiseoDockOn?: boolean // 홈이 아닌 화면의 운비서 버튼(기본 켜짐)`
+- `react-app/src/domain/practiceSettings.ts` — `defaults`에 `unbiseoDockOn: true`, `normalizeSettings`에 `unbiseoDockOn: asBool(raw.unbiseoDockOn, defaults.unbiseoDockOn)`. 주석 없음.
+- `react-app/src/data/store/persistDomainSchema.ts` — `SETTINGS` 47줄 `notifOff` 옆에 `unbiseoDockOn: opt(bool)`. 줄 수 그대로, 주석 없음.
+- `react-app/src/features/home/ui/UnbiseoDock.tsx` — 로그인 계정의 설정에서 `unbiseoDockOn`이 꺼져 있으면 안 그린다. 꺼질 때 카드가 열려 있으면 접고, 듣는 중이면 멈춘다. 주석 최종 문구:
+  `// 설정에서 끄면 띄우지 않는다 — 열린 카드는 접고 듣기도 멈춘다.`
+- `react-app/src/features/settings/ui/AppSettingsPage.jsx` — 다크 모드 줄 아래에 `!logId && ownerKey !== 'guest'`일 때 다크 모드 줄과 같은 모양의 스위치 줄을 넣는다(id `unbiseoDockToggle`, 이름 "운비서 버튼", 아래 구분선 포함). `patch({ unbiseoDockOn: checked })`.
+- 시험(새 시험은 고치기 전 코드에서 실패하는지 확인):
+  - `src/data/store/persistDomainSchema.notifOff.test.js`와 같은 방식의 새 시험 파일 — 저장 뒤 다시 읽어도 형식 오류가 안 나고 값이 그대로인지, 글자 같은 틀린 모양은 걸러지는지.
+  - `src/domain/practiceSettings.test.js` — 칸이 없으면 true, false면 false.
+  - `src/app/shell/UnbiseoDock.test.js` — 꺼진 설정이면 홈이 아닌 화면에 `.unbiseo-dock`이 없고, 켜진 설정이면 있는지.
+  - 앱 설정 화면 시험(`AppSettingsPage.*.test.js` 중 알맞은 곳) — 로그인이면 스위치가 있고, 비회원이면 없는지.
+- 문서(`[x]` 때): `docs/sot.md` 572줄 떠 있는 운비서 끝에 "앱 설정 '운비서 버튼'로 끄기(계정 설정, 기본 켜짐, 홈 카드는 그대로)" 한 문장, `STATUS.md` 완료 한 줄.
 
 ### 안 건드릴 것
-- `useDockPosition.ts`·`UnbiseoDock.tsx` — 저장·끌기·누르기 동작은 그대로. 왼쪽 강제는 CSS 한 규칙으로 끝나서 저장 값을 바꿀 필요가 없다.
-- 운비서 동그라미 크기(52px)·높이 계산, 화면 아래 여백 +60px, 토스트 자리.
-- + 버튼 자리(오른쪽 20px·아래 88px)·색·누를 때 작아지는 효과·화면 들어올 때 숨김.
-- 카드 안 버튼 44px 시험(`CardActionButtons.test.js`) — `.management-record-actions` 규칙이라 + 버튼과 무관.
+- 서버 DB·Supabase 함수 — 설정은 jsonb 한 칸이라 바꿀 것 없음(위 근거).
+- `HomeAssistantBar.jsx`(홈 카드) — 보리 결정 1 가.
+- `AppShell.jsx`(198줄, 200줄 가까움) — 끄기 판단은 `UnbiseoDock.tsx` 안에서 하므로 손대지 않는다.
+- `useDockPosition.ts` — 동그라미 위치 저장은 그대로라 다시 켜면 그 자리.
+- 기사 차량별 설정(`subCarSettings`) — 이 스위치는 계정 하나에 하나.
 
 ### 검증
-- 자동 검사는 CI가 한다(테스트·타입·빌드). jsdom은 `:has`로 정렬을 계산하지 않아 새 시험은 넣지 않는다 — 대신 아래 화면 확인으로 증명.
-- 미리보기에서(로그인 계정, 휴대폰 폭): 차량 관리·거래처·기사 연결·정비·주유에서 운비서가 왼쪽, 매출·일지 등 + 버튼 없는 화면에서는 저장 자리. + 버튼 계산 크기 48px(`getComputedStyle`). 전후 화면 사진.
+- 자동 검사는 CI가 한다(테스트·타입·빌드·의존 방향). 위 새 시험은 고치기 전 코드에서 실패하는지 확인한다.
+- 미리보기(로그인 계정): 스위치 끄기 → 거래처·매출 화면에 동그라미 없음, 화면 아래 여백 원래대로 → 다시 켜기 → 저장된 자리에 다시 뜸. 비회원 앱 설정에 스위치 없음.
+- 저장·동기화 경로(설정 저장)를 건드리므로 `docs/testing-playbook.md` §4 트리거에 해당하는지 확인하고, 해당하면 그 절차를 따른다.
 
 ### 파일 길이
-- `unbiseo-dock.css` 97줄 → 99줄.
-- `management-common.css` 184줄 → 184줄(값만 바꿈).
-- 200줄 넘는 파일 없음.
+- `financeTypes.ts` 108 → 109줄
+- `practiceSettings.ts` 110 → 112줄
+- `persistDomainSchema.ts` 82 → 82줄
+- `UnbiseoDock.tsx` 79 → 약 90줄
+- `AppSettingsPage.jsx` 173 → 약 183줄
+- 200줄 넘는 운영 파일 없음. `AppShell.jsx`(198줄)는 안 건드린다.
 
 ### 실패 시 처리
-- 새 저장 장치·재시도·대비 장치를 만들지 않는다. CSS 한 규칙으로 안 되는 경우(예: 어떤 화면에서 왼쪽으로 안 감)가 나오면 손대지 말고 지시서를 다시 써서 승인받는다.
+- 새 저장 장치·재시도·대비 장치를 만들지 않는다. 저장 실패는 지금 앱 설정과 같은 알림 문구만 띄운다. 계획대로 안 되면 손대지 말고 지시서를 다시 써서 승인받는다.
 
 ### 사용자 확인 방법
-1. 운비서를 오른쪽에 둔 채로 거래처 화면을 연다 → 운비서가 왼쪽 아래, + 버튼이 오른쪽 아래에 따로 보이고 조금 작아졌으면 성공.
-2. 차량 관리·정비·주유·기사 연결도 같은지 본다.
-3. 매출 화면처럼 + 버튼이 없는 화면으로 간다 → 운비서가 다시 오른쪽이면 성공.
-4. 거래처 화면에서 운비서를 위로 끌어 놓는다 → 왼쪽에 그 높이로 붙고, 다른 화면에서도 그 높이면 성공.
+1. 앱 설정을 연다 → "화면 표시"의 다크 모드 아래에 "운비서 버튼"가 켜진 채 보이면 성공.
+2. 끄고 거래처 화면으로 간다 → 운비서 동그라미가 없으면 성공. 홈에 가면 운비서 카드는 그대로 있어야 한다.
+3. 다른 휴대폰이나 브라우저에서 같은 계정으로 들어간다 → 꺼진 채이면 성공.
+4. 다시 켠다 → 동그라미가 전에 두던 자리에 다시 뜨면 성공.
 
 ### 진행 기록
-- 2026-10-26 보리: "착수지시서 확정,작업진행해" — 터미널 AI.
-  - 교차검증 고친 사실: + 그림 두 줄은 `management-common.css` 161~162줄(지시서 158~159). 그 밖(운비서 3~18·23줄, + 버튼 149~168줄, 영향 목록 5곳, `useDockPosition.ts` 끌기는 놓은 실제 자리로 재서 왼쪽에서 끌어도 맞음)은 맞음.
-  - 구현: react-app `35052fa`(push 안 함). 두 파일 지시서 그대로, 주석 지시서 문구 그대로. `unbiseo-dock.css` 99줄, `management-common.css` 184줄.
-  - 검증: lint·npm test(896·888) 통과.
-  - 미리보기(비회원, 로컬): 비회원은 운비서가 안 떠서 같은 모양의 동그라미를 화면에 넣어 실제 CSS로 재 봄. 차량 관리·거래처·정비·주유 왼쪽, 매출·달력 오른쪽, 카드 펼침은 그대로. + 버튼 계산 크기 48px. 기사 연결·기사 화면 거래처는 비회원으로 못 열어 안 봄.
-  - 남은 일: 보리 push → CI → 로그인 계정으로 실제 운비서 확인(사용자 확인 방법 1~4, 기사 연결 포함).
-- 2026-10-26 보리 push 뒤 CI verify·deploy 초록(run 40253837974). 데스크톱 AI 확인: 커밋 `35052fa`는 지시서의 두 파일만, 주석 문구 그대로.
+- 2026-10-26 보리: "응 너가해 착수지시서 확정, 작업 진행해" — 데스크톱 AI.
+  - 교차검증 고친 사실: 줄 번호만(다크 모드 줄 90~98, 일상점검표 130, `defaults` 19~41, `normalizeSettings` 49~79, `FinanceSettings` 62~98). 플레이북 §4는 삭제 흐름 시나리오라 해당 없음(설정 저장 경로는 그대로 씀).
+  - 구현: react-app `14b89ff`(push 안 함). 5개 운영 파일 지시서대로, 주석 지시서 문구 그대로. 스위치 줄은 다크 모드 줄과 같은 모양(`settings-theme-row`). 끌 때 접기·듣기 멈춤은 `UnbiseoDock.tsx` 안 `useEffect`.
+  - 줄 수: `UnbiseoDock.tsx` 89, `AppSettingsPage.jsx` 182, `practiceSettings.ts` 112, `financeTypes.ts` 109, `persistDomainSchema.ts` 82.
+  - 시험: 새 6개 중 4개는 수정 전 코드로 돌리면 실패(다시 읽기 값 그대로, 기본 켜짐, 설정 화면 스위치, 끄고 켤 때 떠 있는 운비서). 2개는 안전 확인이라 수정 전에도 통과(틀린 모양 거르기, 비회원·기사차량 설정엔 스위치 없음).
+  - 검증: lint·typecheck·npm test(899·891) 통과.
+  - 미리보기(비회원, 로컬): 앱 설정에 스위치 없음, 콘솔 오류 없음. 로그인 계정 화면은 로컬에서 못 열어 시험으로만 확인.
+  - 남은 일: 보리 push → CI → 로그인 계정으로 사용자 확인 방법 1~4.
+- 2026-10-26 보리 "운비서 버튼 이라고만 바로 고쳐" — 스위치 이름 "운비서 버튼"으로, react-app `e51831e`(이름·시험 설명·주석만, 동작 그대로). 관련 시험·lint 통과. 지시서 안 이름도 맞춤.
+- 2026-10-26 보리 push 뒤 CI verify·deploy 초록(run 40257052323, `14b89ff`·`e51831e`).
 - 2026-10-26 보리 "승인" — `[x]`.
 
 ---
