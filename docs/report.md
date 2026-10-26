@@ -1,151 +1,83 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
 ---
 
-## 로그인 화면 개편 B — 로그인 첫 화면 시안 반영 `[x]`
+## 운비서 동그라미와 + 버튼 겹침 — + 버튼 화면에선 운비서 왼쪽, + 버튼 조금 작게 `[x]`
 
-보리 요청(2026-10-25, 피그마 시안). A `[x]`(react-app `60d23d7`, sot 4-19) 다음 조각이다. 대화로 정한 것 `[확인: 2026-10-25 보리]`:
-- 색·버튼·글자 크기는 공통 UI 값을 쓴다. 크기는 시안과 달라도 되고, 만들어 둔 위계를 쓴다.
-- 구글 버튼과 비회원 버튼은 지금 것을 쓴다. 비회원 버튼은 왼쪽 정렬로 바꾸고 누르는 높이만 늘린다.
-- 작은 제목과 약관 문서 이름은 시안과 비슷한 연한 파랑으로 한다.
-- 약관 문구는 링크 없이 글자만 넣는다(링크는 로드맵 10-P ⓒ-2).
-- 로딩 중에는 버튼 안에 점 세 개를 띄운다. 실패하면 토스트를 띄우고 첫 화면에 머문다.
-- 왼쪽 정렬선은 AI가 알아서 하나로 맞춘다.
+보리 지시(2026-10-26): "+버튼이잇을때 운비서를 왼쪽 배치하자 그리고 +버튼 너무 커 좀만 줄여". 차량 관리·거래처 화면에서 + 버튼이 운비서 동그라미에 가려지던 것. 운비서 끌어 옮기기(로드맵 108, react-app `0de05e4`)의 뒤 정리다.
 
 ### 쉬운 요약
-- 로그인 첫 화면을 시안 배치로 바꾼다. 위에서부터 로고 → 작은 제목 → 큰 제목 → 설명 → 구글 버튼 → 비회원 → 약관 문구 순서이고, 모두 왼쪽 한 줄에 맞춘다.
-- 구글 버튼을 누르면 글자 대신 점 세 개가 움직인다.
-- 화면 CSS가 200줄을 넘지 않게 로그인 첫 화면 것만 새 파일로 옮긴다.
+- + 버튼이 있는 화면에서는 운비서 동그라미가 늘 왼쪽에 붙는다. 그래서 오른쪽 + 버튼과 겹치지 않는다.
+- 휴대폰에 저장된 운비서 위치는 그대로다. + 버튼이 없는 화면에 가면 원래 자리(오른쪽이면 오른쪽)로 돌아간다.
+- + 버튼을 지름 56px에서 48px로 조금 줄인다.
 
 ### 현재 상태 (코드 확인)
-- 화면은 로고와 버튼 둘만 있고 가운데 정렬이다(`src/features/account/ui/AuthIntroView.jsx`, 45줄).
-  - 가운데 정렬 규칙: `account-flow.css:132-148`(`.auth-intro-view` 계열, 로고 그림 54px·글자 2.2rem).
-- 로그인 첫 화면만 쓰는 클래스가 `account-flow.css`에 섞여 있다.
-  - `.auth-brand-head`·`.auth-logo-img`·`.auth-logo-text`(26~36줄)
-  - `.auth-intro-bottom`·`.auth-btn-stack`(38~45줄)
-  - `.auth-google-btn`·`:disabled`·`.auth-google-logo`(47~67줄)
-  - `.auth-guest-btn`(118~130줄)
-  - `.auth-intro-view` 계열(132~148줄)
-  - 모두 `AuthIntroView.jsx`에서만 쓴다(클래스명 grep, 시험은 `App.guestDurable.test.js:147`이 `.auth-guest-btn`로 찾음).
-- 다른 화면과 같이 쓰는 것은 그대로 둔다.
-  - `.account-flow-container`·`.account-flow-page`·`.auth-view`: 환영·첫 설정 화면과 같이 씀
-  - `.auth-primary-btn`·`save-action-spin`: 환영 화면
-- 비회원 버튼은 글자 `--fs-2`, 위아래 여백 8px이라 누르는 높이가 약 34px이다(`account-flow.css:118-130`).
-- 구글 버튼은 누르면 `busy`로 잠기고 흐려지기만 한다(`AuthIntroView.jsx:35`, `:disabled` 흐림 0.6). 실패하면 토스트를 띄우고 다시 누를 수 있다(`AuthPage.jsx:16-29`, `AuthPage.google.test.js`).
-- 재사용할 것:
-  - 큰 제목과 설명: 환영 화면의 `.auth-heading-box h1`(`clamp(1.9rem, 8vw, 2.3rem)`)·`.auth-desc-text`(`auth-form.css:49-62`, `WelcomeProfileView.jsx:40-42`)
-  - 점 세 개: `.boot-loading-dots`(`index.html:51-63`, 색은 `currentColor`라 버튼 글씨색을 따름, 움직임 줄이기 설정도 이미 있음)
-  - 로고 크기: 앱 켤 때 로딩 화면의 그림 40px·글자 22px(`index.html:49-50`)
+- 운비서 동그라미: 아래 메뉴 위 8px 틈, 52px, 앱 오른쪽 끝에서 12px(`features/home/ui/unbiseo-dock.css` 3~18줄). 왼쪽은 `.unbiseo-dock.left:not(.open)`일 때만(23줄). 층 890(8줄).
+- + 버튼: `bottom: 88px`, 오른쪽 20px, 56px, 층 95(`shared/styles/management-common.css` 149~168줄). 가운데 + 그림은 22px×3px 두 줄(158~159줄).
+- 그래서 화면 아래에서 운비서 67~119px, + 버튼 88~144px가 높이로 약 30px 겹치고, 운비서가 위층이라 + 버튼을 덮는다. 홈 막대가 있는 휴대폰은 운비서만 그 높이만큼 더 올라가 더 겹친다(운비서는 `env(safe-area-inset-bottom)`을 더하고 + 버튼은 안 더함).
+- 운비서를 끌어 왼쪽으로 옮기면 피하지만, 오른쪽에 두면 높이에 따라 또 겹친다(`useDockPosition.ts` `snapDockPosition` — + 버튼 자리를 보지 않음).
+- 화면에 운비서가 있을 때 다른 것을 비키게 하는 방식은 이미 있다: `body:has(.unbiseo-dock) .toast-message`(`shared/styles/toast.css` 24줄), `.container.main-app-container:has(.unbiseo-dock)`(`app-shell-base.css` 20줄).
 
 ### 목표 상태 (기대 동작)
-1. 위에서부터 차례로 보인다.
-   - 로고(트럭 그림 + "운행일지")
-   - 작은 제목 "간편한 차량 운행 관리"
-   - 큰 제목 "운행 기록을" / "간편하게 관리하세요"(두 줄)
-   - 설명 "매일의 운행 내역을 쉽고 빠르게 기록해 보세요."
-   - [Google 계정으로 로그인하기], [비회원으로 시작하기]
-   - 약관 문구 "최초 로그인 시 서비스 이용약관 및 개인정보 처리방침, 위치기반서비스 이용약관에 동의하는 것으로 간주합니다."
-2. 모든 요소의 왼쪽 시작점이 같다. 가운데 정렬 규칙을 없앤다.
-3. 크기 위계: 큰 제목이 가장 크다.
-   - 큰 제목과 설명은 환영 화면과 같은 클래스(`auth-heading-box h1`·`auth-desc-text`)
-   - 로고는 로딩 화면과 같은 크기(그림 40px·글자 22px)
-   - 작은 제목은 `--fs-2` 굵게
-   - 약관 문구는 `--fs-2` 보조 글자색
-4. 작은 제목과 약관 문서 이름 3개는 새 공통 값 `--accent-soft-color`를 쓴다(`variables.css`).
-   - 다크 `#a3b3f5`(시안과 비슷한 연한 파랑, `#121212` 위 대비 약 9:1)
-   - 라이트 `#3b56b0`(같은 계열 진한 색, `#eef1f5` 위 대비 약 5.9:1)
-5. 약관 문서 이름은 색만 다르고 누를 수 없다(링크 없음).
-6. 구글 버튼을 누르면 로고와 글자를 감추고 버튼 가운데에 점 세 개가 움직인다.
-   - 버튼 크기는 그대로이고, 로딩 중에는 흐리게 하지 않는다.
-   - 실패하면 점이 사라지고 원래 버튼으로 돌아와 다시 누를 수 있다(토스트는 지금 그대로).
-   - 화면 읽기 프로그램용으로 버튼에 `aria-busy`를 붙인다.
-7. 비회원 버튼은 모양(글자 크기·색·밑줄)을 그대로 두고 왼쪽 정렬, 누르는 높이 44px 이상이다.
-8. 위아래 배치: 위 묶음(로고~설명)과 아래 묶음(버튼~약관)을 화면 세로 가운데에 두고 둘 사이를 띄운다.
-9. 라이트·다크 둘 다 A의 테마 규칙(sot 4-19)대로 보인다.
-10. 로그인 첫 화면 CSS를 새 파일 `src/features/account/ui/auth-intro.css`로 옮기고 `AuthIntroView.jsx`가 가져온다(`WelcomeProfileView.jsx`의 `welcome-profile.css`와 같은 방식).
+1. + 버튼이 있는 화면(아래 영향 목록 5곳)에서는 운비서 동그라미가 저장 위치와 상관없이 왼쪽 가장자리에 붙는다. 높이는 저장된 높이 그대로.
+2. + 버튼이 없는 화면에서는 지금처럼 저장된 왼쪽·오른쪽 자리에 있다.
+3. + 버튼 화면에서 동그라미를 끌어 오른쪽에 놓으면 화면에서는 왼쪽으로 돌아가고, 저장은 놓은 자리(오른쪽)로 된다. 그래서 + 버튼이 없는 화면에 가면 오른쪽에 있다. 높이는 놓은 높이로 바뀐다.
+4. 소속 기사처럼 + 버튼이 안 보이는 계정은(`accountPermissionUi.test.js` 133줄) 같은 화면이어도 2번처럼 동작한다.
+5. 운비서 카드를 펼쳤을 때 자리는 그대로다(아래 메뉴 위 앱 폭 전체).
+6. + 버튼은 지름 48px, + 그림은 18px×3px. 오른쪽 20px·아래 88px 자리는 그대로(아래 끝 기준이라 위쪽만 8px 줄어든다).
 
 ### 건드릴 파일
-- `src/features/account/ui/AuthIntroView.jsx` — 배치·문구·로딩 점
-- `src/features/account/ui/auth-intro.css`(새) — `account-flow.css`에서 옮긴 로그인 첫 화면 규칙 + 새 규칙(작은 제목·약관·로딩·정렬)
-- `src/shared/styles/account-flow.css` — 위 "현재 상태"의 로그인 첫 화면 전용 규칙을 빼고, 맨 위 설명 주석 고침
-- `src/shared/styles/variables.css` — `--accent-soft-color` 라이트/다크 2줄
-- 시험 `src/features/account/ui/AuthPage.google.test.js` — 문구·약관(링크 0개)·로딩 점이 생기고 실패 뒤 사라지는지
-- 영향 목록: 옮기는 클래스는 모두 `AuthIntroView.jsx`에서만 쓴다(클래스명 grep). 같이 쓰는 클래스(`.auth-heading-box`·`.auth-desc-text`)는 바꾸지 않고 가져다 쓰기만 한다.
+- `react-app/src/features/home/ui/unbiseo-dock.css` — 23줄 `.left` 규칙 바로 아래에 두 줄 추가. 주석 최종 문구:
+  ```css
+  /* + 버튼(management-add-fab)이 있는 화면에선 저장 위치와 상관없이 왼쪽 — 오른쪽 아래 + 버튼과 겹치지 않게. */
+  body:has(.management-add-fab) .unbiseo-dock:not(.open) { align-items: flex-start; }
+  ```
+- `react-app/src/shared/styles/management-common.css` — `.management-add-fab`의 `width`·`height` 56px → 48px, + 그림 두 줄 22px → 18px. 줄 수 그대로.
+- 문서(`[x]` 때): `docs/sot.md` 572줄 떠 있는 운비서 끝에 "+ 버튼이 있는 화면에선 저장 위치와 상관없이 왼쪽(저장 값은 그대로)" 한 문장, `STATUS.md` 완료 한 줄.
+- 영향 목록 — `.management-add-fab`를 쓰는 곳 전부(`grep -rln management-add-fab src`):
+  - `features/cars/ui/CarListPage.jsx` 100줄(차량 관리)
+  - `features/clients/ui/ClientListPage.jsx` 114줄(거래처)
+  - `features/clients/ui/ScopedClientsList.jsx` 38줄(기사 화면 안 거래처 목록)
+  - `features/drivers/ui/DriverConnectionPage.jsx` 175줄(기사 연결 "+ 초대")
+  - `features/expenses/ui/MaintFuelPage.jsx` 124줄(정비·주유)
+  - 다섯 곳 모두 + 버튼이 작아지고, 운비서가 왼쪽으로 간다. 그 밖의 파일은 클래스 이름만 언급(`maint-fuel.css` 2줄 주석, `accountPermissionUi.test.js` 있음·없음 확인).
+- 바뀌는 것은 크기·좌우 정렬뿐이라 `display`·`position`·`overflow`는 안 바뀐다.
 
 ### 안 건드릴 것
-- `AuthPage.jsx` — 실패 시 토스트·다시 누르기는 이미 원하는 동작이다(`AuthPage.google.test.js` 실패 시험).
-- 구글 버튼 문구 "Google 계정으로 로그인하기"·색(sot 4-19)
-- `auth-form.css`의 `.auth-heading-box`·`.auth-desc-text` — 환영 화면과 같이 쓰므로 값을 바꾸지 않는다.
-- `index.html`의 점 세 개 모양 — 그대로 가져다 쓴다.
-- 환영·첫 설정 화면
+- `useDockPosition.ts`·`UnbiseoDock.tsx` — 저장·끌기·누르기 동작은 그대로. 왼쪽 강제는 CSS 한 규칙으로 끝나서 저장 값을 바꿀 필요가 없다.
+- 운비서 동그라미 크기(52px)·높이 계산, 화면 아래 여백 +60px, 토스트 자리.
+- + 버튼 자리(오른쪽 20px·아래 88px)·색·누를 때 작아지는 효과·화면 들어올 때 숨김.
+- 카드 안 버튼 44px 시험(`CardActionButtons.test.js`) — `.management-record-actions` 규칙이라 + 버튼과 무관.
 
 ### 검증
-- 시험(`AuthPage.google.test.js`):
-  - 화면에 큰 제목·설명·약관 문구가 있고, 약관 안에 링크(`a`)가 0개다.
-  - 누르면 버튼 안에 `.boot-loading-dots`가 생기고, 실패하면 사라진다.
-  - 기존 버튼 이름 시험(`['Google 계정으로 로그인하기', '비회원으로 시작하기']`)은 그대로 통과한다. 점은 빈 칸이라 버튼 글자가 바뀌지 않는다.
-- 새 시험 중 문구·점 시험은 고치기 전 코드에서 실패해야 한다(revert-check).
-- 전체 `npm test`·`typecheck` 통과
-- 브라우저(375px, 라이트·다크): 왼쪽 정렬선 하나, 위계, 비회원 버튼 높이 44px 이상(계산값), 로딩 점, 콘솔 오류 없음
+- 자동 검사는 CI가 한다(테스트·타입·빌드). jsdom은 `:has`로 정렬을 계산하지 않아 새 시험은 넣지 않는다 — 대신 아래 화면 확인으로 증명.
+- 미리보기에서(로그인 계정, 휴대폰 폭): 차량 관리·거래처·기사 연결·정비·주유에서 운비서가 왼쪽, 매출·일지 등 + 버튼 없는 화면에서는 저장 자리. + 버튼 계산 크기 48px(`getComputedStyle`). 전후 화면 사진.
 
 ### 파일 길이
-- `AuthIntroView.jsx` 45 → 약 65
-- `auth-intro.css`(새) 0 → 약 105
-- `account-flow.css` 152 → 약 75
-- `variables.css` 84 → 86
-- 200줄을 넘는 파일 없음.
-
-### 코드에 넣을 주석(최종 문구)
-- `auth-intro.css` 1줄: `/* 로그인 첫 화면 — 로고·제목·구글 버튼·비회원·약관 문구. 색은 variables.css 공통 값. */`
-- `account-flow.css` 1줄: `/* 계정 화면 틀(컨테이너·페이지)과 환영 화면 단추. 색은 variables.css 공통 값. 로그인 첫 화면은 auth-intro.css, 입력 단계는 auth-form.css, 처음 정보 입력은 onboarding.css. */`
-- `variables.css` 새 줄: `--accent-soft-color: #3b56b0; /* 작은 제목·약관 문서 이름 연한 강조 */`
-- 구글 버튼 주석은 A의 것을 그대로 옮긴다: `/* 구글 로그인 버튼 — 테마에 따라 구글 규칙의 밝은/어두운 버튼 색 */`
+- `unbiseo-dock.css` 97줄 → 99줄.
+- `management-common.css` 184줄 → 184줄(값만 바꿈).
+- 200줄 넘는 파일 없음.
 
 ### 실패 시 처리
-- 새 저장 키·재시도·대비 장치 없음. 화면 모양만 바꾼다.
-- 실패하면 수정 착수지시서를 다시 써서 승인받는다.
+- 새 저장 장치·재시도·대비 장치를 만들지 않는다. CSS 한 규칙으로 안 되는 경우(예: 어떤 화면에서 왼쪽으로 안 감)가 나오면 손대지 말고 지시서를 다시 써서 승인받는다.
 
 ### 사용자 확인 방법
-1. 로그아웃해 로그인 첫 화면을 연다. 시안 순서대로 보이고, 왼쪽 끝이 한 줄로 맞는지 본다.
-2. 앱 테마를 바꿔 라이트·다크 둘 다 본다. 작은 제목과 약관 문서 이름이 연한 파랑(라이트는 진한 파랑)으로 읽히는지 본다.
-3. 구글 버튼을 누른다. 구글 화면으로 넘어가기 전에 버튼 안에 점 세 개가 움직이는지 본다.
-4. [비회원으로 시작하기] 글자 위아래를 눌러도 눌리는지 본다.
+1. 운비서를 오른쪽에 둔 채로 거래처 화면을 연다 → 운비서가 왼쪽 아래, + 버튼이 오른쪽 아래에 따로 보이고 조금 작아졌으면 성공.
+2. 차량 관리·정비·주유·기사 연결도 같은지 본다.
+3. 매출 화면처럼 + 버튼이 없는 화면으로 간다 → 운비서가 다시 오른쪽이면 성공.
+4. 거래처 화면에서 운비서를 위로 끌어 놓는다 → 왼쪽에 그 높이로 붙고, 다른 화면에서도 그 높이면 성공.
 
 ### 진행 기록
-- 2026-10-25 보리 "착수지시서 확정, 작업 진행해"(데스크톱 AI가 직접 작업).
-- 지시서와 다른 점:
-  - `auth-intro.css`에 로딩 규칙 설명 주석 한 줄을 더 넣었다: `/* 로딩 중: 로고·글자는 자리만 두고 감추고 가운데에 점 세 개(모양은 index.html) */`
-  - `AuthIntroView.jsx` 맨 위 설명 주석을 새 화면 내용에 맞게 고쳤다.
-  - 이제 쓸 데가 없는 `.auth-btn-stack` 감싸기를 뺐다.
-- 시험(`AuthPage.google.test.js`, 새 시험 1개와 기존 2개에 확인 추가) — 수정 전 코드로 돌려 확인했다(revert-check):
-  - 실패: 로딩 점 시험, 소개 문구·약관 시험
-  - 통과(안전 확인): 실패 뒤 점 없음 시험 — 수정 전에도 점이 없으므로 정상
-- 전체 `npm test` 통과(unit 896, app 887), `typecheck` 통과.
-- 줄 수:
-  - `AuthIntroView.jsx` 63
-  - `auth-intro.css` 98
-  - `account-flow.css` 77
-  - `variables.css` 86
-- 브라우저(375px):
-  - 로고·작은 제목·큰 제목·설명·구글·비회원·약관의 왼쪽 끝이 모두 18px로 같다.
-  - 큰 제목 30.4px, 로고 글자 22px, 비회원 버튼 높이 44px, 가로 넘침 없음.
-  - 작은 제목 색: 다크 `#a3b3f5`, 라이트 `#3b56b0`.
-  - 로딩 모양은 JS로 로딩 상태를 붙여 확인했다. 버튼 높이 60px 그대로, 흐림 없음, 점 세 개가 가운데. 구글 화면으로 실제로 넘어가는 것은 확인하지 않았다.
-  - 콘솔 오류 없음.
-  - 개발 서버가 `variables.css` 두 번째 수정을 늦게 반영해 서버를 다시 켜고 확인했다(코드 문제 아님).
-- 2026-10-25 보리 화면 보고 고침 지시: "트럭이랑 로고 두 배", "비회원과 약관 사이 넓혀 약관을 더 아래로".
-  - `auth-intro.css`: 로고 그림 40 → 80px, 글자 22 → 44px, 약관 위 간격 20 → 96px.
-  - 그래서 목표 3의 "큰 제목이 가장 크다"가 바뀌었다. 로고 글자(44px)가 큰 제목(30.4px)보다 크다. 보리 지시다.
-  - 브라우저 375×812: 비회원~약관 간격 96px, 가로 넘침·세로 스크롤 없음. 375×667(작은 휴대폰)도 스크롤 없음.
-- 보리 "너무 커, 처음과 이번 사이 정도" → 로고 그림 60px, 글자 33px(처음과 두 배의 중간). 약관 간격 96px는 그대로. 브라우저 가로 넘침 없음.
-- 보리 "위치를 살짝 더 위로" → 로고 줄만 12px 올림(`.auth-brand-head` 여백 `-12px 0 40px`). 나머지 자리는 그대로(375×812에서 구글 버튼 위치 같음).
-- 보리 "12px만 더" → 로고 줄 여백 `-24px 0 52px`(처음보다 24px 위). 작은 제목 아래는 그대로.
-- 보리 "커밋해" → react-app `866f9a4`(push 안 함).
-- 보리 push 뒤 CI verify·deploy 초록(run 40201495861).
-- 2026-10-25 보리 "승인" → `[x]`.
-- 이어서 보리 지시(착수지시서 없이 바로): 작은 제목을 "간편한 화물 차량 운행 관리"로 바꿈 → react-app `3276b6d`(문구와 같은 문구를 보던 시험 기대값, 로그인 첫 화면 시험 4개 통과, push 안 함).
+- 2026-10-26 보리: "착수지시서 확정,작업진행해" — 터미널 AI.
+  - 교차검증 고친 사실: + 그림 두 줄은 `management-common.css` 161~162줄(지시서 158~159). 그 밖(운비서 3~18·23줄, + 버튼 149~168줄, 영향 목록 5곳, `useDockPosition.ts` 끌기는 놓은 실제 자리로 재서 왼쪽에서 끌어도 맞음)은 맞음.
+  - 구현: react-app `35052fa`(push 안 함). 두 파일 지시서 그대로, 주석 지시서 문구 그대로. `unbiseo-dock.css` 99줄, `management-common.css` 184줄.
+  - 검증: lint·npm test(896·888) 통과.
+  - 미리보기(비회원, 로컬): 비회원은 운비서가 안 떠서 같은 모양의 동그라미를 화면에 넣어 실제 CSS로 재 봄. 차량 관리·거래처·정비·주유 왼쪽, 매출·달력 오른쪽, 카드 펼침은 그대로. + 버튼 계산 크기 48px. 기사 연결·기사 화면 거래처는 비회원으로 못 열어 안 봄.
+  - 남은 일: 보리 push → CI → 로그인 계정으로 실제 운비서 확인(사용자 확인 방법 1~4, 기사 연결 포함).
+- 2026-10-26 보리 push 뒤 CI verify·deploy 초록(run 40253837974). 데스크톱 AI 확인: 커밋 `35052fa`는 지시서의 두 파일만, 주석 문구 그대로.
+- 2026-10-26 보리 "승인" — `[x]`.
 
 ---
 
