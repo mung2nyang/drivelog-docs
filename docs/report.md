@@ -1,84 +1,112 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-113-C: drivelog-docs `afa3f5e`. 113-B: drivelog-docs `1c95e76`. 113-A: drivelog-docs `25069f9`. 운비서 버튼 설정: drivelog-docs `d65beaf`. 운비서·+ 버튼 겹침: drivelog-docs `6fe917d`. 로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+113-D: drivelog-docs `0bcb19a`. 113-C: drivelog-docs `afa3f5e`. 113-B: drivelog-docs `1c95e76`. 113-A: drivelog-docs `25069f9`. 운비서 버튼 설정: drivelog-docs `d65beaf`. 운비서·+ 버튼 겹침: drivelog-docs `6fe917d`. 로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
 ---
 
-## 로드맵 113-D 운송비 내역서 월간 정산에 "파렛트 회수 청구액" 줄 `[x]`
+## 로드맵 34-A 출시 전 서버 권한(RLS) 전체 점검 — 읽기만 `[x]`
 
-로드맵 113(②) 마지막 조각. 113-B 화면 확인 때 찾음, 보리 "응 그것도 고쳐" `[확인: 2026-10-26 보리]`.
+로드맵 34(출시 전 순서 2단계). 113 끝난 뒤 AI가 권하고 보리 "응"(2026-10-26). 34는 둘로 나눈다(AI 판단): **34-A 읽기만 해서 점검·보고(이번)** → 34-B 이후 문제가 나오면 고치기(DB 변경은 따로 지시서·AGENTS §9 절차). 문제가 없으면 34-A로 끝.
 
 ### 쉬운 요약
-- 운송비 내역서 아래 "월간 운송료 정산"에는 거래처별 운송료·부가세·계 줄이 있는데, 파렛트 줄이 없다. 파렛트 금액은 날짜 칸·부가세·계에는 들어가 있어서, 줄을 다 더해도 계와 안 맞아 보인다.
-- 예(113-B 확인 때 테스터 계정 22가2222): 기본 운송료 210,000 + 테스트 기본 운송료 500,000 + 부가세 72,000 = 782,000인데 계는 792,000원(파렛트 10,000원이 줄에 없음).
-- 달력과 같은 이름 "파렛트 회수 청구액" 줄을 넣는다. 파렛트가 0원이면 안 보인다(달력과 같음).
-- 고칠 화면 파일이 이미 199줄이라, 월간 정산 칸을 새 파일로 떼어 낸다. 하는 일은 그대로다.
+- 앱 화면 코드는 누구나 볼 수 있어서, 남의 데이터를 못 보게 막는 일은 서버 권한(RLS — 표마다 "누가 어느 줄을 읽고·쓰고·지울 수 있나" 규칙)이 해야 한다.
+- 10월 3일 보안 보강(10-S) 뒤로 문의·관리자·오류 수집·점검표 등 표와 함수가 늘었다. 지금 서버의 모든 표·함수·파일 보관함을 읽기만 하는 질문으로 다시 확인한다.
+- 이번엔 아무것도 안 바꾼다. 결과를 표로 정리해 보고하고, 고칠 것이 있으면 다음 지시서로 간다.
 
 ### 현재 상태 (코드 확인)
-- 내역서 데이터 `buildMonthReport`(`features/documents/api/reportSummary.js` 80줄~)는 `monthSettlementSummary`의 결과를 넘기는데, `palletFare`는 안 넘긴다(돌려주는 칸 102~121줄). 계(`total`)와 부가세에는 파렛트가 이미 들어 있다(`monthSettlement.ts` 101~105·142줄).
-- 화면 `features/documents/ui/ReportSummaryContent.jsx`(199줄): 정보표 → 일자표 → 월간 정산 카드(149~196줄 — 거리·기본 운송료·거래처별 운송료와 수수료·산재보험료·부가세·계). 파렛트 줄 없음.
-- 달력 `CalendarMonthSummary.jsx` 112~117줄: 거래처·기사 차량 수수료 줄 다음, 산재보험료 앞에 `palletFare > 0`일 때 "파렛트 회수 청구액" 줄.
-- 같은 화면을 PDF·이미지로 저장할 때도 이 컴포넌트를 그대로 쓴다(`ReportPage.jsx` 112줄).
-- 세부 내역 보기(`ReportDetailView.jsx`, 거래처 선택)는 콜 상세만 다뤄 고정 노선도 파렛트도 없다(`reportDetail.js`) — 이번 범위 아님.
+- 앱이 쓰는 서버 표 13개: `daily_logs`·`clients`·`vehicles`·`profiles`·`driver_links`·`daily_inspections`·`transport_details`·`tax_invoices`·`support_inquiries`·`misc_expense_records`·`maintenance_records`·`fuel_records`·`client_errors`(`grep "\.from('"`).
+  - 그중 `react-app/supabase/migrations/`(0001~0025)에 만드는 문장이 있는 표는 `admin_users`·`client_errors`·`daily_inspections`·`driver_invite_redeem_attempts`·`support_inquiries`뿐. 나머지는 마이그레이션 전에 서버에서 만든 표라 파일로는 권한을 알 수 없다 — 서버에 직접 물어야 한다(STATUS "비용 3종 테이블 RLS — 정책은 라이브에 존재, 마이그레이션 파일엔 없음"도 같은 이야기).
+- 앱이 부르는 서버 함수 11개: `admin_answer_support_inquiry`·`admin_list_support_inquiries`·`delete_own_account`·`get_assigned_vehicle_summary`·`get_linked_owner_business_info`·`is_admin`·`redeem_driver_invite_code`·`rename_sub_vehicle`·`replace_transport_details`·`settle_expired_driver_unlinks`·`upsert_driver_link_idempotent`(`grep "\.rpc('"`).
+- AI 함수 3개(`unbiseo-parse`·`unbiseo-voice`·`unbiseo-weather`)는 서버 로그인 표 확인을 끄고(Verify JWT 꺼짐, 보리 확인) 함수 코드가 로그인을 확인한다 — 세 파일 모두 `auth.getUser(token)` 실패면 401(`parse` 68줄·`voice` 78줄·`weather` 116줄).
+- 앱 코드·설정에 관리자 키(`service_role`) 없음(`grep -i service_role`, 마이그레이션 제외 0건). 빌드 설정에 원본 코드 지도(`sourcemap`) 켜는 줄 없음(`vite.config` grep 0건, Vite 기본은 꺼짐).
+- 권한 판단 기준: `docs/sot.md` §0(차량·기사 관계 — 차주·기사가 서로의 운행기록을 고칠 수 있는 것은 의도), 4-15(문의·관리자), 로드맵 10-S·13(연동·초대 코드), AGENTS §9(모든 표 RLS + `auth.uid()` 기준, `SECURITY DEFINER` 함수는 `search_path = public`).
 
 ### 목표 상태 (기대 동작)
-1. 운송비 내역서 요약의 월간 운송료 정산에, 거래처별 줄 다음·산재보험료 앞에 "파렛트 회수 청구액 {금액}" 줄이 보인다(달력과 같은 자리·이름).
-2. 파렛트 금액이 0이면 줄이 없다.
-3. 줄 금액은 그 내역서의 날짜 칸 파렛트 금액 합과 같다. 계·부가세 숫자는 그대로다(이미 파렛트 포함).
-4. PDF 다운로드·이미지 저장에도 같은 줄이 나온다(같은 컴포넌트).
-5. 메인 차량·기사 차량·연동 기사 본인 내역서 모두 같다(파렛트 조건은 113-B 그대로).
-6. 나머지 줄 모양·순서·문구는 그대로다.
+1. 서버 `public`의 모든 표가 RLS 켜짐인지, 표마다 정책(읽기·쓰기·고치기·지우기 각각 누구에게)이 무엇인지 표로 정리된다.
+2. 로그인 안 한 사람(`anon`)과 로그인한 사람(`authenticated`)이 표·함수에 가진 권한이 정리된다.
+3. 서버 함수마다 `SECURITY DEFINER` 여부, `search_path` 고정 여부, 누가 실행할 수 있는지, 함수 안에서 로그인 사용자 확인을 하는지가 정리된다.
+4. RLS를 건너뛰는 뷰가 있는지, 파일 보관함(storage)이 공개인지 확인된다.
+5. 배포본(`getdrivelog.com`)에 원본 코드 지도(`.map`)가 없고, 앱 코드에 관리자 키가 없음이 확인된다.
+6. 위 결과를 sot·10-S 기준과 맞춰 "의도대로 / 고칠 것 / 보리에게 물을 것" 셋으로 나눠 보고한다. 기준이 없는 권한은 추측하지 않고 묻는다(AGENTS §8-5).
+7. 서버·코드·데이터는 하나도 바뀌지 않는다.
 
 ### 건드릴 파일
-- `react-app/src/features/documents/api/reportSummary.js` — 돌려주는 칸에 `palletFare: settled.palletFare` 한 줄.
-- `react-app/src/features/documents/ui/ReportSummaryContent.jsx`(199줄) — 월간 정산 카드(`<div className="summary-card">` 149~196줄)와 그 카드만 쓰는 값(`clientNames`·`baseFare`·`showBaseFare`·`tripCount`·`showDistance`)을 새 파일로 옮기고, 그 자리에 새 컴포넌트를 부른다. `report` 형 설명(JSDoc)에 `palletFare?: number`.
-- 새 `react-app/src/features/documents/ui/ReportMonthSummaryCard.jsx` — 옮겨 온 월간 정산 카드 + 파렛트 줄(목표 1·2). 받는 값: `report`·`formatWon`·`distanceOn`. 클래스 이름은 그대로(`summary-card`·`summary-row` 등, CSS는 부모가 이미 `report.css`를 불러옴). 맨 위 설명 주석 최종 문구:
-  `// 운송비 내역서 요약의 "월간 운송료 정산" 카드 — 거래처별 운송료·파렛트·산재·부가세·계.`
-- 시험:
-  - 새 `src/features/documents/ui/ReportMonthSummaryCard.test.js` — 파렛트 10,000원이면 "파렛트 회수 청구액 10,000원" 줄이 거래처 줄 다음·부가세 앞에 있음, 0이면 없음.
-  - `src/features/documents/api/reportPalletSwitch.test.js`(113-B)에 `report.palletFare` 값 확인 한두 줄.
-  - 기존 `ReportSummaryContent.test.js`(6개 시험)는 그대로 통과해야 한다(옮긴 뒤에도 같은 모양 — 나누기만 한 증거).
-  - 새 시험은 고치기 전 코드에서 실패하는지 확인한다.
-- 문서(`[x]` 때): `docs/sot.md` 4-17에 "운송비 내역서 월간 정산에도 '파렛트 회수 청구액' 줄(달력과 같은 자리, 0원이면 없음)" 한 줄, 로드맵 113-D 끝 표시(113 끝), `STATUS.md` 완료 한 줄.
+- 코드 파일 없음.
+- `docs/report.md`(이 지시서 진행 기록에 결과 표), `[x]` 때 `docs/roadmap.md` 34 표시와 고칠 것 등재(보리 확인분만), `STATUS.md` 완료 한 줄.
+- 서버에 보낼 질문(모두 `SELECT`만, 그대로 붙여넣기). 결과는 그대로 진행 기록에 옮긴다.
+  ```sql
+  -- ① 표마다 RLS 켜짐
+  select c.relname as table_name, c.relrowsecurity as rls_on, c.relforcerowsecurity as rls_forced
+  from pg_class c join pg_namespace n on n.oid = c.relnamespace
+  where n.nspname = 'public' and c.relkind in ('r', 'p') order by 1;
+
+  -- ② 정책 전부
+  select tablename, policyname, cmd, roles, qual, with_check
+  from pg_policies where schemaname = 'public' order by tablename, cmd, policyname;
+
+  -- ③ anon·authenticated 표 권한
+  select table_name, grantee, string_agg(privilege_type, ',' order by privilege_type) as privileges
+  from information_schema.role_table_grants
+  where table_schema = 'public' and grantee in ('anon', 'authenticated')
+  group by table_name, grantee order by table_name, grantee;
+
+  -- ④ 함수: SECURITY DEFINER·search_path·실행 권한
+  select p.proname, pg_get_function_identity_arguments(p.oid) as args, p.prosecdef as security_definer, p.proconfig as config,
+    has_function_privilege('anon', p.oid, 'EXECUTE') as anon_exec,
+    has_function_privilege('authenticated', p.oid, 'EXECUTE') as auth_exec
+  from pg_proc p join pg_namespace n on n.oid = p.pronamespace
+  where n.nspname = 'public' order by p.proname;
+
+  -- ⑤ 뷰(RLS를 건너뛸 수 있음)와 옵션
+  select c.relname as view_name, c.reloptions
+  from pg_class c join pg_namespace n on n.oid = c.relnamespace
+  where n.nspname = 'public' and c.relkind in ('v', 'm') order by 1;
+
+  -- ⑥ 파일 보관함
+  select id, name, public from storage.buckets order by id;
+  ```
+- 함수 안 로그인 확인은 ④에서 `SECURITY DEFINER`인 함수만 `select pg_get_functiondef('public.<함수이름>'::regproc);`로 본문을 읽어 `auth.uid()` 확인이 있는지 본다(이름은 ④ 결과에서 그대로 채워 하나씩 — 같은 이름 여러 개면 인자까지).
+- 배포본 확인: `https://getdrivelog.com/`의 `index.html`이 부르는 `assets/*.js` 주소 끝에 `.map`을 붙여 열어 보고 없음(404 또는 앱 첫 화면)을 확인.
 
 ### 안 건드릴 것
-- 계·부가세 계산(`monthSettlement.ts`) — 이미 파렛트 포함.
-- 일자표·정보표 모양, 세부 내역 보기(`ReportDetailView.jsx`).
-- `report.css` — 클래스 이름 그대로라 안 바꿈.
+- 서버 표·정책·함수·데이터, 앱 코드 — 읽기만.
+- Supabase 대시보드 설정(로그인 방식·주소·키) — 34 범위 아님(10-P 출시 설정).
+- 고칠 것이 나와도 이번에 고치지 않는다 — 34-B 지시서로.
 
 ### 검증
-- 자동 검사는 CI가 한다. 로컬에서도 lint·typecheck·npm test.
-- 새 시험 revert-check.
-- 화면: 로그인 탭(테스터 계정, 읽기만) 메인 차량 10월 운송비 내역서 — 달력에 "파렛트 회수 청구액 50,000원"이 있으니 내역서에도 같은 줄·금액이 보이고, 줄을 다 더한 값이 계와 같은지 본다.
+- 이번 슬라이스는 코드 변경이 없어 CI·시험 없음.
+- 질문 ①~⑥ 결과를 빠짐없이 옮겼는지(표 수 = 앱이 쓰는 13개 + 마이그레이션 표 5개 중 겹치지 않는 것 포함 전부), 판단마다 근거(sot 절·10-S·마이그레이션 번호)가 붙었는지.
 
 ### 파일 길이
-- `reportSummary.js` 122 → 123줄.
-- `ReportSummaryContent.jsx` 199 → 약 150줄(월간 정산 카드를 뗌).
-- 새 `ReportMonthSummaryCard.jsx` 약 70줄.
-- 새 시험 파일 약 50줄.
+- 코드 파일 없음. 진행 기록이 길어지면 결과 표는 판단에 필요한 줄만 남기고 원문은 요약한다.
 
 ### 실패 시 처리
-- 새 저장 장치·재시도·대비 장치를 만들지 않는다. 계획대로 안 되면 손대지 말고 지시서를 다시 써서 승인받는다.
+- 새 저장 장치·재시도·대비 장치를 만들지 않는다. 질문이 오류를 내면(권한 부족 등) 어떤 질문이 왜 실패했는지 적고, 바꾼 질문을 다시 보여 준 뒤 진행한다. 서버를 바꾸는 문장은 쓰지 않는다.
 
 ### 사용자 확인 방법
-1. 파렛트가 있는 달의 서류 발급 → [운송비 내역서]를 연다.
-2. 아래 "월간 운송료 정산"에 "파렛트 회수 청구액" 줄이 보이고, 금액이 그 달 달력의 같은 줄과 같으면 성공.
-3. 줄을 위에서부터 더하고(수수료·산재는 빼고) 부가세를 더한 값이 "계"와 같으면 성공.
+1. 질문 ①~⑥은 보리가 Supabase SQL Editor에 붙여넣고 결과를 AI에게 넘기거나, AI가 내장 브라우저의 로그인된 Supabase 탭에서 보리 허락을 받고 직접 실행한다(10-S 때와 같은 방식, 읽기만).
+2. AI가 보고하는 "의도대로 / 고칠 것 / 물을 것" 표를 보고, 물을 것에 답하고, 고칠 것의 순서를 정한다.
 
 ### 진행 기록
-- 2026-10-26 보리: "착수지시서 확정,작업진행해" — 터미널 AI.
-  - 교차검증: 고친 사실 없음(`reportSummary.js` 80줄~·돌려주는 칸, `ReportSummaryContent.jsx` 199줄·149~196줄, 달력 `CalendarMonthSummary.jsx` 112~117줄, `ReportPage.jsx` 112줄 모두 같음).
-  - 구현: react-app `8abf4db`(push 안 함).
-    - 나누기 먼저: 월간 정산 카드와 그 카드만 쓰는 값 다섯 개를 새 `ReportMonthSummaryCard.jsx`로 옮김. 나누기만 한 상태에서 문서 화면 시험 전부(기존 `ReportSummaryContent.test.js` 6개 포함) 통과.
-    - 그다음 파렛트 줄(거래처 줄 다음·산재 앞, 0원이면 없음)과 `reportSummary.js` `palletFare` 한 줄, 두 컴포넌트 JSDoc에 `palletFare?: number`. 첫 줄 주석 지시서 문구 그대로.
-    - 줄 수: `reportSummary.js` 123, `ReportSummaryContent.jsx` 149, `ReportMonthSummaryCard.jsx` 86.
-  - 고치기 전 실패 확인: 새 시험 3개 중 2개(줄이 거래처 다음·부가세 앞, `palletFare` 값)는 고치기 전(나누기만 한) 코드에서 실패, 고친 뒤 통과. 1개(0원이면 줄 없음)는 안전 확인이라 고치기 전에도 통과.
-  - 검증: lint·typecheck·depcheck(1814)·npm test(912·898) 통과.
-  - 화면: 못 함. 이 터미널 세션의 Chrome은 5174에 로그인돼 있지 않음(113-B·C 때 확인, 비회원으로 시작하지 않음).
-  - 남은 일: 보리 push → CI → 로그인 탭에서 메인 차량 10월 운송비 내역서의 "파렛트 회수 청구액 50,000원" 줄과 줄 합 = 계 확인(읽기만).
+- 2026-10-26 보리: "너가해" — 착수 승인, 데스크톱 AI가 내장 브라우저의 로그인된 Supabase SQL Editor(프로젝트 `wphlnkfymvpnklgbuxrk`)에서 읽기 질문만 실행. 서버·코드·데이터 변경 없음(편집기에 저장 안 한 "Untitled query" 탭 하나만 생김).
+- 결과 요약
+  - ① RLS: public 표 15개(앱 13개 + `admin_users`·`driver_invite_redeem_attempts`) 모두 켜짐.
+  - ② 정책: 운행 기록·콜 상세·지출 3종·점검표는 "차량 주인 또는 그 날짜에 연동된 기사"(`driver_can_access_vehicle_date`), 점검표는 연동 기사가 있는 날은 기사만 쓰기(0014). `clients` 본인 + 연동 기사의 그 차량 스코프 거래처(0004), `driver_links` 만들기는 대기 상태만·고치기는 차주+차량 주인·지우기는 연동 중 아님(10-S·13), `profiles` 본인 + 연동 상대 읽기(`has_linked_profile_access`), `vehicles` 본인 + 연동 기사 읽기, `tax_invoices` 본인, `support_inquiries` 본인 쓰기·읽기(답변 칸은 열 단위로 못 넣음, 관리자는 함수), `client_errors` 본인 넣기만, `admin_users`·`driver_invite_redeem_attempts` 정책 없음(앱에서 직접 못 읽고 함수만).
+  - ③ 표 권한: `anon`·`authenticated` 둘 다 표 12개에 읽기·쓰기·고치기·지우기·`TRUNCATE`·`TRIGGER`·`REFERENCES`(Supabase 기본값). `support_inquiries`·`client_errors`는 열 단위로만.
+  - ④ 함수 26개: `SECURITY DEFINER` 20개 모두 `search_path=public`, 로그인한 사람이 부를 수 있는 것은 함수 안에서 `auth.uid()` 또는 `is_admin()` 확인(본문 확인). 안쪽 전용(`copy_driver_link_records_internal`·`disconnect_driver_link_internal`)은 아무도 직접 못 부름. `upsert_driver_link_idempotent`는 SECURITY INVOKER인데 `search_path` 고정 없음. 트리거 함수 `guard_vehicle_delete_while_linked`·`touch_daily_inspections_updated_at`에 `anon` 실행권.
+  - ⑤ 뷰 0개, ⑥ 파일 보관함 0개.
+  - 배포본: 첫 화면 파일 + 나눠 받는 파일 29개 모두 `sourceMappingURL` 없음, `/assets/index-Bvbwf0_-.js.map` 없음(404), 들어 있는 키는 공개용(`sb_publishable_…`)뿐·`service_role`·`sb_secret` 0건.
+- 판단
+  - **의도대로**: ①, ②의 위 규칙 전부(sot §0 차주·기사 서로 기록 고치기, 4-15 문의·관리자, 10-S·13 연동·초대), ④ 함수 로그인 확인·`search_path`, ⑤⑥, 배포본. `profiles.account_type`은 본인이 고칠 수 있지만 서버 정책·함수 어디에도 안 쓰여(`pg_get_functiondef` 검색 0건) 자기 화면만 바뀜.
+  - **고칠 것(모두 낮음 — 지금 뚫린 구멍은 아니고 방어를 겹치는 정리)**:
+    - G1 안 쓰는 옛 함수 `get_linked_owner_profile_settings` — 연동 기사가 차주 설정 묶음(`settings` 전체)과 이름을 읽을 수 있음. 0015(2026-10-01)에서 "옛 화면이 새로고침 전까지 부를 수 있어 그대로 둔다"고 남긴 것, 지금 앱은 안 부름(`grep` — 시험 흉내만). 실행권 회수 권함.
+    - G2 로그인 안 한 사람(`anon`)의 표 권한 — 정책이 로그인 사용자 기준이라 지금은 0줄이지만, 앱 비회원은 서버를 안 쓰므로 표 권한 자체를 회수 권함. 로그인한 사람의 `TRUNCATE`·`TRIGGER`·`REFERENCES`도 회수(앱이 안 씀, 앱 길로는 못 부르지만 겹쳐 막기).
+    - G3 트리거 함수 2개의 `anon` 실행권 회수(직접 불러도 오류라 무해, 정리).
+    - G4 `upsert_driver_link_idempotent`에 `search_path = public` 고정(AGENTS §9 규칙은 DEFINER 대상이지만 같은 습관으로).
+    - G5 운행 기록·콜 상세·지출 3종의 고치기 정책에 새 줄 확인(WITH CHECK)이 없어, 고칠 수 있는 사람이 작성자 칸(`user_id`)을 남의 id로 바꿀 수 있음(남의 차량으로 옮기는 건 차량 조건이 새 줄에도 걸려 막힘). 작성자 칸은 못 바꾸게 막기 권함.
+  - **물을 것**: 없음(위 다섯은 모두 앱 동작을 안 바꾸는 정리라 권함으로 정리).
+- 2026-10-26 보리 "34-A 승인. 정리 5가지 34-B 착수지시서 써줘" — `[x]`.
 
-- 2026-10-26 보리 push 뒤 CI verify·deploy 초록(run 40266422667). 데스크톱 AI 확인: 커밋 `8abf4db`는 지시서 범위(옮긴 카드는 원래 줄 그대로 + 파렛트 줄 하나, 클래스 이름 그대로), 주석 문구 그대로. 로그인 탭(localhost:5174 테스터 계정, 읽기만): 메인 차량 10월 운송비 내역서 월간 정산 "기본 운송료 785,802 / 테스터거래처 기본 운송료 2,323,456 / 수수료 −116,172 / 파렛트 회수 청구액 50,000 / 산재보험료 −1,000 / 부가세 305,924 / 계 3,348,010원" — 줄 합 = 계, 달력(파렛트 50,000·합계 3,348,010원)과 같음.
-- 2026-10-26 보리 "승인" — `[x]`. 로드맵 113 끝.
 ---
 
 ## 로드맵 24-K-2 운비서 앱 — 칸 읽기 나누기 + [휴무로 하기]·[휴무 취소하기] `[x]`
