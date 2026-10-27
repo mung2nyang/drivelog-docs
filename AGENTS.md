@@ -153,6 +153,7 @@ CI가 test·typecheck·build를 이미 봤다. AI는 그건 **다시 안 한다.
 - **파괴적 쿼리 금지**: `DROP TABLE` / `TRUNCATE` / 조건 없는 대량 `DELETE` 금지. 데이터 유실 없는 보존적(Additive) 마이그레이션만.
 - `SECURITY DEFINER` 함수는 `SET search_path = public` 필수.
 - 절차: ① 읽기전용 `SELECT` 진단 쿼리를 사용자에게 먼저 제공 → 회신받은 실제 스키마로 타입 확정(추측 금지) → ② 멱등(`IF [NOT] EXISTS`, `BEGIN…COMMIT`) SQL → ③ 사용자가 붙여넣기만 하면 되는 완성본(플레이스홀더 금지) → ④ 사후검증 `SELECT` + 기대 출력.
+- 배포 순서: SQL 실행·사후검증을 앱 push보다 먼저 — 상세는 `docs/testing-playbook.md` §9.
 
 ## 10. 고위험·비가역 행위 (캐주얼 한마디로 실행 불가)
 

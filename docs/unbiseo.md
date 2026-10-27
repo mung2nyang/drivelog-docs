@@ -20,7 +20,7 @@ AI가 운비서를 고치거나 새 기능을 붙일 때 먼저 읽는 지도다
 | 함수 | 하는 일 | 비밀값 | 파일 |
 |---|---|---|---|
 | `unbiseo-parse` | 말 → 종류와 칸 | `XAI_API_KEY` | `index.ts`(받기·로그인), `answer.ts`(AI 답을 종류별로 읽기·말 막기), `grok.ts`(AI 지시문·날짜 표·답 모양), 종류별 칸 읽기 `question.ts`·`clientDraft.ts`·`fixedRoute.ts`·`smsDraft.ts`·`weatherDraft.ts` |
-| `unbiseo-voice` | 답 문장 → xAI 목소리(Iris) mp3 | `XAI_API_KEY` | `index.ts` |
+| `unbiseo-voice` | 답 문장 → xAI 목소리(Ara) mp3 | `XAI_API_KEY` | `index.ts` |
 | `unbiseo-weather` | 날짜 + 지역 이름 또는 격자 번호 → 기상청 단기예보 요약 | `KMA_API_KEY`(공공데이터포털 일반 인증키 Decoding) | `index.ts`(로그인·입력·지역 찾기), `kma.ts`(기상청 부르기·묶기), `kmaGrid.json`(시·도·시·군·구 → nx·ny) |
 
 - **세 함수 모두 "Verify JWT with legacy secret" 꺼짐.** 로그인 확인은 함수 코드(`auth.getUser`)가 한다. 켜면 지금 로그인 표(ES256)를 문 앞에서 거절해 운비서 전체가 401이 된다. **새로 만들면 켜진 채 만들어지므로 바로 끈다.**
