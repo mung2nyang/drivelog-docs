@@ -1,124 +1,87 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-115: drivelog-docs `6539d2d`. 122: drivelog-docs `48f420c`. 126: drivelog-docs `bfd19f7`. 117: drivelog-docs `8cbdca5`. 125: drivelog-docs `d48cac8`. 114: drivelog-docs `5f55ee1`. 34-C: drivelog-docs `11ea476`. 34-B: drivelog-docs `a54be26`. 34-A: drivelog-docs `58331f0`. 113-D: drivelog-docs `0bcb19a`. 113-C: drivelog-docs `afa3f5e`. 113-B: drivelog-docs `1c95e76`. 113-A: drivelog-docs `25069f9`. 운비서 버튼 설정: drivelog-docs `d65beaf`. 운비서·+ 버튼 겹침: drivelog-docs `6fe917d`. 로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+116: drivelog-docs `8cade9e`. 115: drivelog-docs `6539d2d`. 122: drivelog-docs `48f420c`. 126: drivelog-docs `bfd19f7`. 117: drivelog-docs `8cbdca5`. 125: drivelog-docs `d48cac8`. 114: drivelog-docs `5f55ee1`. 34-C: drivelog-docs `11ea476`. 34-B: drivelog-docs `a54be26`. 34-A: drivelog-docs `58331f0`. 113-D: drivelog-docs `0bcb19a`. 113-C: drivelog-docs `afa3f5e`. 113-B: drivelog-docs `1c95e76`. 113-A: drivelog-docs `25069f9`. 운비서 버튼 설정: drivelog-docs `d65beaf`. 운비서·+ 버튼 겹침: drivelog-docs `6fe917d`. 로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
 ---
 
-## 로드맵 116 빈 날 삭제 때 콜 상세만 먼저 지워지고 하루 기록 줄이 남을 수 있음 `[x]`
+## 로드맵 118 지출 저장 중 일부만 서버에 반영될 수 있음 `[x]`
 
-외부 코드 리뷰(2026-10-26), 로드맵 116 `[확인: 2026-10-26 보리 — "세개 로드맵에 올려놔", 순서 "알아서"]`. 앞 슬라이스 115 `[x]`(react-app `c64f4bf`·DB `0029`). **DB 변경 있음(새 함수 `0030`).** 114(저장)와 같은 "하루 저장" 경로의 지우기 쪽.
+외부 코드 리뷰(2026-10-26), 로드맵 118 `[확인: 2026-10-26 보리 — "세개 로드맵에 올려놔", 117·118 "권장순서대로"]`. 앞 슬라이스 116 `[x]`(react-app `1357315`·DB `0030`). **DB 변경 없음**(앱 코드만).
 
 ### 쉬운 요약
-- 일지에서 그날을 다 비우면, 앱이 서버에 세 번 요청합니다: ① 그날 콜 상세 지우기 ② 그날 지출이 있는지 보기 ③ 하루 기록 줄을 빈 기록으로 남기거나 지우기. 중간에 끊기면 콜만 지워지고 휴무·고정 노선·파렛트 횟수가 남은 "반쯤 지워진 날"이 될 수 있습니다.
-- 세 단계를 서버 함수 하나로 묶어 다 되거나 하나도 안 되게 합니다(114·115와 같은 방식).
-- 원래 지우려던 날이라 원치 않는 유실은 아니고, "반쯤 지워진 날"만 막습니다(로드맵 표시 "낮음").
+- 지출 저장은 차량마다, 종류(주유·정비·기타)마다 서버에 따로 씁니다. 지금은 "넣기"와 "지우기"가 섞여 진행돼서, 한 항목을 **다른 차량이나 다른 종류로 옮기는 저장**이 중간에 끊기면 옛 자리에서는 지워졌는데 새 자리에는 아직 안 들어간 상태가 될 수 있습니다. 그러면 그 항목이 서버에서 사라집니다.
+- 모든 넣기·고치기를 먼저 하고 지우기는 맨 뒤에 몰아서 합니다. 중간에 끊겨도 항목이 사라지지 않고, 최악이 "두 줄"(불러올 때 하나로 보이고, 다음 저장 때 정리됨)이 됩니다.
+- 지금 화면에서는 항목을 옮기는 길이 없어서 실제로 일어나지는 않습니다(아래 "현재 상태"). 코드 주석이 약속한 "유실 대신 중복"을 모든 방향에서 지키도록 순서만 바꿉니다.
 
-### 현재 상태 (코드·서버 확인, 2026-10-27)
-- `data/sync/dailyLogRemoval.ts:16-28` `removeDayLogOnServer`: `transport_details` delete → 지출 3표 `select`(`hasExpenseRows`) → 있으면 `daily_logs` update(`is_off=false, fixed_count=0, pallet_count=0, raw={}`), 없으면 `daily_logs` delete. 부르는 곳은 `dayLogCloudCommit.ts:73` 한 곳(그 날짜가 비었을 때).
-- 서버(읽기만): 지출 3표·콜 상세의 `daily_log_id`가 `daily_logs`에 `ON DELETE CASCADE` — 그래서 지출이 있으면 줄을 지우지 않음(0-3-A 규칙). 다섯 표 모두 `vehicle_id` uuid·`work_date` date. 트리거는 작성자 칸 막기(`guard_log_writer_change`, `UPDATE OF user_id`)뿐 — 이번 update는 `user_id`를 안 건드림. 삭제·수정 정책은 `daily_logs`·`transport_details` 모두 "본인 차량 또는 연동 기사 기간 안 날짜". `remove_day_log` 함수 없음.
-- 테스트: `dailyLogRemoval.test.js` 5개(지우기·지출 3표별 빈 기록·지출 조회 실패), `dayLogCloudCommit.test.js` 2개(`:133-145` 빈 날 삭제, `:147-159` 지출 있으면 빈 기록)가 앱 쪽 세 요청을 기대값으로 둠.
+### 현재 상태 (코드 확인, 2026-10-27)
+- `data/sync/expensesSave.ts:46-54`: 차주 저장은 차량 칸마다 `syncExpenseItemsForVehicle`를 차례로 부름. 순서는 `domain/expenseVehicleRouting.ts:59-62` 서브 칸 먼저·메인 맨 뒤. 주석(`:46`)은 "중간 실패 시 유실 대신 중복"이라고 적혀 있음.
+- `data/sync/syncExpenseItems.ts:125-130`: 한 칸 안에서 주유 → 정비 → 기타 순으로 `syncKind`, `syncKind`(`:73`~)는 그 종류의 넣기·고치기 뒤 곧바로 지우기.
+- 그래서 지우기가 넣기보다 먼저 오는 경우: ⓐ 서브 → 메인 옮김(서브 칸 지우기가 먼저, 메인 넣기가 나중) ⓑ 앞 서브 → 뒤 서브 옮김 ⓒ 같은 칸에서 종류 바꿈(주유 → 정비, 주유 → 기타, 정비 → 기타). 이때 끊기면 항목이 서버에서 사라짐. 메인 → 서브와 그 반대 방향 종류 바꿈만 "유실 대신 중복".
+- 지금 화면에서 옮기는 길은 없음: 고치기 창은 차량·종류 칸이 없고(`features/expenses/ui/ExpenseFormModal.jsx`), 고칠 때 입력값은 원래 항목의 종류·차량번호를 그대로 가져감(`domain/expenseDraft.ts:26-33` `expenseToDraft`). 실제로 칸이 바뀌는 건 옛 항목을 메인 칸에서 연동 서브 칸으로 옮겨 넣을 때(5-B-2)뿐이고, 이건 메인 → 서브라 이미 "넣기 먼저".
+- 로드맵 118의 "확인 못 한 것"(두 줄이 남으면 어느 차량 지출로 보이나): 불러오기는 메인 칸 지출을 먼저 읽고(`data/hydrate/hydrate.ts:130-145`) 서브 칸을 뒤에 붙인 뒤 id로 하나만 남김(`data/hydrate/hydrateOwnerDriverExpenses.ts:49`, 먼저 읽은 것 유지). 그래서 메인 칸 것이 보이고, 다음 저장 때 다른 칸 줄은 "이번에 다른 칸으로 간 항목"(`expensesSave.ts:49-50`)으로 지워짐.
+- 지출 하나 넣기·고치기·지우기는 쓰기가 한두 번이라, 끊겨도 그날 빈 하루 기록 줄만 남음(지출을 넣을 때 원래 만드는 줄과 같은 모양) — 금액이 섞이는 경우는 못 찾음.
 
 ### 목표 상태 (기대 동작)
-1. 로그인 일지에서 그날이 비면 서버 요청은 새 함수 `remove_day_log` 한 번 — 콜 상세 지우기와 하루 기록 줄 비우기/지우기가 다 되거나 하나도 안 된다.
-2. 규칙은 지금과 같다: 그날 지출이 있으면 줄을 빈 기록으로 남기고(지출을 지키려고), 없으면 줄을 지운다.
-3. 실패하면 지금처럼 화면은 옛 값·실패 알림, Store 반영 없음. 성공하면 Store에서 그 날짜를 뺀다(지금과 같음).
-4. 옛 앱은 함수를 안 부르므로 DB를 먼저 바꿔도 지금 배포본이 그대로 돈다.
-
-### 배포 순서 (플레이북 §9)
-1. 착수 전 읽기 진단(위 "서버" 줄을 다시 한 번 — 함수 없음·칸·트리거 그대로인지).
-2. SQL Editor에서 `0030` 실행 → 사후검증(파일 끝 주석) → 되돌림 시험(아래).
-3. 그다음 앱 push → CI 초록 → 배포본 확인. 앱을 먼저 올리면 함수가 없어 **그날을 비우는 저장이 모두 실패**한다(다른 저장은 그대로).
-4. ①~③ 중 하나라도 기대와 다르면 push하지 않고, 함수를 지운 뒤 지시서를 고쳐 다시 승인받는다.
+1. 차주 저장: 모든 차량 칸·모든 종류의 넣기·고치기가 끝난 뒤에 지우기를 한다. 넣기·고치기 중 하나라도 실패하면 지우기는 하나도 안 한다.
+2. 연동 기사 저장(배정 차량 한 칸): 그 칸 안에서 세 종류 넣기·고치기 뒤에 지우기.
+3. 무엇을 넣고·고치고·지우는지는 지금과 같다(대상 판단·순번·작성자 유지·옛 항목 옮겨 넣기·빠진 항목 다시 넣기 그대로). 바뀌는 건 지우기 시점뿐.
+4. 실패하면 지금처럼 실패 알림, 화면은 옛 목록(Store 반영 없음).
 
 ### 건드릴 파일
-- 새 `react-app/supabase/migrations/0030_remove_day_log.sql` — 아래 완성본.
-- `react-app/src/data/sync/dailyLogRemoval.ts` — `removeDayLogOnServer`가 `remove_day_log` 한 번 부르기로(지출 조회 함수·표 목록 삭제). 머리 주석·함수 주석 최종 문구:
-  - 머리: `// 빈 날이 된 그 날짜 지우기 — 서버 함수 remove_day_log(DB 0030) 한 번. 그날 지출이 있으면 서버가 줄을 빈 기록으로 남긴다.`
-  - 함수: `/** 빈 날이 된 그 날짜의 콜 상세와 하루 기록 줄을 한 번에 지운다(지출이 있으면 줄은 빈 기록으로, 멱등). */`
-- `react-app/src/data/sync/dailyLogRemoval.test.js` — 다시 씀: ⓐ 서버 함수 1회·넘긴 값 `{ p_vehicle_id: 700, p_work_date: '2026-10-10' }`·표에 직접 쓰기 0회(`transport_details` delete·`daily_logs` delete/update·지출 select 모두 0) ⓑ 서버 함수가 오류를 돌려주면 던짐. 빈 기록/지우기 갈림은 앱이 아니라 서버가 하므로 되돌림 시험 (가)·(나)가 맡음.
-- `react-app/src/data/sync/dayLogCloudCommit.test.js` — `:133-145`는 "서버 함수 `remove_day_log` 1회·`daily_logs` delete 0회·`save_day_log` 0회·Store에서 빠짐", `:147-159`는 이름을 `'0-3-A 빈 날 저장: 서버가 빈 기록으로 남겨도(blanked) Store에선 빠진다'`로 바꾸고 가짜 서버 함수가 `'blanked'`를 돌려주게, `daily_logs` update·delete 0회.
+- `react-app/src/data/sync/syncExpenseItems.ts` — `syncKind`가 지울 서버 행을 바로 지우지 않고 목록에 모은다. 넣기·고치기만 하는 `upsertExpenseItemsForVehicle`(지울 목록을 돌려줌)와 모은 행을 지우는 `deleteExpenseRows`를 새로 내보내고, 기존 `syncExpenseItemsForVehicle`는 "넣기·고치기 → 지우기"로 둘을 이어 부른다(이름·인자 그대로). 주석 최종 문구:
+  - 지우기 모으는 곳: `// 지우기는 모아 두었다가 모든 넣기·고치기 뒤에 한다 — 중간에 끊겨도 유실 대신 중복.`
+  - `upsertExpenseItemsForVehicle`: `/** 넣기·고치기만 하고, 지울 서버 행 목록을 돌려준다(지우기는 deleteExpenseRows). */`
+  - `deleteExpenseRows`: `/** 모아 둔 서버 행을 지운다. */`
+- `react-app/src/data/sync/expensesSave.ts` — 차주 경로에서 칸마다 `upsertExpenseItemsForVehicle`로 지울 목록을 모으고, 반복이 끝난 뒤 `deleteExpenseRows` 한 번. 연동 기사 경로는 `syncExpenseItemsForVehicle` 그대로(한 칸 안에서 2번 목표 충족). `:46` 주석을 `// 모든 칸 넣기·고치기 먼저, 지우기는 맨 뒤 — 중간 실패 시 유실 대신 중복(불러올 때 id로 정리).`로 바꿈.
+- `react-app/src/data/sync/syncExpenseItems.test.js` — 새 테스트: 같은 칸에서 주유 → 정비로 바뀐 항목은 `maint.insert`가 `fuel.delete`보다 먼저, 정비 넣기가 실패하면 `fuel.delete` 0회.
+- 새 `react-app/src/data/sync/expensesSave.order.test.js` — 차주 저장에서 서브 → 메인으로 옮긴 항목: 메인 넣기가 서브 지우기보다 먼저, 메인 넣기가 실패하면 서브 지우기 0회·Store 반영 없음.
 - 공용 스타일·공용 값 변경 없음.
 
-`0030` 완성본:
-```sql
--- 0030: 빈 날이 된 그 날짜 지우기를 함수 한 번(= 한 트랜잭션)으로 — 콜 상세 지우기·지출 확인·하루 기록 줄 비우기/지우기가 다 되거나 하나도 안 됨.
--- 그날 지출이 있으면 줄을 지우지 않고 빈 기록으로 남긴다(지출 행이 daily_logs에 ON DELETE CASCADE로 묶여 있어서 — 0-3-A 규칙 그대로).
--- security invoker: 운행기록·콜상세·지출 권한과 작성자 칸 트리거(0027) 그대로. 표 변경 없음, create or replace라 다시 실행해도 안전.
-begin;
-
-create or replace function public.remove_day_log(p_vehicle_id uuid, p_work_date date)
-returns text
-language plpgsql
-security invoker
-set search_path = public
-as $$
-begin
-  delete from public.transport_details where vehicle_id = p_vehicle_id and work_date = p_work_date;
-  if exists (select 1 from public.fuel_records where vehicle_id = p_vehicle_id and work_date = p_work_date)
-     or exists (select 1 from public.maintenance_records where vehicle_id = p_vehicle_id and work_date = p_work_date)
-     or exists (select 1 from public.misc_expense_records where vehicle_id = p_vehicle_id and work_date = p_work_date) then
-    update public.daily_logs
-    set is_off = false, fixed_count = 0, pallet_count = 0, raw = '{}'::jsonb
-    where vehicle_id = p_vehicle_id and work_date = p_work_date;
-    return 'blanked';
-  end if;
-  delete from public.daily_logs where vehicle_id = p_vehicle_id and work_date = p_work_date;
-  return 'deleted';
-end;
-$$;
-
-revoke all on function public.remove_day_log(uuid, date) from public, anon;
-grant execute on function public.remove_day_log(uuid, date) to authenticated;
-
-commit;
-
--- 사후검증(기대: 1줄, security_definer = false, proconfig = {search_path=public}, anon_exec = false, auth_exec = true)
--- select p.proname, p.prosecdef as security_definer, p.proconfig,
---        has_function_privilege('anon', p.oid, 'execute') as anon_exec,
---        has_function_privilege('authenticated', p.oid, 'execute') as auth_exec
--- from pg_proc p where p.proname = 'remove_day_log';
-
--- 되돌리기(앱을 먼저 되돌린 뒤): drop function if exists public.remove_day_log(uuid, date);
-```
-
-되돌림 시험(테스터 계정, 한 트랜잭션 안에서 시험 줄을 만들고 끝은 `rollback` — 실제 데이터 그대로):
-- (가) 지출 없는 시험 날짜에 하루 기록 줄 + 콜 상세 1줄 → 함수 → `'deleted'`, 두 표 모두 0줄.
-- (나) 지출(주유 1줄)이 있는 시험 날짜에 하루 기록 줄(고정 2) + 콜 상세 1줄 → 함수 → `'blanked'`, 콜 상세 0줄, 하루 기록 줄 남고 `fixed_count = 0`·`raw = {}`, 주유 1줄 그대로.
-- (다) 함수 안에서 오류가 나면 앞서 지운 콜 상세도 함께 취소되는지 — 하루 기록 줄을 다른 사람 차량 id로 부르면 정책상 0줄 처리라 오류가 아님을 확인하고(지금 앱과 같음), 형이 틀린 날짜(`'abc'`)는 부르기 전에 오류로 끝나 아무것도 안 바뀜을 확인.
-
 ### 안 건드릴 것
-- 하루 저장 `save_day_log`(0028)·콜 교체 `replace_transport_details`(0023) — 그대로.
-- 지출 저장(118) — 다음 슬라이스.
-- 비회원·기기 저장 경로(서버 안 씀) — 그대로.
-- 화면·알림 문구 — 그대로(실패면 지금 실패 문구).
+- 서버 함수로 묶기(DB 변경) — 지금 화면에서 일어나지 않는 경우라 순서 바꾸기로 충분, 묶음 저장이 필요해지면 그때 따로.
+- 고치기 창에 차량·종류 바꾸기를 넣는 것 — 범위 밖.
+- 불러오기의 중복 정리(`hydrateOwnerDriverExpenses.ts`, `domain/expenses.ts` `dedupeExpensesById`) — 그대로(위 "현재 상태" 확인대로 다음 저장 때 정리됨).
+- 하루 저장(114·116)·연동 기사 정산 등 다른 저장 — 그대로.
+- 화면·알림 문구 — 그대로.
 
 ### 검증
-- 착수 전 `docs/testing-playbook.md` 열람(§5 세션·§9 배포 순서).
-- 바꾼 테스트가 고치기 전 코드에서 실패하는지 먼저 확인(옛 코드는 표에 직접 세 번 써서 실패해야 함), 고친 뒤 통과. 로컬 `npm test` 전체 통과.
+- 착수 전 `docs/testing-playbook.md` 열람(§5 세션).
+- 새 테스트가 고치기 전 코드에서 실패하는지 먼저 확인(옛 코드는 지우기가 넣기보다 먼저라 실패해야 함), 고친 뒤 통과. 기존 `syncExpenseItems.test.js`·`expensesSave.draft.test.js`·`fetchAllRows.saves.test.js` 그대로 통과. 로컬 `npm test` 전체 통과.
 - 테스트·타입·빌드·코드 검사는 CI가 봄. 화면 모양 변화 없음 — 시안 필요 없음.
 
 ### 파일 길이
-- `dailyLogRemoval.ts` 28 → 약 12줄, `0030` 새 파일 약 40줄, 테스트 두 파일은 예외.
+- `syncExpenseItems.ts` 130 → 약 142줄, `expensesSave.ts` 85 → 약 88줄, `syncExpenseItems.test.js` 126 → 약 145줄, 새 `expensesSave.order.test.js` 약 70줄. 200줄 넘는 파일 없음.
 
 ### 실패 시 처리
-- 새 저장 장치·재시도·대비 장치 없음(신규 레이어 없음 — 세 요청을 한 요청으로 줄임). 실패하면 수정 착수지시서를 다시 써서 승인받음.
+- 새 저장 장치·재시도·대비 장치 없음(신규 레이어 없음 — 같은 쓰기의 순서만 바꿈). 실패하면 수정 착수지시서를 다시 써서 승인받음.
 
 ### 사용자 확인 방법
-1. 로그인 테스터 계정에서 비어 있는 날짜(예: 10-19)에 [2회] → 저장 → 운행 횟수 0으로 비움 → 저장 → 새로고침해도 빈 칸.
-2. 지출이 있는 날을 비우는 경우는 되돌림 시험 (나)로 확인(실제 지출을 건드리지 않게).
+1. 로그인 테스터 계정 배포본에서 정비/주유/기타 화면 → 정비 하나 넣기 → 저장 → 새로고침해도 보임.
+2. 그 항목 금액 고치기 → 저장 → 새로고침해도 바뀐 금액.
+3. 그 항목 지우기 → 새로고침해도 없음.
+4. 끊김(옮기다 실패)은 화면에서 만들 수 없어 테스트로만 확인.
 
 ### 누가 하나
-- 데스크톱 AI가 SQL·앱 코드까지 `[확인: 2026-10-27 보리 — "응 너가 진행해"]`.
+- 데스크톱 AI가 앱 코드·코드 커밋까지, push는 보리 `[확인: 2026-10-27 보리 — "118 착수지시서 확정, 작업 진행해", "너가해"]`.
 
 ### 진행 기록
-- 2026-10-27 DB(데스크톱 AI, 프로젝트 `wphlnkfymvpnklgbuxrk`):
-  - 읽기 진단: `remove_day_log` 없음, 다섯 표 `vehicle_id` uuid·`work_date` date, 필수 칸은 `daily_logs`(vehicle_id·work_date)·`transport_details`·`fuel_records`(daily_log_id·vehicle_id), 트리거·정책은 위 "현재 상태"와 같음.
-  - `0030` 실행(위 완성본 그대로) — 오류 없음. 사후검증: `remove_day_log | false | {search_path=public} | anon_exec false | auth_exec true` — 기대와 같음.
-  - 되돌림 시험(테스터 계정 `7ba50d27…` 메인 차량 `9a4465b3…`, 시험 날짜 2030-01-01·02, 한 트랜잭션 → `rollback`): (가) 지출 없는 날 → `'deleted'`, 하루 기록 0줄·콜 0줄. (나) 주유 1줄 있는 날(고정 2) → `'blanked'`, 콜 0줄, 하루 기록 남고 `fixed_count 0`·`raw {}`·`is_off false`, 주유 1줄 그대로. (다) 다른 사람 차량(`da63b172…`, 3줄) 날짜로 부름 → 권한상 0줄 처리(`'deleted'`, 지금 앱과 같음), 그 차량 3줄 그대로. 날짜 형식 오류는 부르기 전에 끝남(함수 하나 = 한 문장이라 안에서 오류가 나면 앞 지우기도 함께 취소). 끝난 뒤 2030 시험 날짜 0줄·다른 차량 3줄 — 시험 전과 같음.
-- 앱(데스크톱 AI): 착수 전 플레이북 §5·§9 열람. 테스트를 먼저 바꿔 옛 코드에서 돌림 — `dailyLogRemoval.test.js` 2개·`dayLogCloudCommit.test.js` 빈 날 2개 모두 실패(옛 코드는 표에 직접 써서). 고친 뒤 로컬 `npm test` 전체 통과(913·899개 — 옛 `dailyLogRemoval` 5개를 2개로 바꿔 3개 줄어듦), `tsc --noEmit`·코드 검사·의존 방향 검사 통과. `dailyLogRemoval.ts` 28 → 8줄, `0030` 파일은 위 완성본과 줄마다 같음.
-- 코드 커밋 react-app `1357315`, push는 보리 예외 지시로 데스크톱 AI `[확인: 2026-10-27 보리 — "예외로 푸시까지 진행해"]`(DB `0030` 먼저 끝난 뒤, `c64f4bf..1357315`). CI verify·deploy 초록(run 40475951795).
-- 배포본 확인(2026-10-27, 로그인 테스터 계정 메인 차량): 빈 날 10-19에 [2회] → 서버 하루 기록 줄 `fixed_count 2` 확인 → 운행 횟수 0으로 비움 → 저장 표시 → 서버 하루 기록 0줄·콜 0줄(새 함수로 지워짐) — 시험 전과 같은 빈 날.
-- §5 점검: ① 범위 — 바뀐 파일 `dailyLogRemoval.ts`·`dailyLogRemoval.test.js`·`dayLogCloudCommit.test.js`·새 `0030` 4개, 지시서와 같음 ② 새 저장 장치·저장 키 없음(새 서버 함수는 지시서 범위) ③ `any`·`unknown`·`@ts-ignore` 없음 ④ `dailyLogRemoval.ts` 8줄 ⑤ `dailyLogRemoval` 테스트 5 → 2는 지시서에 밝힌 이동(갈림은 서버 — DB 되돌림 시험 (가)·(나)가 맡음), 나머지 테스트 그대로 ⑥ 공용 클래스·상태값 변경 없음, 주석은 지시서 문구 그대로 ⑦ 목표 1·3은 새 테스트·배포본, 2는 되돌림 시험 (가)·(나), 4는 옛 앱이 함수를 안 부름(진단).
+- 코드: react-app `38c1726`(파일 4개, 지시서 "건드릴 파일" 그대로, 주석은 지시서 최종 문구 그대로). 줄 수 `syncExpenseItems.ts` 145, `expensesSave.ts` 88, `syncExpenseItems.test.js` 138, 새 `expensesSave.order.test.js` 80.
+- 고치기 전 실패 확인: 두 소스 파일만 마지막 커밋으로 되돌려 새 테스트 두 파일 실행 → 12개 중 4개 실패(새 4개 전부), 복구 뒤 통과.
+  ```
+  ✖ 서브 칸 항목을 메인으로 옮기면 메인에 먼저 넣고, 서브 칸 줄은 그다음 지운다
+      actual: [ 'fuel.delete:srv-sub-back', 'fuel.insert:501:10' ]
+      expected: [ 'fuel.insert:501:10', 'fuel.delete:srv-sub-back' ]
+  ✖ 메인 넣기가 실패하면 서브 칸 줄을 지우지 않고, 화면 목록도 그대로   (actual: 1, expected: 0)
+  ✖ 정비 → 기타로 바뀐 항목은 기타에 먼저 넣고, 정비 줄은 그다음 지운다
+      actual: [ 'maint.delete:srv-drv', 'misc.insert' ]
+      expected: [ 'misc.insert', 'maint.delete:srv-drv' ]
+  ✖ 기타 넣기가 실패하면 정비 줄을 지우지 않는다   (actual: 1, expected: 0)
+  ℹ tests 12  ℹ pass 8  ℹ fail 4  (exit=1)
+  ```
+- 로컬: `test:unit` 917 통과·`test:app` 899 통과(실패 0), `typecheck`·`lint` 통과. `typecheck:strict-inventory`는 원래 오류 782개(이번 두 파일 0개, CI 대상 아님).
+- push(보리) 뒤 CI verify·deploy 초록(run 40494317454).
+- 배포본(로그인 테스터 탭, getdrivelog.com `/app/expenses`): 10-27 정비 "118확인" 1,180원 넣기 → 새로고침 뒤 보임(합계 231,180원) → 2,180원으로 고치기 → 새로고침 뒤 2,180원 → 지우기 → 새로고침 뒤 없음(합계 230,000원). 서버 읽기: 그 항목 0줄, 10월 정비 합계 230,000원. 10-27 메인 차량에 빈 하루 기록 줄(fixed 0)이 남음 — 지출 넣을 때 원래 만드는 줄이고 지우기는 줄을 남기는 기존 동작(이번 변경과 무관).
+- §5 점검: ① 범위 — 바뀐 파일 4개가 "건드릴 파일"과 같음 ② 새 저장 키·큐·대비 장치 없음(지우기 시점만 이동) ③ 새 `unknown`은 새 테스트의 `filterValue` 도우미 1곳(`cloudMemorySave.test.js`의 같은 도우미를 그대로 씀), 소스 파일에는 없음 ④ 200줄 넘는 파일 없음 ⑤ 기존 테스트 지우거나 약화한 것 없음(테스트 diff에 지운 줄 0) ⑥ `syncExpenseItemsForVehicle` 이름·인자 그대로, 새로 내보낸 두 함수는 `expensesSave.ts`에서만 씀 ⑦ 목표 1~4 충족(1·2 새 테스트 4개, 3 기존 테스트 통과, 4 실패 테스트의 Store 그대로 확인).
 
 ---
 
