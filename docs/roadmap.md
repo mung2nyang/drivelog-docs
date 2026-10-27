@@ -609,7 +609,7 @@ GPS 같은 기능을 자문 뒤에 넣으면 자문을 다시 받아야 해서(�
 **126~148. 폴더별 전수점검(2026-10-26, react-app `3505ff6`)에서 나온 고칠 것** `[확인: 2026-10-26 보리 — "로드맵에 올려야겠지", B3 "넣지마", K3 "서버에 둬"]` — 터미널 AI가 `src` 폴더마다 전체 파일을 읽고 찾은 약 107개 중 높음·중간 30개를 데스크톱 AI가 코드로 대조(틀린 지적 없음)해 묶은 것. 근거·위치는 `docs/full-code-review.md` 0절(항목 기호 A1·M1 등), ① 13개는 지금 코드에서 실패하는 테스트가 `docs/full-code-review-failing-tests.md`에 있음(파일은 저장소에 안 둠 — 착수 때 문서 코드를 그대로 파일로). 낮음 약 77개는 아직 대조 전(같은 문서). 순서(AI 판단): 126은 117과 같은 파일·같은 "저장 뒤 일지 통째 반영"이라 117 바로 뒤에 같이 설계, ①은 118 뒤·79 앞(출시 전에 유실부터), ②는 그다음·79 앞, ⑤는 출시 전 순서 뒤.
 
 ① 데이터 저장·유실
-126. **일지 저장이 겹치면 다른 날짜 내용이 되돌아감** (①, A4) — `features/day-log/hooks/dayDraftLifecycle.js:118-135`가 저장 시작 때 읽은 차량 일지 전체를 `data/sync/dayLogCloudCommit.ts`가 성공 뒤 `commitLogWorkData`로 통째 반영 → 그 사이 끝난 다른 날짜 저장이 화면에서 사라지고, 다음 자동 저장이 서버까지 옛 값으로 덮을 수 있음. 117과 같은 파일.
+126. ~~**일지 저장이 겹치면 다른 날짜 내용이 되돌아감**~~ `[x]` react-app `d4275c3`(2026-10-27, 저장한 날짜만 지금 Store 위에, CI 초록, 배포본 확인, 보리 승인) (①, A4) — `features/day-log/hooks/dayDraftLifecycle.js:118-135`가 저장 시작 때 읽은 차량 일지 전체를 `data/sync/dayLogCloudCommit.ts`가 성공 뒤 `commitLogWorkData`로 통째 반영 → 그 사이 끝난 다른 날짜 저장이 화면에서 사라지고, 다음 자동 저장이 서버까지 옛 값으로 덮을 수 있음. 117과 같은 파일.
 127. **연동 기사 [다시 불러오기]가 연동 확인 실패를 "연동 없음"으로 보고 화면을 비움** (①, A1) — `data/hydrate/hydrate.ts:192-195` `retryHydrate`가 `fetchLinkedDriverLink`(실패도 null). 앱 켤 때처럼 `checkLinkedDriverLink`로 구분. 파일 한 곳.
 128. **차량 창 저장(기사 연동 탭)이 기사 계약 종료일을 지움** (①, M1) — `features/cars/api/carInviteFromDraft.js:58` `endDate: ''`를 `domain/drivers.ts:112`가 덮어씀. 계약 기간 밖 안내가 사라지고 서버의 기사 접근 범위(7-B)가 넓어짐.
 129. **세금계산서 저장 — 중간 실패 뒤 중복, 기사 차량 번호 바꾼 뒤 계속 실패** (①, A5·A6) — 같은 파일 `data/sync/syncTaxInvoicesTable.ts`. 중간 실패면 새 서버 번호를 버림(:35-56), 계산서는 옛 번호로 차량을 찾고 번호 변경(`vehicleRename.ts`)은 계산서를 안 옮김.
