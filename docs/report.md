@@ -1,76 +1,75 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-118: drivelog-docs `7cf86e3`. 116: drivelog-docs `8cade9e`. 115: drivelog-docs `6539d2d`. 122: drivelog-docs `48f420c`. 126: drivelog-docs `bfd19f7`. 117: drivelog-docs `8cbdca5`. 125: drivelog-docs `d48cac8`. 114: drivelog-docs `5f55ee1`. 34-C: drivelog-docs `11ea476`. 34-B: drivelog-docs `a54be26`. 34-A: drivelog-docs `58331f0`. 113-D: drivelog-docs `0bcb19a`. 113-C: drivelog-docs `afa3f5e`. 113-B: drivelog-docs `1c95e76`. 113-A: drivelog-docs `25069f9`. 운비서 버튼 설정: drivelog-docs `d65beaf`. 운비서·+ 버튼 겹침: drivelog-docs `6fe917d`. 로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+127: drivelog-docs `e743872`. 118: drivelog-docs `7cf86e3`. 116: drivelog-docs `8cade9e`. 115: drivelog-docs `6539d2d`. 122: drivelog-docs `48f420c`. 126: drivelog-docs `bfd19f7`. 117: drivelog-docs `8cbdca5`. 125: drivelog-docs `d48cac8`. 114: drivelog-docs `5f55ee1`. 34-C: drivelog-docs `11ea476`. 34-B: drivelog-docs `a54be26`. 34-A: drivelog-docs `58331f0`. 113-D: drivelog-docs `0bcb19a`. 113-C: drivelog-docs `afa3f5e`. 113-B: drivelog-docs `1c95e76`. 113-A: drivelog-docs `25069f9`. 운비서 버튼 설정: drivelog-docs `d65beaf`. 운비서·+ 버튼 겹침: drivelog-docs `6fe917d`. 로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
 ---
 
-## 로드맵 127 연동 기사 [다시 시도]가 연동 확인 실패를 "연동 없음"으로 보고 화면을 비움 `[x]`
+## 로드맵 128 차량 창 저장(기사 연동 탭)이 기사 계약 종료일을 지움 `[x]`
 
-폴더별 전수점검(2026-10-26) A1, 로드맵 127 `[확인: 2026-10-26 보리 — "로드맵에 올려야겠지"]`. 순서 ① 127 → 135 중 첫 번째(118 뒤·79 앞). 앞 슬라이스 118 `[x]`(react-app `38c1726`). **DB 변경 없음**(앱 코드만).
+폴더별 전수점검(2026-10-26) M1(높음), 로드맵 128 `[확인: 2026-10-26 보리 — "로드맵에 올려야겠지"]`. 순서 ① 127 → 135 중 두 번째. 앞 슬라이스 127 `[x]`(react-app `f87c75f`). **DB 변경 없음**(앱 코드만).
 
 ### 쉬운 요약
-- 서버에서 기록을 못 불러오면 화면 위에 노란 띠와 [다시 시도] 단추가 뜹니다. 연동 기사가 이 단추를 누를 때, 앱은 먼저 "이 사람이 어느 차주에 연동돼 있나"를 서버에 물어봅니다.
-- 그 물음이 실패해도 지금은 "연동 없음"으로 받아들여, 차주 기록 대신 기사 본인 계정의 빈 기록을 불러와 화면을 덮고 "다시 불러왔습니다"라고 띄웁니다.
-- 앱을 켤 때처럼 "확인 실패"와 "연동 없음"을 나눠, 확인이 실패하면 불러오지 않고 "아직 불러오지 못했습니다"를 띄우고 노란 띠를 그대로 둡니다.
+- 기사가 배정된 기사 차량을 차량 관리에서 열어 톤수 같은 것만 고쳐 저장해도, 앱이 그 기사의 계약 종료일을 빈 값으로 다시 저장합니다. 차량 창에는 종료일 칸이 없는데 늘 "종료일 없음"으로 넘기기 때문입니다.
+- 그러면 기사 관리의 계약 기간이 "종료일 없음"이 되고, 계약 기간 밖 안내가 사라지며, 서버에서 기사가 볼 수 있는 기간도 끝없이 늘어납니다.
+- 기존 기사를 고칠 때는 원래 종료일을 그대로 넘깁니다. 새 기사를 초대할 때는 지금처럼 종료일 없음.
 
-### 현재 상태 (코드 확인, 2026-10-27)
-- `data/hydrate/hydrate.ts:188-196` `retryHydrate`: `fetchLinkedDriverLink`(`data/sync/driverLinkRpc.ts:100-103`, 확인 실패도 `null`)로 연동을 보고, 차주 id가 지금 칸과 같을 때만 `employedDriver: true`.
-- 확인이 실패하면 `employedDriver: false` → 차주 경로(`hydrate.ts:84-89`)가 프로필·차량·거래처를 **기사 본인 id**로 읽음 → 그 빈 결과로 차주 칸을 덮고(`:161-164` `replaceOwnerState`) 상태 "준비 완료".
-- 앱 켤 때는 이미 구분함: `data/cloud/appSession.ts:49-62` `buildBootSession`이 `checkLinkedDriverLink`(`driverLinkRpc.ts:84-97`, 실패면 `{ ok: false }`)로 보고, 실패면 1초 뒤 1번 더, 그래도 실패면 본인 칸으로 들어가지 않음.
-- [다시 시도]를 부르는 곳은 `app/shell/HydrationRetryBanner.jsx:40-51` 한 곳(`grep retryHydrate`): 오류가 나면 `'다시 시도했지만 아직 불러오지 못했습니다.'`, 띠는 상태가 "실패"인 동안 계속 보임.
-- `fetchLinkedDriverLink` 설명 주석(`driverLinkRpc.ts:99`)이 사용처에 "다시 불러오기"를 적고 있음.
+### 현재 상태 (코드 확인, 2026-10-28)
+- `features/cars/api/carInviteFromDraft.js:50-62` `saveInviteAfterVehicle`: 배정 정보를 `upsertDriver`에 넘길 때 `endDate: ''` 고정(`:58`).
+- `domain/drivers.ts:109-112` `upsertDriver`: 고칠 때 `{ ...기존, ...새 값 }`이라 빈 종료일이 기존 종료일을 덮음. 서버 저장은 `data/sync/requestDriverInviteSave.ts:81` `assignmentEnd = driver.endDate || null` → `assignment_end = null`.
+- 차량 창에는 계약 시작일·종료일 칸이 없음(`features/cars/ui/CarFormModal.jsx` — `inviteStartDate`는 타입 설명에만 있고 화면 칸 없음, `grep inviteStartDate features/cars/ui`). 시작일은 수정 창을 열 때 기존 값을 채워 둬서(`features/cars/ui/CarListPage.jsx:75` `linked?.startDate`) 안 바뀜.
+- 이 길을 부르는 곳은 `features/cars/hooks/useCarListActions.js:90` 한 곳(`grep saveInviteAfterVehicle`), "기사 연동" 탭으로 저장할 때만(`:89` `skipInvite = connectMode === 'log'`). 연동 중·초대 대기 기사 모두 해당.
+- 실패 테스트 기록: `docs/full-code-review-failing-tests.md` M1(재현됨, `'' !== '2026-12-31'`).
 
 ### 목표 상태 (기대 동작)
-1. [다시 시도] 때 연동 확인이 실패하면 불러오기를 하지 않고 오류를 낸다 — 서버 읽기 0번, 화면 기록 그대로, 상태는 "실패" 그대로(노란 띠 유지), 알림은 지금 실패 문구 `다시 시도했지만 아직 불러오지 못했습니다.`
-2. 연동 확인이 성공하면 지금과 같다 — 연동 차주가 지금 칸과 같으면 기사 경로, 아니면 차주 경로.
-3. 차주(연동 없는 사용자) [다시 시도]도 지금과 같다(확인 성공·연동 없음 → 차주 경로).
-4. 재시도 횟수는 늘리지 않는다(앱 켤 때의 "1초 뒤 1번 더"는 넣지 않음 — 사용자가 단추를 다시 누르면 됨).
+1. 기존 기사가 배정된 차량을 "기사 연동" 탭으로 저장하면 그 기사의 계약 종료일이 그대로다(Store·서버 모두).
+2. 계약 시작일도 그대로다(지금과 같음 — 확인만).
+3. 새 기사 초대(기존 기사 없음)는 지금처럼 종료일 없음.
+4. 이름·전화·초대 코드·차량번호 저장은 지금과 같다.
 
 ### 건드릴 파일
-- `react-app/src/data/hydrate/hydrate.ts` — `retryHydrate`가 `checkLinkedDriverLink`를 쓰고, 확인 실패면 `throw new Error('연동 확인 실패')`. 주석 최종 문구: `// 연동 확인이 실패하면 불러오지 않는다 — "연동 없음"으로 보면 기사 화면이 본인 빈 칸으로 덮인다.`
-- `react-app/src/data/sync/driverLinkRpc.ts` — 주석만: `:99`의 사용처 목록에서 "·다시 불러오기"를 뺌 → `/** 위 확인의 예전 모양(실패도 null) — 앱이 켜진 뒤 사용처(연동 해제·초대코드)는 그대로 쓴다. */`
-- 새 `react-app/src/data/hydrate/hydrateRetry.test.js` — ⓐ 연동 기사 세션(사용자 id ≠ 칸)에서 `driver_links` 조회 실패 → `retryHydrate` 오류, `profiles`·`vehicles` 조회 0번, 상태 "실패" 그대로, 그 칸 기록 그대로 ⓑ 같은 세션에서 조회 성공·차주 id 같음 → 기사 경로(차주 경로가 읽는 `vehicles` 조회 0번 — 기사 경로도 본인 `profiles`는 읽음, `hydrateEmployedDriver.ts:77`)로 "준비 완료".
-- 공용 스타일·공용 값 변경 없음.
+- `react-app/src/features/cars/api/carInviteFromDraft.js` — `inviteDriverId`로 `drivers`에서 기존 기사를 찾아 `endDate: existing?.endDate || ''`. 주석 최종 문구: `// 차량 창에는 종료일 칸이 없어 기존 기사의 종료일을 그대로 넘긴다.`
+- 새 `react-app/src/features/cars/api/carInviteEndDate.test.js` — `requestDriverInviteSave`를 바꿔치기해 넘긴 목록을 봄: ⓐ 계약 "2026-11-01 ~ 2026-12-31" 기사, 수정 창 초안 그대로(톤수만 고침) 저장 → 종료일 `2026-12-31`·시작일 `2026-11-01` 그대로(실패 테스트 기록 M1과 같은 모양) ⓑ 기존 기사 없는 새 초대 → 종료일 `''`.
+- 공용 스타일·공용 값 변경 없음(`upsertDriver`는 안 바꿈).
 
 ### 안 건드릴 것
-- 앱 켤 때(`appSession.ts` `buildBootSession`) — 이미 구분함(위 "현재 상태").
-- `buildCloudAppSession`(`appSession.ts:39-44`)의 `fetchLinkedDriverLink` — 앱이 켜진 뒤 연동 해제·초대코드 흐름이고 이번 범위 밖(전수점검에서 따로 지적 없음).
-- 노란 띠 문구·모양(`HydrationRetryBanner.jsx`) — 그대로.
-- 확인 성공·연동 없음인데 칸이 다른 경우(연동이 풀린 뒤 [다시 시도]) — 지금 동작 그대로, 이번 범위 밖.
+- `domain/drivers.ts` `upsertDriver` — 기사 관리 수정 창은 종료일 칸이 있어 "빈 값 = 종료일 지움"이 맞는 동작이라 그대로.
+- `requestDriverInviteSave.ts` 서버 저장 — 넘겨받은 종료일을 그대로 씀(`:81`), 그대로.
+- 차량 창에 종료일 칸 넣기 — 범위 밖(기사 관리에서 고침).
+- 기존 `carInviteFromDraft.test.js` — 바꿔치기 없이 쓰는 파일이라 그대로 두고 새 파일로.
 
 ### 검증
-- 착수 전 `docs/testing-playbook.md` 열람(§5 세션).
-- 새 테스트 ⓐ가 고치기 전 코드에서 실패하는지 먼저 확인(옛 코드는 차주 경로로 `profiles`를 읽고 "준비 완료"가 되어 실패해야 함), 고친 뒤 통과. 기존 `hydrate.test.js` 재시도 테스트(`:100-120`, 차주) 그대로 통과. 로컬 `npm test` 전체 통과.
+- 착수 전 `docs/testing-playbook.md` 열람(§5 세션 — 이 길은 세션 확인을 `requestDriverInviteSave`가 맡음, 그대로).
+- 새 테스트 ⓐ가 고치기 전 코드에서 실패하는지 먼저 확인(기록 M1처럼 `'' !== '2026-12-31'`), 고친 뒤 통과. 기존 `carInviteFromDraft.test.js` 그대로 통과. 로컬 `npm test` 전체 통과.
 - 테스트·타입·빌드·코드 검사는 CI가 봄. 화면 모양 변화 없음 — 시안 필요 없음.
 
 ### 파일 길이
-- `hydrate.ts` 196 → 약 198줄(200줄 감시 목록 파일 — 넘지 않음), `driverLinkRpc.ts` 줄 수 그대로, 새 `hydrateRetry.test.js` 약 60줄.
+- `carInviteFromDraft.js` 84 → 약 87줄, 새 `carInviteEndDate.test.js` 약 60줄.
 
 ### 실패 시 처리
-- 새 저장 장치·재시도·대비 장치 없음(신규 레이어 없음 — 확인 실패를 오류로 돌려줄 뿐). 실패하면 수정 착수지시서를 다시 써서 승인받음.
+- 새 저장 장치·재시도·대비 장치 없음(신규 레이어 없음 — 넘기는 값 하나만 바꿈). 실패하면 수정 착수지시서를 다시 써서 승인받음.
 
 ### 사용자 확인 방법
-1. 연동 확인 실패는 화면에서 만들 수 없어 테스트로만 확인.
-2. 배포본에서 로그인 테스터(차주) 계정으로 평소처럼 열림 — 노란 띠 없이 기록이 보이면 성공(다시 불러오기 경로를 안 건드린 차주 쪽 회귀 확인).
+1. 배포본 로그인 테스터 계정 → 기사 관리에서 기사 차량(예: 99가9998) 기사의 계약 종료일을 확인(없으면 하나 넣고 저장).
+2. 차량 관리 → 그 기사 차량 [수정] → "기사 연동" 탭 그대로 톤수만 바꿔 저장.
+3. 기사 관리로 돌아가 새로고침 → 계약 종료일이 그대로면 성공. 확인 뒤 톤수·종료일을 원래대로 되돌림.
 
 ### 누가 하나
-- 데스크톱 AI가 앱 코드·코드 커밋까지, push는 보리 `[확인: 2026-10-27 보리 — "127 착수지시서 확정, 너가 작업 진행해"]`.
+- 데스크톱 AI가 앱 코드·코드 커밋까지, push는 보리 `[확인: 2026-10-28 보리 — "확정, 너가 진행"]`.
 
 ### 진행 기록
-- 코드: react-app `f87c75f`(파일 3개, 지시서 "건드릴 파일" 그대로, 주석은 지시서 최종 문구 그대로). 줄 수 `hydrate.ts` 198, `driverLinkRpc.ts` 119(그대로), 새 `hydrateRetry.test.js` 59.
-- 작업 중 바로잡음: 새 테스트 ⓑ의 기준을 "`profiles` 조회 0번"에서 "`vehicles` 조회 0번"으로 — 기사 경로도 본인 `profiles`(이름·전화)는 읽음(`hydrateEmployedDriver.ts:77`). 지시서 "건드릴 파일" 줄도 같이 고침.
-- 고치기 전 실패 확인: `hydrate.ts`만 마지막 커밋으로 되돌려 새 테스트 실행 → 2개 중 ⓐ 실패(ⓑ는 "지금과 같음"이라 통과가 맞음), 복구 뒤 통과.
+- 코드: react-app `077e00a`(파일 2개, 지시서 "건드릴 파일" 그대로, 주석은 지시서 최종 문구 그대로). 줄 수 `carInviteFromDraft.js` 86, 새 `carInviteEndDate.test.js` 64.
+- 고치기 전 실패 확인: `carInviteFromDraft.js`만 마지막 커밋으로 되돌려 새 테스트 실행 → 2개 중 ⓐ 실패(ⓑ는 "지금과 같음"이라 통과가 맞음), 복구 뒤 통과.
   ```
-  ✖ 연동 확인이 실패하면 불러오지 않고 오류 — 서버 읽기 0번, 상태 "실패"·그 칸 기록 그대로
-    AssertionError [ERR_ASSERTION]: Missing expected rejection.
-      actual: undefined,
-      expected: /연동 확인 실패/,
+  ✖ 기존 기사가 있는 차량을 톤수만 고쳐 저장해도 계약 시작일·종료일이 그대로다
+      actual: '',
+      expected: '2026-12-31',
   ℹ tests 2  ℹ pass 1  ℹ fail 1  (exit=1)
   ```
-- 로컬: `test:unit` 919 통과·`test:app` 899 통과(실패 0), `typecheck`·`lint` 통과.
-- push(보리) 뒤 CI verify·deploy 초록(run 40497828152).
-- 배포본(로그인 테스터 차주 탭, getdrivelog.com `/app/expenses`): 새 묶음 파일(`index-Cs5Juu-t.js`)로 열림, 노란 띠 없음, 10월 정비 기록 그대로(합계 230,000원). 콘솔 404는 바로 열기 주소(`/app/...`) 문서 요청 — 118 확인 때도 똑같이 난 기존 호스팅 동작, 이번 변경과 무관.
-- §5 점검: ① 범위 — 바뀐 파일 3개가 "건드릴 파일"과 같음 ② 새 저장 키·큐·대비 장치 없음(확인 실패를 오류로 돌려줄 뿐) ③ 새 `any`·`unknown`·무시 주석 없음 ④ 200줄 넘는 파일 없음(`hydrate.ts` 198) ⑤ 기존 테스트 지우거나 약화한 것 없음(테스트 diff에 지운 줄 0) ⑥ 공용 값 변경 없음 — `fetchLinkedDriverLink`는 그대로 두고 `retryHydrate`만 `checkLinkedDriverLink`로 ⑦ 목표 1(새 테스트 ⓐ)·2(ⓑ)·3(기존 `hydrate.test.js` 차주 재시도 통과)·4(재시도 추가 없음) 충족.
+- 로컬: `test:unit` 919 통과·`test:app` 901 통과(실패 0), `typecheck`·`lint` 통과.
+- push(보리) 뒤 CI verify·deploy 초록(run 40624409123).
+- 배포본(로그인 테스터 탭, getdrivelog.com `/app/cars`, 새 묶음 파일 `index-CU0By1lL.js`): 이 계정에 연동 중·초대 대기 기사가 없음(서버 `driver_links`는 연결 해제된 22가2222 한 줄, 2026-10-12 ~ 2026-10-22). 22가2222 [수정]은 "운행일지" 탭으로 열려(기존 기사로 안 잡힘) 고친 길을 타지 않음 → 저장하지 않고 [취소]. 그래서 "사용자 확인 방법" 1~3은 못 함 — 테스트 ⓐ로만 확인.
+- 보리 지시("시험 기사 만들어 확인")로 다시 확인: 기사 관리 [+ 초대] → "128시험"(010-0000-1280)·99가9998·계약 2026-11-01 ~ 2026-12-31 저장 → 차량 관리 99가9998 [수정]이 "기사 연동" 탭으로 열림 → 톤수만 5 → 6 저장, 알림 "기사 배정 정보를 수정했습니다."(고친 길을 탐) → 새로고침 뒤 기사 관리 계약기간 `2026-11-01 ~ 2026-12-31` 그대로, 서버 `driver_links` 그 줄 `assignment_end = 2026-12-31`(저장 시각 갱신됨). 정리: [초대 취소]("초대를 삭제했습니다.") → 99가9998 톤수 5·기사명 "66시험기사"로 되돌려 "운행일지" 탭 저장 → 새로고침 뒤 기사 관리 초대 0, 차량 "99가9998 [66시험기사] 운행일지 (5톤)". 차량의 기사 전화는 원래 값을 몰라 "010-0000-1280"으로 남음(시험 값). 정리 뒤 서버 읽기는 연결 응답 없음으로 못 함 — 새로고침 화면(서버에서 불러온 값)으로 확인.
+- §5 점검: ① 범위 — 바뀐 파일 2개가 "건드릴 파일"과 같음 ② 새 저장 키·큐·대비 장치 없음(넘기는 값 하나만) ③ 새 `any`·`unknown`·무시 주석 없음 ④ 200줄 넘는 파일 없음 ⑤ 기존 테스트 지우거나 약화한 것 없음(테스트 diff에 지운 줄 0) ⑥ 공용 값 변경 없음 — `upsertDriver`는 그대로, 바뀐 건 `saveInviteAfterVehicle` 안의 넘기는 값뿐(호출처 `useCarListActions.js:90` 한 곳) ⑦ 목표 1·3(새 테스트 ⓐ·ⓑ)·2(ⓐ의 시작일 확인)·4(기존 `carInviteFromDraft.test.js` 통과) 충족, 목표 1은 배포본 시험 기사로도 확인.
 
 ---
 
