@@ -1,82 +1,110 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-131-A: drivelog-docs `448deb1`. 130: drivelog-docs `83e93be`. 129-B: drivelog-docs `fc2b077`. 129-A: drivelog-docs `867b653`. 128: drivelog-docs `9e32174`. 127: drivelog-docs `e743872`. 118: drivelog-docs `7cf86e3`. 116: drivelog-docs `8cade9e`. 115: drivelog-docs `6539d2d`. 122: drivelog-docs `48f420c`. 126: drivelog-docs `bfd19f7`. 117: drivelog-docs `8cbdca5`. 125: drivelog-docs `d48cac8`. 114: drivelog-docs `5f55ee1`. 34-C: drivelog-docs `11ea476`. 34-B: drivelog-docs `a54be26`. 34-A: drivelog-docs `58331f0`. 113-D: drivelog-docs `0bcb19a`. 113-C: drivelog-docs `afa3f5e`. 113-B: drivelog-docs `1c95e76`. 113-A: drivelog-docs `25069f9`. 운비서 버튼 설정: drivelog-docs `d65beaf`. 운비서·+ 버튼 겹침: drivelog-docs `6fe917d`. 로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+131-B: drivelog-docs `bac091a`. 131-A: drivelog-docs `448deb1`. 130: drivelog-docs `83e93be`. 129-B: drivelog-docs `fc2b077`. 129-A: drivelog-docs `867b653`. 128: drivelog-docs `9e32174`. 127: drivelog-docs `e743872`. 118: drivelog-docs `7cf86e3`. 116: drivelog-docs `8cade9e`. 115: drivelog-docs `6539d2d`. 122: drivelog-docs `48f420c`. 126: drivelog-docs `bfd19f7`. 117: drivelog-docs `8cbdca5`. 125: drivelog-docs `d48cac8`. 114: drivelog-docs `5f55ee1`. 34-C: drivelog-docs `11ea476`. 34-B: drivelog-docs `a54be26`. 34-A: drivelog-docs `58331f0`. 113-D: drivelog-docs `0bcb19a`. 113-C: drivelog-docs `afa3f5e`. 113-B: drivelog-docs `1c95e76`. 113-A: drivelog-docs `25069f9`. 운비서 버튼 설정: drivelog-docs `d65beaf`. 운비서·+ 버튼 겹침: drivelog-docs `6fe917d`. 로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
----
+## 로드맵 132-A 차량 없는 로그인 계정 — 일지·지출이 "저장됨"으로 보이고 사라짐 `[x]`
 
-## 로드맵 131-B 첫 설정·거래처·기사 초대 창 [저장]을 두 번 눌러도 한 번만 `[x]`
-
-폴더별 전수점검(2026-10-26) I2·R2·J2, 로드맵 131 `[확인: 2026-10-26 보리 — "로드맵에 올려야겠지"]`. 앞 조각 131-A 차량 창 `[x]`(react-app `b87b810`). DB 변경 없음.
+전수점검(2026-10-26) A2, 로드맵 132 `[확인: 2026-10-26 보리 — "로드맵에 올려야겠지"]`. 132를 둘로 나눔: **132-A**(A2, 이번), **132-B**(A3 차주 메인 일지·지출이 기사 차량 칸으로 감 — 다음). A부터 하는 이유: B를 고치면 기사 차량만 있는 차주가 "차량 없음" 상태가 되므로, 그 상태에서 실패를 알리는 A가 먼저 있어야 함. DB 변경 없음.
 
 ### 쉬운 요약
-- 처음 가입 뒤 첫 설정 마지막 단계의 [완료하기](와 [건너뛰기]), 거래처 창 [저장], 기사 초대 창 [저장]도 처리 중에 막혀 있지 않습니다. 빨리 두 번 누르면 메인 차량이 두 대 생기거나(첫 설정), 같은 거래처가 두 개 생기거나, 초대 저장이 두 번 갑니다.
-- 131-A와 같은 방식으로 처리 중에는 다시 눌러도 무시하고, 버튼은 "저장 중…"으로 잠급니다. 거래처 창은 쓰는 곳이 세 군데라 창 안에서 잠가 한 번에 막습니다.
+- 로그인 계정인데 서버에 차량이 하나도 없으면, 운행일지와 지출이 서버에도 휴대폰에도 저장되지 않습니다. 그런데 화면에는 "저장됨"으로 나오고, 새로고침하면 사라집니다.
+- 이런 계정은 실제로 생깁니다. 첫 설정 마지막 단계(차량 등록)에서 [건너뛰기]를 누르면 차량 없이 가입됩니다. 시험 서버에도 이런 계정이 2개 있습니다.
+- 고치고 나면 저장되지 않았다는 사실을 알립니다. 화면은 "저장 실패"로 바뀌고, "메인 차량이 없어 저장하지 못했습니다. 차량 관리에서 메인 차량을 등록해 주세요." 알림이 뜹니다.
 
-### 현재 상태 (코드·서버 확인, 2026-10-28)
-- 첫 설정: `features/account/ui/OnboardingPage.jsx:39-42` `goNext`가 마지막 단계면 `onFinish(wizard)`를 부르고 기다리지 않음. [완료하기](`:143`)와 [건너뛰기 >](`:141`) 둘 다 `goNext`. `app/App.jsx:125-132` `onFinish`는 `applyOnboardingWizard`(저장 실패해도 오류를 던지지 않고 안내만 돌려줌 — `data/sync/onboardingFinish.ts:36`) 뒤 홈으로. 두 번 누르면 둘 다 같은 "차량 없음" 목록으로 시작해 메인 차량 저장 요청이 두 번 감.
-- 거래처 창: `features/clients/ui/ClientFormModal.jsx:41-50` `handleSave`가 `onSave()`를 기다리지 않고, [저장](`:123`)은 늘 눌림. 쓰는 곳 3군데 — `ClientListPage.jsx:116`(`save` `:79` async), `ScopedClientsList.jsx:40`(`useScopedClients.js:67` `save` async), `day-log/ui/CallClientQuickAdd.jsx:63`(`save` `:41` async)(grep).
-- 기사 초대 창: `features/drivers/ui/DriverFormModal.jsx:47-56` `handleSave` 같은 모양, [저장](`:136`). 쓰는 곳 `DriverConnectionPage.jsx:179` 한 곳(`save` `:59` async).
-- 서버(테스트 프로젝트, 읽기 조회 2026-10-28): `clients`는 고유 번호(`id`) 말고 겹침 막기 없음 → 거래처 두 개가 됨. `driver_links`는 초대 코드가 겹치지 못함(`driver_links_invite_code_key`) → 같은 코드 두 번째 저장은 서버에서 실패. `vehicles`도 같은 번호 막기 없음(131-A에서 확인) → 첫 설정 두 번이면 메인 차량 두 대.
+### 현재 상태 (코드 확인)
+- 일지: `shouldCommitDayLogToCloud`는 서버 차량이 없으면 거짓을 돌려줌(`data/sync/mainDayLogRouting.ts:25-28`). 그래서 기기 저장(`commitLocal`, `features/day-log/hooks/dayDraftLifecycle.js:126-128`)으로 가는데, 로그인 세션은 `commitBatch`가 휴대폰에 쓰지 않음(`data/store/app-store.ts:119-124`). 결국 메모리에만 남는데 `markSaved`가 "저장됨"을 띄움(`dayDraftLifecycle.js:92`). 실패 재현 테스트는 `docs/full-code-review-failing-tests.md` A2에 있음.
+- 지출(차주): 서버 차량이 없으면 `planExpenseVehicleTargets`가 빈 목록을 돌려줌(`domain/expenseVehicleRouting.ts:31`). 서버 호출 없이 `commitExpenses`로 화면만 바뀌고 성공 처리됨(`data/sync/expensesSave.ts:43-59`).
+- 지출(연동 기사): 배정 차량이 없으면 같은 식으로 화면만 바뀜(`expensesSave.ts:32-38`).
+- 실제 계정(시험 서버, 읽기 조회 2026-10-28): 프로필 14개 중 차량도 없고 연동 기사도 아닌 계정 2개, 기사 차량만 있는 차주 1개(132-B 대상), 연동 기사 5개.
+- 첫 설정: 4단계의 [다음]은 차량번호가 비면 잠기지만, [건너뛰기]는 검사 없이 끝냄(`features/account/ui/OnboardingPage.jsx:37`, `:151`).
+- 알림 문구는 화면마다 같은 문구를 쓰는 표가 있음(`shared/utils/failureMessages.js`, 로드맵 56 보리 확정 문구 표). 지금은 ①서버 실패 ②휴대폰 실패 ③로그인 바뀜 세 가지.
 
 ### 목표 상태 (기대 동작)
-1. 첫 설정 마지막 단계에서 [완료하기]를 처리 중에 또 누르거나 [건너뛰기]를 눌러도 저장은 한 번만 한다. 처리 중엔 [완료하기]가 잠기고 "저장 중…", [건너뛰기]도 잠긴다. 끝나면 지금처럼 홈으로 간다.
-2. 거래처 창 [저장]을 처리 중에 또 눌러도 저장은 한 번. 처리 중엔 버튼이 잠기고 "저장 중…". 세 곳(거래처 목록·기사 차량 전용 거래처·콜 상세 "+ 추가") 모두 같다.
-3. 기사 초대 창 [저장]도 같다.
-4. 거래처·초대 저장이 실패해 창이 남으면 잠금이 풀려 다시 누를 수 있다.
-5. 입력 검사(빈 칸 빨간 표시·커서), 첫 설정 앞 단계의 [다음]·[건너뛰기]는 지금과 같다.
+1. 로그인 계정에서 그 일지를 저장할 서버 차량이 없으면, 일지 자동 저장은 "저장 실패" 표시와 함께 알림 ④를 띄움. "저장됨"은 나오지 않음.
+2. 1번 실패는 서버 저장 실패와 똑같이 처리함. 실패 날짜를 기록하고, 입력은 화면에 그대로 두고, 나갈 때 확인 창이 뜸(`settleCloud` 실패 갈래 그대로). 휴대폰에는 쓰지 않음(sot §5).
+3. 로그인 계정에서 서버 차량이 없으면 지출 [저장]은 아무것도 바꾸지 않고 알림 ④를 돌려줌. 차주와 연동 기사 모두 해당함.
+4. 새 알림 ④ 최종 문구: **"메인 차량이 없어 저장하지 못했습니다. 차량 관리에서 메인 차량을 등록해 주세요."** "못했"이 들어 있어 빨간 실패 알림 모양으로 뜸(`isFailureMessage`).
+5. 비회원(휴대폰 저장), 서버 차량이 있는 차주, 배정 차량이 있는 연동 기사는 지금과 똑같이 동작함.
+6. 기사 차량만 있는 차주는 이번에 바뀌지 않음. 지금처럼 기사 차량 칸으로 저장되며, 132-B에서 고침.
 
 ### 건드릴 파일
-- `react-app/src/features/account/ui/OnboardingPage.jsx` — 마지막 단계에서 `onFinish`를 기다리며 진행 표시(`useRef`)로 다시 누름을 무시, `finishing` 상태로 [완료하기] `disabled`·글자 `저장 중…`, [건너뛰기] `disabled`. 주석 최종 문구: `// 마지막 단계 저장 중엔 다시 눌러도 무시 — 메인 차량이 두 번 등록되지 않게.`
-- `react-app/src/features/clients/ui/ClientFormModal.jsx` — 검사를 통과하면 `onSave()`를 기다리는 동안 다시 누름 무시, [저장] `disabled`·`저장 중…`. `onSave` 형 설명을 `() => void|Promise<void>`로. 주석 최종 문구: `// 저장 중엔 다시 눌러도 무시 — 같은 거래처가 두 번 생기지 않게.`
-- `react-app/src/features/drivers/ui/DriverFormModal.jsx` — 같은 방식. `onSave` 형 설명 같이. 주석 최종 문구: `// 저장 중엔 다시 눌러도 무시 — 같은 초대가 두 번 가지 않게.`
-- `react-app/src/features/clients/ui/ClientFormModal.test.js`·`react-app/src/features/drivers/ui/DriverFormModal.test.js` — 각각 추가: 풀어 주기 전까지 안 끝나는 `onSave`로 [저장] 두 번 → 1번만 불림·"저장 중…" 잠김(기대 2·3), 실패처럼 끝나면 잠금 풀림·다시 누르면 1번 더(기대 4).
-- 새 `react-app/src/features/account/ui/OnboardingPage.saveOnce.test.js` — 마지막 단계까지 간 뒤 안 끝나는 `onFinish`로 [완료하기] 두 번 + [건너뛰기] → `onFinish` 1번·[완료하기] "저장 중…" 잠김(기대 1).
-- 공용 값 영향: 세 파일 모두 창 안의 새 상태라 밖에서 읽는 곳 없음. 받는 값(`onSave`·`onFinish`)의 형 설명만 넓힘 — 넘기는 곳은 모두 async 함수(위 grep). 스타일 변경 없음.
+- `src/data/sync/mainDayLogRouting.ts` — 함수 `hasNoCloudVehicle(ownerKey, logId)`를 추가함. 로그인 상태이고 `vehicleSupabaseIdForLog`가 없음일 때 참. 주석: `/** 로그인 계정인데 이 일지를 저장할 서버 차량이 없음 — 로그인 기록은 휴대폰에 안 남아 그대로 두면 사라진다. */`
+- `src/features/day-log/hooks/dayDraftLifecycle.js` — `commitNow`의 기기 갈래 앞에서 `hasNoCloudVehicle`이 참이면 `settleCloud({ ok: false, toast: NO_VEHICLE_SAVE_FAIL }, progress.draftRev, patch)`를 부름. 주석: `// 로그인 계정인데 저장할 서버 차량이 없으면 휴대폰에도 안 남으므로 실패로 알린다.`
+- `src/data/sync/expensesSave.ts` — `saveExpenseDraft`에서 입력 검사 뒤 `hasNoCloudVehicle(ownerKey, 'main')`이면 `NO_VEHICLE_SAVE_FAIL`을 돌려줌. 주석: `// 저장할 서버 차량이 없으면 화면에만 남으므로 저장하지 않고 알린다.` 차주에게 이 조건은 `planExpenseVehicleTargets`가 빈 목록인 것과 같은 판정이고, 연동 기사에게는 배정 차량이 없는 것과 같은 판정임(셋 다 "메인, 없으면 아무 서버 차량" 규칙을 씀).
+- `src/shared/utils/failureMessages.js` — `/** ④ 로그인 계정에 저장할 서버 차량이 없음 */ export const NO_VEHICLE_SAVE_FAIL = '…'`(목표 4번 문구)를 추가함.
+- 새 테스트 `src/features/day-log/hooks/dayDraftLifecycle.noVehicle.test.js` — 전수점검 A2 테스트를 바탕으로, 서버 저장 0번·휴대폰 없음·마지막 상태 "failed"·알림 ④를 확인함.
+- 새 테스트 `src/data/sync/expensesSave.noVehicle.test.js` — 차량 없는 로그인 차주에서 `saveExpenseDraft`가 ④를 돌려주고 지출 목록과 서버 호출이 그대로인지 확인함. 차량 있는 차주는 지금처럼 저장되는지도 확인함.
+- 공용 값 영향: `failureMessages.js`는 상수 추가만 하고 기존 세 문구는 그대로 둠. `mainDayLogRouting.ts`는 함수 추가만 하고 `vehicleSupabaseIdForLog`·`shouldCommitDayLogToCloud`는 그대로 둠(쓰는 곳 11곳, grep 확인).
 
 ### 안 건드릴 것
-- `DriverConnectionPage.jsx`의 [해제 요청]·[요청 취소]·[동의]·[초대 취소](J2 끝 문장, 낮음) — 이번엔 [저장]만. 그 파일은 194줄이라 손대면 200줄을 넘길 수 있음.
-- 서버에 같은 번호 차량·같은 이름 거래처 막기 — DB 변경이 필요한 다른 작업. 같은 이름 거래처 등록 막기는 로드맵 140(R1)에서.
-- `App.jsx` `onFinish`·`applyOnboardingWizard` — 그대로(창 쪽에서 막음).
-- 거래처·초대·첫 설정 저장 순서와 안내 문구 — 그대로.
+- A3 "메인 없으면 아무 서버 차량" 규칙(`mainDayLogRouting.ts:14`·`expenseVehicleRouting.ts:30`·`hydrateMerge.ts:76`)은 132-B에서 다룸. 연동 기사 계정은 배정 차량(종류가 기사 차량)을 이 규칙으로 찾고 있어서(`hydrateEmployedDriverCar.ts:10`, `hydrateEmployedDriver.ts:2`), 고칠 때 차주와 기사를 나눠야 함.
+- 첫 설정 [건너뛰기]로 차량 없이 가입되는 것은 이번 범위가 아님. 가입 뒤에도 차주가 메인 차량을 지우면 같은 상태가 되므로, 저장할 때 알리는 쪽이 먼저임. 막을지는 보리 결정.
+- 미수금 화면의 입금 처리(`ownerFinance.ts:44`)는 그대로 둠. 차량이 없으면 저장된 일지가 없어서 미수 항목도 생기지 않음.
+- 지출 삭제(`deleteExpense`)는 그대로 둠. 차량이 없으면 서버에 지울 줄이 없음.
+- 백업 불러오기의 지출 저장(`memberRestoreRecords.js:145`)은 133번 범위.
+- 일지가 "저장 실패"일 때의 화면 모양과 실패 날짜 알림은 기존 것을 그대로 씀.
 
 ### 검증
-- 착수 전 `docs/testing-playbook.md` 열람(§2·§6).
-- 새 테스트가 고치기 전 코드에서 실패하는지 먼저 확인(두 번 불림), 고친 뒤 통과. 기존 `ClientFormModal.test.js`·`DriverFormModal.test.js`·`ClientListPage.assistant.test.js`·`DriverConnectionPage.*.test.js`·`App.*.test.js` 그대로 통과. 로컬 `npm test` 전체 통과. 타입·빌드는 CI.
+- 새 테스트 2개 파일은 고치기 전 코드에서 실패하는지 먼저 확인함(revert-check).
+- 로컬 `npm test` 전체와 타입 검사를 돌림. 기존 테스트 중 "차량 없는 로그인 계정 = 저장됨"을 기대하는 것이 있으면 이번 목표와 반대이므로, 그 테스트 이름과 고친 내용을 진행 기록에 적고 보고함.
+- 비회원·차량 있는 차주·연동 기사 저장은 기존 테스트(`dayDraftLifecycle.test.js`, `expensesSave.draft.test.js`, `expensesSave.order.test.js`, `dayLogCloudCommit.test.js`)가 그대로 통과하는지로 확인함.
 
 ### 파일 길이
-- `features/account/ui/OnboardingPage.jsx` 150 → 약 160
-- `features/clients/ui/ClientFormModal.jsx` 127 → 약 136
-- `features/drivers/ui/DriverFormModal.jsx` 140 → 약 149
-- 모두 200줄 아래. 테스트 파일은 예외.
+- `mainDayLogRouting.ts` 28 → 약 34
+- `dayDraftLifecycle.js` 188 → 약 191(가져오기 줄은 기존 줄에 이름만 더함)
+- `expensesSave.ts` 88 → 약 92
+- `failureMessages.js` 30 → 약 33
+- 새 테스트 파일은 줄 제한에서 빠짐. 200줄을 넘는 파일 없음.
 
 ### 실패 시 처리
-- 새 저장 장치·재시도·임시 보관 없음. 실패 안내는 지금 문구 그대로, 잠금만 풂.
-- 테스트나 배포본 확인이 기대와 다르면 코드를 더 고치지 않고 수정 착수지시서를 써서 다시 승인받음.
+- 새 저장 장치, 재시도, 임시 보관을 만들지 않음. 실패는 알림과 "저장 실패" 표시로만 알림(기존 서버 실패 갈래를 다시 씀).
+- 테스트나 타입 검사가 실패하면 바로 고치지 않음. 수정 계획을 다시 써서 승인받음.
 
-### 사용자 확인 방법 (배포본, 로그인 계정)
-1. 거래처 관리 → [+ 추가] → 시험 거래처 이름 입력 → [저장]을 빠르게 두 번 → 목록에 한 개만 있고, 새로고침해도 한 개면 성공. 누르는 순간 "저장 중…"으로 바뀌는지도 봄. 확인 뒤 시험 거래처 지움.
-2. 기사 관리 → 초대 → 시험 기사 입력 → [저장]을 빠르게 두 번 → 초대가 한 건만 있고 오류 안내가 없으면 성공. 확인 뒤 시험 초대 지움.
-3. 첫 설정은 새 계정이 있어야 해서 배포본에서는 생략하고 자동 테스트로만 확인(보리가 새 계정으로 보려면: 첫 설정 마지막 단계 [완료하기]를 빠르게 두 번 → 차량 관리에 메인 차량 한 대).
+### 사용자 확인 방법
+- 차량 없는 상태는 로그인해 둔 계정에서 만들 수 없음. 메인 차량을 지워야 하는데 그러면 그 차량 기록이 지워짐. 그래서 목표 1~4는 자동 테스트로 확인함.
+- 배포본에서는 지금 동작이 그대로인지만 봄(로그인 탭):
+  1. 홈 → [운행 기록하기] → 고정 횟수를 하나 올림 → "저장됨" → 새로고침해도 남아 있음 → 원래대로 되돌림.
+  2. 일지 창 지출 → 시험 지출 하나 저장 → 목록에 보임 → 새로고침해도 남아 있음 → 지움.
 
 ### 진행 기록
-- 2026-10-28 착수 승인(보리 "확정, 진행해"). 플레이북 §2·§6 열람.
-- 새 테스트를 고치기 전 코드에서 실행(종료 코드 1). 두 번 눌림 3개 실패, "끝나면 잠금 풀림" 2개는 원래도 통과(잠금이 풀리는지 지키는 확인):
-  ```
-  ✖ 마지막 단계에서 [완료하기] 두 번·[건너뛰기]를 눌러도 저장은 1번, [완료하기]는 "저장 중…"으로 잠김 (47.9607ms)   actual: 3  expected: 1
-  ✖ (거래처 창) 저장 중에 [저장]을 또 눌러도 저장은 1번, 버튼은 "저장 중…"으로 잠김 (9.1825ms)                    actual: 2  expected: 1
-  ✔ (거래처 창) 저장이 끝나고 창이 남으면 잠금이 풀려 다시 누르면 1번 더 (11.7825ms)
-  ✖ (기사 초대 창) 저장 중에 [저장]을 또 눌러도 저장은 1번, 버튼은 "저장 중…"으로 잠김 (12.7812ms)                 actual: 2  expected: 1
-  ✔ (기사 초대 창) 저장이 끝나고 창이 남으면 잠금이 풀려 다시 누르면 1번 더 (7.0589ms)
-  ℹ tests 13 / pass 10 / fail 3 / duration_ms 1494.1225 (기존 테스트 8개 포함)
-  ```
-- 고친 뒤: 13개 통과, React act 경고 없음. 로컬 `npm test` 전체 통과(927 + 918), 타입 검사 통과.
-- 코드 커밋 react-app `fc18319`(push 전). 파일 길이: `OnboardingPage.jsx` 160, `ClientFormModal.jsx` 134, `DriverFormModal.jsx` 147.
-- 리뷰 점검: 바뀐 파일이 지시서 "건드릴 파일"과 같음, 기존 테스트 줄 지우거나 약화 없음(추가만), 새 저장 장치 없음, 타입 꼼수 없음, 주석은 지시서 최종 문구 그대로.
-- push(보리) 뒤 CI verify·deploy 초록(run 40644898796).
-- 배포본 확인(로그인 탭, getdrivelog.com):
-  1. 거래처: "시험131B" 넣고 [저장] 빠르게 두 번 → 버튼 "저장 중…"·잠김 확인, 서버에 1개만 생김(전체 3 → 4), 새로고침 뒤에도 1개. 삭제 뒤 3개로 원래대로.
-  2. 기사 초대: "시험131B"(99가9998, 시작일 10-28) 넣고 [저장] 빠르게 두 번 → "저장 중…"·잠김 확인, 오류 없이 초대 1개만 생김(전체 1 → 2). [초대 취소] 뒤 1개로 원래대로.
-  3. 첫 설정 마지막 단계는 자동 테스트로만 확인(지시서대로).
+- 2026-10-28 보리 "확정, 진행해".
+- 새 테스트 2개 파일(`dayDraftLifecycle.noVehicle.test.js` 1개, `expensesSave.noVehicle.test.js` 3개)은 고치기 전 코드에서 3개가 실패함: 지출이 `null`(성공)을 돌려줬고, 일지는 마지막 상태가 `saved`였음. 메인 차량이 있는 차주 1개는 통과. 고친 뒤 4개 모두 통과.
+- 코드 4곳은 지시서대로 고쳤고 주석도 최종 문구 그대로임. 타입 검사 통과, `test:unit` 930개 전부 통과.
+- **`test:app` 8개 실패. 지시서대로 멈추고 아래 수정 착수지시서를 씀**(코드 커밋 전).
+
+### 수정 착수지시서 1 — `src/app/App.test.js` 화면 테스트 8개 `[x]`
+
+**무엇이 실패했나 (모두 `App.test.js`)**: 이 파일은 로그인 계정(`user-boot-nav`)으로 앱 전체를 띄움. 그중 아래 테스트는 서버 차량 없이 일지와 지출을 저장하고 "저장됨"을 기대함. 이번 목표가 막으려는 바로 그 상태.
+- 차량 없이 시작해서 실패한 테스트 4개:
+  - `:283` 재감사 4번 store 구독(일지)
+  - `:349` Step 6 일지 디바운스
+  - `:623` 재감사 5차 FAIL 지적 1번(휴대폰 대기 저장 정리 실패)
+  - `:785` 재감사 2차 FAIL 지적 2번(지출)
+- 앞 테스트 때문에 따라서 실패한 4개: `:908` 로드맵 35, `:1036` 새 홈 1단계, `:1091` 알림 화면, `:1122` 다크 로그아웃. 앞 일지 테스트들이 실패하며 남긴 "나가기 전 확인" 표시가 뒤 테스트의 화면 이동을 막음.
+
+**확인(임시 사본으로 실험한 뒤 지움, 저장소에 남긴 것 없음)**: 4개 테스트에 같은 파일의 `seedMainCar(ownerKey)`(메인 차량 501을 넣는 기존 도우미, 이미 6곳에서 씀)를 넣으면 `:283`·`:349`·`:785`는 통과함. `:623`만 남는데, 이 테스트는 로그인 화면에서 "휴대폰 대기 저장(durable)에 남은 옛 값 A가 입력 칸 위에 보인다"를 전제로 함. 로그인 계정은 이번 수정 뒤 대기 저장 갈래로 갈 수 없음: 차량이 있으면 서버, 없으면 실패. 그래서 이 전제가 성립하지 않음. 이 테스트가 남긴 대기 저장 1건은 뒤 테스트 3개(`:845`·`:908`·`:975`의 "대기 저장 0건")까지 깨뜨림.
+
+**고칠 것**
+1. `:283`·`:349`·`:785` — 첫 화면 그리기 직전에 `seedMainCar(ownerKey)` 한 줄을 넣음(같은 파일 `:426`·`:501`과 같은 방식). 확인 내용(assert)은 그대로 둠.
+2. `:623` — 이 화면 테스트를 지움. 같은 내용("정리 쓰기만 실패해도 최신 값 유지, 복구 뒤 다시 해도 옛 값으로 안 돌아감")은 비회원·로그인과 상관없는 대기 저장 단위 테스트 `src/data/sync/pendingWorkDataWrites.test.js:314`가 계속 확인함. 지우는 것은 테스트를 줄이는 일이라 따로 승인받는 것임.
+   - 다른 방법: 비회원으로 앱을 띄우는 새 화면 테스트 파일로 옮기기. 이 파일은 로그인 세션이 고정돼 있어서 비회원 부트 준비를 새로 만들어야 하므로, 이번 범위보다 큼.
+3. `:908`·`:1036`·`:1091`·`:1122`는 고치지 않음. 위 1~2번 뒤에 통과하는지만 확인함.
+
+**건드릴 파일**: `src/app/App.test.js`만(테스트 파일이라 줄 제한에서 빠짐. 1157줄에서 약 1095줄로 줄어듦). 앱 코드는 위 지시서 범위 그대로임.
+
+**검증**: `npm test` 전체(`test:unit` + `test:app`)와 타입 검사. 그 뒤 코드 커밋을 1번 함.
+
+**실패 시 처리**: 또 실패하면 고치지 않고 이 기록에 덧붙여 다시 승인받음.
+
+**결과 (`[x]` 2026-10-28 보리 "확정, 진행해" 뒤 진행)**
+- 1~2번대로 고침. `:623`을 지우면서 그 테스트만 쓰던 불러오기 2개(`registerPendingDayWrite`, `retryPendingDayWrites`)도 뺌.
+- 타입 검사 통과. `npm test` 전체 통과: `test:unit` 930개, `test:app` 918개, 실패 0. 따라서 실패하던 4개(`:908`·`:1036`·`:1091`·`:1122`)도 고치지 않고 통과함.
+- 코드 커밋 react-app `c25535d`(push 안 함). 바뀐 파일 7개 = 지시서 앱 코드 4개 + 새 테스트 2개 + `App.test.js`.
+- 리뷰 점검: 범위 밖 파일 없음. 새 저장 장치·재시도 없음. 금지 타입 표시 없음. 새 주석 3개는 지시서 최종 문구 그대로이고 로드맵 번호·날짜 없음. 앱 코드 줄 수 `dayDraftLifecycle.js` 190, `expensesSave.ts` 91, `mainDayLogRouting.ts` 33, `failureMessages.js` 33으로 200줄 이하. 지운 테스트는 위 2번대로 승인받은 1개뿐이고, 남은 테스트의 확인 내용은 그대로임.
+- push 뒤 CI verify·deploy 초록(run 40689382165). 배포 번들에 알림 ④ 문구가 들어간 것을 확인함.
+- 배포본 확인(로그인 탭 `seed`, 10월 28일 일지):
+  1. 고정 횟수 2회 → "저장 완료" → 새로고침 뒤에도 2 → 0으로 되돌림, 새로고침 뒤 빈 칸.
+  2. 주유 1,234원 저장 → "내역을 등록했습니다"·목록에 보임 → 새로고침 뒤에도 남음 → 삭제 → 새로고침 뒤 없음.
 - 2026-10-28 보리 최종 승인.
 
 ---
