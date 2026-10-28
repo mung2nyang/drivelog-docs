@@ -1,100 +1,83 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-129-B: drivelog-docs `fc2b077`. 129-A: drivelog-docs `867b653`. 128: drivelog-docs `9e32174`. 127: drivelog-docs `e743872`. 118: drivelog-docs `7cf86e3`. 116: drivelog-docs `8cade9e`. 115: drivelog-docs `6539d2d`. 122: drivelog-docs `48f420c`. 126: drivelog-docs `bfd19f7`. 117: drivelog-docs `8cbdca5`. 125: drivelog-docs `d48cac8`. 114: drivelog-docs `5f55ee1`. 34-C: drivelog-docs `11ea476`. 34-B: drivelog-docs `a54be26`. 34-A: drivelog-docs `58331f0`. 113-D: drivelog-docs `0bcb19a`. 113-C: drivelog-docs `afa3f5e`. 113-B: drivelog-docs `1c95e76`. 113-A: drivelog-docs `25069f9`. 운비서 버튼 설정: drivelog-docs `d65beaf`. 운비서·+ 버튼 겹침: drivelog-docs `6fe917d`. 로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+130: drivelog-docs `83e93be`. 129-B: drivelog-docs `fc2b077`. 129-A: drivelog-docs `867b653`. 128: drivelog-docs `9e32174`. 127: drivelog-docs `e743872`. 118: drivelog-docs `7cf86e3`. 116: drivelog-docs `8cade9e`. 115: drivelog-docs `6539d2d`. 122: drivelog-docs `48f420c`. 126: drivelog-docs `bfd19f7`. 117: drivelog-docs `8cbdca5`. 125: drivelog-docs `d48cac8`. 114: drivelog-docs `5f55ee1`. 34-C: drivelog-docs `11ea476`. 34-B: drivelog-docs `a54be26`. 34-A: drivelog-docs `58331f0`. 113-D: drivelog-docs `0bcb19a`. 113-C: drivelog-docs `afa3f5e`. 113-B: drivelog-docs `1c95e76`. 113-A: drivelog-docs `25069f9`. 운비서 버튼 설정: drivelog-docs `d65beaf`. 운비서·+ 버튼 겹침: drivelog-docs `6fe917d`. 로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
 ---
 
-## 로드맵 130 설정을 연달아 고치면 앞 변경이 되돌아감 `[x]`
+## 로드맵 131-A 차량 창 [저장]·연동 해제·삭제를 두 번 눌러도 한 번만 `[x]`
 
-폴더별 전수점검(2026-10-26) K1·K5, 로드맵 130 `[확인: 2026-10-26 보리 — "로드맵에 올려야겠지"]`. 129 다음 차례(① 데이터 저장·유실). DB 변경 없음.
+폴더별 전수점검(2026-10-26) M3, 로드맵 131 `[확인: 2026-10-26 보리 — "로드맵에 올려야겠지"]`. 130 다음 차례(① 데이터 저장·유실). DB 변경 없음.
+131은 고칠 파일이 6개 넘게 흩어져 있어 둘로 나눔: **131-A 차량 창(이번)**, 131-B 첫 설정·거래처·기사 초대 창 [저장](다음 — `OnboardingPage.jsx`·`ClientFormModal.jsx`·`DriverFormModal.jsx`). 이번엔 A만.
 
 ### 쉬운 요약
-- 설정 화면의 노선 삭제, 횟수 버튼 추가·고치기·삭제는 그 화면을 그릴 때 받아 둔 옛 설정을 바탕으로 저장합니다. 로그인 상태에서는 서버 저장이 끝나야 화면 값이 바뀌기 때문에, 연달아 고치면 두 번째 저장이 첫 번째 변경을 옛 값으로 덮습니다. 예를 들어 노선 A를 지우고 바로 B를 지우면 A가 되살아나고, 스위치를 끄고 바로 노선을 지우면 스위치가 다시 켜집니다.
-- 저장 차례가 왔을 때의 최신 설정에서 바뀐 목록 하나만 고치도록 바꿉니다. 저장 함수는 이미 차례대로 하나씩 처리하고 이런 방식을 받도록 만들어져 있어서, 화면 두 곳이 그 방식을 쓰게만 하면 됩니다.
-- 횟수 버튼 칸을 값을 바꾸지 않고 벗어날 때(길게 눌러 삭제 창이 뜰 때 포함)도 서버에 저장하던 것을 멈춥니다(K5).
+- 차량 창의 [저장], 연동 해제 확인 창의 [연동 해제], 삭제 확인 창의 [삭제]는 서버 저장이 끝날 때까지 버튼이 막혀 있지 않습니다. 빨리 두 번 누르면 같은 차량이 두 대 등록되거나, 기사 초대·해제 요청이 두 번 갑니다. 서버에도 같은 번호 차량을 막는 장치가 없어 그대로 두 대가 됩니다(아래 서버 확인).
+- 지출 창(로드맵 111)과 같은 방식으로, 처리 중에는 다시 눌러도 무시하고 [저장] 버튼은 "저장 중…"으로 잠급니다.
 
-### 현재 상태 (코드 확인, 2026-10-28)
-- 저장 창구 `data/sync/settingsSave.ts:21-28` `savePracticeSettings`는 계정별로 하나씩 차례대로 처리하고, `:30-33`에서 그때의 최신 설정(`readOwnerSettings`) 위에 넘겨받은 값을 얹습니다. 넘겨받는 값은 객체이거나 "최신 설정을 받아 바꿀 값을 돌려주는 함수"입니다(`:15-16` `SettingsPatch`). 화면 쪽 `features/settings/ui/AppSettingsPage.jsx:44-52` `patch`는 받은 값을 그대로 넘깁니다. 차량별 항목(`patchActive` `:55-60`)은 이미 함수로 넘깁니다.
-- 설정 전체를 넘기는 곳 3군데(최신 설정 위에 옛 전체를 덮음, 다른 칸까지 되돌림):
-  - `features/settings/ui/RoutePresetEditor.jsx:55` 노선 × → `removeFixedRoutePreset(settings, …)` 결과 전체.
-  - `features/settings/ui/RunCountChips.jsx:71` 길게 눌러 삭제 확인 → `removeRunCountPreset(settings, …)` 전체.
-  - `RunCountChips.jsx:103-106` 칸을 벗어날 때 → `replaceRunCountPreset(settings, …)` 전체. 값이 그대로여도 매번 저장(K5).
-- 목록 하나만 넘기지만 옛 목록을 바탕으로 만드는 곳 2군데(빨리 두 번 누르면 하나만 추가될 수 있음): `RoutePresetEditor.jsx:34-39` [추가], `RunCountChips.jsx:75-82` [+].
-- 횟수 버튼 삭제·고치기는 화면을 그릴 때의 순서 번호로 찾습니다(`domain/practicePresets.ts:83-96`). 최신 설정에서 순서가 달라졌으면 다른 버튼이 바뀔 수 있습니다. 횟수 값은 겹치지 않습니다(`normalizeRunCountPresets` `:18`).
-- 두 화면은 `features/settings/ui/FixedRouteBlock.jsx:40·47` 한 곳에서만 씁니다. 이 파일과 두 화면의 `onPatch` 형 설명은 객체만 받는다고 적혀 있습니다(`FixedRouteBlock.jsx:15`, `RoutePresetEditor.jsx:14`, `RunCountChips.jsx:18`).
-- 횟수 버튼 삭제·고치기 함수를 쓰는 곳은 `RunCountChips.jsx`뿐입니다(grep 결과: `domain/practiceSettings.test.js`는 노선 추가·삭제와 횟수 추가만 씀).
-- 실패 테스트 기록 `docs/full-code-review-failing-tests.md` K1(재현됨, 노선 A·B 연달아 삭제 시 A가 되살아남).
+### 현재 상태 (코드·서버 확인, 2026-10-28)
+- `features/cars/hooks/useCarListActions.js:33-43` `save` → `commitSave`(`:82-112`) → `requestVehicleSave` → 초대 저장(`saveInviteAfterVehicle`) → 창 닫기. 처리 중 막기 없음(grep: 이 파일에 `busy`·`saving` 없음).
+- `:45-79` `confirmDisconnect`(해제 요청 또는 기사 삭제 뒤 차량 저장), `:114-121` `confirmRemove`(차량 삭제)도 막기 없음.
+- `features/cars/ui/CarFormModal.jsx:188` [저장] 버튼은 늘 눌림. `features/cars/ui/CarListPage.jsx:102-125`가 차량 창과 확인 창 두 개(`shared/ui/ConfirmModal.jsx` — 여러 화면 공용, 잠금 기능 없음)를 그림.
+- 서버(테스트 프로젝트, 읽기 조회 2026-10-28): `vehicles`·`clients` 표는 고유 번호(`id`) 말고 겹침을 막는 장치가 없음(같은 사용자·같은 번호 막기 없음, `vehicles` 트리거는 연동 중 삭제 막기 하나뿐). 번호 바꾸기만 같은 번호를 막음(0022). → 두 번 저장되면 같은 번호 차량 두 대.
+- 같은 방식의 앞선 수정: 로드맵 111 react-app `9aa37d8` `useExpenseForm.js`의 `once`(진행 표시 `useRef` + `saving` 상태, `try … finally`로 풂), sot 쓰기 규칙 2 "지출 창 [저장]·지우기는 저장 중 다시 눌러도 무시".
 
 ### 목표 상태 (기대 동작)
-1. 노선 A를 지우고 바로 B를 지우면 둘 다 지워진 채로 남는다(로그인, 서버 저장이 늦을 때).
-2. 횟수 버튼을 고치고 바로 다른 칸을 고치면 둘 다 남는다. 삭제한 직후 다른 칸을 고쳐도 그 칸이 맞게 바뀐다(값으로 찾음).
-3. 스위치(상하차지 사용·운행 횟수 버튼 사용 등)를 바꾸고 바로 노선·횟수 버튼을 고쳐도 스위치가 되돌아가지 않는다.
-4. [추가]·[+]를 빨리 두 번 눌러도 둘 다 추가된다(최대 10개 넘으면 추가 안 됨, 지금처럼 화면 기준 초과면 안내 문구).
-5. 횟수 버튼 칸을 값을 바꾸지 않고 벗어나면 저장하지 않는다. 길게 눌러 삭제 창이 뜰 때도 저장하지 않는다.
-6. 비회원도 지금과 같이 저장된다. 그 밖의 설정 저장(스위치·차량별 항목·테마)은 그대로다.
+1. 로그인 계정에서 새 차량 창 [저장]을 서버 저장이 끝나기 전에 두 번 눌러도 서버에 차량이 한 대만 생긴다.
+2. 저장 중에는 [저장] 버튼이 잠기고 "저장 중…"으로 보인다. 끝나면 지금처럼 창이 닫힌다.
+3. 저장이 실패하면 지금처럼 안내가 뜨고 창이 그대로 있으며, 잠금이 풀려 다시 누를 수 있다.
+4. 연동 해제 확인 창 [연동 해제], 삭제 확인 창 [삭제]도 처리 중 다시 누르면 무시한다(서버 요청 한 번). 확인 창 버튼 모양은 그대로(공용 창이라 안 바꿈).
+5. 비회원 저장·검사 오류 표시·연동 해제 확인 창이 뜨는 조건은 지금과 같다.
 
 ### 건드릴 파일
-- `react-app/src/domain/practicePresets.ts` — `removeRunCountPreset`·`replaceRunCountPreset`이 순서 번호 대신 버튼 값(`count`)으로 찾게 바꿈. 값이 없으면 설정을 그대로 돌려줌. 주석 최종 문구:
-  - `/** 값으로 찾아 지운다 — 앞 저장으로 순서가 바뀌어도 같은 버튼(1개 남으면 그대로). */`
-  - `/** 값으로 찾아 바꾼다 — 없으면 그대로. */`
-- `react-app/src/features/settings/ui/RoutePresetEditor.jsx` — [추가]·× 모두 `onPatch((current) => ({ [key]: …(current, …)[key] }))` 형태로, 바뀐 목록 하나만 최신 설정에서 계산. [추가]의 빈 칸 검사·최대 개수 안내는 지금처럼 화면 값으로 먼저 하고, 최신 설정에서 추가가 안 되면 아무것도 바꾸지 않음. `onPatch` 형 설명을 `SettingsPatch`로. 주석 최종 문구(함수 위 한 줄): `// 저장 차례가 왔을 때의 최신 설정에서 노선 목록만 바꾼다.`
-- `react-app/src/features/settings/ui/RunCountChips.jsx` — [+]·삭제 확인·칸 벗어남 모두 같은 함수 형태. 삭제·고치기는 버튼 값으로. 칸 벗어남은 입력값이 원래 값과 같으면(앞뒤 공백 빼고 문자열 비교) 저장 안 함. `onPatch` 형 설명을 `SettingsPatch`로. 주석 최종 문구:
-  - 함수 위: `// 저장 차례가 왔을 때의 최신 설정에서 횟수 버튼 목록만 바꾼다.`
-  - 칸 벗어남: `// 값이 그대로면 저장하지 않는다(삭제 창이 뜰 때 칸을 벗어나는 것 포함).`
-- `react-app/src/features/settings/ui/FixedRouteBlock.jsx` — `onPatch` 형 설명만 `SettingsPatch`로(동작 변경 없음, 두 화면에 그대로 넘기기 때문에 타입 검사를 통과하려면 필요).
-- `react-app/src/features/settings/ui/RunCountChips.test.js` — 마운트 도우미가 함수로 받은 값을 그 테스트 설정에 적용해 기록(검사 내용은 그대로, 약화 아님). 추가: 값 그대로 벗어나면 저장 없음, 길게 눌러 삭제 창이 떠도 저장 없음.
-- 새 `react-app/src/features/settings/ui/RoutePresetEditor.staleOverwrite.test.js` — 실패 테스트 기록 K1 그대로 + 같은 방식(가짜 서버 저장 20ms)으로 횟수 버튼 연달아 고치기(기대 2), 스위치 끈 뒤 노선 삭제(기대 3), [추가] 두 번(기대 4).
-- 공용 값 영향: `onPatch`는 `AppSettingsPage.jsx:175` → `FixedRouteBlock` → 두 화면 경로 하나뿐(grep). `AppSettingsPage`의 `patch`는 이미 함수를 받음(`patchActive`가 사용 중). 스타일 변경 없음.
+- `react-app/src/features/cars/hooks/useCarListActions.js` — 111과 같은 `once`를 넣고, 돌려주는 `save`·`confirmDisconnect`·`confirmRemove`를 `once`로 감쌈. `saving`도 돌려줌. 주석 최종 문구: `// 저장·연동 해제·삭제 중엔 다시 눌러도 무시 — 같은 차량이 두 번 등록되지 않게.`
+- `react-app/src/features/cars/ui/CarFormModal.jsx` — `saving` 받기(기본 `false`), [저장] `disabled={saving}`·글자 `저장 중…`. 형 설명 한 줄: `@param {boolean} [props.saving] 저장 중이면 [저장] 잠금`. `onSave` 형 설명을 `() => void|Promise<void>`로.
+- `react-app/src/features/cars/ui/CarListPage.jsx` — 차량 창에 `saving={actions.saving}` 넘김.
+- 새 `react-app/src/features/cars/ui/CarListPage.saveOnce.test.js` — 111 테스트처럼 가짜 서버가 차량 넣기를 붙잡은 채: [저장] 두 번 → 넣기 1번·버튼 "저장 중…" 잠김(기대 1·2), 첫 넣기 실패 → 창 그대로·잠금 풀림·다시 저장 1번 더(기대 3), 삭제 [삭제] 두 번 → 삭제 요청 1번(기대 4), 연동 해제 [연동 해제] 두 번 → 해제 요청 1번(기대 4).
+- 공용 값 영향: `saving`은 새 값이라 쓰는 곳이 `CarListPage`→`CarFormModal` 하나. `CarFormModal`은 `CarListPage.jsx`에서만 씀(grep). 공용 `ConfirmModal`·스타일은 안 바꿈.
 
 ### 안 건드릴 것
-- `data/sync/settingsSave.ts` — 차례대로 처리하는 장치와 함수 형태를 이미 지원(`:15-28`). 함수가 아무것도 안 바꿔도(빈 값) 서버에 한 번 저장되는 것은 그대로 둠(최대 개수 초과처럼 드문 경우만).
-- `AppSettingsPage.jsx` — `patch`가 받은 값을 그대로 넘겨서 고칠 것 없음(`:44-52`).
-- `domain/practicePresets.ts`의 노선 추가·삭제, 횟수 추가 함수 — 그대로(`practiceSettings.test.js` 그대로 통과).
-- 문자 문구 설정(K3, 로드맵 135)·기사 차량 세부 입력 기본값(K2, 로드맵 145) — 다른 번호.
+- `shared/ui/ConfirmModal.jsx` — 여러 화면이 같이 써서 잠금 모양을 넣지 않음. 두 번 눌림은 `useCarListActions`의 `once`가 막음.
+- 서버에 같은 번호 차량 막기(고유 조건 추가) — 기존 데이터 확인과 DB 변경이 필요한 다른 작업. 이번엔 앱 잠금만.
+- 131-B 첫 설정·거래처·기사 초대 창 — 다음 조각.
+- `data/sync/vehicleMutations.ts`·`carInviteFromDraft.js` 저장 순서 — 그대로.
 
 ### 검증
-- 착수 전 `docs/testing-playbook.md` 열람(설정 저장 경로를 건드리므로 §1·§5).
-- 새 테스트가 고치기 전 코드에서 실패하는지 먼저 확인(K1 기록처럼 노선 되살아남), 고친 뒤 통과. 기존 `RunCountChips.test.js`·`RoutePresetEditor.test.js`·`practiceSettings.test.js`·`AppSettingsPage.*.test.js` 그대로 통과. 로컬 `npm test` 전체 통과. 타입·빌드는 CI.
+- 착수 전 `docs/testing-playbook.md` 열람(§2 호출 경로·§6 테스트 진실성).
+- 새 테스트가 고치기 전 코드에서 실패하는지 먼저 확인(넣기 2번), 고친 뒤 통과. 기존 `CarListPage.flows.test.js`·`CarListPage.dupKey.test.js`·`CarFormModal.test.js`·`carInvite*.test.js` 그대로 통과. 로컬 `npm test` 전체 통과. 타입·빌드는 CI.
 
 ### 파일 길이
-- `domain/practicePresets.ts` 96 → 약 100
-- `features/settings/ui/RoutePresetEditor.jsx` 69 → 약 75
-- `features/settings/ui/RunCountChips.jsx` 133 → 약 140
-- `features/settings/ui/FixedRouteBlock.jsx` 52 → 52
-- 모두 200줄 아래. 테스트 파일은 예외.
+- `features/cars/hooks/useCarListActions.js` 133 → 약 145
+- `features/cars/ui/CarFormModal.jsx` 192 → 약 194 (감시 목록 파일 — 200줄을 넘게 되면 그때 §6 분리설계를 먼저 보고)
+- `features/cars/ui/CarListPage.jsx` 128 → 약 129
+- 테스트 파일은 예외.
 
 ### 실패 시 처리
-- 새 저장 장치·재시도·임시 보관 없음. 기존 차례 대기 장치와 저장 실패 안내(`SERVER_SAVE_FAIL`)를 그대로 씀.
+- 새 저장 장치·재시도·임시 보관 없음. 실패 안내는 지금 문구 그대로, 잠금만 풂.
 - 테스트나 배포본 확인이 기대와 다르면 코드를 더 고치지 않고 수정 착수지시서를 써서 다시 승인받음.
 
 ### 사용자 확인 방법 (배포본, 로그인 계정)
-1. 앱 설정 → 고정 노선 → 상하차지 사용 켜기 → 노선 두 개 추가 → × 두 개를 빠르게 연달아 누르기 → 새로고침해도 둘 다 없으면 성공.
-2. 운행 횟수 버튼 사용 켜기 → [+]를 빠르게 두 번 → 버튼 두 개가 늘었으면 성공. 첫 칸을 눌러 숫자를 바꾸고 바로 둘째 칸을 바꾸기 → 새로고침해도 둘 다 바뀐 값이면 성공.
-3. 상하차지 사용을 켠 채 운행 횟수 버튼 사용 끄기 → 바로 노선 × → 새로고침해도 운행 횟수 버튼 사용이 꺼져 있으면 성공.
-4. 확인용으로 바꾼 노선·버튼은 원래대로 되돌림.
+1. 내 차량 관리 → [+ 추가] → 기사 차량(운행일지)으로 시험 번호 입력 → [저장]을 빠르게 두 번 → 목록에 그 차량이 한 대만 있고, 새로고침해도 한 대면 성공. 누르는 순간 버튼이 "저장 중…"으로 바뀌는지도 봄.
+2. 그 시험 차량 삭제 → 확인 창 [삭제]를 빠르게 두 번 → 목록에서 빠지고 오류 안내가 없으면 성공.
+3. 확인용 차량이 남아 있으면 지움.
 
 ### 진행 기록
-- 2026-10-28 착수 승인(보리 "확정, 진행해"). 플레이북 §1·§5·§6 열람.
-- 새 테스트 `RoutePresetEditor.staleOverwrite.test.js` 6개를 고치기 전 코드에서 실행 → 6개 모두 실패(종료 코드 1):
+- 2026-10-28 착수 승인(보리 "확정, 진행해"). 플레이북 §2·§6 열람.
+- 새 테스트 `CarListPage.saveOnce.test.js` 4개를 고치기 전 코드에서 실행(종료 코드 1). 두 번 눌림 3개 실패, 실패 뒤 다시 저장 1개는 원래도 통과(잠금이 풀리는지 지키는 확인):
   ```
-  ✖ 노선 A를 지우고 바로 B를 지우면 둘 다 지워진 채로 남는다 (90.5916ms)      actual: [ '부산 → 대구' ]  expected: []
-  ✖ 스위치를 끈 뒤 바로 노선을 지워도 스위치가 되돌아가지 않는다 (58.2793ms)   actual: true  expected: false
-  ✖ [추가]를 빨리 두 번 누르면 노선 둘 다 추가된다 (60.4581ms)                actual: [ '평택 → 용인' ]  expected: [ '부산 → 대구', '평택 → 용인' ]
-  ✖ 횟수 버튼 두 칸을 연달아 고치면 둘 다 남는다 (75.3717ms)                  actual: [ 1, 8, 3 ]  expected: [ 7, 8, 3 ]
-  ✖ 횟수 버튼을 지운 직후 다른 칸을 고쳐도 그 칸이 바뀐다 (778.3068ms)         actual: [ 1, 9, 3 ]  expected: [ 9, 3 ]
-  ✖ [+]를 빨리 두 번 누르면 횟수 버튼 둘 다 추가된다 (61.0268ms)              actual: [ 1, 2, 3, 4 ]  expected: [ 1, 2, 3, 4, 5 ]
-  ℹ tests 6 / pass 0 / fail 6 / duration_ms 2381.6864
+  ✖ 새 차량 [저장]을 저장 중에 또 눌러도 저장 요청은 한 번, 버튼은 "저장 중…"으로 잠김 (87.484ms)   actual: [ 'vehicleSave', 'vehicleSave' ]
+  ✔ 저장이 실패하면 창 그대로, 잠금이 풀려 다시 저장하면 요청이 한 번 더 (74.5184ms)
+  ✖ 삭제 확인 창 [삭제]를 처리 중에 또 눌러도 삭제 요청은 한 번 (61.267ms)                       actual: [ 'vehicleDeletion', 'vehicleDeletion' ]
+  ✖ 연동 해제 확인 창 [연동 해제]를 처리 중에 또 눌러도 해제 요청은 한 번 (90.4619ms)           actual: [ 'unlinkRequest', 'unlinkRequest' ]
+  ℹ tests 4 / pass 1 / fail 3 / duration_ms 1712.0522
   ```
-- 고친 뒤: 새 테스트 6개 통과. `RunCountChips.test.js`는 마운트 도우미가 함수로 받은 값을 그 테스트 설정에 적용해 기록하도록 바꾸고(검사 내용 그대로), K5 테스트 2개 추가 → 통과. 로컬 `npm test` 전체 통과(927 + 909), 타입 검사 통과.
-- 코드 커밋 react-app `8ac03b1`(push 전). 파일 길이: `practicePresets.ts` 101, `RoutePresetEditor.jsx` 75, `RunCountChips.jsx` 143, `FixedRouteBlock.jsx` 52.
-- 리뷰 점검: 바뀐 파일이 지시서 "건드릴 파일"과 같음(`git show --stat`), 새 저장 장치 없음, 타입 꼼수 없음(새 테스트의 `Function`·`unknown` 표기는 커밋 전에 구체 형으로 바꿈), 주석은 지시서 최종 문구 그대로.
-- 원래 있던 것: `RunCountChips.test.js` "짧게 누르고 떼면 확인 창이 뜨지 않는다"에서 React act 경고 1건. 테스트가 `pointerup`을 act 밖에서 보내서 생기며, 이번에 바꾸지 않은 줄(`endPress`·그 테스트 본문 그대로)이라 범위 밖으로 둠.
-- push(보리) 뒤 CI verify·deploy 초록(run 40637877236).
-- 배포본 확인(데스크톱 AI, 로그인 계정, 보리 지시): 배포 파일에 새 코드(칸 벗어남 값 비교) 들어간 것 확인. 원래 상태 = 고정 노선 켬·상하차지 꺼짐(숨은 노선 부산→대구·대구→부산)·횟수 버튼 켬 [2,3,4,5,6].
-  1. 상하차지 켬 → 시험 노선 A·B [추가] 연달아(저장 끝나기 전 화면은 옛 목록) → 둘 다 추가됨 → × 연달아 → 새로고침 뒤 둘 다 없음, 기존 노선 2개 그대로. 통과.
-  2. [+] 연달아 → 7·8 둘 다 추가. 첫 칸 12·둘째 칸 13 연달아 고침(실제 클릭·입력) → 새로고침 뒤 [12,13,4,5,6,7,8]. 통과. (스크립트로만 칸을 벗어나게 한 첫 시도는 창에 초점이 없어 벗어남이 안 일어나 저장되지 않았음 — 앱 문제 아님.)
-  3. 시험 노선 C 추가 → 운행 횟수 버튼 사용 끄고 곧바로 C × → 새로고침 뒤 스위치 꺼짐·C 없음. 통과.
-  4. 되돌림: 운행 횟수 버튼 켬, 7·8 길게 눌러 삭제, 12→2·13→3, 상하차지 끔 → 새로고침 뒤 원래 상태와 같음.
+- 고친 뒤: 새 테스트 4개 통과, 차량 폴더 테스트 30개 통과. 로컬 `npm test` 전체 통과(927 + 913), 타입 검사 통과.
+- 코드 커밋 react-app `b87b810`(push 전). 파일 길이: `useCarListActions.js` 144, `CarFormModal.jsx` 193, `CarListPage.jsx` 129.
+- 리뷰 점검: 바뀐 파일이 지시서 "건드릴 파일"과 같음, 공용 `ConfirmModal` 안 바뀜, 새 저장 장치 없음, 타입 꼼수 없음, 주석은 지시서 최종 문구 그대로.
+- 원래 있던 것: `CarDriverConnectPanel.test.js`에서 React act 경고 2건(이번에 안 바꾼 파일·테스트).
+- push(보리) 뒤 CI verify·deploy 초록(run 40642665323).
+- 배포본 확인(데스크톱 AI, 로그인 계정, 보리 지시): 배포 파일에 "저장 중…" 들어간 것 확인. 원래 차량 3대(11가1111·22가2222·99가9998).
+  1. [+ 추가] → 99가9131, 운행일지 방식 → [저장] 곧바로 두 번 → 첫 누름 직후 버튼 "저장 중…"·잠김, 창 닫히고 목록에 한 대, 새로고침 뒤 한 대, 서버 조회 `vehicles`에 그 번호 1줄. 통과.
+  2. 99가9131 삭제 → 확인 창 [삭제] 곧바로 두 번 → "차량을 삭제했습니다." 한 번, 오류 안내 없음, 목록에서 빠짐, 서버 조회 0줄. 통과.
+  3. 새로고침 뒤 차량 3대, 원래 상태와 같음.
 - 2026-10-28 보리 최종 승인.
 
 ---
