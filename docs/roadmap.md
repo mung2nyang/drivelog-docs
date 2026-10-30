@@ -625,7 +625,7 @@ GPS 같은 기능을 자문 뒤에 넣으면 자문을 다시 받아야 해서(�
 137. ~~**기사 급여·산재 차주 몫 계산**~~ `[x]` react-app `795dd6e`(2026-10-30, 차량 번호로 거래처 찾기·계약 밖 운송료 같은 단가·산재 기사 몫 기준, CI 초록, 배포본 확인, 보리 승인) (②, B2·B4) — 미연동 기사 차량은 차량번호를 몰라 차주 고정 노선 단가로 계산(`financeCore.ts:79-82`·`driverShareBase.ts:24-25`), 산재 차주 몫은 "기사 몫 기준" 설정을 무시(`driverRevenueShareExpense.ts:77`). 같은 함수들.
 138. **기사 차량 "건당" 수수료 방식 지우기** (⑥로 성격 바뀜, M2) `[확인: 2026-10-30 보리 — "건당을 지우는게 낫지않아?", "응 그렇게 진행해"]` — 차량 창의 건당 선택은 9월(react-app `5d1de1f`)에 빠졌는데 계산·표시(`financeCore.ts` `calculateDriverVehicleCommission`·`monthSettlement.ts`·`CarListItem.jsx`·`driverSelfRevenue.ts` 등)는 아직 건당을 앎 → 수정 창이 "5000 %"로 보이고 100으로 잘림(`CarFormModal.jsx:154-162`). 서버 건당 차량 0대(2026-10-30 읽기 조회). 기사 차량 건당 계산·표시를 빼고, 옛 건당 자료는 "수수료 미설정"(기사 몫 0원)으로 읽음. 거래처 수수료 건당은 그대로, 서버 `comm_type` 칸은 안 지움. 파일 10개 안팎이라 두 조각 예상. 순서는 140 뒤.
 139. ~~**운행 횟수에서 공차·연동 혼짐 빼기 — 기사 정산도**~~ `[x]` react-app `d397e8f`(2026-10-30, `callCountsAsTrip`으로 달력과 같은 규칙, CI 초록, 배포본 확인, 보리 승인) (②, B3) — sot 4-21 결정대로 `getMonthlyDriverTotals`(`financeCore.ts:100`)도 `countCallTrips` 규칙으로. 건당 기사 몫·기사 관리·기사 본인 화면 숫자가 달력과 같아짐.
-140. **같은 이름 거래처 등록 막기** (②, R1) — `domain/clients.ts` `checkClientDraft`에 같은 차량 범위 같은 이름 검사가 없음. 거래처를 이름으로 찾는 곳(A7·B8·F4·G9·H7, 낮음)은 낮음 대조 때 같이 봄.
+140. ~~**같은 이름 거래처 등록 막기**~~ `[x]` react-app `d2f4b28`(2026-10-30, 같은 범위 같은 이름 막기 sot §4-22, 서버의 겹친 거래처는 그대로, CI 초록, 배포본 확인, 보리 승인) (②, R1) — `domain/clients.ts` `checkClientDraft`에 같은 차량 범위 같은 이름 검사가 없음. 거래처를 이름으로 찾는 곳(A7·B8·F4·G9·H7, 낮음)은 낮음 대조 때 같이 봄.
 
 ⑤ 불편·화면 (화면 모양 바뀌는 것은 시안 먼저)
 141. **휴무를 켰다 끄면 노선 칩 횟수·파렛트만 되살아남** (⑤, F1) — `features/day-log/ui/DayLogPage.jsx:114`·`hooks/useAssistantDayOff.js:37`이 `fixedCount`만 0.
