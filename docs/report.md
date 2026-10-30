@@ -1,68 +1,70 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-135-A: drivelog-docs `56ca240`. 134: drivelog-docs `baee1ea`. 133: drivelog-docs `e049969`. 132-B: drivelog-docs `e3b7b60`. 132-A: drivelog-docs `0d32ec4`. 131-B: drivelog-docs `bac091a`. 131-A: drivelog-docs `448deb1`. 130: drivelog-docs `83e93be`. 129-B: drivelog-docs `fc2b077`. 129-A: drivelog-docs `867b653`. 128: drivelog-docs `9e32174`. 127: drivelog-docs `e743872`. 118: drivelog-docs `7cf86e3`. 116: drivelog-docs `8cade9e`. 115: drivelog-docs `6539d2d`. 122: drivelog-docs `48f420c`. 126: drivelog-docs `bfd19f7`. 117: drivelog-docs `8cbdca5`. 125: drivelog-docs `d48cac8`. 114: drivelog-docs `5f55ee1`. 34-C: drivelog-docs `11ea476`. 34-B: drivelog-docs `a54be26`. 34-A: drivelog-docs `58331f0`. 113-D: drivelog-docs `0bcb19a`. 113-C: drivelog-docs `afa3f5e`. 113-B: drivelog-docs `1c95e76`. 113-A: drivelog-docs `25069f9`. 운비서 버튼 설정: drivelog-docs `d65beaf`. 운비서·+ 버튼 겹침: drivelog-docs `6fe917d`. 로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+135-B: drivelog-docs `b15f2f8`. 135-A: drivelog-docs `56ca240`. 134: drivelog-docs `baee1ea`. 133: drivelog-docs `e049969`. 132-B: drivelog-docs `e3b7b60`. 132-A: drivelog-docs `0d32ec4`. 131-B: drivelog-docs `bac091a`. 131-A: drivelog-docs `448deb1`. 130: drivelog-docs `83e93be`. 129-B: drivelog-docs `fc2b077`. 129-A: drivelog-docs `867b653`. 128: drivelog-docs `9e32174`. 127: drivelog-docs `e743872`. 118: drivelog-docs `7cf86e3`. 116: drivelog-docs `8cade9e`. 115: drivelog-docs `6539d2d`. 122: drivelog-docs `48f420c`. 126: drivelog-docs `bfd19f7`. 117: drivelog-docs `8cbdca5`. 125: drivelog-docs `d48cac8`. 114: drivelog-docs `5f55ee1`. 34-C: drivelog-docs `11ea476`. 34-B: drivelog-docs `a54be26`. 34-A: drivelog-docs `58331f0`. 113-D: drivelog-docs `0bcb19a`. 113-C: drivelog-docs `afa3f5e`. 113-B: drivelog-docs `1c95e76`. 113-A: drivelog-docs `25069f9`. 운비서 버튼 설정: drivelog-docs `d65beaf`. 운비서·+ 버튼 겹침: drivelog-docs `6fe917d`. 로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
-## 로드맵 135-B 문자 문구를 계정 설정에서 읽고 쓰기 `[x]`
+## 로드맵 136 세금계산서에서 휴무일 콜·고정 노선 빼기 `[x]`
 
-전수점검(2026-10-26) K3, sot 4-21 `[확인: 2026-10-26 보리 — "서버에 둬"]`. 135-A(react-app `2979833`)가 만든 계정 설정 칸 `messageTemplates`·`reportShareMessage`를 문구 화면들이 쓰게 바꿈. DB 변경 없음(`profiles.settings` JSON 안). 135의 두 조각 중 B, 이번이 마지막.
+전수점검(2026-10-26) B1, 로드맵 ②(돈·세무 금액). 근거 sot §4-13 "휴무일 콜은 모든 계산에서 제외 — … 세금계산서 … 전부"(보리 결정 2026-10-15, react-app `7395b21`). 그때 세금계산서 묶음 함수 한 곳이 빠졌음. DB 변경 없음.
 
 ### 쉬운 요약
-- 문자 문구 설정 화면에서 [저장]하면 휴대폰이 아니라 계정 설정에 저장됩니다. 로그인 회원은 서버에 남아 다른 휴대폰이나 앱 데이터 삭제 뒤에도 그대로입니다.
-- 일지 문자 창·내역서 공유·운비서 미수금 문자가 모두 이 계정 설정의 문구를 읽습니다.
-- 비회원은 다른 설정과 같이 휴대폰의 앱 설정에 저장됩니다(지금 다른 설정과 같은 길).
+- 휴무로 바꾼 날에 콜이나 고정 노선 횟수가 남아 있으면, 지금은 세금계산서 금액에 그 운행이 들어갑니다. 달력·매출·미수금·내역서는 이미 빼고 있어서 세금계산서만 금액이 큽니다.
+- 세금계산서도 휴무일을 빼서 다른 화면과 같은 금액으로 맞춥니다. 운비서에게 "○○ 거래처 매출"을 물었을 때의 답도 같은 계산을 써서 함께 맞춰집니다.
 
 ### 현재 상태 (코드 확인)
-- 읽기·쓰기: `data/sync/messageTemplates.ts:14-47` — 휴대폰 저장소 키 `messageTemplateCustomBodies`·`reportShareMessagePattern`만 읽고 씀. 계정 설정 칸은 135-A 뒤 아무도 읽지 않음(`grep messageTemplates` — 운영 코드는 `financeTypes`·`practiceSettings`·`persistDomainSchema`뿐).
-- 쓰는 곳(같은 grep): 설정 화면 `features/settings/ui/MessageSettingsPage.jsx:22-26`(읽기)·`:46`(저장)·`:56`(기본 복원), 일지 문자 창 `features/day-log/ui/MessageTemplateSheet.jsx:23`, 내역서 공유 `features/documents/ui/ReportShareModal.jsx:43`·`:48`, 운비서 문자 `features/home/api/unbiseoSms.ts:87`(`smsBody`, 부르는 곳은 `features/home/ui/UnbiseoSmsSteps.tsx:124` 하나). `unbiseoChoice.ts`·`UnbiseoSmsSteps.tsx`의 `MESSAGE_TEMPLATE_TITLES`는 이름표라 그대로.
-- 계정 설정 저장 길: `data/sync/settingsSave.ts:21` `savePracticeSettings` — 계정마다 줄 세워 한 번씩, 로그인이면 서버 `profiles` 저장 성공 뒤에만 앱에 반영, 비회원은 앱 설정에 저장. 세션 바뀜 검사도 이 안에 있음(`:36-40`). 연동 기사는 자기 `profiles` 줄의 설정에 저장(`:39` `ownFieldsOnly`).
-- 화면 읽기 방식: 설정 화면들은 `useSession()` → `useOwnerSettings(ownerKey)`(예: `AppSettingsPage.jsx:27-30`).
+- `domain/financeTaxInvoiceGroups.ts:51-84` `getTaxInvoiceSourceGroups` — 날마다 콜(`:52-62`)·고정 횟수(`:64` `record.fixedCount`를 그대로 읽음)·파렛트(`:77`)를 더하는데 `isOff`를 보지 않음. 파렛트만 `getPalletCount`(`day-record.ts:17-20`, 휴무면 0)를 거쳐 이미 빠지고, 콜과 고정 노선은 들어감.
+- 다른 합계는 모두 휴무 날을 통째로 건너뜀: `financeCore.ts:91`·`:141`, `driverShareBase.ts:28`, 같은 파일 `flattenLinkedDriverTrips`(`:106`, 기사 관리 거래처 계산서 카드), 내역서(`features/documents/api/report.test.js:141` "isOff 레코드는 완전히 제외된다").
+- 부르는 곳(grep `getTaxInvoiceSourceGroups`, 운영 코드 2곳): 서류 발급 세금계산서 목록 `financeTaxInvoiceEntries.ts:100`, 운비서 거래처 매출 `features/home/api/unbiseoNumbers.ts:47`.
+- 화면 금액은 열 때마다 다시 계산함(`financeTaxInvoiceEntries.ts:75-76` — 저장값 위에 계산값을 덮음).
 
 ### 목표 상태 (기대 동작)
-1. `messageTemplates.ts`의 읽기 함수 둘이 계정 설정을 받아 돌려줌 — 설정에 문구가 있으면 그것, 없으면 기본 문구. 휴대폰 저장소는 읽지도 쓰지도 않음. `saveMessageTemplateSettings`·`resetMessageTemplateSettings`는 지움.
-2. 설정 화면 첫 값은 계정 설정의 문구(없으면 기본).
-3. [저장] → `savePracticeSettings(ownerKey, { messageTemplates, reportShareMessage })`. 성공하면 "문자 문구를 저장했습니다.", 실패하면 공용 실패 문구 `SERVER_SAVE_FAIL`(설정 화면과 같음), 입력한 글은 그대로 둠. 빈 칸 막기는 지금 그대로.
-4. [기본 문구로 복원] → 두 칸을 비운 설정을 저장(`{ messageTemplates: undefined, reportShareMessage: undefined }`, `normalizeSettings`가 칸을 만들지 않음 — 135-A 테스트). 성공해야 입력 칸을 기본 문구로 바꾸고 "기본 문구로 복원했습니다.", 실패하면 칸 그대로 + 공용 실패 문구.
-5. 일지 문자 창·내역서 공유(카카오톡 글·문자 글)·운비서 문자 글이 계정 설정의 문구를 씀. 화면 모양·순서·자리 채우기(`{거래처}` 등)는 그대로.
-6. 다른 앱 설정을 바꿔 저장해도 문구는 남음(135-A 목표 4, 테스트 있음).
-7. 휴대폰에 남아 있는 옛 문구 키(`messageTemplateCustomBodies`·`reportShareMessagePattern`)는 읽지 않고 버림 — 옮기기·지우기 코드 없음. 바꿔 둔 사용자는 한 번 다시 입력 `[확인: 2026-10-30 보리 — "가: 버림"]`.
+1. 휴무 날의 콜·고정 노선·파렛트는 세금계산서 묶음(공급가액·부가세·건수)에 들어가지 않음. 메인 차량·기사 차량 모두.
+2. 휴무 날 콜만 있던 거래처는 그달 세금계산서 목록에서 빠짐(묶음이 생기지 않음).
+3. 휴무를 끄면 다시 들어감(콜은 지우지 않으므로 — sot §4-13).
+4. 휴무가 아닌 날 계산은 그대로(기존 테스트 그대로 통과).
+5. 운비서 거래처 매출 답이 같은 기준으로 바뀜(같은 함수라 코드 변경 없음).
+6. 이미 발급 완료로 저장한 계산서: 화면은 열 때 다시 계산한 금액, 서버 저장값은 다시 저장할 때 바뀜(sot §4-14와 같은 방식). 휴무 날 콜만 있던 거래처의 발급 완료분은 지금처럼 저장된 것으로 남음(`financeTaxInvoiceEntries.ts:102-107`).
 
 ### 건드릴 파일
-- `src/data/sync/messageTemplates.ts` — 읽기 함수가 `FinanceSettings`를 받음, 휴대폰 저장소 쓰기·지우기 함수 지움. 주석 최종 문구: `/** 계정 설정의 문구 1~3, 바꾼 문구가 없으면 기본. */`, `/** 계정 설정의 내역서 공유 문구, 없으면 기본. */`
-- `src/features/settings/ui/MessageSettingsPage.jsx` — `useSession`·`useOwnerSettings`로 읽고 `savePracticeSettings`로 저장·복원.
-- `src/features/day-log/ui/MessageTemplateSheet.jsx`, `src/features/documents/ui/ReportShareModal.jsx` — 안에서 `useSession`·`useOwnerSettings`로 설정을 읽어 넘김(부르는 `DayLogPage.jsx`·`ReportPage.jsx`는 안 건드림).
-- `src/features/home/api/unbiseoSms.ts` — `smsBody` 첫 인자로 `ownerKey`(같은 파일 `readSmsItems`·`smsPhone`과 같은 모양), `readOwnerSettings(ownerKey)`에서 문구. 주석 `:85`를 `/** 계정 설정의 문구(바꾼 문구가 없으면 기본)를 일지 문자 창과 같은 함수로 채운다. */`로.
-- `src/features/home/ui/UnbiseoSmsSteps.tsx` — `:124` 한 줄(`smsBody(ownerKey, …)`).
-- 테스트: `MessageSettingsPage.test.js`(저장·복원이 계정 설정에, 실패 때 글 그대로), `MessageTemplateSheet.test.js`·`ReportShareModal.test.js`·`unbiseoSms.test.js`(휴대폰 저장소 대신 계정 설정에 문구를 넣고 반영 확인).
+- `src/domain/financeTaxInvoiceGroups.ts` — `:51` 날마다 돌 때 휴무 날은 바로 건너뜀(`if (record?.isOff) return`). 주석 최종 문구: `// 휴무 날은 콜·고정 노선·파렛트 모두 빼기(다른 합계와 같음).`
+- `src/domain/finance.test.js` — 새 테스트: 휴무 날 콜·고정 노선이 빠짐, 휴무만 있던 거래처는 묶음 없음, 휴무를 끄면 다시 들어감, 기사 차량도 같음, 달력 정산(`monthSettlementSummary`)과 같은 금액.
 
 ### 안 건드릴 것
-- `settingsSave.ts`·`profileCloudCommit.ts`·`practiceSettings.ts`·`persistDomainSchema.ts`·`financeTypes.ts` — 저장 길과 칸은 135-A에서 끝남(`settingsSave.serial.test.js`·`practiceSettings.test.js`·`persistDomainSchema.messageTemplates.test.js`).
-- `messageTemplates.ts`를 `domain/`으로 옮기기 — 부르는 곳 6곳 경로가 바뀌어 범위 밖. 문구 화면 모양·문구 자체.
-- DB·서버 함수.
+- `financeTaxInvoiceEntries.ts`·`unbiseoNumbers.ts` — 같은 함수를 불러 따라 바뀜(위 grep).
+- `flattenLinkedDriverTrips`·`getLinkedDriverClientInvoiceGroups`(같은 파일 `:96-178`) — 이미 휴무를 뺌(`:106`).
+- 서버에 저장된 계산서 값, DB. 휴무 확인 창(`OffToggle.jsx`).
 
 ### 검증
-- `npm test`, 타입 검사, 빌드(CI).
-- 새·바뀐 테스트는 고치기 전 코드에서 실패하는지 확인(revert-check).
-- 배포본: 아래 사용자 확인 방법.
+- `npm test`, 타입 검사, 코드 검사, 빌드(CI).
+- 새 테스트가 고치기 전 코드에서 실패하는지 확인(revert-check).
+- 배포본: 아래 확인 방법.
 
 ### 진행 기록
-- 2026-10-30 보리 "확정, 진행" → 데스크톱 AI가 코드. react-app `b5a1468`(push 안 함).
-- 지시서와 다른 점: 테스트 파일 2개 더 고침 — `data/sync/messageTemplates.test.js`(휴대폰 저장소 기준이던 모듈 테스트를 계정 설정 기준으로, 지시서 목록에서 빠짐), `features/home/ui/UnbiseoSmsSteps.test.js`(옛 키 지우던 한 줄만 뺌).
-- 로컬: 테스트 937·922 모두 통과, 타입 검사·코드 검사·빌드 통과. 고치기 전 실패 확인 — 새·바뀐 테스트 8개 모두 고치기 전 코드에서 실패, 나머지는 안전 확인.
-- 브라우저(로컬 5174, 비회원): 미수금 문구에 "시험" 붙여 [저장] → 새로고침 뒤 남음, 앱 설정 `messageTemplates`에 저장·옛 키 없음 → [기본 문구로 복원] → 새로고침 뒤 기본 문구·두 칸 없음, 콘솔 오류 없음. 로그인 계정은 자동 테스트로만(배포본은 push 뒤 확인).
-- push(보리) 뒤 CI verify·deploy 초록(run 40994197189).
-- 배포본(getdrivelog.com, 로그인 계정 — 보리 지시로 데스크톱 AI): 미수금 문구에 "시험" 붙여 [저장] → 새로고침 뒤 남음(휴대폰 설정에는 문구 없음, 서버 profiles에서 받음) → 10-13 일지 문자 창 미수금 안내 끝에 "시험" → [기본 문구로 복원] → 새로고침 뒤 기본 문구(원래대로). 콘솔 404는 주소 직접 열기 때 페이지 주소뿐(호스팅 동작, 이번 변경과 무관).
+- 2026-10-30 보리 "확정, 진행" → 데스크톱 AI가 코드. react-app `fd8b2bd`(push 안 함).
+- 로컬: 테스트 940·922 모두 통과, 타입 검사·코드 검사·빌드 통과. 고치기 전 실패 확인 — 새 테스트 3개 중 2개(메인·기사 차량, 달력 정산과 같은 금액)는 고치기 전 코드에서 실패, "휴무를 끄면 다시 들어간다"는 안전 확인.
+- 브라우저: 로컬 탭은 비회원이라 세금계산서 자료 없음 — 배포본은 push 뒤 확인.
+- push(보리) 뒤 CI verify 빨강(run 40996846024) — 새 테스트 "메인·기사 차량 모두 휴무 날은 빠지고…" 1개 실패. 금액·건수는 모두 맞고 줄 순서만 다름.
+
+### 수정 착수지시서 1 — 새 테스트의 줄 세우기가 컴퓨터 언어 설정에 따라 달라짐
+- **무엇이 왜 실패했나**: 테스트 `rows`가 묶음 이름을 `localeCompare`로 줄 세움. 이 함수는 컴퓨터 언어 설정을 따라, 한국어 설정(로컬 Windows)에서는 한글이 영어보다 앞("대한__서울99가1111" → "대한__main"), CI(리눅스, 영어 설정)에서는 영어가 앞("대한__main" → "대한__서울99가1111"). 앱 코드 문제 아님(앱은 이 순서를 쓰지 않음, 테스트 안에서만 줄 세움).
+- **고칠 것**: `src/domain/finance.test.js` 새 describe의 `rows`만 — 줄 세우기를 글자 번호 비교(`String(a[0]) < String(b[0]) ? -1 : 1`)로 바꾸고, 첫 테스트 기대 순서를 그 기준(영어가 한글보다 앞: `대한__main`, `대한__서울99가1111`, `한진__main`, `한진__서울99가1111`)으로. 두 번째 테스트(대한·한진·휴무만)는 어느 설정에서도 같은 순서라 그대로.
+- **안 건드릴 것**: `financeTaxInvoiceGroups.ts`(앱 코드), 다른 테스트.
+- **검증**: 로컬 `finance.test.js`·전체 테스트, 수정 커밋 하나 더(이력 되감기 없음) → 보리 push → CI 초록.
+- **실패 시 처리**: 새 장치 없음, 다시 실패하면 수정 착수지시서 2.
+- 진행: 보리 "확정, 진행" → react-app `e2b7058`(테스트만, push 안 함). 로컬 `finance.test.js`가 한국어·영어(`LC_ALL=en_US.UTF-8`) 설정 모두 통과, 전체 테스트 940·922·타입·코드 검사 통과.
+- push(보리) 뒤 CI verify·deploy 초록(run 40998140026).
+- 배포본(getdrivelog.com, 로그인 계정, 데스크톱 AI — 보리 지시): 10월 세금계산서 테스터거래처 공급가액 2,373,456원·22건 → 10-13(콜 1건 823,456원, 고정·파렛트 0이라 휴무를 켜도 지워지는 값 없음) 휴무로(확인 창) → 1,550,000원·21건·세액 155,000원 → 휴무 끄기 → 2,373,456원으로 돌아옴, 콘솔 오류 없음.
 
 ### 파일 길이
-- `messageTemplates.ts` 58 → 약 50, `MessageSettingsPage.jsx` 120 → 약 130, `MessageTemplateSheet.jsx` 59 → 약 62, `ReportShareModal.jsx` 53 → 약 57, `unbiseoSms.ts` 98 → 약 99, `UnbiseoSmsSteps.tsx` 154 → 154. 모두 200줄 아래.
+- `financeTaxInvoiceGroups.ts` 178 → 180. 200줄 아래.
 
 ### 실패 시 처리
-- 새 저장 장치·재시도·임시 보관 없음. 저장 실패는 알림만, 입력은 화면에 남아 다시 [저장]. 검증이 실패하면 수정 착수지시서를 써서 다시 승인받음.
+- 새 저장 장치·재시도·대비 장치 없음. 계산만 바꿈. 검증이 실패하면 수정 착수지시서를 써서 다시 승인받음.
 
 ### 사용자 확인 방법 (배포본, 로그인 계정)
-1. 마이페이지 → 문자 문구 설정 → 미수금 안내 문구 끝에 "시험" 붙여 [저장] → "문자 문구를 저장했습니다."
-2. 새로고침 → 다시 들어가 "시험"이 남아 있음. (다른 휴대폰·브라우저에서 같은 계정이면 거기서도 보임)
-3. 운행일지 콜 상세의 문자 보내기 → 미수금 안내 글 끝에 "시험".
-4. [기본 문구로 복원] → 기본 문구로 바뀌고, 새로고침 뒤에도 기본 문구.
+1. 서류 발급 → [세금계산서] 탭에서 10월 "테스터거래처" 공급가액을 적어 둠.
+2. 10월 13일 일지 → 휴무로 바꿈(콜이 있어 확인 창 → 확인).
+3. 세금계산서 탭으로 돌아가면 그 거래처 공급가액이 13일 콜 금액만큼 줄어 있음(달력 10월 정산과 같은 방향).
+4. 13일 휴무를 다시 끄면 금액이 원래대로.
 
 ## 로드맵 94 `.ts` 전환 — 남은 조각 (94-A·B·C `[x]`, D~G는 출시 전 순서 뒤)
 
