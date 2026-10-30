@@ -628,7 +628,7 @@ GPS 같은 기능을 자문 뒤에 넣으면 자문을 다시 받아야 해서(�
 140. ~~**같은 이름 거래처 등록 막기**~~ `[x]` react-app `d2f4b28`(2026-10-30, 같은 범위 같은 이름 막기 sot §4-22, 서버의 겹친 거래처는 그대로, CI 초록, 배포본 확인, 보리 승인) (②, R1) — `domain/clients.ts` `checkClientDraft`에 같은 차량 범위 같은 이름 검사가 없음. 거래처를 이름으로 찾는 곳(A7·B8·F4·G9·H7, 낮음)은 낮음 대조 때 같이 봄.
 
 ⑤ 불편·화면 (화면 모양 바뀌는 것은 시안 먼저)
-141. **휴무를 켰다 끄면 노선 칩 횟수·파렛트만 되살아남** (⑤, F1) — `features/day-log/ui/DayLogPage.jsx:114`·`hooks/useAssistantDayOff.js:37`이 `fixedCount`만 0.
+141. ~~**휴무를 켰다 끄면 노선 칩 횟수·파렛트만 되살아남**~~ `[x]` react-app `1bce0c3`(2026-10-30, 휴무를 켜면 운행 횟수·칩 횟수·파렛트 함께 0, 끄면 되살리지 않음, sot §4-13, CI 초록, 배포본 확인, 보리 승인) (⑤, F1) — `features/day-log/ui/DayLogPage.jsx:114`·`hooks/useAssistantDayOff.js:37`이 `fixedCount`만 0.
 142. ~~**기사 차량 운행거리 설정을 메인 값으로 읽음 — 운송비 내역서·달력**~~ `[x]` react-app `75c14b6`(2026-10-30, 그 차량 계기판 설정을 `resolveLogSettings`로 읽음, sot §4-25, CI 초록, 로컬·배포본 확인, 보리 승인) (⑤, G1·L1) — `features/documents/ui/ReportPage.jsx:118`, `features/calendar/ui/CalendarPage.jsx:45`.
 143. **운송비 내역서 [공유] 파일 모양이 다운로드와 다름** (⑤, G2) — 두 줄 표는 PDF·이미지 저장 중일 때만.
 144. **운비서로 점검표를 저장해도 홈 할 일 카드가 그대로** (⑤, H1) — `features/home/hooks/useTodayInspectionMissing.js`가 다시 안 읽음.
