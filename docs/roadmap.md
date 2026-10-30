@@ -629,7 +629,7 @@ GPS 같은 기능을 자문 뒤에 넣으면 자문을 다시 받아야 해서(�
 
 ⑤ 불편·화면 (화면 모양 바뀌는 것은 시안 먼저)
 141. **휴무를 켰다 끄면 노선 칩 횟수·파렛트만 되살아남** (⑤, F1) — `features/day-log/ui/DayLogPage.jsx:114`·`hooks/useAssistantDayOff.js:37`이 `fixedCount`만 0.
-142. **기사 차량 운행거리 설정을 메인 값으로 읽음 — 운송비 내역서·달력** (⑤, G1·L1) — `features/documents/ui/ReportPage.jsx:118`, `features/calendar/ui/CalendarPage.jsx:45`.
+142. ~~**기사 차량 운행거리 설정을 메인 값으로 읽음 — 운송비 내역서·달력**~~ `[x]` react-app `75c14b6`(2026-10-30, 그 차량 계기판 설정을 `resolveLogSettings`로 읽음, sot §4-25, CI 초록, 로컬·배포본 확인, 보리 승인) (⑤, G1·L1) — `features/documents/ui/ReportPage.jsx:118`, `features/calendar/ui/CalendarPage.jsx:45`.
 143. **운송비 내역서 [공유] 파일 모양이 다운로드와 다름** (⑤, G2) — 두 줄 표는 PDF·이미지 저장 중일 때만.
 144. **운비서로 점검표를 저장해도 홈 할 일 카드가 그대로** (⑤, H1) — `features/home/hooks/useTodayInspectionMissing.js`가 다시 안 읽음.
 145. **설정을 한 번도 저장 안 한 기사 차량은 세부 입력을 켤 수 없음** (⑤, K2·B7) — `domain/carSettingsScope.ts:11` 기본값이 "기사 차량 고정 노선 꺼지면 세부 입력 켬" 규칙을 안 따름.

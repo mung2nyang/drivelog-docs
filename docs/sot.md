@@ -643,6 +643,10 @@ Step 8 전. `error TS\d+:` 테스트·지원 **384 → 314**(캡 355 이하). �
 
 - 하루 운행 거리 = 콜 상세에 거리가 하나라도 있으면 그 합(소수점 그대로), 없으면 하루 거리(`dailyDistance`), 휴무 날은 0. 정본 `domain/day-record.ts` `getRecordTotalDistance` — 달력 정산 카드(`monthSettlement.ts`)와 매출·기사 본인 화면(`financeOwnerDetail.ts`)이 같이 씀. 매출 화면 표시는 한 달 합을 반올림한 정수 km `[확인: 2026-10-30 보리 — "응", "웅"]`.
 
+## 4-25. 2026-10-30 — 운행 거리 줄은 그 차량 계기판 설정 (로드맵 142 `[x]` react-app `75c14b6`)
+
+- 달력 정산 카드 "실 운행거리"와 운송비 내역서 "월간 총 운행거리" 줄은 보고 있는 차량의 "계기판" 설정(기사 차량은 `subCarSettings[차량번호]`)을 따른다. 읽는 함수 `domain/carSettingsScope.ts` `resolveLogSettings` — 일지·서류 화면과 같음 `[확인: 2026-10-30 보리 — "응", "웅"]`.
+
 ## 5. 남은 단일 진실원
 
 권장 도메인 SoT와 홈 정산 수수료 SoT는 여기까지다. 신규 큐/overlay는 넣지 말 것.
