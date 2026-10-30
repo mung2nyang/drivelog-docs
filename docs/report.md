@@ -1,67 +1,89 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-133: drivelog-docs `e049969`. 132-B: drivelog-docs `e3b7b60`. 132-A: drivelog-docs `0d32ec4`. 131-B: drivelog-docs `bac091a`. 131-A: drivelog-docs `448deb1`. 130: drivelog-docs `83e93be`. 129-B: drivelog-docs `fc2b077`. 129-A: drivelog-docs `867b653`. 128: drivelog-docs `9e32174`. 127: drivelog-docs `e743872`. 118: drivelog-docs `7cf86e3`. 116: drivelog-docs `8cade9e`. 115: drivelog-docs `6539d2d`. 122: drivelog-docs `48f420c`. 126: drivelog-docs `bfd19f7`. 117: drivelog-docs `8cbdca5`. 125: drivelog-docs `d48cac8`. 114: drivelog-docs `5f55ee1`. 34-C: drivelog-docs `11ea476`. 34-B: drivelog-docs `a54be26`. 34-A: drivelog-docs `58331f0`. 113-D: drivelog-docs `0bcb19a`. 113-C: drivelog-docs `afa3f5e`. 113-B: drivelog-docs `1c95e76`. 113-A: drivelog-docs `25069f9`. 운비서 버튼 설정: drivelog-docs `d65beaf`. 운비서·+ 버튼 겹침: drivelog-docs `6fe917d`. 로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+134: drivelog-docs `baee1ea`. 133: drivelog-docs `e049969`. 132-B: drivelog-docs `e3b7b60`. 132-A: drivelog-docs `0d32ec4`. 131-B: drivelog-docs `bac091a`. 131-A: drivelog-docs `448deb1`. 130: drivelog-docs `83e93be`. 129-B: drivelog-docs `fc2b077`. 129-A: drivelog-docs `867b653`. 128: drivelog-docs `9e32174`. 127: drivelog-docs `e743872`. 118: drivelog-docs `7cf86e3`. 116: drivelog-docs `8cade9e`. 115: drivelog-docs `6539d2d`. 122: drivelog-docs `48f420c`. 126: drivelog-docs `bfd19f7`. 117: drivelog-docs `8cbdca5`. 125: drivelog-docs `d48cac8`. 114: drivelog-docs `5f55ee1`. 34-C: drivelog-docs `11ea476`. 34-B: drivelog-docs `a54be26`. 34-A: drivelog-docs `58331f0`. 113-D: drivelog-docs `0bcb19a`. 113-C: drivelog-docs `afa3f5e`. 113-B: drivelog-docs `1c95e76`. 113-A: drivelog-docs `25069f9`. 운비서 버튼 설정: drivelog-docs `d65beaf`. 운비서·+ 버튼 겹침: drivelog-docs `6fe917d`. 로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
-## 로드맵 134 새 콜 상세가 저장 대기 검사에 걸림 `[x]`
+## 로드맵 135-A 계정 설정에 문자 문구 자리 만들기 `[x]`
 
-전수점검(2026-10-26) B5, 로드맵 134 `[확인: 2026-10-26 보리 — "로드맵에 올려야겠지"]`. 한 조각으로 끝냄(고칠 곳 1곳). DB 변경 없음.
+전수점검(2026-10-26) K3, sot 4-21 `[확인: 2026-10-26 보리 — "서버에 둬"]`. DB 변경 없음. 계정 설정은 서버 `profiles.settings`(JSON 한 칸)에 통째로 저장되므로, 그 안에 문구 칸을 더하면 됨(같은 방식 선례: 운비서 버튼 설정 `unbiseoDockOn`, react-app `14b89ff`).
+
+**둘로 나눔.** 고칠 파일이 9개(설정 칸 3 + 문구 읽기·쓰기 1 + 문구 쓰는 화면 5)라 한 번에 하기엔 큼. 이번엔 A만 함.
+- **135-A(이번)**: 계정 설정에 문구 칸을 만들고 정리·검사만 함. 화면 동작은 바뀌지 않음.
+- **135-B(다음)**: 문자 문구 설정 화면·일지 문자 창·내역서 공유·운비서 문자가 휴대폰 대신 계정 설정에서 읽고 쓰게 바꿈.
 
 ### 쉬운 요약
-- 휴대폰에 일지를 저장하다 실패하면(저장 공간 부족 등), 앱은 그 내용을 "저장 대기"로 따로 보관했다가 다시 저장합니다.
-- 그런데 그 화면에서 새로 넣거나 고친 콜이 들어 있으면, 콜 안의 빈 칸 하나 때문에 저장 대기 보관이 거절됩니다. 그러면 새로고침했을 때 그 콜을 잃을 수 있습니다.
-- 고치고 나면 빈 칸을 만들지 않아서, 저장 대기 보관이 정상으로 받습니다. 휴대폰 저장이 이미 실패한 드문 경우에만 생기는 문제입니다.
+- 문자 문구(미수금 안내·입금 요청·운행 완료·내역서 공유)가 지금은 휴대폰에만 저장돼서, 다른 휴대폰이나 앱 데이터 삭제 때 기본 문구로 돌아갑니다.
+- 이번 A에서는 서버에 저장되는 계정 설정 안에 문구를 넣을 자리만 만듭니다. 화면에서 달라지는 것은 없습니다.
+- 다음 B에서 문구 화면들이 이 자리를 쓰게 바꾸면, 로그인 회원의 문구가 서버에 남습니다.
 
 ### 현재 상태 (코드 확인)
-- 콜을 만들거나 고칠 때 `domain/call-details.ts:67`이 `linkedLoadIndex: existing?.linkedLoadIndex`로 칸을 늘 만듦. 앱 안에서 이 칸에 값을 넣는 곳은 없어서(검색 결과 값 쓰는 곳은 테스트·예시 자료뿐), 새 콜과 고친 콜은 "칸은 있는데 값 없음"이 됨.
-- 검사기는 칸이 없거나 글자인 것만 받음. 값 없는 칸은 거부함(`data/store/callDetailSchema.ts:45` `opt(str)`, `domain/schemaParts.ts:11` `opt = v.exactOptional`).
-- 일지 저장은 이 콜 목록을 `structuredClone`으로 복사함(`features/day-log/hooks/dayDraftLifecycle.js:119`). 이 복사는 값 없는 칸도 그대로 남김.
-- 비회원·기사 차량·서버 차량 없는 메인 일지는 휴대폰에 저장하고, 실패하면 저장 대기에 등록함(`dayDraftLifecycle.js:81-89`). 등록할 때 검사(`data/sync/pendingWorkDataWrites.ts:23` → `durablePatchSchema.ts:27`)가 그 콜을 거부해 `false`를 돌려줌. 그러면 그 내용은 메모리에만 남고(`durableWriteGuard.ts:20-21`), 새로고침하면 사라짐.
-- 휴대폰 저장이 성공할 때는 JSON으로 바뀌면서 값 없는 칸이 빠져 문제가 없음. 직접 재현: 새 콜을 넣은 기록은 검사 `false`, JSON을 한 번 거친 뒤에는 `true`.
-- 재현 테스트: `docs/full-code-review-failing-tests.md` B5.
+- 문구 저장·읽기: `data/sync/messageTemplates.ts:16-24`·`:31-37`이 휴대폰 저장소 키 `messageTemplateCustomBodies`·`reportShareMessagePattern`만 씀. 계정과 상관없이 휴대폰 하나에 한 벌임.
+- 계정 설정 저장: `data/sync/settingsSave.ts:33`이 지금 설정에 바꿀 칸만 얹어 `normalizeSettings`로 정리한 뒤, 로그인이면 `profiles.settings`에 통째로 올림(`profileCloudCommit.ts:22`). 비회원은 휴대폰 설정으로 저장함.
+- 설정 정리: `domain/practiceSettings.ts:50-81` `normalizeSettings`가 아는 칸만 돌려줌. 모르는 칸은 버림. 차주(`hydrate.ts:105`)·연동 기사(`hydrateEmployedDriver.ts:87`)가 서버 설정을 불러올 때 모두 이 함수를 거침.
+- 휴대폰 설정 검사: `data/store/persistDomainSchema.ts:32-48`. 목록 밖 칸이 있으면 설정 전체를 거부함.
+- 설정 타입: `domain/financeTypes.ts:88` 근처(`FinanceSettings`).
 
 ### 목표 상태 (기대 동작)
-1. 새로 만든 콜에는 `linkedLoadIndex` 칸이 없음.
-2. 고친 콜은 원래 `linkedLoadIndex` 값이 있으면 그대로 이어받고, 없으면 칸을 만들지 않음.
-3. 새 콜이나 고친 콜이 들어 있는 하루 기록도 저장 대기 등록이 받아들여짐(`registerPendingDayWrite`가 `true`).
-4. 운행 횟수 세기(`day-record.ts:80`, `financeCore.ts:156`, `financeOwnerDetail.ts:76`)는 "값 없음"과 "칸 없음"을 같게 보므로 결과가 그대로임.
+1. 계정 설정에 칸 두 개가 생김: `messageTemplates`(문구 1~3: 미수금 안내·입금 요청·운행 완료, 글자 3개 묶음)와 `reportShareMessage`(내역서 공유 문구, 글자).
+2. `normalizeSettings`는 바꾼 문구가 있을 때만 이 칸을 남김. `messageTemplates`는 글자 3개이고 셋 다 비어 있지 않을 때만, `reportShareMessage`는 비어 있지 않은 글자일 때만 남김. 앞뒤 빈칸은 지움. 아니면 칸 자체를 만들지 않음(값 없는 칸을 만들지 않음, 134와 같은 이유).
+3. 휴대폰 설정 검사가 두 칸을 받아들임. 틀린 모양(개수가 3이 아님, 글자가 아님)은 지금처럼 거부함.
+4. 다른 설정을 바꿔 저장해도 두 칸은 그대로 남음(`settingsSave.ts:33`이 지금 설정 위에 얹으므로 따로 고칠 것 없음, 테스트로 확인).
+5. 문구 화면들은 아직 휴대폰 저장소를 씀. 화면 동작은 그대로임.
 
 ### 건드릴 파일
-- `src/domain/call-details.ts` — `:67` 한 줄을 "원래 값이 있을 때만 칸을 넣는" 모양으로 바꿈. 주석 한 줄 추가: `// 값 없는 칸은 저장 대기 검사가 거부하므로 원래 값이 있을 때만 이어받는다.`
-- `src/data/sync/pendingWorkDataWrites.newCallDetail.test.js`(새 테스트 파일) — 테스트 2개:
-  - 새 콜에는 `linkedLoadIndex` 칸이 없고, 그 콜이 든 하루 기록이 저장 대기에 등록됨(전수점검 B5 재현 테스트를 바탕으로 함).
-  - `linkedLoadIndex: '0'`인 콜을 고치면 그 값이 그대로 남음.
-- 영향 목록: `buildCallDetail`은 `upsertCallDetail`에서만 부르고(`call-details.ts:95`), 화면에서는 `features/day-log/hooks/useCallDetailActions.js:41` 한 곳만 부름.
+- `src/domain/financeTypes.ts` — `FinanceSettings`에 두 칸 추가. 주석 최종 문구:
+  - `messageTemplates?: [string, string, string] // 문자 문구 1~3(미수금 안내·입금 요청·운행 완료), 없으면 기본 문구`
+  - `reportShareMessage?: string // 내역서 공유 문자 문구, 없으면 기본 문구`
+- `src/domain/practiceSettings.ts` — `normalizeSettings` 끝에 두 칸을 "있을 때만" 넣음(작은 고르기 함수 2개). 주석 최종 문구: `// 문자 문구는 바꾼 것만 둔다(없으면 기본 문구) — 모양이 틀리면 칸을 만들지 않는다.`
+- `src/data/store/persistDomainSchema.ts` — `:47` 줄에 `messageTemplates: opt(v.tuple([str, str, str]))`, `reportShareMessage: opt(str)` 추가.
+- 테스트:
+  - `src/domain/practiceSettings.test.js` — 정리 규칙(남김·빈 문구·개수 틀림·앞뒤 빈칸·칸 없음).
+  - 새 `src/data/store/persistDomainSchema.messageTemplates.test.js` — 검사가 받는 모양과 거부하는 모양.
+  - `src/data/sync/settingsSave.serial.test.js` 또는 같은 폴더 새 테스트 — 다른 설정을 저장해도 문구 칸이 남음.
+- 영향 목록: `normalizeSettings`를 쓰는 곳은 설정 저장·불러오기 전부임. 새 칸은 없으면 아예 안 생기므로 지금 저장된 설정의 모양은 그대로임(기존 `practiceSettings.test.js` 기대값이 바뀌지 않는지로 확인).
 
 ### 안 건드릴 것
-- 검사기(`callDetailSchema.ts`, `durablePatchSchema.ts`)는 그대로 둠. 값 없는 칸을 받게 넓히면 다른 저장 검사도 같이 느슨해짐.
-- 일지 저장 흐름(`dayDraftLifecycle.js`)과 저장 대기 장치는 바꾸지 않음.
-- 운행 횟수 세기와 혼짐 규칙(sot 627줄, 로드맵 139)은 이번 범위 밖임.
+- 문구 읽기·쓰기(`messageTemplates.ts`)와 문구를 쓰는 화면 5곳(문자 문구 설정, 일지 문자 창, 내역서 공유, 운비서 문자 계산·화면)은 135-B에서 함.
+- DB는 바꾸지 않음. `profiles.settings`가 JSON 한 칸이라 새 칸이 그대로 들어감.
+- 서버 설정 불러오기(`hydrate.ts`, `hydrateEmployedDriver.ts`)는 `normalizeSettings`를 거치므로 따로 고치지 않음.
 
 ### 검증
 - 새 테스트를 고치기 전 코드에서 먼저 돌려 실패하는지 확인함.
 - 로컬 `npm test` 전체와 타입 검사. 다른 테스트가 실패하면 고치지 않고 수정 착수지시서를 씀.
 
 ### 파일 길이
-- `call-details.ts` 116 → 약 117줄(200줄 이하).
-- 새 테스트 파일 약 35줄(테스트는 줄 제한 밖).
+- `financeTypes.ts` 109 → 약 111줄, `practiceSettings.ts` 112 → 약 124줄, `persistDomainSchema.ts` 82 → 약 83줄(모두 200줄 이하).
+- 테스트는 줄 제한 밖.
 
 ### 실패 시 처리
 - 새 저장 장치, 재시도, 임시 보관을 만들지 않음.
 - 테스트나 타입 검사가 실패하면 바로 고치지 않음. 수정 계획을 다시 써서 승인받음.
 
 ### 사용자 확인 방법
-- 배포본에서 휴대폰 저장 실패(저장 공간 부족)를 일부러 일으킬 수 없어서, 목표 1~3은 자동 테스트로 확인함.
-- 배포본에서는 로그인 탭으로 오늘 일지에 시험 콜을 하나 넣고, 새로고침해도 남는지, 달력 운행 횟수가 1 늘었는지 본 뒤 그 콜을 지움.
+- 화면 동작이 바뀌지 않는 조각이라 목표 1~4는 자동 테스트로 확인함.
+- 배포본에서는 로그인 탭으로 앱 설정 스위치 하나를 껐다 켜고 새로고침해 그대로인지, 마이페이지 → 문자 문구 설정의 문구가 지금과 같은지만 봄.
 
 ### 진행 기록
-- 2026-10-29 보리 "진행해".
-- 새 테스트 중 "새 콜" 테스트는 고치기 전 코드에서 실패함(새 콜에 `linkedLoadIndex` 칸이 있음). "고친 콜" 테스트는 고치기 전에도 통과함(값 유지가 깨지지 않게 지키는 테스트). 고친 뒤 둘 다 통과.
-- 타입 검사 통과. `npm test` 전체 통과: `test:unit` 934개, `test:app` 919개, 실패 0.
-- 코드 커밋 react-app `98889da`(push 안 함). 바뀐 파일 2개 = 지시서 "건드릴 파일" 그대로.
-- 리뷰 점검: 범위 밖 파일 없음. 새 저장 장치·재시도 없음. 금지 타입 표시 없음. 주석은 지시서 최종 문구 그대로이고 로드맵 번호·날짜 없음. `call-details.ts` 117줄(200줄 이하). 지우거나 약하게 만든 테스트 없음.
-- 보리 "푸시까지"로 AI가 push. CI verify·deploy 초록(run 40851627881).
-- 배포본 확인(로그인 탭): 오늘(10월 29일) 일지에 시험 콜(상차지 "검수테스트상차") 저장 → 새로고침 뒤 남음, 홈 오늘 카드에 보임, 매출 "총 30회 운행" → 시험 콜 삭제 뒤 "총 29회 운행"(1회로 셈). 주소를 직접 열 때 콘솔의 404는 깊은 주소용 `404.html` 배포 방식이라 이번 변경과 무관.
+- 2026-10-30 보리 "확정, 진행해".
+- 지시서대로 세 파일을 고침. 타입 검사 통과.
+- 새 테스트 실행: 27개 중 26개 통과, 1개 실패. 실패한 것은 `persistDomainSchema.messageTemplates.test.js`의 "모양이 틀리면 거부" 테스트. 문구가 4개인 설정(`["가","나","다","라"]`)을 거부하지 않고 받아들임.
+- 원인: 지시서에 적은 `v.tuple([str, str, str])`은 Valibot에서 앞 3개만 보고 뒤에 더 붙은 것은 그냥 둠. 목표 3("개수가 3이 아니면 거부")과 맞지 않음.
+
+### 수정 착수지시서 1 — 문구 개수 검사를 정확히 3개로
+- 고칠 곳: `src/data/store/persistDomainSchema.ts` 새로 넣은 줄 하나. `v.tuple([str, str, str])` → `v.strictTuple([str, str, str])`(정확히 3개만 받음). 다른 파일·테스트는 바꾸지 않음.
+- 파일 길이: 83줄 그대로.
+- 검증: 실패한 테스트가 통과하는지 보고, 새 테스트가 고치기 전 코드에서 실패하는지 확인. 이어서 타입 검사와 `npm test` 전체.
+- 새 저장 장치·재시도 없음. 또 실패하면 다시 수정 계획을 씀.
+- 2026-10-30 보리 "확정, 진행해"(수정 1). `v.strictTuple`로 바꾼 뒤 새 테스트 27개 전부 통과.
+- 고치기 전 코드(세 파일을 마지막 커밋 상태로 잠깐 되돌림)에서는 새 테스트 3개 실패: 정리 규칙의 "문구 남김", 휴대폰 설정 다시 읽기, 로그인 서버 설정 유지. 나머지("틀린 모양 거부", "칸 없음")는 전에도 통과함(지금 동작을 지키는 테스트). 확인 뒤 원래대로 복구.
+- 타입 검사 통과. `npm test` 전체 통과: `test:unit` 939개, `test:app` 919개, 실패 0.
+- 코드 커밋 react-app `2979833`(push 안 함). 바뀐 파일: 코드 3개 = 지시서 "건드릴 파일" 그대로, 테스트 3개(`practiceSettings.test.js`, 새 `persistDomainSchema.messageTemplates.test.js`, `settingsSave.serial.test.js`).
+- 리뷰 점검: 범위 밖 파일 없음. 새 저장 장치·재시도 없음. 금지 타입 표시 없음. 주석 3줄은 지시서 최종 문구 그대로이고 로드맵 번호·날짜 없음. 줄 수 `financeTypes.ts` 111, `practiceSettings.ts` 123, `persistDomainSchema.ts` 83(모두 200줄 이하). 지우거나 약하게 만든 테스트 없음.
+- 보리 push. CI verify·deploy 초록(run 40991677073).
+- 배포본 확인(로그인 탭): 앱 설정 "운행 시간" 끄기 → 새로고침 뒤 꺼짐 유지 → 다시 켜기 → 새로고침 뒤 켜짐(되돌림, "운비서 버튼"도 켜짐 그대로). 마이페이지 → 문자 문구 설정의 문구 4개가 지금과 같음(기본 문구). 주소를 직접 열 때 콘솔의 404는 깊은 주소용 `404.html` 배포 방식이라 이번 변경과 무관.
 - 보리 최종 승인 "승인".
+
+### 135-B에서 정할 것 (미리 여쭘)
+- 이 휴대폰에 이미 바꿔 둔 문구가 있으면 B 적용 뒤 계정 설정으로 옮길지 여부. AI 권함: 옮기지 않음. 아직 실사용자가 없고, 옮기려면 "휴대폰 값이 있으면 서버로 올리는" 새 장치가 필요해서임. 옮기지 않으면 바꿔 둔 문구가 있던 사람만 한 번 기본 문구로 보임.
 
 ## 로드맵 94 `.ts` 전환 — 남은 조각 (94-A·B·C `[x]`, D~G는 출시 전 순서 뒤)
 
