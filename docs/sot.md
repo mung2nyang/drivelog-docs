@@ -639,6 +639,10 @@ Step 8 전. `error TS\d+:` 테스트·지원 **384 → 314**(캡 355 이하). �
 - 거래처 수수료의 금액(건당) 방식은 그대로. 서버 `comm_type` 칸도 그대로(거래처와 같이 씀).
 - 차량 창에서 옛 건당 차량을 열면 수수료 칸이 빈 칸, 기사 차량 저장은 언제나 비율(`commType: 'percent'`) — `features/cars/ui/CarListPage.jsx`·`domain/carDriverFields.ts`(로드맵 138-B).
 
+## 4-24. 2026-10-30 — 운행 거리는 달력·매출 같은 함수 (로드맵 148 `[x]` react-app `5854a32`)
+
+- 하루 운행 거리 = 콜 상세에 거리가 하나라도 있으면 그 합(소수점 그대로), 없으면 하루 거리(`dailyDistance`), 휴무 날은 0. 정본 `domain/day-record.ts` `getRecordTotalDistance` — 달력 정산 카드(`monthSettlement.ts`)와 매출·기사 본인 화면(`financeOwnerDetail.ts`)이 같이 씀. 매출 화면 표시는 한 달 합을 반올림한 정수 km `[확인: 2026-10-30 보리 — "응", "웅"]`.
+
 ## 5. 남은 단일 진실원
 
 권장 도메인 SoT와 홈 정산 수수료 SoT는 여기까지다. 신규 큐/overlay는 넣지 말 것.
