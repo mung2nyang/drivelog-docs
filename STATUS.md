@@ -8,7 +8,7 @@
 > `AGENTS.md` §0-2). 지난 내용은 `git log -p -- docs/report.md` 또는 아래
 > 커밋 해시로 `git show`.
 > 이 파일이 150줄을 넘으면 오래된 "완료" 항목을 요약만 남기고 줄인다.
-> 최종 갱신: 2026-11-02 (**로드맵 124-B-2 운비서 서버 요청 흐름 시험** `[x]` — react-app `2d0d20d`, 바깥(Supabase·xAI·기상청)은 가짜로 흐름 시험 30개, 서버 시험 97개, 서버 함수 코드는 그대로라 배포 없음, CI 초록(run 41396088399), 보리 승인. 로드맵 124 끝. 진행 중인 슬라이스 없음.)
+> 최종 갱신: 2026-11-02 (**로드맵 106 라이브러리 보안 알림 — Dependabot** `[x]` — react-app `8e1cd64`, `.github/dependabot.yml`: npm 보안 업데이트만 한 PR로·GitHub 도구 월 1회 묶음, 보리가 알림·보안 업데이트 켬, 첫 보안 PR #1(vite·dompurify·undici)은 150에서 처리, CI 초록(run 41407831811), 보리 승인. 진행 중인 슬라이스 없음.)
 > 2026-11-02 줄임(보리 지시): 줄이기 전 전체 내용은 `git show 1590ef7:STATUS.md`.
 
 ---
@@ -40,6 +40,7 @@
 
 최근 것(새 것이 위):
 
+- 로드맵 106 라이브러리 보안 알림(Dependabot) `[x]` — react-app `8e1cd64`.
 - 로드맵 124-B-2 운비서 서버 요청 흐름 시험(바깥은 가짜) `[x]` — react-app `2d0d20d`.
 - 로드맵 124-B-1 운비서 받기 코드를 떼어 시험하기 `[x]` — react-app `efeec0e`, 세 함수 편집기 배포.
 - 로드맵 124-A 서버 함수(운비서) 타입 검사·시험을 CI로 `[x]` — react-app `6ae5757`.
@@ -108,7 +109,7 @@
 
 ## 저장소 상태
 
-- **react-app**: `2d0d20d`까지 main에 push, CI 초록. 운비서 서버 세 함수 배포본은 `efeec0e`와 같다(그 뒤로 서버 함수 코드는 안 바뀜).
+- **react-app**: `8e1cd64`까지 main에 push, CI 초록. 운비서 서버 세 함수 배포본은 `efeec0e`와 같다(그 뒤로 서버 함수 코드는 안 바뀜).
 - **drivelog-docs**(옛 이름 `ubiquitous-parakeet`, 2026-10-21 바꿈): 문서만 둔다. 원본 앱 코드는 태그 `original-app-final`에 보존(AI는 읽지 않음). `5c354fd`까지 push.
 - 정확한 HEAD·미커밋 범위는 매 세션 `git status`로 확인(AGENTS §0-6). push 규칙은 AGENTS §3.
 - 앱 오류 기록 보는 곳: Supabase → Table Editor → `client_errors`.
