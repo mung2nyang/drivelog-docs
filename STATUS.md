@@ -8,7 +8,7 @@
 > `AGENTS.md` §0-2). 지난 내용은 `git log -p -- docs/report.md` 또는 아래
 > 커밋 해시로 `git show`.
 > 이 파일이 150줄을 넘으면 오래된 "완료" 항목을 요약만 남기고 줄인다.
-> 최종 갱신: 2026-11-02 (**로드맵 150-B 엑셀 아래 알림 2개 닫기** `[x]` — 코드 변경 없음, minimatch·uuid는 배포되는 exceljs 묶음에서 쓰지 않는 코드라 "쓰지 않음"으로 이유를 붙여 닫음, 열린 보안 알림 0개, 보리 승인. 로드맵 150 끝. 진행 중인 슬라이스 없음.)
+> 최종 갱신: 2026-11-02 (**로드맵 123-A 미수금 CSS 나누기** `[x]` — react-app `a022e12`, `receivables.css` 419줄을 네 파일(142·72·92·115줄)로, 규칙 내용 그대로, 배포본 스타일 지문 4개 상태 같음, CI 초록(run 41418860126), 보리 승인. 진행 중인 슬라이스 없음.)
 > 2026-11-02 줄임(보리 지시): 줄이기 전 전체 내용은 `git show 1590ef7:STATUS.md`.
 
 ---
@@ -40,6 +40,7 @@
 
 최근 것(새 것이 위):
 
+- 로드맵 123-A 미수금 CSS 419줄을 네 파일로 나누기 `[x]` — react-app `a022e12`.
 - 로드맵 150-B 엑셀 아래 알림 2개 "쓰지 않음"으로 닫기 `[x]` — 코드 변경 없음.
 - 로드맵 150-A 보안 업데이트(dompurify·vite·undici) `[x]` — react-app `f3d528f`.
 - 로드맵 106 라이브러리 보안 알림(Dependabot) `[x]` — react-app `8e1cd64`.
@@ -111,7 +112,7 @@
 
 ## 저장소 상태
 
-- **react-app**: `f3d528f`까지 main에 push, CI 초록. 운비서 서버 세 함수 배포본은 `efeec0e`와 같다(그 뒤로 서버 함수 코드는 안 바뀜).
+- **react-app**: `a022e12`까지 main에 push, CI 초록. 운비서 서버 세 함수 배포본은 `efeec0e`와 같다(그 뒤로 서버 함수 코드는 안 바뀜).
 - **drivelog-docs**(옛 이름 `ubiquitous-parakeet`, 2026-10-21 바꿈): 문서만 둔다. 원본 앱 코드는 태그 `original-app-final`에 보존(AI는 읽지 않음). `5c354fd`까지 push.
 - 정확한 HEAD·미커밋 범위는 매 세션 `git status`로 확인(AGENTS §0-6). push 규칙은 AGENTS §3.
 - 앱 오류 기록 보는 곳: Supabase → Table Editor → `client_errors`.
