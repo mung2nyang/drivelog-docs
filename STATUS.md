@@ -8,7 +8,7 @@
 > `AGENTS.md` §0-2). 지난 내용은 `git log -p -- docs/report.md` 또는 아래
 > 커밋 해시로 `git show`.
 > 이 파일이 150줄을 넘으면 오래된 "완료" 항목을 요약만 남기고 줄인다.
-> 최종 갱신: 2026-11-02 (**로드맵 124-A 서버 함수(운비서) 타입 검사·시험을 CI로** `[x]` — react-app `6ae5757`, Deno 타입 검사·시험 47개가 CI에서 돎, CI 초록(run 41388564767), 보리 승인. 진행 중인 슬라이스 없음.)
+> 최종 갱신: 2026-11-02 (**로드맵 124-B-1 운비서 받기 코드를 떼어 시험하기** `[x]` — react-app `efeec0e`, 세 함수 `handler.ts` 분리·배포(지문 일치·Verify JWT 꺼짐·문장 시험), 서버 시험 67개, CI 초록(run 41391243727), 보리 승인. 진행 중인 슬라이스 없음.)
 > 2026-11-02 줄임(보리 지시): 줄이기 전 전체 내용은 `git show 1590ef7:STATUS.md`.
 
 ---
@@ -30,7 +30,6 @@
 ## 지금 하는 일
 
 진행 중인 슬라이스 없음(2026-11-02).
-`db-ci`·`db-ci-b`·`fn-ci` 작업 가지(react-app 원격)는 AI 쪽 권한에 막혀 아직 남아 있다. 지우기는 보리가 한다.
 
 ## 다음 할 일
 
@@ -41,6 +40,7 @@
 
 최근 것(새 것이 위):
 
+- 로드맵 124-B-1 운비서 받기 코드를 떼어 시험하기 `[x]` — react-app `efeec0e`, 세 함수 편집기 배포.
 - 로드맵 124-A 서버 함수(운비서) 타입 검사·시험을 CI로 `[x]` — react-app `6ae5757`.
 - 일지 취소·저장 줄의 긴 설명 주석 줄이기 `[x]` — react-app `1d95208`.
 - 로드맵 121-B DB 시험 2개를 pgTAP 형식으로 `[x]` — react-app `9e8c21e`.
@@ -107,7 +107,7 @@
 
 ## 저장소 상태
 
-- **react-app**: `6ae5757`까지 main에 push, CI 초록.
+- **react-app**: `efeec0e`까지 main에 push, CI 초록. 운비서 서버 세 함수 배포본도 `efeec0e`와 같다.
 - **drivelog-docs**(옛 이름 `ubiquitous-parakeet`, 2026-10-21 바꿈): 문서만 둔다. 원본 앱 코드는 태그 `original-app-final`에 보존(AI는 읽지 않음). `0aa4357`까지 push.
 - 정확한 HEAD·미커밋 범위는 매 세션 `git status`로 확인(AGENTS §0-6). push 규칙은 AGENTS §3.
 - 앱 오류 기록 보는 곳: Supabase → Table Editor → `client_errors`.

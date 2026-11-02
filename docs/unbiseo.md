@@ -19,9 +19,9 @@ AI가 운비서를 고치거나 새 기능을 붙일 때 먼저 읽는 지도다
 
 | 함수 | 하는 일 | 비밀값 | 파일 |
 |---|---|---|---|
-| `unbiseo-parse` | 말 → 종류와 칸 | `XAI_API_KEY` | `index.ts`(받기·로그인), `answer.ts`(AI 답을 종류별로 읽기·말 막기), `grok.ts`(AI 지시문·날짜 표·답 모양), 종류별 칸 읽기 `question.ts`·`clientDraft.ts`·`fixedRoute.ts`·`smsDraft.ts`·`weatherDraft.ts` |
-| `unbiseo-voice` | 답 문장 → xAI 목소리(Ara) mp3 | `XAI_API_KEY` | `index.ts` |
-| `unbiseo-weather` | 날짜 + 지역 이름 또는 격자 번호 → 기상청 단기예보 요약 | `KMA_API_KEY`(공공데이터포털 일반 인증키 Decoding) | `index.ts`(로그인·입력·지역 찾기), `kma.ts`(기상청 부르기·묶기), `kmaGrid.json`(시·도·시·군·구 → nx·ny) |
+| `unbiseo-parse` | 말 → 종류와 칸 | `XAI_API_KEY` | `index.ts`(서버 켜기만), `handler.ts`(받기·로그인), `answer.ts`(AI 답을 종류별로 읽기·말 막기), `grok.ts`(AI 지시문·날짜 표·답 모양), 종류별 칸 읽기 `question.ts`·`clientDraft.ts`·`fixedRoute.ts`·`smsDraft.ts`·`weatherDraft.ts` |
+| `unbiseo-voice` | 답 문장 → xAI 목소리(Ara) mp3 | `XAI_API_KEY` | `index.ts`(서버 켜기만), `handler.ts`(받기·로그인·목소리 부르기) |
+| `unbiseo-weather` | 날짜 + 지역 이름 또는 격자 번호 → 기상청 단기예보 요약 | `KMA_API_KEY`(공공데이터포털 일반 인증키 Decoding) | `index.ts`(서버 켜기만), `handler.ts`(로그인·입력·지역 찾기), `kma.ts`(기상청 부르기·묶기), `kmaGrid.json`(시·도·시·군·구 → nx·ny) |
 
 - **세 함수 모두 "Verify JWT with legacy secret" 꺼짐.** 로그인 확인은 함수 코드(`auth.getUser`)가 한다. 켜면 지금 로그인 표(ES256)를 문 앞에서 거절해 운비서 전체가 401이 된다. **새로 만들면 켜진 채 만들어지므로 바로 끈다.**
 - 함수끼리 파일을 나눠 쓸 수 없어 로그인 확인 코드는 함수마다 따로 있다.
@@ -99,7 +99,7 @@ AI가 운비서를 고치거나 새 기능을 붙일 때 먼저 읽는 지도다
 
 ## 7. 시험
 
-- **서버 함수** 시험은 `react-app/supabase/functions/tests/`에 있고, CI `verify`가 매 push마다 Deno로 타입 검사(`deno check`, 세 `index.ts`)와 시험(`deno test`)을 돌린다. 시험은 AI 답 읽기(`answer.ts`)·날짜 표·달 표(`grok.ts`)·날씨 묶기(`kma.ts`)를 본다. 받기 파일(`index.ts`)은 불러오면 서버가 떠서 시험 밖이다. 새 종류나 규칙을 더하면 시험도 같이 더한다.
+- **서버 함수** 시험은 `react-app/supabase/functions/tests/`에 있고, CI `verify`가 매 push마다 Deno로 타입 검사(`deno check`, 세 `index.ts`)와 시험(`deno test`)을 돌린다. 시험은 AI 답 읽기(`answer.ts`)·날짜 표·달 표(`grok.ts`)·날씨 묶기(`kma.ts`)·받기 파일의 입력 읽기와 지역 찾기(`handler.ts`)를 본다. `index.ts`는 `handler.ts`를 불러 서버만 켠다 — 시험은 `handler.ts`를 불러 서버를 켜지 않는다. 요청 흐름(로그인 → AI·기상청 → 답) 시험은 아직 없다(로드맵 124-B-2). 새 종류나 규칙을 더하면 시험도 같이 더한다.
 - **배포본 문장 시험**: 앱 안 브라우저에서 getdrivelog.com에 로그인한 상태로, 저장된 로그인 표(localStorage `…auth-token`의 access_token)와 앱 번들의 공개 키(`sb_publishable_…`)로 함수를 직접 부른다. 공개 키만이면 401이어야 한다.
   - 401이 나오면 `/auth/v1/user`로 로그인이 살아 있는지 먼저 본다. `session_not_found`면 다른 곳 로그아웃 등으로 서버 로그인이 끝난 것이니 보리에게 다시 로그인을 부탁한다.
 - **앱**: 운비서 글 칸에 문장을 넣어 카드 문장·버튼을 본다. 위치 허용·소리 읽기는 앱 안 브라우저로 확인할 수 없어 보리 휴대폰 확인이 필요하다.
