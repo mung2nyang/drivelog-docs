@@ -1,53 +1,147 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-121-A: drivelog-docs `1590ef7`. 120-D: drivelog-docs `2ce5170`. 120-C: drivelog-docs `ae914c9`. 120-B: drivelog-docs `503a3d3`. 120-A: drivelog-docs `81f927a`. 119: drivelog-docs `4ef51fa`. 147: drivelog-docs `db47a3b`. 내역서 산재 빼기: drivelog-docs `6531e7b`. 143: drivelog-docs `a4f4738`. 144: drivelog-docs `a87a1b4`. 146: drivelog-docs `207f26c`. 145: drivelog-docs `7bd1146`. 141: drivelog-docs `397513b`. 104: drivelog-docs `ec18974`. 142: drivelog-docs `84fa347`. 148: drivelog-docs `d5dec47`. 138-B: drivelog-docs `8b59d03`. 138-A: drivelog-docs `dd2c4a4`. 140: drivelog-docs `e861ea4`. 139: drivelog-docs `846327e`. 137: drivelog-docs `49613a4`. 136: drivelog-docs `e01b338`. 135-B: drivelog-docs `b15f2f8`. 135-A: drivelog-docs `56ca240`. 134: drivelog-docs `baee1ea`. 133: drivelog-docs `e049969`. 132-B: drivelog-docs `e3b7b60`. 132-A: drivelog-docs `0d32ec4`. 131-B: drivelog-docs `bac091a`. 131-A: drivelog-docs `448deb1`. 130: drivelog-docs `83e93be`. 129-B: drivelog-docs `fc2b077`. 129-A: drivelog-docs `867b653`. 128: drivelog-docs `9e32174`. 127: drivelog-docs `e743872`. 118: drivelog-docs `7cf86e3`. 116: drivelog-docs `8cade9e`. 115: drivelog-docs `6539d2d`. 122: drivelog-docs `48f420c`. 126: drivelog-docs `bfd19f7`. 117: drivelog-docs `8cbdca5`. 125: drivelog-docs `d48cac8`. 114: drivelog-docs `5f55ee1`. 34-C: drivelog-docs `11ea476`. 34-B: drivelog-docs `a54be26`. 34-A: drivelog-docs `58331f0`. 113-D: drivelog-docs `0bcb19a`. 113-C: drivelog-docs `afa3f5e`. 113-B: drivelog-docs `1c95e76`. 113-A: drivelog-docs `25069f9`. 운비서 버튼 설정: drivelog-docs `d65beaf`. 운비서·+ 버튼 겹침: drivelog-docs `6fe917d`. 로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+긴 주석 줄이기: drivelog-docs `59ddc9d`. 121-A: drivelog-docs `1590ef7`. 120-D: drivelog-docs `2ce5170`. 120-C: drivelog-docs `ae914c9`. 120-B: drivelog-docs `503a3d3`. 120-A: drivelog-docs `81f927a`. 119: drivelog-docs `4ef51fa`. 147: drivelog-docs `db47a3b`. 내역서 산재 빼기: drivelog-docs `6531e7b`. 143: drivelog-docs `a4f4738`. 144: drivelog-docs `a87a1b4`. 146: drivelog-docs `207f26c`. 145: drivelog-docs `7bd1146`. 141: drivelog-docs `397513b`. 104: drivelog-docs `ec18974`. 142: drivelog-docs `84fa347`. 148: drivelog-docs `d5dec47`. 138-B: drivelog-docs `8b59d03`. 138-A: drivelog-docs `dd2c4a4`. 140: drivelog-docs `e861ea4`. 139: drivelog-docs `846327e`. 137: drivelog-docs `49613a4`. 136: drivelog-docs `e01b338`. 135-B: drivelog-docs `b15f2f8`. 135-A: drivelog-docs `56ca240`. 134: drivelog-docs `baee1ea`. 133: drivelog-docs `e049969`. 132-B: drivelog-docs `e3b7b60`. 132-A: drivelog-docs `0d32ec4`. 131-B: drivelog-docs `bac091a`. 131-A: drivelog-docs `448deb1`. 130: drivelog-docs `83e93be`. 129-B: drivelog-docs `fc2b077`. 129-A: drivelog-docs `867b653`. 128: drivelog-docs `9e32174`. 127: drivelog-docs `e743872`. 118: drivelog-docs `7cf86e3`. 116: drivelog-docs `8cade9e`. 115: drivelog-docs `6539d2d`. 122: drivelog-docs `48f420c`. 126: drivelog-docs `bfd19f7`. 117: drivelog-docs `8cbdca5`. 125: drivelog-docs `d48cac8`. 114: drivelog-docs `5f55ee1`. 34-C: drivelog-docs `11ea476`. 34-B: drivelog-docs `a54be26`. 34-A: drivelog-docs `58331f0`. 113-D: drivelog-docs `0bcb19a`. 113-C: drivelog-docs `afa3f5e`. 113-B: drivelog-docs `1c95e76`. 113-A: drivelog-docs `25069f9`. 운비서 버튼 설정: drivelog-docs `d65beaf`. 운비서·+ 버튼 겹침: drivelog-docs `6fe917d`. 로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
-## 일지 취소·저장 줄의 긴 설명 주석 줄이기 `[x]`
+## 121-B. DB 시험 2개를 DB 시험 도구(pgTAP) 형식으로 `[x]`
 
-- 근거: STATUS "알려진 이슈"의 작업 기록형 주석. 2026-11-02 보리가 "긴 설명형 1곳은 지금, 나머지(약 127곳)는 로드맵 149"로 정했다 `[확인: 2026-11-02 보리 — "그렇게해"]`.
-- 이번엔 이 1곳만 한다. 로드맵 번호가 든 주석 등 나머지는 149에서 한다.
-- 확정했다. AI가 진행한다 `[확인: 2026-11-02 보리 — "확정 너가진행해"]`.
+- 근거: 로드맵 121. 121-A에서 "시험을 pgTAP 형식으로 바꾸는 일은 121-B 후보"로 남겼고, 2026-11-02 보리가 진행을 지시했다 `[확인: 2026-11-02 보리 — "121'b진행해"]`.
+- 121-A로 시험 2개가 CI에서 돈다. 이번엔 시험의 "모양"만 바꾼다. 무엇을 확인하는지는 그대로다.
+- 확정했다. 확인할 점 1은 권장대로(운영 SQL Editor에서 직접 돌리는 길은 두지 않음). AI가 진행한다 `[확인: 2026-11-02 보리 — "응 권함으로,착수지시서 확정, 작업 진행해"]`.
 
 ### 쉬운 요약
-- 일지 화면 CSS에 8줄짜리 작업 경위 설명("재감사", "이미 한 번 롤백된 방식" 등)이 남아 있다.
-- 결론 2줄로 줄인다. 화면 모양과 동작은 그대로다.
+- 지금 DB 시험은 첫 번째 문제에서 멈추고 오류 한 줄만 남긴다. 그래서 몇 개가 깨졌는지, 확인을 몇 개 했는지 알 수 없다.
+- 시험 도구(pgTAP) 형식으로 바꾸면 확인 하나하나가 "ok / not ok"로 한 줄씩 찍힌다. 실패하면 어느 확인이 깨졌는지 이름으로 보인다. 정한 개수만큼 확인을 다 했는지도 도구가 센다.
+- pgTAP은 로컬 Supabase에 이미 들어 있어서 앱이나 운영 DB에 새로 들일 것은 없다. CI에서만 쓴다.
 
 ### 현재 상태 (코드 확인)
-- `src/features/day-log/ui/day-log.css` 57~64행이 이 주석이다. 바로 아래 규칙(`margin-top: 15px`)을 설명한다.
-- 주석 내용: 취소·저장 줄을 sticky로 두면 화면에 붕 떠 보였고, fixed는 예전에 되돌린 방식이라 쓰지 않는다. 그래서 문서 흐름대로 둔다. 하단 메뉴에 안 가리는 건 다른 규칙이 맡는다.
-- 하단 메뉴에 안 가리게 하는 규칙은 지금도 있다. `.work-log-page`의 `scroll-padding-bottom`(같은 파일 31~34행)과 `.modal-btn`의 `scroll-margin-bottom`(70~74행)이다.
-- 주석 안에 적힌 `.work-log-page`의 `padding-bottom`은 지금 CSS에 없다(`grep` 결과 주석 안에만 있음). 새 주석에는 넣지 않는다.
+- `supabase/tests/driver_invite_security.sql`(129줄), `driver_link_security.sql`(218줄)이 있다.
+  - 둘 다 `do $$ … $$` 한 덩어리 안에서 확인하다가, 틀리면 `raise exception`으로 멈춘다.
+  - 확인 지점 수(`grep`): 초대 시험은 거절 확인(`expect_denied`) 8곳과 값 확인 13곳이고, 그중 하나는 5번 도는 반복이다. 연동 시험은 거절 22곳, "바뀐 줄 없음" 확인(`expect_no_effect`) 3곳, 값 확인 23곳이고, 표 여러 개를 도는 반복이 6개다.
+- CI는 `scripts/ci-db-test.sh`가 `psql -f`로 두 파일을 차례로 돌린다. 오류가 나면 멈춘다.
+- Supabase CLI에는 pgTAP 시험을 돌리는 `supabase test db`가 있다. 로컬 DB에 대고 `supabase/tests`의 `.sql`을 `pg_prove`로 돌리고, 파일마다 되돌린다(CLI 설명서 `test/db.md`).
+- 시험 파일 머리에 "SQL Editor에서 실행"이라고 적혀 있지만, DB 변경 절차(`testing-playbook.md` §9)는 이 파일들을 운영에서 돌리라고 하지 않는다(§9 확인). 121-A 뒤로는 CI가 매 push마다 돌린다.
 
 ### 목표 상태 (기대 동작)
-1. 57~64행 주석 8줄이 아래 2줄로 바뀐다. 다른 줄은 한 글자도 안 바뀐다.
-2. 화면 모양과 동작은 그대로다(CSS 규칙은 손대지 않음).
+1. 두 시험이 pgTAP 형식이 된다.
+   - 파일마다 `begin; select plan(N); … select * from finish(); rollback;` 모양이다.
+   - 지금 확인 하나가 pgTAP 확인 하나가 된다. 반복은 표·횟수마다 따로 센다. 빼는 확인도, 약하게 바꾸는 확인도 없다.
+   - 거절 확인은 `throws_ok(…, '42501', …)`이다. 권한 거절(42501)만 통과이고 다른 오류는 실패라서 지금 `expect_denied`와 같다.
+   - "바뀐 줄 없음" 확인은 바뀐 줄 수가 0인지 `is(…, 0, …)`로 본다.
+   - 오류 문구로 보던 확인("여러 번 틀렸습니다", 중복 수락)은 오류 코드와 문구를 함께 본다.
+   - 확인마다 쉬운 한국어 이름을 붙인다. 예: `'차주: 소문자 코드는 저장 거절'`.
+2. 임시 사용자·차량은 지금처럼 만들고 끝에 되돌린다. 아이디는 시험 안에서 고정값을 쓴다. 확인을 맨 바깥 문장으로 꺼내야 해서, 지금 같은 `do` 블록 안 변수를 쓸 수 없다.
+3. `scripts/ci-db-test.sh`는 시작점·변경 파일을 넣은 뒤 `supabase test db`로 시험을 돌린다. 확인 하나라도 not ok거나 개수가 `plan`과 다르면 CI가 빨간색이다.
+4. CI 기록에 확인 하나하나가 ok 줄로 남는다.
+5. 깨는 실험: 시작점에서 보안 규칙 하나를 빼고 돌리면 빨간색이다. 그리고 어느 확인이 깨졌는지 이름으로 보여야 한다. 확인 뒤 되돌린다.
 
-### 건드릴 파일
-- `src/features/day-log/ui/day-log.css`: 주석만 바꾼다. 새 주석 최종 문구는 이렇다.
-
-  ```css
-  /* 취소·저장 줄은 폼 끝 제자리에 둔다(sticky·fixed로 띄우면 화면에 떠 보인다).
-     하단 메뉴에 안 가리는 건 .work-log-page·.modal-btn의 스크롤 여백이 맡는다. */
-  ```
+### 건드릴 파일 (react-app)
+- `supabase/tests/driver_invite_security.sql`: pgTAP 형식으로 다시 쓴다.
+- `supabase/tests/driver_link_security.sql`: pgTAP 형식으로 다시 쓴다. 맨 아래 "동시 수락 별도 검증(아직 미실행)" 주석 5줄은 그대로 둔다.
+- `scripts/ci-db-test.sh`: 시험을 돌리는 반복을 `supabase test db` 한 줄로 바꾼다.
+- 파일 머리 주석 최종 문구는 이렇다. 작업 경위·날짜는 넣지 않는다.
+  - 초대 시험:
+    ```sql
+    -- 초대코드 보안 시험(pgTAP): 형식·기한·재발급·틀린 시도 제한·만료·비로그인.
+    -- 임시 사용자·차량만 만들고 끝에 되돌린다. CI에서 supabase test db로 돈다.
+    ```
+  - 연동 시험:
+    ```sql
+    -- 기사 연동 보안 시험(pgTAP): 공격 거절·정상 초대·수락·해제·기록 복사·재연동·비로그인.
+    -- 임시 사용자·차량만 만들고 끝에 되돌린다. CI에서 supabase test db로 돈다.
+    ```
+- 공용 영향: CI `db-test` 작업 하나뿐이다. `ci.yml`은 그대로다(실행 파일 이름 같음).
 
 ### 안 건드릴 것
-- CSS 규칙 자체, 다른 파일의 주석(로드맵 149 몫), 앱 코드, 테스트.
+- 시작점 파일, `migrations`, `config.toml`, `ci.yml`, 앱 코드, 운영 DB.
+- 시험이 확인하는 내용(무엇을 막고 무엇을 허용하는지)은 하나도 바꾸지 않는다.
 
 ### 검증
-- `git diff`가 주석 줄만 바뀐 것을 보여 준다.
-- CI(`verify`·`db-test`)가 초록이다. 빌드가 이 CSS를 그대로 묶는지도 CI 빌드 단계가 본다.
-- 주석만 바뀌어 화면 확인은 따로 하지 않는다.
+- 확인 대조표: 지금 파일의 확인 지점마다 새 파일의 확인 이름을 짝지어 진행 기록에 적는다. 빠진 것이 0개인지 본다.
+- `db-ci` 가지에서 CI를 돌린다(121-A 때처럼 AI가 push). `db-test`가 초록이고 ok 줄 수가 `plan`과 같은지 본다.
+- 목표 5 깨는 실험을 한다. 빨간색이 되는지, 깨진 확인 이름이 찍히는지 본다. 그 뒤 되돌린다.
+- main에는 코드 커밋 하나로 합친다. main push는 그때 다시 묻는다.
 
 ### 파일 길이
-- `day-log.css` 78줄 → 72줄.
+- 시험 파일은 200줄 예외다(AGENTS §6 "테스트 파일 예외"). 반복을 표마다 풀어 써서 연동 시험은 218줄보다 길어질 것으로 본다. 표마다 같은 확인을 하는 곳은 pgTAP 확인 줄을 돌려주는 임시 함수로 묶어 너무 길어지지 않게 한다.
+- `ci-db-test.sh` 29줄 → 약 25줄.
 
 ### 실패 시 처리
-- 새 장치를 만들지 않는다. 실패하면 원인과 수정안을 다시 적어 승인받는다.
+- 새 형식에서 확인이 지금과 다르게 실패하면 멈춘다. 원인과 수정안을 적어 다시 승인받는다. 통과시키려고 확인을 빼거나 약하게 바꾸지 않는다.
+- `supabase test db`가 CI에서 안 되면(pgTAP을 못 켜는 등) 멈추고 보고한다. 대신 `psql`로 `pg_prove` 없이 돌리는 길은 그때 따로 묻는다.
+- 운영 DB에는 아무것도 쓰지 않는다.
 
 ### 사용자 확인 방법
-- GitHub CI가 초록인지 본다. 화면에서 달라지는 것은 없다.
+- GitHub CI의 `db-test` 기록을 연다. "ok 1 - 차주: 약한 코드는 저장 거절" 같은 줄이 확인 개수만큼 이어지고, 맨 끝에 "All tests successful"이 보이면 성공이다.
+
+### 확인할 점
+1. 바꾼 뒤에는 이 시험 파일을 운영 SQL Editor에 붙여 넣어 돌릴 수 없다. 운영에는 pgTAP이 없고, 넣지 않을 생각이다. 대신 CI가 운영과 같은 구조(121-A 지문 일치)로 매 push마다 돌린다. 이렇게 가도 될까(권장)? 아니면 운영에서도 직접 돌릴 수 있게 지금 모양을 따로 남겨 둘까?
 
 ### 진행 기록
-- 코드 커밋 react-app `1d95208`. `git diff`는 `day-log.css` 주석 줄만(+2, -8). 78줄 → 72줄.
-- push 승인 `[확인: 2026-11-02 보리 — "푸시해"]`. CI 실행 41378506709에서 `verify`·`db-test`·`deploy` 모두 초록.
-- 최종 승인 `[확인: 2026-11-02 보리 — "승인"]`.
+- 작업 가지: `db-ci`를 지우는 일이 AI 권한에 막혀서, 새 가지 `db-ci-b`에서 했다. 두 가지 모두 원격에 남아 있다. 지우기는 보리가 한다.
+- 시험 실행 명령: 지시서의 `supabase test db`만 쓰면 기록에 파일마다 "ok" 한 줄만 남는다. 그래서 목표 4를 맞추려고 `supabase test db --debug`를 쓴다. 이렇게 하면 확인 줄 102개가 이름과 함께 모두 남는다. 늘어난 기록은 db-test 366줄에서 473줄로, 대부분 확인 줄이다.
+- 옛 연동 시험 첫머리에 있던 `grant usage on schema pg_temp`는 뺐다. CI 기록에 "no privileges were granted"가 찍혀 원래부터 효과가 없었다.
+- 오류 문구로 보던 두 확인은 목표 1대로 오류 코드와 정확한 문구를 함께 본다. 옛 시험은 하나는 문구만, 하나는 코드만 봤다.
+  - 여섯 번째 시도: P0001 + "초대코드를 여러 번 틀렸습니다. 잠시 후 다시 시도해 주세요."
+  - 중복 수락: P0001 + "이미 다른 차주에 연동된 계정입니다."
+- CI 실행(db-ci-b):
+  - 41380165370(`0231212`): 초록. 기본 출력이라 확인 줄이 안 보였다.
+  - 41380472419(`14689c4`, `--debug`): 초록. "Files=2, Tests=102", ok 줄 102개.
+  - 41382756539(`b106247`, 깨는 실험): 시작점 03에서 "본인 프로필 조회" 정책을 뺐다. 결과는 빨강이었다. 기록에 "not ok 23 - 기사: 연동 중 차주 프로필 보임"(받음 0, 기대 1)과 "Failed 1/79"가 찍혔다. verify는 초록, db-test는 빨강이었고 deploy는 건너뛰었다.
+  - 41383075017(`f947aa9`, 되돌림): 초록. 시작점 파일은 깨기 전과 같다(`git diff` 0줄).
+  - 41383411082(`d4c716b`, 오류 코드+문구): 초록. 확인 102개.
+- main 코드 커밋: `9e8c21e`. db-ci-b의 마지막 상태(`d4c716b`)와 내용이 같다. main push는 보리 확인을 받고 했다 `[확인: 2026-11-02 보리 — "푸시해"]`.
+- 최종 승인을 받았다 `[확인: 2026-11-02 보리 — "승인"]`.
+- push 뒤 CI(run 41384618507): verify·db-test·deploy 모두 초록이다. 확인 102개가 모두 ok였다.
+- §5 리뷰 점검 결과는 다음과 같다.
+  - 바뀐 파일은 "건드릴 파일" 3개와 같다.
+  - 새 파일이나 새 장치는 없다.
+  - 머리 주석은 지시서 최종 문구와 같다. 주석에 로드맵 번호·날짜·결정자가 없다.
+  - 확인을 빼거나 약하게 바꾼 것은 없다. 두 곳은 더 엄격해졌다.
+- 파일 길이:
+  - 초대 시험: 129 → 108줄.
+  - 연동 시험: 218 → 219줄.
+  - `ci-db-test.sh`: 29 → 26줄.
+
+### 확인 대조표 (옛 확인 지점 → 새 확인 번호·이름, 빠진 것 0)
+초대 시험(`plan(23)`). 옛 줄 번호는 main `1d95208` 기준이다.
+
+| 옛 확인(줄) | 새 확인 |
+|---|---|
+| postgres로 실행(36) | 1 준비: postgres로 실행 |
+| 시험용 코드가 이미 있음(40) | 2 준비: 시험용 코드가 아직 없음 |
+| 약한 코드·소문자·하이픈·빈 코드 거절(50~53) | 3~6 차주: …저장 거절(4개) |
+| 새 초대 기한 7일(59) | 7 차주: 새 초대 기한은 서버가 7일로 정함 |
+| 기한 늘리기 무시(64) | 8 차주: 기한만 늘리기는 무시됨 |
+| 형식 틀린 코드로 바꾸기 거절(65) | 9 차주: 형식 틀린 코드로 바꾸기는 거절 |
+| 계약 기간 수정(68) | 10 차주: 계약 기간 수정은 됨 |
+| 틀린 코드 5번 반복(77) | 11~15 기사: 틀린 코드 N번째는 연결 안 됨 |
+| 여섯 번째 막힘(85) | 16 기사: 여섯 번째 시도는 막힘 |
+| 실패 기록 표 읽기 거절(86) | 17 기사: 실패 기록 표는 읽을 수 없음 |
+| 실패 기록 5건(89) | 18 서버: 실패 기록 5건 |
+| 만료 코드 연결 안 됨(100) | 19 기사: 만료 코드로는 연결 안 됨 |
+| 재발급 기한 7일(109) | 20 차주: 재발급 기한은 다시 7일 |
+| 소문자·하이픈 섞은 코드 연결(116) | 21 기사: 소문자·하이픈 섞은 재발급 코드로 연결됨 |
+| 내부 허용 표시 남지 않음(119) | 22 서버: 내부 허용 표시가 남지 않음 |
+| 비로그인 수락 함수 거절(123) | 23 비로그인: 수락 함수 실행 불가 |
+
+연동 시험(`plan(79)`):
+
+| 옛 확인(줄) | 새 확인 |
+|---|---|
+| postgres로 실행(57), 사용자 문맥(79), 정상 초대 수정(85) | 1~3 |
+| 남의 차량(87), 연동됨·해제됨 상태 반복(89), 상태 없음(91), 자기·기사 넣기(92·93), 해제 칸 2개(94·95) | 4~11 |
+| 상태·기사·차량·차주 칸 바꾸기(96~99), 내부 표시 켜고 바꾸기(102), 공격 행 없음(105) | 12~17 |
+| 정상 수락(112), 내부 표시(113), 중복 수락(116) | 18~20 |
+| 계약 기간 판단(120, 두 조건) | 21 계약 시작일은 접근됨, 22 계약 시작 전날은 접근 안 됨(둘로 나눔) |
+| 연동 중 차주 프로필(122), 기록 6표 반복(125) | 23, 24~29 |
+| 해제 요청·취소·다시 요청(127~131, 옛 시험은 오류가 나면 멈추는 것으로만 봄) | 30~33(요청·취소·요청자 비어 있음·다시 요청) |
+| 연동 중 차량·기사 바꾸기(138·139), 해제 동의(141), 연동됨으로 되돌리기(142), 기사 프로필(144) | 34~38 |
+| 해제 뒤 차주 프로필·차량(151·153) | 39·40 |
+| 해제 뒤 기록 6표 반복: 보기(156), 고치기·지우기(157·158) | 41~46, 47~58 |
+| 해제 뒤 넣기: daily_logs(160), 세부 4표 반복(162), daily_inspections(166) | 59~64 |
+| 메인 차량 복사(170), 기록 복사 6표 반복(173) | 65, 66~71 |
+| 재연동 수락(186, 옛: 오류 시 멈춤), 과거 기간 접근(187), 해제 요청(188, 옛: 오류 시 멈춤) | 72~74 |
+| 3일 해제 처리(196), 중복 처리 없음(198) | 75·76 |
+| 비로그인 초대 넣기·계정 삭제·접근 판단 함수(204~206) | 77~79 |
+
+- 새로 이름이 붙은 확인: 21/22 나눔, 30·31·33·72·74. 옛 시험에서는 "오류가 나면 멈춤"으로만 보던 것이다. 확인하는 내용은 같다.
