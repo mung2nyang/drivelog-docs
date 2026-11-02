@@ -99,7 +99,7 @@ AI가 운비서를 고치거나 새 기능을 붙일 때 먼저 읽는 지도다
 
 ## 7. 시험
 
-- **서버 함수** 시험은 `react-app/supabase/functions/tests/`에 있고, CI `verify`가 매 push마다 Deno로 타입 검사(`deno check`, 세 `index.ts`)와 시험(`deno test`)을 돌린다. 시험은 AI 답 읽기(`answer.ts`)·날짜 표·달 표(`grok.ts`)·날씨 묶기(`kma.ts`)·받기 파일의 입력 읽기와 지역 찾기(`handler.ts`)를 본다. `index.ts`는 `handler.ts`를 불러 서버만 켠다 — 시험은 `handler.ts`를 불러 서버를 켜지 않는다. 요청 흐름(로그인 → AI·기상청 → 답) 시험은 아직 없다(로드맵 124-B-2). 새 종류나 규칙을 더하면 시험도 같이 더한다.
+- **서버 함수** 시험은 `react-app/supabase/functions/tests/`에 있고, CI `verify`가 매 push마다 Deno로 타입 검사(`deno check`, 세 `index.ts`)와 시험(`deno test`)을 돌린다. 시험은 AI 답 읽기(`answer.ts`)·날짜 표·달 표(`grok.ts`)·날씨 묶기(`kma.ts`)·받기 파일의 입력 읽기와 지역 찾기(`handler.ts`), 요청 흐름(로그인 확인 → 입력 → AI·기상청 → 답, 기록에 문장을 안 남기는지)을 본다. `index.ts`는 `handler.ts`를 불러 서버만 켠다 — 시험은 `handler.ts`를 불러 서버를 켜지 않는다. 요청 흐름 시험은 Supabase·xAI·기상청을 가짜(`tests/fakes.ts`)로 바꾸고, 인터넷 권한 없이 환경 값만 허용(`--allow-env`)해 돈다. 새 종류나 규칙을 더하면 시험도 같이 더한다.
 - **배포본 문장 시험**: 앱 안 브라우저에서 getdrivelog.com에 로그인한 상태로, 저장된 로그인 표(localStorage `…auth-token`의 access_token)와 앱 번들의 공개 키(`sb_publishable_…`)로 함수를 직접 부른다. 공개 키만이면 401이어야 한다.
   - 401이 나오면 `/auth/v1/user`로 로그인이 살아 있는지 먼저 본다. `session_not_found`면 다른 곳 로그아웃 등으로 서버 로그인이 끝난 것이니 보리에게 다시 로그인을 부탁한다.
 - **앱**: 운비서 글 칸에 문장을 넣어 카드 문장·버튼을 본다. 위치 허용·소리 읽기는 앱 안 브라우저로 확인할 수 없어 보리 휴대폰 확인이 필요하다.
