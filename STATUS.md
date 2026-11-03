@@ -8,7 +8,7 @@
 > `AGENTS.md` §0-2). 지난 내용은 `git log -p -- docs/report.md` 또는 아래
 > 커밋 해시로 `git show`.
 > 이 파일이 150줄을 넘으면 오래된 "완료" 항목을 요약만 남기고 줄인다.
-> 최종 갱신: 2026-11-03 (**로드맵 149-A 공용·앱 틀 주석에서 작업 기록 떼기** `[x]` — react-app `81f15c0`, `src/app`·`src/shared` 34개 파일 주석 51줄, 빌드 결과물 같음, CI 초록(run 41556145886), 보리 승인. 남은 것 149-B·149-C. 진행 중인 슬라이스 없음.)
+> 최종 갱신: 2026-11-03 (**로드맵 149-B 계산·데이터 주석에서 작업 기록 떼기** `[x]` — react-app `1c37c1d`, `src/domain`·`src/data` 40개 파일 주석 50줄, 빌드 결과물 같음, CI 초록(run 41559456083), 보리 승인. 남은 것 149-C. 진행 중인 슬라이스 없음.)
 > 2026-11-02 줄임(보리 지시): 줄이기 전 전체 내용은 `git show 1590ef7:STATUS.md`.
 
 ---
@@ -40,6 +40,7 @@
 
 최근 것(새 것이 위):
 
+- 로드맵 149-B 계산·데이터 주석에서 작업 기록 떼기 `[x]` — react-app `1c37c1d`.
 - 로드맵 149-A 공용·앱 틀 주석에서 작업 기록 떼기 `[x]` — react-app `81f15c0`.
 - 로드맵 123-D 일상점검표 CSS 254줄을 두 파일로 나누기 `[x]` — react-app `8f21a4b`. 로드맵 123 끝.
 - 로드맵 123-C 운송비 내역서 CSS 257줄을 두 파일로 나누기 `[x]` — react-app `1bbc632`.
@@ -111,12 +112,12 @@
 
 ## 알려진 이슈 (안 고쳐도 되지만 잊으면 안 됨)
 
-- **작업 기록형 주석이 많이 남아 있음**(2026-11-02 훑어봄) — `src`(테스트 빼고)에서 로드맵 번호가 든 주석 약 80곳, 옮긴 경위("side-menu.css에서 분리", "원본 style.css … 포팅" 등) 약 40곳, 단계 이름("§15 슬라이스 A" 등) 약 7곳. 긴 설명형이던 `day-log.css` 57행은 정리함(react-app `1d95208`). 처음 적었던 `pendingWorkDataWritesTypes`·`durableStorage`에는 없다. `src/app`·`src/shared`는 정리함(react-app `81f15c0`, 149-A). 나머지는 로드맵 149-B·149-C.
+- **작업 기록형 주석이 많이 남아 있음**(2026-11-02 훑어봄) — `src`(테스트 빼고)에서 로드맵 번호가 든 주석 약 80곳, 옮긴 경위("side-menu.css에서 분리", "원본 style.css … 포팅" 등) 약 40곳, 단계 이름("§15 슬라이스 A" 등) 약 7곳. 긴 설명형이던 `day-log.css` 57행은 정리함(react-app `1d95208`). 처음 적었던 `pendingWorkDataWritesTypes`·`durableStorage`에는 없다. `src/app`·`src/shared`(react-app `81f15c0`, 149-A), `src/domain`·`src/data`(react-app `1c37c1d`, 149-B)는 정리함. 나머지 `src/features`는 로드맵 149-C.
 - 2026-11-02 확인해서 지운 옛 항목: `ModalShell` 공용 창 껍데기(react-app `2f03f9a`, 로드맵 57-A, 15개 파일이 씀), 정비·주유·기타가 메인 차량으로만 저장(react-app `bc15785`, 로드맵 5-A — 차량 칸별 저장·불러오기), 지출 3종 표 보안 규칙이 변경 파일에 없음(`0010`에 있음, 시작점 `03`에도 운영 그대로), 변경 파일 `0001`~`0006`까지만 적용(지금 `0031`까지 + 시작점, 121-A 구조 지문이 운영과 일치).
 
 ## 저장소 상태
 
-- **react-app**: `81f15c0`까지 main에 push, CI 초록. 운비서 서버 세 함수 배포본은 `efeec0e`와 같다(그 뒤로 서버 함수 코드는 안 바뀜).
+- **react-app**: `1c37c1d`까지 main에 push, CI 초록. 운비서 서버 세 함수 배포본은 `efeec0e`와 같다(그 뒤로 서버 함수 코드는 안 바뀜).
 - **drivelog-docs**(옛 이름 `ubiquitous-parakeet`, 2026-10-21 바꿈): 문서만 둔다. 원본 앱 코드는 태그 `original-app-final`에 보존(AI는 읽지 않음). `5c354fd`까지 push.
 - 정확한 HEAD·미커밋 범위는 매 세션 `git status`로 확인(AGENTS §0-6). push 규칙은 AGENTS §3.
 - 앱 오류 기록 보는 곳: Supabase → Table Editor → `client_errors`.
