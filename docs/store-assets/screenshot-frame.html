@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<title>운행일지 스크린샷 틀</title>
+<!-- 플레이 스토어 스크린샷 틀(1080×1920). 주소 뒤 ?n=1~6으로 화면을 고른다. 원본 화면은 screenshots/raw/. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&display=block" />
+<style>
+  html, body { margin: 0; width: 1080px; height: 1920px; overflow: hidden; }
+  body {
+    background: linear-gradient(180deg, #ffffff 0%, #eef1f5 45%, #dfe7f2 100%);
+    font-family: 'Jua', sans-serif; color: #2d3748; text-align: center;
+  }
+  .copy { padding-top: 96px; height: 300px; box-sizing: border-box; }
+  .title { font-size: 84px; line-height: 1.15; letter-spacing: -1.5px; }
+  .sub { margin-top: 18px; font-size: 44px; color: #3b56b0; letter-spacing: -0.5px; }
+  .phone {
+    width: 780px; height: 1560px; margin: 0 auto; border-radius: 56px; overflow: hidden;
+    border: 14px solid #2d3748; box-shadow: 0 24px 60px rgba(43, 108, 176, 0.25); background: #eef1f5;
+  }
+  .phone img { display: block; width: 100%; }
+  .note {
+    position: absolute; top: 1300px; left: 180px; width: 720px; box-sizing: border-box; padding: 30px 36px;
+    border: 3px solid #3b56b0; border-radius: 36px; background: #ffffff; box-shadow: 0 16px 40px rgba(43, 108, 176, 0.18);
+    text-align: left; font-size: 38px; line-height: 1.35; word-break: keep-all;
+  }
+  .note p { display: flex; align-items: center; gap: 20px; margin: 0; }
+  .note p + p { margin-top: 26px; }
+  .note b { flex-shrink: 0; padding: 6px 16px; border-radius: 14px; background: #3b56b0; color: #ffffff; font-weight: normal; font-size: 34px; }
+</style>
+</head>
+<body>
+  <div class="copy"><div class="title" id="title"></div><div class="sub" id="sub"></div></div>
+  <div class="phone"><img id="shot" alt="" /></div>
+  <div class="note" id="note" hidden></div>
+  <script>
+    const items = {
+      1: ['home', '오늘 운행을 한눈에', '운행 횟수와 운송료, 할 일까지'],
+      2: ['calendar', '달력으로 한눈에 일지 확인', 'AI 운비서에게 말하면 일지를 채워줘요'],
+      3: ['day', '운행 기록은 간단하게', '고정 노선은 누르기만, 건별 운송도 바로'],
+      4: ['revenue', '매출과 순이익은 자동으로', '수입·지출·미수금을 한 화면에'],
+      5: ['report', '서류도 앱에서 바로', '일상점검표·운송비 내역서·세금계산서'],
+      6: ['cars', '기사 차량도 함께 관리', '연동 기사는 직접, 미연동은 차주가 대신 기록', [
+        ['기사연동', '기사님 휴대폰에서 직접 기록'],
+        ['운행일지', '차주님이 대신 기록'],
+      ]],
+    }
+    const [name, title, sub, notes] = items[new URLSearchParams(location.search).get('n') || '1']
+    if (notes) {
+      const box = document.getElementById('note')
+      for (const [tag, text] of notes) {
+        const p = document.createElement('p')
+        const b = document.createElement('b')
+        b.textContent = tag
+        p.append(b, text)
+        box.append(p)
+      }
+      box.hidden = false
+    }
+    document.getElementById('title').textContent = title
+    document.getElementById('sub').textContent = sub
+    document.getElementById('shot').src = `screenshots/raw/${name}.png`
+  </script>
+</body>
+</html>

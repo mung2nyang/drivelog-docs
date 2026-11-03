@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<title>운행일지 대표 이미지</title>
+<!-- 플레이 스토어 대표 이미지 원본(1024×500). Edge 헤드리스로 찍어 feature-graphic.png를 만든다. -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Jua&display=block" />
+<style>
+  html, body { margin: 0; width: 1024px; height: 500px; overflow: hidden; }
+  body {
+    background: linear-gradient(135deg, #ffffff 0%, #eef1f5 55%, #dfe7f2 100%);
+    font-family: 'Jua', sans-serif; color: #2d3748;
+    display: flex; align-items: center; justify-content: center; gap: 56px;
+  }
+  .truck { width: 380px; height: auto; filter: drop-shadow(0 10px 18px rgba(43, 108, 176, 0.18)); }
+  .copy { display: flex; flex-direction: column; gap: 14px; }
+  .eyebrow { font-size: 30px; color: #3b56b0; letter-spacing: -0.5px; }
+  .name { font-size: 104px; line-height: 1; letter-spacing: -2px; }
+  .line { font-size: 36px; color: #5a6778; letter-spacing: -0.5px; }
+</style>
+</head>
+<body>
+  <img class="truck" src="truck.png" alt="" />
+  <div class="copy">
+    <div class="eyebrow">운행부터 정산까지 한 곳에서</div>
+    <div class="name">운행일지</div>
+    <div class="line">손에 딱 맞춘 간편한 운행 장부</div>
+  </div>
+</body>
+</html>
