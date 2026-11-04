@@ -1,6 +1,6 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-연동·미연동 기사 안내: drivelog-docs `6379d80`. 운비서 카드 정리 B: drivelog-docs `4af30bc`. 운비서 카드 정리 A: drivelog-docs `855d2d8`. 말풍선 줄바꿈: drivelog-docs `7af5729`. 부가세 두 줄: drivelog-docs `10f1b7e`. 줄바꿈: drivelog-docs `a5b10a1`. 11-D-3: drivelog-docs `1e6591f`. 11-D-2: drivelog-docs `db31525`. 11-D-1: drivelog-docs `d719b80`. 11-B: drivelog-docs `a673fcc`. 11-C: drivelog-docs `d091df2`. 11-A: drivelog-docs `f112cca`. 41-B-2: drivelog-docs `86bde91`. 옛 이름 주석: drivelog-docs `75f2d98`. 41-B-1: drivelog-docs `c35b352`. 149-C-2: drivelog-docs `c269e0b`. 149-C-1: drivelog-docs `62251ca`. 149-B: drivelog-docs `0914214`. 149-A: drivelog-docs `38ce614`. 123-D: drivelog-docs `f47d26d`. 123-C: drivelog-docs `752a9d8`. 123-B: drivelog-docs `48208b9`. 123-A: drivelog-docs `74c5ef3`. 150-B: drivelog-docs `693140b`. 150-A: drivelog-docs `9b8eb01`. 106: drivelog-docs `72a93ed`. 124-B-2: drivelog-docs `abceece`. 124-B-1: drivelog-docs `5c354fd`. 124-A: drivelog-docs `022a710`. 121-B: drivelog-docs `0aa4357`. 긴 주석 줄이기: drivelog-docs `59ddc9d`. 121-A: drivelog-docs `1590ef7`. 120-D: drivelog-docs `2ce5170`. 120-C: drivelog-docs `ae914c9`. 120-B: drivelog-docs `503a3d3`. 120-A: drivelog-docs `81f927a`. 119: drivelog-docs `4ef51fa`. 147: drivelog-docs `db47a3b`. 내역서 산재 빼기: drivelog-docs `6531e7b`. 143: drivelog-docs `a4f4738`. 144: drivelog-docs `a87a1b4`. 146: drivelog-docs `207f26c`. 145: drivelog-docs `7bd1146`. 141: drivelog-docs `397513b`. 104: drivelog-docs `ec18974`. 142: drivelog-docs `84fa347`. 148: drivelog-docs `d5dec47`. 138-B: drivelog-docs `8b59d03`. 138-A: drivelog-docs `dd2c4a4`. 140: drivelog-docs `e861ea4`. 139: drivelog-docs `846327e`. 137: drivelog-docs `49613a4`. 136: drivelog-docs `e01b338`. 135-B: drivelog-docs `b15f2f8`. 135-A: drivelog-docs `56ca240`. 134: drivelog-docs `baee1ea`. 133: drivelog-docs `e049969`. 132-B: drivelog-docs `e3b7b60`. 132-A: drivelog-docs `0d32ec4`. 131-B: drivelog-docs `bac091a`. 131-A: drivelog-docs `448deb1`. 130: drivelog-docs `83e93be`. 129-B: drivelog-docs `fc2b077`. 129-A: drivelog-docs `867b653`. 128: drivelog-docs `9e32174`. 127: drivelog-docs `e743872`. 118: drivelog-docs `7cf86e3`. 116: drivelog-docs `8cade9e`. 115: drivelog-docs `6539d2d`. 122: drivelog-docs `48f420c`. 126: drivelog-docs `bfd19f7`. 117: drivelog-docs `8cbdca5`. 125: drivelog-docs `d48cac8`. 114: drivelog-docs `5f55ee1`. 34-C: drivelog-docs `11ea476`. 34-B: drivelog-docs `a54be26`. 34-A: drivelog-docs `58331f0`. 113-D: drivelog-docs `0bcb19a`. 113-C: drivelog-docs `afa3f5e`. 113-B: drivelog-docs `1c95e76`. 113-A: drivelog-docs `25069f9`. 운비서 버튼 설정: drivelog-docs `d65beaf`. 운비서·+ 버튼 겹침: drivelog-docs `6fe917d`. 로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+운송료 부가세 줄 정리: drivelog-docs `4c419ae`. 연동·미연동 기사 안내: drivelog-docs `6379d80`. 운비서 카드 정리 B: drivelog-docs `4af30bc`. 운비서 카드 정리 A: drivelog-docs `855d2d8`. 말풍선 줄바꿈: drivelog-docs `7af5729`. 부가세 두 줄: drivelog-docs `10f1b7e`. 줄바꿈: drivelog-docs `a5b10a1`. 11-D-3: drivelog-docs `1e6591f`. 11-D-2: drivelog-docs `db31525`. 11-D-1: drivelog-docs `d719b80`. 11-B: drivelog-docs `a673fcc`. 11-C: drivelog-docs `d091df2`. 11-A: drivelog-docs `f112cca`. 41-B-2: drivelog-docs `86bde91`. 옛 이름 주석: drivelog-docs `75f2d98`. 41-B-1: drivelog-docs `c35b352`. 149-C-2: drivelog-docs `c269e0b`. 149-C-1: drivelog-docs `62251ca`. 149-B: drivelog-docs `0914214`. 149-A: drivelog-docs `38ce614`. 123-D: drivelog-docs `f47d26d`. 123-C: drivelog-docs `752a9d8`. 123-B: drivelog-docs `48208b9`. 123-A: drivelog-docs `74c5ef3`. 150-B: drivelog-docs `693140b`. 150-A: drivelog-docs `9b8eb01`. 106: drivelog-docs `72a93ed`. 124-B-2: drivelog-docs `abceece`. 124-B-1: drivelog-docs `5c354fd`. 124-A: drivelog-docs `022a710`. 121-B: drivelog-docs `0aa4357`. 긴 주석 줄이기: drivelog-docs `59ddc9d`. 121-A: drivelog-docs `1590ef7`. 120-D: drivelog-docs `2ce5170`. 120-C: drivelog-docs `ae914c9`. 120-B: drivelog-docs `503a3d3`. 120-A: drivelog-docs `81f927a`. 119: drivelog-docs `4ef51fa`. 147: drivelog-docs `db47a3b`. 내역서 산재 빼기: drivelog-docs `6531e7b`. 143: drivelog-docs `a4f4738`. 144: drivelog-docs `a87a1b4`. 146: drivelog-docs `207f26c`. 145: drivelog-docs `7bd1146`. 141: drivelog-docs `397513b`. 104: drivelog-docs `ec18974`. 142: drivelog-docs `84fa347`. 148: drivelog-docs `d5dec47`. 138-B: drivelog-docs `8b59d03`. 138-A: drivelog-docs `dd2c4a4`. 140: drivelog-docs `e861ea4`. 139: drivelog-docs `846327e`. 137: drivelog-docs `49613a4`. 136: drivelog-docs `e01b338`. 135-B: drivelog-docs `b15f2f8`. 135-A: drivelog-docs `56ca240`. 134: drivelog-docs `baee1ea`. 133: drivelog-docs `e049969`. 132-B: drivelog-docs `e3b7b60`. 132-A: drivelog-docs `0d32ec4`. 131-B: drivelog-docs `bac091a`. 131-A: drivelog-docs `448deb1`. 130: drivelog-docs `83e93be`. 129-B: drivelog-docs `fc2b077`. 129-A: drivelog-docs `867b653`. 128: drivelog-docs `9e32174`. 127: drivelog-docs `e743872`. 118: drivelog-docs `7cf86e3`. 116: drivelog-docs `8cade9e`. 115: drivelog-docs `6539d2d`. 122: drivelog-docs `48f420c`. 126: drivelog-docs `bfd19f7`. 117: drivelog-docs `8cbdca5`. 125: drivelog-docs `d48cac8`. 114: drivelog-docs `5f55ee1`. 34-C: drivelog-docs `11ea476`. 34-B: drivelog-docs `a54be26`. 34-A: drivelog-docs `58331f0`. 113-D: drivelog-docs `0bcb19a`. 113-C: drivelog-docs `afa3f5e`. 113-B: drivelog-docs `1c95e76`. 113-A: drivelog-docs `25069f9`. 운비서 버튼 설정: drivelog-docs `d65beaf`. 운비서·+ 버튼 겹침: drivelog-docs `6fe917d`. 로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
 ---
 
@@ -88,81 +88,65 @@
 
 ---
 
-## 운송료 부가세 줄 정리 `[x]`
+## 기사 차량 최대 3대 제한 (로드맵 151) `[x]`
 
 ### 쉬운 요약
-운행 기록 창 운송료 아래의 긴 안내 문장을 (i) 속으로 넣고, "부가세 포함 110,000원"을 "부가세 없음(면세)" 체크와 같은 줄 오른쪽 끝으로 올린다. 창이 두 줄 짧아진다.
+차주는 기사 차량(연동, 미연동 합쳐)을 3대까지만 등록할 수 있게 한다. 3대가 있으면 [+ 추가]를 눌러도 등록 창이 안 열리고 안내가 뜬다. 차량 창 (i)와 고객센터 FAQ에도 "최대 3대"를 적는다.
 
 ### 보리 지시
-[확인: 2026-11-04 보리 — "부가세 없음(면세) 옆에 i하나 만들어서 부가가치세가 포함된 금액이라면 1.1로 나눈 공급가액을 입력해 주세요. (예: 110,000원 → 100,000원) 이문구 넣어줘 그리고 부가세 포함 110,000원 이거 부가세 없음(면세) 이쪽줄로 오른쪽정렬 동일한데 여기줄로 한줄로"]
+[확인: 2026-11-04 보리 — "최대 연동,미연동 포함 기사3개까지 추가가능하다는 안내도", "응 나로"(제한은 따로 슬라이스), 151 착수 "응"]
 
 ### 현재 상태
-- `CallDetailForm.jsx` 156~158줄: [부가세 없음(면세) 체크] / 안내 문장 한 줄(`p.billing-settings-note`) / 미리보기 한 줄(`p.billing-settings-note.vat-preview`, 오른쪽 정렬)이 세 줄로 쌓인다.
-- 미리보기 글: 운송료가 있으면 "부가세 포함 N원", 면세를 켜면 "면세 거래에는 부가가치세가 부과되지 않습니다.", 운송료가 없으면 없음.
+- 기사 차량 수 제한이 앱, 서버 어디에도 없다(2026-11-04 검색).
+- 차량 관리 [+ 추가](`CarListPage.jsx` `openAdd`): 메인 차량이 없으면 "차량 등록"(메인), 있으면 "기사 등록"(기사 차량, `type: 'sub'`) 창이 열린다.
+- 저장은 `useCarListActions.js` `save` → `commitSave`.
+- 연동 기사 계정은 [+ 추가]가 없다(차주, 비회원 차주만 추가).
 
 ### 목표 상태
-1. "부가세 없음(면세)" 바로 옆에 (i). 누르면 "부가가치세가 포함된 금액이라면 1.1로 나눈 공급가액을 입력해 주세요. (예: 110,000원 → 100,000원)"이 펼쳐진다.
-2. 원래 안내 문장 줄은 없어진다.
-3. 같은 줄 오른쪽 끝에 미리보기("부가세 포함 110,000원"). 글자 크기와 색은 지금과 같다.
-4. (i)를 눌러도 면세 체크는 바뀌지 않는다((i)를 체크 칸 글자 밖에 둔다).
-5. 면세를 켰을 때 오른쪽 글은 "부가세 0원"(지금 "면세 거래에는 부가가치세가 부과되지 않습니다."는 같은 줄에서 두 줄로 꺾여서 짧게) `[확인: 2026-11-04 보리 — "가로 진행"]`.
+1. 기사 차량이 3대 있으면 [+ 추가]를 눌렀을 때 창이 안 열리고 아래 알림(토스트)이 뜬다: "기사 차량은 연동, 미연동 합쳐 최대 3대까지 등록할 수 있습니다." (가운뎃점 금지 규칙 때문에 쉼표)
+2. 메인 차량이 없을 때(첫 차량 등록)는 지금처럼 열린다. 기사 차량 수정은 대수와 상관없이 된다.
+3. 기사 차량을 하나 지우면 다시 추가할 수 있다.
+4. 저장 단계에서도 한 번 더 막는다(새 기사 차량인데 이미 3대면 같은 알림, 저장 안 함) — 창이 열린 채 다른 기기에서 늘어난 경우 대비.
+5. 이미 3대보다 많은 계정은 그대로 둔다(지우지 않음). 추가만 막힌다.
+6. 안내 문구:
+   - 차량 창 [기사 연동] (i)와 [운행일지] (i) 맨 끝 줄에 "기사 차량은 연동, 미연동 합쳐 최대 3대까지 등록할 수 있습니다."
+   - 고객센터 FAQ 연동 질문 맨 뒤(무료 질문 앞)에 Q "기사 차량은 몇 대까지 등록할 수 있나요?" A "연동 기사와 미연동 기사를 합쳐 최대 3대까지 등록할 수 있습니다. 더 등록하려면 쓰지 않는 기사 차량을 지워 주세요."
 
 ### 고칠 것
-- `CallDetailPaymentFields.jsx` `CallVatExemptRow`: 한 줄 상자(`div.call-vat-row`) 안에 [체크 칸 label] + `InfoTip`(name "부가세 입력") + 오른쪽 미리보기(`span.call-vat-preview`). 미리보기 글은 `preview` 속성으로 받는다.
-- `CallDetailForm.jsx`: 156~158줄 세 줄을 `<CallVatExemptRow draft={draft} setDraft={setDraft} preview={vatPreview} />` 한 줄로.
-- `call-detail-payment.css`: `.call-vat-row`(가로 한 줄, 가운데 맞춤), `.call-vat-preview`(오른쪽 끝, 지금 미리보기와 같은 크기와 색).
-- `call-detail-form.css`: 이제 안 쓰는 `.billing-settings-note.vat-preview` 규칙 3줄 지움.
+- `src/domain/cars.ts`: `MAX_DRIVER_CARS = 3`, `canAddDriverCar(cars)`(기사 차량 수 < 3) 추가. 메인 차량 판정 `hasMainCar` 옆.
+- `CarListPage.jsx` `openAdd`: 메인 차량이 있고 `canAddDriverCar`가 거짓이면 알림만 띄우고 끝.
+- `useCarListActions.js` `save`: 새 차량(`editingId` 없음) + 기사 차량 + 이미 3대면 알림, 저장 안 함.
+- `CarDriverConnectPanel.jsx` (i) 문구 두 곳, `CustomerCenterPage.jsx` FAQ 1개 추가.
 
 ### 건드릴 파일
-- `src/features/day-log/ui/CallDetailPaymentFields.jsx`, `CallDetailForm.jsx`, `call-detail-payment.css`, `call-detail-form.css`, `CallDetailForm.test.js`(시험 추가).
+- `src/domain/cars.ts`, `src/features/cars/ui/CarListPage.jsx`, `src/features/cars/hooks/useCarListActions.js`, `src/features/cars/ui/CarDriverConnectPanel.jsx`, `src/features/support/ui/CustomerCenterPage.jsx`
+- 시험: `src/domain/cars.test.js`, `CarListPage.flows.test.js`, `CarDriverConnectPanel.test.js`, `CustomerCenterPage.test.js`
 
 ### 안 건드릴 것
-- 부가세 계산(원 미만 버림), 면세 저장 방식(미리보기 글만 바꿈), 운송료 칸, `billing-settings-note`를 쓰는 다른 곳(운행거리 미리보기 `CallOdometerFields.jsx`), InfoTip 모양.
+- 서버(DB) 쪽 제한 — 아래 확인할 점 1. 메인 차량 수, 연동 절차, 초대 코드, 차량 삭제 흐름.
 
-### 공용 영향
-- `.billing-settings-note` 자체는 안 바꾼다. 지우는 `.vat-preview` 규칙은 `CallDetailForm.jsx` 158줄 한 곳만 쓴다(검색 확인).
-- `.call-vat-check`는 `CallVatExemptRow` 한 곳만 쓴다.
+### 확인할 점 (보리 결정)
+1. 서버에서도 막을지: 앱 화면에서만 막으면 화면을 거치지 않는 방법으로는 넘길 수 있다. 서버까지 막으려면 DB 규칙(마이그레이션)이 하나 더 필요하다. **AI 권함: 지금은 앱에서만**(실사용자 전이고 등록은 이 화면 한 곳뿐, 서버 규칙은 151-B로 로드맵에 남김).
+2. 비회원 차주(로그인 안 함)도 같은 3대 제한: **AI 권함: 같게**(나중에 로그인으로 옮길 때 어긋나지 않게).
 
 ### 검증
-- 새 시험(`CallDetailForm.test.js`): ① 면세 옆 (i)를 누르면 1.1 안내가 펼쳐진다. ② 운송료 100,000 입력 시 "부가세 포함 110,000원"이 면세 체크와 같은 줄 상자 안에 있다. ③ (i)를 눌러도 면세 체크가 안 바뀐다. 기존 "15,555원이면 17,110원" 시험은 그대로 통과.
-- lint, 타입 검사, `npm test` 통과 → 되돌림 확인(새 시험이 고치기 전 코드에서 실패) → 화면 확인(tab-1, 폭 360, 밝은·어두운 화면, 저장 안 함).
+- 새 시험: `canAddDriverCar` 0~4대 경계, [+ 추가] 3대일 때 창 안 열림 + 알림 문구, 2대일 때 열림, 메인 없을 때 열림, 저장 단계 막힘, (i) 2곳 끝 줄, FAQ 새 질문.
+- lint, 타입 검사, `npm test` → 되돌림 확인 → 화면 확인(tab-1 로그인 탭, 폭 360, 기사 차량 수를 실제로 늘리지 않고 확인할 수 있으면 그렇게, 저장이 필요하면 먼저 묻기).
 
 ### 파일 길이 (§6 200줄)
-- `CallDetailForm.jsx` 197 → 195(감시 목록 파일, 줄어듦). `CallDetailPaymentFields.jsx` 69 → 약 80. `call-detail-payment.css` 45 → 약 58. `call-detail-form.css` 164 → 161.
+- `cars.ts` 165 → 약 172, `CarListPage.jsx` 130 → 약 136, `useCarListActions.js` 144 → 약 150, `CarDriverConnectPanel.jsx` 84 → 86, `CustomerCenterPage.jsx` 130 → 134. 모두 200 안.
 
 ### 실패 시 처리
-- 새 저장 장치·재시도 장치 없음. 검사나 화면 확인이 어긋나면 고치지 않고 수정 착수지시서를 여기 써서 다시 승인받는다.
+- 새 저장 장치, 재시도 장치 없음. 검사나 화면 확인이 어긋나면 고치지 않고 수정 착수지시서를 여기 써서 다시 승인받는다.
 
 ### 사용자 확인 방법
-1. 달력 → 날짜 → 운행 기록 창 → 운송료에 100,000 입력.
-2. "부가세 없음(면세)" 줄 오른쪽 끝에 "부가세 포함 110,000원"이 보이고, 그 아래 긴 안내 문장이 없으면 성공.
-3. 면세 옆 (i)를 누르면 1.1 안내가 펼쳐지고, 체크는 그대로면 성공.
+1. 기사 차량이 3대인 계정에서 차량 관리 → [+ 추가] → 창이 안 열리고 "기사 차량은 연동, 미연동 합쳐 최대 3대까지…" 알림이 뜨면 성공.
+2. 기사 차량 하나를 지우고 [+ 추가] → "기사 등록" 창이 열리면 성공.
+3. 차량 창 (i) 두 곳 끝 줄, 고객센터 FAQ 새 질문 확인.
 
 ### 진행 기록
-- 2026-11-04 착수지시서 작성. 보리 "최종승인,가로 진행" → 면세 글 "부가세 0원"으로 확정, 위 슬라이스 `[x]` 문서 커밋 뒤 코드 수정 시작.
-- 연동 안내 `[x]` 문서 커밋 drivelog-docs `6379d80` 뒤 코드 수정. lint, 타입 검사, `npm test` 959개 통과. 되돌림 확인: 새 시험 2개 고치기 전 코드에서 실패, 복구 확인.
-- 화면 확인(tab-1, 폭 360, 11월 3일 김해 → 울산 수정 창, 저장 안 함): 면세 체크, (i), "부가세 포함 330,000원"이 한 줄(높이 32px, 세 가운데 높이 같음), 미리보기 오른쪽 끝이 운송료 칸 오른쪽 끝과 같음. (i) 누르면 1.1 안내 펼쳐지고 체크 그대로. 면세 켜면 "부가세 0원". 어두운 화면은 앱 자체 테마 설정이라 바꾸지 않음(색은 기존 글자색 변수 그대로).
-- 코드 커밋 react-app `83e033d`(푸시 안 함). 다음: 보리 푸시 → CI 초록 → 최종 승인 → `[x]` 문서 커밋.
-
-### 수정 착수지시서 — (i) 안내 줄바꿈 위치 `[x]`
-- 보리 지시: [확인: 2026-11-04 보리 — "(예: 110,000원 → 100,000원) 이게 화살표에서 줄바꿈하지말고 괄호앞에서 여기서 줄바꿈 해야할거같아"]
-- 원인: 안내가 한 문장이라 상자 폭(최대 300px)에서 꽉 차는 곳, 즉 화살표 뒤에서 꺾인다. (i) 안내는 글 속 줄바꿈을 그대로 지킨다(`white-space: pre-line`).
-- 고칠 것: `CallDetailPaymentFields.jsx` `VAT_INPUT_INFO`에서 "(예:" 앞을 줄바꿈으로 바꾸고, 예시 안의 띄어쓰기 3곳을 줄이 안 나뉘는 띄어쓰기로 바꿔 예시가 좁은 화면에서도 한 덩어리로 다음 줄에 가게 한다. 화면 글자는 같다.
-  - 1줄: "부가가치세가 포함된 금액이라면 1.1로 나눈 공급가액을 입력해 주세요." (상자 폭에 따라 이 안에서는 꺾일 수 있음)
-  - 2줄: "(예: 110,000원 → 100,000원)"
-- 시험: `CallDetailForm.test.js` 펼친 글 비교를 새 글(줄바꿈 포함)로 맞추고, 예시가 줄바꿈 바로 뒤에서 시작하는지 본다.
-- 건드릴 파일: `CallDetailPaymentFields.jsx`(1줄), `CallDetailForm.test.js`. 공용 (i) 모양은 안 바꿈. 줄 수 변화 없음(§6).
-- 검증: lint, 타입 검사, `npm test` → 되돌림 확인 → 화면 확인(폭 360, 320에서 예시가 괄호 앞에서 꺾이는지).
-- 2026-11-04 보리 "응 고쳐" → 고침. 처음 고칠 때 문구 줄이 문법 오류로 깨져 시험 18개가 실패했다가, 같은 범위 안에서 바로 바로잡음. lint, 타입 검사, `npm test` 959개 통과. 되돌림 확인: 바뀐 시험이 고치기 전 문구에서 실패, 복구 확인. 화면(폭 360·320): 3줄 "…1.1로 나눈 / 공급가액을 입력해 주세요. / (예: 110,000원 → 100,000원)", 예시는 한 줄.
-- 커밋 react-app `1dffa96`(푸시 안 함). 앞 커밋 `83e033d`는 보리 푸시, CI verify·db-test·deploy 초록(run 41782115601).
-- 화면 확인 중 발견(폭 320, `83e033d`부터): 한 줄이 좁아 "부가세 없음(면 / 세)"와 "부가세 포함 330,000 / 원"이 낱말 중간에서 꺾임. 폭 360에서는 한 줄 정상. 처리는 보리 결정 대기.
-
-### 수정 착수지시서 — 폭 320에서 부가세 줄 낱말 끊김 `[x]`
-- 원인: 한 줄 폭 254px에 체크 칸 글(약 118px) + (i) + 미리보기(약 125px)가 다 안 들어가서, 양쪽 글이 아무 데서나 꺾인다.
-- 고칠 것(`call-detail-payment.css`만):
-  - `.call-vat-check span`에 `white-space: nowrap` — "부가세 없음(면세)"는 절대 안 꺾임.
-  - `.call-vat-preview`에 `word-break: keep-all` — 좁으면 낱말 사이에서만 꺾여 오른쪽에 "부가세 포함 / 330,000원" 두 줄. 폭 360 이상은 지금처럼 한 줄.
-- 공용 영향: 두 클래스 모두 `CallVatExemptRow` 한 곳만 씀.
-- 검증: lint, 타입 검사, `npm test`(CSS라 새 시험 없음) → 화면 확인 폭 320·360·412에서 낱말 끊김 0.
-- 2026-11-04 보리 "응 고쳐" → 고침. lint, 타입 검사, `npm test` 959개 통과. 화면(수정 창, 저장 안 함): 폭 320은 "부가세 없음(면세)" 한 줄, 오른쪽 "부가세 포함 / 330,000원" 두 줄. 폭 360·412는 줄 높이 32px 한 줄. 세 폭 모두 가로 넘침 없음.
-- 커밋 react-app `b23ca25`. 2026-11-04 보리 "예외로 푸시까지" → AI가 푸시. CI 초록: `1dffa96` run 41783972690, `b23ca25` run 41789612491(verify·db-test·deploy). 2026-11-04 보리 "승인" → `[x]`.
+- 2026-11-04 착수지시서 작성. 보리 "권함으로 착수지시서 확정, 작업 진행해" → 서버 제한은 151-B로 남기고 앱에서만, 비회원도 같게 `[확인: 2026-11-04 보리 — "권함으로"]`. 코드 수정 시작.
+- 코드 수정 끝. lint, 타입 검사, `npm test` 962개 통과. 되돌림 확인: 새 시험(3대면 창 안 열림, 저장 단계 막힘, (i) 끝 줄, FAQ 6개)이 고치기 전 코드에서 실패, 복구 확인. "2대면 열림, 메인 없으면 차량 등록" 시험은 원래 동작 지킴용이라 고치기 전에도 통과.
+- 화면(tab-1, 폭 360, 저장 안 함): 기사 차량 0대 계정에서 [+ 추가] → "기사 등록" 창, (i) 두 곳 끝 줄에 3대 문장(긴 [기사 연동] 안내는 창을 내리면 끝까지 보임), FAQ 새 질문 펼쳐짐. 3대일 때 막힘은 이 계정에 기사 차량이 없어 화면에서 못 봄 — 보리 결정 대기.
+- 2026-11-04 보리 "가로 진행해 내계정으로 로그인해놧어 차3대해놧어" → 보리 계정(기사 차량 3대: 연동 1, 운행일지 2)에서 확인: [+ 추가] → 등록 창 안 열림, 알림 "기사 차량은 연동, 미연동 합쳐 최대 3대까지 등록할 수 있습니다." 기존 기사 차량 [수정]은 "기사 정보 수정" 창 열림(저장 안 하고 닫음).
+- 코드 커밋 react-app `ef77e13`. 2026-11-04 보리 "푸시햇어" → CI verify·db-test·deploy 초록(run 41794282752). 2026-11-04 보리 "승인" → `[x]`, 로드맵 151 `[x]`, 서버 제한 151-B 등재.
