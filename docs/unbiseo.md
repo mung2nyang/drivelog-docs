@@ -20,7 +20,7 @@ AI가 운비서를 고치거나 새 기능을 붙일 때 먼저 읽는 지도다
 | 함수 | 하는 일 | 비밀값 | 파일 |
 |---|---|---|---|
 | `unbiseo-parse` | 말 → 종류와 칸 | `XAI_API_KEY` | `index.ts`(서버 켜기만), `handler.ts`(받기·로그인·하루 횟수 세기), `answer.ts`(AI 답을 종류별로 읽기·말 막기), `grok.ts`(AI 지시문·날짜 표·답 모양), 종류별 칸 읽기 `question.ts`·`clientDraft.ts`·`fixedRoute.ts`·`smsDraft.ts`·`weatherDraft.ts` |
-| `unbiseo-voice` | 답 문장 → xAI 목소리(Ara) mp3 | `XAI_API_KEY` | `index.ts`(서버 켜기만), `handler.ts`(받기·로그인·목소리 부르기) |
+| `unbiseo-voice` | 답 문장 → xAI 목소리(Ara) mp3 | `XAI_API_KEY` | `index.ts`(서버 켜기만), `handler.ts`(받기·로그인·하루 횟수 세기·목소리 부르기) |
 | `unbiseo-weather` | 날짜 + 지역 이름 또는 격자 번호 → 기상청 단기예보 요약 | `KMA_API_KEY`(공공데이터포털 일반 인증키 Decoding) | `index.ts`(서버 켜기만), `handler.ts`(로그인·입력·지역 찾기), `kma.ts`(기상청 부르기·묶기), `kmaGrid.json`(시·도·시·군·구 → nx·ny) |
 
 - **세 함수 모두 "Verify JWT with legacy secret" 꺼짐.** 로그인 확인은 함수 코드(`auth.getUser`)가 한다. 켜면 지금 로그인 표(ES256)를 문 앞에서 거절해 운비서 전체가 401이 된다. **새로 만들면 켜진 채 만들어지므로 바로 끈다.**
@@ -44,7 +44,7 @@ AI가 운비서를 고치거나 새 기능을 붙일 때 먼저 읽는 지도다
 | `dayOff` 휴무·휴무 취소 | 말에 "휴무"나 "쉬" 있을 때만, 앞날 그대로 | 이미 그 상태·기간 밖 확인 → 그 날짜 일지로 가서 휴무 단추와 같이 바꿈(콜 있으면 확인 창) | [휴무로 하기] / [휴무 취소하기] |
 | `unknown` | — | "알아듣지 못했어요" | 없음 |
 
-- 마이크로 물었을 때만 답 문장을 소리로 읽는다(`useSpeechOutput`: xAI 목소리 먼저, 5초 안에 못 받으면 휴대폰 목소리).
+- 마이크로 물었을 때만 답 문장을 소리로 읽는다(`useSpeechOutput`: xAI 목소리 먼저, 5초 안에 못 받으면 휴대폰 목소리, 하루 횟수를 다 썼으면 소리 없이 알림만).
 - 계정이 바뀌면 대화를 비우고, 기다리던 답은 버린다.
 - 홈 카드와 떠 있는 운비서는 같은 대화·같은 카드(`HomeAssistantPanel`)를 쓴다.
 
@@ -107,7 +107,7 @@ AI가 운비서를 고치거나 새 기능을 붙일 때 먼저 읽는 지도다
 
 ## 8. 남은 것·나중 일
 
-- 하루 사용 횟수 제한: 말 읽기는 하루 20회(`handler.ts` `DAILY_LIMIT`, DB `0032` `use_unbiseo`, sot §4-16, 2026-11-04 배포 version 24). 목소리는 아직 없음(B).
+- 하루 사용 횟수 제한: 말 읽기는 하루 20회(`handler.ts` `DAILY_LIMIT`, DB `0032` `use_unbiseo`, sot §4-16, 2026-11-04 배포 version 24). 목소리도 하루 20회(`unbiseo-voice` `DAILY_LIMIT`, 2026-11-04 배포 version 5), 넘으면 소리 없이 알림만.
 - 처리방침: 말·답 문장을 xAI로 보냄, 받아쓰기는 구글, 날씨는 동네 격자 번호만 우리 서버 경유 — 10-P ⓑ 자문 목록에 있음.
 - 기상청 상업 이용·위치 관련 절차: 무료인 동안 따지지 않음, 유료화 때 다시 봄.
 - xAI 목소리는 베타 가격(글자 100만 개당 $4.20), 함수 기록의 글자 수로 비용을 셈.
