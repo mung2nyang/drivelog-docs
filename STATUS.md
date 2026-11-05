@@ -8,7 +8,7 @@
 > `AGENTS.md` §0-2). 지난 내용은 `git log -p -- docs/report.md` 또는 아래
 > 커밋 해시로 `git show`.
 > 이 파일이 150줄을 넘으면 오래된 "완료" 항목을 요약만 남기고 줄인다.
-> 최종 갱신: 2026-11-05 (**Capacitor 전환 C-1 기본 틀** `[x]` — react-app `9482d5f`, 테스터 모집 서비스가 TWA 앱을 받지 않아 Capacitor로 전환 시작(최우선). 앱이 `getdrivelog.com`을 주소줄 없이 불러옴, 1.0.2(코드 3) 서명 빌드. 다음은 C-2 앱 안 구글 로그인. 비공개 테스트 트랙은 11월 5일 게시, 테스터 목록 "도플리" 44명.)
+> 최종 갱신: 2026-11-05 (**Capacitor 전환 C-2 앱 안 구글 로그인** `[x]` — react-app `eac328c`, 앱에서 크롬으로 나가지 않고 안드로이드 계정 선택 창으로 로그인, 보리 휴대폰 확인. 그 전 C-1 기본 틀 `9482d5f`. 다음은 C-3 파일 저장·공유. 비공개 테스트 트랙은 11월 5일 게시, 테스터 목록 "도플리" 44명.)
 > 2026-11-02 줄임(보리 지시): 줄이기 전 전체 내용은 `git show 1590ef7:STATUS.md`.
 
 ---
@@ -40,6 +40,7 @@
 
 최근 것(새 것이 위):
 
+- Capacitor 전환 C-2 앱 안 구글 로그인 — react-app `eac328c`(CI 초록·배포), `@capgo/capacitor-social-login` 8.7.6(구글만), 앱이면 계정 선택 창 → Supabase `signInWithIdToken`(nonce), 실패는 토스트, 웹은 그대로. 구글 클라우드 안드로이드 OAuth 클라이언트 2개(업로드 키·Play 앱 서명 키). v3 `.aab`·`.apk` 다시 만듦(1.0.2·코드 3), 보리 휴대폰 로그인 확인(2026-11-05).
 - Capacitor 전환 C-1 기본 틀 — react-app `9482d5f`(CI 초록·배포), Capacitor 8.6.0·`capacitor.config.ts`(`https://getdrivelog.com` 불러옴)·`android/`, 아이콘·시작 화면 #121212, 1.0.2(코드 3) `.aab`·`.apk`를 같은 업로드 키로 `C:\dev\drivelog-keys\v3\`에, `src/` 변경 없음, 휴대폰 확인은 C-2 뒤(2026-11-05).
 - 운비서 그림 바꾸기 — react-app `57c316c`·`a96f68e`(CI 초록·배포), 새싹 떡 → 헤드셋 없는 납작한 병아리(240×192, 표시 비율 5:4 그대로), 그림 파일 하나만(2026-11-05).
 - 플레이 콘솔 앱 설정 완료(코드 변경 없음) — 앱 설정 12개 전부 저장, 콘텐츠 등급 전체이용가, 타겟층 18세 이상, 데이터 보안·스토어 등록정보(설명·대표 이미지·스크린샷 6장)·로그인 세부정보(심사 계정 `test12342945@gmail.com`) 저장. 비공개 테스트 Alpha 트랙(대한민국, 테스터 목록 "운행일지 테스터" 지금 2명, 1.0.1, 의견 메일 `studiobori.app@gmail.com`) 만들고 변경사항 15개 검토 제출 → 같은 날 오후 5:30 게시, 테스터 목록 "도플리" 44명 추가(보리)(2026-11-05).
@@ -138,7 +139,7 @@
 
 ## 저장소 상태
 
-- **react-app**: `2551adb`까지 main에 push, CI 초록. 운비서 서버 세 함수 배포본은 `efeec0e`와 같다(그 뒤로 서버 함수 코드는 안 바뀜).
+- **react-app**: `eac328c`까지 main에 push, CI 초록. 운비서 서버 세 함수 배포본은 `efeec0e`와 같다(그 뒤로 서버 함수 코드는 안 바뀜).
 - **drivelog-docs**(옛 이름 `ubiquitous-parakeet`, 2026-10-21 바꿈): 문서만 둔다. 원본 앱 코드는 태그 `original-app-final`에 보존(AI는 읽지 않음). `d7939c5`까지 push.
 - 정확한 HEAD·미커밋 범위는 매 세션 `git status`로 확인(AGENTS §0-6). push 규칙은 AGENTS §3.
 - 앱 오류 기록 보는 곳: Supabase → Table Editor → `client_errors`.
