@@ -141,7 +141,7 @@
 |---|---|
 | 서비스 이름 | 운행일지 |
 | 운영자 | Studio Bori |
-| 연락처 | ya01na111@gmail.com (서비스 내 고객센터 1:1 문의로도 접수) |
+| 연락처 | studiobori.app@gmail.com (서비스 내 고객센터 1:1 문의로도 접수) |
 | 주소 | https://getdrivelog.com |
 
 ### 부칙

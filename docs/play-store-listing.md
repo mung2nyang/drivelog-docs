@@ -58,7 +58,7 @@
 
 개인정보처리방침: https://getdrivelog.com/privacy.html
 서비스 이용약관: https://getdrivelog.com/terms.html
-문의: ya01na111@gmail.com
+문의: studiobori.app@gmail.com
 ```
 
 ### 분류·연락처 (스토어 설정)
@@ -68,7 +68,7 @@
 | 앱 또는 게임 | 앱 |
 | 카테고리 | 비즈니스 |
 | 태그 | 비즈니스 관련 태그 중 콘솔이 보여 주는 것에서 고름(최대 5개) |
-| 이메일 주소 | ya01na111@gmail.com |
+| 이메일 주소 | studiobori.app@gmail.com |
 | 웹사이트 | https://getdrivelog.com |
 | 전화번호 | 비움(선택 칸) |
 | 개인정보처리방침 (앱 콘텐츠) | https://getdrivelog.com/privacy.html |

@@ -40,6 +40,7 @@
 
 최근 것(새 것이 위):
 
+- 연락 메일을 앱 전용 메일로 — react-app `ad8713a`(CI 초록·배포), 처리방침·이용약관·계정 삭제 안내의 개인 메일 → `studiobori.app@gmail.com`, 스토어 자료·처리방침·약관 초안도(2026-11-05).
 - 11-B-2 Play 앱 서명 지문 — react-app `816e303`(CI 초록·배포), `assetlinks.json`에 Play 앱 서명 키 지문 추가(업로드 키 지문 그대로), 플레이 콘솔 앱 만들기·내부 테스트 1 (1.0.0)·테스터 목록, 공개 개발자 이메일 `studiobori.app@gmail.com`(2026-11-05).
 - 앱 아이콘 새 로고·시작 화면 바탕색 — react-app `cdc4977`·`8645cc0`(CI 초록·배포), 아이콘 4개(192·512·maskable·아이폰 180 새로), 시작 화면 바탕 #4a5260, 안 쓰던 견본 그림 3개 지움, 새 `.aab`·`.apk`는 `C:\dev\drivelog-keys\v2\`(지문 그대로)(2026-11-05).
 - 달력·매출 보던 달 기억 — react-app `091af69`(CI 초록·배포), 앱이 켜진 동안만, 달력·매출 따로, 매출은 월/년 탭도(sot §4-33).
@@ -133,7 +134,7 @@
 
 ## 저장소 상태
 
-- **react-app**: `816e303`까지 main에 push, CI 초록. 운비서 서버 세 함수 배포본은 `efeec0e`와 같다(그 뒤로 서버 함수 코드는 안 바뀜).
+- **react-app**: `ad8713a`까지 main에 push, CI 초록. 운비서 서버 세 함수 배포본은 `efeec0e`와 같다(그 뒤로 서버 함수 코드는 안 바뀜).
 - **drivelog-docs**(옛 이름 `ubiquitous-parakeet`, 2026-10-21 바꿈): 문서만 둔다. 원본 앱 코드는 태그 `original-app-final`에 보존(AI는 읽지 않음). `d7939c5`까지 push.
 - 정확한 HEAD·미커밋 범위는 매 세션 `git status`로 확인(AGENTS §0-6). push 규칙은 AGENTS §3.
 - 앱 오류 기록 보는 곳: Supabase → Table Editor → `client_errors`.
