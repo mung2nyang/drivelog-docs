@@ -219,9 +219,9 @@ GPS 같은 기능을 자문 뒤에 넣으면 자문을 다시 받아야 해서(�
     - **Capacitor 전환(최우선)** `[~]` — 테스터 모집 서비스가 TWA 앱은 받지 않아(네이티브 웹뷰·Capacitor는 받음) 출시 후로 미뤄 둔 전환을 앞당김 `[확인: 2026-11-05 보리 — "승인하리하고 Capacitor로 바로 진행하자 최우선이야 급해", "Capacitor로 감싸는 진행사항도 로드맵에 적어놔"]`. 앱은 `https://getdrivelog.com`을 불러오는 방식(사이트 배포만으로 앱 화면도 바뀜), 패키지 `com.getdrivelog.app`·업로드 키 그대로라 같은 앱의 새 버전.
       - ~~C-1 기본 틀~~ `[x]` — Capacitor 8.6.0, `capacitor.config.ts`, `android/`, 아이콘·시작 화면, 1.0.2(코드 3) 서명 빌드를 `C:\dev\drivelog-keys\v3\`에. `src/` 변경 없음. react-app `9482d5f`(2026-11-05, CI 초록, 에뮬레이터에서 주소줄 없는 화면 확인, 보리 승인 — 휴대폰 확인은 C-2 뒤로).
       - ~~C-2 구글 로그인~~ `[x]` — 앱에서 누르면 크롬으로 나가 돌아오지 않음(C-1 에뮬레이터 확인). 안드로이드 계정 선택 창(`@capgo/capacitor-social-login`) → Supabase `signInWithIdToken`으로, 웹은 그대로. 구글 클라우드에 안드로이드 OAuth 클라이언트 2개 필요. 구글 클라우드 안드로이드 클라이언트 2개 등록, react-app `eac328c`(2026-11-05, CI 초록·배포, 보리 휴대폰에서 업로드 키 서명 `.apk`로 로그인 확인·승인). Play 앱 서명 키 쪽은 1.0.2 올린 뒤 확인.
-      - C-3 파일 저장·공유 `[ ]` — PDF·엑셀 저장, 카카오톡 공유(`reportExport.js`·`taxInvoiceExcel.js`·`DataDownloadModal.jsx`·`ShareFileModal.jsx`·`AppSettingsBackupSection.jsx`).
+      - C-3 파일 저장·공유 `[ ]` — PDF·엑셀 저장, 카카오톡 공유(`reportExport.js`·`taxInvoiceExcel.js`·`DataDownloadModal.jsx`·`ShareFileModal.jsx`·`AppSettingsBackupSection.jsx`). A(저장)·B(공유) 두 조각. 에뮬레이터 확인: 저장은 알림만 뜨고 파일 없음, 공유는 "파일 공유를 할 수 없습니다" 알림. C-3-A `[x]` — react-app `fc3e936`, 문서/운행일지 폴더에 저장, 보리 휴대폰 확인(2026-11-05). 다음 C-3-B 공유.
       - C-4 운비서 음성 `[ ]` — 마이크 입력(`useSpeechInput.ts`)·읽어 주기(`useSpeechOutput.ts`).
-      - 1.0.2 올리기 `[ ]` — 비공개 테스트 트랙에 새 버전, 검토 뒤 모집 서비스에 알림. C-2 전에는 올리지 않음(테스터가 로그인 못 함).
+      - 1.0.2 올리기 `[~]` — 비공개 테스트 트랙에 새 버전, 검토 뒤 모집 서비스에 알림. C-2 전에는 올리지 않음(테스터가 로그인 못 함). C-3·C-4보다 먼저 올림 `[확인: 2026-11-05 보리 — "먼저올리자"]`(테스터는 앱에서 파일 저장·음성이 아직 안 되는 버전을 받음). 2026-11-05 Alpha 트랙에 3 (1.0.2) 올려 저장(경고 2개: 크기 4.21→5.5MB, 오류 분석 파일 없음 — 출시 막지 않음), 같은 날 보리가 검토 제출. 남은 것: 승인 뒤 플레이에서 받은 앱으로 로그인 확인(Play 앱 서명 키 쪽 클라이언트), 모집 서비스에 알림.
       ~~계정 삭제 안내 주소~~ `[x]` 11-A react-app `465e3a1`(2026-11-03, `/account-deletion.html`).
     - ~~11-D-1 스토어 글 자료~~ `[x]`(2026-11-03, `docs/play-store-listing.md` — 앱 이름 "운행일지 - 화물차 운행 장부", 비즈니스, 데이터 보안·콘텐츠 등급 답안, 대상 18세 이상).
     - ~~11-D-2 스토어 그림 자료~~ `[x]`(2026-11-03, `docs/store-assets/` — 대표 이미지 1024×500, 스크린샷 6장 1080×1920, 기사 설명 연동·미연동으로 고침).
