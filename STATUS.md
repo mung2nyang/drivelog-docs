@@ -8,7 +8,7 @@
 > `AGENTS.md` §0-2). 지난 내용은 `git log -p -- docs/report.md` 또는 아래
 > 커밋 해시로 `git show`.
 > 이 파일이 150줄을 넘으면 오래된 "완료" 항목을 요약만 남기고 줄인다.
-> 최종 갱신: 2026-11-05 (**Capacitor 전환 C-3-A 앱 안 파일 저장** `[x]` — react-app `fc3e936`, 앱에서 저장하면 내 파일 > 문서 > 운행일지에 저장, 보리 휴대폰 확인. 그 전 C-2 구글 로그인 `eac328c`. 다음은 C-3-B 카카오톡·문자 공유. 1.0.3은 C-4까지 끝낸 뒤 플레이에 올림.)
+> 최종 갱신: 2026-11-06 (**Capacitor 전환 C-3-B 앱 안 카카오톡·문자 공유** `[x]` — react-app `74d4e3c`, 카카오톡은 안드로이드 공유 창, 문자는 파일 저장 뒤 문자 앱, 보리 휴대폰 확인. 그 전 C-3-A 파일 저장 `fc3e936`. 다음은 C-4 운비서 음성, 그 뒤 C-5 뒤로가기 버튼·C-6 다른 앱 다녀오면 화면이 처음으로. 1.0.3은 C-6까지 끝낸 뒤 한 번에 플레이에 올림.)
 > 2026-11-02 줄임(보리 지시): 줄이기 전 전체 내용은 `git show 1590ef7:STATUS.md`.
 
 ---
@@ -29,7 +29,7 @@
 
 ## 지금 하는 일
 
-- 없음.
+- 없음. 다음은 Capacitor 전환 C-4 운비서 음성(착수지시서부터).
 
 ## 다음 할 일
 
@@ -40,6 +40,7 @@
 
 최근 것(새 것이 위):
 
+- Capacitor 전환 C-3-B 앱 안 카카오톡·문자 공유 — react-app `74d4e3c`(CI 초록·배포), `@capacitor/share` 8.0.3, 공용 `shareFileFromDevice`로 카카오톡 [PDF·이미지로 보내기]는 캐시 폴더에 쓴 파일을 안드로이드 공유 창으로(문구 함께, 창을 닫으면 알림 없음), 문자는 문서/운행일지에 저장·위치 안내 뒤 받는 사람·문구 채운 문자 앱, 웹은 그대로. v4 1.0.3(코드 4) `.aab`·`.apk` 다시 만듦, 보리 휴대폰 확인(2026-11-06).
 - Capacitor 전환 C-3-A 앱 안 파일 저장 — react-app `fc3e936`(CI 초록·배포), `@capacitor/filesystem` 8.1.5, 공용 `saveFileToDevice`로 PDF·이미지·세금계산서 엑셀·데이터 내려받기·비회원 백업을 문서/운행일지 폴더에 저장하고 알림에 위치 안내, 웹은 그대로, 비회원 백업은 저장 성공 뒤에만 "마지막 백업" 갱신. 1.0.3(코드 4) `.aab`·`.apk`를 `C:\dev\drivelog-keys\v4\`에(플레이 업로드는 C-4 뒤), 보리 휴대폰 확인(2026-11-05).
 - Capacitor 전환 C-2 앱 안 구글 로그인 — react-app `eac328c`(CI 초록·배포), `@capgo/capacitor-social-login` 8.7.6(구글만), 앱이면 계정 선택 창 → Supabase `signInWithIdToken`(nonce), 실패는 토스트, 웹은 그대로. 구글 클라우드 안드로이드 OAuth 클라이언트 2개(업로드 키·Play 앱 서명 키). v3 `.aab`·`.apk` 다시 만듦(1.0.2·코드 3), 보리 휴대폰 로그인 확인(2026-11-05).
 - Capacitor 전환 C-1 기본 틀 — react-app `9482d5f`(CI 초록·배포), Capacitor 8.6.0·`capacitor.config.ts`(`https://getdrivelog.com` 불러옴)·`android/`, 아이콘·시작 화면 #121212, 1.0.2(코드 3) `.aab`·`.apk`를 같은 업로드 키로 `C:\dev\drivelog-keys\v3\`에, `src/` 변경 없음, 휴대폰 확인은 C-2 뒤(2026-11-05).
@@ -140,7 +141,7 @@
 
 ## 저장소 상태
 
-- **react-app**: `eac328c`까지 main에 push, CI 초록. 운비서 서버 세 함수 배포본은 `efeec0e`와 같다(그 뒤로 서버 함수 코드는 안 바뀜).
+- **react-app**: `74d4e3c`까지 main에 push, CI 초록. 운비서 서버 세 함수 배포본은 `efeec0e`와 같다(그 뒤로 서버 함수 코드는 안 바뀜).
 - **drivelog-docs**(옛 이름 `ubiquitous-parakeet`, 2026-10-21 바꿈): 문서만 둔다. 원본 앱 코드는 태그 `original-app-final`에 보존(AI는 읽지 않음). `d7939c5`까지 push.
 - 정확한 HEAD·미커밋 범위는 매 세션 `git status`로 확인(AGENTS §0-6). push 규칙은 AGENTS §3.
 - 앱 오류 기록 보는 곳: Supabase → Table Editor → `client_errors`.
