@@ -1,71 +1,65 @@
 # docs/report.md — 현재 슬라이스 착수지시서
 
-설정 "운비서" 하나로 홈 카드 끄기: drivelog-docs `16550da`. 운비서 그림 움직이기: drivelog-docs `5e56504`. Capacitor C-13: drivelog-docs `3697e48`. Capacitor C-11: drivelog-docs `192d243`. Capacitor C-9·C-10: drivelog-docs `44e5fe4`. Capacitor C-8: drivelog-docs `c16db24`. Capacitor C-7: drivelog-docs `9445c8c`. Capacitor C-6: drivelog-docs `dc3e2a3`. Capacitor C-5: drivelog-docs `748c252`. Capacitor C-4: drivelog-docs `6b285d6`. Capacitor C-3-B: drivelog-docs `d8707c0`. Capacitor C-3-A: drivelog-docs `5cd80f0`. Capacitor C-2: drivelog-docs `056101f`. Capacitor C-1: drivelog-docs `d83dc32`. 운비서 그림: drivelog-docs `662f181`. 달력·매출 보던 달 기억: drivelog-docs `d7939c5`. 운비서 하루 횟수 B: drivelog-docs `4144794`. 운비서 하루 횟수 A: drivelog-docs `dd878a8`. 기사 차량 최대 3대 제한: drivelog-docs `3589174`. 운송료 부가세 줄 정리: drivelog-docs `4c419ae`. 연동·미연동 기사 안내: drivelog-docs `6379d80`. 운비서 카드 정리 B: drivelog-docs `4af30bc`. 운비서 카드 정리 A: drivelog-docs `855d2d8`. 말풍선 줄바꿈: drivelog-docs `7af5729`. 부가세 두 줄: drivelog-docs `10f1b7e`. 줄바꿈: drivelog-docs `a5b10a1`. 11-D-3: drivelog-docs `1e6591f`. 11-D-2: drivelog-docs `db31525`. 11-D-1: drivelog-docs `d719b80`. 11-B: drivelog-docs `a673fcc`. 11-C: drivelog-docs `d091df2`. 11-A: drivelog-docs `f112cca`. 41-B-2: drivelog-docs `86bde91`. 옛 이름 주석: drivelog-docs `75f2d98`. 41-B-1: drivelog-docs `c35b352`. 149-C-2: drivelog-docs `c269e0b`. 149-C-1: drivelog-docs `62251ca`. 149-B: drivelog-docs `0914214`. 149-A: drivelog-docs `38ce614`. 123-D: drivelog-docs `f47d26d`. 123-C: drivelog-docs `752a9d8`. 123-B: drivelog-docs `48208b9`. 123-A: drivelog-docs `74c5ef3`. 150-B: drivelog-docs `693140b`. 150-A: drivelog-docs `9b8eb01`. 106: drivelog-docs `72a93ed`. 124-B-2: drivelog-docs `abceece`. 124-B-1: drivelog-docs `5c354fd`. 124-A: drivelog-docs `022a710`. 121-B: drivelog-docs `0aa4357`. 긴 주석 줄이기: drivelog-docs `59ddc9d`. 121-A: drivelog-docs `1590ef7`. 120-D: drivelog-docs `2ce5170`. 120-C: drivelog-docs `ae914c9`. 120-B: drivelog-docs `503a3d3`. 120-A: drivelog-docs `81f927a`. 119: drivelog-docs `4ef51fa`. 147: drivelog-docs `db47a3b`. 내역서 산재 빼기: drivelog-docs `6531e7b`. 143: drivelog-docs `a4f4738`. 144: drivelog-docs `a87a1b4`. 146: drivelog-docs `207f26c`. 145: drivelog-docs `7bd1146`. 141: drivelog-docs `397513b`. 104: drivelog-docs `ec18974`. 142: drivelog-docs `84fa347`. 148: drivelog-docs `d5dec47`. 138-B: drivelog-docs `8b59d03`. 138-A: drivelog-docs `dd2c4a4`. 140: drivelog-docs `e861ea4`. 139: drivelog-docs `846327e`. 137: drivelog-docs `49613a4`. 136: drivelog-docs `e01b338`. 135-B: drivelog-docs `b15f2f8`. 135-A: drivelog-docs `56ca240`. 134: drivelog-docs `baee1ea`. 133: drivelog-docs `e049969`. 132-B: drivelog-docs `e3b7b60`. 132-A: drivelog-docs `0d32ec4`. 131-B: drivelog-docs `bac091a`. 131-A: drivelog-docs `448deb1`. 130: drivelog-docs `83e93be`. 129-B: drivelog-docs `fc2b077`. 129-A: drivelog-docs `867b653`. 128: drivelog-docs `9e32174`. 127: drivelog-docs `e743872`. 118: drivelog-docs `7cf86e3`. 116: drivelog-docs `8cade9e`. 115: drivelog-docs `6539d2d`. 122: drivelog-docs `48f420c`. 126: drivelog-docs `bfd19f7`. 117: drivelog-docs `8cbdca5`. 125: drivelog-docs `d48cac8`. 114: drivelog-docs `5f55ee1`. 34-C: drivelog-docs `11ea476`. 34-B: drivelog-docs `a54be26`. 34-A: drivelog-docs `58331f0`. 113-D: drivelog-docs `0bcb19a`. 113-C: drivelog-docs `afa3f5e`. 113-B: drivelog-docs `1c95e76`. 113-A: drivelog-docs `25069f9`. 운비서 버튼 설정: drivelog-docs `d65beaf`. 운비서·+ 버튼 겹침: drivelog-docs `6fe917d`. 로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
+Capacitor C-12: drivelog-docs `ba85547`. 설정 "운비서" 하나로 홈 카드 끄기: drivelog-docs `16550da`. 운비서 그림 움직이기: drivelog-docs `5e56504`. Capacitor C-13: drivelog-docs `3697e48`. Capacitor C-11: drivelog-docs `192d243`. Capacitor C-9·C-10: drivelog-docs `44e5fe4`. Capacitor C-8: drivelog-docs `c16db24`. Capacitor C-7: drivelog-docs `9445c8c`. Capacitor C-6: drivelog-docs `dc3e2a3`. Capacitor C-5: drivelog-docs `748c252`. Capacitor C-4: drivelog-docs `6b285d6`. Capacitor C-3-B: drivelog-docs `d8707c0`. Capacitor C-3-A: drivelog-docs `5cd80f0`. Capacitor C-2: drivelog-docs `056101f`. Capacitor C-1: drivelog-docs `d83dc32`. 운비서 그림: drivelog-docs `662f181`. 달력·매출 보던 달 기억: drivelog-docs `d7939c5`. 운비서 하루 횟수 B: drivelog-docs `4144794`. 운비서 하루 횟수 A: drivelog-docs `dd878a8`. 기사 차량 최대 3대 제한: drivelog-docs `3589174`. 운송료 부가세 줄 정리: drivelog-docs `4c419ae`. 연동·미연동 기사 안내: drivelog-docs `6379d80`. 운비서 카드 정리 B: drivelog-docs `4af30bc`. 운비서 카드 정리 A: drivelog-docs `855d2d8`. 말풍선 줄바꿈: drivelog-docs `7af5729`. 부가세 두 줄: drivelog-docs `10f1b7e`. 줄바꿈: drivelog-docs `a5b10a1`. 11-D-3: drivelog-docs `1e6591f`. 11-D-2: drivelog-docs `db31525`. 11-D-1: drivelog-docs `d719b80`. 11-B: drivelog-docs `a673fcc`. 11-C: drivelog-docs `d091df2`. 11-A: drivelog-docs `f112cca`. 41-B-2: drivelog-docs `86bde91`. 옛 이름 주석: drivelog-docs `75f2d98`. 41-B-1: drivelog-docs `c35b352`. 149-C-2: drivelog-docs `c269e0b`. 149-C-1: drivelog-docs `62251ca`. 149-B: drivelog-docs `0914214`. 149-A: drivelog-docs `38ce614`. 123-D: drivelog-docs `f47d26d`. 123-C: drivelog-docs `752a9d8`. 123-B: drivelog-docs `48208b9`. 123-A: drivelog-docs `74c5ef3`. 150-B: drivelog-docs `693140b`. 150-A: drivelog-docs `9b8eb01`. 106: drivelog-docs `72a93ed`. 124-B-2: drivelog-docs `abceece`. 124-B-1: drivelog-docs `5c354fd`. 124-A: drivelog-docs `022a710`. 121-B: drivelog-docs `0aa4357`. 긴 주석 줄이기: drivelog-docs `59ddc9d`. 121-A: drivelog-docs `1590ef7`. 120-D: drivelog-docs `2ce5170`. 120-C: drivelog-docs `ae914c9`. 120-B: drivelog-docs `503a3d3`. 120-A: drivelog-docs `81f927a`. 119: drivelog-docs `4ef51fa`. 147: drivelog-docs `db47a3b`. 내역서 산재 빼기: drivelog-docs `6531e7b`. 143: drivelog-docs `a4f4738`. 144: drivelog-docs `a87a1b4`. 146: drivelog-docs `207f26c`. 145: drivelog-docs `7bd1146`. 141: drivelog-docs `397513b`. 104: drivelog-docs `ec18974`. 142: drivelog-docs `84fa347`. 148: drivelog-docs `d5dec47`. 138-B: drivelog-docs `8b59d03`. 138-A: drivelog-docs `dd2c4a4`. 140: drivelog-docs `e861ea4`. 139: drivelog-docs `846327e`. 137: drivelog-docs `49613a4`. 136: drivelog-docs `e01b338`. 135-B: drivelog-docs `b15f2f8`. 135-A: drivelog-docs `56ca240`. 134: drivelog-docs `baee1ea`. 133: drivelog-docs `e049969`. 132-B: drivelog-docs `e3b7b60`. 132-A: drivelog-docs `0d32ec4`. 131-B: drivelog-docs `bac091a`. 131-A: drivelog-docs `448deb1`. 130: drivelog-docs `83e93be`. 129-B: drivelog-docs `fc2b077`. 129-A: drivelog-docs `867b653`. 128: drivelog-docs `9e32174`. 127: drivelog-docs `e743872`. 118: drivelog-docs `7cf86e3`. 116: drivelog-docs `8cade9e`. 115: drivelog-docs `6539d2d`. 122: drivelog-docs `48f420c`. 126: drivelog-docs `bfd19f7`. 117: drivelog-docs `8cbdca5`. 125: drivelog-docs `d48cac8`. 114: drivelog-docs `5f55ee1`. 34-C: drivelog-docs `11ea476`. 34-B: drivelog-docs `a54be26`. 34-A: drivelog-docs `58331f0`. 113-D: drivelog-docs `0bcb19a`. 113-C: drivelog-docs `afa3f5e`. 113-B: drivelog-docs `1c95e76`. 113-A: drivelog-docs `25069f9`. 운비서 버튼 설정: drivelog-docs `d65beaf`. 운비서·+ 버튼 겹침: drivelog-docs `6fe917d`. 로그인 화면 개편 B: drivelog-docs `ae6d734`. 로그인 화면 개편 A 수정: drivelog-docs `c712994`. 로그인 화면 개편 A: drivelog-docs `d5bc380`. 문구 정리 5-B: drivelog-docs `466871a`. 문구 정리 5-A: drivelog-docs `f4a3ee8`. UI 위계화 E-2: drivelog-docs `c03dba5`. UI 위계화 E-1: drivelog-docs `4b28cf6`. UI 위계화 D-1: drivelog-docs `acff677`. UI 위계화 C-2: drivelog-docs `182b8e4`. UI 위계화 C-1: drivelog-docs `c19c294`. UI 위계화 B: drivelog-docs `d43886f`. UI 위계화 A: drivelog-docs `ba4692a`. 112: drivelog-docs `bed3293`. 24-J-2: drivelog-docs `2659849`. 24-J-1: drivelog-docs `8e025d8`. 24-I-2: drivelog-docs `e79562a`. 24-I-1: drivelog-docs `cdeb64d`. 24-H-3: drivelog-docs `57ccb7e`. 24-H-2: drivelog-docs `9ffec36`. 24-H-1: drivelog-docs `09323b9`. 24-G-2: drivelog-docs `f606644`. 24-G-1: drivelog-docs `c0f52a6`. 24-D3: drivelog-docs `9dc244b`. 111: drivelog-docs `46dc63b`. 24-E2: drivelog-docs `db74acc`. 24-F-2: drivelog-docs `c23630f`. 24-F-1: drivelog-docs `8c1ddfb`. 24-E: drivelog-docs `f8c7a9a`. 110-B: drivelog-docs `acfa71b`. 110-A: drivelog-docs `b57e0b1`. 109-B: drivelog-docs `e200af2`. 109-A: drivelog-docs `a5b3d61`. 108번: drivelog-docs `6bfaa09`. 105번: 105-B drivelog-docs `705c4ac`, 105-A `aa5c8b9`. 24번(AI 비서) 지시서·기록: 24-D-2 drivelog-docs `44a068c`, 24-D-1 `ac195e4`, 24-C-2 `455cd19`, 24-C-1 `a26815e`, 24-A2 `2ea514e`, 24-B-3-B `0548640`, 24-B-3-A `a0f2b64`, 24-B-2 `c115e2b`, 24-B-1 `18646c9`, 24-A `1dde103`. 23번: 23-D `a6ee944`, 23-C `aedd08d`, 23-B `4e692ce`, 23-A `ac81245`.
 
 ---
 
+## 새 계정의 테마를 휴대폰 다크 모드 설정에 맞추기 `[x]`
 
-## Capacitor 전환 C-12 — 지원 기기 되살리기(마이크·위치 장치를 "있으면 쓰는 것"으로) `[x]`
-
-2026-11-07 보리 승인("그렇게해"). 1.0.3 게시 때 플레이 경고 "지원 기기 27개 줄어듦". 같은 날 C-11 지시서 "안 건드릴 것"에서 따로 정하기로 한 것. 다음 묶음(1.0.4)에 C-11과 함께 올림.
+2026-11-07 보리 결정("휴대폰 설정 따라가기", "새계정만으로"). 비공개 테스트 기기 16대의 첫 화면이 다크·라이트로 갈린 것을 보고 정함. `docs/updates.md` "그다음" 1번. 로그인 화면 개편 A(sot §4-19, 계정 화면은 마지막 테마·없으면 휴대폰 설정)의 뒤를 잇는 것.
 
 ### 쉬운 요약
-- 앱이 마이크(운비서 받아쓰기)와 위치(운비서 날씨) 권한을 쓰다 보니, 플레이가 "마이크·위치 장치가 없는 기기에는 깔 수 없다"로 봐서 일부 태블릿 등 27개 기기가 빠졌습니다.
-- 두 장치를 "있으면 쓰고, 없어도 깔 수 있음"으로 표시합니다. 앱 화면과 기능은 바뀌지 않습니다.
-- 아직 올리지 않은 1.0.4 앱 파일을 이 표시를 넣어 다시 만듭니다.
+- 지금은 휴대폰이 다크 모드인 사람이 처음 가입하면, 로그인·첫 설정 화면은 다크였다가 첫 설정을 마치고 홈에 들어가는 순간 라이트로 바뀝니다.
+- 새로 가입하는 계정은 첫 설정을 마칠 때 휴대폰 다크 모드 설정을 그대로 앱 테마로 저장합니다. 그러면 처음부터 끝까지 같은 색입니다.
+- 이미 쓰는 계정과 비회원은 바뀌지 않습니다. 저장한 뒤에는 지금처럼 앱 설정의 "다크 모드" 스위치로 바꿀 수 있습니다.
 
 ### 현재 상태 (코드 확인)
-- 아직 안 올린 v5 1.0.4(`C:\dev\drivelog-keys\v5\운행일지.apk`)를 `aapt2 dump badging`으로 보면 필수 장치가 `android.hardware.location`(이유: `ACCESS_COARSE_LOCATION` 권한)과 `android.hardware.microphone`(이유: `RECORD_AUDIO` 권한) 둘, 나머지는 모든 앱 기본인 `faketouch`뿐.
-- 위치 권한은 우리 `android/app/src/main/AndroidManifest.xml:45`, 마이크 권한은 받아쓰기 플러그인(`@capgo/capacitor-speech-recognition`)이 넣음. 설정 파일 어디에도 `<uses-feature>`가 없음(grep `uses-feature` 0건).
-- 합쳐진 권한에 `USE_FINGERPRINT`·`USE_BIOMETRIC`도 있지만(구글 로그인 쪽) 플레이 필수 장치로는 안 잡힘(위 badging 결과에 없음).
-- 장치가 없을 때 앱 쪽 처리는 이미 있음: 날씨는 위치를 못 받으면 `null` → "위치 정보 사용을 허용하거나 지역명을 말해 주세요." 안내(`features/home/api/unbiseoWeather.ts:17, 42-52, 93`). 받아쓰기는 실패하면 "직접 입력해 주세요" 안내(`features/home/hooks/useSpeechInput.ts:19-21`) — 마이크 없는 실제 기기로는 확인 못 함.
-- 앱은 배포된 사이트를 불러옴(`capacitor.config.ts` `server.url`) → 앱 파일을 다시 만들어도 화면 코드는 그대로.
+- 새 로그인 계정 순서: 환영(이름·전화) → 첫 설정(`/onboarding`) → 홈(`app/App.jsx:115, 125-139`). 비회원은 첫 설정 없이 바로 홈(에뮬레이터 C-12 확인 때 봄).
+- 테마 기본값은 라이트: `domain/practiceSettings.ts:21` `theme: 'light'`, `:61`(dark가 아니면 light). 불러오기도 서버·기기에 테마가 없으면 라이트(`data/hydrate/hydrate.ts:108`).
+- 새 계정의 테마가 서버에 처음 저장되는 때 = 첫 설정 마치기: `data/sync/onboardingFinish.ts:45` `savePracticeSettings(ownerKey, buildOnboardingSettingsPatch(wizard))` → `data/sync/settingsSave.ts:33`이 지금 설정(테마 라이트) 위에 얹어 설정 전체를 서버에 저장. 첫 설정 패치에는 테마가 없음(`onboardingFinish.ts:21-33`).
+- 이미 쓰는 계정은 첫 설정 때 이미 테마(대부분 라이트)가 서버에 저장돼 있어, 첫 설정 저장에서만 바꾸면 그 계정들은 그대로.
+- 화면 칠하기: 계정 화면(`/auth`·`/welcome`·`/onboarding`)은 안 칠하고, 홈부터 계정 설정의 테마로 칠함(`app/useAppSession.js:37, 107-111`). 휴대폰 설정 읽기는 이미 `index.html:30`이 `matchMedia('(prefers-color-scheme: dark)')`로 함 — 시험 기기 16대 화면이 갈린 것이 앱에서도 이 값이 휴대폰 설정을 따른다는 근거.
 
 ### 목표 상태 (기대 동작)
-1. `AndroidManifest.xml`에 마이크·위치 장치를 "필수 아님"(`android:required="false"`)으로 적는다.
-2. 1.0.4(코드 5)를 같은 업로드 키로 다시 만들어 `C:\dev\drivelog-keys\v5\`의 `.aab`·`.apk`·`mapping.txt`를 새 것으로 바꾼다(아직 안 올린 파일이라 버전 번호 그대로).
-3. 새 `.apk`를 `aapt2 dump badging`으로 보면 `android.hardware.microphone`·`android.hardware.location`이 필수 장치로 나오지 않는다.
-4. 마이크·위치가 있는 휴대폰에서는 지금과 똑같다: 운비서 받아쓰기, "오늘 날씨"를 지역 없이 물으면 지금 위치로 답함.
-5. 플레이에 올리면 "지원 기기 줄어듦" 경고가 사라지고 빠졌던 기기가 돌아온다(확인은 다음 묶음 올릴 때).
+1. 새 계정이 첫 설정을 마치면, 휴대폰이 다크 모드면 테마 "다크", 아니면 "라이트"가 서버 설정에 저장된다.
+2. 첫 설정을 마치고 홈에 들어가도 색이 바뀌지 않는다(휴대폰 다크 → 계속 다크).
+3. 이미 쓰는 계정(첫 설정을 이미 마친 계정)과 비회원의 테마는 그대로다.
+4. 저장 뒤에는 앱 설정 "다크 모드" 스위치로 지금처럼 바꿀 수 있다.
+5. 첫 설정 저장이 실패하면 지금처럼 "설정 저장에 실패했습니다…" 안내(테마도 저장 안 됨, 라이트로 보임 — 다른 설정과 같음).
 
 ### 건드릴 파일
-- `react-app/android/app/src/main/AndroidManifest.xml` — 권한 아래에 두 줄과 주석 한 줄:
-  ```xml
-  <!-- 마이크·위치가 없는 기기(일부 태블릿 등)에도 깔리게 한다. 없으면 운비서는 글 입력·지역 이름으로 쓴다. -->
-  <uses-feature android:name="android.hardware.microphone" android:required="false" />
-  <uses-feature android:name="android.hardware.location" android:required="false" />
-  ```
-- 앱 파일: v5 1.0.4(코드 5) 새로 만듦(저장소 밖).
+- `src/data/sync/settingsSave.ts` — 휴대폰 다크 모드 설정을 읽는 함수 `phoneTheme()` 추가(`matchMedia`가 없으면 라이트). 주석:
+  `/** 휴대폰 다크 모드 설정 — 테마를 고른 적 없는 새 계정의 첫 테마. */`
+- `src/data/sync/onboardingFinish.ts` — `applyOnboardingWizard`의 설정 저장에 `theme: phoneTheme()`를 더함. 주석:
+  `// 새 계정의 첫 테마는 휴대폰 다크 모드 설정을 따른다.`
+- `src/data/sync/onboardingFinish.test.js` — 휴대폰 다크·라이트일 때 저장되는 테마 테스트 2개.
+- `docs/sot.md` §4-19 — "새 계정은 첫 설정을 마칠 때 휴대폰 다크 모드 설정을 테마로 저장(이미 쓰는 계정·비회원은 그대로)" 한 줄.
 
 ### 안 건드릴 것
-- `src/` 화면 코드 전부 — 장치가 없을 때의 안내는 이미 있음(위 "현재 상태").
-- `build.gradle`(버전 그대로 코드 5·1.0.4), `proguard-rules.pro`, `capacitor.config.ts`, `MainActivity.java`.
-- 지문·생체 권한 — 필수 장치로 안 잡혀 기기 수에 영향 없음(badging 결과).
-- 스토어 데이터 보안·처리방침 — 모으는 정보가 바뀌지 않음.
+- `domain/practiceSettings.ts` 기본값 `'light'` — 바꾸면 테마를 저장한 적 없는 모든 경우(비회원 포함)가 바뀜, 이번엔 새 계정만.
+- `data/hydrate/hydrate.ts`(199줄, 200줄 감시 목록) — 불러오기 대신 첫 설정 저장에서만 정해 기존 계정 영향을 막음.
+- `buildOnboardingSettingsPatch`(첫 설정 답 → 설정, 화면 밖 값 안 섞음) — 테마는 그 밖에서 더함, 기존 테스트 그대로.
+- 계정 화면 칠하기 규칙(`useAppSession.js`·`index.html`) — 그대로.
+- 비회원 — 첫 설정이 없어 지금처럼 라이트(바꾸려면 따로 정함).
 
 ### 검증
-- `cd android && ./gradlew bundleRelease assembleRelease` 성공(자바는 C-11처럼 `jdk-21`), `mapping.txt` 새로 생김, 서명 지문이 1.0.3과 같음.
-- 새 `.apk`에 `aapt2 dump badging` → 필수 장치에 마이크·위치 없음(목표 3).
-- 에뮬레이터에 새 `.apk` 설치 → 켜기, 비회원으로 운비서 마이크 누르기(권한 묻기 뜸), 지역 없이 날씨 묻기(위치 권한 묻기 뜸).
-- 화면 코드 변경 없음 → CI는 그대로 돎(다시 돌리지 않음).
+- 새 테스트 2개: `matchMedia`를 다크로 흉내 → 첫 설정 마치기 → 저장된 설정 테마 `dark`, 라이트로 흉내 → `light`. 고치기 전 코드에서는 다크 쪽이 실패하는지 확인(revert-check).
+- CI(test·typecheck·build) 초록.
+- 배포본: 크롬에서 휴대폰 다크 모드 흉내(개발자 도구 렌더링 → `prefers-color-scheme: dark`)로 새 구글 계정 가입은 어려워, 아래 "사용자 확인 방법"으로.
 
 ### 파일 길이
-- `AndroidManifest.xml` 48 → 51줄. 200줄 아래.
+- `settingsSave.ts` 49 → 약 55줄, `onboardingFinish.ts` 75 → 약 77줄, `onboardingFinish.test.js` 152 → 약 180줄. 모두 200줄 아래(테스트 파일은 원래 200줄 제한 예외).
 
 ### 실패 시 처리
-- 새 저장 장치·재시도·대비 장치 없음. 만들기나 확인에서 막히면 멈추고 수정 착수지시서를 써서 다시 승인받음.
-
-### 올리기
-- 주 1회 묶음 — C-11과 같은 1.0.4 파일 하나로 올림, `mapping.txt`도 같이.
+- 새 저장 장치·재시도·대비 장치 없음. 테스트나 확인에서 막히면 멈추고 수정 착수지시서를 써서 다시 승인받음.
 
 ### 사용자 확인 방법
-- 새 v5 `운행일지.apk`를 기존 앱 위에 설치 → 구글 로그인 → 운비서 마이크로 말하기 → "오늘 날씨 어때" 묻기 → 둘 다 지금처럼 되면 성공.
-- 플레이에 올린 뒤: 콘솔 "지원 기기" 숫자가 1.0.2 때와 같아지고 줄어듦 경고가 없으면 끝.
+- 휴대폰을 다크 모드로 두고 → 앱에서 아직 안 쓴 구글 계정으로 가입 → 이름 입력 → 첫 설정 마치기 → 홈이 다크로 뜨고, 앱 설정 "다크 모드" 스위치가 켜져 있으면 성공.
+- 이미 쓰던 계정으로 로그인 → 테마가 전과 같으면 성공.
 
 ### 진행 기록
-- 2026-11-07 착수 승인("이대로 작업시작해 착수지시서 확정"). react-app `5aab819`(`AndroidManifest.xml`만, 지시서 주석 문구 그대로).
-- 만들기: `jdk-21` + `ANDROID_HOME` 지정(없으면 SDK 위치 못 찾음). 서명은 v1 업로드 키 — `.apk`·`.aab` 지문 모두 옛 v5·1.0.3과 같음(`267f1df1…4cd8`). v5: `.aab` 5.7MB, `.apk` 4.7MB, `mapping.txt`(코드 그대로라 옛 것과 같은 크기).
-- `aapt2 dump badging`(새 `.apk`): `uses-feature-not-required` 마이크·위치, 필수는 `faketouch`뿐(목표 3).
-- 에뮬레이터: 새 `.apk` 덮어 설치(버전 코드 5·1.0.4), 켜기·알림 권한 묻기·로그인 화면·비회원 홈 정상, 마이크·위치 권한은 그대로 선언됨. 운비서는 비회원이면 "로그인하면 쓸 수 있습니다."라 마이크·날씨 권한 묻기는 에뮬레이터에서 확인 못 함 → 보리 휴대폰에서 확인(목표 4).
-- 2026-11-07 보리 휴대폰(새 v5 `.apk`): "폰확인완료 문제없어" — 목표 4 확인. 에뮬레이터 로그인 확인은 화면이 까맣게 나와(안드로이드 37 그래픽 문제) 하지 않음.
-- push 뒤 CI verify·db-test·deploy 초록(run 42366048153). 2026-11-07 보리 최종 승인 `[x]`. 플레이 올리기는 주 1회 묶음 때 C-11과 같은 1.0.4 파일로, `mapping.txt`와 함께.
+- 2026-11-07 착수 승인("응 확정 작업시작해"). react-app `0804b90`(`settingsSave.ts`·`onboardingFinish.ts`·테스트, 주석은 지시서 문구 그대로). `docs/sot.md` §4-19에 한 줄.
+- 새 테스트 2개 중 1개(휴대폰 다크 → `dark` 저장)는 수정 전 코드로 돌리면 실패, 1개(라이트 → `light`)는 안전 확인(revert-check, 복구 확인). 첫 설정 테스트 파일 7개 모두 통과.
+- 파일 길이: `settingsSave.ts` 55, `onboardingFinish.ts` 76, 테스트 166.
+- push 뒤 CI verify·db-test·deploy 초록(run 42366746637). 배포 끝 — 남은 것: 보리 새 계정 가입 확인.
+- 2026-11-07 보리 새 계정 가입 확인("새로 가입완료 다크모드 확인") — 최종 승인 `[x]`.
